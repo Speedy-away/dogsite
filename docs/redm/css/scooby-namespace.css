@@ -1,0 +1,189 @@
+.app.type-natives>section {
+  overflow: auto;
+  display: block;
+}
+
+.app.type-natives>section>div:not(.scooby-namespace-browser) {
+  display: none !important;
+}
+
+.app.type-natives:not(.scooby-namespace-active)>aside .details {
+  visibility: hidden;
+}
+
+.app.scooby-namespace-active>section {
+  overflow: auto;
+  display: block;
+}
+
+.app.scooby-namespace-active>section>div:not(.scooby-namespace-browser) {
+  display: none !important;
+}
+
+.scooby-namespace-browser {
+  min-height: 100%;
+  padding: 16px;
+  color: var(--fg);
+}
+
+.scooby-ns-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 0 0 12px;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(22,25,35,.1);
+}
+
+.scooby-ns-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.scooby-ns-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.scooby-ns-icon-button {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  color: var(--fg);
+  background: rgba(22,25,35,.08);
+  box-shadow: inset 0 -2px 0 rgba(22,25,35,.2);
+  cursor: pointer;
+}
+
+.scooby-ns-icon-button:hover {
+  color: var(--fg);
+  background: rgba(22,25,35,.12);
+  box-shadow: inset 0 -2px 0 rgba(22,25,35,.35);
+}
+
+.scooby-ns-icon-button .material-icons-outlined {
+  font-size: 18px;
+}
+
+.scooby-ns-content {
+  padding-top: 12px;
+}
+
+.scooby-ns-group {
+  border-bottom: 1px solid rgba(22,25,35,.1);
+}
+
+.scooby-ns-summary {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+
+.scooby-ns-summary:hover {
+  color: var(--fg);
+  background: rgba(22,25,35,.06);
+}
+
+.scooby-ns-summary-name {
+  font-weight: 600;
+}
+
+.scooby-ns-summary-count {
+  opacity: .65;
+  font-size: .75rem;
+  white-space: nowrap;
+}
+
+.scooby-ns-list {
+  padding-bottom: 8px;
+}
+
+.scooby-ns-native {
+  display: grid;
+  grid-template-columns: minmax(210px, 1fr) minmax(130px, auto);
+  gap: 8px 16px;
+  align-items: baseline;
+  min-height: 30px;
+  padding: 5px 8px 5px 24px;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.scooby-ns-native:hover {
+  color: var(--fg);
+  background: rgba(22,25,35,.06);
+  box-shadow: none;
+}
+
+.scooby-ns-native.active {
+  color: var(--fg);
+  background: rgba(22,25,35,.1);
+  box-shadow: inset 3px 0 0 rgba(22,25,35,.35);
+}
+
+.scooby-ns-native-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scooby-ns-native-hash {
+  opacity: .7;
+  font-size: .75rem;
+  text-align: right;
+}
+
+.scooby-ns-native-params {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: .7;
+  font-size: .78rem;
+}
+
+.scooby-ns-empty {
+  padding: 12px 24px;
+  opacity: .7;
+}
+
+html.dark .scooby-ns-summary:hover,
+html.dark .scooby-ns-native:hover,
+html.dark .scooby-ns-icon-button:hover {
+  color: var(--fg);
+  background: rgba(255,255,255,.08);
+}
+
+html.dark .scooby-ns-native.active {
+  color: var(--fg);
+  background: rgba(255,255,255,.1);
+  box-shadow: inset 3px 0 0 rgba(255,255,255,.35);
+}
+
+@media only screen and (max-width:900px) {
+  nav {
+    overflow-x: auto;
+  }
+
+  .scooby-ns-native {
+    grid-template-columns: 1fr;
+  }
+
+  .scooby-ns-native-hash {
+    text-align: left;
+  }
+}

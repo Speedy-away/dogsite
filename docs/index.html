@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Reference - SCOOBY Docs</title>
+    <meta name="description" content="Scooby developer documentation — native references and API docs for FiveM and RedM Lua scripting with the Scooby mod menu executor.">
+    <meta name="keywords" content="Scooby docs, FiveM native reference, RedM native reference, FiveM Lua API, RedM Lua API, Scooby Lua executor docs">
+    <link rel="canonical" href="https://scoobymenu.cc/docs">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scoobymenu.cc/docs">
+    <meta property="og:title" content="Native Reference - SCOOBY Docs">
+    <meta property="og:description" content="Scooby developer documentation — native references and API docs for FiveM and RedM Lua scripting.">
+    <meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+    <meta property="og:site_name" content="Scooby Menu">
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="docs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #080808; }
+    .nav {
+      position: relative; top: 0; left: 0; right: 0; z-index: 900;
+    }
+    .nav-inner {
+      max-width: 1180px; margin: 0 auto; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em; display: flex; align-items: center; text-decoration: none; }
+    .brand-name { color: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: #9a9aaa; font-size: .9rem; font-weight: 500; transition: color .2s; text-decoration: none; }
+    .nav-links a:hover { color: #fff; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-nav-ghost {
+      padding: 8px 18px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; color: #9a9aaa;
+      background: transparent; border: 1px solid rgba(255,255,255,.13);
+      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+    }
+    .btn-nav-ghost:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .btn-nav-ghost svg { width: 15px; height: 15px; }
+    .btn-nav-primary {
+      padding: 8px 20px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; color: #fff;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.13);
+      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+    }
+    .btn-nav-primary:hover { background: rgba(255,255,255,.16); }
+    .btn-nav-primary svg { width: 15px; height: 15px; }
+    /* Footer */
+    .site-footer { border-top: 1px solid rgba(255,255,255,.07); background: #0d0d0d; padding: 64px 0 30px; }
+    .footer-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; color: #fff; }
+    .footer-tag { color: #9a9aaa; font-size: .9rem; max-width: 280px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 8px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.07); color: #9a9aaa; transition: .2s; text-decoration: none; }
+    .footer-social a:hover { color: #4f8ef5; border-color: rgba(79,142,245,.3); background: rgba(79,142,245,.13); }
+    .footer-col h4 { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: #5c5c6c; margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; padding: 0; }
+    .footer-col a { color: #9a9aaa; font-size: .9rem; transition: color .2s; text-decoration: none; }
+    .footer-col a:hover { color: #4f8ef5; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.07); flex-wrap: wrap; }
+    .footer-bottom p { color: #5c5c6c; font-size: .84rem; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #5c5c6c; font-size: .84rem; transition: color .2s; text-decoration: none; }
+    .footer-bottom-links a:hover { color: #4f8ef5; }
+    @media(max-width:980px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media(max-width:560px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; text-align: center; } }
+    /* docs page breadcrumb */
+    .docs-breadcrumb { display: flex; align-items: center; gap: 12px; padding: 16px 24px; background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,.07); max-width: 1180px; margin: 0 auto; }
+    .docs-breadcrumb .separator { color: #444; }
+    .docs-breadcrumb .page-title { color: #9a9aaa; font-size: 1rem; }
+    </style>
+
+</head>
+<body>
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-name">scooby</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+          <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+          <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="/portal" target="_blank" rel="noopener" class="btn-nav-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Login
+          </a>
+          <a href="/#download" class="btn-nav-primary">
+            Download
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div class="docs-breadcrumb">
+        <a href="/" style="font-size:1.1rem;font-weight:700;color:#fff;text-decoration:none;">scooby</a>
+        <span class="separator">/</span>
+        <span class="page-title">Native Reference</span>
+    </div>
+
+    <main>
+        <h1>Native Reference Documentation</h1>
+        <p class="subtitle">Select a platform to view native function documentation</p>
+
+        <div class="cards">
+            <a href="/docs/redm" class="card redm">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h2>RedM</h2>
+                <p>Red Dead Redemption 2 native functions</p>
+                <span class="status enabled">Available</span>
+            </a>
+
+            <a href="/docs/fivem" class="card fivem">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h2>FiveM</h2>
+                <p>Grand Theft Auto V native functions</p>
+                <span class="status enabled">Available</span>
+            </a>
+        </div>
+
+        <h1 style="margin-top: 60px;">Scooby API</h1>
+        <p class="subtitle">Lua API reference for Scooby menus</p>
+
+        <div class="cards">
+            <a href="/fivem_api_reference.html" target="_blank" rel="noopener noreferrer" class="card fivem">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/>
+                    </svg>
+                </div>
+                <h2>FiveM</h2>
+                <p>Scooby FiveM Lua API reference</p>
+                <span class="status enabled" style="background: rgba(0, 212, 255, 0.15); color: #00d4ff;">Available</span>
+            </a>
+
+            <a href="/redm_api_reference.html" target="_blank" rel="noopener noreferrer" class="card redm">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/>
+                    </svg>
+                </div>
+                <h2>RedM</h2>
+                <p>Scooby RedM Lua API reference</p>
+                <span class="status enabled">Available</span>
+            </a>
+        </div>
+
+        <div class="info">
+            <p>These docs include custom SCOOBY natives for HTTP requests, memory operations, and native hooking.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">scooby</div>
+            <p class="footer-tag">Premium gaming enhancement menus. The ultimate modding experience for GTA Online, RDR2, FiveM and more.</p>
+            <div class="footer-social">
+              <a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+              <a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+              <a href="https://youtube.com/@ScoobyOnTop" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="/products/gta5">GTA 5</a></li>
+              <li><a href="/products/rdr2">RDR2</a></li>
+              <li><a href="/products/fivem">FiveM</a></li>
+              <li><a href="/products/redm">RedM</a></li>
+              <li><a href="/products/cs2">CS2</a></li>
+              <li><a href="/products/gmod">GMOD</a></li>
+              <li><a href="/products/spoofer">Spoofer + Cleaner</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+              <li><a href="/videos" rel="noopener">Videos</a></li>
+              <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+              <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener">Discord Server</a></li>
+              <li><a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener">Telegram</a></li>
+              <li><a href="/portal" target="_blank" rel="noopener">Portal / Login</a></li>
+              <li><a href="/tos">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Scooby. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/tos">Terms</a>
+            <a href="/portal" target="_blank" rel="noopener">Portal</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

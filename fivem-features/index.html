@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scooby FiveM Features | Complete FiveM Mod Menu Feature List 2026</title>
+<meta name="description" content="Complete feature list for Scooby FiveM mod menu. ESP, aimbot, silent aim, magic bullet, Lua executor, resource manager, player trolling, anti-cheat bypass, HWID spoofer and more.">
+<link rel="canonical" href="https://scoobymenu.cc/fivem-features">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/fivem-features">
+<meta property="og:title" content="Scooby FiveM Features | Complete FiveM Mod Menu Feature List 2026">
+<meta property="og:description" content="Complete feature list for Scooby FiveM mod menu. ESP, aimbot, silent aim, magic bullet, Lua executor, resource manager, player trolling, anti-cheat bypass, HWID spoofer and more.">
+<meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scooby FiveM Features | Complete FiveM Mod Menu Feature List 2026">
+<meta name="twitter:description" content="Complete feature list for Scooby FiveM mod menu. ESP, aimbot, silent aim, magic bullet, Lua executor, resource manager, player trolling, anti-cheat bypass, HWID spoofer and more.">
+<meta name="twitter:image" content="https://scoobymenu.cc/background-home.png">
+<meta name="keywords" content="Scooby FiveM features, FiveM mod menu features, FiveM ESP, FiveM aimbot, FiveM Lua executor, FiveM silent aim, FiveM magic bullet, FiveM resource manager, FiveM anti-cheat bypass, FiveM player trolling, FiveM mod menu feature list, FiveM cheats features, best FiveM mod menu features 2026">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#8b5cf6;--primary-dark:#7c3aed;--secondary:#06b6d4;--accent:#f59e0b;--bg-dark:#0f0f1a;--bg-card:#1a1a2e;--bg-card-hover:#252542;--text-primary:#fff;--text-secondary:#a1a1aa;--border:#2a2a4a;--gradient-1:linear-gradient(135deg,#667eea,#764ba2);--gradient-2:linear-gradient(135deg,#f093fb,#f5576c);--gradient-3:linear-gradient(135deg,#4facfe,#00f2fe);--gradient-4:linear-gradient(135deg,#43e97b,#38f9d7);--gradient-5:linear-gradient(135deg,#fa709a,#fee140)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+.bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden}
+.bg-animation::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 20% 80%,rgba(139,92,246,.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(6,182,212,.15) 0%,transparent 50%),radial-gradient(circle at 40% 40%,rgba(245,158,11,.1) 0%,transparent 40%);animation:bgPulse 15s ease-in-out infinite}
+@keyframes bgPulse{0%,100%{transform:translate(0,0) rotate(0)}33%{transform:translate(-5%,-5%) rotate(5deg)}66%{transform:translate(5%,5%) rotate(-5deg)}}
+.header{text-align:center;padding:60px 20px 40px}
+.logo{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#8b5cf6,#06b6d4,#f59e0b);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 5s ease infinite;letter-spacing:-2px}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.tagline{font-size:1.2rem;color:var(--text-secondary);margin:10px 0 25px;font-weight:300}
+.stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.stat-number{font-size:2.2rem;font-weight:700;background:var(--gradient-3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.85rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:2px}
+.container{max-width:1400px;margin:0 auto;padding:0 20px}
+.search-bar{max-width:500px;margin:20px auto;position:relative}
+.search-bar input{width:100%;padding:12px 20px 12px 45px;border-radius:25px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);font-size:.95rem;outline:none;transition:all .3s}
+.search-bar input:focus{border-color:var(--primary);box-shadow:0 0 20px rgba(139,92,246,.2)}
+.search-bar::before{content:'🔍';position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1rem}
+.tab-nav{position:sticky;top:0;background:rgba(15,15,26,.95);backdrop-filter:blur(20px);padding:12px 0;z-index:100;border-bottom:1px solid var(--border);margin-bottom:30px}
+.tab-items{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:1400px;margin:0 auto;padding:0 20px}
+.tab-btn{padding:9px 18px;border-radius:20px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .3s}
+.tab-btn:hover,.tab-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 8px 25px rgba(139,92,246,.3)}
+.tab-content{display:none}.tab-content.active{display:block}
+.subtab-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:25px}
+.subtab-pill{padding:6px 14px;border-radius:15px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-size:.8rem;cursor:pointer;transition:all .3s}
+.subtab-pill:hover,.subtab-pill.active{background:var(--secondary);border-color:var(--secondary);color:#fff}
+.subtab-content{display:none}.subtab-content.active{display:block}
+.group-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px;transition:all .3s}
+.group-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.group-title{font-size:1.1rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.group-icon{width:8px;height:8px;border-radius:50%;display:inline-block}
+.feature-item{padding:8px 12px;border-radius:8px;margin-bottom:4px;cursor:pointer;transition:all .2s;border:1px solid transparent}
+.feature-item:hover{background:var(--bg-card-hover);border-color:var(--border)}
+.feature-name{font-size:.9rem;font-weight:500;display:flex;align-items:center;justify-content:space-between}
+.feature-name .arrow{transition:transform .3s;color:var(--text-secondary);font-size:.7rem}
+.feature-item.open .arrow{transform:rotate(90deg)}
+.feature-settings{display:none;padding:8px 0 4px 16px;border-left:2px solid var(--border);margin:6px 0 6px 8px}
+.feature-item.open .feature-settings{display:block}
+.setting-tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:.72rem;margin:2px;font-weight:500}
+.tag-toggle{background:rgba(139,92,246,.15);color:#a78bfa}
+.tag-slider{background:rgba(6,182,212,.15);color:#22d3ee}
+.tag-dropdown{background:rgba(245,158,11,.15);color:#fbbf24}
+.tag-color{background:rgba(236,72,153,.15);color:#f472b6}
+.tag-button{background:rgba(52,211,153,.15);color:#34d399}
+.tag-keybind{background:rgba(251,146,60,.15);color:#fb923c}
+.setting-row{padding:3px 0;font-size:.82rem;color:var(--text-secondary)}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:600;margin-left:6px}
+.badge-new{background:rgba(52,211,153,.2);color:#34d399}
+.badge-wip{background:rgba(251,146,60,.2);color:#fb923c}
+.columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:20px}
+.coming-soon{text-align:center;padding:40px;color:var(--text-secondary);font-style:italic}
+.footer{text-align:center;padding:40px;color:var(--text-secondary);font-size:.85rem;border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:768px){.logo{font-size:2.5rem}.columns{grid-template-columns:1fr}.stats{gap:20px}}
+</style>
+</head>
+<body>
+<div class="bg-animation"></div>
+<div class="header">
+<div class="logo">SCOOBY</div>
+<p class="tagline">FiveM Menu — Complete Feature List</p>
+<div class="stats">
+<div class="stat"><div class="stat-number">350+</div><div class="stat-label">Features</div></div>
+<div class="stat"><div class="stat-number">8</div><div class="stat-label">Categories</div></div>
+<div class="stat"><div class="stat-number">1500+</div><div class="stat-label">Settings</div></div>
+</div>
+</div>
+<div class="search-bar"><input type="text" id="search" placeholder="Search features..."></div>
+<nav class="tab-nav"><div class="tab-items" id="tabNav"></div></nav>
+<div class="container" id="content"></div>
+<div class="footer">Scooby FiveM &copy; 2026 &mdash; The most advanced FiveM experience</div>
+<script>
+const TABS=[
+{name:"Visuals",icon:"👁",gradient:"--gradient-3",subtabs:[
+{name:"ESP",groups:[
+{name:"Players ESP",icon:"#4facfe",features:[
+{name:"Enabled",type:"toggle",settings:["Keybind (keybind)","Target Filter (dropdown: All/Players/NPCs/Players+Self/Self Only)","Show Self (toggle)"]},
+{name:"Box",type:"toggle",settings:["Keybind","Style (dropdown: Full/Corners/3D Box)","Color (color)","Fill (toggle)","Fill Color (color)","Fill Gradient (toggle+color)","Outline (toggle)","Thickness (slider 0.5-4px)","Rounding (slider 0-10)","Width Ratio (slider)","Height Multiplier (slider)","Head Offset (slider)","Gradient (toggle+color)","Pulse (toggle+speed)","Shadow (toggle)","Glow Outline (toggle+color+radius)","Glow Pulse (toggle+speed)","Corner Length (slider)"]},
+{name:"Health Bar",type:"toggle",settings:["Position (dropdown: Left/Right/Top/Bottom)","Color (color)","Gradient (toggle+color)","Outline (toggle+color)","Width (slider)","Smooth Animation (toggle+speed)","Background Color (color)","Show Text (toggle+color+size)"]},
+{name:"Armor Bar",type:"toggle",settings:["Position (dropdown)","Color (color)"]},
+{name:"Name",type:"toggle",settings:["Position (dropdown: Top/Bottom/Left/Right)","Color (color)","Font Size (slider 8-20)","Show Server ID (toggle)","Background (toggle+color+rounding)","Shadow (toggle)"]},
+{name:"Weapon",type:"toggle",settings:["Show Icon (toggle)","Show Name (toggle)","Show Unarmed (toggle)","Icon Size (slider)","Name Size (slider)","Position (dropdown)","Color (color)","Background (toggle+color)","Shadow (toggle)"]},
+{name:"Skeleton",type:"toggle",badge:"new",settings:["Style (dropdown: Clean/Joints+HeadRing/Outline)","Mode (dropdown: Full/Basic)","Color (color)","Thickness (slider)","Joints (toggle+size)","Head Circle (toggle)","Dashed Lines (toggle)","Gradient (toggle+color)"]},
+{name:"Distance",type:"toggle",settings:["Position (dropdown)","Color (color)","Font Size (slider)","Background (toggle+color)","Shadow (toggle)"]},
+{name:"Head",type:"toggle",settings:["Style (dropdown: Circle/Filled/Cross/Diamond/Skull/Triangle/Square/Ring)","Color (color)","Size (slider)","Outline (toggle)","Glow (toggle+color+radius)"]},
+{name:"Snaplines",type:"toggle",settings:["Color (color)","Origin (dropdown: Bottom/Center/Top)","Thickness (slider)","Dashed (toggle)","Gradient (toggle)","Glow (toggle+color+radius)"]},
+{name:"Visibility Check",type:"toggle",settings:["Visible Color (color)","Hidden Color (color)","Apply To (dropdown)"]},
+{name:"Line of Sight",type:"toggle",settings:["Color (color)","Length (slider)","Thickness (slider)","Gap (slider)","Outline (toggle)","Style (dropdown: Solid/Dashed/Dotted)","Gradient (toggle+color)","Endpoint (dropdown: Dot/Arrow/None)"]},
+{name:"Player Trail",type:"toggle",settings:["New Color (color)","Old Color (color)","Thickness (slider)","Duration (slider 1-30s)","Sample Rate (slider)","Style (dropdown: Line/Dotted/Dashed)","Fade (toggle)","Smooth Curves (toggle)","Outline (toggle)","Taper Width (toggle)","Direction Arrows (toggle)","Head Dot (toggle)","Show Self (toggle)","Max Points (slider)"]},
+{name:"Ring ESP",type:"toggle",badge:"new",settings:["Color (color)","Radius (slider 0.2-3m)","Thickness (slider)","Segments (slider 8-48)","Height Offset (slider -1 to 2m)","Ring Count (slider 1-20)","Filled (toggle+color)","Pulse Animation (toggle)"]},
+{name:"Footsteps",type:"toggle",badge:"new",settings:["Walking Color (color)","Running Color (color)","Size (slider 0.1-1m)","Duration (slider 1-15s)","Fade Out (toggle)"]}
+]},
+{name:"Range & Settings",icon:"#22d3ee",features:[{name:"Max Distance",type:"slider",settings:["Range 10-500m"]}]},
+{name:"Vehicle ESP",icon:"#f59e0b",features:[
+{name:"Enabled",type:"toggle"},{name:"Max Distance",type:"slider"},
+{name:"3D Box",type:"toggle",settings:["Color (color)","Thickness (slider)","Outline (toggle)","Fill (toggle+color)"]},
+{name:"Name",type:"toggle",settings:["Color (color)","Font Size (slider)","Show Category (toggle)"]},
+{name:"Distance",type:"toggle"},{name:"Engine Health",type:"toggle"},{name:"Speed",type:"toggle"},
+{name:"Snaplines",type:"toggle",settings:["Color (color)"]},{name:"Empty Only",type:"toggle"}
+]},
+{name:"Tracers",icon:"#f472b6",features:[
+{name:"Bullet Tracers",type:"toggle",settings:["Local Only (toggle)","Max Range Filter (toggle+slider)","Color Mode (dropdown: Solid/Gradient/Rainbow)","Colors (color pickers)","Rainbow Speed+Saturation (sliders)","Thickness (slider 0.5-8)","Duration (slider 0.1-5s)","Fade Out (toggle)","Taper Width (toggle)","Dotted Line (toggle+spacing)","Glow (toggle+radius)","Impact Marker (toggle)","Impact Style (dropdown: Circle/Cross/3D Box/Diamond)","Marker Size (slider 1-20)","Marker Duration (slider)","Show Distance (toggle+size)","Highlight Headshots (toggle+color)"]},
+{name:"Throwable Tracers",type:"toggle",settings:["Color Mode (dropdown: Solid/Gradient/Rainbow)","Colors (color pickers)","Thickness (slider)","Duration (slider 1-10s)","Fade Out (toggle)","Dashed (toggle)","Glow (toggle+radius)","Endpoint Marker (toggle+size)"]},
+{name:"Projectile Tracers",type:"toggle",settings:["Color Mode (dropdown: Solid/Rainbow)","Color (color)","Rainbow Speed (slider)","Thickness (slider)","Duration (slider 1-15s)","Fade Out (toggle)","Taper Width (toggle)","Glow (toggle+radius)","Endpoint Marker (toggle+size)"]}
+]}
+]},
+{name:"VFX",groups:[
+{name:"Visual Effects",icon:"#a78bfa",features:[
+{name:"Shadow Light",type:"toggle",settings:["Intensity (slider -100 to 100)"]},
+{name:"Reflection",type:"toggle",settings:["Intensity (slider)"]},
+{name:"Gamma",type:"toggle",settings:["Intensity (slider)"]},
+{name:"Blur",type:"toggle",settings:["Intensity (slider)"]},
+{name:"Sky Intensity",type:"toggle",settings:["Intensity (slider)"]},
+{name:"Saturation",type:"toggle",settings:["Intensity (slider)"]}
+]},
+{name:"World Effects",icon:"#22d3ee",features:[
+{name:"Foot Steps VFX",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]},
+{name:"Impact Color",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]},
+{name:"Skid Marks",type:"toggle",settings:["Color (color)","Constant (toggle)","Rainbow (toggle+speed)"]},
+{name:"Tire Lights",type:"toggle",settings:["Range (slider)","Falloff (slider)","Min/Max Color (colors)","Rainbow (toggle+speed)"]},
+{name:"Light Glow",type:"toggle",settings:["Mode (dropdown: Rainbow/Static Rainbow/Static)","Color (color)","Hue/Saturation/Intensity/Frequency (sliders)"]},
+{name:"Light Cortana",type:"toggle",settings:["Same settings as Light Glow"]}
+]},
+{name:"Sky & Weather",icon:"#fbbf24",features:[
+{name:"Sky Color",type:"toggle",settings:["Preset (dropdown: 7 presets)","Zenith Color (color)","Intensity (slider)","Blend (slider)","Horizon Color (toggle+color)","Rainbow Sky (toggle+speed)","Enhanced Stars (toggle+brightness)","Moon Glow (toggle+intensity)"]},
+{name:"Fog Override",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]},
+{name:"Ped Lighting",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)","Intensity (slider)","Dynamic Light (toggle+range)","Pulse (toggle+speed)","All Peds (toggle)"]},
+{name:"Ocean",type:"toggle",settings:["Transparent Ocean (toggle)","Water Height (slider)","Water Puddles (slider)"]},
+{name:"Thunder",type:"toggle",settings:["Darkness (slider)","Brightness (slider)"]},
+{name:"Particle FX Color",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]}
+]}
+]},
+{name:"Crosshair",groups:[
+{name:"Custom Crosshair",icon:"#f472b6",features:[
+{name:"Enabled",type:"toggle",settings:["Shape (dropdown: Cross/Dot/Circle/Circle+Dot/T-Shape/Diamond/Square/Swastika)","Size (slider 1-30)","Thickness (slider 0.5-6)","Gap (slider 0-20)","Center Dot (toggle+size)","Primary Color (color)","Gradient (toggle+secondary color)","Rainbow (toggle+speed)"]},
+{name:"Effects",type:"toggle",settings:["Outline (toggle+width)","Spin (toggle+speed)"]}
+]}
+]}
+]},
+{name:"Combat",icon:"⚔",gradient:"--gradient-2",subtabs:[
+{name:"Lock On",groups:[
+{name:"Lock On Aimbot",icon:"#f472b6",features:[
+{name:"Enabled",type:"toggle",settings:["Aim Key (keybind: LMB/RMB/MMB/X1/X2)","Hitbox (multi: Head/Neck/Body/Hands/Feet/Nearest)","Filter (dropdown: Both/Players/NPCs)","FOV Radius (slider 10-500)","Max Distance (slider 10-500m)","Smoothing (slider 1-30)","Mode (dropdown: Lock On/Aim Assist)","Visibility Check (toggle)","Sticky Target (toggle)","Prediction (toggle)","Recoil Comp (toggle)","Skip Friends (toggle)"]},
+{name:"FOV Circle",type:"toggle",settings:["Circle Color (color)","Fill (toggle+alpha)","Outer Ring Color (color)","Ring Offset (slider)"]},
+{name:"Target Line",type:"toggle",settings:["Color (color)","Thickness (slider)"]},
+{name:"Target Marker",type:"toggle",settings:["Color (color)","Size (slider)"]}
+]},
+{name:"Advanced",icon:"#a78bfa",features:[
+{name:"Advanced Settings",type:"toggle",settings:["Priority (dropdown: Crosshair/Distance/Lowest HP)","Auto Switch on Kill (toggle+delay)","H/V Smoothing (sliders)","Adaptive Smoothing (toggle)","Accel Curve (slider)","Max Speed (slider)","Dead Zone (slider)","Prediction Factor (slider)","Scope Zoom Comp (toggle)","Disable for Explosives (toggle)","Scale by Distance (toggle+min)","Distance Bone Auto Select (toggle+threshold)","Jitter (toggle+offset)"]}
+]},
+{name:"Melee Bot",icon:"#fb923c",features:[
+{name:"Melee Bot",type:"toggle",settings:["Force (slider)","FOV (slider 30-360)","Range (slider 1-20m)","Priority (dropdown)","Show FOV Circle (toggle)","Target Line (toggle+color)","Auto Punch (toggle+range)","Fast Punch (toggle+rate)"]}
+]}
+]},
+{name:"Silent Aim",groups:[{name:"Silent Aim",icon:"#f59e0b",features:[{name:"Coming Soon",type:"info"}]}]},
+{name:"Triggerbot",groups:[
+{name:"Trigger Bot",icon:"#22d3ee",features:[
+{name:"Enabled",type:"toggle",settings:["Hitbox (multi: Head/Neck/Body/Hands/Feet)","Filter (dropdown)","Trigger FOV (slider)","Delay Min/Max (sliders 0-500ms)","Only While ADS (toggle)","Skip Friends (toggle)","Visibility Check (toggle)","Burst Fire: Shots Min/Max (sliders)","Burst Pause (slider)"]}
+]}
+]},
+{name:"Magic Bullet",groups:[{name:"Magic Bullet",icon:"#f59e0b",features:[{name:"Coming Soon",type:"info"}]}]}
+]},
+{name:"Misc",icon:"🔧",gradient:"--gradient-4",subtabs:[
+{name:"Overlays",groups:[
+{name:"Overlays",icon:"#34d399",features:[
+{name:"Radar",type:"toggle",settings:["Shape (dropdown: Square/Circle)","Size (slider 100-500)","Range (slider)","Dot Size (slider)","Opacity (slider)","6 Color pickers (Player/NPC/Vehicle/BG/Border)","Map Image (toggle+coords)","Rotate with View (toggle)","Show Names (toggle+size)","Show Vehicles (toggle)","Crosshair (toggle)","Dot Outline (toggle)","North Indicator (toggle)","FOV Cone (toggle+angle+color)","Compass (toggle)","Health Dots (toggle)","Edge Arrows (toggle)","Range Rings (toggle+count+color)","Grid Lines (toggle)","Border Thickness (slider)"]},
+{name:"Watermark",type:"toggle",settings:["Show FPS (toggle+Graph)","Show Date/Time (toggles)","Draggable (toggle)","Opacity/Font Size/Rounding (sliders)","BG/Accent/Text Colors (colors)","Border (toggle+color)"]},
+{name:"Bind List",type:"toggle",settings:["Style (dropdown: Default/Table)","Opacity/Font Size/Rounding (sliders)","Draggable (toggle)","BG/Text/Pill Colors (colors)"]}
+]},
+{name:"HUD Panels",icon:"#22d3ee",features:[
+{name:"Performance Stats",type:"toggle",settings:["Frametime Graph (toggle)","Min/Max/Avg (toggle)","Opacity (slider)"]},
+{name:"Playerlist",type:"toggle",settings:["Health Bars (toggle)","Operator Icons (toggle)","Status Dots (toggle)","Show Distance (toggle)","Nearby Only (toggle+distance)"]},
+{name:"Spectator List",type:"toggle",settings:["Style (dropdown)","Opacity/Font/Rounding (sliders)","Draggable (toggle)","BG/Text/Icon Colors (colors)"]}
+]},
+{name:"Combat HUD",icon:"#f472b6",features:[
+{name:"Hitmarkers",type:"toggle",settings:["Players (toggle)","Vehicles (toggle)","World Hitmarkers (toggle)","Kill Effect (toggle)","Size/Thickness/Duration (sliders)","Hit Color (color)","Kill Color (color)"]},
+{name:"Damage Log",type:"toggle",settings:["Show Dealt/Taken (toggles)","Duration (slider)","Font Size (slider)","Opacity (slider)"]}
+]},
+{name:"Grapple Hook",icon:"#a78bfa",features:[
+{name:"Enabled",type:"toggle",settings:["Speed (slider 5-50)","Max Range (slider 20-300m)","Line Color/Thickness (color+slider)","Dot Color/Size (color+slider)","Auto Release (toggle+distance)"]}
+]},
+{name:"Anti-Cheat",icon:"#ef4444",features:[
+{name:"Auto Detect",type:"toggle",settings:["Scans every 10 seconds","25+ known AC signatures","Custom AC heuristic scanning","FiveM resource scanning"]},
+{name:"AC Overlay",type:"toggle",badge:"new",settings:["Alert Color (color)","Draggable (toggle)","Reset Position (button)","Shows: AC name, status, heartbeat count"]},
+{name:"Disable Anti-Cheat",type:"button",badge:"new",settings:["ElectronAC deep bypass","Honeypot event blocking","Weapon damage restoration","Screenshot/OCR blocking","entityDamaged cancellation","Heartbeat tracking with notifications","Post-disable verification scan"]}
+]}
+]}
+]},
+{name:"Local",icon:"🎮",gradient:"--gradient-1",subtabs:[
+{name:"Player",groups:[
+{name:"God Mode",icon:"#ef4444",features:[
+{name:"God Mode",type:"toggle",settings:["Bullet Proof (toggle)","Fire Proof (toggle)","Collision Proof (toggle)","Melee Proof (toggle)","Explosion Proof (toggle)","Steam Proof (toggle)","Water Proof (toggle)"]}
+]},
+{name:"Player",icon:"#8b5cf6",features:[
+{name:"No Ragdoll",type:"toggle"},{name:"Invisible",type:"toggle"},{name:"Infinite Stamina",type:"toggle"},
+{name:"Super Punch",type:"toggle"},{name:"Walk Through",type:"toggle",settings:["Players/Peds/Vehicles/Objects (toggles)"]},
+{name:"Graceful Landing",type:"toggle"},{name:"Fake Crouch",type:"toggle"}
+]},
+{name:"Health / Armor",icon:"#34d399",features:[
+{name:"Heal Self",type:"button"},{name:"Max Armor",type:"button"},
+{name:"Revive",type:"button",badge:"new",settings:["Native resurrection","Framework events (ESX/QBCore/vRP/ND/ox)","Skin reload","Screen effect clear"]},
+{name:"Suicide",type:"button"}
+]},
+{name:"Movement",icon:"#06b6d4",features:[
+{name:"Fast Run",type:"toggle",settings:["Speed (slider 1-5)"]},
+{name:"No Clip",type:"toggle",settings:["Speed (slider)","Sprint Multiplier (slider)","Use Camera Direction (toggle)","Vertical Lock (toggle)","Smooth Movement (toggle+accel+decel)","Freeze When Stopped (toggle)","Invisible (toggle)","Ghost Mode (toggle+alpha)","No Collision (toggle)","Auto Godmode (toggle)","Restore Position (toggle)","Ped Follows Camera (toggle)","Show Speed/Coordinates (toggles)"]},
+{name:"Freecam",type:"toggle",settings:["Speed/FOV/Sensitivity (sliders)"]}
+]},
+{name:"Movement Extras",icon:"#a78bfa",features:[
+{name:"Fast Climb",type:"toggle"},{name:"Peek",type:"toggle"},{name:"Strafe Teleport",type:"toggle"},
+{name:"Blink / Dash",type:"toggle"},{name:"High Ground",type:"toggle"},{name:"Anchor",type:"toggle"},
+{name:"Behind Player TP",type:"toggle"},{name:"Serpentine",type:"toggle"},{name:"Phase Shift",type:"toggle"},
+{name:"Ground Shrink",type:"toggle"},{name:"Speed Burst",type:"toggle"},{name:"Wall Bounce",type:"toggle"}
+]},
+{name:"Superman",icon:"#f59e0b",features:[
+{name:"Superman Flight",type:"toggle",settings:["Speed/Super Speed/Boost Speed (sliders)","Eye Lasers (toggle+kill speed)"]}
+]}
+]},
+{name:"Vehicle",groups:[
+{name:"Vehicle",icon:"#06b6d4",features:[
+{name:"God Mode",type:"toggle"},{name:"Seatbelt",type:"toggle"},
+{name:"Force Engine On",type:"toggle",badge:"new"},{name:"Infinite Fuel",type:"toggle",badge:"new",settings:["Decorator-based (LegacyFuel/ox_fuel/cdn-fuel/ps-fuel)","State bag fuel","Export-based fuel restoration"]},
+{name:"Rainbow Car",type:"toggle",settings:["Speed (slider)"]}
+]},
+{name:"Maintenance",icon:"#34d399",features:[
+{name:"Auto Repair",type:"toggle",badge:"new",settings:["Gradual repair to avoid detection"]},
+{name:"Instant Brake",type:"toggle",badge:"new",settings:["Brake Force (slider 5-100)"]},
+{name:"Repair Vehicle",type:"button",badge:"new"},{name:"Max Performance",type:"button",badge:"new"}
+]},
+{name:"NOS",icon:"#f59e0b",features:[{name:"NOS System",type:"toggle",settings:["Power (slider)","Hold Mode (toggle)","Flame Effect (toggle)"]}]},
+{name:"Abilities",icon:"#a78bfa",features:[
+{name:"Vehicle Abilities",type:"toggle",settings:["Rocket Boost (toggle+power)","Glide/Nitrous/Ramp/Jump (toggles)","Vertical Boost/JATO/Parachute (toggles)"]}
+]},
+{name:"Boost",icon:"#f472b6",features:[{name:"Speed Boost",type:"toggle",settings:["Speed (slider)","Use Horn Key (toggle)","Ground Only (toggle)","Sound/Screen Effect (toggles)","Speed Overlay (toggle)"]}]},
+{name:"Flight Mode",icon:"#22d3ee",features:[{name:"Deluxo Mode",type:"toggle"},{name:"Oppressor MK2 Mode",type:"toggle"}]},
+{name:"Auto Pilot",icon:"#fb923c",features:[{name:"Auto Pilot",type:"toggle",settings:["Mode (dropdown: Waypoint/Random/Wander/Follow/Ram)","Speed (slider)","Stop at Destination (toggle)","Drive Style (dropdown: 5 styles)"]}]},
+{name:"Vehicle NoClip",icon:"#8b5cf6",features:[{name:"Vehicle NoClip",type:"toggle",settings:["Speed (slider)","Boost Multiplier (slider)","Sync Rotation (toggle)"]}]}
+]},
+{name:"Weapon",groups:[
+{name:"Ammo",icon:"#f59e0b",features:[{name:"Infinite Ammo",type:"toggle"},{name:"Infinite Clip",type:"toggle"},{name:"No Reload",type:"toggle"}]},
+{name:"Accuracy",icon:"#22d3ee",features:[{name:"No Recoil",type:"toggle"},{name:"No Spread",type:"toggle"},{name:"No Spinup",type:"toggle"}]},
+{name:"Damage",icon:"#ef4444",features:[{name:"One Hit Kill",type:"toggle"},{name:"Damage Override",type:"toggle",settings:["Damage (slider 1-1000)"]},{name:"Range Override",type:"toggle",settings:["Range (slider)"]},{name:"Force on Ped",type:"toggle",settings:["Force (slider)"]}]},
+{name:"Special Ammo",icon:"#f472b6",features:[{name:"Explosive Ammo",type:"toggle",settings:["Explosion Type (dropdown: 5 types)"]},{name:"Fire Ammo",type:"toggle"}]},
+{name:"Special Guns",icon:"#a78bfa",features:[{name:"Teleport Gun",type:"toggle"},{name:"Delete Gun",type:"toggle"},{name:"Gravity Gun",type:"toggle",settings:["Range/Force (sliders)"]},{name:"Cartoon Gun",type:"toggle",settings:["Effect (dropdown: Shrink/Enlarge/Launch/Ragdoll)"]}]}
+]},
+{name:"World",groups:[
+{name:"Time",icon:"#fbbf24",features:[{name:"Override Time",type:"toggle",settings:["Hour/Minute (sliders)","Freeze Time (toggle)","Presets: Morning/Noon/Sunset/Night/Dawn/Dusk"]}]},
+{name:"Weather",icon:"#22d3ee",features:[{name:"Override Weather",type:"toggle",settings:["14 weather types","Quick Select buttons"]},{name:"Blackout",type:"toggle"}]}
+]},
+{name:"Teleport",groups:[
+{name:"Quick Teleport",icon:"#8b5cf6",features:[{name:"To Waypoint",type:"button"},{name:"Forward",type:"button"},{name:"To Nearest Vehicle",type:"button"},{name:"To Crosshair",type:"button"},{name:"To Coords",type:"button",settings:["X/Y/Z coordinate inputs"]}]},
+{name:"Saved Locations",icon:"#34d399",features:[{name:"5 Save Slots",type:"button",settings:["Go/Delete/Save Here per slot"]}]},
+{name:"Options",icon:"#06b6d4",features:[{name:"Forward Distance",type:"slider"},{name:"Ground Check",type:"toggle"},{name:"Vehicle Teleport",type:"toggle"}]}
+]}
+]},
+{name:"Players",icon:"👥",gradient:"--gradient-5",subtabs:[
+{name:"Players",groups:[
+{name:"Teleport Actions",icon:"#8b5cf6",features:[{name:"To Player",type:"button"},{name:"Behind",type:"button"},{name:"Into Vehicle",type:"button"},{name:"Bring to Me",type:"button"}]},
+{name:"User Options",icon:"#06b6d4",features:[{name:"Give Heal/Armour/Pistol",type:"button"},{name:"Kill Player",type:"button"},{name:"Silent Kill",type:"button"},{name:"Steal Outfit",type:"button"},{name:"Cage Player",type:"button"},{name:"Clone Ped",type:"button"},{name:"Force Fall",type:"button"},{name:"Spectate",type:"button"},{name:"Punch Player",type:"button"}]},
+{name:"Troll Actions",icon:"#f472b6",features:[{name:"Bomber",type:"button"},{name:"Airdrop",type:"button"},{name:"Magnet",type:"button"},{name:"Catapult",type:"button"},{name:"Clone Army",type:"button"},{name:"Vehicle Drop",type:"button",badge:"new"},{name:"Blame Kill",type:"button",badge:"new"},{name:"Send Crash",type:"button",badge:"new"},{name:"RC Spawn",type:"button",settings:["Type (dropdown: Bandito/Tank/Blazer/Faggio/BMX/Panto)"]},{name:"Loop Actions",type:"toggle",badge:"new",settings:["Interval (slider 0.5-10s)"]}]},
+{name:"Bulk Actions",icon:"#ef4444",features:[{name:"Explode All",type:"button"},{name:"Cage All",type:"button"},{name:"Launch All",type:"button"},{name:"Fire All",type:"button"},{name:"Freeze/Unfreeze All",type:"button"},{name:"Ragdoll All",type:"button"},{name:"TP All to Me",type:"button"}]}
+]}
+]},
+{name:"Spawner",icon:"📦",gradient:"--gradient-1",subtabs:[
+{name:"Weapons",groups:[{name:"Weapon Spawner",icon:"#f59e0b",features:[{name:"109 Weapons",type:"info",settings:["Search filter","11 categories","Force In Hand (toggle)","Spoof Weapon (toggle)","Right-click: Attachments popup","Give with Selected/All attachments","464 weapon components"]}]}]},
+{name:"Vehicles",groups:[{name:"Vehicle Spawner",icon:"#06b6d4",features:[{name:"Vehicle Grid",type:"info",settings:["Search filter","24 categories","Spawn Inside (toggle)","Behind (toggle)","Max Upgrade (toggle)","Spawn Safe (toggle)","Delete Last (button)"]}]}]},
+{name:"Peds",groups:[{name:"Ped Spawner",icon:"#a78bfa",features:[{name:"Ped Grid",type:"info",settings:["Search filter","13 categories","Apply Model (toggle)","Delete Last (button)"]}]}]}
+]},
+{name:"Settings",icon:"⚙",gradient:"--gradient-4",subtabs:[
+{name:"Stream Proof",groups:[
+{name:"Stream Proof Mode",icon:"#4facfe",features:[{name:"Stream Proof",type:"toggle",badge:"new",settings:["Hide ESP (toggle)","Hide Crosshair/FOV (toggle)","Hide Menu (toggle)","Hide Overlays (toggle)","Hide Tracers/Lines (toggle)","Separate D3D11 overlay window","WDA_EXCLUDEFROMCAPTURE","Works with OBS/Discord/recordings"]}]},
+{name:"Panic Mode",icon:"#ef4444",features:[{name:"Panic Mode",type:"toggle",badge:"new",settings:["END key (rebindable)","Instantly disables ALL visuals","Menu, ESP, overlays — everything","Press again to restore"]}]}
+]},
+{name:"Appearance",groups:[
+{name:"Theme & Colors",icon:"#a78bfa",features:[{name:"Color Editor",type:"info",settings:["Full theme color editor","Color presets","Per-element color pickers"]},{name:"Layout",type:"info",settings:["Menu sizing","Sidebar/Header/Groups styling","Animation settings","DPI scaling"]},{name:"Effects",type:"toggle",settings:["Window/Header/Nav/Group effects","Types: Snow/Rain/Wireframe/Matrix","Speed/Density/Opacity/Size (sliders)","Color (color picker)"]},{name:"Border Style",type:"toggle",settings:["Thickness/Opacity (sliders)","Color (color)","Gradient (toggle+direction)","Glow (toggle+radius+color)","Pulse (toggle+speed)"]},{name:"Custom Cursor",type:"toggle",settings:["Style (dropdown: Circle/Crosshair/Target)","Size/Outline (sliders)","Colors (color pickers)","Trail (toggle+length)"]}]}
+]}
+]}
+];
+function renderTabs(){
+const nav=document.getElementById('tabNav');
+const content=document.getElementById('content');
+TABS.forEach((tab,ti)=>{
+const btn=document.createElement('button');
+btn.className='tab-btn'+(ti===0?' active':'');
+btn.textContent=tab.icon+' '+tab.name;
+btn.onclick=()=>{
+document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+document.getElementById('tab-'+ti).classList.add('active');
+};
+nav.appendChild(btn);
+const tabDiv=document.createElement('div');
+tabDiv.id='tab-'+ti;
+tabDiv.className='tab-content'+(ti===0?' active':'');
+let html='<div class="subtab-pills">';
+tab.subtabs.forEach((st,si)=>{
+html+=`<button class="subtab-pill${si===0?' active':''}" onclick="switchSubtab(${ti},${si})">${st.name}</button>`;
+});
+html+='</div>';
+tab.subtabs.forEach((st,si)=>{
+html+=`<div class="subtab-content${si===0?' active':''}" id="subtab-${ti}-${si}"><div class="columns">`;
+st.groups.forEach(g=>{
+html+=`<div class="group-card"><div class="group-title"><span class="group-icon" style="background:${g.icon}"></span>${g.name}</div>`;
+g.features.forEach(f=>{
+if(f.type==='info'){
+html+=`<div class="feature-item${f.settings?' has-settings':''}" onclick="this.classList.toggle('open')"><div class="feature-name">${f.name}${f.badge?` <span class="badge badge-${f.badge}">${f.badge.toUpperCase()}</span>`:''}${f.settings?'<span class="arrow">▶</span>':''}</div>`;
+if(f.settings){html+='<div class="feature-settings">';f.settings.forEach(s=>{let t=getTagClass(s);html+=`<div class="setting-row"><span class="setting-tag ${t}">${getTagLabel(s)}</span> ${s}</div>`;});html+='</div>';}
+html+='</div>';
+}else{
+const hasS=f.settings&&f.settings.length;
+html+=`<div class="feature-item${hasS?' has-settings':''}" onclick="this.classList.toggle('open')"><div class="feature-name"><span><span class="setting-tag tag-${f.type}">${f.type}</span> ${f.name}${f.badge?` <span class="badge badge-${f.badge}">${f.badge.toUpperCase()}</span>`:''}</span>${hasS?'<span class="arrow">▶</span>':''}</div>`;
+if(hasS){html+='<div class="feature-settings">';f.settings.forEach(s=>{let t=getTagClass(s);html+=`<div class="setting-row"><span class="setting-tag ${t}">${getTagLabel(s)}</span> ${s}</div>`;});html+='</div>';}
+html+='</div>';
+}
+});
+html+='</div>';
+});
+html+='</div></div>';
+});
+tabDiv.innerHTML=html;
+content.appendChild(tabDiv);
+});
+}
+function switchSubtab(ti,si){
+document.querySelectorAll(`#tab-${ti} .subtab-pill`).forEach((p,i)=>p.classList.toggle('active',i===si));
+document.querySelectorAll(`#tab-${ti} .subtab-content`).forEach((c,i)=>c.classList.toggle('active',i===si));
+}
+function getTagClass(s){
+const l=s.toLowerCase();
+if(l.includes('toggle'))return'tag-toggle';if(l.includes('slider'))return'tag-slider';
+if(l.includes('dropdown')||l.includes('type'))return'tag-dropdown';if(l.includes('color'))return'tag-color';
+if(l.includes('button'))return'tag-button';if(l.includes('keybind'))return'tag-keybind';return'tag-toggle';
+}
+function getTagLabel(s){
+const l=s.toLowerCase();
+if(l.includes('toggle'))return'toggle';if(l.includes('slider'))return'slider';
+if(l.includes('dropdown'))return'select';if(l.includes('color'))return'color';
+if(l.includes('button'))return'action';if(l.includes('keybind'))return'key';return'option';
+}
+document.getElementById('search').addEventListener('input',function(){
+const q=this.value.toLowerCase();
+document.querySelectorAll('.feature-item').forEach(el=>{
+const name=el.querySelector('.feature-name').textContent.toLowerCase();
+el.style.display=(!q||name.includes(q))?'':'none';
+});
+document.querySelectorAll('.group-card').forEach(card=>{
+const visible=card.querySelectorAll('.feature-item[style=""],.feature-item:not([style])');
+card.style.display=visible.length?'':'none';
+});
+});
+renderTabs();
+</script>
+</body>
+</html>

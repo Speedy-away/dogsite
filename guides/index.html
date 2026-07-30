@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Setup Guide - Scooby GTA V Mod Menu</title>
+<meta name="description" content="Complete setup guide for Scooby mod menu. Learn how to install, use modded outfits, vehicles, money methods, and troubleshoot common issues.">
+<link rel="canonical" href="https://scoobymenu.cc/guides">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides">
+<meta property="og:title" content="Setup Guide - Scooby GTA V Mod Menu">
+<meta property="og:description" content="Complete setup guide for Scooby mod menu. Learn how to install, use modded outfits, vehicles, money methods, and troubleshoot common issues.">
+<meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Setup Guide - Scooby GTA V Mod Menu">
+<meta name="twitter:description" content="Complete setup guide for Scooby mod menu. Learn how to install, use modded outfits, vehicles, money methods, and troubleshoot common issues.">
+<meta name="twitter:image" content="https://scoobymenu.cc/background-home.png">
+<meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5">
+<link rel="shortcut icon" href="/assets/images/logo.png">
+<!-- DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #080808;
+        --surface: #0d0d0d;
+        --card: #111111;
+        --card-hover: #161616;
+        --border: rgba(255,255,255,.07);
+        --border-strong: rgba(255,255,255,.13);
+        --accent: #4f8ef5;
+        --accent-2: #2563eb;
+        --accent-soft: rgba(79,142,245,.13);
+        --accent-line: rgba(79,142,245,.3);
+        --text: #f4f4f7;
+        --text-dim: #9a9aaa;
+        --text-faint: #5c5c6c;
+        --green: #22c55e;
+        --amber: #eab308;
+        --radius: 14px;
+        --radius-pill: 50px;
+        --maxw: 1180px;
+        /* legacy aliases */
+        --bg-primary: #080808;
+        --bg-secondary: #0d0d0d;
+        --bg-card: #111111;
+        --bg-card-hover: #161616;
+        --accent-cyan: #4f8ef5;
+        --accent-purple: #2563eb;
+        --accent-pink: #4f8ef5;
+        --accent-gradient: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
+        --accent-glow: rgba(79,142,245,0.5);
+        --text-primary: #f4f4f7;
+        --text-secondary: #9a9aaa;
+        --border-color: rgba(255,255,255,.07);
+        --glass: rgba(17,17,17,0.8);
+        --green-accent: #22c55e;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #080808;
+        color: var(--text-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+        line-height: 1.7;
+    }
+    /* Animated Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(79,142,245,0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(37,99,235,0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(79,142,245,0.04) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
+        border-radius: 10px;
+    }
+    /* Navbar */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      transition: all .3s ease;
+    }
+    .nav-inner {
+      max-width: 1180px; margin: 0 auto; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      transition: all .3s ease;
+    }
+    .nav.scrolled .nav-inner {
+      max-width: 860px; margin: 12px auto 0;
+      padding: 10px 20px;
+      background: rgba(14,14,14,.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.13); border-radius: 50px;
+    }
+    .brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em; display: flex; align-items: center; }
+    .brand-name { color: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: #9a9aaa; font-size: .9rem; font-weight: 500; transition: color .2s; text-decoration: none; }
+    .nav-links a:hover { color: #fff; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .btn-nav-ghost {
+      padding: 8px 18px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; color: #9a9aaa;
+      background: transparent; border: 1px solid rgba(255,255,255,.13);
+      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+    }
+    .btn-nav-ghost:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .btn-nav-ghost svg { width: 15px; height: 15px; }
+    .btn-nav-primary {
+      padding: 8px 20px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; color: #fff;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.13);
+      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+    }
+    .btn-nav-primary:hover { background: rgba(255,255,255,.16); }
+    .btn-nav-primary svg { width: 15px; height: 15px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger span { width: 22px; height: 2px; background: #f4f4f7; border-radius: 2px; transition: .25s; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media(max-width:760px) {
+      .nav-links, .nav-actions .btn-nav-ghost { display: none; }
+      .hamburger { display: flex; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: flex-start; gap: 0;
+        background: rgba(8,8,8,.97); backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,.07);
+        padding: 8px 24px 16px; transform: translateY(-10px);
+        opacity: 0; pointer-events: none; transition: .25s;
+      }
+      .nav-links.open { display: flex; transform: none; opacity: 1; pointer-events: auto; }
+      .nav-links a { width: 100%; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: .98rem; }
+      .nav.scrolled .nav-inner { border-radius: 16px; margin: 8px; max-width: none; }
+    }
+    /* Page Header */
+    .page-header {
+        padding: 160px 0 80px;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
+        z-index: 1;
+    }
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(79,142,245,0.15) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    .page-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: #f4f4f7;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+    .page-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .warning-banner {
+        background: linear-gradient(135deg, rgba(255, 200, 0, 0.15) 0%, rgba(255, 150, 0, 0.1) 100%);
+        border: 1px solid rgba(255, 200, 0, 0.3);
+        border-radius: 12px;
+        padding: 20px 30px;
+        max-width: 800px;
+        margin: 30px auto 0;
+        color: #ffcc00;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    /* Main Content */
+    .guide-section {
+        padding: 80px 0;
+        position: relative;
+        z-index: 1;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+    /* Section Cards */
+    .guide-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+    .guide-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
+    }
+    .guide-card h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #22c55e;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .guide-card h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #4f8ef5;
+        margin: 25px 0 15px;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+    .guide-card p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        margin-bottom: 15px;
+        line-height: 1.8;
+    }
+    .guide-card ul {
+        color: var(--text-secondary);
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+    .guide-card li {
+        margin-bottom: 8px;
+    }
+    .guide-card code, .guide-card .path {
+        background: rgba(79,142,245,0.1);
+        border: 1px solid rgba(79,142,245,0.2);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-family: 'Consolas', monospace;
+        color: #4f8ef5;
+        font-size: 0.9rem;
+    }
+    .guide-card a {
+        color: #4f8ef5;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .guide-card a:hover {
+        text-decoration: underline;
+    }
+    /* Image Gallery */
+    .guide-image {
+        border: 3px solid var(--green-accent);
+        border-radius: 12px;
+        margin: 20px 0;
+        max-width: 100%;
+        display: block;
+    }
+    .image-row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    .image-row img {
+        flex: 1;
+        min-width: 280px;
+        max-width: 100%;
+    }
+    /* Video Guides Section */
+    .video-guides-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .video-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    .video-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(79,142,245,0.3);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .video-info {
+        padding: 20px;
+    }
+    .video-info h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #4f8ef5;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+    .video-info p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    .video-badge {
+        display: inline-block;
+        background: rgba(79,142,245,0.15);
+        color: #4f8ef5;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    /* Table of Contents */
+    .toc {
+        background: rgba(79,142,245,0.05);
+        border: 1px solid rgba(79,142,245,0.2);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+    .toc h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #4f8ef5;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+    .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .toc li {
+        margin-bottom: 12px;
+    }
+    .toc a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .toc a::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #4f8ef5;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    .toc a:hover {
+        color: #4f8ef5;
+        padding-left: 10px;
+    }
+    /* Requirements Box */
+    .requirements-box {
+        background: rgba(56, 118, 29, 0.1);
+        border: 1px solid rgba(56, 118, 29, 0.3);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+    .requirements-box h4 {
+        color: var(--green-accent);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .requirements-box a {
+        display: block;
+        margin-bottom: 10px;
+        word-break: break-all;
+    }
+    /* Error Solutions */
+    .error-card {
+        background: rgba(255, 50, 50, 0.05);
+        border: 1px solid rgba(255, 100, 100, 0.2);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+    .error-card h4 {
+        color: #ff6b6b;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .error-card p {
+        color: var(--text-secondary);
+        margin-bottom: 0;
+    }
+    /* Footer */
+    .footer { border-top: 1px solid rgba(255,255,255,.07); background: #0d0d0d; padding: 64px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+    .footer-tag { color: #9a9aaa; font-size: .9rem; max-width: 280px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 8px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.07); color: #9a9aaa; transition: .2s; text-decoration: none; }
+    .footer-social a:hover { color: #4f8ef5; border-color: rgba(79,142,245,.3); background: rgba(79,142,245,.13); }
+    .footer-col h4 { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: #5c5c6c; margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: #9a9aaa; font-size: .9rem; transition: color .2s; text-decoration: none; }
+    .footer-col a:hover { color: #4f8ef5; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.07); flex-wrap: wrap; }
+    .footer-bottom p { color: #5c5c6c; font-size: .84rem; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #5c5c6c; font-size: .84rem; transition: color .2s; text-decoration: none; }
+    .footer-bottom-links a:hover { color: #4f8ef5; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    @media(max-width:980px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media(max-width:560px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; text-align: center; } }
+    /* Game Tabs */
+    .game-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    .game-tab {
+        padding: 10px 28px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-secondary);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .game-tab:hover {
+        background: rgba(79,142,245,0.08);
+        border-color: rgba(79,142,245,0.2);
+        color: var(--text-primary);
+    }
+    .game-tab.active {
+        background: rgba(79,142,245,0.12);
+        border-color: rgba(79,142,245,0.4);
+        color: #4f8ef5;
+    }
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .coming-soon-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 60px 40px;
+        text-align: center;
+    }
+    .coming-soon-card h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #4f8ef5;
+        margin-bottom: 15px;
+    }
+    .coming-soon-card p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+    }
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #4f8ef5;
+        text-decoration: none;
+        margin-top: 30px;
+        padding: 12px 24px;
+        border: 1px solid rgba(79,142,245,0.3);
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: rgba(79,142,245,0.05);
+    }
+    .back-link:hover {
+        background: rgba(79,142,245,0.15);
+        border-color: #4f8ef5;
+        transform: translateX(-5px);
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .navbar-inner {
+            padding: 0 20px;
+            flex-wrap: wrap;
+            height: auto;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .navbar-nav {
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 6px 10px;
+        }
+        .navbar-nav li a {
+            padding: 8px 14px;
+            font-size: 11px;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+        }
+        .guide-card {
+            padding: 25px;
+        }
+        .guide-card h2 {
+            font-size: 1.4rem;
+        }
+        .container {
+            padding: 0 15px;
+        }
+        .video-guides-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    @media (max-width: 480px) {
+        .page-header {
+            padding: 130px 0 60px;
+        }
+        .page-title {
+            font-size: 2rem;
+        }
+        .guide-section {
+            padding: 50px 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <!--== Header ==-->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-name">scooby</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+          <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+          <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="/portal" target="_blank" rel="noopener" class="btn-nav-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Login
+          </a>
+          <a href="#" onclick="openModal('downloadModal');return false;" class="btn-nav-primary">
+            Download
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!--== Page Header ==-->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">SETUP GUIDES</h1>
+            <p class="page-subtitle">Select a game to view setup guides and tutorials</p>
+        </div>
+    </div>
+    <!--== Guide Content ==-->
+    <section class="guide-section">
+        <div class="container">
+            <!--== Game Tabs ==-->
+            <div class="game-tabs">
+                <button class="game-tab active" onclick="switchTab('gta5')">GTA 5</button>
+                <button class="game-tab" onclick="switchTab('fivem')">FiveM</button>
+                <button class="game-tab" onclick="switchTab('redm')">RedM</button>
+                <button class="game-tab" onclick="switchTab('rdr2')">RDR2</button>
+            </div>
+            <!--== GTA 5 Tab ==-->
+            <div id="gta5" class="tab-content active">
+            <div class="warning-banner" style="margin-bottom: 40px;">
+                Please read the whole thing before asking for help - everything is covered here!
+            </div>
+            <!--== Table of Contents ==-->
+            <div class="toc">
+                <h3>TABLE OF CONTENTS</h3>
+                <ul>
+                    <li><a href="#video-guides">Video Guides</a></li>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#first-time">First Time Setup</a></li>
+                    <li><a href="#outfits">Modding Outfits</a></li>
+                    <li><a href="#vehicles">Modding Vehicles</a></li>
+                    <li><a href="#money">Money Making Methods</a></li>
+                    <li><a href="#public">Using Scooby in Public Lobbies and with Friends</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+            <!--== Video Guides ==-->
+            <div class="guide-card" id="video-guides">
+                <h2>Video Guides</h2>
+                <p>Watch these helpful video tutorials to get started with Scooby mod menu:</p>
+                <div class="video-guides-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/zR0Su4B30d4" title="Scooby GTA 5 Setup Guide" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-badge">GTA 5</span>
+                            <h4>Complete Setup Guide</h4>
+                            <p>Full walkthrough on how to install and use Scooby mod menu</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/gNQeW2VafGE" title="Scooby Money Guide" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-badge">GTA 5</span>
+                            <h4>Money Making Guide</h4>
+                            <p>Learn the best money methods with Scooby mod menu</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/mTjgK_eUlb8" title="Scooby CS2 Guide" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-badge">CS2</span>
+                            <h4>CS2 Setup Guide</h4>
+                            <p>How to install and use Scooby for Counter-Strike 2</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/W1LDcNVplQQ" title="Scooby CS2 Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-badge">CS2</span>
+                            <h4>CS2 Showcase</h4>
+                            <p>See Scooby CS2 features in action</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/5DdZtnQuK9k" title="Scooby RDR2 Showcase" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-badge">RDR2</span>
+                            <h4>RDR2 Showcase</h4>
+                            <p>See Scooby RDR2 mod menu features in action</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--== Introduction ==-->
+            <div class="guide-card" id="introduction">
+                <h2>Introduction</h2>
+                <p>Welcome to the Scooby Mod Menu Guide! This guide covers everything you need to know:</p>
+                <ul>
+                    <li>Modded Outfits</li>
+                    <li>Modded Vehicles</li>
+                    <li>Playing in public lobbies</li>
+                    <li>Troubleshooting common issues</li>
+                </ul>
+                <p>Please make sure to follow this guide step by step. We are not responsible for any bans, so please use at your own caution.</p>
+                <img src="/assets/images/menu.png" alt="Scooby Menu Interface" class="guide-image" style="max-width: 600px; margin: 30px auto;">
+            </div>
+            <!--== First Time Setup ==-->
+            <div class="guide-card" id="first-time">
+                <h2>First Time Setup</h2>
+                <p>When installing Scooby for the first time, follow these steps:</p>
+                <h3>Step 1: Download</h3>
+                <p>Head over to <a href="/">scoobymenu.cc</a> and click the download button to get the Scooby Installer. <strong>Make sure your anti-virus is turned off.</strong></p>
+                <h3>Step 2: Extract & Run</h3>
+                <p>Extract the files into any folder. After that, run the <code>.exe</code> as an administrator. This ensures the launcher will run successfully.</p>
+                <h3>Step 3: Install Requirements</h3>
+                <div class="requirements-box">
+                    <h4>Required Software:</h4>
+                    <p><strong>VC Runtimes:</strong></p>
+                    <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank">https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/</a>
+                    <p style="margin-top: 15px;"><strong>DirectX:</strong></p>
+                    <a href="https://www.microsoft.com/en-gb/download/details.aspx?id=6812" target="_blank">https://www.microsoft.com/en-gb/download/details.aspx?id=6812</a>
+                </div>
+                <p>Make sure you have your graphics drivers up to date.</p>
+                <h3>Step 4: Inject</h3>
+                <p>Load up GTA and wait for it to be on the main menu or in story mode. Then go back to the launcher, get a free license, and follow the steps.</p>
+                <p>When you have acquired your free license, click <strong>Inject</strong>. This should inject the menu into the game. Then press <strong>Insert</strong> to open the menu - congratulations, you're done!</p>
+            </div>
+            <!--== Modding Outfits ==-->
+            <div class="guide-card" id="outfits">
+                <h2>Modding Outfits</h2>
+                <p>Modding outfits with Scooby is very simple! The menu includes a saved outfits section.</p>
+                <h3>Using Shared Outfits</h3>
+                <p>To use other people's saved outfits, find the file they share (many outfits can be found in the Scooby Discord) and save it to:</p>
+                <p><code>C:\scooby\GTA5\outfits</code></p>
+                <p>When you load in-game, use the menu to navigate to the outfits section and you will find the modded outfits there!</p>
+                <h3>Creating Your Own Outfits</h3>
+                <p>You can also mod outfits yourself! Head to the Outfit Editor in the Scooby menu. You can change the numbers on your character's clothing, and when you've found your perfect outfit, save it!</p>
+            </div>
+            <!--== Modding Vehicles ==-->
+            <div class="guide-card" id="vehicles">
+                <h2>Modding Vehicles</h2>
+                <p>Modding vehicles with Scooby is also very simple!</p>
+                <h3>Creating Modded Vehicles</h3>
+                <p>Open the menu and head to the Vehicles icon, then click Vehicle Editor at the bottom. This will allow you to mod your vehicle. To save it, head to Saved Vehicles, click Save Vehicle, name it, and save!</p>
+                <h3>Using Shared Vehicles</h3>
+                <p>Similar to outfits, you can use others' saved vehicles. Head to the Discord, find the vehicles thread, and download a file you want. Then drop it into:</p>
+                <p><code>C:\scooby\GTA5\vehicles</code></p>
+            </div>
+            <!--== Money Making Methods ==-->
+            <div class="guide-card" id="money">
+                <h2>Money Making Methods</h2>
+                <p>Within the Scooby menu there are many ways to make money if you don't want to do it legitimately.</p>
+                <h3>Heist Method</h3>
+                <p>Make sure to enable <strong>Solo Hosting</strong> in the Recovery tab. This lets you do heists that require more than 1 person. Head to the Heists tab, set up your heist accordingly, and start it. When the heist starts, click <strong>Insta Finish</strong> to end it immediately - you'll receive 100% of the cut!</p>
+                <h3>Casino Method</h3>
+                <p>Head to the casino and enable <strong>Manipulate Slot Machines</strong> in the Recovery > Casino option. Go to the slots, bet the max, and you'll hit the jackpot! Disable the option, force yourself to fail a slot, then turn it back on and repeat.</p>
+                <h3>Business Method</h3>
+                <p>Head to the Business tab on the menu and find the <strong>Fill Supplies</strong> button. Your supplies will be maxed out, ready for you to sell!</p>
+            </div>
+            <!--== Playing in Public Lobbies ==-->
+            <div class="guide-card" id="public">
+                <h2>Using Scooby in Public Lobbies and with Friends!</h2>
+                <p>Scooby V3 has introduced a new update, this involves the ability to play in public lobbies and play with friends.</p>
+                <h3>How to Set Up</h3>
+                <p>To do this you must join a public lobby and wait for everyone to get kicked out so you are the host of the lobby <strong>(YOU MUST BE THE HOST)</strong>. After, you must turn on the <strong>Player Magnet</strong> found in the Network tab. This will make players join your lobby.</p>
+                <h3>Playing with Friends</h3>
+                <p>If you want to play with your friend, do the same steps and ensure you are the host. Then simply just invite them to the lobby.</p>
+                <h3>What Works in Public Lobbies</h3>
+                <p>The following features are fully functional in public lobbies:</p>
+                <ul>
+                    <li><strong>Recovery Features</strong> - Money methods, heist editor, casino manipulation</li>
+                    <li><strong>Vehicle Features</strong> - Spawn vehicles, vehicle editor, saved vehicles</li>
+                    <li><strong>Outfit Features</strong> - Outfit editor, saved outfits, modded clothing</li>
+                    <li><strong>Player Features</strong> - Godmode, teleportation, super jump, etc.</li>
+                    <li><strong>World Features</strong> - Weather control, time control, clear wanted level</li>
+                    <li><strong>Weapon Features</strong> - All weapons, infinite ammo, no reload</li>
+                    <li><strong>Business Features</strong> - Fill supplies, instant production</li>
+                    <li><strong>Heist Features</strong> - Solo hosting, insta-finish, custom cuts</li>
+                </ul>
+                <h3>Important Notes</h3>
+                <ul>
+                    <li>Always ensure you are the <strong>host</strong> of the lobby for best results</li>
+                    <li>Use the <strong>Player Magnet</strong> feature to populate your lobby</li>
+                    <li>Some features may require you to be in a solo public lobby first</li>
+                    <li>Be cautious when using features around other players</li>
+                </ul>
+            </div>
+            <!--== Troubleshooting ==-->
+            <div class="guide-card" id="troubleshooting">
+                <h2>Troubleshooting</h2>
+                <p>Here are solutions to common issues you may encounter:</p>
+                <div class="error-card">
+                    <h4>Failed to allocate memory in target process</h4>
+                    <p>Head to your Rockstar Launcher, click on Settings, and <strong>disable BattlEye</strong>. This will fix the issue.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Please return to Grand Theft Auto V (Black Screen)</h4>
+                    <p>You must inject the menu during the loading screen. This message means the game is signifying you're going back to story mode.</p>
+                </div>
+                <div class="error-card">
+                    <h4>BattlEye is required to play GTA V Online</h4>
+                    <p>Same solution - inject the menu during the loading screen, not when you're already in the game.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Black screen with an error message</h4>
+                    <p>Restart your game without opening Scooby, go to story mode, and turn off <strong>Frame Generator</strong> in the GTA graphics settings.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Failed to write process memory</h4>
+                    <p>Turn off BattlEye in the Rockstar Launcher settings.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Launcher closes after opening</h4>
+                    <p>Use a VPN - your ISP may be blocking the menu. If that doesn't work, delete the <code>C:\scooby</code> folder to clear your cache, then restart Scooby.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Free key website unreachable</h4>
+                    <p>Your internet is blocking it - use a VPN.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Injection success but doesn't work in game</h4>
+                    <p>Use a VPN - your ISP may be interfering with the connection.</p>
+                </div>
+                <div class="error-card">
+                    <h4>Injection Failed</h4>
+                    <p>There are several fixes:</p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Use a VPN</li>
+                        <li>Ensure all anti-virus software is disabled</li>
+                        <li>Reset the Scooby cache by deleting the <code>C:\scooby</code> folder and restarting</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <!--== End GTA 5 Tab ==-->
+            <!--== FiveM Tab ==-->
+            <div id="fivem" class="tab-content">
+                <div class="coming-soon-card">
+                    <h2>FiveM Guides</h2>
+                    <p>FiveM setup guides and tutorials are coming soon. Stay tuned!</p>
+                </div>
+            </div>
+            <!--== End FiveM Tab ==-->
+            <!--== RedM Tab ==-->
+            <div id="redm" class="tab-content">
+                <div class="coming-soon-card">
+                    <h2>RedM Guides</h2>
+                    <p>RedM setup guides and tutorials are coming soon. Stay tuned!</p>
+                </div>
+            </div>
+            <!--== End RedM Tab ==-->
+            <!--== RDR2 Tab ==-->
+            <div id="rdr2" class="tab-content">
+                <div class="coming-soon-card">
+                    <h2>RDR2 Guides</h2>
+                    <p>RDR2 setup guides and tutorials are coming soon. Stay tuned!</p>
+                </div>
+            </div>
+            <!--== End RDR2 Tab ==-->
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="/" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+    <script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.querySelectorAll('.game-tab').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        document.querySelector('[onclick="switchTab(\'' + tabId + '\')"]').classList.add('active');
+        window.scrollTo({ top: document.querySelector('.game-tabs').offsetTop - 100, behavior: 'smooth' });
+    }
+    </script>
+    <!--== Footer ==-->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand"><span class="brand-name">scooby</span></div>
+            <p class="footer-tag">Premium gaming enhancement menus. The ultimate modding experience for GTA Online, RDR2, FiveM and more.</p>
+            <div class="footer-social">
+              <a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+              <a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+              <a href="https://youtube.com/@ScoobyOnTop" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="/products/gta5">GTA 5</a></li>
+              <li><a href="/products/rdr2">RDR2</a></li>
+              <li><a href="/products/fivem">FiveM</a></li>
+              <li><a href="/products/redm">RedM</a></li>
+              <li><a href="/products/cs2">CS2</a></li>
+              <li><a href="/products/gmod">GMOD</a></li>
+              <li><a href="/products/spoofer">Spoofer + Cleaner</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+              <li><a href="/videos" rel="noopener">Videos</a></li>
+              <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+              <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener">Discord Server</a></li>
+              <li><a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener">Telegram</a></li>
+              <li><a href="/portal" target="_blank" rel="noopener">Portal / Login</a></li>
+              <li><a href="/tos">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Scooby. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/tos">Terms</a>
+            <a href="/portal" target="_blank" rel="noopener">Portal</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="downloadModal" style="position:fixed;inset:0;z-index:1000;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s;">
+      <div style="background:linear-gradient(180deg,#141414,#111);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:32px;width:100%;max-width:440px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.7);max-height:90vh;overflow-y:auto;">
+        <button onclick="closeModal('downloadModal')" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:none;color:#9a9aaa;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <h3 style="font-size:1.25rem;font-weight:800;text-align:center;margin-bottom:8px;color:#fff;">Download Launcher</h3>
+        <p style="color:#9a9aaa;text-align:center;font-size:.92rem;margin-bottom:20px;">Click below to download the installer.</p>
+        <a href="https://limewire.com/d/YtOlY#6k1TG2kUxB" target="_blank" rel="noopener" onclick="closeModal('downloadModal')" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:50px;font-size:.93rem;font-weight:600;background:#4f8ef5;color:#fff;border:none;cursor:pointer;text-decoration:none;font-family:inherit;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Scooby Launcher
+        </a>
+      </div>
+    </div>
+
+    <script>
+    // Navbar scroll
+    var nav = document.getElementById('nav');
+    if (nav) {
+      window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    }
+    // Mobile menu
+    function toggleMenu() {
+      var h = document.getElementById('hamburger'), n = document.getElementById('navLinks');
+      var open = n.classList.toggle('open');
+      h.classList.toggle('active');
+      h.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    document.querySelectorAll('#navLinks a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    function openModal(id) { var el = document.getElementById(id); if(el){el.style.display='flex';el.style.opacity='1';document.body.style.overflow='hidden';} }
+    function closeModal(id) { var el = document.getElementById(id); if(el){el.style.display='none';document.body.style.overflow='';} }
+    document.querySelectorAll('.modal-overlay').forEach(function(o){ o.addEventListener('click',function(e){if(e.target===o)closeModal(o.id);}); });
+    </script>
+</body>
+</html>

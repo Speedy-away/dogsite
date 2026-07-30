@@ -1,0 +1,348 @@
+================================================================================
+                            SCOOBY CHANGELOG
+================================================================================
+
+================================================================================
+CS2 Beta Released - February 2026
+================================================================================
+
+CS2 BETA RELEASED
+- Scooby CS2 Beta Released - Counter-Strike 2 mod menu now available as a free beta
+- ESP / Wallhacks - See enemies through walls with health bars, distance, and weapon info
+- Aimbot - Precision aim assistance with configurable FOV, smoothing, and bone selection
+- Triggerbot - Automatically fires when crosshair is on an enemy
+- No Recoil - Eliminate weapon recoil and spread for perfect accuracy
+- Radar - Enhanced radar showing all enemy positions
+- Bhop - Automated bunny hopping for maximum movement speed
+- Chams - Colored player models visible through walls
+
+COMING SOON
+- Skinchanger - Use any skin in-game including knives and gloves (In Development)
+- Paid Early Access - Premium tier with additional features coming soon
+
+NOTES
+- This is a BETA release - report any bugs on Discord
+- Currently available for free via the Get Free Key system
+- More features and improvements coming in future updates
+
+
+================================================================================
+v3.1 - February 2026
+================================================================================
+
+NEW FEATURES & IMPROVEMENTS
+
+- Readded Business Manager - Business Manager has been readded and improved
+- Improvements for many options - Various options enhanced and optimized
+- Improved Lua Support & API - Better Lua scripting capabilities and API access
+- Layout Overview Improvements - Cleaner and more intuitive menu layout
+- Theme Loader for ClickUI - Added theme customization to ClickUI
+- List UI (WIP) - New List UI in development
+- Reorganized Options & Tabs - Moved around options and tabs for better organization
+
+FIXES & CHANGES
+- Fixed problems with the Lua API
+- Various bug fixes and improvements
+- Other misc fixes and optimizations
+
+
+================================================================================
+RDR2 Released - v1.0 - February 2026
+================================================================================
+
+INITIAL RELEASE
+- RDR2 Support - Red Dead Redemption 2 mod menu released
+
+
+================================================================================
+LOADER v2.5 - February 2026
+================================================================================
+
+NEW FEATURES
+- Game Selector - Added game selector for GTA5/RDR2/FIVEM/REDM
+
+
+================================================================================
+LOADER v2.2 - February 2026
+================================================================================
+
+FIXES
+- Fixed Issues - Various loader issues resolved
+- Fixed Overlapping - Fixed any overlapping UI elements
+
+
+================================================================================
+v3.0 BETA - January 2026
+================================================================================
+
+v3.0 BETA RELEASED
+- Select Beta in the Loader - Choose "Beta" option in the loader to access v3.0
+- Public Lobby Support - Play in public lobbies with BattlEye Disabled (Host is needed)
+- Player Magnet - Pulls legit players into your lobby
+
+FIXED & UPDATED
+- Fixed & Updated Legacy Options
+- Various bug fixes and stability improvements
+- Performance optimizations
+
+NOTES
+- This is a BETA release - report any bugs on Discord
+- More features and improvements coming in the full release
+
+
+================================================================================
+LOADER v1.4 - January 2026
+================================================================================
+
+NEW FEATURES
+- Beta Support - Added ability to select Beta version in the loader
+- Auto Loader Updater - Loader now automatically updates itself
+
+FIXES
+- Fixed multiple bugs
+- Improved stability and reliability
+
+
+================================================================================
+v2.9.5 - January 2026
+================================================================================
+
+NEW FEATURES
+- Frame Generation Support - Enhanced performance with frame generation technology
+
+CASINO OPTIONS
+- Rig Horse Racing - Control horse racing outcomes at the casino
+- Auto Play - Automatically play casino games
+- Auto Place Max Bet - Instantly place maximum bets
+- Instant Roll - Skip animations for instant results
+- Much more casino features and options
+
+LEGACY SUPPORT
+- More improvements for Legacy version
+- Additional fixes for Legacy version
+- Updated options for Legacy compatibility
+
+LUA IMPROVEMENTS
+- Lua Compatibility Layers - Better support for existing Lua scripts
+- Expanded Lua API - More functions and features added to the API
+
+BACKEND CHANGES
+- Overall backend improvements and optimizations
+- Stability enhancements
+- Performance improvements
+
+
+================================================================================
+v2.9 - January 2026
+================================================================================
+
+RECOVERY > BUSINESSES
+
+All Businesses Tab:
+  - Ultimate Business Bot - EVERYTHING automated (resupply, production, prices, safes, cooldowns)
+  - Auto Resupply All - Keeps all business supplies at 100%
+  - Instant Production All - All businesses produce instantly
+  - Max Sale Prices All - Boost all business sale prices to max
+  - CEO/VIP Work Boost - $100K per job, no cooldowns
+  - MC Work Boost - $100K per contract, no cooldowns
+  - Payphone Hit Boost - $500K per hit, no cooldown
+  - Taxi Boost - Max fares, no heat
+  - Auto Sell Ready - Keeps all sell cooldowns at zero
+
+Fill Stock Commands:
+  - Fill All Business Stock - Fill stock for ALL businesses at once
+  - Fill Nightclub Stock - Fill all nightclub warehouse stock to max
+  - Fill Bunker Stock - Fill bunker stock and supplies to max
+  - Fill MC Stock - Fill all MC business stock and supplies
+  - Fill Special Cargo - Fill warehouse to 111 crates
+  - Fill Hangar Stock - Fill air freight to max
+  - Fill Acid Lab Stock - Fill acid lab product and supplies
+
+Quick Actions:
+  - Max All Safes - Collect money from all business safes
+  - Reset All Business Cooldowns - Reset all business and heist cooldowns
+  - Business Staff Boost - Max out all business upgrades and staff
+  - Max Agency Clients - Sets agency to 500 clients for max passive income
+
+Protection & Safety:
+  - Raid Prevention - Prevents all business raids (bunker, MC, nightclub, acid lab, hangar, warehouse)
+  - Max Nightclub Popularity - Keeps nightclub popularity at 100%
+  - High Demand Boost - Always get max high demand bonus (solo lobby bonus)
+  - Skip Sell Timer - Removes time limit on sell missions
+
+Delivery Helpers:
+  - Delivery Speed Boost - Makes delivery vehicles faster and invincible
+  - Instant Sell Complete - Instantly complete active sell mission
+
+CEO/VIP Features:
+  - Free Ghost Org - Activate Ghost Organization for free (3 minutes)
+  - Free Bribe Authorities - Bribe authorities for free (2 minutes no cops)
+  - Free Off Radar - Go off radar for free (60 seconds)
+
+Business Teleports:
+  - Teleport to Nightclub, Bunker, Agency, Arcade, Kosatka, Auto Shop, Salvage Yard
+
+Business Info Control Boxes:
+  - Collapsible Nightclub Status (Popularity, Safe Cash, Production + Quick Actions)
+  - Collapsible Bunker Status (Stock, Supplies, Research + Quick Actions)
+  - Collapsible Agency Status (Safe Cash, Clients + Quick Actions)
+  - Collapsible Arcade Status (Safe Cash + Quick Actions)
+  - Collapsible MC Businesses Status (All 5 business stocks + Fill All)
+  - Collapsible Acid Lab Status (Product, Safe + Quick Actions)
+
+--------------------------------------------------------------------------------
+
+RECOVERY > PROPERTIES
+
+Properties Unlocker - Master Presets:
+  - Master Business Preset - Unlock/upgrade/stock everything in one click
+  - Unlock All Properties - Unlocks all properties with upgrades
+  - Upgrade All Properties - Maxes all property upgrades
+  - Setup All Businesses - Sets up all businesses
+  - Fill All Stock - Fills all business stock
+  - Resupply All Businesses - Resupplies all businesses
+  - Collect All Safes - Collects from all business safes
+  - Reset All Business Cooldowns - Resets all cooldowns
+
+Individual Property Unlocks:
+  - Unlock CEO Office, Bunker, Nightclub, Kosatka, Agency, Arcade, Facility, Auto Shop, Salvage Yard
+  - Unlock All MC Businesses, Unlock All Warehouses
+
+--------------------------------------------------------------------------------
+
+RECOVERY > CASINO
+
+Slot Machines:
+  - Rig Slot Machines (Toggle)
+  - Win Slots
+  - Lose Slots
+
+Game Rigging - Night Tab Features:
+  - Blackjack - Reveal Card (Reveals dealer's hidden card), Trick Dealer
+  - Three Card Poker - Reveal Cards, Give Hand (Gives winning hand), Trick Dealer
+  - Roulette - Land on 13, Land on 16
+
+Casino Settings:
+  - Casino Region Bypass
+  - Chips Limit Control
+  - Acquire Limit
+  - Trade Limit
+
+Lucky Wheel:
+  - Lucky Wheel Prize Selector (20 prizes)
+  - Give Prize Button
+
+--------------------------------------------------------------------------------
+
+NIGHT TAB > HEISTS
+
+Cayo Perico - New Features:
+  - Cayo Offline Cooldown Reset
+  - Cayo Online Cooldown Reset
+  - Cayo Loot Value Editors: Cash, Weed, Cocaine, Gold, Paintings (0-999999)
+  - Apply Loot Values Button
+  - Reset Loot Values Button
+
+Heist Extras:
+  - Solo Launch - Allows launching heists alone
+  - Casino Autograbber - Instantly grab all loot in Casino Heist
+  - Woman's Bag - Extended bag capacity for Cayo Perico
+  - Skip Cutscene
+  - Skip Checkpoint
+  - Cut Editor with Presets
+  - Self Cut Editor
+
+MC Businesses:
+  - MC Heat Lock - Keeps all MC business heat at 0
+
+--------------------------------------------------------------------------------
+
+DEBUG > FEATURES (NEW)
+
+Self Tab:
+  - Player Ped Info (Handle, Position, Heading, Health, Armor, Status)
+  - Player Flags (God Mode, Invisible, No Ragdoll toggles)
+  - Movement Overrides
+  - Wanted Level Control
+  - Force Actions
+  - Model Info
+
+Weapon Tab:
+  - Current Weapon Info (Hash, Ammo in Clip, Total Ammo, Max Ammo)
+  - Weapon Modifiers (Damage/Melee Multiplier sliders)
+  - Ammo Controls
+  - Weapon Flags (Infinite Ammo, Infinite Clip, No Reload)
+
+Vehicle Tab:
+  - Current Vehicle Info (Handle, Model, Position, Speed, Health, Colors)
+  - Vehicle Modifiers (Top Speed/Torque Mult sliders)
+  - Vehicle Flags
+  - Vehicle Actions
+  - Vehicle Doors
+
+World Tab:
+  - Time Control
+  - Weather Control (13 types)
+  - Blackout
+  - Gravity slider
+  - Nearby Entity Count
+
+Misc Tab:
+  - Session Info
+  - Network Actions
+  - Teleport Utils
+  - Script Event Sender
+  - Quick Stat Editor
+
+Tunables Tab:
+  - Tuneable Base display (262145)
+  - Offset input with Read Int/Float buttons
+  - Value input with Write Int/Float buttons
+  - Common tunable offsets reference guide
+
+--------------------------------------------------------------------------------
+
+LUA API IMPROVEMENTS
+
+Auto-Generated Example Scripts:
+  - Bugga101.lua - Feature-rich script (Self protection, Weapon management, Vehicle spawner, Teleport hotspots, Quick toggle presets)
+  - DebuggingGuide.lua
+  - ScoobyExample.lua
+  - ImGuiExample.lua
+  - HTTPExample.lua
+  - StatsExample.lua
+  - TimerExample.lua
+  - InputExample.lua
+  - FileIOExample.lua
+
+Improved Lua Examples:
+  - StatsExample.lua
+  - GlobalsExample.lua
+  - TunablesExample.lua
+  - VehicleAdvancedExample.lua
+  - DebuggingExample.lua
+
+Lua Repository System - NEW TAB:
+  - Repository tab in Lua Scripts window
+  - Browse and download scripts from repository
+  - One-click install/reinstall/uninstall
+  - Auto-extract zip files
+  - Placeholder scripts: Ultimate Recovery, Vehicle Spawner Pro, Teleport Suite, Heist Helper, Protection Plus, Business Manager, ESP Addon, Session Tools
+
+Lua Debugging Features:
+  - Safe function wrapper (pcall-based)
+  - Debug print with type information
+  - Performance timer utilities
+  - Common error explanations
+  - API reference quick-access
+
+--------------------------------------------------------------------------------
+
+SETTINGS
+
+Startup Settings - NEW GROUP:
+  - Hide Welcome Screen toggle
+  - Show Welcome Screen Now button
+  - Welcome screen persists until explicitly disabled
+
+================================================================================

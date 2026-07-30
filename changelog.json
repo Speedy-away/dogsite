@@ -1,0 +1,911 @@
+{
+  "versions": [
+    {
+      "id": "v3.2",
+      "version": "v3.2",
+      "date": "March 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "GTA 5 LEGACY UPDATED",
+          "features": [
+            "Updated to Newest Game Version - Full compatibility with the latest GTA 5 update",
+            "Legacy Options Refreshed - All legacy options updated and working with new game version",
+            "Stability Improvements - Various stability fixes for the new game version"
+          ]
+        },
+        {
+          "title": "FIXES & CHANGES",
+          "features": [
+            "Fixed compatibility issues with latest game patch",
+            "Improved injection stability",
+            "Various bug fixes and optimizations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v3.1",
+      "version": "v3.1",
+      "date": "February 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "NEW FEATURES & IMPROVEMENTS",
+          "features": [
+            "Scooby - RDR2 Released",
+            "Readded Business Manager - Business Manager has been readded and improved",
+            "Improvements for many options - Various options enhanced and optimized",
+            "Improved Lua Support & API - Better Lua scripting capabilities and API access",
+            "Layout Overview Improvements - Cleaner and more intuitive menu layout",
+            "Theme Loader for ClickUI - Added theme customization to ClickUI",
+            "List UI (WIP) - New List UI in development",
+            "Reorganized Options & Tabs - Moved around options and tabs for better organization"
+          ]
+        },
+        {
+          "title": "FIXES & CHANGES",
+          "features": [
+            "Fixed problems with the Lua API",
+            "Various bug fixes and improvements",
+            "Other misc fixes and optimizations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v3.0",
+      "version": "v3.0",
+      "date": "January 2026",
+      "badge": "Beta",
+      "badgeStyle": "beta",
+      "categories": [
+        {
+          "title": "v3.0 BETA RELEASED",
+          "features": [
+            "Select Beta in the Loader - Choose \"Beta\" option in the loader to access v3.0",
+            "Public Lobby Support - Play in public lobbies with BattlEye Disabled (Host is needed)",
+            "Player Magnet - Pulls legit players into your lobby"
+          ]
+        },
+        {
+          "title": "FIXED & UPDATED",
+          "features": [
+            "Fixed & Updated Legacy Options",
+            "Various bug fixes and stability improvements",
+            "Performance optimizations"
+          ]
+        },
+        {
+          "title": "NOTES",
+          "features": [
+            "This is a BETA release - report any bugs on Discord",
+            "More features and improvements coming in the full release"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v1.4",
+      "version": "Loader v1.4",
+      "date": "January 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Beta Support - Added ability to select Beta version in the loader",
+            "Auto Loader Updater - Loader now automatically updates itself"
+          ]
+        },
+        {
+          "title": "FIXES",
+          "features": [
+            "Fixed multiple bugs",
+            "Improved stability and reliability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.9.5",
+      "version": "v2.9.5",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Frame Generation Support - Enhanced performance with frame generation technology"
+          ]
+        },
+        {
+          "title": "CASINO OPTIONS",
+          "features": [
+            "Rig Horse Racing - Control horse racing outcomes at the casino",
+            "Auto Play - Automatically play casino games",
+            "Auto Place Max Bet - Instantly place maximum bets",
+            "Instant Roll - Skip animations for instant results",
+            "Much more casino features and options"
+          ]
+        },
+        {
+          "title": "LEGACY SUPPORT",
+          "features": [
+            "More improvements for Legacy version",
+            "Additional fixes for Legacy version",
+            "Updated options for Legacy compatibility"
+          ]
+        },
+        {
+          "title": "LUA IMPROVEMENTS",
+          "features": [
+            "Lua Compatibility Layers - Better support for existing Lua scripts",
+            "Expanded Lua API - More functions and features added to the API"
+          ]
+        },
+        {
+          "title": "BACKEND CHANGES",
+          "features": [
+            "Overall backend improvements and optimizations",
+            "Stability enhancements",
+            "Performance improvements"
+          ]
+        },
+        {
+          "title": "COMING SOON",
+          "features": [
+            "Stay tuned for v3.0! - Major update in development"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.9",
+      "version": "v2.9",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "RECOVERY > BUSINESSES",
+          "features": [
+            "All Businesses Tab - Ultimate Business Bot, Auto Resupply, Instant Production, Max Sale Prices",
+            "Fill Stock Commands - Fill All Business Stock, Nightclub, Bunker, MC, Special Cargo, Hangar, Acid Lab",
+            "Quick Actions - Max All Safes, Reset All Business Cooldowns, Business Staff Boost, Max Agency Clients",
+            "Protection & Safety - Raid Prevention, Max Nightclub Popularity, High Demand Boost, Skip Sell Timer",
+            "Delivery Helpers - Delivery Speed Boost, Instant Sell Complete",
+            "CEO/VIP Features - Free Ghost Org, Free Bribe Authorities, Free Off Radar",
+            "Business Teleports - Teleport to all major businesses",
+            "Business Info Control Boxes - Collapsible status panels for all businesses"
+          ]
+        },
+        {
+          "title": "RECOVERY > PROPERTIES",
+          "features": [
+            "Properties Unlocker - Master Business Preset, Unlock All Properties, Upgrade All Properties",
+            "Individual Property Unlocks - CEO Office, Bunker, Nightclub, Kosatka, Agency, Arcade, Facility, Auto Shop, Salvage Yard"
+          ]
+        },
+        {
+          "title": "RECOVERY > CASINO",
+          "features": [
+            "Slot Machines - Rig Slot Machines, Win Slots, Lose Slots",
+            "Game Rigging - Blackjack, Three Card Poker, Roulette",
+            "Casino Settings - Region Bypass, Chips Limit Control",
+            "Lucky Wheel - Prize Selector with 20 prizes"
+          ]
+        },
+        {
+          "title": "NIGHT TAB > HEISTS",
+          "features": [
+            "Cayo Perico - Offline/Online Cooldown Reset, Loot Value Editors",
+            "Heist Extras - Solo Launch, Casino Autograbber, Woman's Bag, Skip Cutscene/Checkpoint",
+            "MC Businesses - MC Heat Lock"
+          ]
+        },
+        {
+          "title": "DEBUG > FEATURES",
+          "features": [
+            "Self Tab - Player Ped Info, Player Flags, Movement Overrides, Wanted Level Control",
+            "Weapon Tab - Current Weapon Info, Weapon Modifiers, Ammo Controls",
+            "Vehicle Tab - Current Vehicle Info, Vehicle Modifiers, Vehicle Flags",
+            "World Tab - Time Control, Weather Control, Blackout, Gravity slider",
+            "Misc Tab - Session Info, Network Actions, Teleport Utils",
+            "Tunables Tab - Tuneable Base display, Offset input, Value input"
+          ]
+        },
+        {
+          "title": "LUA API IMPROVEMENTS",
+          "features": [
+            "Auto-Generated Example Scripts - Bugga101.lua, DebuggingGuide.lua, and more",
+            "Lua Repository System - Browse and download scripts from repository",
+            "Lua Debugging Features - Safe function wrapper, Debug print, Performance timer"
+          ]
+        },
+        {
+          "title": "SETTINGS",
+          "features": [
+            "Startup Settings - Hide Welcome Screen toggle, Show Welcome Screen Now button"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.8.2",
+      "version": "v2.8.2",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "RECOVERY TAB",
+          "features": [
+            "Redone Recovery Tab - Complete overhaul of the recovery section",
+            "Business Manager - Added back the business manager feature"
+          ]
+        },
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Awards - Access and manage in-game awards",
+            "Gun Van - Gun Van features and options",
+            "Many other features and improvements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.8",
+      "version": "v2.8",
+      "date": "December 31, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "RECOVERY MENU OVERHAUL",
+          "features": [
+            "Heist Features - Solo Mantrap Bypass, Skip Hacking, Skip Drilling, Diamond Casino Heist Instant Finish",
+            "Rep & AP Multipliers - LS Car Meet Rep Boost (10x), Auto Shop Rep Boost, Street Race Rep Boost, Arena Points Multiplier",
+            "Salvage Yard Instant Finish - Duggan, Cargo Ship, Podium, Police Impound, McTony Robbery, Tow Truck Delivery",
+            "Business Features - Register as CEO/MC President, MC Bar Boost, Instant Resupply, Cargo Instant Buy/Sell",
+            "Unlocks - Enable Hidden DLC Liveries, Unlock Rare Casino Items",
+            "Guide Windows - Business Recovery Guide, Tunables Guide, Salvage Yard Guide, Cargo Guide, and more"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.6",
+      "version": "v2.6",
+      "date": "December 18, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "UPDATED",
+          "features": [
+            "Updated all outdated options to the latest game update"
+          ]
+        },
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Significantly improved overall menu performance",
+            "Enhanced stability across multiple features",
+            "Reduced memory usage and improved efficiency",
+            "Optimized internal systems for smoother operation",
+            "Various minor improvements and refinements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.4",
+      "version": "v2.4",
+      "date": "December 10, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "UPDATED",
+          "features": [
+            "Updated for After the Safehouse in the Hills DLC"
+          ]
+        },
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Improved overall menu performance",
+            "Enhanced feature stability",
+            "Optimized memory usage",
+            "Much more improvements across the board"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.3",
+      "version": "v2.3",
+      "date": "December 10, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "POWER FEATURES",
+          "features": [
+            "KD Editor - Edit your Kill/Death ratio",
+            "Free Shopping - Get items without paying",
+            "All Unlocks - Unlock everything in the game",
+            "Business Setups - Auto-complete business setups",
+            "Business Teleports - Instant teleport to any business",
+            "Stat Editor - Modify player statistics",
+            "Rank Editor - Change your rank level"
+          ]
+        },
+        {
+          "title": "MINI GAMES",
+          "features": [
+            "Zombie Mode - Survive waves of zombies",
+            "Crazy Taxi - Classic taxi driving game",
+            "20+ mini games were added"
+          ]
+        },
+        {
+          "title": "SUPERHERO MODS",
+          "features": [
+            "Superhero abilities and powers (WIP)",
+            "Custom superhero skins (WIP)",
+            "More superhero content being developed"
+          ]
+        },
+        {
+          "title": "MISC FEATURES",
+          "features": [
+            "Info Box for Controls - On-screen display for Noclip, Vehicle Fly, and other controls",
+            "Quick Actions Menu - Faster access to common features",
+            "Custom Hotkeys - Bind features to your preferred keys",
+            "Session Manager - Better session control options",
+            "Many more miscellaneous features"
+          ]
+        },
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Improved overall menu performance",
+            "Better UI responsiveness",
+            "Enhanced feature stability",
+            "Optimized memory usage",
+            "Improved feature toggles",
+            "Much more improvements across the board"
+          ]
+        },
+        {
+          "title": "FIXES",
+          "features": [
+            "Fixed Heist Tool not working properly",
+            "Fixed Business Tool issues",
+            "Many more bug fixes and stability improvements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.2",
+      "version": "v2.2",
+      "date": "December 8, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Improved Aimbot",
+            "Improved Silent Aim",
+            "Improved Magic Bullet",
+            "Improved Triggerbot"
+          ]
+        },
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Added More ESP Settings",
+            "Added Ped/Player Chams (WIP)",
+            "Added Wireframe Mode (WIP)",
+            "Started on Legacy Support (WIP)",
+            "Started on BattlEye Enabled Support (WIP)"
+          ]
+        },
+        {
+          "title": "LUA TAB REWORK",
+          "features": [
+            "Redid the whole Lua tab",
+            "Added Lua Editor/Text Editor",
+            "Added Lua API Docs",
+            "More changes"
+          ]
+        },
+        {
+          "title": "NOTE",
+          "features": [
+            "If you find any bugs, report them on Discord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.1",
+      "version": "v2.1",
+      "date": "December 5, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "COMBAT FEATURES",
+          "features": [
+            "Aimbot - Multiple hit bones, adjustable FOV, smooth aiming, auto-fire, visibility checks",
+            "Silent Aim - Separate system with FOV targeting, shoot through walls option",
+            "Magic Bullet - Bullets hit through walls, adjustable damage, silent mode",
+            "Triggerbot - Auto-fire on crosshair, burst fire mode, magnet mode",
+            "Hitmarkers - Visual/sound feedback, custom colors for hits/headshots/kills",
+            "Damage Indicators - Floating damage numbers, critical hit colors"
+          ]
+        },
+        {
+          "title": "POWERS",
+          "features": [
+            "Telekinesis - Grab entities, 10 action modes (Hold, Throw, Ragdoll, Spin, Orbit)",
+            "Forcefield - Push peds/vehicles away, adjustable radius and force",
+            "Aura - Visual aura effect, multiple types, rainbow mode",
+            "Electric Touch - Zap nearby entities with multiple effects",
+            "Flaming Fists - Explosive/burn/ragdoll on punch, one punch kill",
+            "Dash - Shift + WASD dash with invincibility and visual effects",
+            "Paraglider - Glide with boost/dive controls, auto-activate on fall",
+            "Shockwave Ball - Push, Pull, Bounce, Homing, Black Hole modes",
+            "God Slap - Dash and slap with explosive/burn/launch options",
+            "Walk On Air - Invisible platform at adjustable height",
+            "Matrix - Slow-motion bullet time effect"
+          ]
+        },
+        {
+          "title": "ESP FEATURES",
+          "features": [
+            "Player ESP - Names, distance, skeleton, box, tracelines with custom colors",
+            "Ped ESP - Names, weapons, distance, skeleton, box, tracelines",
+            "Vehicle ESP - Names, distance, box, health display",
+            "Crosshair - Multiple styles (Cross, Circle, Dot, Spinning), rainbow fade",
+            "Health Bars - Position options, armor bar, custom colors",
+            "Box Settings - Full/Corners/3D, rounded corners, glow effects",
+            "Skeleton Settings - Outline, glow, head dot styles",
+            "Tracelines - Multiple origins, curve/fade/dashed options",
+            "Projectile Trails - Bullet/throwable trails, rainbow mode, impact boxes"
+          ]
+        },
+        {
+          "title": "WEAPON FEATURES",
+          "features": [
+            "No Recoil / No Spread - Perfect accuracy",
+            "Custom Weapons - Gravity Gun, Vehicle Gun, Paint Gun with rainbow",
+            "Weapon Globals - Infinite ammo/clip, rapid fire, fire ammo, explosive ammo"
+          ]
+        },
+        {
+          "title": "MOVEMENT & TELEPORT",
+          "features": [
+            "Noclip / Freecam - Fly through walls with adjustable speed",
+            "Super Jump / Beast Jump - Enhanced jump abilities",
+            "Super Run / Superman - Enhanced speed and flying",
+            "Blink Teleport - Quick forward teleport with marker styles",
+            "Mark & Recall - Save and return to positions",
+            "Quick Teleports - Waypoint, objective, aim, vehicle teleports",
+            "IPL Loader - Load/unload interiors with teleport"
+          ]
+        },
+        {
+          "title": "UI & BUG FIXES",
+          "features": [
+            "Organized ESP into tabs (Main, Crosshair, Debug, Visuals, Settings)",
+            "Organized Weapons into tabs (Main, Aimbot)",
+            "Fixed Triggerbot not detecting peds inside vehicles",
+            "Fixed Silent Aim functionality",
+            "Fixed Magic Bullet activation modes",
+            "Fixed ESP box settings display issues",
+            "Fixed multiple ImGui duplicate ID errors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2.0",
+      "version": "v2.0",
+      "date": "December 1, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "INITIAL RELEASE",
+          "features": [
+            "Full GTA V Enhanced Edition support",
+            "Complete menu system with all core features",
+            "Heist Editor integration",
+            "Player options and protections",
+            "Vehicle spawner and customization",
+            "Weapon modifications",
+            "Teleport system",
+            "World options",
+            "Recovery features"
+          ]
+        }
+      ]
+    }
+  ],
+  "loader": [
+    {
+      "id": "loader-v3.6",
+      "version": "v3.6",
+      "date": "March 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "LOADER UPDATE",
+          "features": [
+            "Added RedM & FiveM - RedM and FiveM now available in the game selector",
+            "Improvements - Various loader improvements and optimizations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v2.6",
+      "version": "v2.6",
+      "date": "March 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "LOADER UPDATE",
+          "features": [
+            "FiveM & CS2 Support - Added FiveM and CS2 to the game selector",
+            "Improved Injection - Faster and more reliable injection process",
+            "Updated Anti-Detection - Enhanced security measures",
+            "Bug Fixes - Various loader stability improvements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v2.5",
+      "version": "v2.5",
+      "date": "February 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Game Selector - Added game selector for GTA5/RDR2/FIVEM/REDM"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v2.2",
+      "version": "v2.2",
+      "date": "February 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "FIXES",
+          "features": [
+            "Fixed Issues - Various loader issues resolved",
+            "Fixed Overlapping - Fixed any overlapping UI elements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v2.0",
+      "version": "v2.0",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "REDESIGN",
+          "features": [
+            "Fully Redesigned Loader - Complete visual and functional overhaul",
+            "Improved user interface and experience"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v1.4",
+      "version": "v1.4",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Beta Support - Added ability to select Beta version in the loader",
+            "Auto Loader Updater - Loader now automatically updates itself"
+          ]
+        },
+        {
+          "title": "FIXES",
+          "features": [
+            "Fixed multiple bugs",
+            "Improved stability and reliability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v1.2",
+      "version": "v1.2",
+      "date": "December 31, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Updated and fixed issues",
+            "Added more detailed information to error codes",
+            "Enhanced error reporting and diagnostics",
+            "General stability improvements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v1.1",
+      "version": "v1.1",
+      "date": "December 5, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Fixed icons",
+            "Faster injecting time"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v1.0",
+      "version": "v1.0",
+      "date": "December 1, 2025",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "INITIAL RELEASE",
+          "features": [
+            "Initial loader release"
+          ]
+        }
+      ]
+    }
+  ],
+  "rdr2": [
+    {
+      "id": "rdr2-v1.0",
+      "version": "v1.0",
+      "date": "February 2026",
+      "badge": "Released",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "INITIAL RELEASE",
+          "features": [
+            "RDR2 Support - Red Dead Redemption 2 mod menu released"
+          ]
+        }
+      ]
+    }
+  ],
+  "fivem": [
+    {
+      "id": "fivem-v1.1",
+      "version": "v1.1",
+      "date": "March 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Silent Aim & Magic Bullet - Hit targets without visibly aiming at them",
+            "Image ESP - Display player images through walls for easy identification",
+            "Improved Radar Overlay - Enhanced radar with full map support",
+            "Improved Code Editor - Better scripting experience with enhanced code editor"
+          ]
+        },
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Many improvements to Local features",
+            "Added more local player options and enhancements",
+            "Various bug fixes and optimizations",
+            "Overall stability improvements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fivem-v1.0",
+      "version": "v1.0",
+      "date": "March 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "FIVEM RELEASED",
+          "features": [
+            "Scooby FiveM Released - FiveM mod menu is now available",
+            "ESP / Wallhacks - See players through walls with health, distance, and name info",
+            "Aimbot - Precision aim assistance with configurable settings",
+            "Anti-Cheat Checker - Detect which anti-cheat is running on the server",
+            "Anti-Cheat Disabler - Disable server-side anti-cheat systems",
+            "AC Bypasses - Bypass popular FiveM anti-cheat solutions",
+            "Triggerbot - Automatically fires when crosshair is on a player",
+            "Vehicle Options - Spawn, modify, and customize vehicles",
+            "Teleport Options - Teleport to waypoints and coordinates",
+            "Player Options - Various player modifications and enhancements"
+          ]
+        },
+        {
+          "title": "NOTES",
+          "features": [
+            "Available for free via the Get Free Key system",
+            "More features and improvements coming in future updates",
+            "Report any bugs on Discord"
+          ]
+        }
+      ]
+    }
+  ],
+  "redm": [
+    {
+      "id": "redm-v1.0",
+      "version": "v1.0",
+      "date": "March 2026",
+      "badge": "Online",
+      "badgeStyle": "beta",
+      "categories": [
+        {
+          "title": "REDM PUSHED TO USER TESTING",
+          "features": [
+            "Scooby RedM v1.0 - RedM mod menu pushed to user testing phase",
+            "ESP / Wallhacks - See players through walls with health and distance info",
+            "Aimbot - Precision aim assistance for Red Dead Online",
+            "Player Options - Various player modifications and enhancements",
+            "Vehicle/Horse Options - Spawn and modify vehicles and horses",
+            "Teleport Options - Teleport to waypoints and coordinates"
+          ]
+        },
+        {
+          "title": "NOTES",
+          "features": [
+            "Currently in user testing - report any bugs on Discord",
+            "More features coming after testing phase"
+          ]
+        }
+      ]
+    }
+  ],
+  "cs2": [
+    {
+      "id": "cs2-v1.1",
+      "version": "v1.1",
+      "date": "March 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "CS2 UPDATED",
+          "features": [
+            "Updated Game Version - Full compatibility with the latest CS2 update",
+            "Dual UI - ListUI & ClickUI both fully supported",
+            "More Player ESP Features - Additional ESP options for better player visibility",
+            "Aimbot & Triggerbot - Improved aimbot and triggerbot with more settings"
+          ]
+        },
+        {
+          "title": "IMPROVEMENTS",
+          "features": [
+            "Many new features added across all categories",
+            "Improved overall performance and stability",
+            "Various bug fixes and optimizations",
+            "Enhanced anti-detection measures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cs2-recode",
+      "version": "v1.0 Recode",
+      "date": "March 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "CS2 RECODE RELEASED",
+          "features": [
+            "Complete Recode - CS2 menu has been fully recoded from the ground up",
+            "Dual UI Support - ClickUI & ListUI now available for CS2",
+            "Improved ESP - Enhanced visuals with more customization options",
+            "Improved Aimbot - Better target acquisition with smoother aim",
+            "Improved Triggerbot - More responsive with configurable delays",
+            "Enhanced Bhop - Better movement prediction and consistency",
+            "Performance Boost - Significantly improved performance and stability",
+            "New Skinchanger - Change weapon skins, knives, and gloves in-game"
+          ]
+        },
+        {
+          "title": "FIXES & IMPROVEMENTS",
+          "features": [
+            "Fixed various crashes and stability issues from beta",
+            "Improved anti-detection measures",
+            "Better compatibility with latest CS2 updates",
+            "Optimized memory usage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cs2-beta",
+      "version": "Beta",
+      "date": "February 2026",
+      "badge": "Beta",
+      "badgeStyle": "beta",
+      "categories": [
+        {
+          "title": "CS2 BETA RELEASED",
+          "features": [
+            "Scooby CS2 Beta Released - Counter-Strike 2 mod menu now available as a free beta",
+            "ESP / Wallhacks - See enemies through walls with health bars, distance, and weapon info",
+            "Aimbot - Precision aim assistance with configurable FOV, smoothing, and bone selection",
+            "Triggerbot - Automatically fires when crosshair is on an enemy",
+            "No Recoil - Eliminate weapon recoil and spread for perfect accuracy",
+            "Radar - Enhanced radar showing all enemy positions",
+            "Bhop - Automated bunny hopping for maximum movement speed",
+            "Chams - Colored player models visible through walls"
+          ]
+        },
+        {
+          "title": "COMING SOON",
+          "features": [
+            "Skinchanger - Use any skin in-game including knives and gloves (In Development)",
+            "Paid Early Access - Premium tier with additional features coming soon"
+          ]
+        },
+        {
+          "title": "NOTES",
+          "features": [
+            "This is a BETA release - report any bugs on Discord",
+            "Currently available for free via the Get Free Key system",
+            "More features and improvements coming in future updates"
+          ]
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "totalVersions": 22,
+    "totalFeatures": "420+",
+    "latestUpdate": "Mar",
+    "activeYear": "2026"
+  }
+}

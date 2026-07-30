@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scooby — Best Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD</title>
+<meta name="description" content="Scooby is the best multi-game mod menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD. Free version available plus premium with 1000+ features: heist editor, money recovery, ESP, aimbot, Lua executor & HWID spoofer. Safe, undetected and updated regularly.">
+<meta name="keywords" content="Scooby menu, Scooby mod menu, best mod menu, best mod menu 2026, best GTA 5 mod menu, GTA 5 mod menu, GTA 5 mod menu free, best RDR2 mod menu, RDR2 mod menu, best FiveM mod menu, FiveM mod menu, FiveM ESP, best RedM mod menu, RedM mod menu, best CS2 cheat, CS2 mod menu, best GMOD cheat, GMOD mod menu, free mod menu, best free mod menu, multi-game mod menu, heist editor, money recovery, ESP, aimbot, Lua executor, HWID spoofer, ban cleaner, undetected mod menu, GTA online mod menu">
+<meta name="author" content="Scooby">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#080808">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/">
+<meta property="og:title" content="Scooby — Best Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD">
+<meta property="og:description" content="The best multi-game mod menu. ESP, aimbot, heist editor, Lua executor, HWID spoofer & more. Free version available plus premium with 1000+ features.">
+<meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://scoobymenu.cc/">
+<meta name="twitter:title" content="Scooby — Best Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD">
+<meta name="twitter:description" content="The best multi-game mod menu. Free version available plus premium with 1000+ features.">
+<meta name="twitter:image" content="https://scoobymenu.cc/background-home.png">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://scoobymenu.cc/">
+<link rel="shortcut icon" href="/assets/images/logo.png">
+<link rel="apple-touch-icon" href="/assets/images/logo.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Scooby Menu",
+  "alternateName": ["Scooby Mod Menu", "Scooby"],
+  "description": "A premium multi-game mod menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Windows",
+  "offers": [
+    { "@type": "Offer", "name": "Free Version", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Premium Lifetime", "price": "10", "priceCurrency": "USD" }
+  ],
+  "featureList": ["Heist Editor", "Money Recovery", "Modded Vehicles", "Lua Scripts", "ESP", "Aimbot", "HWID Spoofer", "Ban Cleaner", "1000+ Features"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --surface: #0d0d0d;
+  --surface-2: #111111;
+  --card: #111111;
+  --card-hover: #161616;
+  --border: rgba(255,255,255,.07);
+  --border-strong: rgba(255,255,255,.13);
+  --accent: #4f8ef5;
+  --accent-2: #2563eb;
+  --accent-soft: rgba(79,142,245,.13);
+  --accent-line: rgba(79,142,245,.3);
+  --text: #f4f4f7;
+  --text-dim: #9a9aaa;
+  --text-faint: #5c5c6c;
+  --green: #22c55e;
+  --amber: #eab308;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 50px;
+  --maxw: 1180px;
+  --shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+::selection { background: rgba(79,142,245,.28); color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 8px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: #2e2e2e; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.section { padding: clamp(72px,9vw,120px) 0; position: relative; }
+
+/* ---- NAV ---- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  transition: all .3s ease;
+}
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  transition: all .3s ease;
+}
+/* Scrolled: floating centered nav */
+.nav.scrolled .nav-inner {
+  max-width: 860px;
+  margin: 12px auto 0;
+  padding: 10px 20px;
+  background: rgba(14,14,14,.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-strong);
+  border-radius: 50px;
+}
+.brand {
+  font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em;
+  display: flex; align-items: center; gap: 0;
+  flex-shrink: 0; color: #fff; -webkit-text-fill-color: #fff;
+}
+.brand-name { color: #fff; -webkit-text-fill-color: #fff; }
+.brand-dot { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--text-dim); font-size: .9rem; font-weight: 500;
+  transition: color .2s; position: relative;
+}
+.nav-links a:hover { color: #fff; }
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.btn-nav-ghost {
+  padding: 8px 18px; border-radius: var(--radius-pill);
+  font-size: .88rem; font-weight: 600; color: var(--text-dim);
+  background: transparent; border: 1px solid var(--border-strong);
+  cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.btn-nav-ghost:hover { color: #fff; border-color: var(--border-strong); background: rgba(255,255,255,.06); }
+.btn-nav-primary {
+  padding: 8px 20px; border-radius: var(--radius-pill);
+  font-size: .88rem; font-weight: 600; color: #fff;
+  background: rgba(255,255,255,.1); border: 1px solid var(--border-strong);
+  cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.btn-nav-primary:hover { background: rgba(255,255,255,.16); }
+.btn-nav-primary svg, .btn-nav-ghost svg { width: 15px; height: 15px; flex-shrink: 0; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px;
+}
+.hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .25s; }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- HERO ---- */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: url('background-home.png') center right / cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(8,8,8,.97) 0%,
+    rgba(8,8,8,.88) 35%,
+    rgba(8,8,8,.65) 55%,
+    rgba(8,8,8,.2) 75%,
+    rgba(8,8,8,.08) 100%
+  );
+}
+.hero-overlay-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 200px; pointer-events: none;
+  background: linear-gradient(to top, var(--bg), transparent);
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+  width: 100%;
+  padding-top: 100px; padding-bottom: 80px;
+}
+.hero-content { max-width: 700px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px;
+  padding: 6px 14px 6px 7px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: rgba(20,20,20,.8);
+  backdrop-filter: blur(8px);
+  font-size: .82rem; color: var(--text-dim);
+}
+.hero-badge-pill {
+  background: var(--accent); color: #fff;
+  padding: 2px 10px; border-radius: var(--radius-pill);
+  font-size: .75rem; font-weight: 700; letter-spacing: .04em;
+}
+.hero-badge-arrow {
+  display: flex; align-items: center; gap: 4px; color: var(--text-dim);
+}
+.hero-badge-arrow svg { width: 13px; height: 13px; color: var(--accent); }
+.hero h1 {
+  font-size: clamp(4rem,11vw,8rem); font-weight: 900; line-height: 1;
+  letter-spacing: -.03em; margin-bottom: 20px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #c0d4f8 55%, var(--accent) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  padding-bottom: .15em; overflow: visible;
+}
+.hero p.lead {
+  font-size: clamp(.95rem,2vw,1.15rem); color: var(--text-dim);
+  max-width: 460px; margin-bottom: 38px; font-weight: 400;
+}
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-hero {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  font-size: .96rem; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: .22s ease; white-space: nowrap; border: none;
+}
+.btn-hero-primary {
+  background: rgba(255,255,255,.1); color: #fff;
+  border: 1px solid var(--border-strong);
+}
+.btn-hero-primary:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+.btn-hero-primary svg { width: 17px; height: 17px; }
+.btn-hero-discord {
+  background: #5865F2; color: #fff;
+  border: 1px solid #5865F2;
+}
+.btn-hero-discord:hover { background: #6b78f5; transform: translateY(-2px); }
+.btn-hero-discord svg { width: 17px; height: 17px; }
+.hero-games {
+  margin-top: 52px; display: flex; gap: 8px 22px; flex-wrap: wrap;
+  color: var(--text-faint); font-size: .78rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.hero-games span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-games span::before {
+  content: ""; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent); opacity: .7;
+}
+
+/* ---- STATS STRIP ---- */
+.stats-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.stats-strip-inner {
+  display: flex; align-items: stretch;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+}
+.stat-item {
+  flex: 1; text-align: center; padding: 36px 20px;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-size: clamp(1.8rem,3.5vw,2.4rem); font-weight: 800;
+  color: #fff; letter-spacing: -.02em; margin-bottom: 4px;
+}
+.stat-num em { color: #fff; font-style: normal; }
+.stat-label { color: var(--text-dim); font-size: .88rem; }
+
+/* ---- SECTION COMMON ---- */
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+.eyebrow {
+  display: inline-block; font-size: .72rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 14px;
+}
+h2.section-title {
+  font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800;
+  letter-spacing: -.03em; margin-bottom: 14px; color: #fff;
+}
+.section-sub { color: var(--text-dim); font-size: 1rem; }
+
+/* ---- PRODUCTS ---- */
+.products-scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-faint); font-size: .8rem; margin-bottom: 40px;
+}
+.products-scroll-hint svg { width: 18px; height: 18px; color: var(--accent); animation: bounce 2s infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+.product-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+}
+.product-card {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  min-height: 220px; border: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background-size: cover; background-position: center;
+  transition: .28s ease; isolation: isolate; cursor: pointer;
+}
+.product-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(8,8,8,.1) 0%, rgba(8,8,8,.55) 50%, rgba(8,8,8,.92) 100%);
+}
+.product-card:hover { transform: translateY(-4px); border-color: rgba(79,142,245,.25); box-shadow: 0 16px 48px rgba(0,0,0,.5); }
+.product-card-body { position: relative; z-index: 1; padding: 20px; }
+.product-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.product-card-body p { color: var(--text-dim); font-size: .86rem; }
+.product-status {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  background: rgba(8,8,8,.7); backdrop-filter: blur(6px);
+  border: 1px solid var(--border-strong);
+}
+.product-status .dot { width: 5px; height: 5px; border-radius: 50%; }
+.product-status.online { color: #6ee7b7; }
+.product-status.online .dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.product-status.dev { color: #fcd34d; }
+.product-status.dev .dot { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+.product-status.free { color: #6ee7b7; background: rgba(34,197,94,.16); border-color: rgba(34,197,94,.3); }
+.product-card.dark-card {
+  background: linear-gradient(135deg, #0d0d10 0%, #141418 100%);
+  min-height: 140px;
+}
+.products-label {
+  font-size: .78rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--text-faint);
+  margin: 36px 0 16px; display: flex; align-items: center; gap: 14px;
+}
+.products-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.product-card.wide { grid-column: 1 / -1; }
+
+/* ---- WHY CHOOSE US ---- */
+.features-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.feature-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 28px;
+  transition: .25s ease;
+}
+.feature-card:hover { border-color: var(--accent-line); background: var(--card-hover); transform: translateY(-3px); }
+.feature-icon {
+  width: 52px; height: 52px; border-radius: 14px; margin-bottom: 20px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent));
+  box-shadow: 0 8px 24px rgba(79,142,245,.25);
+}
+.feature-icon svg { width: 24px; height: 24px; color: #fff; }
+.feature-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+.feature-card p { color: var(--text-dim); font-size: .91rem; }
+
+/* ---- FAQ ---- */
+.faq-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.faq {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); overflow: hidden; transition: border-color .2s;
+}
+.faq.open { border-color: var(--accent-line); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px; cursor: pointer; font-weight: 600; font-size: .98rem; user-select: none;
+}
+.faq-q svg { width: 18px; height: 18px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.faq.open .faq-q svg { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-a p { padding: 0 24px 20px; color: var(--text-dim); font-size: .93rem; }
+
+/* ---- REVIEWS ---- */
+.reviews-section { overflow: hidden; }
+.marquee { display: flex; gap: 16px; width: max-content; animation: scroll 60s linear infinite; }
+.reviews-section:hover .marquee { animation-play-state: paused; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.review-card {
+  width: 320px; flex-shrink: 0; background: var(--card);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
+}
+.review-top { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
+.review-av { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid var(--border-strong); flex-shrink: 0; }
+.review-name { font-weight: 600; font-size: .93rem; }
+.review-role { color: var(--text-faint); font-size: .78rem; }
+.review-stars { display: flex; gap: 2px; margin-bottom: 10px; }
+.review-stars svg { width: 13px; height: 13px; color: var(--accent); }
+.review-text { color: var(--text-dim); font-size: .9rem; margin-bottom: 12px; }
+.review-badge {
+  font-size: .72rem; font-weight: 600; color: var(--accent);
+  padding: 3px 10px; border: 1px solid var(--accent-line);
+  border-radius: var(--radius-pill); background: var(--accent-soft);
+}
+.marquee-fade { position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
+.marquee-fade.l { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.marquee-fade.r { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
+
+/* ---- CTA BAND ---- */
+.cta-band {
+  background: linear-gradient(120deg, rgba(79,142,245,.1), rgba(37,99,235,.04));
+  border: 1px solid var(--accent-line); border-radius: 20px;
+  padding: clamp(40px,6vw,64px); text-align: center; position: relative; overflow: hidden;
+}
+.cta-band h2 { font-size: clamp(1.7rem,4vw,2.5rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
+.cta-band p { color: var(--text-dim); max-width: 500px; margin: 0 auto 28px; }
+.cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-cta-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  font-size: .95rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: .22s; background: var(--accent); color: #fff; border: 1px solid var(--accent);
+}
+.btn-cta-primary:hover { background: #6ba3f7; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(79,142,245,.3); }
+.btn-cta-primary svg { width: 17px; height: 17px; }
+.btn-cta-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  font-size: .95rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: .22s; background: rgba(255,255,255,.05); color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn-cta-ghost:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+/* ---- FOOTER ---- */
+.footer { border-top: 1px solid var(--border); background: var(--surface); padding: 64px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+.footer-brand .brand-name { color: #fff; }
+.footer-brand .brand-dot { color: var(--accent); }
+.footer-tag { color: var(--text-dim); font-size: .9rem; max-width: 280px; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 8px; }
+.footer-social a {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); color: var(--text-dim); transition: .2s;
+}
+.footer-social a:hover { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); transform: translateY(-2px); }
+.footer-social svg { width: 16px; height: 16px; }
+.footer-col h4 { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { color: var(--text-dim); font-size: .9rem; transition: color .2s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap;
+}
+.footer-bottom p { color: var(--text-faint); font-size: .84rem; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { color: var(--text-faint); font-size: .84rem; transition: color .2s; }
+.footer-bottom-links a:hover { color: var(--accent); }
+
+/* ---- BACK TO TOP ---- */
+.to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 44px; height: 44px; border-radius: 12px; z-index: 800;
+  background: var(--accent); color: #fff; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: .25s; box-shadow: 0 8px 24px rgba(79,142,245,.35);
+}
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top svg { width: 20px; height: 20px; }
+
+/* ---- MODALS ---- */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(4,4,4,.85); backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); display: none;
+  align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity .25s;
+}
+.modal-overlay.active { display: flex; opacity: 1; }
+.modal {
+  background: linear-gradient(180deg, #141414, var(--card));
+  border: 1px solid var(--border-strong); border-radius: 20px; padding: 32px;
+  width: 100%; max-width: 440px; position: relative;
+  transform: scale(.94); transition: transform .25s;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7); max-height: 90vh; overflow-y: auto;
+}
+.modal-overlay.active .modal { transform: scale(1); }
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,.05); border: none;
+  color: var(--text-dim); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: .2s;
+}
+.modal-close:hover { background: rgba(239,68,68,.2); color: #fff; }
+.modal-icon {
+  width: 58px; height: 58px; border-radius: 15px; margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent);
+}
+.modal h3 { font-size: 1.25rem; font-weight: 800; text-align: center; margin-bottom: 8px; }
+.modal > p { color: var(--text-dim); text-align: center; font-size: .92rem; margin-bottom: 20px; }
+.pay-option {
+  background: rgba(255,255,255,.025); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px; margin-bottom: 12px;
+}
+.pay-option h4 { font-size: .96rem; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pay-option p { color: var(--text-faint); font-size: .83rem; margin-bottom: 12px; }
+.pay-tag { font-size: .68rem; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 8px; border-radius: var(--radius-pill); }
+.dl-divider { margin: 16px 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
+.dl-divider p { color: var(--text-faint); font-size: .82rem; margin-bottom: 10px; }
+.dl-note { color: var(--text-faint); font-size: .8rem; text-align: center; margin-top: 8px; }
+.btn-modal {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 12px 20px; border-radius: var(--radius-pill);
+  font-size: .93rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: .2s; border: none;
+}
+.btn-modal-primary { background: var(--accent); color: #fff; }
+.btn-modal-primary:hover { background: #f0768d; transform: translateY(-1px); }
+.btn-modal-ghost {
+  background: rgba(255,255,255,.05); color: var(--text);
+  border: 1px solid var(--border-strong) !important; border-radius: var(--radius-pill) !important;
+}
+.btn-modal-ghost:hover { background: rgba(255,255,255,.1); }
+.btn-modal-blue { background: #3b82f6; color: #fff; }
+.btn-modal-blue:hover { background: #5394f7; }
+.btn-modal svg { width: 16px; height: 16px; }
+
+/* ---- REVEAL ---- */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---- RESPONSIVE ---- */
+@media(max-width: 980px) {
+  .feature-grid, .product-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .stats-strip-inner { flex-wrap: wrap; }
+  .stat-item { min-width: 33%; }
+}
+@media(max-width: 760px) {
+  .nav-links, .nav-actions .btn-nav-ghost { display: none; }
+  .hamburger { display: flex; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: rgba(8,8,8,.97); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 24px 16px; transform: translateY(-10px);
+    opacity: 0; pointer-events: none; transition: .25s;
+  }
+  .nav-links.open { display: flex; transform: none; opacity: 1; pointer-events: auto; }
+  .nav-links a { width: 100%; padding: 13px 0; border-bottom: 1px solid var(--border); font-size: .98rem; }
+  .nav-links a:last-child { border-bottom: none; }
+  .nav.scrolled .nav-inner { border-radius: 16px; margin: 8px; max-width: none; }
+  .hero h1 { font-size: clamp(3.5rem,14vw,5rem); }
+}
+@media(max-width: 560px) {
+  .feature-grid, .product-grid { grid-template-columns: 1fr; }
+  .stats-strip-inner { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-cta .btn-hero { flex: 1 1 auto; justify-content: center; }
+}
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .01s !important; }
+  .marquee { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <span class="brand-name">scooby</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+      <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+      <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="/portal" target="_blank" rel="noopener" class="btn-nav-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Login
+      </a>
+      <a href="#" onclick="openModal('downloadModal');return false;" class="btn-nav-primary">
+        Download
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-bottom"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-pill">New</span>
+        <span class="hero-badge-arrow">
+          Free version just updated
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </div>
+      <h1>SCOOBY</h1>
+      <p class="lead">The premium modding experience across all your favourite games.</p>
+      <div class="hero-cta">
+        <a href="#" onclick="openModal('startModal');return false;" class="btn-hero btn-hero-primary">
+          Start Dominating
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener" class="btn-hero btn-hero-discord">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          Join Discord
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Stats Strip ===== -->
+<div class="stats-strip">
+  <div class="stats-strip-inner">
+    <div class="stat-item">
+      <div class="stat-num"><em>1000+</em></div>
+      <div class="stat-label">Features</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6<em>+</em></div>
+      <div class="stat-label">Supported Games</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Lifetime</div>
+      <div class="stat-label">License — one-time</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Products ===== -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Products</p>
+      <h2 class="section-title">Click on any game below to explore our available cheats and features</h2>
+    </div>
+
+    <div class="products-scroll-hint reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </div>
+
+    <!-- Free banner -->
+    <a href="/products/free" class="product-card wide dark-card reveal" style="margin-bottom:16px">
+      <span class="product-status free"><span class="dot" style="background:var(--green)"></span>Free</span>
+      <div class="product-card-body">
+        <h3>Free Version</h3>
+        <p>GTA 5, RDR2, CS2, GMOD, FiveM &amp; Spoofer — all free, no payment needed.</p>
+      </div>
+    </a>
+
+    <p class="products-label reveal">Available now</p>
+    <div class="product-grid">
+      <a href="/products/gta5" class="product-card reveal" style="background-image:url('/products/images/gta5.jpg')">
+
+        <div class="product-card-body"><h3>Grand Theft Auto V</h3><p>Heist editor, money recovery, modded vehicles, ESP, aimbot & Lua scripting</p></div>
+      </a>
+      <a href="/products/rdr2" class="product-card reveal" style="background-image:url('/products/images/rdr2.jpg')">
+
+        <div class="product-card-body"><h3>Red Dead Redemption 2</h3><p>God mode, teleports, money drops, unlock all & full player control</p></div>
+      </a>
+      <a href="/products/fivem" class="product-card reveal" style="background-image:url('/products/images/fivem.jpg')">
+
+        <div class="product-card-body"><h3>FiveM</h3><p>ESP, aimbot, server trolling, vehicle spawner & noclip</p></div>
+      </a>
+      <a href="/products/redm" class="product-card reveal" style="background-image:url('/products/images/REDM.jpg')">
+
+        <div class="product-card-body"><h3>RedM</h3><p>Resource triggers, player control, trolling & server manipulation</p></div>
+      </a>
+      <a href="/products/cs2" class="product-card reveal" style="background-image:url('/products/images/CS2.jpg')">
+
+        <div class="product-card-body"><h3>Counter-Strike 2</h3><p>Wallhack, aimbot, triggerbot, radar hack & skin changer</p></div>
+      </a>
+      <a href="/products/gmod" class="product-card reveal" style="background-image:url('/products/images/GMOD.jpg')">
+
+        <div class="product-card-body"><h3>Garry's Mod</h3><p>Aimbot, ESP, speedhack, noclip & full server admin bypass</p></div>
+      </a>
+      <a href="/products/spoofer" class="product-card dark-card reveal">
+
+        <div class="product-card-body"><h3>Spoofer + Cleaner</h3><p>Spoof hardware IDs & wipe bans across all supported games</p></div>
+      </a>
+    </div>
+
+    <p class="products-label reveal">Coming soon</p>
+    <div class="product-grid">
+      <a href="/products/pubg" class="product-card reveal" style="background-image:url('/products/images/pubg.jpg')">
+        <span class="product-status dev">In Development</span>
+        <div class="product-card-body"><h3>PUBG</h3><p>Coming soon</p></div>
+      </a>
+      <a href="/products/r6" class="product-card reveal" style="background-image:url('/products/images/r6.jpg')">
+        <span class="product-status dev">In Development</span>
+        <div class="product-card-body"><h3>Rainbow Six Siege</h3><p>Coming soon</p></div>
+      </a>
+      <a href="/products/sbox" class="product-card dark-card reveal">
+        <span class="product-status dev">In Development</span>
+        <div class="product-card-body"><h3>S&amp;box</h3><p>Coming soon</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why Choose Us ===== -->
+<section class="section features-section" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Why Choose Us</p>
+      <h2 class="section-title">Everything you need, in one menu</h2>
+      <p class="section-sub">Built to go above and beyond — play in public lobbies with friends, no isolation, no restrictions.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Quality and Security</h3>
+        <p>Expect nothing less than the best quality and safety. Once injected, you'll instantly feel the difference as comfort and a premium experience.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Easy to Use</h3>
+        <p>Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Questions or need a hand? Our dedicated 24/7 live chat support is ready to assist, ensuring your experience is seamless and fast.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+        </div>
+        <h3>Heist Editor</h3>
+        <p>Full control over Cayo Perico, Casino, Doomsday and apartment heists — custom cuts, skip steps, instant finish.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Lua Executor</h3>
+        <p>Extend the menu with custom Lua scripts and community-made content — endless possibilities for your crew.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Money Recovery</h3>
+        <p>Reliable money loops and recovery tools to rebuild your account fast — plus rank, stats and unlock editors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 class="section-title">Frequently asked questions</h2>
+      <p class="section-sub">Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq reveal">
+        <div class="faq-q">Is Scooby safe to use?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">What's the difference between Free and Premium?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Which games are supported?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>GTA 5, RDR2, FiveM, RedM, CS2, GMOD and a standalone Spoofer + Cleaner are available now. PUBG, Rainbow Six Siege and S&amp;box are in development.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Do I pay once or is it a subscription?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>Lifetime licenses are a one-time payment — no recurring fees. Exact pricing depends on the game; open any product page for its current price. Crypto payments save you 20%.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">Can I play with friends in public lobbies?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>Yes. Scooby works in public lobbies with non-modders and friends — no isolation, no restrictions. GTA 5 Legacy and Enhanced are both supported, with BattlEye Disabled (Host) on Premium and full BattlEye Enabled support on Premium Plus.</p></div>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-q">How do I get support?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>Join our Discord for instant help from the team and community, browse the Guides and Docs, or reach us on Telegram. Delivery is instant after purchase.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reviews ===== -->
+<section class="section reviews-section" id="reviews" style="border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2 class="section-title">Loved by the community</h2>
+      <p class="section-sub">Thousands of players trust Scooby for their daily modding. Here's what a few of them say.</p>
+    </div>
+  </div>
+  <div style="position:relative">
+    <div class="marquee-fade l"></div>
+    <div class="marquee-fade r"></div>
+    <div class="marquee" id="marquee"></div>
+  </div>
+</section>
+
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand"><span class="brand-name">scooby</span></div>
+        <p class="footer-tag">Premium gaming enhancement menus. The ultimate modding experience for GTA Online, RDR2, FiveM and more.</p>
+        <div class="footer-social">
+          <a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+          <a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a href="https://youtube.com/@ScoobyOnTop" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="/products/gta5">GTA 5</a></li>
+          <li><a href="/products/rdr2">RDR2</a></li>
+          <li><a href="/products/fivem">FiveM</a></li>
+          <li><a href="/products/redm">RedM</a></li>
+          <li><a href="/products/cs2">CS2</a></li>
+          <li><a href="/products/gmod">GMOD</a></li>
+          <li><a href="/products/spoofer">Spoofer + Cleaner</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/best-mod-menu/">Best Mod Menu 2026</a></li>
+          <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+          <li><a href="/videos" rel="noopener">Videos</a></li>
+          <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+          <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+          <li><a href="#" onclick="openModal('downloadModal');return false;">Download</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener">Discord Server</a></li>
+          <li><a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="/portal" target="_blank" rel="noopener">Portal / Login</a></li>
+          <li><a href="/tos">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scooby. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/tos">Terms</a>
+        <a href="https://whatwhatboy.com/fsl" target="_blank" rel="noopener">FSL License</a>
+        <a href="/portal" target="_blank" rel="noopener">Portal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Back to top ===== -->
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ===== Start Modal ===== -->
+<div class="modal-overlay" id="startModal">
+  <div class="modal" style="max-width:400px">
+    <button class="modal-close" onclick="closeModal('startModal')" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+    <h3 style="text-align:center;font-size:1.3rem;font-weight:800;margin-bottom:6px">Get Started</h3>
+    <p style="text-align:center;color:var(--text-dim);font-size:.9rem;margin-bottom:24px">Choose how you'd like to get Scooby</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+
+      <!-- Free Version -->
+      <a href="/products/free" onclick="closeModal('startModal')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:14px;text-decoration:none;transition:.2s;color:inherit" onmouseover="this.style.background='rgba(34,197,94,.14)'" onmouseout="this.style.background='rgba(34,197,94,.08)'">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(34,197,94,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:#fff;display:flex;align-items:center;gap:8px">Free Version <span style="font-size:.68rem;font-weight:700;color:#22c55e;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);padding:2px 8px;border-radius:50px">FREE</span></div>
+          <div style="font-size:.82rem;color:var(--text-dim);margin-top:2px">GTA 5, RDR2, CS2, FiveM & more</div>
+        </div>
+      </a>
+
+      <!-- Purchase / Store -->
+      <a href="/store" onclick="closeModal('startModal')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(79,142,245,.08);border:1px solid rgba(79,142,245,.25);border-radius:14px;text-decoration:none;transition:.2s;color:inherit" onmouseover="this.style.background='rgba(79,142,245,.14)'" onmouseout="this.style.background='rgba(79,142,245,.08)'">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(79,142,245,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" width="20" height="20"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:#fff">Purchase Premium</div>
+          <div style="font-size:.82rem;color:var(--text-dim);margin-top:2px">Lifetime license — one-time payment</div>
+        </div>
+      </a>
+
+      <!-- Download -->
+      <a href="#" onclick="closeModal('startModal');openModal('downloadModal');return false;" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,.04);border:1px solid var(--border-strong);border-radius:14px;text-decoration:none;transition:.2s;color:inherit" onmouseover="this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" width="20" height="20"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:#fff">Download Launcher</div>
+          <div style="font-size:.82rem;color:var(--text-dim);margin-top:2px">Get the Scooby launcher installer</div>
+        </div>
+      </a>
+
+      <!-- Login -->
+      <a href="/portal" target="_blank" rel="noopener" onclick="closeModal('startModal')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,.04);border:1px solid var(--border-strong);border-radius:14px;text-decoration:none;transition:.2s;color:inherit" onmouseover="this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" width="20" height="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:.95rem;color:#fff">Login / Portal</div>
+          <div style="font-size:.82rem;color:var(--text-dim);margin-top:2px">Access your account and licenses</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== Download Modal ===== -->
+<div class="modal-overlay" id="downloadModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('downloadModal')" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+    <h3>Download Launcher</h3>
+    <p>Click below to download the installer.</p>
+    <a href="https://limewire.com/d/ZwlaV#DYLfIZGWea" target="_blank" rel="noopener" class="btn-modal btn-modal-primary" onclick="closeModal('downloadModal')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Scooby Launcher
+    </a>
+    <div class="dl-divider">
+      <p>Recommended tool</p>
+      <a href="https://limewire.com/d/ZwlaV#DYLfIZGWea" target="_blank" rel="noopener" class="btn-modal btn-modal-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Download Defender Control
+      </a>
+      <p class="dl-note">Enable / disable Windows antivirus fully with one click.</p>
+    </div>
+    <div class="dl-divider">
+      <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener" class="btn-modal btn-modal-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Install VC Runtimes
+      </a>
+      <p class="dl-note">Avoid crashes and install VC Runtimes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Payment Modal ===== -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('paymentModal')" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+    <h3>Select Payment Method</h3>
+    <div class="pay-option">
+      <h4>Credit Card &amp; Digital Wallets</h4>
+      <p>Instant delivery • Secure payment</p>
+      <a href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" rel="noopener" class="btn-modal btn-modal-primary">Pay with Card</a>
+    </div>
+    <div class="pay-option">
+      <h4>Cryptocurrency <span class="pay-tag">Save 20%</span></h4>
+      <p>Bitcoin, Ethereum &amp; more</p>
+      <a href="https://nenyooocrypto.shop/" target="_blank" rel="noopener" class="btn-modal btn-modal-ghost" style="border:1px solid var(--border-strong)">Pay with Crypto</a>
+    </div>
+    <div class="pay-option">
+      <h4>Alternative Methods</h4>
+      <p>PayPal F&amp;F • Skrill • Paysafe • Steam Gift Cards</p>
+      <a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener" class="btn-modal btn-modal-ghost" style="border:1px solid var(--border-strong)">Contact Support</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+// Mobile menu
+function toggleMenu() {
+  var h = document.getElementById('hamburger'), n = document.getElementById('navLinks');
+  var open = n.classList.toggle('open');
+  h.classList.toggle('active');
+  h.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+document.querySelectorAll('#navLinks a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// Navbar scroll + back to top
+var nav = document.getElementById('nav'), toTop = document.getElementById('toTop');
+window.addEventListener('scroll', function() {
+  var y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 60);
+  toTop.classList.toggle('show', y > 500);
+}, { passive: true });
+toTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = q.parentElement, ans = item.querySelector('.faq-a'), isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(function(f) { f.classList.remove('open'); f.querySelector('.faq-a').style.maxHeight = null; });
+    if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  });
+});
+
+// Modals
+function openModal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+document.querySelectorAll('.modal-overlay').forEach(function(o) {
+  o.addEventListener('click', function(e) { if (e.target === o) closeModal(o.id); });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(function(o) { closeModal(o.id); });
+});
+if (window.location.hash === '#download') openModal('downloadModal');
+
+// Reveal on scroll
+var revObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(en) { if (en.isIntersecting) { en.target.classList.add('in'); revObserver.unobserve(en.target); } });
+}, { threshold: .1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el) { revObserver.observe(el); });
+
+// Reviews marquee
+(function() {
+  var reviews = [
+    { n: 'xNightRider', r: 'Premium User', t: "Best menu I've ever used. The heist editor alone is worth it, and the amount of features for the price is insane. Support team is super helpful too.", b: 'Verified Purchase', bg: '0d1117', c: '4f8ef5' },
+    { n: 'Drizzle', r: 'Premium User', t: 'Switched from another menu and never looked back. Updates are frequent, stability is amazing, and the UI is so clean. Lifetime is a steal.', b: 'Verified Purchase', bg: '1a1a2e', c: '4f8ef5' },
+    { n: 'SkullzFN', r: 'Free User', t: 'Started with the free version and was impressed by how much is included. The Discord community is super active and helpful. Upgrading soon.', b: 'Free Version', bg: '16213e', c: '4f8ef5' },
+    { n: 'Zynx', r: 'Premium User', t: "Hands down the smoothest menu out there. No crashes, no lag, just works every time. The vehicle spawner and modded outfits are my favourite.", b: 'Verified Purchase', bg: '0a0a1a', c: '4f8ef5' },
+    { n: 'ToxicVibez', r: 'Premium User', t: "The Lua scripting support is insane. I've made custom scripts for my crew and everyone loves it. The dev team actually listens to feedback. 10/10.", b: 'Verified Purchase', bg: '121220', c: '4f8ef5' },
+    { n: 'Frosty', r: 'Premium User', t: 'Been using Scooby for months on Enhanced and undetected the whole time. Works on Legacy and Enhanced flawlessly. Best money I have spent.', b: 'Verified Purchase', bg: '0e1628', c: '4f8ef5' },
+    { n: 'RazorX', r: 'Free User', t: "Can't believe this is free. The free version has more features than most paid menus. Teleports and the vehicle spawner work perfectly.", b: 'Free Version', bg: '1a0a2e', c: '4f8ef5' },
+    { n: 'Kenzo', r: 'Premium User', t: 'The heist editor is a game changer. Made millions in a day with the Cayo setup. Super easy to use even for beginners. Highly recommend.', b: 'Verified Purchase', bg: '0d1b2a', c: '4f8ef5' }
+  ];
+  var star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  function card(rv) {
+    return '<div class="review-card">' +
+      '<div class="review-top">' +
+        '<div class="review-av"><img src="https://ui-avatars.com/api/?name=' + encodeURIComponent(rv.n) + '&background=' + rv.bg + '&color=' + rv.c + '&bold=true&size=84" alt="' + rv.n + '" loading="lazy"></div>' +
+        '<div><div class="review-name">' + rv.n + '</div><div class="review-role">' + rv.r + '</div></div>' +
+      '</div>' +
+      '<div class="review-stars">' + star + star + star + star + star + '</div>' +
+      '<p class="review-text">' + rv.t + '</p>' +
+      '<span class="review-badge">' + rv.b + '</span>' +
+    '</div>';
+  }
+  var html = reviews.map(card).join('');
+  var m = document.getElementById('marquee');
+  if (m) m.innerHTML = html + html;
+})();
+</script>
+</body>
+</html>

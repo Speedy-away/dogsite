@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Free Key - Scooby Menu</title>
+<link rel="shortcut icon" href="/assets/images/icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #12121a;
+        --accent-cyan: #00d4d4;
+        --accent-gradient: linear-gradient(135deg, #00e5e5 0%, #00c8c8 50%, #00a0a0 100%);
+        --accent-glow: rgba(0, 212, 212, 0.5);
+        --text-primary: #ffffff;
+        --text-secondary: #8a8a9a;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(0, 212, 212, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(0, 180, 180, 0.06) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+    }
+    .logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: 6px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 30px;
+    }
+    h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+    }
+    .ad-container {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .countdown {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 16px 40px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: #0a0a0f;
+        background: var(--accent-gradient);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    .btn:not(:disabled):hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 30px var(--accent-glow);
+    }
+    .back-link {
+        margin-top: 20px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    .back-link:hover {
+        color: var(--accent-cyan);
+    }
+    .steps-container {
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+    }
+    .steps-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .steps-list {
+        list-style: none;
+        margin-bottom: 16px;
+    }
+    .steps-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+        height: 24px;
+        background: var(--accent-gradient);
+        color: #0a0a0f;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 50%;
+    }
+    .ad-warning {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 8px;
+        color: #f87171;
+        font-size: 0.9rem;
+    }
+    .ad-warning svg {
+        flex-shrink: 0;
+    }
+</style>
+<script>
+    // Random Color Theme
+    (function() {
+        const colorThemes = [
+            { name: 'cyan', primary: '#00d4d4', secondary: '#00b8b8', tertiary: '#009999', glow: 'rgba(0, 212, 212, 0.5)' },
+            { name: 'purple', primary: '#a855f7', secondary: '#9333ea', tertiary: '#7c3aed', glow: 'rgba(168, 85, 247, 0.5)' },
+            { name: 'blue', primary: '#3b82f6', secondary: '#2563eb', tertiary: '#1d4ed8', glow: 'rgba(59, 130, 246, 0.5)' },
+            { name: 'red', primary: '#ef4444', secondary: '#dc2626', tertiary: '#b91c1c', glow: 'rgba(239, 68, 68, 0.5)' },
+            { name: 'green', primary: '#22c55e', secondary: '#16a34a', tertiary: '#15803d', glow: 'rgba(34, 197, 94, 0.5)' },
+            { name: 'pink', primary: '#ec4899', secondary: '#db2777', tertiary: '#be185d', glow: 'rgba(236, 72, 153, 0.5)' },
+            { name: 'orange', primary: '#f97316', secondary: '#ea580c', tertiary: '#c2410c', glow: 'rgba(249, 115, 22, 0.5)' },
+            { name: 'yellow', primary: '#eab308', secondary: '#ca8a04', tertiary: '#a16207', glow: 'rgba(234, 179, 8, 0.5)' }
+        ];
+        const randomTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
+        document.documentElement.style.setProperty('--accent-cyan', randomTheme.primary);
+        document.documentElement.style.setProperty('--accent-glow', randomTheme.glow);
+        document.documentElement.style.setProperty('--accent-gradient',
+            `linear-gradient(135deg, ${randomTheme.primary} 0%, ${randomTheme.secondary} 50%, ${randomTheme.tertiary} 100%)`);
+    })();
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">SCOOBY</div>
+        <h1>GET YOUR FREE KEY</h1>
+        <p class="subtitle">Please wait while we prepare your free key</p>
+        <div class="steps-container">
+            <div class="steps-title">HOW TO GET YOUR FREE KEY</div>
+            <ol class="steps-list">
+                <li>
+                    <span class="step-number">1</span>
+                    <span>Complete all the required steps on the page</span>
+                </li>
+                <li>
+                    <span class="step-number">2</span>
+                    <span>Wait for the unlock progress to reach 3/3</span>
+                </li>
+                <li>
+                    <span class="step-number">3</span>
+                    <span>Click the "Unlock Link" button to reveal your key</span>
+                </li>
+            </ol>
+            <div class="ad-warning">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>Ads may popup - just close them and continue</span>
+            </div>
+        </div>
+        <div class="ad-container">
+        </div>
+        <div class="countdown" id="countdown">5</div>
+        <button class="btn" id="continueBtn" disabled onclick="window.location.href='https://whatwhatboy.com/scoobyontop.html'">
+            CONTINUE TO FREE KEY
+        </button>
+        <br>
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+    <script>
+        let timeLeft = 5;
+        const countdownEl = document.getElementById('countdown');
+        const btn = document.getElementById('continueBtn');
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                countdownEl.textContent = '✓';
+                btn.disabled = false;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

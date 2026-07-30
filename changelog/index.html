@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Changelog - Scooby Mod Menu</title>
+<meta name="description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5, FiveM, RedM, CS2, GMOD, and more.">
+<link rel="canonical" href="https://scoobymenu.cc/changelog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/changelog">
+<meta property="og:title" content="Changelog - Scooby Mod Menu">
+<meta property="og:description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5, FiveM, RedM, CS2, GMOD, and more.">
+<meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Changelog - Scooby Mod Menu">
+<meta name="twitter:description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5, FiveM, RedM, CS2, GMOD, and more.">
+<meta name="twitter:image" content="https://scoobymenu.cc/background-home.png">
+<meta name="keywords" content="Scooby mod menu changelog, GTA 5 mod menu updates, FiveM mod menu updates, RedM mod menu updates, CS2 mod menu updates, RDR2 mod menu updates, GMOD mod menu updates, Scooby version history, Scooby changelog, mod menu update log, Scooby new features, Scooby patch notes 2026">
+<meta name="robots" content="index, follow">
+<link rel="shortcut icon" href="/assets/images/logo.png">
+<!-- DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-primary: #080808;
+        --bg-secondary: #0d0d0d;
+        --bg-card: #111111;
+        --bg-card-hover: #161616;
+        --accent-cyan: #4f8ef5;
+        --accent-purple: #2563eb;
+        --accent-pink: #2563eb;
+        --accent-gradient: linear-gradient(135deg, #6ba3f7 0%, #4f8ef5 50%, #2563eb 100%);
+        --accent-glow: rgba(79, 142, 245, 0.5);
+        --text-primary: #ffffff;
+        --text-secondary: #9a9aaa;
+        --border-color: rgba(255,255,255,.07);
+        --glass: rgba(20, 20, 30, 0.8);
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #080808;
+        color: var(--text-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+    /* Animated Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(79, 142, 245, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+        animation: bgPulse 15s ease-in-out infinite alternate;
+    }
+    @keyframes bgPulse {
+        0% { opacity: 0.6; }
+        100% { opacity: 1; }
+    }
+    /* Floating Particles */
+    .particles-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        opacity: 0;
+        animation: floatParticle 20s infinite;
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+    @keyframes floatParticle {
+        0% {
+            opacity: 0;
+            transform: translateY(100vh) scale(0);
+        }
+        10% {
+            opacity: 0.6;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-100vh) scale(1);
+        }
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-gradient);
+        border-radius: 10px;
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+    /* ========================================
+       NAVBAR
+       ======================================== */
+    .nav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 1000;
+        padding: 16px 0;
+        transition: padding 0.4s ease;
+    }
+    .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        background: rgba(8,8,8,0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 999px;
+        padding: 10px 20px;
+        transition: all 0.4s ease;
+    }
+    .nav.scrolled { padding: 10px 0; }
+    .nav.scrolled .nav-inner {
+        background: rgba(8,8,8,0.92);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        flex-shrink: 0;
+    }
+    .brand-name {
+        font-size: 1.2rem;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.5px;
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        list-style: none;
+        flex: 1;
+    }
+    .nav-links a {
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+        color: #fff;
+        background: rgba(255,255,255,0.06);
+    }
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    .btn-nav-ghost {
+        padding: 7px 16px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.15);
+        background: transparent;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-nav-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+    .btn-nav-primary {
+        padding: 7px 16px;
+        border-radius: 8px;
+        border: none;
+        background: #4f8ef5;
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+    }
+    .btn-nav-primary:hover { background: #3a7ae8; transform: translateY(-1px); }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 6px;
+        background: none;
+        border: none;
+        margin-left: auto;
+    }
+    .hamburger span {
+        width: 22px; height: 2px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .nav-actions { display: none; }
+        .hamburger { display: flex; }
+        .nav-links.mobile-open {
+            display: flex;
+            position: fixed;
+            top: 70px; left: 0; right: 0; bottom: 0;
+            background: rgba(8,8,8,0.98);
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 20px;
+            gap: 4px;
+            z-index: 999;
+            overflow-y: auto;
+        }
+        .nav-links.mobile-open li { width: 100%; text-align: center; }
+        .nav-links.mobile-open a { display: block; padding: 14px 20px; font-size: 1rem; color: rgba(255,255,255,0.8); border-radius: 10px; }
+    }
+    /* Page Header */
+    .page-header {
+        padding: 160px 0 100px;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        overflow: hidden;
+        z-index: 1;
+    }
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 50% 0%, rgba(79, 142, 245, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 60%, rgba(37, 99, 235, 0.08) 0%, transparent 40%);
+        pointer-events: none;
+        animation: headerGlow 8s ease-in-out infinite alternate;
+    }
+    .page-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.3), transparent);
+    }
+    @keyframes headerGlow {
+        0% { opacity: 0.7; }
+        100% { opacity: 1; }
+    }
+    .page-title {
+        font-size: 4rem;
+        font-weight: 900;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 25px;
+        letter-spacing: 8px;
+        display: inline-block;
+        position: relative;
+        animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+    .page-title::before {
+        content: 'CHANGELOG';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: blur(20px);
+        opacity: 0.5;
+        z-index: -1;
+    }
+    @keyframes titleGlow {
+        0% { filter: drop-shadow(0 0 20px rgba(79, 142, 245, 0.3)); }
+        100% { filter: drop-shadow(0 0 40px rgba(79, 142, 245, 0.6)); }
+    }
+    .page-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+    }
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 30px;
+        position: relative;
+        z-index: 1;
+    }
+    /* Changelog Section */
+    .changelog-section {
+        padding: 100px 0;
+        background: var(--bg-primary);
+        position: relative;
+        z-index: 1;
+    }
+    .changelog-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 10% 20%, rgba(79, 142, 245, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
+        pointer-events: none;
+    }
+    .version-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        margin-bottom: 40px;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        backdrop-filter: blur(10px);
+    }
+    .version-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--accent-gradient);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    .version-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(79, 142, 245, 0.08) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+    .version-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(79, 142, 245, 0.3);
+        box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.4),
+            0 0 40px rgba(79, 142, 245, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .version-card:hover::before {
+        opacity: 1;
+    }
+    .version-card:hover::after {
+        opacity: 1;
+    }
+    .version-header {
+        background: linear-gradient(135deg, rgba(79, 142, 245, 0.08) 0%, rgba(37, 99, 235, 0.04) 100%);
+        padding: 28px 35px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+        position: relative;
+    }
+    .version-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--accent-cyan);
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(79, 142, 245, 0.3);
+    }
+    .version-badge {
+        display: inline-block;
+        padding: 10px 20px;
+        background: var(--accent-gradient);
+        border-radius: 25px;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 4px 15px rgba(79, 142, 245, 0.3);
+    }
+    .version-badge.coming-soon {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    }
+    .version-date {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-left: auto;
+        margin-right: 15px;
+        padding: 6px 14px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .version-content {
+        padding: 35px;
+    }
+    .feature-category {
+        margin-bottom: 35px;
+    }
+    .feature-category:last-child {
+        margin-bottom: 0;
+    }
+    .category-title {
+        font-size: 1.1rem;
+        color: var(--accent-cyan);
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(79, 142, 245, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        letter-spacing: 1px;
+    }
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .feature-list li {
+        color: var(--text-secondary);
+        padding: 10px 0;
+        padding-left: 30px;
+        position: relative;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        margin: 2px 0;
+    }
+    .feature-list li:hover {
+        background: rgba(79, 142, 245, 0.03);
+        padding-left: 35px;
+        color: var(--text-primary);
+    }
+    .feature-list li::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 16px;
+        width: 8px;
+        height: 8px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(79, 142, 245, 0.5);
+        transition: all 0.3s ease;
+    }
+    .feature-list li:hover::before {
+        transform: scale(1.3);
+        box-shadow: 0 0 15px rgba(79, 142, 245, 0.8);
+    }
+    .feature-list li strong {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+    .sub-feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 20px;
+    }
+    .sub-feature-list li {
+        padding: 6px 0;
+        padding-left: 22px;
+        font-size: 0.9rem;
+    }
+    .sub-feature-list li::before {
+        width: 6px;
+        height: 6px;
+        top: 12px;
+        left: 4px;
+        background: rgba(79, 142, 245, 0.5);
+    }
+    .sub-feature-list li:hover::before {
+        background: var(--accent-cyan);
+    }
+    /* Section Divider */
+    .section-divider {
+        text-align: center;
+        margin: 60px 0;
+        position: relative;
+    }
+    .section-divider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.3), transparent);
+    }
+    .section-divider span {
+        background: var(--bg-primary);
+        padding: 0 30px;
+        position: relative;
+        z-index: 1;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(79, 142, 245, 0.4);
+    }
+    /* Footer */
+    .footer {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 60px 0 0;
+        margin-top: 80px;
+    }
+    .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 48px;
+    }
+    .footer-brand-name {
+        font-size: 1.3rem;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -0.5px;
+        margin-bottom: 10px;
+    }
+    .footer-tag {
+        font-size: 0.875rem;
+        color: rgba(255,255,255,0.4);
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    .footer-social {
+        display: flex;
+        gap: 10px;
+    }
+    .footer-social a {
+        width: 36px; height: 36px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(255,255,255,0.5);
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .footer-col h4 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255,255,255,0.35);
+        margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+        color: rgba(255,255,255,0.55);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+    .footer-bottom-links {
+        display: flex;
+        gap: 20px;
+    }
+    .footer-bottom-links a {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.3);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #4f8ef5;
+        text-decoration: none;
+        margin-top: 30px;
+        padding: 12px 24px;
+        border: 1px solid rgba(79, 142, 245, 0.3);
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: rgba(79, 142, 245, 0.05);
+    }
+    .back-link:hover {
+        background: rgba(79, 142, 245, 0.15);
+        border-color: #4f8ef5;
+        transform: translateX(-5px);
+        box-shadow: 0 0 20px rgba(79, 142, 245, 0.2);
+    }
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(79, 142, 245, 0.4);
+        }
+        50% {
+            box-shadow: 0 0 0 10px rgba(79, 142, 245, 0);
+        }
+    }
+    .version-card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+    }
+    .version-card:nth-child(1) { animation-delay: 0.1s; }
+    .version-card:nth-child(2) { animation-delay: 0.2s; }
+    .version-card:nth-child(3) { animation-delay: 0.3s; }
+    .version-card:nth-child(4) { animation-delay: 0.4s; }
+    .page-title {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    .page-subtitle {
+        animation: fadeInUp 0.8s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+    }
+    .section-title {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+    .version-badge {
+        animation: pulse 2s ease-in-out infinite;
+    }
+    /* Section Divider */
+    .section-divider {
+        display: flex;
+        align-items: center;
+        margin: 60px 0 40px;
+        gap: 20px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.3), transparent);
+    }
+    .section-divider h2 {
+        font-size: 1.5rem;
+        background: linear-gradient(135deg, #6ba3f7 0%, #4f8ef5 50%, #2563eb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 3px;
+        margin: 0;
+        white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+        .page-title { font-size: 2.5rem; }
+        .version-title { font-size: 1.4rem; }
+        .version-header { padding: 20px; }
+        .version-content { padding: 20px; }
+    }
+    /* ========================================
+       VERSION STATS SUMMARY
+       ======================================== */
+    .changelog-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+        padding: 30px;
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.6) 0%, rgba(16, 16, 24, 0.7) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+    .stat-item {
+        text-align: center;
+        min-width: 100px;
+    }
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(79, 142, 245, 0.3);
+    }
+    .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
+    /* ========================================
+       VERSION QUICK JUMP
+       ======================================== */
+    .version-jump {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 50px;
+    }
+    .version-jump-btn {
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 25px;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+    }
+    .version-jump-btn:hover {
+        background: rgba(79, 142, 245, 0.1);
+        border-color: rgba(79, 142, 245, 0.4);
+        color: var(--accent-cyan);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(79, 142, 245, 0.2);
+    }
+    .version-jump-btn.latest {
+        background: var(--accent-gradient);
+        border-color: transparent;
+        color: white;
+        box-shadow: 0 4px 15px rgba(79, 142, 245, 0.3);
+    }
+    .version-jump-btn.latest:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(79, 142, 245, 0.4);
+    }
+    /* ========================================
+       CATEGORY ICONS
+       ======================================== */
+    .category-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+    .category-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    .category-icon.new {
+        background: rgba(0, 200, 100, 0.15);
+        color: #00c864;
+    }
+    .category-icon.improved {
+        background: rgba(0, 180, 255, 0.15);
+        color: #00b4ff;
+    }
+    .category-icon.fixed {
+        background: rgba(255, 180, 0, 0.15);
+        color: #ffb400;
+    }
+    .category-icon.updated {
+        background: rgba(160, 100, 255, 0.15);
+        color: #a064ff;
+    }
+    .category-icon.wip {
+        background: rgba(255, 100, 100, 0.15);
+        color: #ff6464;
+    }
+    /* ========================================
+       TIMELINE CONNECTOR
+       ======================================== */
+    .changelog-timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+    .changelog-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--accent-cyan) 0%, rgba(79, 142, 245, 0.3) 50%, rgba(79, 142, 245, 0.1) 100%);
+        border-radius: 3px;
+    }
+    .changelog-timeline .version-card {
+        position: relative;
+    }
+    .changelog-timeline .version-card::after {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 35px;
+        width: 15px;
+        height: 15px;
+        background: var(--accent-gradient);
+        border-radius: 50%;
+        border: 3px solid var(--bg-primary);
+        box-shadow: 0 0 15px rgba(79, 142, 245, 0.5);
+        z-index: 2;
+    }
+    .changelog-timeline .version-card:first-child::after {
+        width: 19px;
+        height: 19px;
+        left: -32px;
+        top: 33px;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 15px rgba(79, 142, 245, 0.5); }
+        50% { box-shadow: 0 0 25px rgba(79, 142, 245, 0.8), 0 0 40px rgba(79, 142, 245, 0.4); }
+    }
+    /* ========================================
+       SEARCH/FILTER BAR
+       ======================================== */
+    .changelog-filter {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    .filter-input {
+        width: 100%;
+        max-width: 400px;
+        padding: 14px 24px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 30px;
+        color: var(--text-primary);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+    .filter-input::placeholder {
+        color: var(--text-secondary);
+    }
+    .filter-input:focus {
+        border-color: rgba(79, 142, 245, 0.5);
+        box-shadow: 0 0 20px rgba(79, 142, 245, 0.15);
+        background: rgba(79, 142, 245, 0.03);
+    }
+    @media (max-width: 768px) {
+        .changelog-stats {
+            gap: 25px;
+            padding: 25px 20px;
+        }
+        .stat-value {
+            font-size: 2rem;
+        }
+        .changelog-timeline {
+            padding-left: 20px;
+        }
+        .changelog-timeline::before {
+            left: 0;
+        }
+        .changelog-timeline .version-card::after {
+            left: -20px;
+            width: 12px;
+            height: 12px;
+        }
+        .changelog-timeline .version-card:first-child::after {
+            width: 14px;
+            height: 14px;
+            left: -21px;
+        }
+        .version-jump {
+            gap: 8px;
+        }
+        .version-jump-btn {
+            padding: 8px 14px;
+            font-size: 0.75rem;
+        }
+    }
+    /* Scroll animation for cards */
+    .animate-card {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .animate-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Enhanced version card hover effects */
+    .version-card {
+        position: relative;
+        overflow: hidden;
+    }
+    .version-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.05), transparent);
+        transition: left 0.8s ease;
+        pointer-events: none;
+    }
+    .version-card:hover::before {
+        left: 100%;
+    }
+    /* Blurred/Coming Soon Version Cards */
+    .version-card.blurred {
+        position: relative;
+    }
+    .version-card.blurred .version-content {
+        filter: blur(5px);
+        user-select: none;
+        pointer-events: none;
+    }
+    .version-card.blurred .blur-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 10, 15, 0.6);
+        z-index: 10;
+        border-radius: 24px;
+    }
+    .blur-overlay-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-shadow: 0 0 20px rgba(79, 142, 245, 0.5);
+        padding: 20px 40px;
+        background: rgba(79, 142, 245, 0.1);
+        border: 2px solid rgba(79, 142, 245, 0.3);
+        border-radius: 12px;
+    }
+    /* Product Tabs */
+    .product-tabs {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 40px;
+        padding: 15px;
+        background: rgba(20, 20, 30, 0.5);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .product-tab {
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+    .product-tab:hover {
+        background: rgba(79, 142, 245, 0.1);
+        border-color: rgba(79, 142, 245, 0.3);
+        color: var(--text-primary);
+    }
+    .product-tab.active {
+        background: var(--accent-gradient);
+        border-color: transparent;
+        color: #000;
+        box-shadow: 0 4px 20px rgba(79, 142, 245, 0.3);
+    }
+    .product-content {
+        display: none;
+    }
+    .product-content.active {
+        display: block;
+        animation: fadeIn 0.4s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .coming-soon-msg {
+        text-align: center;
+        padding: 80px 20px;
+        background: rgba(20, 20, 30, 0.5);
+        border-radius: 20px;
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    .coming-soon-msg svg {
+        width: 60px;
+        height: 60px;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        opacity: 0.5;
+    }
+    .coming-soon-msg h3 {
+        font-size: 1.3rem;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+    }
+    .coming-soon-msg p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+        .product-tabs {
+            gap: 8px;
+            padding: 10px;
+        }
+        .product-tab {
+            padding: 10px 14px;
+            font-size: 0.7rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <!--== Floating Particles Background ==-->
+    <div class="particles-bg">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 4.5s;"></div>
+        <div class="particle" style="left: 15%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 45%; animation-delay: 7s;"></div>
+        <div class="particle" style="left: 75%; animation-delay: 8s;"></div>
+    </div>
+    <!--== Header ==-->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="/" class="brand">
+                <img src="/assets/images/logo.png" alt="Scooby" width="32" height="32" style="border-radius:8px;">
+                <span class="brand-name">SCOOBY</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/store">Store</a></li>
+                <li><a href="/videos">Videos</a></li>
+                <li><a href="/changelog" class="active">Changelog</a></li>
+                <li><a href="/guides">Guides</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://discord.gg/scoobymenu" class="btn-nav-ghost" target="_blank">Discord</a>
+                <a href="/store" class="btn-nav-primary">Get Access</a>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <!--== Page Header ==-->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">CHANGELOG</h1>
+            <p class="page-subtitle">Version history and updates for all Scooby products</p>
+        </div>
+    </div>
+    <!--== Changelog Section ==-->
+    <section class="changelog-section">
+        <div class="container">
+            <!--== Product Tabs ==-->
+            <div class="product-tabs">
+                <button class="product-tab active" onclick="showProductTab('gta5')">GTA 5</button>
+                <button class="product-tab" onclick="showProductTab('loader')">Loader</button>
+                <button class="product-tab" onclick="showProductTab('spoofer')">Spoofer</button>
+                <button class="product-tab" onclick="showProductTab('rdr2')">RDR2</button>
+                <button class="product-tab" onclick="showProductTab('fivem')">FiveM</button>
+                <button class="product-tab" onclick="showProductTab('redm')">RedM</button>
+                <button class="product-tab" onclick="showProductTab('r6')">Rainbow Six</button>
+                <button class="product-tab" onclick="showProductTab('pubg')">PUBG</button>
+                <button class="product-tab" onclick="showProductTab('cs2')">CS2</button>
+            </div>
+            <!--== GTA 5 Tab Content ==-->
+            <div id="gta5" class="product-content active">
+            <!--== Stats Summary (Dynamic) ==-->
+            <div class="changelog-stats" id="changelog-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-versions">...</div>
+                    <div class="stat-label">Versions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">370+</div>
+                    <div class="stat-label">Features</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="stat-latest">...</div>
+                    <div class="stat-label">Latest Update</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2026</div>
+                    <div class="stat-label">Active Year</div>
+                </div>
+            </div>
+            <!--== Quick Jump Navigation (Dynamic) ==-->
+            <div class="version-jump" id="version-jump">
+                <span style="color: var(--text-secondary);">Loading...</span>
+            </div>
+            <!--== Timeline Container (Dynamic) ==-->
+            <div class="changelog-timeline" id="changelog-timeline">
+                <div style="text-align: center; padding: 60px 20px;">
+                    <div style="width: 50px; height: 50px; border: 3px solid var(--border-color); border-top-color: var(--accent-cyan); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                    <p style="color: var(--text-secondary);">Loading changelog...</p>
+                </div>
+            </div>
+            <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+            <!--== Static content below for SEO (hidden, replaced by JS) ==-->
+            <noscript>
+            <div class="changelog-timeline">
+            <!--== Version 3.2 ==-->
+<div class="version-card" id="v3.2">
+    <div class="version-header">
+        <h2 class="version-title">v3.2</h2>
+        <span class="version-date">March 2026</span>
+        <span class="version-badge">Latest</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">GTA 5 LEGACY UPDATED</h3>
+            <ul class="feature-list">
+                <li><strong>Updated to Newest Game Version</strong> - Full compatibility with the latest GTA 5 update</li>
+                <li><strong>Legacy Options Refreshed</strong> - All legacy options updated and working with new game version</li>
+                <li><strong>Stability Improvements</strong> - Various stability fixes for the new game version</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">FIXES & CHANGES</h3>
+            <ul class="feature-list">
+                <li>Fixed compatibility issues with latest game patch</li>
+                <li>Improved injection stability</li>
+                <li>Various bug fixes and optimizations</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 3.1 ==-->
+<div class="version-card" id="v3.1">
+    <div class="version-header">
+        <h2 class="version-title">v3.1</h2>
+        <span class="version-date">February 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">NEW FEATURES & IMPROVEMENTS</h3>
+            <ul class="feature-list">
+                <li><strong>Readded Business Manager</strong> - Business Manager has been readded and improved</li>
+                <li><strong>Improvements for many options</strong> - Various options enhanced and optimized</li>
+                <li><strong>Improved Lua Support & API</strong> - Better Lua scripting capabilities and API access</li>
+                <li><strong>Layout Overview Improvements</strong> - Cleaner and more intuitive menu layout</li>
+                <li><strong>Theme Loader for ClickUI</strong> - Added theme customization to ClickUI</li>
+                <li><strong>List UI (WIP)</strong> - New List UI in development</li>
+                <li><strong>Reorganized Options & Tabs</strong> - Moved around options and tabs for better organization</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">FIXES & CHANGES</h3>
+            <ul class="feature-list">
+                <li>Fixed problems with the Lua API</li>
+                <li>Various bug fixes and improvements</li>
+                <li>Other misc fixes and optimizations</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--== Loader v2.6 ==-->
+<div class="version-card" id="loader-v2.6">
+    <div class="version-header">
+        <h2 class="version-title">Loader v2.6</h2>
+        <span class="version-date">March 2026</span>
+        <span class="version-badge">Latest</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">LOADER UPDATE</h3>
+            <ul class="feature-list">
+                <li><strong>FiveM & CS2 Support</strong> - Added FiveM and CS2 to the game selector</li>
+                <li><strong>Improved Injection</strong> - Faster and more reliable injection process</li>
+                <li><strong>Updated Anti-Detection</strong> - Enhanced security measures</li>
+                <li><strong>Bug Fixes</strong> - Various loader stability improvements</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--== Loader v2.5 ==-->
+<div class="version-card" id="loader-v2.5">
+    <div class="version-header">
+        <h2 class="version-title">Loader v2.5</h2>
+        <span class="version-date">February 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">NEW FEATURES</h3>
+            <ul class="feature-list">
+                <li><strong>Game Selector</strong> - Added game selector for GTA5/RDR2/FIVEM/REDM</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--== RDR2 v1.0 ==-->
+<div class="version-card" id="rdr2-v1.0">
+    <div class="version-header">
+        <h2 class="version-title">RDR2 v1.0</h2>
+        <span class="version-date">February 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">INITIAL RELEASE</h3>
+            <ul class="feature-list">
+                <li><strong>RDR2 Support</strong> - Red Dead Redemption 2 mod menu released</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--== Loader v2.2 ==-->
+<div class="version-card" id="loader-v2.2">
+    <div class="version-header">
+        <h2 class="version-title">Loader v2.2</h2>
+        <span class="version-date">February 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">FIXES</h3>
+            <ul class="feature-list">
+                <li><strong>Fixed Issues</strong> - Various loader issues resolved</li>
+                <li><strong>Fixed Overlapping</strong> - Fixed any overlapping UI elements</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 3.0 ==-->
+<div class="version-card" id="v3.0">
+    <div class="version-header">
+        <h2 class="version-title">v3.0</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">Beta</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">v3.0 BETA RELEASED</h3>
+            <ul class="feature-list">
+                <li><strong>Select Beta in the Loader</strong> - Choose "Beta" option in the loader to access v3.0</li>
+                <li><strong>Public Lobby Support</strong> - Play in public lobbies with BattlEye Disabled (Host is needed)</li>
+                <li><strong>Player Magnet</strong> - Pulls legit players into your lobby</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">FIXED & UPDATED</h3>
+            <ul class="feature-list">
+                <li>Fixed & Updated Legacy Options</li>
+                <li>Various bug fixes and stability improvements</li>
+                <li>Performance optimizations</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">NOTES</h3>
+            <ul class="feature-list">
+                <li>This is a <strong>BETA</strong> release - report any bugs on Discord</li>
+                <li>More features and improvements coming in the full release</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--== Loader v2.0 ==-->
+<div class="version-card" id="loader-v2.0">
+    <div class="version-header">
+        <h2 class="version-title">Loader v2.0</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">REDESIGN</h3>
+            <ul class="feature-list">
+                <li><strong>Fully Redesigned Loader</strong> - Complete visual and functional overhaul</li>
+                <li>Improved user interface and experience</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--== Loader v1.4 ==-->
+<div class="version-card" id="loader-v1.4">
+    <div class="version-header">
+        <h2 class="version-title">Loader v1.4</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">NEW FEATURES</h3>
+            <ul class="feature-list">
+                <li><strong>Beta Support</strong> - Added ability to select Beta version in the loader</li>
+                <li><strong>Auto Loader Updater</strong> - Loader now automatically updates itself</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">FIXES</h3>
+            <ul class="feature-list">
+                <li>Fixed multiple bugs</li>
+                <li>Improved stability and reliability</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 2.9.5 ==-->
+<div class="version-card" id="v2.9.5">
+    <div class="version-header">
+        <h2 class="version-title">v2.9.5</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">NEW FEATURES</h3>
+            <ul class="feature-list">
+                <li><strong>Frame Generation Support</strong> - Enhanced performance with frame generation technology</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">CASINO OPTIONS</h3>
+            <ul class="feature-list">
+                <li><strong>Rig Horse Racing</strong> - Control horse racing outcomes at the casino</li>
+                <li><strong>Auto Play</strong> - Automatically play casino games</li>
+                <li><strong>Auto Place Max Bet</strong> - Instantly place maximum bets</li>
+                <li><strong>Instant Roll</strong> - Skip animations for instant results</li>
+                <li>Much more casino features and options</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">LEGACY SUPPORT</h3>
+            <ul class="feature-list">
+                <li>More improvements for Legacy version</li>
+                <li>Additional fixes for Legacy version</li>
+                <li>Updated options for Legacy compatibility</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">LUA IMPROVEMENTS</h3>
+            <ul class="feature-list">
+                <li><strong>Lua Compatibility Layers</strong> - Better support for existing Lua scripts</li>
+                <li><strong>Expanded Lua API</strong> - More functions and features added to the API</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">BACKEND CHANGES</h3>
+            <ul class="feature-list">
+                <li>Overall backend improvements and optimizations</li>
+                <li>Stability enhancements</li>
+                <li>Performance improvements</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">COMING SOON</h3>
+            <ul class="feature-list">
+                <li><strong>Stay tuned for v3.0!</strong> - Major update in development</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 2.9 ==-->
+<div class="version-card" id="v2.9">
+    <div class="version-header">
+        <h2 class="version-title">v2.9</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">RECOVERY > BUSINESSES</h3>
+            <ul class="feature-list">
+                <li><strong>All Businesses Tab</strong>
+                    <ul class="sub-feature-list">
+                        <li>Ultimate Business Bot - EVERYTHING automated (resupply, production, prices, safes, cooldowns)</li>
+                        <li>Auto Resupply All - Keeps all business supplies at 100%</li>
+                        <li>Instant Production All - All businesses produce instantly</li>
+                        <li>Max Sale Prices All - Boost all business sale prices to max</li>
+                        <li>CEO/VIP Work Boost - $100K per job, no cooldowns</li>
+                        <li>MC Work Boost - $100K per contract, no cooldowns</li>
+                        <li>Payphone Hit Boost - $500K per hit, no cooldown</li>
+                        <li>Taxi Boost - Max fares, no heat</li>
+                        <li>Auto Sell Ready - Keeps all sell cooldowns at zero</li>
+                    </ul>
+                </li>
+                <li><strong>Fill Stock Commands</strong>
+                    <ul class="sub-feature-list">
+                        <li>Fill All Business Stock - Fill stock for ALL businesses at once</li>
+                        <li>Fill Nightclub Stock - Fill all nightclub warehouse stock to max</li>
+                        <li>Fill Bunker Stock - Fill bunker stock and supplies to max</li>
+                        <li>Fill MC Stock - Fill all MC business stock and supplies</li>
+                        <li>Fill Special Cargo - Fill warehouse to 111 crates</li>
+                        <li>Fill Hangar Stock - Fill air freight to max</li>
+                        <li>Fill Acid Lab Stock - Fill acid lab product and supplies</li>
+                    </ul>
+                </li>
+                <li><strong>Quick Actions</strong>
+                    <ul class="sub-feature-list">
+                        <li>Max All Safes - Collect money from all business safes</li>
+                        <li>Reset All Business Cooldowns - Reset all business and heist cooldowns</li>
+                        <li>Business Staff Boost - Max out all business upgrades and staff</li>
+                        <li>Max Agency Clients - Sets agency to 500 clients for max passive income</li>
+                    </ul>
+                </li>
+                <li><strong>Protection & Safety</strong>
+                    <ul class="sub-feature-list">
+                        <li>Raid Prevention - Prevents all business raids (bunker, MC, nightclub, acid lab, hangar, warehouse)</li>
+                        <li>Max Nightclub Popularity - Keeps nightclub popularity at 100%</li>
+                        <li>High Demand Boost - Always get max high demand bonus (solo lobby bonus)</li>
+                        <li>Skip Sell Timer - Removes time limit on sell missions</li>
+                    </ul>
+                </li>
+                <li><strong>Delivery Helpers</strong>
+                    <ul class="sub-feature-list">
+                        <li>Delivery Speed Boost - Makes delivery vehicles faster and invincible</li>
+                        <li>Instant Sell Complete - Instantly complete active sell mission</li>
+                    </ul>
+                </li>
+                <li><strong>CEO/VIP Features</strong>
+                    <ul class="sub-feature-list">
+                        <li>Free Ghost Org - Activate Ghost Organization for free (3 minutes)</li>
+                        <li>Free Bribe Authorities - Bribe authorities for free (2 minutes no cops)</li>
+                        <li>Free Off Radar - Go off radar for free (60 seconds)</li>
+                    </ul>
+                </li>
+                <li><strong>Business Teleports</strong>
+                    <ul class="sub-feature-list">
+                        <li>Teleport to Nightclub, Bunker, Agency, Arcade, Kosatka, Auto Shop, Salvage Yard</li>
+                    </ul>
+                </li>
+                <li><strong>Business Info Control Boxes</strong>
+                    <ul class="sub-feature-list">
+                        <li>Collapsible Nightclub Status (Popularity, Safe Cash, Production + Quick Actions)</li>
+                        <li>Collapsible Bunker Status (Stock, Supplies, Research + Quick Actions)</li>
+                        <li>Collapsible Agency Status (Safe Cash, Clients + Quick Actions)</li>
+                        <li>Collapsible Arcade Status (Safe Cash + Quick Actions)</li>
+                        <li>Collapsible MC Businesses Status (All 5 business stocks + Fill All)</li>
+                        <li>Collapsible Acid Lab Status (Product, Safe + Quick Actions)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">RECOVERY > PROPERTIES</h3>
+            <ul class="feature-list">
+                <li><strong>Properties Unlocker - Master Presets</strong>
+                    <ul class="sub-feature-list">
+                        <li>Master Business Preset - Unlock/upgrade/stock everything in one click</li>
+                        <li>Unlock All Properties - Unlocks all properties with upgrades</li>
+                        <li>Upgrade All Properties - Maxes all property upgrades</li>
+                        <li>Setup All Businesses - Sets up all businesses</li>
+                        <li>Fill All Stock - Fills all business stock</li>
+                        <li>Resupply All Businesses - Resupplies all businesses</li>
+                        <li>Collect All Safes - Collects from all business safes</li>
+                        <li>Reset All Business Cooldowns - Resets all cooldowns</li>
+                    </ul>
+                </li>
+                <li><strong>Individual Property Unlocks</strong>
+                    <ul class="sub-feature-list">
+                        <li>Unlock CEO Office, Bunker, Nightclub, Kosatka, Agency, Arcade, Facility, Auto Shop, Salvage Yard</li>
+                        <li>Unlock All MC Businesses, Unlock All Warehouses</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">RECOVERY > CASINO</h3>
+            <ul class="feature-list">
+                <li><strong>Slot Machines</strong> - Rig Slot Machines (Toggle), Win Slots, Lose Slots</li>
+                <li><strong>Game Rigging - Night Tab Features</strong>
+                    <ul class="sub-feature-list">
+                        <li>Blackjack - Reveal Card (Reveals dealer's hidden card), Trick Dealer</li>
+                        <li>Three Card Poker - Reveal Cards, Give Hand (Gives winning hand), Trick Dealer</li>
+                        <li>Roulette - Land on 13, Land on 16</li>
+                    </ul>
+                </li>
+                <li><strong>Casino Settings</strong> - Casino Region Bypass, Chips Limit Control, Acquire Limit, Trade Limit</li>
+                <li><strong>Lucky Wheel</strong> - Lucky Wheel Prize Selector (20 prizes), Give Prize Button</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">NIGHT TAB > HEISTS</h3>
+            <ul class="feature-list">
+                <li><strong>Cayo Perico - New Features</strong>
+                    <ul class="sub-feature-list">
+                        <li>Cayo Offline Cooldown Reset, Cayo Online Cooldown Reset</li>
+                        <li>Cayo Loot Value Editors: Cash, Weed, Cocaine, Gold, Paintings (0-999999)</li>
+                        <li>Apply Loot Values Button, Reset Loot Values Button</li>
+                    </ul>
+                </li>
+                <li><strong>Heist Extras</strong>
+                    <ul class="sub-feature-list">
+                        <li>Solo Launch - Allows launching heists alone</li>
+                        <li>Casino Autograbber - Instantly grab all loot in Casino Heist</li>
+                        <li>Woman's Bag - Extended bag capacity for Cayo Perico</li>
+                        <li>Skip Cutscene, Skip Checkpoint</li>
+                        <li>Cut Editor with Presets, Self Cut Editor</li>
+                    </ul>
+                </li>
+                <li><strong>MC Businesses</strong> - MC Heat Lock - Keeps all MC business heat at 0</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">DEBUG > FEATURES (NEW)</h3>
+            <ul class="feature-list">
+                <li><strong>Self Tab</strong> - Player Ped Info (Handle, Position, Heading, Health, Armor, Status), Player Flags (God Mode, Invisible, No Ragdoll toggles), Movement Overrides, Wanted Level Control, Force Actions, Model Info</li>
+                <li><strong>Weapon Tab</strong> - Current Weapon Info (Hash, Ammo in Clip, Total Ammo, Max Ammo), Weapon Modifiers (Damage/Melee Multiplier sliders), Ammo Controls, Weapon Flags (Infinite Ammo, Infinite Clip, No Reload)</li>
+                <li><strong>Vehicle Tab</strong> - Current Vehicle Info (Handle, Model, Position, Speed, Health, Colors), Vehicle Modifiers (Top Speed/Torque Mult sliders), Vehicle Flags, Vehicle Actions, Vehicle Doors</li>
+                <li><strong>World Tab</strong> - Time Control, Weather Control (13 types), Blackout, Gravity slider, Nearby Entity Count</li>
+                <li><strong>Misc Tab</strong> - Session Info, Network Actions, Teleport Utils, Script Event Sender, Quick Stat Editor</li>
+                <li><strong>Tunables Tab</strong> - Tuneable Base display (262145), Offset input with Read Int/Float buttons, Value input with Write Int/Float buttons, Common tunable offsets reference guide</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">LUA API IMPROVEMENTS</h3>
+            <ul class="feature-list">
+                <li><strong>Auto-Generated Example Scripts</strong>
+                    <ul class="sub-feature-list">
+                        <li>Bugga101.lua - Feature-rich script (Self protection, Weapon management, Vehicle spawner, Teleport hotspots, Quick toggle presets)</li>
+                        <li>DebuggingGuide.lua, ScoobyExample.lua, ImGuiExample.lua, HTTPExample.lua, StatsExample.lua, TimerExample.lua, InputExample.lua, FileIOExample.lua</li>
+                    </ul>
+                </li>
+                <li><strong>Improved Lua Examples</strong> - StatsExample.lua, GlobalsExample.lua, TunablesExample.lua, VehicleAdvancedExample.lua, DebuggingExample.lua</li>
+                <li><strong>Lua Repository System - NEW TAB</strong>
+                    <ul class="sub-feature-list">
+                        <li>Repository tab in Lua Scripts window</li>
+                        <li>Browse and download scripts from repository</li>
+                        <li>One-click install/reinstall/uninstall</li>
+                        <li>Auto-extract zip files</li>
+                        <li>Placeholder scripts: Ultimate Recovery, Vehicle Spawner Pro, Teleport Suite, Heist Helper, Protection Plus, Business Manager, ESP Addon, Session Tools</li>
+                    </ul>
+                </li>
+                <li><strong>Lua Debugging Features</strong> - Safe function wrapper (pcall-based), Debug print with type information, Performance timer utilities, Common error explanations, API reference quick-access</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">SETTINGS</h3>
+            <ul class="feature-list">
+                <li><strong>Startup Settings - NEW GROUP</strong>
+                    <ul class="sub-feature-list">
+                        <li>Hide Welcome Screen toggle</li>
+                        <li>Show Welcome Screen Now button</li>
+                        <li>Welcome screen persists until explicitly disabled</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 2.8.2 ==-->
+<div class="version-card" id="v2.8.2">
+    <div class="version-header">
+        <h2 class="version-title">v2.8.2</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">RECOVERY TAB</h3>
+            <ul class="feature-list">
+                <li><strong>Redone Recovery Tab</strong> - Complete overhaul of the recovery section</li>
+                <li><strong>Business Manager</strong> - Added back the business manager feature</li>
+            </ul>
+        </div>
+        <div class="feature-category">
+            <h3 class="category-title">NEW FEATURES</h3>
+            <ul class="feature-list">
+                <li><strong>Awards</strong> - Access and manage in-game awards</li>
+                <li><strong>Gun Van</strong> - Gun Van features and options</li>
+                <li>Many other features and improvements</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 2.8 ==-->
+<div class="version-card" id="v2.8">
+    <div class="version-header">
+        <h2 class="version-title">v2.8</h2>
+        <span class="version-date">December 31, 2025</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">RECOVERY MENU OVERHAUL</h3>
+            <ul class="feature-list">
+                <li><strong>Heist Features</strong>
+                    <ul class="sub-feature-list">
+                        <li>Solo Mantrap Bypass - Bypass Casino Heist mantrap door solo</li>
+                        <li>Skip Hacking - Auto-complete fingerprint hack</li>
+                        <li>Skip Drilling - Instantly drill the vault</li>
+                        <li>Diamond Casino Heist Instant Finish</li>
+                    </ul>
+                </li>
+                <li><strong>Rep & AP Multipliers</strong>
+                    <ul class="sub-feature-list">
+                        <li>LS Car Meet Rep Boost (10x)</li>
+                        <li>Auto Shop Rep Boost (10x)</li>
+                        <li>Street Race Rep Boost (10x)</li>
+                        <li>Arena Points (AP) Multiplier (10x)</li>
+                    </ul>
+                </li>
+                <li><strong>Salvage Yard Instant Finish</strong>
+                    <ul class="sub-feature-list">
+                        <li>Duggan Robbery</li>
+                        <li>Cargo Ship Robbery</li>
+                        <li>Podium Robbery</li>
+                        <li>Police Impound Robbery</li>
+                        <li>McTony Robbery</li>
+                        <li>Tow Truck Delivery</li>
+                    </ul>
+                </li>
+                <li><strong>Business Features</strong>
+                    <ul class="sub-feature-list">
+                        <li>Register as CEO</li>
+                        <li>Register as MC President</li>
+                        <li>MC Bar Boost</li>
+                        <li>Instant Resupply (All/MC/Bunker/Acid)</li>
+                        <li>Special Cargo Instant Buy</li>
+                        <li>Special Cargo Instant Sell</li>
+                        <li>Air Cargo Instant Sell</li>
+                    </ul>
+                </li>
+                <li><strong>Unlocks</strong>
+                    <ul class="sub-feature-list">
+                        <li>Enable Hidden DLC Liveries</li>
+                        <li>Unlock Rare Casino Items (Paintings, Masks, Tabletop Pieces)</li>
+                    </ul>
+                </li>
+                <li><strong>Guide Windows</strong>
+                    <ul class="sub-feature-list">
+                        <li>Business Recovery Guide</li>
+                        <li>Tunables Guide</li>
+                        <li>Salvage Yard Guide</li>
+                        <li>Cargo Guide</li>
+                        <li>Resupply Guide</li>
+                        <li>Heist Guide</li>
+                        <li>Casino Heist Guide</li>
+                        <li>All guides display as draggable overlay windows with toggle buttons</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--== Version 2.6 ==-->
+<div class="version-card" id="v2.6">
+    <div class="version-header">
+        <h2 class="version-title">v2.6</h2>
+        <span class="version-date">December 18, 2025</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+    <div class="feature-category">
+        <h3 class="category-title">UPDATED</h3>
+        <ul class="feature-list">
+            <li>Updated all outdated options to the latest game update</li>
+        </ul>
+    </div>
+    <div class="feature-category">
+        <h3 class="category-title">IMPROVEMENTS</h3>
+        <ul class="feature-list">
+            <li>Significantly improved overall menu performance</li>
+            <li>Enhanced stability across multiple features</li>
+            <li>Reduced memory usage and improved efficiency</li>
+            <li>Optimized internal systems for smoother operation</li>
+            <li>Various minor improvements and refinements</li>
+        </ul>
+    </div>
+    </div>
+</div>
+			<!--== Version 2.4 ==-->
+            <div class="version-card" id="v2.4">
+                <div class="version-header">
+                    <h2 class="version-title">v2.4</h2>
+                    <span class="version-date">December 10, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">UPDATED</h3>
+                        <ul class="feature-list">
+                            <li>Updated for After the Safehouse in the Hills DLC</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">IMPROVEMENTS</h3>
+                        <ul class="feature-list">
+                            <li>Improved overall menu performance</li>
+                            <li>Enhanced feature stability</li>
+                            <li>Optimized memory usage</li>
+                            <li>Much more improvements across the board</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Version 2.3 ==-->
+            <div class="version-card" id="v2.3">
+                <div class="version-header">
+                    <h2 class="version-title">v2.3</h2>
+                    <span class="version-date">December 10, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">POWER FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>KD Editor</strong> - Edit your Kill/Death ratio</li>
+                            <li><strong>Free Shopping</strong> - Get items without paying</li>
+                            <li><strong>All Unlocks</strong> - Unlock everything in the game</li>
+                            <li><strong>Business Setups</strong> - Auto-complete business setups</li>
+                            <li><strong>Business Teleports</strong> - Instant teleport to any business</li>
+                            <li><strong>Stat Editor</strong> - Modify player statistics</li>
+                            <li><strong>Rank Editor</strong> - Change your rank level</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">MINI GAMES</h3>
+                        <ul class="feature-list">
+                            <li><strong>Zombie Mode</strong> - Survive waves of zombies</li>
+                            <li><strong>Crazy Taxi</strong> - Classic taxi driving game</li>
+                            <li><strong>20+ mini games</strong> were added</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">SUPERHERO MODS</h3>
+                        <ul class="feature-list">
+                            <li>Superhero abilities and powers <span style="color: #ff9800; font-size: 0.8rem;">(WIP)</span></li>
+                            <li>Custom superhero skins <span style="color: #ff9800; font-size: 0.8rem;">(WIP)</span></li>
+                            <li>More superhero content being developed</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">MISC FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>Info Box for Controls</strong> - On-screen display for Noclip, Vehicle Fly, and other controls</li>
+                            <li><strong>Quick Actions Menu</strong> - Faster access to common features</li>
+                            <li><strong>Custom Hotkeys</strong> - Bind features to your preferred keys</li>
+                            <li><strong>Session Manager</strong> - Better session control options</li>
+                            <li>Many more miscellaneous features</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">IMPROVEMENTS</h3>
+                        <ul class="feature-list">
+                            <li>Improved overall menu performance</li>
+                            <li>Better UI responsiveness</li>
+                            <li>Enhanced feature stability</li>
+                            <li>Optimized memory usage</li>
+                            <li>Improved feature toggles</li>
+                            <li>Much more improvements across the board</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">FIXES</h3>
+                        <ul class="feature-list">
+                            <li>Fixed Heist Tool not working properly</li>
+                            <li>Fixed Business Tool issues</li>
+                            <li>Many more bug fixes and stability improvements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Version 2.2 ==-->
+            <div class="version-card" id="v2.2">
+                <div class="version-header">
+                    <h2 class="version-title">v2.2</h2>
+                    <span class="version-date">December 8, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">IMPROVEMENTS</h3>
+                        <ul class="feature-list">
+                            <li>Improved Aimbot</li>
+                            <li>Improved Silent Aim</li>
+                            <li>Improved Magic Bullet</li>
+                            <li>Improved Triggerbot</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">NEW FEATURES</h3>
+                        <ul class="feature-list">
+                            <li>Added More ESP Settings</li>
+                            <li>Added Ped/Player Chams <span style="color: #ff9800; font-size: 0.8rem;">(WIP)</span></li>
+                            <li>Added Wireframe Mode <span style="color: #ff9800; font-size: 0.8rem;">(WIP)</span></li>
+                            <li>Started on Legacy Support (Not released) <span style="color: #ff9800; font-size: 0.8rem;">(WIP)</span></li>
+                            <li>Started on BattlEye Enabled Support (Not released) <span style="color: #ff9800; font-size: 0.8rem;">(WIP)</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">LUA TAB REWORK</h3>
+                        <ul class="feature-list">
+                            <li>Redid the whole Lua tab</li>
+                            <li>Added Lua Editor/Text Editor</li>
+                            <li>Added Lua API Docs</li>
+                            <li>More changes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">NOTE</h3>
+                        <ul class="feature-list">
+                            <li>If you find any bugs, report them on Discord</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Version 2.1 ==-->
+            <div class="version-card" id="v2.1">
+                <div class="version-header">
+                    <h2 class="version-title">v2.1</h2>
+                    <span class="version-date">December 5, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">COMBAT FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>Aimbot</strong> - Multiple hit bones, adjustable FOV, activation modes, smooth aiming, auto-fire, visibility checks, target indicators</li>
+                            <li><strong>Silent Aim</strong> - Separate system with FOV targeting, shoot through walls option, custom FOV circle</li>
+                            <li><strong>Magic Bullet</strong> - Bullets hit through walls, adjustable damage, silent mode, target indicators</li>
+                            <li><strong>Triggerbot</strong> - Auto-fire on crosshair, burst fire mode, magnet mode with snap aiming</li>
+                            <li><strong>Hitmarkers</strong> - Visual/sound feedback, custom colors for hits/headshots/kills, rainbow mode</li>
+                            <li><strong>Damage Indicators</strong> - Floating damage numbers, critical hit colors, stack rapid damage</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">POWERS</h3>
+                        <ul class="feature-list">
+                            <li><strong>Telekinesis</strong> - Grab entities, 10 action modes (Hold, Throw, Ragdoll, Spin, Orbit, etc.)</li>
+                            <li><strong>Forcefield</strong> - Push peds/vehicles away, adjustable radius and force</li>
+                            <li><strong>Aura</strong> - Visual aura effect, multiple types, rainbow mode, push entities</li>
+                            <li><strong>Electric Touch</strong> - Zap nearby entities with multiple effects</li>
+                            <li><strong>Flaming Fists</strong> - Explosive/burn/ragdoll on punch, one punch kill</li>
+                            <li><strong>Dash</strong> - Shift + WASD dash with invincibility and visual effects</li>
+                            <li><strong>Paraglider</strong> - Glide with boost/dive controls, auto-activate on fall</li>
+                            <li><strong>Shockwave Ball</strong> - Energy balls with Push, Pull, Bounce, Homing, Black Hole modes</li>
+                            <li><strong>God Slap</strong> - Dash and slap with explosive/burn/launch options</li>
+                            <li><strong>Walk On Air</strong> - Invisible platform at adjustable height</li>
+                            <li><strong>Matrix</strong> - Slow-motion bullet time effect</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">ESP FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>Player ESP</strong> - Names, distance, skeleton, box, tracelines with custom colors</li>
+                            <li><strong>Ped ESP</strong> - Names, weapons, distance, skeleton, box, tracelines</li>
+                            <li><strong>Vehicle ESP</strong> - Names, distance, box, health display</li>
+                            <li><strong>Crosshair</strong> - Multiple styles (Cross, Circle, Dot, Spinning), rainbow fade</li>
+                            <li><strong>Health Bars</strong> - Position options, armor bar, custom colors</li>
+                            <li><strong>Box Settings</strong> - Full/Corners/3D, rounded corners, glow effects</li>
+                            <li><strong>Skeleton Settings</strong> - Outline, glow, head dot styles</li>
+                            <li><strong>Tracelines</strong> - Multiple origins, curve/fade/dashed options</li>
+                            <li><strong>Projectile Trails</strong> - Bullet/throwable trails, rainbow mode, impact boxes</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">WEAPON FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>No Recoil / No Spread</strong> - Perfect accuracy</li>
+                            <li><strong>Custom Weapons</strong> - Gravity Gun, Vehicle Gun, Paint Gun with rainbow</li>
+                            <li><strong>Weapon Globals</strong> - Infinite ammo/clip, rapid fire, fire ammo, explosive ammo, damage multipliers</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">MOVEMENT & TELEPORT</h3>
+                        <ul class="feature-list">
+                            <li><strong>Noclip / Freecam</strong> - Fly through walls with adjustable speed</li>
+                            <li><strong>Super Jump / Beast Jump</strong> - Enhanced jump abilities</li>
+                            <li><strong>Super Run / Superman</strong> - Enhanced speed and flying</li>
+                            <li><strong>Blink Teleport</strong> - Quick forward teleport with marker styles</li>
+                            <li><strong>Mark & Recall</strong> - Save and return to positions</li>
+                            <li><strong>Quick Teleports</strong> - Waypoint, objective, aim, vehicle teleports</li>
+                            <li><strong>IPL Loader</strong> - Load/unload interiors with teleport</li>
+                        </ul>
+                    </div>
+                    <div class="feature-category">
+                        <h3 class="category-title">UI & BUG FIXES</h3>
+                        <ul class="feature-list">
+                            <li>Organized ESP into tabs (Main, Crosshair, Debug, Visuals, Settings)</li>
+                            <li>Organized Weapons into tabs (Main, Aimbot)</li>
+                            <li>Fixed Triggerbot not detecting peds inside vehicles</li>
+                            <li>Fixed Silent Aim functionality</li>
+                            <li>Fixed Magic Bullet activation modes</li>
+                            <li>Fixed ESP box settings display issues</li>
+                            <li>Fixed multiple ImGui duplicate ID errors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Version 2.0 ==-->
+            <div class="version-card" id="v2.0">
+                <div class="version-header">
+                    <h2 class="version-title">v2.0</h2>
+                    <span class="version-date">December 1, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">INITIAL RELEASE</h3>
+                        <ul class="feature-list">
+                            <li>Full GTA V Enhanced Edition support</li>
+                            <li>Complete menu system with all core features</li>
+                            <li>Heist Editor integration</li>
+                            <li>Player options and protections</li>
+                            <li>Vehicle spawner and customization</li>
+                            <li>Weapon modifications</li>
+                            <li>Teleport system</li>
+                            <li>World options</li>
+                            <li>Recovery features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Loader Section ==-->
+            <div class="section-divider" id="loader">
+                <h2>LOADER</h2>
+            </div>
+            <!--== Loader v1.2 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v1.2</h2>
+                    <span class="version-date">December 31, 2025</span>
+                    <span class="version-badge">Latest</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">IMPROVEMENTS</h3>
+                        <ul class="feature-list">
+                            <li>Updated and fixed issues</li>
+                            <li>Added more detailed information to error codes</li>
+                            <li>Enhanced error reporting and diagnostics</li>
+                            <li>General stability improvements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Loader v1.1 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v1.1</h2>
+                    <span class="version-date">December 5, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">IMPROVEMENTS</h3>
+                        <ul class="feature-list">
+                            <li>Fixed icons</li>
+                            <li>Faster injecting time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--== Loader v1.0 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v1.0</h2>
+                    <span class="version-date">December 1, 2025</span>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">INITIAL RELEASE</h3>
+                        <ul class="feature-list">
+                            <li>Initial loader release</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--== End Timeline Container ==-->
+            </div>
+            <!--== End GTA 5 Tab ==-->
+            <!--== Loader Tab ==-->
+            <div id="loader" class="product-content">
+                <div class="changelog-timeline">
+                    <div class="version-card" id="loader-v3.6-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v3.6</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge">Latest</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">LOADER UPDATE</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Added RedM & FiveM</strong> - RedM and FiveM now available in the game selector</li>
+                                    <li><strong>Improvements</strong> - Various loader improvements and optimizations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="loader-v2.6-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v2.6</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">LOADER UPDATE</h3>
+                                <ul class="feature-list">
+                                    <li><strong>FiveM & CS2 Support</strong> - Added FiveM and CS2 to the game selector</li>
+                                    <li><strong>Improved Injection</strong> - Faster and more reliable injection process</li>
+                                    <li><strong>Updated Anti-Detection</strong> - Enhanced security measures</li>
+                                    <li><strong>Bug Fixes</strong> - Various loader stability improvements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="loader-v2.5-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v2.5</h2>
+                            <span class="version-date">February 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">NEW FEATURES</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Game Selector</strong> - Added game selector for GTA5/RDR2/FIVEM/REDM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="loader-v2.2-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v2.2</h2>
+                            <span class="version-date">February 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">FIXES</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Fixed Issues</strong> - Various loader issues resolved</li>
+                                    <li><strong>Fixed Overlapping</strong> - Fixed any overlapping UI elements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="loader-v2.0-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v2.0</h2>
+                            <span class="version-date">January 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">REDESIGN</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Fully Redesigned Loader</strong> - Complete visual and functional overhaul</li>
+                                    <li>Improved user interface and experience</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--== Spoofer Tab ==-->
+            <div id="spoofer" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <h3>Spoofer Changelog</h3>
+                    <p>Spoofer changelog will be displayed here. Check back soon for updates.</p>
+                </div>
+            </div>
+            <!--== RDR2 Tab ==-->
+            <div id="rdr2" class="product-content">
+                <div class="changelog-timeline">
+                    <div class="version-card" id="rdr2-v1.0-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.0</h2>
+                            <span class="version-date">February 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">INITIAL RELEASE</h3>
+                                <ul class="feature-list">
+                                    <li><strong>RDR2 Support</strong> - Red Dead Redemption 2 mod menu released</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--== FiveM Tab ==-->
+            <div id="fivem" class="product-content">
+                <div class="changelog-timeline">
+                    <div class="version-card" id="fivem-v1.1-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.1</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge">Latest</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">NEW FEATURES</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Silent Aim & Magic Bullet</strong> - Hit targets without visibly aiming at them</li>
+                                    <li><strong>Image ESP</strong> - Display player images through walls for easy identification</li>
+                                    <li><strong>Improved Radar Overlay</strong> - Enhanced radar with full map support</li>
+                                    <li><strong>Improved Code Editor</strong> - Better scripting experience with enhanced code editor</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">IMPROVEMENTS</h3>
+                                <ul class="feature-list">
+                                    <li>Many improvements to Local features</li>
+                                    <li>Added more local player options and enhancements</li>
+                                    <li>Various bug fixes and optimizations</li>
+                                    <li>Overall stability improvements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="fivem-v1.0-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.0</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">FIVEM RELEASED</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Scooby FiveM Released</strong> - FiveM mod menu is now available</li>
+                                    <li><strong>ESP / Wallhacks</strong> - See players through walls with health, distance, and name info</li>
+                                    <li><strong>Aimbot</strong> - Precision aim assistance with configurable settings</li>
+                                    <li><strong>Anti-Cheat Checker</strong> - Detect which anti-cheat is running on the server</li>
+                                    <li><strong>Anti-Cheat Disabler</strong> - Disable server-side anti-cheat systems</li>
+                                    <li><strong>AC Bypasses</strong> - Bypass popular FiveM anti-cheat solutions</li>
+                                    <li><strong>Triggerbot</strong> - Automatically fires when crosshair is on a player</li>
+                                    <li><strong>Vehicle Options</strong> - Spawn, modify, and customize vehicles</li>
+                                    <li><strong>Teleport Options</strong> - Teleport to waypoints and coordinates</li>
+                                    <li><strong>Player Options</strong> - Various player modifications and enhancements</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">NOTES</h3>
+                                <ul class="feature-list">
+                                    <li>Available for free via the Get Free Key system</li>
+                                    <li>More features and improvements coming in future updates</li>
+                                    <li>Report any bugs on Discord</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--== RedM Tab ==-->
+            <div id="redm" class="product-content">
+                <div class="changelog-timeline">
+                    <div class="version-card" id="redm-v1.0-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.0</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">Online</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">REDM PUSHED TO USER TESTING</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Scooby RedM v1.0</strong> - RedM mod menu pushed to user testing phase</li>
+                                    <li><strong>ESP / Wallhacks</strong> - See players through walls with health and distance info</li>
+                                    <li><strong>Aimbot</strong> - Precision aim assistance for Red Dead Online</li>
+                                    <li><strong>Player Options</strong> - Various player modifications and enhancements</li>
+                                    <li><strong>Vehicle/Horse Options</strong> - Spawn and modify vehicles and horses</li>
+                                    <li><strong>Teleport Options</strong> - Teleport to waypoints and coordinates</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">NOTES</h3>
+                                <ul class="feature-list">
+                                    <li>Currently in user testing - report any bugs on Discord</li>
+                                    <li>More features coming after testing phase</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--== R6 Tab ==-->
+            <div id="r6" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>Rainbow Six changelog will be added here once the product is released.</p>
+                </div>
+            </div>
+            <!--== PUBG Tab ==-->
+            <div id="pubg" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>PUBG changelog will be added here once the product is released.</p>
+                </div>
+            </div>
+            <!--== CS2 Tab ==-->
+            <div id="cs2" class="product-content">
+                <div class="changelog-timeline">
+                    <div class="version-card" id="cs2-v1.1-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.1</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge">Latest</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">CS2 UPDATED</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Updated Game Version</strong> - Full compatibility with the latest CS2 update</li>
+                                    <li><strong>Dual UI</strong> - ListUI & ClickUI both fully supported</li>
+                                    <li><strong>More Player ESP Features</strong> - Additional ESP options for better player visibility</li>
+                                    <li><strong>Aimbot & Triggerbot</strong> - Improved aimbot and triggerbot with more settings</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">IMPROVEMENTS</h3>
+                                <ul class="feature-list">
+                                    <li>Many new features added across all categories</li>
+                                    <li>Improved overall performance and stability</li>
+                                    <li>Various bug fixes and optimizations</li>
+                                    <li>Enhanced anti-detection measures</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="cs2-recode-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.0 Recode</h2>
+                            <span class="version-date">March 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">CS2 RECODE RELEASED</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Complete Recode</strong> - CS2 menu has been fully recoded from the ground up</li>
+                                    <li><strong>Dual UI Support</strong> - ClickUI & ListUI now available for CS2</li>
+                                    <li><strong>Improved ESP</strong> - Enhanced visuals with more customization options</li>
+                                    <li><strong>Improved Aimbot</strong> - Better target acquisition with smoother aim</li>
+                                    <li><strong>Improved Triggerbot</strong> - More responsive with configurable delays</li>
+                                    <li><strong>Enhanced Bhop</strong> - Better movement prediction and consistency</li>
+                                    <li><strong>Performance Boost</strong> - Significantly improved performance and stability</li>
+                                    <li><strong>New Skinchanger</strong> - Change weapon skins, knives, and gloves in-game</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">FIXES & IMPROVEMENTS</h3>
+                                <ul class="feature-list">
+                                    <li>Fixed various crashes and stability issues from beta</li>
+                                    <li>Improved anti-detection measures</li>
+                                    <li>Better compatibility with latest CS2 updates</li>
+                                    <li>Optimized memory usage</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="version-card" id="cs2-beta">
+                        <div class="version-header">
+                            <h2 class="version-title">CS2 Beta</h2>
+                            <span class="version-date">February 2026</span>
+                            <span class="version-badge">Beta</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">CS2 BETA RELEASED</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Scooby CS2 Beta Released</strong> - Counter-Strike 2 mod menu now available as a free beta</li>
+                                    <li><strong>ESP / Wallhacks</strong> - See enemies through walls with health bars, distance, and weapon info</li>
+                                    <li><strong>Aimbot</strong> - Precision aim assistance with configurable FOV, smoothing, and bone selection</li>
+                                    <li><strong>Triggerbot</strong> - Automatically fires when crosshair is on an enemy</li>
+                                    <li><strong>No Recoil</strong> - Eliminate weapon recoil and spread for perfect accuracy</li>
+                                    <li><strong>Radar</strong> - Enhanced radar showing all enemy positions</li>
+                                    <li><strong>Bhop</strong> - Automated bunny hopping for maximum movement speed</li>
+                                    <li><strong>Chams</strong> - Colored player models visible through walls</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">COMING SOON</h3>
+                                <ul class="feature-list">
+                                    <li><strong>Skinchanger</strong> - Use any skin in-game including knives and gloves (In Development)</li>
+                                    <li><strong>Paid Early Access</strong> - Premium tier with additional features coming soon</li>
+                                </ul>
+                            </div>
+                            <div class="feature-category">
+                                <h3 class="category-title">NOTES</h3>
+                                <ul class="feature-list">
+                                    <li>This is a BETA release - report any bugs on Discord</li>
+                                    <li>Currently available for free via the Get Free Key system</li>
+                                    <li>More features and improvements coming in future updates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="/" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--== Footer ==-->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand-name">SCOOBY</div>
+                    <p class="footer-tag">Premium mod menus for GTA 5, FiveM, RDR2, RedM, CS2 &amp; more.</p>
+                    <div class="footer-social">
+                        <a href="https://discord.gg/scoobymenu" target="_blank" aria-label="Discord">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.102 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@scoobymenu" target="_blank" aria-label="YouTube">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="/products/gta5">GTA 5</a></li>
+                        <li><a href="/products/fivem">FiveM</a></li>
+                        <li><a href="/products/rdr2">RDR2</a></li>
+                        <li><a href="/products/redm">RedM</a></li>
+                        <li><a href="/products/cs2">CS2</a></li>
+                        <li><a href="/products/gmod">GMOD</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/guides">Guides</a></li>
+                        <li><a href="/videos">Videos</a></li>
+                        <li><a href="/changelog">Changelog</a></li>
+                        <li><a href="/docs">Docs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/tos">Terms of Service</a></li>
+                        <li><a href="https://discord.gg/scoobymenu" target="_blank">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Scooby. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="/tos">Terms</a>
+                    <a href="https://discord.gg/scoobymenu" target="_blank">Discord</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Load changelog from JSON
+        async function loadChangelog() {
+            try {
+                const response = await fetch('changelog.json');
+                const data = await response.json();
+                // Update stats
+                if (data.stats) {
+                    document.getElementById('stat-versions').textContent = data.stats.totalVersions;
+                    document.getElementById('stat-latest').textContent = data.stats.latestUpdate;
+                }
+                // Build version jump navigation
+                const jumpContainer = document.getElementById('version-jump');
+                let jumpHTML = '';
+                data.versions.forEach((v, i) => {
+                    const isLatest = i === 0;
+                    jumpHTML += `<a href="#${v.id}" class="version-jump-btn${isLatest ? ' latest' : ''}">${v.version}</a>`;
+                });
+                jumpHTML += '<a href="#loader" class="version-jump-btn">Loader</a>';
+                jumpContainer.innerHTML = jumpHTML;
+                // Build timeline
+                const timeline = document.getElementById('changelog-timeline');
+                let timelineHTML = '';
+                // Menu versions
+                data.versions.forEach(v => {
+                    timelineHTML += renderVersionCard(v);
+                });
+                // Loader section divider
+                timelineHTML += `
+                    <div class="section-divider" id="loader">
+                        <h2>LOADER</h2>
+                    </div>
+                `;
+                // Loader versions
+                data.loader.forEach(v => {
+                    timelineHTML += renderVersionCard(v);
+                });
+                // RDR2 section divider
+                if (data.rdr2 && data.rdr2.length > 0) {
+                    timelineHTML += `
+                        <div class="section-divider" id="rdr2-section">
+                            <h2>RDR2</h2>
+                        </div>
+                    `;
+                    data.rdr2.forEach(v => {
+                        timelineHTML += renderVersionCard(v);
+                    });
+                }
+                timeline.innerHTML = timelineHTML;
+                // Initialize animations
+                initAnimations();
+            } catch (error) {
+                console.error('Failed to load changelog:', error);
+                document.getElementById('changelog-timeline').innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <p style="color: #ff6b6b;">Failed to load changelog</p>
+                        <button onclick="loadChangelog()" style="margin-top: 20px; padding: 12px 24px; background: var(--accent-gradient); border: none; border-radius: 8px; color: white; cursor: pointer;">Retry</button>
+                    </div>
+                `;
+            }
+        }
+        function renderVersionCard(v) {
+            const badgeStyle = v.badgeStyle === 'beta'
+                ? 'background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);'
+                : v.badgeStyle === 'latest'
+                ? 'background: var(--accent-gradient);'
+                : '';
+            let categoriesHTML = '';
+            v.categories.forEach(cat => {
+                let featuresHTML = '';
+                cat.features.forEach(feat => {
+                    // Handle features with bold parts
+                    const boldMatch = feat.match(/^(.+?) - (.+)$/);
+                    if (boldMatch) {
+                        featuresHTML += `<li><strong>${boldMatch[1]}</strong> - ${boldMatch[2]}</li>`;
+                    } else {
+                        featuresHTML += `<li>${feat}</li>`;
+                    }
+                });
+                categoriesHTML += `
+                    <div class="feature-category">
+                        <h3 class="category-title">${cat.title}</h3>
+                        <ul class="feature-list">${featuresHTML}</ul>
+                    </div>
+                `;
+            });
+            return `
+                <div class="version-card" id="${v.id}">
+                    <div class="version-header">
+                        <h2 class="version-title">${v.version}</h2>
+                        <span class="version-date">${v.date}</span>
+                        <span class="version-badge" style="${badgeStyle}">${v.badge}</span>
+                    </div>
+                    <div class="version-content">
+                        ${categoriesHTML}
+                    </div>
+                </div>
+            `;
+        }
+        function initAnimations() {
+            // Scroll animations for version cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.version-card').forEach((el, index) => {
+                el.classList.add('animate-card');
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+            // Smooth scroll for version jump buttons
+            document.querySelectorAll('.version-jump-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = btn.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        const navbarHeight = 80;
+                        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+            // Highlight active version on scroll
+            const highlightActiveVersion = () => {
+                const versionCards = document.querySelectorAll('.version-card[id], .section-divider[id]');
+                const jumpBtns = document.querySelectorAll('.version-jump-btn');
+                let currentVersion = '';
+                versionCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top <= 150) currentVersion = card.id;
+                });
+                jumpBtns.forEach(btn => {
+                    const href = btn.getAttribute('href').substring(1);
+                    if (href === currentVersion) {
+                        btn.style.background = 'rgba(79, 142, 245, 0.2)';
+                        btn.style.borderColor = 'rgba(79, 142, 245, 0.5)';
+                        btn.style.color = '#4f8ef5';
+                    } else if (!btn.classList.contains('latest')) {
+                        btn.style.background = '';
+                        btn.style.borderColor = '';
+                        btn.style.color = '';
+                    }
+                });
+            };
+            window.addEventListener('scroll', highlightActiveVersion);
+        }
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            particles.forEach((p, i) => {
+                const speed = (i % 5 + 1) * 0.3;
+                p.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+        // Nav scroll behaviour
+        (function() {
+            const nav = document.getElementById('nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 60) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        })();
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('mobile-open');
+        }
+        // Load changelog when page loads
+        document.addEventListener('DOMContentLoaded', loadChangelog);
+        // Product Tab Switching
+        function showProductTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.product-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // Remove active class from all tabs
+            document.querySelectorAll('.product-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

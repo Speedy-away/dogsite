@@ -1,0 +1,274 @@
+/* Dark mode overrides. Activated by html.dark */
+
+html.dark body {
+  color: #e6e6e6;
+  background-color: #0f1218;
+  --fg: #e6e6e6;
+  --bg: #0f1218;
+  --ac: #f40552;
+}
+
+html.dark {
+  background-color: #0f1218;
+}
+
+html.dark header {
+  background-color: #161a23;
+  color: #e6e6e6;
+  border-bottom: 1px solid #252a36;
+}
+
+html.dark header a,
+html.dark header .branding a {
+  color: #e6e6e6;
+}
+
+html.dark header a.active {
+  color: var(--ac);
+}
+
+html.dark header input[type="search"] {
+  background-color: #0f1218;
+  color: #e6e6e6;
+  border: 1px solid #2a2f3c;
+}
+
+html.dark header input[type="search"]::placeholder {
+  color: #888;
+}
+
+html.dark nav {
+  background-color: #141822;
+  color: #d0d0d0;
+  border-bottom: 1px solid #252a36;
+}
+
+html.dark nav ul li {
+  color: #c0c0c0;
+}
+
+html.dark nav ul li.active {
+  color: var(--ac);
+}
+
+html.dark aside {
+  background-color: #141822;
+  color: #e6e6e6;
+  border-right: 1px solid #252a36;
+}
+
+html.dark section {
+  background-color: #0f1218;
+  color: #e6e6e6;
+}
+
+html.dark .entry,
+html.dark .native.entry {
+  color: #d8d8d8;
+  border-bottom: 1px solid #1c2029;
+}
+
+html.dark .entry:hover,
+html.dark .native.entry:hover {
+  background-color: #1b2030;
+}
+
+html.dark .entry a {
+  color: #d8d8d8;
+}
+
+html.dark .entry.active a,
+html.dark .active.native.entry a {
+  color: var(--ac);
+}
+
+html.dark pre {
+  background-color: #1a1f2b !important;
+  color: #e6e6e6 !important;
+  border: 1px solid #2a2f3c !important;
+}
+
+html.dark code {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: #e6e6e6;
+}
+
+html.dark .code pre,
+html.dark .code pre code {
+  background: #1a1f2b !important;
+  color: #e6e6e6 !important;
+}
+
+html.dark .hljs-function,
+html.dark .hljs-params {
+  color: #e6e6e6 !important;
+}
+
+/* Enhanced syntax highlighting (Dracula-inspired) */
+html.dark .hljs-keyword {
+  color: #ff79c6 !important;
+}
+html.dark .hljs-type,
+html.dark .hljs-built_in {
+  color: #8be9fd !important;
+}
+html.dark .hljs-title {
+  color: #50fa7b !important;
+}
+html.dark .hljs-string {
+  color: #f1fa8c !important;
+}
+html.dark .hljs-number {
+  color: #bd93f9 !important;
+}
+html.dark .hljs-comment {
+  color: #6272a4 !important;
+}
+html.dark .hljs-literal {
+  color: #ffb86c !important;
+}
+
+/* Param type highlighting in native list */
+.param-type {
+  color: #0066cc;
+  font-style: normal;
+}
+html.dark .param-type {
+  color: #8be9fd;
+}
+
+/* Enum info box */
+.enum-info-box {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 102, 204, 0.08);
+  border-left: 3px solid #0066cc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.enum-info-box strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #0066cc;
+}
+.enum-info-box em {
+  font-style: normal;
+  font-weight: 600;
+  color: #333;
+}
+.enum-info-box pre {
+  margin: 0.25rem 0 0.75rem 0 !important;
+  padding: 0.5rem !important;
+  background: rgba(0, 0, 0, 0.03) !important;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+html.dark .enum-info-box {
+  background: rgba(139, 233, 253, 0.1);
+  border-left-color: #8be9fd;
+}
+html.dark .enum-info-box strong {
+  color: #8be9fd;
+}
+html.dark .enum-info-box em {
+  color: #f8f8f2;
+}
+html.dark .enum-info-box pre {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.dark .hash pre {
+  background-color: #1a1f2b !important;
+  color: #f0b429 !important;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f5f5f5;
+}
+
+html.dark a {
+  color: var(--ac);
+}
+
+html.dark a:hover {
+  color: var(--bg);
+  background-color: var(--ac);
+  box-shadow: 0 0 0 4px var(--ac);
+}
+
+html.dark .desc,
+html.dark .parameters,
+html.dark .examples {
+  color: #d0d0d0;
+}
+
+html.dark .info,
+html.dark .details .info span {
+  color: #c0c0c0;
+}
+
+html.dark footer,
+html.dark footer.legal-links {
+  background-color: #141822;
+  color: #a0a0a0;
+  border-top: 1px solid #252a36;
+}
+
+html.dark footer a,
+html.dark footer.legal-links a {
+  color: #c0c0c0;
+}
+
+html.dark .icon-link {
+  color: #c0c0c0;
+}
+
+html.dark .material-icons-outlined {
+  color: #c0c0c0;
+}
+
+html.dark svg {
+  color: inherit;
+}
+
+html.dark .entry svg path[fill="none"][stroke="#000"] {
+  stroke: #e6e6e6;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: #161923;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.15s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+html.dark #theme-toggle {
+  background-color: #f4f4f4;
+  color: #161923;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}

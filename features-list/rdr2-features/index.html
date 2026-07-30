@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCOOBY - RDR2 | Features</title>
+    <link rel="canonical" href="https://scoobymenu.cc/features-list/rdr2-features">
+    <meta name="description" content="SCOOBY - RDR2 Mod Menu. Complete features list for Red Dead Redemption 2 including Self, Players, World, Network, Recovery, Settings and more.">
+    <meta name="keywords" content="SCOOBY, RDR2, Red Dead Redemption 2, mod menu, features, ESP, aimbot, recovery, teleport, spawner, bodyguard, trolling, protection, Lua scripts">
+    <meta name="author" content="Scooby">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SCOOBY - RDR2 Features">
+    <meta property="og:description" content="Complete features list for the SCOOBY RDR2 Mod Menu.">
+    <meta property="og:type" content="website">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a2e;
+            --bg-card: #16162a;
+            --bg-hover: #1e1e3a;
+            --accent: #00c8c8;
+            --accent-light: #00d4d4;
+            --accent-dark: #009999;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #2d2d4a;
+            --success: #22c55e;
+            --warning: #eab308;
+            --danger: #ef4444;
+            --info: #3b82f6;
+        }
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 200, 200, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #00c8c8;
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: #00c8c8; }
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 2rem 1.5rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #00d4d4, #00c8c8, #009999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        /* Main Tab Navigation */
+        .main-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 1rem 2rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+        }
+        .main-tab-btn {
+            padding: 0.6rem 1.2rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+        }
+        .main-tab-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent);
+        }
+        .main-tab-btn.active {
+            background: var(--accent);
+            color: #0a0a0f;
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+        /* Content Area */
+        .content { padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        /* Category */
+        .category {
+            margin-bottom: 1.5rem;
+        }
+        .category-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--accent-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 1px;
+        }
+        /* Sub-tab Navigation */
+        .sub-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-bottom: 1rem;
+        }
+        .sub-tab-btn {
+            padding: 0.4rem 0.9rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .sub-tab-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+        }
+        .sub-tab-btn.active {
+            background: rgba(0, 200, 200, 0.15);
+            color: var(--accent-light);
+            border-color: var(--accent);
+        }
+        .sub-tab-content { display: none; }
+        .sub-tab-content.active { display: block; }
+        /* Nested Sub-tabs */
+        .nested-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        .nested-tab-btn {
+            padding: 0.3rem 0.7rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nested-tab-btn:hover { color: var(--text-primary); background: var(--bg-hover); }
+        .nested-tab-btn.active {
+            background: rgba(0, 200, 200, 0.1);
+            color: var(--accent-light);
+            border-color: var(--accent);
+        }
+        .nested-tab-content { display: none; }
+        .nested-tab-content.active { display: block; }
+        /* Group */
+        .group {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .group-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid var(--border);
+        }
+        /* Feature Items */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.4rem;
+        }
+        .feature {
+            padding: 0.35rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background 0.15s;
+        }
+        .feature:hover { background: var(--bg-hover); }
+        .feature .icon {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .feature.toggle .icon { background: var(--success); }
+        .feature.action .icon { background: var(--info); }
+        .feature.slider .icon { background: var(--warning); }
+        .feature.list .icon { background: #67e8f9; }
+        .feature.color .icon { background: linear-gradient(135deg, #ef4444, #eab308, #22c55e, #3b82f6); }
+        .feature.gui .icon { background: var(--text-muted); }
+        .feature.conditional .icon { background: var(--success); border: 1px solid var(--warning); }
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.8rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--text-secondary);
+        }
+        /* Feature count badge */
+        .badge {
+            background: var(--accent-dark);
+            color: var(--accent-light);
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5rem; }
+            .content { padding: 1rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .main-tabs { padding: 0.5rem; }
+            .main-tab-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+        }
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-dark); }
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; }
+            .nav-links { display: none; }
+        }
+        .feature-count { color: var(--text-muted); font-size: 0.8rem; font-weight: normal; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="/" class="logo">SCOOBY</a>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/products/rdr2">RDR2</a></li>
+        <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank">Discord</a></li>
+        <li><a href="/portal" target="_blank" style="background:linear-gradient(135deg,#00e5e5 0%,#00c8c8 50%,#00a0a0 100%);color:#0a0a0f;font-weight:600;padding:8px 20px;border-radius:6px;">Login</a></li>
+    </ul>
+</nav>
+<div class="header">
+    <h1>SCOOBY - RDR2</h1>
+    <p>Complete Features List</p>
+</div>
+<div class="main-tabs">
+    <button class="main-tab-btn active" onclick="showTab('self')">Self</button>
+    <button class="main-tab-btn" onclick="showTab('players')">Players</button>
+    <button class="main-tab-btn" onclick="showTab('world')">World</button>
+    <button class="main-tab-btn" onclick="showTab('network')">Network</button>
+    <button class="main-tab-btn" onclick="showTab('recovery')">Recovery</button>
+    <button class="main-tab-btn" onclick="showTab('settings')">Settings</button>
+</div>
+<div class="content">
+<!-- LEGEND -->
+<div class="legend">
+    <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:var(--success);display:inline-block;"></span> Toggle</div>
+    <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:var(--info);display:inline-block;"></span> Action/Button</div>
+    <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:var(--warning);display:inline-block;"></span> Slider/Value</div>
+    <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:#67e8f9;display:inline-block;"></span> List/Dropdown</div>
+    <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg, #ef4444, #eab308, #22c55e, #3b82f6);display:inline-block;"></span> Color Picker</div>
+    <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:var(--text-muted);display:inline-block;"></span> GUI/Custom</div>
+</div>
+<!-- ============================================================ -->
+<!-- SELF TAB -->
+<!-- ============================================================ -->
+<div id="self" class="tab-content active">
+    <!-- MAIN CATEGORY -->
+    <div class="category">
+        <div class="category-header">Main</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'self-globals')">Globals</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-health')">Health</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-movement')">Movement</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-vision')">Vision</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-tools')">Tools</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-animations')">Animations</button>
+        </div>
+        <div id="self-globals" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Protection</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>God Mode</div>
+                <div class="feature toggle"><span class="icon"></span>No Ragdoll</div>
+                <div class="feature toggle"><span class="icon"></span>Anti Lasso</div>
+                <div class="feature toggle"><span class="icon"></span>Anti Hogtie</div>
+                <div class="feature toggle"><span class="icon"></span>Anti Melee</div>
+                <div class="feature toggle"><span class="icon"></span>Anti AFK</div>
+            </div></div>
+            <div class="group"><div class="group-title">Visibility</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Invisible</div>
+                <div class="feature toggle"><span class="icon"></span>Off The Radar</div>
+                <div class="feature toggle"><span class="icon"></span>Never Wanted</div>
+            </div></div>
+            <div class="group"><div class="group-title">Bars & Cores</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Keep Bars Filled</div>
+                <div class="feature conditional"><span class="icon"></span>Keep Dead Eye Filled</div>
+                <div class="feature conditional"><span class="icon"></span>Keep Stamina Filled</div>
+                <div class="feature conditional"><span class="icon"></span>Keep Health Filled</div>
+                <div class="feature toggle"><span class="icon"></span>Keep Cores Filled</div>
+                <div class="feature conditional"><span class="icon"></span>Keep Dead Eye Core Filled</div>
+                <div class="feature conditional"><span class="icon"></span>Keep Stamina Core Filled</div>
+                <div class="feature conditional"><span class="icon"></span>Keep Health Core Filled</div>
+            </div></div>
+            <div class="group"><div class="group-title">Misc</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Keep Clean</div>
+                <div class="feature toggle"><span class="icon"></span>Drunk</div>
+                <div class="feature toggle"><span class="icon"></span>Super Punch</div>
+                <div class="feature toggle"><span class="icon"></span>Quick Skin</div>
+                <div class="feature toggle"><span class="icon"></span>No Clothing Damage</div>
+                <div class="feature toggle"><span class="icon"></span>Instant Respawn</div>
+            </div></div>
+        </div>
+        <div id="self-health" class="sub-tab-content">
+            <div class="group"><div class="group-title">Damage Protection</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>No Fall Damage</div>
+                <div class="feature toggle"><span class="icon"></span>Fireproof</div>
+                <div class="feature toggle"><span class="icon"></span>Explosion Proof</div>
+            </div></div>
+            <div class="group"><div class="group-title">Recovery</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Auto Heal</div>
+                <div class="feature slider"><span class="icon"></span>Auto Heal Threshold</div>
+            </div></div>
+            <div class="group"><div class="group-title">Stamina & Breath</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Infinite Stamina</div>
+                <div class="feature toggle"><span class="icon"></span>Unlimited Oxygen</div>
+                <div class="feature toggle"><span class="icon"></span>Unlimited Breath</div>
+            </div></div>
+        </div>
+        <div id="self-movement" class="sub-tab-content">
+            <div class="group"><div class="group-title">Ground</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Super Run</div>
+                <div class="feature toggle"><span class="icon"></span>Super Jump</div>
+                <div class="feature toggle"><span class="icon"></span>Climb Steep Slopes</div>
+            </div></div>
+            <div class="group"><div class="group-title">Water</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Walk On Water</div>
+                <div class="feature toggle"><span class="icon"></span>Swim Fast</div>
+            </div></div>
+            <div class="group"><div class="group-title">Flight</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Superman</div>
+                <div class="feature slider"><span class="icon"></span>Superman Speed</div>
+            </div></div>
+            <div class="group"><div class="group-title">NoClip</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>NoClip</div>
+                <div class="feature slider"><span class="icon"></span>NoClip Speed</div>
+            </div></div>
+            <div class="group"><div class="group-title">Camera</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Free Cam</div>
+                <div class="feature slider"><span class="icon"></span>Free Cam Speed</div>
+                <div class="feature toggle"><span class="icon"></span>Freeze Position</div>
+            </div></div>
+        </div>
+        <div id="self-vision" class="sub-tab-content">
+            <div class="group"><div class="group-title">Time Effects</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Slow Motion</div>
+                <div class="feature slider"><span class="icon"></span>Slow Motion Scale</div>
+            </div></div>
+            <div class="group"><div class="group-title">Dead Eye</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Eagle Eye</div>
+            </div></div>
+        </div>
+        <div id="self-tools" class="sub-tab-content">
+            <div class="group"><div class="group-title">Quick Actions</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Heal</div>
+                <div class="feature action"><span class="icon"></span>Suicide</div>
+                <div class="feature action"><span class="icon"></span>Clear Crimes</div>
+                <div class="feature action"><span class="icon"></span>Clone Self</div>
+            </div></div>
+            <div class="group"><div class="group-title">NPC Interaction</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>NPC Ignore</div>
+            </div></div>
+            <div class="group"><div class="group-title">Whistle Override</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Override Whistle</div>
+                <div class="feature slider"><span class="icon"></span>Whistle Pitch</div>
+                <div class="feature slider"><span class="icon"></span>Whistle Clarity</div>
+                <div class="feature slider"><span class="icon"></span>Whistle Shape</div>
+            </div></div>
+            <div class="group"><div class="group-title">Player Scale</div><div class="features-grid">
+                <div class="feature slider"><span class="icon"></span>Player Scale (0.1 - 5.0)</div>
+            </div></div>
+        </div>
+        <div id="self-animations" class="sub-tab-content">
+            <div class="group"><div class="group-title">Animations</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Dictionary Input</div>
+                <div class="feature gui"><span class="icon"></span>Animation Input</div>
+                <div class="feature action"><span class="icon"></span>Play Animation</div>
+                <div class="feature gui"><span class="icon"></span>Emote Category Selector</div>
+                <div class="feature gui"><span class="icon"></span>Emote Selector</div>
+                <div class="feature action"><span class="icon"></span>Play Emote</div>
+                <div class="feature action"><span class="icon"></span>Stop Animation</div>
+            </div></div>
+        </div>
+    </div>
+    <!-- WEAPONS CATEGORY -->
+    <div class="category">
+        <div class="category-header">Weapons</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'self-weaponsmain')">Main</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-aimbot')">Aimbot</button>
+        </div>
+        <div id="self-weaponsmain" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Ammo</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Infinite Ammo</div>
+                <div class="feature toggle"><span class="icon"></span>Infinite Clip</div>
+                <div class="feature toggle"><span class="icon"></span>Fire Ammo</div>
+                <div class="feature toggle"><span class="icon"></span>Explosive Ammo</div>
+                <div class="feature toggle"><span class="icon"></span>Electric Ammo</div>
+                <div class="feature toggle"><span class="icon"></span>Poison Ammo</div>
+                <div class="feature toggle"><span class="icon"></span>Penetration Ammo</div>
+                <div class="feature toggle"><span class="icon"></span>Homing Ammo</div>
+            </div></div>
+            <div class="group"><div class="group-title">Accuracy</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>No Spread</div>
+                <div class="feature toggle"><span class="icon"></span>No Recoil</div>
+                <div class="feature toggle"><span class="icon"></span>Steady Aim</div>
+            </div></div>
+            <div class="group"><div class="group-title">Damage</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>One Hit Kill</div>
+                <div class="feature toggle"><span class="icon"></span>Weapon Damage Override</div>
+                <div class="feature slider"><span class="icon"></span>Weapon Damage Scale</div>
+                <div class="feature toggle"><span class="icon"></span>Melee Damage Override</div>
+                <div class="feature slider"><span class="icon"></span>Melee Damage Scale</div>
+            </div></div>
+            <div class="group"><div class="group-title">Features</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Auto Cock</div>
+                <div class="feature toggle"><span class="icon"></span>Rapid Fire</div>
+                <div class="feature toggle"><span class="icon"></span>Quick Draw</div>
+                <div class="feature toggle"><span class="icon"></span>Keep Guns Clean</div>
+                <div class="feature toggle"><span class="icon"></span>Infinite Dead Eye</div>
+            </div></div>
+            <div class="group"><div class="group-title">Special Guns</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Delete Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Teleport Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Gravity Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Freeze Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Heal Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Burn Gun</div>
+            </div></div>
+            <div class="group"><div class="group-title">Fun Guns</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Launch Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Push Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Ragdoll Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Shrink Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Enlarge Gun</div>
+                <div class="feature toggle"><span class="icon"></span>Airstrike Gun</div>
+            </div></div>
+            <div class="group"><div class="group-title">Tools</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Give All Weapons</div>
+                <div class="feature action"><span class="icon"></span>Give All Ammo</div>
+            </div></div>
+        </div>
+        <div id="self-aimbot" class="sub-tab-content">
+            <div class="nested-tabs">
+                <button class="nested-tab-btn active" onclick="showNestedTab(this, 'aimbot-lockon')">Aimbot</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'aimbot-silent')">Silent Aim</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'aimbot-magic')">Magic Bullet</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'aimbot-trigger')">Triggerbot</button>
+            </div>
+            <div id="aimbot-lockon" class="nested-tab-content active">
+                <div class="group"><div class="group-title">Aimbot</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable Aimbot</div>
+                    <div class="feature list"><span class="icon"></span>Hit Bone</div>
+                    <div class="feature slider"><span class="icon"></span>FOV</div>
+                    <div class="feature slider"><span class="icon"></span>Max Distance</div>
+                    <div class="feature toggle"><span class="icon"></span>Smooth Toggle</div>
+                    <div class="feature slider"><span class="icon"></span>Smooth Amount</div>
+                    <div class="feature toggle"><span class="icon"></span>Auto Fire</div>
+                </div></div>
+                <div class="group"><div class="group-title">Targeting</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Target Peds</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Players</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Animals</div>
+                    <div class="feature toggle"><span class="icon"></span>Visibility Check</div>
+                    <div class="feature toggle"><span class="icon"></span>Release Dead Ped</div>
+                </div></div>
+                <div class="group"><div class="group-title">Activation</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Activation Key</div>
+                    <div class="feature list"><span class="icon"></span>Activation Mode</div>
+                </div></div>
+                <div class="group"><div class="group-title">Visuals</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Show FOV Circle</div>
+                    <div class="feature color"><span class="icon"></span>FOV Color</div>
+                    <div class="feature toggle"><span class="icon"></span>Show Target</div>
+                    <div class="feature color"><span class="icon"></span>Target Color</div>
+                    <div class="feature toggle"><span class="icon"></span>Indicator</div>
+                </div></div>
+            </div>
+            <div id="aimbot-silent" class="nested-tab-content">
+                <div class="group"><div class="group-title">Silent Aim</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable Silent Aim</div>
+                    <div class="feature list"><span class="icon"></span>Hit Bone</div>
+                    <div class="feature slider"><span class="icon"></span>FOV</div>
+                    <div class="feature slider"><span class="icon"></span>Max Distance</div>
+                    <div class="feature toggle"><span class="icon"></span>Through Walls</div>
+                </div></div>
+                <div class="group"><div class="group-title">Targeting</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Target Peds</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Players</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Animals</div>
+                    <div class="feature toggle"><span class="icon"></span>Visibility Check</div>
+                </div></div>
+                <div class="group"><div class="group-title">Activation</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Activation Key</div>
+                    <div class="feature list"><span class="icon"></span>Activation Mode</div>
+                </div></div>
+                <div class="group"><div class="group-title">Visuals</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Show FOV Circle</div>
+                    <div class="feature color"><span class="icon"></span>FOV Color</div>
+                </div></div>
+            </div>
+            <div id="aimbot-magic" class="nested-tab-content">
+                <div class="group"><div class="group-title">Magic Bullet</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable Magic Bullet</div>
+                    <div class="feature list"><span class="icon"></span>Hit Bone</div>
+                    <div class="feature slider"><span class="icon"></span>Range</div>
+                    <div class="feature slider"><span class="icon"></span>Damage</div>
+                    <div class="feature toggle"><span class="icon"></span>Silent</div>
+                    <div class="feature toggle"><span class="icon"></span>Auto Fire</div>
+                </div></div>
+                <div class="group"><div class="group-title">Targeting</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Target Peds</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Players</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Animals</div>
+                    <div class="feature toggle"><span class="icon"></span>Use FOV</div>
+                    <div class="feature slider"><span class="icon"></span>FOV</div>
+                </div></div>
+                <div class="group"><div class="group-title">Activation</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Activation Key</div>
+                    <div class="feature list"><span class="icon"></span>Activation Mode</div>
+                </div></div>
+                <div class="group"><div class="group-title">Visuals</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Show FOV Circle</div>
+                    <div class="feature color"><span class="icon"></span>FOV Color</div>
+                    <div class="feature toggle"><span class="icon"></span>Show Target</div>
+                    <div class="feature color"><span class="icon"></span>Target Color</div>
+                    <div class="feature toggle"><span class="icon"></span>Indicator</div>
+                </div></div>
+            </div>
+            <div id="aimbot-trigger" class="nested-tab-content">
+                <div class="group"><div class="group-title">Triggerbot</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable Triggerbot</div>
+                    <div class="feature list"><span class="icon"></span>Hit Bone</div>
+                    <div class="feature slider"><span class="icon"></span>Delay</div>
+                    <div class="feature slider"><span class="icon"></span>Max Distance</div>
+                </div></div>
+                <div class="group"><div class="group-title">Targeting</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Target Peds</div>
+                    <div class="feature toggle"><span class="icon"></span>Target Players</div>
+                    <div class="feature toggle"><span class="icon"></span>Visibility Check</div>
+                    <div class="feature toggle"><span class="icon"></span>Headshot Only</div>
+                    <div class="feature toggle"><span class="icon"></span>Auto Release</div>
+                </div></div>
+                <div class="group"><div class="group-title">Burst Fire</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Burst Fire</div>
+                    <div class="feature slider"><span class="icon"></span>Burst Count</div>
+                    <div class="feature slider"><span class="icon"></span>Burst Delay</div>
+                    <div class="feature slider"><span class="icon"></span>Cooldown</div>
+                </div></div>
+                <div class="group"><div class="group-title">Magnet Aim</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Magnet Aim</div>
+                    <div class="feature slider"><span class="icon"></span>Magnet Range</div>
+                    <div class="feature toggle"><span class="icon"></span>Magnet Snap</div>
+                    <div class="feature slider"><span class="icon"></span>Magnet Smooth</div>
+                </div></div>
+                <div class="group"><div class="group-title">Activation</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Activation Key</div>
+                    <div class="feature list"><span class="icon"></span>Activation Mode</div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+    <!-- HORSE CATEGORY -->
+    <div class="category">
+        <div class="category-header">Horse</div>
+        <div class="group"><div class="group-title">Protection</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Horse God Mode</div>
+            <div class="feature toggle"><span class="icon"></span>Horse No Ragdoll</div>
+            <div class="feature toggle"><span class="icon"></span>Horse No Fall Damage</div>
+            <div class="feature toggle"><span class="icon"></span>Horse Never Buck</div>
+        </div></div>
+        <div class="group"><div class="group-title">Movement</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Horse Super Run</div>
+            <div class="feature toggle"><span class="icon"></span>Horse Infinite Stamina</div>
+            <div class="feature toggle"><span class="icon"></span>Horse Climb Steep Slopes</div>
+            <div class="feature toggle"><span class="icon"></span>Horse Walk On Water</div>
+        </div></div>
+        <div class="group"><div class="group-title">Stats</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Keep Horse Bars Filled</div>
+            <div class="feature toggle"><span class="icon"></span>Keep Horse Cores Filled</div>
+            <div class="feature toggle"><span class="icon"></span>Keep Horse Agitation Low</div>
+        </div></div>
+        <div class="group"><div class="group-title">Appearance</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Keep Horse Clean</div>
+            <div class="feature toggle"><span class="icon"></span>Flaming Hooves</div>
+            <div class="feature slider"><span class="icon"></span>Horse Scale</div>
+        </div></div>
+        <div class="group"><div class="group-title">Tools</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>TP Mount To Self</div>
+            <div class="feature action"><span class="icon"></span>Revive Horse</div>
+            <div class="feature action"><span class="icon"></span>Heal Horse</div>
+            <div class="feature action"><span class="icon"></span>Clean Horse</div>
+        </div></div>
+    </div>
+    <!-- VEHICLE CATEGORY -->
+    <div class="category">
+        <div class="category-header">Vehicle</div>
+        <div class="group"><div class="group-title">Globals</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Vehicle God Mode</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle No Detach</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle Invisible</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle No Collision</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle Lock Doors</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle Auto Flip</div>
+            <div class="feature toggle"><span class="icon"></span>Flaming Hooves (Draft)</div>
+        </div></div>
+        <div class="group"><div class="group-title">Fun</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Super Drive</div>
+            <div class="feature toggle"><span class="icon"></span>Super Drive Directional</div>
+            <div class="feature slider"><span class="icon"></span>Super Drive Force</div>
+            <div class="feature toggle"><span class="icon"></span>Super Brake</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle Speed Boost</div>
+            <div class="feature toggle"><span class="icon"></span>Vehicle Fly Mode</div>
+        </div></div>
+        <div class="group"><div class="group-title">Tools</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Repair Vehicle</div>
+            <div class="feature action"><span class="icon"></span>Delete Vehicle</div>
+            <div class="feature action"><span class="icon"></span>Boost Vehicle</div>
+            <div class="feature action"><span class="icon"></span>Stop Vehicle</div>
+        </div></div>
+    </div>
+    <!-- TELEPORT CATEGORY -->
+    <div class="category">
+        <div class="category-header">Teleport</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'self-tp-main')">Main</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'self-tp-saved')">Saved</button>
+        </div>
+        <div id="self-tp-main" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Quick Teleport</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>TP To Waypoint</div>
+                <div class="feature action"><span class="icon"></span>TP To Mount</div>
+            </div></div>
+            <div class="group"><div class="group-title">Locations</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Madam Nazar</div>
+                <div class="feature action"><span class="icon"></span>Camp</div>
+                <div class="feature action"><span class="icon"></span>Moonshine Shack</div>
+                <div class="feature action"><span class="icon"></span>Train Track</div>
+            </div></div>
+            <div class="group"><div class="group-title">Options</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Auto TP (Waypoint)</div>
+            </div></div>
+            <div class="group"><div class="group-title">Towns</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Valentine</div>
+                <div class="feature action"><span class="icon"></span>Saint Denis</div>
+                <div class="feature action"><span class="icon"></span>Blackwater</div>
+                <div class="feature action"><span class="icon"></span>Rhodes</div>
+                <div class="feature action"><span class="icon"></span>Strawberry</div>
+                <div class="feature action"><span class="icon"></span>Annesburg</div>
+                <div class="feature action"><span class="icon"></span>Van Horn</div>
+                <div class="feature action"><span class="icon"></span>Tumbleweed</div>
+                <div class="feature action"><span class="icon"></span>Armadillo</div>
+                <div class="feature action"><span class="icon"></span>Emerald Station</div>
+                <div class="feature action"><span class="icon"></span>Colter</div>
+                <div class="feature action"><span class="icon"></span>Wapiti</div>
+            </div></div>
+        </div>
+        <div id="self-tp-saved" class="sub-tab-content">
+            <div class="group"><div class="group-title">Saved Locations</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Category Input</div>
+                <div class="feature gui"><span class="icon"></span>Location Name Input</div>
+                <div class="feature action"><span class="icon"></span>Save Current Location</div>
+                <div class="feature gui"><span class="icon"></span>Search Filter</div>
+                <div class="feature gui"><span class="icon"></span>Categories List</div>
+                <div class="feature gui"><span class="icon"></span>Locations List (Double Click to TP)</div>
+            </div></div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================ -->
+<!-- PLAYERS TAB -->
+<!-- ============================================================ -->
+<div id="players" class="tab-content">
+    <div class="category">
+        <div class="category-header">Player List</div>
+        <div class="group"><div class="group-title">Player List Panel</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Spectate Toggle</div>
+            <div class="feature gui"><span class="icon"></span>Player Search</div>
+            <div class="feature gui"><span class="icon"></span>Scrollable Player List (Selectable)</div>
+            <div class="feature gui"><span class="icon"></span>[ME] Tag (Self)</div>
+            <div class="feature gui"><span class="icon"></span>[HOST] Tag (Session Host)</div>
+            <div class="feature gui"><span class="icon"></span>[MOD] Tag (Detected Modder)</div>
+            <div class="feature gui"><span class="icon"></span>[GOD] Tag (God Mode)</div>
+            <div class="feature gui"><span class="icon"></span>[INVIS] Tag (Invisible)</div>
+            <div class="feature gui"><span class="icon"></span>Modder Detection Tooltip</div>
+            <div class="feature gui"><span class="icon"></span>Page Navigation (Prev/Next)</div>
+            <div class="feature gui"><span class="icon"></span>Player Count</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">General (Selected Player)</div>
+        <div class="group"><div class="group-title">Player Info Panel</div><div class="features-grid">
+            <div class="feature gui"><span class="icon"></span>Player Name</div>
+            <div class="feature gui"><span class="icon"></span>Health / Max Health</div>
+            <div class="feature gui"><span class="icon"></span>Distance</div>
+            <div class="feature gui"><span class="icon"></span>Position (X, Y, Z)</div>
+            <div class="feature gui"><span class="icon"></span>Rank</div>
+            <div class="feature gui"><span class="icon"></span>Honor Level & Value</div>
+            <div class="feature gui"><span class="icon"></span>Language</div>
+            <div class="feature gui"><span class="icon"></span>Rockstar ID (Click to Copy)</div>
+            <div class="feature gui"><span class="icon"></span>Spoofed RID Detection</div>
+            <div class="feature gui"><span class="icon"></span>IP Address (Click to Copy)</div>
+            <div class="feature gui"><span class="icon"></span>Spoofed IP Detection</div>
+            <div class="feature gui"><span class="icon"></span>Real IP (if Spoofed)</div>
+            <div class="feature gui"><span class="icon"></span>Internal IP</div>
+            <div class="feature gui"><span class="icon"></span>Latency (ms)</div>
+            <div class="feature gui"><span class="icon"></span>Packet Loss (%)</div>
+            <div class="feature gui"><span class="icon"></span>Connection Type</div>
+            <div class="feature gui"><span class="icon"></span>Region</div>
+            <div class="feature gui"><span class="icon"></span>District</div>
+        </div></div>
+        <div class="group"><div class="group-title">Options</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Spectate</div>
+            <div class="feature toggle"><span class="icon"></span>Ghost Mode</div>
+            <div class="feature toggle"><span class="icon"></span>Block Explosions</div>
+            <div class="feature toggle"><span class="icon"></span>Block Particles</div>
+        </div></div>
+        <div class="group"><div class="group-title">Moderation</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Mark as Modder</div>
+            <div class="feature toggle"><span class="icon"></span>Trusted</div>
+            <div class="feature toggle"><span class="icon"></span>Block Join</div>
+        </div></div>
+        <div class="group"><div class="group-title">Actions</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>View SC Profile</div>
+            <div class="feature action"><span class="icon"></span>Add Friend</div>
+            <div class="feature action"><span class="icon"></span>Add to Database</div>
+            <div class="feature action"><span class="icon"></span>Copy Name</div>
+            <div class="feature action"><span class="icon"></span>Copy RID</div>
+            <div class="feature action"><span class="icon"></span>Copy Position</div>
+        </div></div>
+        <div class="group"><div class="group-title">Teleport</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>TP To Player</div>
+            <div class="feature action"><span class="icon"></span>TP To Player Camp</div>
+            <div class="feature action"><span class="icon"></span>TP Behind Player</div>
+            <div class="feature action"><span class="icon"></span>TP Into Vehicle</div>
+            <div class="feature action"><span class="icon"></span>Bring Player</div>
+            <div class="feature action"><span class="icon"></span>TP Player To Waypoint</div>
+            <div class="feature action"><span class="icon"></span>TP Player To Madam Nazar</div>
+            <div class="feature action"><span class="icon"></span>TP Player To Jail</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">Helpful</div>
+        <div class="group"><div class="group-title">Helpful</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Spawn Gold Chest</div>
+            <div class="feature action"><span class="icon"></span>Spawn Bounty Wagon</div>
+            <div class="feature action"><span class="icon"></span>Spawn Hunting Wagon</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">Trolling</div>
+        <div class="group"><div class="group-title">Toxic</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Kill</div>
+            <div class="feature action"><span class="icon"></span>Explode</div>
+            <div class="feature action"><span class="icon"></span>Lightning</div>
+            <div class="feature action"><span class="icon"></span>Defensive</div>
+            <div class="feature action"><span class="icon"></span>Offensive</div>
+            <div class="feature action"><span class="icon"></span>Remote Bolas</div>
+        </div></div>
+        <div class="group"><div class="group-title">Events</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Max Honor</div>
+            <div class="feature action"><span class="icon"></span>Min Honor</div>
+            <div class="feature action"><span class="icon"></span>Start Parlay</div>
+            <div class="feature action"><span class="icon"></span>End Parlay</div>
+            <div class="feature action"><span class="icon"></span>Increase Bounty</div>
+            <div class="feature action"><span class="icon"></span>Send Ticker</div>
+            <div class="feature list"><span class="icon"></span>Ticker Message</div>
+            <div class="feature action"><span class="icon"></span>Send Stable Mount Event</div>
+            <div class="feature list"><span class="icon"></span>Mount Instance</div>
+            <div class="feature list"><span class="icon"></span>Stable Mount Event</div>
+        </div></div>
+        <div class="group"><div class="group-title">Mount</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Kick Off Horse</div>
+            <div class="feature action"><span class="icon"></span>Delete Horse</div>
+        </div></div>
+        <div class="group"><div class="group-title">Vehicle</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Delete Vehicle</div>
+        </div></div>
+        <div class="group"><div class="group-title">Cages</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Small Cage</div>
+            <div class="feature action"><span class="icon"></span>Large Cage</div>
+            <div class="feature action"><span class="icon"></span>Circus Cage</div>
+        </div></div>
+        <div class="group"><div class="group-title">Attachments</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Spank</div>
+            <div class="feature action"><span class="icon"></span>Ride On Shoulders</div>
+            <div class="feature action"><span class="icon"></span>Touch Player</div>
+            <div class="feature action"><span class="icon"></span>Slap</div>
+            <div class="feature action"><span class="icon"></span>Cancel Attachment</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">Kick</div>
+        <div class="group"><div class="group-title">Kicks</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Split Kick</div>
+            <div class="feature action"><span class="icon"></span>Pop Kick</div>
+            <div class="feature action"><span class="icon"></span>Ice Kick</div>
+        </div></div>
+    </div>
+</div>
+<!-- ============================================================ -->
+<!-- WORLD TAB -->
+<!-- ============================================================ -->
+<div id="world" class="tab-content">
+    <!-- MAIN CATEGORY -->
+    <div class="category">
+        <div class="category-header">Main</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'world-general')">General</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-weather')">Weather & Time</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-shows')">Shows</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-minigames')">Minigames</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-bodyguard')">Bodyguard</button>
+        </div>
+        <div id="world-general" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Pool Counter</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Peds Count</div>
+                <div class="feature gui"><span class="icon"></span>Vehicles Count</div>
+                <div class="feature gui"><span class="icon"></span>Objects Count</div>
+            </div></div>
+            <div class="group"><div class="group-title">Kill</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Kill All Peds</div>
+                <div class="feature action"><span class="icon"></span>Kill All Enemies</div>
+            </div></div>
+            <div class="group"><div class="group-title">Delete</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Delete Peds</div>
+                <div class="feature action"><span class="icon"></span>Delete Vehicles</div>
+                <div class="feature action"><span class="icon"></span>Delete Objects</div>
+            </div></div>
+            <div class="group"><div class="group-title">Bring</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Bring Peds</div>
+                <div class="feature action"><span class="icon"></span>Bring Vehicles</div>
+                <div class="feature action"><span class="icon"></span>Bring Objects</div>
+            </div></div>
+            <div class="group"><div class="group-title">Ped Control</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>All Peds Ignore</div>
+                <div class="feature toggle"><span class="icon"></span>All Peds Hostile</div>
+                <div class="feature toggle"><span class="icon"></span>Anti Animal Attack</div>
+                <div class="feature toggle"><span class="icon"></span>Angry Crowds</div>
+                <div class="feature action"><span class="icon"></span>Kill All Animals</div>
+                <div class="feature action"><span class="icon"></span>TP All Peds To Self</div>
+            </div></div>
+            <div class="group"><div class="group-title">Honor</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Max Honor</div>
+                <div class="feature action"><span class="icon"></span>Min Honor</div>
+            </div></div>
+            <div class="group"><div class="group-title">Effects</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Blackout</div>
+                <div class="feature toggle"><span class="icon"></span>Explosive Weapons World</div>
+            </div></div>
+            <div class="group"><div class="group-title">Misc</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Disable Guard Zones</div>
+                <div class="feature toggle"><span class="icon"></span>Event Override Enabled</div>
+                <div class="feature list"><span class="icon"></span>Event Override Type</div>
+                <div class="feature action"><span class="icon"></span>Map Editor</div>
+                <div class="feature action"><span class="icon"></span>Reveal Map</div>
+                <div class="feature action"><span class="icon"></span>Clear Weather</div>
+            </div></div>
+        </div>
+        <div id="world-weather" class="sub-tab-content">
+            <div class="group"><div class="group-title">Weather</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Weather Type Selector</div>
+                <div class="feature action"><span class="icon"></span>Restore Weather</div>
+            </div></div>
+            <div class="group"><div class="group-title">Time</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Current Date/Time Display</div>
+                <div class="feature slider"><span class="icon"></span>Hour (0-23)</div>
+                <div class="feature slider"><span class="icon"></span>Minute (0-59)</div>
+                <div class="feature slider"><span class="icon"></span>Second (0-59)</div>
+                <div class="feature toggle"><span class="icon"></span>Freeze Time</div>
+                <div class="feature action"><span class="icon"></span>Change Time</div>
+                <div class="feature action"><span class="icon"></span>Restore Time</div>
+            </div></div>
+        </div>
+        <div id="world-shows" class="sub-tab-content">
+            <div class="group"><div class="group-title">Theater Shows</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Teleport to Theater</div>
+                <div class="feature action"><span class="icon"></span>Unlock Theater Door</div>
+                <div class="feature action"><span class="icon"></span>Lock Theater Door</div>
+                <div class="feature list"><span class="icon"></span>Show Type (13 shows)</div>
+                <div class="feature gui"><span class="icon"></span>Actor Override (Self/Player)</div>
+                <div class="feature toggle"><span class="icon"></span>Auto Cleanup</div>
+                <div class="feature toggle"><span class="icon"></span>Spawn Audience Members</div>
+                <div class="feature action"><span class="icon"></span>Start Show</div>
+                <div class="feature action"><span class="icon"></span>Stop Show</div>
+            </div></div>
+            <div class="group"><div class="group-title">Available Shows</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Cancan Dance (1 & 2)</div>
+                <div class="feature gui"><span class="icon"></span>Fire Breather Dance</div>
+                <div class="feature gui"><span class="icon"></span>Fire Dance (1 & 2)</div>
+                <div class="feature gui"><span class="icon"></span>Snake Dance (1 & 2)</div>
+                <div class="feature gui"><span class="icon"></span>Sword Dance</div>
+                <div class="feature gui"><span class="icon"></span>Odd Fellows Scene</div>
+                <div class="feature gui"><span class="icon"></span>Escape Artist Scene</div>
+                <div class="feature gui"><span class="icon"></span>Flex Fight Scene</div>
+                <div class="feature gui"><span class="icon"></span>Band (Telephone & Saint Denis)</div>
+            </div></div>
+        </div>
+        <div id="world-minigames" class="sub-tab-content">
+            <div class="nested-tabs">
+                <button class="nested-tab-btn active" onclick="showNestedTab(this, 'mg-undead')">Undead Nightmare</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'mg-duel')">Duel</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'mg-hunting')">Hunting</button>
+            </div>
+            <div id="mg-undead" class="nested-tab-content active">
+                <div class="group"><div class="group-title">Undead Nightmare</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable</div>
+                    <div class="feature toggle"><span class="icon"></span>Hard Mode</div>
+                    <div class="feature toggle"><span class="icon"></span>Zombie Variety</div>
+                    <div class="feature toggle"><span class="icon"></span>Boss Zombies</div>
+                    <div class="feature toggle"><span class="icon"></span>Speed Scaling</div>
+                    <div class="feature toggle"><span class="icon"></span>Zombie Infection</div>
+                </div></div>
+                <div class="group"><div class="group-title">Visuals & HUD</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Blood Moon</div>
+                    <div class="feature toggle"><span class="icon"></span>Show HUD</div>
+                    <div class="feature toggle"><span class="icon"></span>Debug Logging</div>
+                </div></div>
+            </div>
+            <div id="mg-duel" class="nested-tab-content">
+                <div class="group"><div class="group-title">Quick Draw Duel</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable</div>
+                    <div class="feature toggle"><span class="icon"></span>Show HUD</div>
+                </div></div>
+            </div>
+            <div id="mg-hunting" class="nested-tab-content">
+                <div class="group"><div class="group-title">Hunting Challenge</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable</div>
+                    <div class="feature toggle"><span class="icon"></span>Show HUD</div>
+                    <div class="feature toggle"><span class="icon"></span>Legendary Spawns</div>
+                </div></div>
+            </div>
+        </div>
+        <div id="world-bodyguard" class="sub-tab-content">
+            <div class="nested-tabs">
+                <button class="nested-tab-btn active" onclick="showNestedTab(this, 'bg-spawnped')">Spawn Ped</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'bg-spawnanimal')">Spawn Animal</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'bg-settings')">Settings</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'bg-manage')">Manage</button>
+            </div>
+            <div id="bg-spawnped" class="nested-tab-content active">
+                <div class="group"><div class="group-title">Spawn Ped Bodyguard</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Ped Category</div>
+                    <div class="feature list"><span class="icon"></span>Ped Model</div>
+                    <div class="feature action"><span class="icon"></span>Spawn Ped Bodyguard</div>
+                </div></div>
+            </div>
+            <div id="bg-spawnanimal" class="nested-tab-content">
+                <div class="group"><div class="group-title">Spawn Animal Bodyguard</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Animal Category (Predators, Dogs, Horses, Big Game)</div>
+                    <div class="feature list"><span class="icon"></span>Animal Selector</div>
+                    <div class="feature action"><span class="icon"></span>Spawn Animal Bodyguard</div>
+                </div></div>
+            </div>
+            <div id="bg-settings" class="nested-tab-content">
+                <div class="group"><div class="group-title">Bodyguard Settings</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Weapon Type (10 categories)</div>
+                    <div class="feature list"><span class="icon"></span>Weapon Selector</div>
+                    <div class="feature list"><span class="icon"></span>Formation (Default, Circle, Alt Circle, Line)</div>
+                    <div class="feature list"><span class="icon"></span>Combat Style (Aggressive, Defensive, Follow Only)</div>
+                    <div class="feature toggle"><span class="icon"></span>God Mode</div>
+                    <div class="feature toggle"><span class="icon"></span>Map Blip</div>
+                    <div class="feature slider"><span class="icon"></span>Scale (0.5 - 5.0)</div>
+                </div></div>
+            </div>
+            <div id="bg-manage" class="nested-tab-content">
+                <div class="group"><div class="group-title">Management</div><div class="features-grid">
+                    <div class="feature gui"><span class="icon"></span>Active Bodyguards Count</div>
+                    <div class="feature action"><span class="icon"></span>Teleport All to Me</div>
+                    <div class="feature action"><span class="icon"></span>Heal All</div>
+                    <div class="feature action"><span class="icon"></span>Arm All</div>
+                    <div class="feature action"><span class="icon"></span>Toggle God Mode All</div>
+                    <div class="feature action"><span class="icon"></span>Dismiss All</div>
+                </div></div>
+                <div class="group"><div class="group-title">Per-Bodyguard Controls</div><div class="features-grid">
+                    <div class="feature gui"><span class="icon"></span>Bodyguard List (Name, Type, Health)</div>
+                    <div class="feature action"><span class="icon"></span>Teleport to Me</div>
+                    <div class="feature action"><span class="icon"></span>Heal</div>
+                    <div class="feature action"><span class="icon"></span>Re-Arm</div>
+                    <div class="feature action"><span class="icon"></span>Dismiss</div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+    <!-- SPAWNERS CATEGORY -->
+    <div class="category">
+        <div class="category-header">Spawners</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'world-peds')">Peds</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-animals')">Animals</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-vehicles')">Vehicles</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-objects')">Objects</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-trains')">Trains</button>
+        </div>
+        <div id="world-peds" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Ped Spawner</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Use Category List</div>
+                <div class="feature list"><span class="icon"></span>Category Selector</div>
+                <div class="feature list"><span class="icon"></span>Ped Model Selector</div>
+                <div class="feature gui"><span class="icon"></span>Manual Model Input</div>
+                <div class="feature toggle"><span class="icon"></span>Spawn Dead</div>
+                <div class="feature toggle"><span class="icon"></span>Sedated</div>
+                <div class="feature toggle"><span class="icon"></span>Invisible</div>
+                <div class="feature toggle"><span class="icon"></span>God Mode</div>
+                <div class="feature toggle"><span class="icon"></span>Frozen</div>
+                <div class="feature toggle"><span class="icon"></span>Companion</div>
+                <div class="feature list"><span class="icon"></span>Formation</div>
+                <div class="feature slider"><span class="icon"></span>Scale (0.1 - 10)</div>
+                <div class="feature action"><span class="icon"></span>Spawn</div>
+                <div class="feature action"><span class="icon"></span>Set Model</div>
+                <div class="feature action"><span class="icon"></span>Preview</div>
+                <div class="feature action"><span class="icon"></span>Cleanup Peds</div>
+            </div></div>
+        </div>
+        <div id="world-animals" class="sub-tab-content">
+            <div class="group"><div class="group-title">Animal Spawner (12 Categories)</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Category (Legendary, Predators, Big Game, etc.)</div>
+                <div class="feature list"><span class="icon"></span>Animal Selector</div>
+                <div class="feature toggle"><span class="icon"></span>Spawn Dead</div>
+                <div class="feature toggle"><span class="icon"></span>Sedated</div>
+                <div class="feature toggle"><span class="icon"></span>God Mode</div>
+                <div class="feature toggle"><span class="icon"></span>Frozen</div>
+                <div class="feature toggle"><span class="icon"></span>Companion</div>
+                <div class="feature slider"><span class="icon"></span>Scale (0.1 - 10)</div>
+                <div class="feature action"><span class="icon"></span>Spawn</div>
+                <div class="feature action"><span class="icon"></span>Preview</div>
+                <div class="feature action"><span class="icon"></span>Cleanup Animals</div>
+            </div></div>
+        </div>
+        <div id="world-vehicles" class="sub-tab-content">
+            <div class="group"><div class="group-title">Vehicle Spawner</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Vehicle Model Input (Auto-complete)</div>
+                <div class="feature action"><span class="icon"></span>Spawn</div>
+                <div class="feature action"><span class="icon"></span>Preview</div>
+            </div></div>
+        </div>
+        <div id="world-objects" class="sub-tab-content">
+            <div class="group"><div class="group-title">Object Spawner (11 Categories)</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Category (Campfire, Furniture, Containers, etc.)</div>
+                <div class="feature list"><span class="icon"></span>Object Selector</div>
+                <div class="feature gui"><span class="icon"></span>Custom Hash Input</div>
+                <div class="feature toggle"><span class="icon"></span>Place On Ground</div>
+                <div class="feature toggle"><span class="icon"></span>Frozen</div>
+                <div class="feature toggle"><span class="icon"></span>Burning</div>
+                <div class="feature toggle"><span class="icon"></span>Make Carriable</div>
+                <div class="feature action"><span class="icon"></span>Spawn</div>
+                <div class="feature action"><span class="icon"></span>Spawn at Crosshair</div>
+                <div class="feature action"><span class="icon"></span>Preview</div>
+                <div class="feature action"><span class="icon"></span>Delete All</div>
+            </div></div>
+        </div>
+        <div id="world-trains" class="sub-tab-content">
+            <div class="group"><div class="group-title">Train Spawner</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Train Model Selector</div>
+                <div class="feature toggle"><span class="icon"></span>Passengers</div>
+                <div class="feature toggle"><span class="icon"></span>Conductor</div>
+                <div class="feature toggle"><span class="icon"></span>Warp Into Seat</div>
+                <div class="feature toggle"><span class="icon"></span>Station Stops</div>
+                <div class="feature action"><span class="icon"></span>Spawn</div>
+            </div></div>
+        </div>
+    </div>
+    <!-- FUN CATEGORY -->
+    <div class="category">
+        <div class="category-header">Fun</div>
+        <div class="group"><div class="group-title">Hot Air Balloon</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Spawn Hot Air Balloon</div>
+            <div class="feature toggle"><span class="icon"></span>Hot Air Balloon Controls</div>
+        </div></div>
+        <div class="group"><div class="group-title">Ped Fun</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Ragdoll Peds</div>
+            <div class="feature action"><span class="icon"></span>Launch Peds</div>
+            <div class="feature action"><span class="icon"></span>Ignite Peds</div>
+            <div class="feature toggle"><span class="icon"></span>Chaos</div>
+            <div class="feature action"><span class="icon"></span>Bar Fight</div>
+        </div></div>
+        <div class="group"><div class="group-title">Animal Fun</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Stampede</div>
+        </div></div>
+        <div class="group"><div class="group-title">Weather Fun</div><div class="features-grid">
+            <div class="feature action"><span class="icon"></span>Spawn Thunderstorm</div>
+            <div class="feature action"><span class="icon"></span>Spawn Lightning</div>
+            <div class="feature toggle"><span class="icon"></span>Meteor Shower</div>
+        </div></div>
+        <div class="group"><div class="group-title">Effects</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Matrix Mode</div>
+            <div class="feature action"><span class="icon"></span>Spawn Campfire</div>
+            <div class="feature action"><span class="icon"></span>Spawn Horse</div>
+            <div class="feature toggle"><span class="icon"></span>Reverse Gravity</div>
+            <div class="feature toggle"><span class="icon"></span>Tornado</div>
+        </div></div>
+    </div>
+    <!-- VISUALS / ESP CATEGORY -->
+    <div class="category">
+        <div class="category-header">Visuals / ESP</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'world-esp')">ESP</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'world-espsettings')">Settings</button>
+        </div>
+        <div id="world-esp" class="sub-tab-content active">
+            <div class="group"><div class="group-title">General</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>ESP No Range Limit</div>
+                <div class="feature slider"><span class="icon"></span>Max Distance</div>
+                <div class="feature toggle"><span class="icon"></span>Text Outline</div>
+            </div></div>
+            <div class="group"><div class="group-title">Player ESP</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Enable</div>
+                <div class="feature toggle"><span class="icon"></span>Draw Self</div>
+                <div class="feature toggle"><span class="icon"></span>Draw Dead</div>
+                <div class="feature toggle"><span class="icon"></span>Name</div>
+                <div class="feature color"><span class="icon"></span>Name Color</div>
+                <div class="feature toggle"><span class="icon"></span>Distance</div>
+                <div class="feature toggle"><span class="icon"></span>Skeleton</div>
+                <div class="feature color"><span class="icon"></span>Skeleton Color</div>
+                <div class="feature toggle"><span class="icon"></span>Box</div>
+                <div class="feature color"><span class="icon"></span>Box Color</div>
+                <div class="feature toggle"><span class="icon"></span>Tracelines</div>
+                <div class="feature color"><span class="icon"></span>Traceline Color</div>
+                <div class="feature toggle"><span class="icon"></span>Health Bar</div>
+                <div class="feature toggle"><span class="icon"></span>Head Dot</div>
+                <div class="feature color"><span class="icon"></span>Head Dot Color</div>
+                <div class="feature toggle"><span class="icon"></span>Weapon</div>
+                <div class="feature toggle"><span class="icon"></span>Aiming Indicator</div>
+                <div class="feature color"><span class="icon"></span>Aiming Color</div>
+                <div class="feature toggle"><span class="icon"></span>In Vehicle Indicator</div>
+                <div class="feature toggle"><span class="icon"></span>Host Indicator</div>
+                <div class="feature color"><span class="icon"></span>Host Color</div>
+                <div class="feature toggle"><span class="icon"></span>Friend Indicator</div>
+                <div class="feature color"><span class="icon"></span>Friend Color</div>
+                <div class="feature toggle"><span class="icon"></span>Wanted Level</div>
+            </div></div>
+            <div class="group"><div class="group-title">Ped ESP</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Enable</div>
+                <div class="feature toggle"><span class="icon"></span>Draw Dead</div>
+                <div class="feature toggle"><span class="icon"></span>Model/Hash</div>
+                <div class="feature color"><span class="icon"></span>Hash Color</div>
+                <div class="feature toggle"><span class="icon"></span>Net Info</div>
+                <div class="feature toggle"><span class="icon"></span>Script Info</div>
+                <div class="feature toggle"><span class="icon"></span>Distance</div>
+                <div class="feature toggle"><span class="icon"></span>Skeleton</div>
+                <div class="feature color"><span class="icon"></span>Skeleton Color</div>
+                <div class="feature toggle"><span class="icon"></span>Horse Skeleton</div>
+                <div class="feature color"><span class="icon"></span>Horse Skeleton Color</div>
+                <div class="feature toggle"><span class="icon"></span>Box</div>
+                <div class="feature color"><span class="icon"></span>Box Color</div>
+                <div class="feature toggle"><span class="icon"></span>Tracelines</div>
+                <div class="feature color"><span class="icon"></span>Traceline Color</div>
+                <div class="feature toggle"><span class="icon"></span>Health Bar</div>
+                <div class="feature toggle"><span class="icon"></span>Head Dot</div>
+                <div class="feature color"><span class="icon"></span>Head Dot Color</div>
+                <div class="feature toggle"><span class="icon"></span>Hostile Indicator</div>
+                <div class="feature color"><span class="icon"></span>Hostile Color</div>
+                <div class="feature toggle"><span class="icon"></span>Weapon</div>
+            </div></div>
+            <div class="group"><div class="group-title">Animal ESP</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Enable</div>
+                <div class="feature toggle"><span class="icon"></span>Draw Dead</div>
+                <div class="feature toggle"><span class="icon"></span>Name</div>
+                <div class="feature color"><span class="icon"></span>Name Color</div>
+                <div class="feature toggle"><span class="icon"></span>Distance</div>
+                <div class="feature toggle"><span class="icon"></span>Skeleton</div>
+                <div class="feature color"><span class="icon"></span>Skeleton Color</div>
+                <div class="feature toggle"><span class="icon"></span>Box</div>
+                <div class="feature color"><span class="icon"></span>Box Color</div>
+                <div class="feature toggle"><span class="icon"></span>Tracelines</div>
+                <div class="feature color"><span class="icon"></span>Traceline Color</div>
+                <div class="feature toggle"><span class="icon"></span>Health Bar</div>
+                <div class="feature toggle"><span class="icon"></span>Head Dot</div>
+                <div class="feature color"><span class="icon"></span>Head Dot Color</div>
+                <div class="feature toggle"><span class="icon"></span>Legendary Indicator</div>
+                <div class="feature color"><span class="icon"></span>Legendary Color</div>
+                <div class="feature toggle"><span class="icon"></span>Animal Type</div>
+            </div></div>
+        </div>
+        <div id="world-espsettings" class="sub-tab-content">
+            <div class="group"><div class="group-title">Preview</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Open ESP Preview</div>
+            </div></div>
+            <div class="nested-tabs">
+                <button class="nested-tab-btn active" onclick="showNestedTab(this, 'esp-box')">Box</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'esp-skeleton')">Skeleton</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'esp-tracelines')">Tracelines</button>
+                <button class="nested-tab-btn" onclick="showNestedTab(this, 'esp-healthbar')">Health Bar</button>
+            </div>
+            <div id="esp-box" class="nested-tab-content active">
+                <div class="group"><div class="group-title">Player Box</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Box Type</div>
+                    <div class="feature slider"><span class="icon"></span>Thickness</div>
+                    <div class="feature slider"><span class="icon"></span>Corner Size</div>
+                    <div class="feature toggle"><span class="icon"></span>Outline</div>
+                    <div class="feature toggle"><span class="icon"></span>Glow</div>
+                    <div class="feature slider"><span class="icon"></span>Glow Size</div>
+                    <div class="feature toggle"><span class="icon"></span>Fill</div>
+                    <div class="feature slider"><span class="icon"></span>Fill Alpha</div>
+                </div></div>
+                <div class="group"><div class="group-title">Ped Box</div><div class="features-grid">
+                    <div class="feature list"><span class="icon"></span>Box Type</div>
+                    <div class="feature slider"><span class="icon"></span>Thickness</div>
+                    <div class="feature slider"><span class="icon"></span>Corner Size</div>
+                    <div class="feature toggle"><span class="icon"></span>Outline</div>
+                    <div class="feature toggle"><span class="icon"></span>Glow</div>
+                    <div class="feature slider"><span class="icon"></span>Glow Size</div>
+                    <div class="feature toggle"><span class="icon"></span>Fill</div>
+                    <div class="feature slider"><span class="icon"></span>Fill Alpha</div>
+                </div></div>
+            </div>
+            <div id="esp-skeleton" class="nested-tab-content">
+                <div class="group"><div class="group-title">Skeleton Settings</div><div class="features-grid">
+                    <div class="feature slider"><span class="icon"></span>Thickness</div>
+                    <div class="feature toggle"><span class="icon"></span>Outline</div>
+                    <div class="feature toggle"><span class="icon"></span>Joints</div>
+                    <div class="feature toggle"><span class="icon"></span>Glow</div>
+                    <div class="feature slider"><span class="icon"></span>Glow Size</div>
+                    <div class="feature color"><span class="icon"></span>Glow Color</div>
+                </div></div>
+            </div>
+            <div id="esp-tracelines" class="nested-tab-content">
+                <div class="group"><div class="group-title">Traceline Settings</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable</div>
+                    <div class="feature list"><span class="icon"></span>Origin</div>
+                    <div class="feature slider"><span class="icon"></span>Range</div>
+                    <div class="feature slider"><span class="icon"></span>Thickness</div>
+                    <div class="feature toggle"><span class="icon"></span>Fade with Distance</div>
+                    <div class="feature color"><span class="icon"></span>Default Color</div>
+                </div></div>
+            </div>
+            <div id="esp-healthbar" class="nested-tab-content">
+                <div class="group"><div class="group-title">Health Bar Settings</div><div class="features-grid">
+                    <div class="feature toggle"><span class="icon"></span>Enable</div>
+                    <div class="feature list"><span class="icon"></span>Position</div>
+                    <div class="feature toggle"><span class="icon"></span>Show Health Text</div>
+                </div></div>
+                <div class="group"><div class="group-title">Health Bar Colors</div><div class="features-grid">
+                    <div class="feature color"><span class="icon"></span>Full Health Color</div>
+                    <div class="feature color"><span class="icon"></span>Low Health Color</div>
+                    <div class="feature color"><span class="icon"></span>Background Color</div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================ -->
+<!-- NETWORK TAB -->
+<!-- ============================================================ -->
+<div id="network" class="tab-content">
+    <div class="category">
+        <div class="category-header">Session</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'net-general')">General</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'net-allplayers')">All Players</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'net-voice')">Voice</button>
+        </div>
+        <div id="net-general" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Session Switcher</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>New Session Position (X, Y, Z)</div>
+                <div class="feature toggle"><span class="icon"></span>Posse Session</div>
+                <div class="feature action"><span class="icon"></span>New Session</div>
+            </div></div>
+            <div class="group"><div class="group-title">Misc</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Reveal All Players</div>
+                <div class="feature toggle"><span class="icon"></span>Disable Shop Unavailable</div>
+                <div class="feature toggle"><span class="icon"></span>Disable Camp Shop Unavailable</div>
+                <div class="feature toggle"><span class="icon"></span>Disable Camp Raids</div>
+                <div class="feature toggle"><span class="icon"></span>Block All Telemetry</div>
+                <div class="feature toggle"><span class="icon"></span>Lock Lobby</div>
+            </div></div>
+        </div>
+        <div id="net-allplayers" class="sub-tab-content">
+            <div class="group"><div class="group-title">Teleport</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Bring All</div>
+                <div class="feature action"><span class="icon"></span>TP All To Waypoint</div>
+                <div class="feature action"><span class="icon"></span>TP All To Jail</div>
+                <div class="feature action"><span class="icon"></span>TP All To Self</div>
+            </div></div>
+            <div class="group"><div class="group-title">Helpful</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Heal All</div>
+                <div class="feature action"><span class="icon"></span>Give All Weapons</div>
+                <div class="feature action"><span class="icon"></span>Spawn Gold Chest All</div>
+                <div class="feature action"><span class="icon"></span>Spawn Bounty Wagon All</div>
+                <div class="feature action"><span class="icon"></span>Spawn Hunting Wagon All</div>
+            </div></div>
+            <div class="group"><div class="group-title">Toxic</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Explode All</div>
+                <div class="feature action"><span class="icon"></span>Kill All</div>
+                <div class="feature action"><span class="icon"></span>Lightning All</div>
+                <div class="feature action"><span class="icon"></span>Max Honor All</div>
+                <div class="feature action"><span class="icon"></span>Min Honor All</div>
+            </div></div>
+            <div class="group"><div class="group-title">Trolling</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Cage All</div>
+                <div class="feature action"><span class="icon"></span>Kick Horse All</div>
+                <div class="feature action"><span class="icon"></span>Delete Horse All</div>
+                <div class="feature action"><span class="icon"></span>Delete Vehicle All</div>
+            </div></div>
+        </div>
+        <div id="net-voice" class="sub-tab-content">
+            <div class="group"><div class="group-title">Voice Chat</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Hear All</div>
+                <div class="feature toggle"><span class="icon"></span>Force Send VC</div>
+                <div class="feature toggle"><span class="icon"></span>Hide VC Sender</div>
+                <div class="feature gui"><span class="icon"></span>Voice Spoofing Menu</div>
+                <div class="feature toggle"><span class="icon"></span>Voice Chat Override</div>
+                <div class="feature gui"><span class="icon"></span>Voice File Selection</div>
+            </div></div>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-header">Spoofing</div>
+        <div class="group"><div class="group-title">Spoofing</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Hide God Mode</div>
+            <div class="feature toggle"><span class="icon"></span>Hide Spectate</div>
+        </div></div>
+        <div class="group"><div class="group-title">Info Spoofing</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Spoof Name</div>
+            <div class="feature list"><span class="icon"></span>Color Prefix</div>
+            <div class="feature list"><span class="icon"></span>Icon Prefix</div>
+            <div class="feature gui"><span class="icon"></span>Spoofed Name Input</div>
+            <div class="feature action"><span class="icon"></span>Set Spoofed Name</div>
+            <div class="feature toggle"><span class="icon"></span>Spoof IP</div>
+            <div class="feature gui"><span class="icon"></span>IP Address Fields</div>
+            <div class="feature toggle"><span class="icon"></span>Spoof RID</div>
+            <div class="feature gui"><span class="icon"></span>Rockstar ID Input</div>
+        </div></div>
+        <div class="group"><div class="group-title">Blip Spoofing</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Spoof Blip</div>
+            <div class="feature list"><span class="icon"></span>Blip Sprite</div>
+            <div class="feature toggle"><span class="icon"></span>Spoof Primary Icon</div>
+            <div class="feature list"><span class="icon"></span>Primary Icon</div>
+            <div class="feature toggle"><span class="icon"></span>Spoof Secondary Icon</div>
+            <div class="feature list"><span class="icon"></span>Secondary Icon</div>
+        </div></div>
+        <div class="group"><div class="group-title">Session Spoofing</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Spoof Discriminator</div>
+            <div class="feature slider"><span class="icon"></span>Discriminator Value</div>
+            <div class="feature action"><span class="icon"></span>Copy Current Discriminator</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">Protection</div>
+        <div class="group"><div class="group-title">Sync</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Block Spectate</div>
+            <div class="feature toggle"><span class="icon"></span>Block Spectate Session</div>
+            <div class="feature toggle"><span class="icon"></span>Block Attach</div>
+            <div class="feature toggle"><span class="icon"></span>Block Vehicle Flood</div>
+        </div></div>
+        <div class="group"><div class="group-title">Network Events</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Block Explosions</div>
+            <div class="feature toggle"><span class="icon"></span>Block PTFX</div>
+            <div class="feature toggle"><span class="icon"></span>Block Clear Ped Tasks</div>
+            <div class="feature toggle"><span class="icon"></span>Block Script Command</div>
+            <div class="feature toggle"><span class="icon"></span>Use Relay Connections</div>
+        </div></div>
+        <div class="group"><div class="group-title">Script Events</div><div class="features-grid">
+            <div class="feature toggle"><span class="icon"></span>Block Honor Manipulation</div>
+            <div class="feature toggle"><span class="icon"></span>Block Defensive</div>
+            <div class="feature toggle"><span class="icon"></span>Block Offensive</div>
+            <div class="feature toggle"><span class="icon"></span>Block Press Charges</div>
+            <div class="feature toggle"><span class="icon"></span>Block Start Parlay</div>
+            <div class="feature toggle"><span class="icon"></span>Block End Parlay</div>
+            <div class="feature toggle"><span class="icon"></span>Block Ticker Spam</div>
+            <div class="feature toggle"><span class="icon"></span>Block Stable Events</div>
+            <div class="feature toggle"><span class="icon"></span>Block Kick From Mission Lobby</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">Player Database</div>
+        <div class="group"><div class="group-title">Player Database</div><div class="features-grid">
+            <div class="feature gui"><span class="icon"></span>Search Player</div>
+            <div class="feature gui"><span class="icon"></span>Player List</div>
+            <div class="feature gui"><span class="icon"></span>Player Editor (Name, RID, Flags)</div>
+            <div class="feature toggle"><span class="icon"></span>Is Modder Flag</div>
+            <div class="feature toggle"><span class="icon"></span>Trust Flag</div>
+            <div class="feature toggle"><span class="icon"></span>Block Join Flag</div>
+            <div class="feature gui"><span class="icon"></span>Infractions List</div>
+            <div class="feature action"><span class="icon"></span>Delete Player</div>
+            <div class="feature action"><span class="icon"></span>Add New Player</div>
+        </div></div>
+    </div>
+</div>
+<!-- ============================================================ -->
+<!-- RECOVERY TAB -->
+<!-- ============================================================ -->
+<div id="recovery" class="tab-content">
+    <div class="category">
+        <div class="category-header">Recovery</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'rec-spawnitems')">Spawn Items</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'rec-xp')">XP Loops</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'rec-collectibles')">Collectibles Loops</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'rec-other')">Other</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'rec-test')">Test</button>
+        </div>
+        <div id="rec-spawnitems" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Recovery Gate</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Enable Recovery</div>
+                <div class="feature gui"><span class="icon"></span>Risk Warning / Disclaimer</div>
+            </div></div>
+            <div class="group"><div class="group-title">Give Items</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Item Type (17 types)</div>
+                <div class="feature action"><span class="icon"></span>Give Selected Item</div>
+            </div></div>
+            <div class="group"><div class="group-title">Available Items</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Heirlooms</div>
+                <div class="feature gui"><span class="icon"></span>Coins</div>
+                <div class="feature gui"><span class="icon"></span>Alcohol Bottles</div>
+                <div class="feature gui"><span class="icon"></span>Arrowheads</div>
+                <div class="feature gui"><span class="icon"></span>Bracelets</div>
+                <div class="feature gui"><span class="icon"></span>Earrings</div>
+                <div class="feature gui"><span class="icon"></span>Necklaces</div>
+                <div class="feature gui"><span class="icon"></span>Rings</div>
+                <div class="feature gui"><span class="icon"></span>Tarot Cards (Cups, Pentacles, Swords, Wands)</div>
+                <div class="feature gui"><span class="icon"></span>Fossils</div>
+                <div class="feature gui"><span class="icon"></span>Eggs</div>
+                <div class="feature gui"><span class="icon"></span>Treasure Reward</div>
+                <div class="feature gui"><span class="icon"></span>Capitale</div>
+                <div class="feature gui"><span class="icon"></span>Max Trader Goods</div>
+            </div></div>
+            <div class="group"><div class="group-title">Herbs (40+ types)</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Herb Selector</div>
+                <div class="feature slider"><span class="icon"></span>Amount (1-10)</div>
+                <div class="feature action"><span class="icon"></span>Give Selected Herb</div>
+            </div></div>
+        </div>
+        <div id="rec-xp" class="sub-tab-content">
+            <div class="group"><div class="group-title">Experience Loops</div><div class="features-grid">
+                <div class="feature slider"><span class="icon"></span>XP Loop Delay</div>
+                <div class="feature toggle"><span class="icon"></span>25K XP Loop</div>
+            </div></div>
+            <div class="group"><div class="group-title">Role XP Loops</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Moonshiner XP Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Trader XP Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Collector XP Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Naturalist XP Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Bounty Hunter XP Loop</div>
+            </div></div>
+        </div>
+        <div id="rec-collectibles" class="sub-tab-content">
+            <div class="group"><div class="group-title">Item Loops</div><div class="features-grid">
+                <div class="feature slider"><span class="icon"></span>Collectible Loop Delay</div>
+                <div class="feature toggle"><span class="icon"></span>Coins Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Heirlooms Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Tarot Cards Cups Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Tarot Cards Pentacles Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Tarot Cards Swords Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Tarot Cards Wands Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Alcohol Bottles Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Arrowheads Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Bracelets Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Earrings Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Necklaces Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Rings Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Fossils Loop</div>
+                <div class="feature toggle"><span class="icon"></span>Eggs Loop</div>
+            </div></div>
+        </div>
+        <div id="rec-other" class="sub-tab-content">
+            <div class="group"><div class="group-title">Options</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Unlimited Items</div>
+            </div></div>
+            <div class="group"><div class="group-title">Quick Give</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Give 25K XP</div>
+                <div class="feature action"><span class="icon"></span>Give Treasure</div>
+                <div class="feature action"><span class="icon"></span>Give Capitale</div>
+                <div class="feature action"><span class="icon"></span>Max Trader Goods</div>
+            </div></div>
+        </div>
+        <div id="rec-test" class="sub-tab-content">
+            <div class="group"><div class="group-title">Auto Sell Collectible Sets</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Give ALL Sets</div>
+                <div class="feature action"><span class="icon"></span>Coins</div>
+                <div class="feature action"><span class="icon"></span>Heirlooms</div>
+                <div class="feature action"><span class="icon"></span>Alcohol</div>
+                <div class="feature action"><span class="icon"></span>Arrowheads</div>
+                <div class="feature action"><span class="icon"></span>Bracelets</div>
+                <div class="feature action"><span class="icon"></span>Earrings</div>
+                <div class="feature action"><span class="icon"></span>Necklaces</div>
+                <div class="feature action"><span class="icon"></span>Rings</div>
+                <div class="feature action"><span class="icon"></span>Tarot Cups</div>
+                <div class="feature action"><span class="icon"></span>Tarot Pentacles</div>
+                <div class="feature action"><span class="icon"></span>Tarot Swords</div>
+                <div class="feature action"><span class="icon"></span>Tarot Wands</div>
+                <div class="feature action"><span class="icon"></span>Fossils</div>
+                <div class="feature action"><span class="icon"></span>Eggs</div>
+            </div></div>
+            <div class="group"><div class="group-title">Awards & XP</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Give 25K XP</div>
+                <div class="feature action"><span class="icon"></span>Give Treasure</div>
+                <div class="feature action"><span class="icon"></span>Give Capitale</div>
+                <div class="feature action"><span class="icon"></span>Give All Role XP</div>
+                <div class="feature action"><span class="icon"></span>Max Trader Goods</div>
+                <div class="feature slider"><span class="icon"></span>XP Repeat Count (1-20)</div>
+                <div class="feature action"><span class="icon"></span>Give XP x Repeat</div>
+                <div class="feature action"><span class="icon"></span>Give Treasure x Repeat</div>
+            </div></div>
+            <div class="group"><div class="group-title">Role Unlocks</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Bounty Hunter</div>
+                <div class="feature action"><span class="icon"></span>Trader</div>
+                <div class="feature action"><span class="icon"></span>Collector</div>
+                <div class="feature action"><span class="icon"></span>Moonshiner</div>
+                <div class="feature action"><span class="icon"></span>Naturalist</div>
+                <div class="feature action"><span class="icon"></span>Unlock All Roles</div>
+            </div></div>
+            <div class="group"><div class="group-title">Outlaw Pass</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Outlaw Pass 1</div>
+                <div class="feature action"><span class="icon"></span>Outlaw Pass 2</div>
+                <div class="feature action"><span class="icon"></span>Outlaw Pass 3</div>
+                <div class="feature action"><span class="icon"></span>Outlaw Pass 4</div>
+                <div class="feature action"><span class="icon"></span>Outlaw Pass 5</div>
+                <div class="feature action"><span class="icon"></span>Halloween Pass</div>
+                <div class="feature action"><span class="icon"></span>Quick Draw Pass 1</div>
+                <div class="feature action"><span class="icon"></span>Quick Draw Pass 2</div>
+                <div class="feature action"><span class="icon"></span>Quick Draw Pass 3</div>
+                <div class="feature action"><span class="icon"></span>Quick Draw Pass 4</div>
+                <div class="feature action"><span class="icon"></span>Unlock All Passes</div>
+            </div></div>
+            <div class="group"><div class="group-title">Misc Unlocks</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Wilderness Camp</div>
+                <div class="feature action"><span class="icon"></span>Stew Pot</div>
+                <div class="feature action"><span class="icon"></span>Weapon Locker</div>
+                <div class="feature action"><span class="icon"></span>Dog</div>
+                <div class="feature action"><span class="icon"></span>Fast Travel Post</div>
+                <div class="feature action"><span class="icon"></span>Hunting Wagon</div>
+                <div class="feature action"><span class="icon"></span>Large Delivery Wagon</div>
+                <div class="feature action"><span class="icon"></span>Medium Delivery Wagon</div>
+                <div class="feature action"><span class="icon"></span>Moonshine Band</div>
+                <div class="feature action"><span class="icon"></span>Moonshine Bar</div>
+                <div class="feature action"><span class="icon"></span>Moonshine Decor</div>
+                <div class="feature action"><span class="icon"></span>Bounty Wagon</div>
+                <div class="feature action"><span class="icon"></span>Metal Detector</div>
+                <div class="feature action"><span class="icon"></span>Binoculars Improved</div>
+                <div class="feature action"><span class="icon"></span>Reinforced Lasso</div>
+                <div class="feature action"><span class="icon"></span>Bolas</div>
+                <div class="feature action"><span class="icon"></span>Unlock All Misc</div>
+            </div></div>
+            <div class="group"><div class="group-title">Free Roam Awards</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Sharpshooter</div>
+                <div class="feature action"><span class="icon"></span>Combat</div>
+                <div class="feature action"><span class="icon"></span>Hunting</div>
+                <div class="feature action"><span class="icon"></span>Fishing</div>
+                <div class="feature action"><span class="icon"></span>Survivalist</div>
+                <div class="feature action"><span class="icon"></span>Crimes</div>
+                <div class="feature action"><span class="icon"></span>Travel</div>
+                <div class="feature action"><span class="icon"></span>Trade</div>
+                <div class="feature action"><span class="icon"></span>General</div>
+                <div class="feature action"><span class="icon"></span>Horse</div>
+                <div class="feature action"><span class="icon"></span>Herbalist</div>
+                <div class="feature action"><span class="icon"></span>Complete All Free Roam Awards</div>
+            </div></div>
+            <div class="group"><div class="group-title">Competitive Awards</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Showdown Series</div>
+                <div class="feature action"><span class="icon"></span>Free Roam Events</div>
+                <div class="feature action"><span class="icon"></span>Races</div>
+                <div class="feature action"><span class="icon"></span>Posse Versus</div>
+                <div class="feature action"><span class="icon"></span>Complete All Competitive Awards</div>
+            </div></div>
+            <div class="group"><div class="group-title">Role Awards</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Bounty Hunter</div>
+                <div class="feature action"><span class="icon"></span>Trader</div>
+                <div class="feature action"><span class="icon"></span>Collector</div>
+                <div class="feature action"><span class="icon"></span>Moonshiner</div>
+                <div class="feature action"><span class="icon"></span>Naturalist</div>
+                <div class="feature action"><span class="icon"></span>Complete All Role Awards</div>
+            </div></div>
+            <div class="group"><div class="group-title">Master Unlock</div><div class="features-grid">
+                <div class="feature action"><span class="icon"></span>Unlock ALL Achievements & Awards</div>
+            </div></div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================ -->
+<!-- SETTINGS TAB -->
+<!-- ============================================================ -->
+<div id="settings" class="tab-content">
+    <div class="category">
+        <div class="category-header">Hotkeys</div>
+        <div class="group"><div class="group-title">Hotkey Configuration</div><div class="features-grid">
+            <div class="feature gui"><span class="icon"></span>Bind/Unbind Hotkeys for all Commands</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">GUI</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'set-general')">General</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'set-language')">Language</button>
+        </div>
+        <div id="set-general" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Overlay</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Overlay</div>
+                <div class="feature toggle"><span class="icon"></span>Watermark</div>
+                <div class="feature toggle"><span class="icon"></span>FPS Counter</div>
+                <div class="feature toggle"><span class="icon"></span>Session Info</div>
+                <div class="feature toggle"><span class="icon"></span>Pool Info</div>
+                <div class="feature toggle"><span class="icon"></span>Show Hotkey List</div>
+                <div class="feature toggle"><span class="icon"></span>Scooby Watermark</div>
+            </div></div>
+            <div class="group"><div class="group-title">Context Menu</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Context Menu</div>
+                <div class="feature toggle"><span class="icon"></span>Players</div>
+                <div class="feature toggle"><span class="icon"></span>Peds</div>
+                <div class="feature toggle"><span class="icon"></span>Vehicles</div>
+                <div class="feature toggle"><span class="icon"></span>Objects</div>
+            </div></div>
+        </div>
+        <div id="set-language" class="sub-tab-content">
+            <div class="group"><div class="group-title">Language Settings</div><div class="features-grid">
+                <div class="feature list"><span class="icon"></span>Language Selector</div>
+                <div class="feature gui"><span class="icon"></span>Font Download Manager</div>
+                <div class="feature action"><span class="icon"></span>Reload Language Files</div>
+                <div class="feature action"><span class="icon"></span>Open Language Folder</div>
+                <div class="feature action"><span class="icon"></span>Open Fonts Folder</div>
+            </div></div>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-header">Lua Scripts</div>
+        <div class="group"><div class="group-title">Lua Script Manager</div><div class="features-grid">
+            <div class="feature gui"><span class="icon"></span>Script Selector Dropdown</div>
+            <div class="feature gui"><span class="icon"></span>Script Editor (with syntax highlighting)</div>
+            <div class="feature action"><span class="icon"></span>New Script</div>
+            <div class="feature action"><span class="icon"></span>Save Changes</div>
+            <div class="feature action"><span class="icon"></span>Delete Script</div>
+            <div class="feature action"><span class="icon"></span>Run/Stop Script</div>
+            <div class="feature action"><span class="icon"></span>Stop All Scripts</div>
+            <div class="feature action"><span class="icon"></span>Refresh Files</div>
+            <div class="feature action"><span class="icon"></span>Open Scripts Folder</div>
+            <div class="feature toggle"><span class="icon"></span>Show Documentation</div>
+            <div class="feature gui"><span class="icon"></span>Console Output</div>
+            <div class="feature action"><span class="icon"></span>Clear Console</div>
+        </div></div>
+        <div class="group"><div class="group-title">Lua API Modules (26 modules)</div><div class="features-grid">
+            <div class="feature gui"><span class="icon"></span>Core</div>
+            <div class="feature gui"><span class="icon"></span>Self</div>
+            <div class="feature gui"><span class="icon"></span>Entity</div>
+            <div class="feature gui"><span class="icon"></span>Ped</div>
+            <div class="feature gui"><span class="icon"></span>Vehicle</div>
+            <div class="feature gui"><span class="icon"></span>Object</div>
+            <div class="feature gui"><span class="icon"></span>Player</div>
+            <div class="feature gui"><span class="icon"></span>Players</div>
+            <div class="feature gui"><span class="icon"></span>Pools</div>
+            <div class="feature gui"><span class="icon"></span>Teleport</div>
+            <div class="feature gui"><span class="icon"></span>World</div>
+            <div class="feature gui"><span class="icon"></span>Weapon</div>
+            <div class="feature gui"><span class="icon"></span>Animation</div>
+            <div class="feature gui"><span class="icon"></span>Blips</div>
+            <div class="feature gui"><span class="icon"></span>Audio</div>
+            <div class="feature gui"><span class="icon"></span>Camera</div>
+            <div class="feature gui"><span class="icon"></span>ImGui</div>
+            <div class="feature gui"><span class="icon"></span>Draw</div>
+            <div class="feature gui"><span class="icon"></span>Native</div>
+            <div class="feature gui"><span class="icon"></span>Input</div>
+            <div class="feature gui"><span class="icon"></span>Commands</div>
+            <div class="feature gui"><span class="icon"></span>Menu</div>
+            <div class="feature gui"><span class="icon"></span>Events</div>
+            <div class="feature gui"><span class="icon"></span>Data</div>
+            <div class="feature gui"><span class="icon"></span>Utility</div>
+            <div class="feature gui"><span class="icon"></span>Network</div>
+        </div></div>
+    </div>
+    <div class="category">
+        <div class="category-header">Debug</div>
+        <div class="sub-tabs">
+            <button class="sub-tab-btn active" onclick="showSubTab(this, 'set-dbgglobals')">Globals</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'set-dbglocals')">Locals</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'set-dbgscripts')">Scripts</button>
+            <button class="sub-tab-btn" onclick="showSubTab(this, 'set-dbglogging')">Logging</button>
+        </div>
+        <div id="set-dbgglobals" class="sub-tab-content active">
+            <div class="group"><div class="group-title">Globals Inspector</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Global Variable Browser</div>
+                <div class="feature gui"><span class="icon"></span>Read/Write Global Values</div>
+            </div></div>
+        </div>
+        <div id="set-dbglocals" class="sub-tab-content">
+            <div class="group"><div class="group-title">Locals Inspector</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Local Variable Browser</div>
+                <div class="feature gui"><span class="icon"></span>Read/Write Local Values</div>
+            </div></div>
+        </div>
+        <div id="set-dbgscripts" class="sub-tab-content">
+            <div class="group"><div class="group-title">Scripts Inspector</div><div class="features-grid">
+                <div class="feature gui"><span class="icon"></span>Running Scripts List</div>
+                <div class="feature gui"><span class="icon"></span>Script Info & Stack</div>
+            </div></div>
+        </div>
+        <div id="set-dbglogging" class="sub-tab-content">
+            <div class="group"><div class="group-title">Logging</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Log Clones</div>
+                <div class="feature toggle"><span class="icon"></span>Log Outgoing Clones</div>
+                <div class="feature toggle"><span class="icon"></span>Log Events</div>
+                <div class="feature toggle"><span class="icon"></span>Log TSEs</div>
+                <div class="feature toggle"><span class="icon"></span>Log Metrics</div>
+                <div class="feature toggle"><span class="icon"></span>Log Packets</div>
+                <div class="feature toggle"><span class="icon"></span>Log Forward Packets</div>
+                <div class="feature toggle"><span class="icon"></span>Log Terminus Packets</div>
+                <div class="feature toggle"><span class="icon"></span>Log Unpacked Packets</div>
+                <div class="feature toggle"><span class="icon"></span>Log Endpoint Updates</div>
+                <div class="feature toggle"><span class="icon"></span>Log Presence Events</div>
+                <div class="feature toggle"><span class="icon"></span>Log Post Message</div>
+                <div class="feature toggle"><span class="icon"></span>Log Server Messages</div>
+            </div></div>
+            <div class="group"><div class="group-title">Misc</div><div class="features-grid">
+                <div class="feature toggle"><span class="icon"></span>Better Entity Check</div>
+                <div class="feature action"><span class="icon"></span>Chat Helper</div>
+                <div class="feature action"><span class="icon"></span>Clear Chat</div>
+                <div class="feature action"><span class="icon"></span>Bail to Loading Screen</div>
+                <div class="feature gui"><span class="icon"></span>Create Object (by model)</div>
+                <div class="feature gui"><span class="icon"></span>Play/Stop Music Event</div>
+                <div class="feature gui"><span class="icon"></span>Override/Stop Motivation State</div>
+            </div></div>
+        </div>
+    </div>
+</div>
+</div><!-- end content -->
+<footer class="footer">
+    <p>&copy; 2026 Scooby. All rights reserved.</p>
+</footer>
+<script>
+function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.main-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+}
+function showSubTab(btn, tabId) {
+    const parent = btn.closest('.category');
+    parent.querySelectorAll(':scope > .sub-tab-content').forEach(t => t.classList.remove('active'));
+    parent.querySelectorAll(':scope > .sub-tabs > .sub-tab-btn').forEach(b => b.classList.remove('active'));
+    parent.querySelector('#' + tabId).classList.add('active');
+    btn.classList.add('active');
+}
+function showNestedTab(btn, tabId) {
+    const parent = btn.closest('.sub-tab-content');
+    parent.querySelectorAll(':scope > .nested-tab-content').forEach(t => t.classList.remove('active'));
+    parent.querySelectorAll(':scope > .nested-tabs > .nested-tab-btn').forEach(b => b.classList.remove('active'));
+    parent.querySelector('#' + tabId).classList.add('active');
+    btn.classList.add('active');
+}
+</script>
+</body>
+</html>

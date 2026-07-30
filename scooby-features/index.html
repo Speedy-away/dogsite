@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooby GTA 5 Features | Complete Mod Menu Feature List 2026</title>
+    <meta name="description" content="Complete feature list for Scooby GTA 5 mod menu. 500+ features including ESP, aimbot, heist editor, money recovery, modded vehicles, outfits, BattlEye bypass and more.">
+<link rel="canonical" href="https://scoobymenu.cc/scooby-features">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/scooby-features">
+<meta property="og:title" content="Scooby GTA 5 Features | Complete Mod Menu Feature List 2026">
+<meta property="og:description" content="Complete feature list for Scooby GTA 5 mod menu. 500+ features including ESP, aimbot, heist editor, money recovery, modded vehicles, outfits, BattlEye bypass and more.">
+<meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scooby GTA 5 Features | Complete Mod Menu Feature List 2026">
+<meta name="twitter:description" content="Complete feature list for Scooby GTA 5 mod menu. 500+ features including ESP, aimbot, heist editor, money recovery, modded vehicles, outfits, BattlEye bypass and more.">
+<meta name="twitter:image" content="https://scoobymenu.cc/background-home.png">
+    <meta name="keywords" content="Scooby features, GTA 5 mod menu features, Scooby feature list, GTA 5 ESP, GTA 5 aimbot, GTA 5 heist editor, GTA 5 money recovery, GTA 5 modded vehicles, GTA 5 modded outfits, GTA 5 BattlEye bypass, best GTA 5 mod menu features 2026, Scooby mod menu feature list">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #252542;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border: #2a2a4a;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-6: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+            animation: bgPulse 15s ease-in-out infinite;
+        }
+        @keyframes bgPulse {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-5%, -5%) rotate(5deg); }
+            66% { transform: translate(5%, 5%) rotate(-5deg); }
+        }
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+        }
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4, #f59e0b);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Category Navigation */
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        .nav-items {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-item {
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+        /* Category Section */
+        .category-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 100px;
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .category-count {
+            margin-left: auto;
+            background: var(--bg-card);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        /* Feature Groups */
+        .feature-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .feature-group {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .feature-group:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .group-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .group-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .group-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .feature-list {
+            list-style: none;
+        }
+        .feature-item {
+            padding: 10px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.2s ease;
+        }
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        .feature-item:hover {
+            color: var(--text-primary);
+            padding-left: 8px;
+        }
+        .feature-item::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+        .feature-item.highlight::before {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+        .feature-options {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        /* Superhero Section Special Styling */
+        .superhero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .hero-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+        .hero-card.marvel::before { background: linear-gradient(90deg, #e23636, #ff6b6b); }
+        .hero-card.dc::before { background: linear-gradient(90deg, #0077b6, #00b4d8); }
+        .hero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .hero-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-abilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .ability-tag {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo { font-size: 2.5rem; }
+            .tagline { font-size: 1rem; }
+            .stats { gap: 30px; }
+            .stat-number { font-size: 2rem; }
+            .category-title { font-size: 1.5rem; }
+            .feature-groups { grid-template-columns: 1fr; }
+            .nav-items { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 10px; }
+        }
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <header class="header">
+        <h1 class="logo">ScoobyPaste Enhanced</h1>
+        <p class="tagline">The Ultimate GTA V Enhancement Suite</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Features</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Superheroes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Undetected</div>
+            </div>
+        </div>
+    </header>
+    <nav class="category-nav">
+        <div class="nav-items">
+            <a href="#self" class="nav-item">Self</a>
+            <a href="#vehicle" class="nav-item">Vehicle</a>
+            <a href="#weapon" class="nav-item">Weapon</a>
+            <a href="#network" class="nav-item">Network</a>
+            <a href="#world" class="nav-item">World</a>
+            <a href="#esp" class="nav-item">ESP & Visuals</a>
+            <a href="#recovery" class="nav-item">Recovery</a>
+            <a href="#superhero" class="nav-item">Superhero</a>
+            <a href="#teleport" class="nav-item">Teleport</a>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- SELF SECTION -->
+        <section id="self" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: var(--gradient-1);">&#128100;</div>
+                <h2 class="category-title">Self Options</h2>
+                <span class="category-count">80+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128150;</div>
+                        <h3 class="group-title">Health & Protection</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Godmode</li>
+                        <li class="feature-item">No Ragdoll</li>
+                        <li class="feature-item">Disable Critical Hits</li>
+                        <li class="feature-item">Anti-Headshot</li>
+                        <li class="feature-item">No Fall Damage</li>
+                        <li class="feature-item">No Fire Damage</li>
+                        <li class="feature-item">Health Regeneration</li>
+                        <li class="feature-item">Auto Heal</li>
+                        <li class="feature-item">Auto Armor</li>
+                        <li class="feature-item">Auto Kill Enemies</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#127939;</div>
+                        <h3 class="group-title">Movement</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Superman Flight <span class="feature-options">Speed, Boost</span></li>
+                        <li class="feature-item highlight">Noclip <span class="feature-options">Mode, Speed</span></li>
+                        <li class="feature-item">Super Run <span class="feature-options">Speed Multiplier</span></li>
+                        <li class="feature-item">Super Jump</li>
+                        <li class="feature-item">Beast Jump</li>
+                        <li class="feature-item">Blink Teleport <span class="feature-options">Distance, Effects</span></li>
+                        <li class="feature-item">Freecam <span class="feature-options">Speed, Controls</span></li>
+                        <li class="feature-item">Stand on Vehicles</li>
+                        <li class="feature-item">Disable Action Mode</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#128065;</div>
+                        <h3 class="group-title">Visibility</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Invisibility</li>
+                        <li class="feature-item">Local Invisibility</li>
+                        <li class="feature-item highlight">Off The Radar</li>
+                        <li class="feature-item">Ghost Mode</li>
+                        <li class="feature-item">Night Vision</li>
+                        <li class="feature-item">Thermal Vision</li>
+                        <li class="feature-item">Hide Radar</li>
+                        <li class="feature-item">Hide HUD</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">&#9733;</div>
+                        <h3 class="group-title">Wanted Level</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Never Wanted</li>
+                        <li class="feature-item">Freeze Wanted Level</li>
+                        <li class="feature-item">Set Wanted Level <span class="feature-options">0-5 Stars</span></li>
+                        <li class="feature-item">Infinite Special Ability</li>
+                        <li class="feature-item">MP Special Ability</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128295;</div>
+                        <h3 class="group-title">Tools & Utilities</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Skip Cutscene</li>
+                        <li class="feature-item">Skip Conversation</li>
+                        <li class="feature-item">Suicide</li>
+                        <li class="feature-item">Heal Instantly</li>
+                        <li class="feature-item">Clear All Damage</li>
+                        <li class="feature-item">Fill Inventory</li>
+                        <li class="feature-item">Open Wardrobe</li>
+                        <li class="feature-item">Clone Self</li>
+                        <li class="feature-item">Format Money Display</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#127881;</div>
+                        <h3 class="group-title">Effects & Misc</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Drunk Mode</li>
+                        <li class="feature-item">Shrink Player</li>
+                        <li class="feature-item">Adrenaline Mode</li>
+                        <li class="feature-item">Slow Motion</li>
+                        <li class="feature-item">No Idle Kick</li>
+                        <li class="feature-item">Unlimited Oxygen</li>
+                        <li class="feature-item">Mobile Radio</li>
+                        <li class="feature-item">Keep Player Clean</li>
+                        <li class="feature-item">Infinite Stamina</li>
+                        <li class="feature-item">Speed Boost</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- POWERS SECTION -->
+        <section id="powers" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: var(--gradient-2);">&#9889;</div>
+                <h2 class="category-title">Special Powers</h2>
+                <span class="category-count">30+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">&#128171;</div>
+                        <h3 class="group-title">Force Powers</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Force Field <span class="feature-options">Radius, Force</span></li>
+                        <li class="feature-item highlight">Telekinesis <span class="feature-options">Force, HUD</span></li>
+                        <li class="feature-item">Matrix Mode</li>
+                        <li class="feature-item">Walk on Air <span class="feature-options">Height</span></li>
+                        <li class="feature-item">Vehicle Magnet</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128293;</div>
+                        <h3 class="group-title">Combat Powers</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Flaming Fists <span class="feature-options">Size, Force</span></li>
+                        <li class="feature-item highlight">Electric Touch <span class="feature-options">Range, Effect</span></li>
+                        <li class="feature-item highlight">God Slap <span class="feature-options">Force, Explosive</span></li>
+                        <li class="feature-item">Explosive Punch</li>
+                        <li class="feature-item">One-Punch Kill</li>
+                        <li class="feature-item">Launch Punch</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#127776;</div>
+                        <h3 class="group-title">Aura & Effects</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Custom Aura <span class="feature-options">Size, Type, Color</span></li>
+                        <li class="feature-item">Rainbow Aura</li>
+                        <li class="feature-item">Push Peds/Vehicles/Objects</li>
+                        <li class="feature-item highlight">Shockwave Ball <span class="feature-options">Speed, Radius</span></li>
+                        <li class="feature-item">Trail Effect</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#127939;</div>
+                        <h3 class="group-title">Movement Powers</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Dash <span class="feature-options">Mode, Force, Cooldown</span></li>
+                        <li class="feature-item highlight">Wall Runner <span class="feature-options">Speed, Duration</span></li>
+                        <li class="feature-item">Paraglider <span class="feature-options">Speed, Auto</span></li>
+                        <li class="feature-item">Invincible Dash</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- VEHICLE SECTION -->
+        <section id="vehicle" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: var(--gradient-3);">&#128663;</div>
+                <h2 class="category-title">Vehicle Options</h2>
+                <span class="category-count">60+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128737;</div>
+                        <h3 class="group-title">Protection</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Vehicle Godmode</li>
+                        <li class="feature-item">Keep Vehicle Fixed</li>
+                        <li class="feature-item">Seatbelt</li>
+                        <li class="feature-item">No Collision</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128640;</div>
+                        <h3 class="group-title">Speed & Boost</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Nitro Boost <span class="feature-options">Speed, Camera Shake</span></li>
+                        <li class="feature-item highlight">Horn Boost <span class="feature-options">Max Speed, Accel</span></li>
+                        <li class="feature-item">Instant Boost</li>
+                        <li class="feature-item">Catapult Launch</li>
+                        <li class="feature-item">Wheelie Mode</li>
+                        <li class="feature-item">Tornado Spin</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#127919;</div>
+                        <h3 class="group-title">Handling</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Drive on Water</li>
+                        <li class="feature-item highlight">Drift Mode <span class="feature-options">Grip, Smoke</span></li>
+                        <li class="feature-item">Vehicle Jump</li>
+                        <li class="feature-item">Stick to Ground</li>
+                        <li class="feature-item">Hydraulics</li>
+                        <li class="feature-item">Instant Brake</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#9992;</div>
+                        <h3 class="group-title">Flight & Movement</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Vehicle Fly <span class="feature-options">Mode, Speed, Noclip</span></li>
+                        <li class="feature-item">Submarine Mode</li>
+                        <li class="feature-item highlight">Tank Mode <span class="feature-options">Radius, Force</span></li>
+                        <li class="feature-item">Auto Stabilize</li>
+                        <li class="feature-item">Auto Level</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#129302;</div>
+                        <h3 class="group-title">Auto Pilot</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Drive to Waypoint</li>
+                        <li class="feature-item">Auto Pilot Wander</li>
+                        <li class="feature-item">Auto Drive</li>
+                        <li class="feature-item">Autopilot Speed Control</li>
+                        <li class="feature-item">Drive Style Selection</li>
+                        <li class="feature-item">Stop Vehicle</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#127912;</div>
+                        <h3 class="group-title">Appearance & Tools</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Rainbow Paint</li>
+                        <li class="feature-item">Vehicle Invisible</li>
+                        <li class="feature-item">Lower Stance</li>
+                        <li class="feature-item">Keep Vehicle Clean</li>
+                        <li class="feature-item">Speedometer</li>
+                        <li class="feature-item">Vehicle Spawner</li>
+                        <li class="feature-item">Vehicle Editor</li>
+                        <li class="feature-item">Saved Vehicles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- WEAPON SECTION -->
+        <section id="weapon" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: var(--gradient-5);">&#128299;</div>
+                <h2 class="category-title">Weapon Options</h2>
+                <span class="category-count">40+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#127919;</div>
+                        <h3 class="group-title">Ammo & Damage</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Infinite Ammo</li>
+                        <li class="feature-item highlight">Infinite Clip</li>
+                        <li class="feature-item">No Reload</li>
+                        <li class="feature-item">One Shot Kill</li>
+                        <li class="feature-item">Damage Multiplier</li>
+                        <li class="feature-item">Range Multiplier</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128165;</div>
+                        <h3 class="group-title">Special Bullets</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Explosive Bullets</li>
+                        <li class="feature-item">Fire Bullets</li>
+                        <li class="feature-item">Electric Bullets</li>
+                        <li class="feature-item">Teleport Bullets</li>
+                        <li class="feature-item">Money Gun</li>
+                        <li class="feature-item">Delete Gun</li>
+                        <li class="feature-item">Repair Gun</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#128736;</div>
+                        <h3 class="group-title">Weapon Tools</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Give All Weapons</li>
+                        <li class="feature-item">Remove All Weapons</li>
+                        <li class="feature-item">Weapon Editor</li>
+                        <li class="feature-item">Custom Weapon Properties</li>
+                        <li class="feature-item">Rapid Fire</li>
+                        <li class="feature-item">No Spread</li>
+                        <li class="feature-item">No Recoil</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- NETWORK SECTION -->
+        <section id="network" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: var(--gradient-4);">&#127760;</div>
+                <h2 class="category-title">Network & Players</h2>
+                <span class="category-count">50+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128274;</div>
+                        <h3 class="group-title">Session Tools</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Join Session by Type</li>
+                        <li class="feature-item">Join by Username</li>
+                        <li class="feature-item">Join by Rockstar ID</li>
+                        <li class="feature-item">Fast Join</li>
+                        <li class="feature-item">Force Script Host</li>
+                        <li class="feature-item">Notify on Player Join</li>
+                        <li class="feature-item">Player Magnet</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#128373;</div>
+                        <h3 class="group-title">Spoofing</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Spoof Matchmaking Region</li>
+                        <li class="feature-item">Spoof Language</li>
+                        <li class="feature-item">Spoof Player Count</li>
+                        <li class="feature-item">Session Multiplex</li>
+                        <li class="feature-item">Cheater Pool Detection</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128683;</div>
+                        <h3 class="group-title">Player Actions</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Spectate Player</li>
+                        <li class="feature-item">Teleport to Player</li>
+                        <li class="feature-item">Bring Player</li>
+                        <li class="feature-item highlight">Host Kick</li>
+                        <li class="feature-item">Script Host Kick</li>
+                        <li class="feature-item">CEO Kick</li>
+                        <li class="feature-item">Set Bounty</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128520;</div>
+                        <h3 class="group-title">Trolling</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Send Sext</li>
+                        <li class="feature-item">Send Phantom Car</li>
+                        <li class="feature-item">Delete Their Vehicle</li>
+                        <li class="feature-item">Give All Weapons</li>
+                        <li class="feature-item">Kill Player</li>
+                        <li class="feature-item">Explode Player</li>
+                        <li class="feature-item">Blackscreen</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#128101;</div>
+                        <h3 class="group-title">All Players</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Kill All</li>
+                        <li class="feature-item">Explode All</li>
+                        <li class="feature-item">CEO Kick All</li>
+                        <li class="feature-item">Host Kick All</li>
+                        <li class="feature-item">Bounty All</li>
+                        <li class="feature-item">Bring All Players</li>
+                        <li class="feature-item">Delete All Vehicles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- WORLD SECTION -->
+        <section id="world" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">&#127757;</div>
+                <h2 class="category-title">World Options</h2>
+                <span class="category-count">80+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#9748;</div>
+                        <h3 class="group-title">Weather & Time</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Set Weather <span class="feature-options">All Types</span></li>
+                        <li class="feature-item">Force Weather</li>
+                        <li class="feature-item">Set Time <span class="feature-options">Hour/Min/Sec</span></li>
+                        <li class="feature-item">Set Network Time</li>
+                        <li class="feature-item">Freeze Network Time</li>
+                        <li class="feature-item">Blackout Mode</li>
+                        <li class="feature-item">Force Thunder</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128128;</div>
+                        <h3 class="group-title">Chaos & Mayhem</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Chaos Mode <span class="feature-options">Intensity</span></li>
+                        <li class="feature-item highlight">Purge Mode</li>
+                        <li class="feature-item">Mayhem Mode</li>
+                        <li class="feature-item">Ped Riot Mode</li>
+                        <li class="feature-item">Everyone Fights</li>
+                        <li class="feature-item">Everyone is Drunk</li>
+                        <li class="feature-item">Exploding Peds</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">&#127754;</div>
+                        <h3 class="group-title">Disasters</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Nuke</li>
+                        <li class="feature-item highlight">Tsunami</li>
+                        <li class="feature-item">Meteor Shower <span class="feature-options">Rate, Damage</span></li>
+                        <li class="feature-item">Tornado <span class="feature-options">Strength, Radius</span></li>
+                        <li class="feature-item">Earthquake <span class="feature-options">Intensity</span></li>
+                        <li class="feature-item">Volcanic Eruption</li>
+                        <li class="feature-item">Lightning Strike</li>
+                        <li class="feature-item">Acid Rain</li>
+                        <li class="feature-item">Sandstorm</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#129435;</div>
+                        <h3 class="group-title">Zombie Mode</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Zombie Survival Mode</li>
+                        <li class="feature-item">Wave System <span class="feature-options">Wave Size</span></li>
+                        <li class="feature-item">Fast Runners</li>
+                        <li class="feature-item">Screamers</li>
+                        <li class="feature-item">Bloaters</li>
+                        <li class="feature-item">Crawlers</li>
+                        <li class="feature-item">Infection Mode</li>
+                        <li class="feature-item">Spawn Zombie Wave</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#128125;</div>
+                        <h3 class="group-title">Alien Invasion</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Alien Invasion Mode</li>
+                        <li class="feature-item">Spawn Alien UFO</li>
+                        <li class="feature-item">Alien Mothership</li>
+                        <li class="feature-item">Abduction Mode</li>
+                        <li class="feature-item">Alien Elites</li>
+                        <li class="feature-item">Alien Exploders</li>
+                        <li class="feature-item">Alien Teleporters</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#127880;</div>
+                        <h3 class="group-title">Fun & Party</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Rave Mode</li>
+                        <li class="feature-item">Disco Mode</li>
+                        <li class="feature-item">Fireworks</li>
+                        <li class="feature-item">Money Rain</li>
+                        <li class="feature-item">Pickups Rain</li>
+                        <li class="feature-item">Ped Dance</li>
+                        <li class="feature-item">Giant Peds</li>
+                        <li class="feature-item">Tiny Peds</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#9881;</div>
+                        <h3 class="group-title">Physics Powers</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Gravity Gun <span class="feature-options">Range, Force</span></li>
+                        <li class="feature-item highlight">Blackhole <span class="feature-options">Size, Strength</span></li>
+                        <li class="feature-item">Vortex <span class="feature-options">Radius, Speed</span></li>
+                        <li class="feature-item">Force Dome</li>
+                        <li class="feature-item">Low Gravity</li>
+                        <li class="feature-item">Vehicle Magnet</li>
+                        <li class="feature-item">Ped Magnet</li>
+                        <li class="feature-item">Vehicle Pinball</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128295;</div>
+                        <h3 class="group-title">Entity Control</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Delete All Peds</li>
+                        <li class="feature-item">Delete All Vehicles</li>
+                        <li class="feature-item">Delete All Objects</li>
+                        <li class="feature-item">Bring All Peds</li>
+                        <li class="feature-item">Bring All Vehicles</li>
+                        <li class="feature-item">Freeze All Peds</li>
+                        <li class="feature-item">Freeze All Vehicles</li>
+                        <li class="feature-item">Traffic Density Control</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- ESP & VISUALS SECTION -->
+        <section id="esp" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">&#128065;</div>
+                <h2 class="category-title">ESP & Visuals</h2>
+                <span class="category-count">70+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128100;</div>
+                        <h3 class="group-title">Player ESP</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Player Name <span class="feature-options">Color</span></li>
+                        <li class="feature-item highlight">Player Distance <span class="feature-options">Color</span></li>
+                        <li class="feature-item highlight">Skeleton Rendering <span class="feature-options">Color</span></li>
+                        <li class="feature-item highlight">Box ESP <span class="feature-options">Color, Style</span></li>
+                        <li class="feature-item">Tracelines <span class="feature-options">Color</span></li>
+                        <li class="feature-item">Health Bar</li>
+                        <li class="feature-item">Draw Self Option</li>
+                        <li class="feature-item">Draw Dead Players</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128694;</div>
+                        <h3 class="group-title">Ped & Vehicle ESP</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Ped Name/Distance</li>
+                        <li class="feature-item">Ped Weapon Display</li>
+                        <li class="feature-item">Ped Skeleton</li>
+                        <li class="feature-item">Ped Box ESP</li>
+                        <li class="feature-item">Vehicle Name/Distance</li>
+                        <li class="feature-item">Vehicle Box ESP</li>
+                        <li class="feature-item">Vehicle Health</li>
+                        <li class="feature-item">Object ESP</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#10010;</div>
+                        <h3 class="group-title">Crosshair</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Custom Crosshair <span class="feature-options">Many Styles</span></li>
+                        <li class="feature-item">Size & Thickness Control</li>
+                        <li class="feature-item">Primary/Secondary Color</li>
+                        <li class="feature-item">Gradient Effect</li>
+                        <li class="feature-item">Outline <span class="feature-options">Color, Thickness</span></li>
+                        <li class="feature-item">Center Dot</li>
+                        <li class="feature-item">Glow Effect</li>
+                        <li class="feature-item">Pulse Animation</li>
+                        <li class="feature-item">Spinning Lines</li>
+                        <li class="feature-item">Dynamic Expansion</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#128293;</div>
+                        <h3 class="group-title">Trail Effects</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Bullet Trails <span class="feature-options">Style, Color</span></li>
+                        <li class="feature-item">Throwable Trails</li>
+                        <li class="feature-item">Projectile Trails</li>
+                        <li class="feature-item">Rainbow Trails</li>
+                        <li class="feature-item">Fade Effect</li>
+                        <li class="feature-item">Glow Effect</li>
+                        <li class="feature-item">Trail Thickness</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128165;</div>
+                        <h3 class="group-title">Impact & Hitmarkers</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Impact Markers <span class="feature-options">Style, Size</span></li>
+                        <li class="feature-item">Headshot Color</li>
+                        <li class="feature-item">Explosion Radius Display</li>
+                        <li class="feature-item highlight">Custom Hitmarker <span class="feature-options">Style</span></li>
+                        <li class="feature-item">Hitmarker Sounds <span class="feature-options">Multiple</span></li>
+                        <li class="feature-item">Rainbow Hitmarker</li>
+                        <li class="feature-item">Kill Effect <span class="feature-options">Skull Icon</span></li>
+                        <li class="feature-item">Muzzle Flash Effect</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- RECOVERY SECTION -->
+        <section id="recovery" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">&#128176;</div>
+                <h2 class="category-title">Recovery</h2>
+                <span class="category-count">60+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">&#127942;</div>
+                        <h3 class="group-title">Stats & Rank</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Set Rank <span class="feature-options">1-1000</span></li>
+                        <li class="feature-item">Set Crew Rank</li>
+                        <li class="feature-item">LS Car Meet Tier</li>
+                        <li class="feature-item">Arena War AP</li>
+                        <li class="feature-item highlight">Edit Kills/Deaths</li>
+                        <li class="feature-item">Apply K/D Ratio</li>
+                        <li class="feature-item highlight">Max All Stats</li>
+                        <li class="feature-item">Override RP Multiplier</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">&#128275;</div>
+                        <h3 class="group-title">Unlocks</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Unlock All</li>
+                        <li class="feature-item highlight">All Bunker Research</li>
+                        <li class="feature-item">All Trade Prices</li>
+                        <li class="feature-item">All Heist Vehicles</li>
+                        <li class="feature-item">All Doomsday Vehicles</li>
+                        <li class="feature-item">All Casino Vehicles</li>
+                        <li class="feature-item">All Cayo Perico Vehicles</li>
+                        <li class="feature-item">LS Car Meet Items</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#128085;</div>
+                        <h3 class="group-title">Clothing & Customization</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">All Holiday Items</li>
+                        <li class="feature-item">All Arena War Items</li>
+                        <li class="feature-item">All Nightclub Items</li>
+                        <li class="feature-item">All Collectible Rewards</li>
+                        <li class="feature-item">All Hairstyles</li>
+                        <li class="feature-item">All Tattoos</li>
+                        <li class="feature-item">All Liveries</li>
+                        <li class="feature-item">Chrome & All Wheels</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#128299;</div>
+                        <h3 class="group-title">Weapon Unlocks</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">MK2 Weapon Tints</li>
+                        <li class="feature-item">MK2 Attachments</li>
+                        <li class="feature-item">Special Ammo Types</li>
+                        <li class="feature-item">Parachute Bags</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#127873;</div>
+                        <h3 class="group-title">Seasonal & DLC</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Christmas Content</li>
+                        <li class="feature-item">Halloween Content</li>
+                        <li class="feature-item">Valentine's Day Content</li>
+                        <li class="feature-item">Independence Day Content</li>
+                        <li class="feature-item">Bottom Dollar Bounties</li>
+                        <li class="feature-item">Agents of Sabotage</li>
+                        <li class="feature-item">Chop Shop Items</li>
+                        <li class="feature-item">San Andreas Mercenaries</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128188;</div>
+                        <h3 class="group-title">Tools</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Stat Editor</li>
+                        <li class="feature-item">Transactions Window</li>
+                        <li class="feature-item">Daily Activities</li>
+                        <li class="feature-item">Vehicle Editor</li>
+                        <li class="feature-item">Outfit Editor</li>
+                        <li class="feature-item">Free Appearance Change</li>
+                        <li class="feature-item">No Cooldown</li>
+                        <li class="feature-item">Allow Gender Change</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- SUPERHERO SECTION -->
+        <section id="superhero" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">&#129464;</div>
+                <h2 class="category-title">Superhero Powers</h2>
+                <span class="category-count">15+ Heroes</span>
+            </div>
+            <h3 style="color: #e23636; font-size: 1.5rem; margin: 30px 0 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="background: linear-gradient(90deg, #e23636, #ff6b6b); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">MARVEL</span>
+            </h3>
+            <div class="superhero-grid">
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#129302; Iron Man</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Flight</span>
+                        <span class="ability-tag">Repulsors</span>
+                        <span class="ability-tag">Unibeam</span>
+                        <span class="ability-tag">Missiles</span>
+                        <span class="ability-tag">JARVIS</span>
+                        <span class="ability-tag">Shield</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128737; Captain America</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Shield Throw</span>
+                        <span class="ability-tag">Shield Block</span>
+                        <span class="ability-tag">Ricochet</span>
+                        <span class="ability-tag">Super Soldier</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#9889; Thor</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Lightning</span>
+                        <span class="ability-tag">Mjolnir</span>
+                        <span class="ability-tag">Bifrost</span>
+                        <span class="ability-tag">Flight</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128074; Hulk</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Super Strength</span>
+                        <span class="ability-tag">Thunder Clap</span>
+                        <span class="ability-tag">Rage Mode</span>
+                        <span class="ability-tag">Super Jump</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128062; Black Panther</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Damage Absorb</span>
+                        <span class="ability-tag">Stealth</span>
+                        <span class="ability-tag">Vibranium Claws</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#10024; Scarlet Witch</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Chaos Magic</span>
+                        <span class="ability-tag">Telekinesis</span>
+                        <span class="ability-tag">Mind Control</span>
+                        <span class="ability-tag">Reality Warp</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128568; Wolverine</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Regeneration</span>
+                        <span class="ability-tag">Adamantium Claws</span>
+                        <span class="ability-tag">Berserker Rage</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#127786; Storm</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Weather Control</span>
+                        <span class="ability-tag">Lightning</span>
+                        <span class="ability-tag">Flight</span>
+                        <span class="ability-tag">Tornado</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#129522; Magneto</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Metal Control</span>
+                        <span class="ability-tag">Flight</span>
+                        <span class="ability-tag">Shield</span>
+                        <span class="ability-tag">Lift Objects</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128375; Spider-Man</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Web Swing</span>
+                        <span class="ability-tag">Wall Crawl</span>
+                        <span class="ability-tag">Web Shooter</span>
+                        <span class="ability-tag">Spider Sense</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128126; Venom</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Tendrils</span>
+                        <span class="ability-tag">Regeneration</span>
+                        <span class="ability-tag">Web Swing</span>
+                        <span class="ability-tag">Shapeshift</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128526; Deadpool</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Regeneration</span>
+                        <span class="ability-tag">Teleport</span>
+                        <span class="ability-tag">Katanas</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128293; Ghost Rider</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Hellfire</span>
+                        <span class="ability-tag">Penance Stare</span>
+                        <span class="ability-tag">Chain Whip</span>
+                    </div>
+                </div>
+                <div class="hero-card marvel">
+                    <div class="hero-name">&#128302; Dr. Strange</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Portals</span>
+                        <span class="ability-tag">Shield Spell</span>
+                        <span class="ability-tag">Time Stone</span>
+                    </div>
+                </div>
+            </div>
+            <h3 style="color: #0077b6; font-size: 1.5rem; margin: 40px 0 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="background: linear-gradient(90deg, #0077b6, #00b4d8); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">DC</span>
+            </h3>
+            <div class="superhero-grid">
+                <div class="hero-card dc">
+                    <div class="hero-name">&#128170; Superman</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Flight</span>
+                        <span class="ability-tag">Heat Vision</span>
+                        <span class="ability-tag">X-Ray Vision</span>
+                        <span class="ability-tag">Freeze Breath</span>
+                    </div>
+                </div>
+                <div class="hero-card dc">
+                    <div class="hero-name">&#9889; The Flash</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Super Speed</span>
+                        <span class="ability-tag">Phase Through</span>
+                        <span class="ability-tag">Lightning</span>
+                    </div>
+                </div>
+                <div class="hero-card dc">
+                    <div class="hero-name">&#128081; Wonder Woman</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Super Strength</span>
+                        <span class="ability-tag">Lasso of Truth</span>
+                        <span class="ability-tag">Bracelets</span>
+                        <span class="ability-tag">Flight</span>
+                    </div>
+                </div>
+                <div class="hero-card dc">
+                    <div class="hero-name">&#128154; Green Lantern</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Ring Constructs</span>
+                        <span class="ability-tag">Flight</span>
+                        <span class="ability-tag">Shield</span>
+                    </div>
+                </div>
+                <div class="hero-card dc">
+                    <div class="hero-name">&#129302; Cyborg</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Weapons</span>
+                        <span class="ability-tag">Scanner</span>
+                        <span class="ability-tag">Sonic Cannon</span>
+                        <span class="ability-tag">Flight</span>
+                    </div>
+                </div>
+                <div class="hero-card dc">
+                    <div class="hero-name">&#129415; Batman</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Grapple</span>
+                        <span class="ability-tag">Stealth</span>
+                        <span class="ability-tag">Night Vision</span>
+                        <span class="ability-tag">Gadgets</span>
+                    </div>
+                </div>
+                <div class="hero-card dc">
+                    <div class="hero-name">&#128031; Aquaman</div>
+                    <div class="hero-abilities">
+                        <span class="ability-tag">Super Swimming</span>
+                        <span class="ability-tag">Trident</span>
+                        <span class="ability-tag">Water Control</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- TELEPORT SECTION -->
+        <section id="teleport" class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">&#128640;</div>
+                <h2 class="category-title">Teleport</h2>
+                <span class="category-count">30+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">&#128205;</div>
+                        <h3 class="group-title">Quick Teleport</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Auto TP to Waypoint</li>
+                        <li class="feature-item highlight">TP to Objective</li>
+                        <li class="feature-item">TP to Aim</li>
+                        <li class="feature-item">TP to Mark</li>
+                        <li class="feature-item">Set Mark Location</li>
+                        <li class="feature-item">TP to Vehicle</li>
+                        <li class="feature-item">TP Into Vehicle</li>
+                        <li class="feature-item">TP Forward</li>
+                        <li class="feature-item">TP Up</li>
+                        <li class="feature-item highlight">Teleport Gun</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">&#128197;</div>
+                        <h3 class="group-title">Daily Collectibles</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Hidden Cache</li>
+                        <li class="feature-item">Treasure Chest</li>
+                        <li class="feature-item">Shipwrecked</li>
+                        <li class="feature-item">Buried Stash</li>
+                        <li class="feature-item">G's Cache</li>
+                        <li class="feature-item">Dead Drop</li>
+                        <li class="feature-item">Stash House</li>
+                        <li class="feature-item">Street Dealer</li>
+                        <li class="feature-item">LS Tags</li>
+                        <li class="feature-item">Products</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#127919;</div>
+                        <h3 class="group-title">Activities & Missions</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Skydive Locations</li>
+                        <li class="feature-item">Time Trial</li>
+                        <li class="feature-item">Exotic Exports Vehicle</li>
+                        <li class="feature-item">Madrazzo Hit</li>
+                        <li class="feature-item">Madrazzo Hit Target</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#128190;</div>
+                        <h3 class="group-title">Saved Locations</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Save Custom Locations</li>
+                        <li class="feature-item">Category Management</li>
+                        <li class="feature-item">Search & Filter</li>
+                        <li class="feature-item">Distance Calculator</li>
+                        <li class="feature-item">Interactive Map</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- ADDITIONAL FEATURES -->
+        <section class="category-section">
+            <div class="category-header">
+                <div class="category-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">&#9881;</div>
+                <h2 class="category-title">Additional Features</h2>
+                <span class="category-count">20+ Features</span>
+            </div>
+            <div class="feature-groups">
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#127912;</div>
+                        <h3 class="group-title">UI & Themes</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Multiple Theme Options</li>
+                        <li class="feature-item">Classic Theme</li>
+                        <li class="feature-item">Lumia Theme</li>
+                        <li class="feature-item">Modern Theme</li>
+                        <li class="feature-item">Modern Vertical</li>
+                        <li class="feature-item">Custom Color Schemes</li>
+                        <li class="feature-item">UI Scale Options</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#128187;</div>
+                        <h3 class="group-title">Technical Features</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Lua Script Support</li>
+                        <li class="feature-item">Profile Manager</li>
+                        <li class="feature-item">Hotkey System</li>
+                        <li class="feature-item">Multi-language Support</li>
+                        <li class="feature-item">Tunables Manager</li>
+                        <li class="feature-item">Pattern Scanning</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128273;</div>
+                        <h3 class="group-title">Protection</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item highlight">Undetected</li>
+                        <li class="feature-item">Anti-Cheat Bypass</li>
+                        <li class="feature-item">Memory Protection</li>
+                        <li class="feature-item">Crash Protection</li>
+                        <li class="feature-item">Kick Protection</li>
+                    </ul>
+                </div>
+                <div class="feature-group">
+                    <div class="group-header">
+                        <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#128190;</div>
+                        <h3 class="group-title">Data Management</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">Save Vehicles</li>
+                        <li class="feature-item">Save Locations</li>
+                        <li class="feature-item">Save Players</li>
+                        <li class="feature-item">Save Outfits</li>
+                        <li class="feature-item">Import/Export Config</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-logo">ScoobyPaste Enhanced</div>
+        <p class="footer-text">The most feature-rich GTA V enhancement suite available.</p>
+        <p class="footer-text" style="margin-top: 10px; opacity: 0.6;">500+ Features | 15+ Superheroes | Regular Updates</p>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        // Active navigation state
+        const sections = document.querySelectorAll('.category-section');
+        const navItems = document.querySelectorAll('.nav-item');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
