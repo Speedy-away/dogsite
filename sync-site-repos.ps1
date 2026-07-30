@@ -1,19 +1,19 @@
 #Requires -Version 5.1
 <#
-    sync.ps1 - Mirror the site between the dogsite and scooby-site repos.
+    sync-site-repos.ps1 - Mirror the site between the dogsite and scooby-site repos.
 
     The two repos hold identical site content but have unrelated git histories,
-    so this syncs the WORKING TREE (files), not commits. See SYNC.md.
+    so this syncs the WORKING TREE (files), not commits. See SYNC-SITE-REPOS.md.
 
     Usage:
-        .\sync.ps1                 Auto-detect which side changed, sync, commit, push
-        .\sync.ps1 -From dog       Force direction: dogsite  -> scooby-site
-        .\sync.ps1 -From scooby    Force direction: scooby-site -> dogsite
-        .\sync.ps1 -DryRun         Show what would change, touch nothing
-        .\sync.ps1 -Pull           git pull --ff-only both repos first
-        .\sync.ps1 -NoPush         Commit locally but do not push
-        .\sync.ps1 -Force          Skip the "target has uncommitted work" guard
-        .\sync.ps1 -Message "..."  Custom commit message
+        .\sync-site-repos.ps1                 Auto-detect which side changed, sync, commit, push
+        .\sync-site-repos.ps1 -From dog       Force direction: dogsite  -> scooby-site
+        .\sync-site-repos.ps1 -From scooby    Force direction: scooby-site -> dogsite
+        .\sync-site-repos.ps1 -DryRun         Show what would change, touch nothing
+        .\sync-site-repos.ps1 -Pull           git pull --ff-only both repos first
+        .\sync-site-repos.ps1 -NoPush         Commit locally but do not push
+        .\sync-site-repos.ps1 -Force          Skip the "target has uncommitted work" guard
+        .\sync-site-repos.ps1 -Message "..."  Custom commit message
 #>
 [CmdletBinding()]
 param(
@@ -230,7 +230,7 @@ elseif ($normalized -ne 'auto' -and $normalized -ne '') {
 else {
     # Auto-detect.
     if ($dogDirty -and $scoobyDirty) {
-        Fail "Both repos have uncommitted changes, so the direction is ambiguous.`nPick one explicitly:  .\sync.ps1 -From dog    (or)    .\sync.ps1 -From scooby"
+        Fail "Both repos have uncommitted changes, so the direction is ambiguous.`nPick one explicitly:  .\sync-site-repos.ps1 -From dog    (or)    .\sync-site-repos.ps1 -From scooby"
     }
     elseif ($dogDirty) {
         $srcPath = $DogsitePath; $srcName = 'dogsite'
@@ -258,7 +258,7 @@ else {
             $scoobyTime = [int64](Get-NewestFileTime -Repo $ScoobyPath).Ticks
         }
         if ($dogTime -eq $scoobyTime) {
-            Fail "Repo contents differ but neither side looks newer. Pick a direction:`n  .\sync.ps1 -From dog    (or)    .\sync.ps1 -From scooby"
+            Fail "Repo contents differ but neither side looks newer. Pick a direction:`n  .\sync-site-repos.ps1 -From dog    (or)    .\sync-site-repos.ps1 -From scooby"
         }
         if ($dogTime -gt $scoobyTime) {
             $srcPath = $DogsitePath; $srcName = 'dogsite'
@@ -322,7 +322,7 @@ if ($DryRun) {
     Write-Host ""
     if ($rc -eq 0) { Write-Ok "Dry run complete - the repos already match, nothing would change." }
     else           { Write-Ok "Dry run complete - the files listed above WOULD be synced. Nothing was written." }
-    Write-Note "Run .\sync.ps1 without -DryRun to apply."
+    Write-Note "Run .\sync-site-repos.ps1 without -DryRun to apply."
     Write-Host ""
     exit 0
 }

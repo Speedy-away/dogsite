@@ -16,17 +16,17 @@ Edit whichever one you like. Run the sync and the other one catches up — it wo
 Make your edits in either folder, then:
 
 ```powershell
-.\sync.ps1
+.\sync-site-repos.ps1
 ```
 
-Or double-click **`sync.bat`**.
+Or double-click **`sync-site-repos.bat`**.
 
 That's it. The script figures out which side you changed, copies the files to the other side, commits both, and pushes both to GitHub.
 
 To preview without changing anything:
 
 ```powershell
-.\sync.ps1 -DryRun
+.\sync-site-repos.ps1 -DryRun
 ```
 
 ---
@@ -43,7 +43,7 @@ Each repo keeps its own `.git` folder and its own remote. Those are never copied
 
 ## How the direction is chosen
 
-Running `.\sync.ps1` with no arguments, the script picks the source in this order:
+Running `.\sync-site-repos.ps1` with no arguments, the script picks the source in this order:
 
 1. **One repo has uncommitted changes** → that one is the source.
 2. **Both have uncommitted changes** → it stops and asks you to pick. Nothing is guessed, because guessing here would throw away real work.
@@ -53,8 +53,8 @@ Running `.\sync.ps1` with no arguments, the script picks the source in this orde
 Override it whenever you want:
 
 ```powershell
-.\sync.ps1 -From dog       # dogsite     -> scooby-site
-.\sync.ps1 -From scooby    # scooby-site -> dogsite
+.\sync-site-repos.ps1 -From dog       # dogsite     -> scooby-site
+.\sync-site-repos.ps1 -From scooby    # scooby-site -> dogsite
 ```
 
 ---
@@ -99,32 +99,32 @@ The copy is a true mirror (`robocopy /MIR`): a file you **delete** in the source
 ```powershell
 # edit index.html in dogsite
 cd C:\Users\whatw\OneDrive\Documents\GitHub\dogsite
-.\sync.ps1
+.\sync-site-repos.ps1
 ```
 
 **You edited scooby-site instead** — same command, the script notices:
 
 ```powershell
 cd C:\Users\whatw\OneDrive\Documents\GitHub\scooby-site
-.\sync.ps1
+.\sync-site-repos.ps1
 ```
 
 **You edited a file on github.com**
 
 ```powershell
-.\sync.ps1 -Pull
+.\sync-site-repos.ps1 -Pull
 ```
 
 **Check before committing to anything**
 
 ```powershell
-.\sync.ps1 -DryRun
+.\sync-site-repos.ps1 -DryRun
 ```
 
 **Sync but hold off on pushing**
 
 ```powershell
-.\sync.ps1 -NoPush
+.\sync-site-repos.ps1 -NoPush
 ```
 
 ---
@@ -141,7 +141,7 @@ If you'd rather not run it by hand, register a Windows scheduled task that syncs
 
 ```powershell
 $action  = New-ScheduledTaskAction -Execute 'powershell.exe' `
-    -Argument '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "C:\Users\whatw\OneDrive\Documents\GitHub\dogsite\sync.ps1" -Pull'
+    -Argument '-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "C:\Users\whatw\OneDrive\Documents\GitHub\dogsite\sync-site-repos.ps1" -Pull'
 $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) `
     -RepetitionInterval (New-TimeSpan -Minutes 30)
 Register-ScheduledTask -TaskName 'SyncDogsiteScooby' -Action $action -Trigger $trigger
