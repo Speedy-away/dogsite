@@ -630,6 +630,7 @@
                 <button class="game-tab" onclick="switchTab('fivem')">FiveM</button>
                 <button class="game-tab" onclick="switchTab('redm')">RedM</button>
                 <button class="game-tab" onclick="switchTab('rdr2')">RDR2</button>
+                <button class="game-tab" onclick="switchTab('general')">General</button>
             </div>
             <!--== GTA 5 Tab ==-->
             <div id="gta5" class="tab-content active">
@@ -643,6 +644,7 @@
                     <li><a href="#video-guides">Video Guides</a></li>
                     <li><a href="#introduction">Introduction</a></li>
                     <li><a href="#first-time">First Time Setup</a></li>
+                    <li><a href="#free-setup">Free Version Setup (Legacy &amp; Enhanced)</a></li>
                     <li><a href="#outfits">Modding Outfits</a></li>
                     <li><a href="#vehicles">Modding Vehicles</a></li>
                     <li><a href="#money">Money Making Methods</a></li>
@@ -718,7 +720,7 @@
                     <li>Troubleshooting common issues</li>
                 </ul>
                 <p>Please make sure to follow this guide step by step. We are not responsible for any bans, so please use at your own caution.</p>
-                <img src="/assets/images/menu.png" alt="Scooby Menu Interface" class="guide-image" style="max-width: 600px; margin: 30px auto;">
+                <img src="/assets/images/men3u.png" alt="Scooby Menu Interface" class="guide-image" style="max-width: 600px; margin: 30px auto;">
             </div>
             <!--== First Time Setup ==-->
             <div class="guide-card" id="first-time">
@@ -732,14 +734,49 @@
                 <div class="requirements-box">
                     <h4>Required Software:</h4>
                     <p><strong>VC Runtimes:</strong></p>
-                    <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank">https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/</a>
+                    <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener">https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/</a>
                     <p style="margin-top: 15px;"><strong>DirectX:</strong></p>
-                    <a href="https://www.microsoft.com/en-gb/download/details.aspx?id=6812" target="_blank">https://www.microsoft.com/en-gb/download/details.aspx?id=6812</a>
+                    <a href="https://www.microsoft.com/en-gb/download/details.aspx?id=6812" target="_blank" rel="noopener">https://www.microsoft.com/en-gb/download/details.aspx?id=6812</a>
                 </div>
                 <p>Make sure you have your graphics drivers up to date.</p>
                 <h3>Step 4: Inject</h3>
                 <p>Load up GTA and wait for it to be on the main menu or in story mode. Then go back to the launcher, get a free license, and follow the steps.</p>
                 <p>When you have acquired your free license, click <strong>Inject</strong>. This should inject the menu into the game. Then press <strong>Insert</strong> to open the menu - congratulations, you're done!</p>
+            </div>
+            <!--== Free Version Setup ==-->
+            <div class="guide-card" id="free-setup">
+                <h2>Free Version Setup (Legacy &amp; Enhanced)</h2>
+                <p>Need a key first? See <a href="#free-key" onclick="switchTab('general');return false;">Getting a Free Key</a> in the General tab.</p>
+                <div class="warning-banner" style="margin: 25px 0;">
+                    FREE VERSION = SOLO ONLY - you cannot play public lobbies with BattlEye disabled
+                </div>
+                <p>If you have used Scooby before, delete the <code>C:\scooby</code> folder first - <strong>the folder, not the loader</strong>. Otherwise it will probably crash due to old settings.</p>
+                <p>For both versions: make sure your <strong>antivirus is disabled</strong> or you will likely have issues, and use a <strong>Cloudflare or Proton VPN</strong> if you have connection issues. The free version runs with <strong>BattlEye off</strong>.</p>
+
+                <h3>GTA 5 Legacy</h3>
+                <ul>
+                    <li>Make sure your <strong>antivirus is disabled</strong></li>
+                    <li>Launch <strong>GTA 5</strong></li>
+                    <li>Inject Scooby when you reach the <strong>main menu / landing page</strong></li>
+                    <li>Wait for Scooby to load</li>
+                    <li>Enter <strong>STORY MODE</strong></li>
+                    <li>Use the in-game pause menu to join an <strong>INVITE ONLY SESSION</strong></li>
+                </ul>
+
+                <h3>GTA 5 Enhanced</h3>
+                <ul>
+                    <li>Disable <strong>Frame Generator</strong> in the in-game graphics settings <strong>before</strong> you inject Scooby</li>
+                    <li>Launch <strong>GTA 5 Enhanced</strong></li>
+                    <li>Inject Scooby when you reach the <strong>main menu / landing page</strong></li>
+                    <li>Wait for Scooby to load</li>
+                    <li>Enter <strong>STORY MODE</strong></li>
+                    <li>Use the in-game pause menu or the Scooby menu to join an <strong>INVITE ONLY SESSION</strong></li>
+                </ul>
+
+                <div class="error-card">
+                    <h4>You cannot play public lobbies on the free version</h4>
+                    <p>With BattlEye disabled you <strong>cannot</strong> join a public lobby and you <strong>cannot</strong> play with non-modders. Joining public on the free version will crash. Public lobbies with friends require Premium Plus.</p>
+                </div>
             </div>
             <!--== Modding Outfits ==-->
             <div class="guide-card" id="outfits">
@@ -867,12 +904,148 @@
             <!--== End RedM Tab ==-->
             <!--== RDR2 Tab ==-->
             <div id="rdr2" class="tab-content">
-                <div class="coming-soon-card">
-                    <h2>RDR2 Guides</h2>
-                    <p>RDR2 setup guides and tutorials are coming soon. Stay tuned!</p>
+                <div class="warning-banner" style="margin-bottom: 40px;">
+                    Please read the whole thing before asking for help - everything is covered here!
+                </div>
+                <!--== Table of Contents ==-->
+                <div class="toc">
+                    <h3>TABLE OF CONTENTS</h3>
+                    <ul>
+                        <li><a href="#rdr2-before">Before Launching Scooby</a></li>
+                        <li><a href="#rdr2-launch">How to Launch Scooby</a></li>
+                        <li><a href="#rdr2-crashing">Crashing? Switch to DX12</a></li>
+                    </ul>
+                </div>
+                <!--== Before Launching ==-->
+                <div class="guide-card" id="rdr2-before">
+                    <h2>Before Launching Scooby</h2>
+                    <p><strong>Red Dead Redemption 2 does not use BattlEye</strong>, so it does not matter whether you leave it on or off.</p>
+                    <p>Get these sorted before you launch anything:</p>
+                    <ul>
+                        <li>Make sure your <strong>graphics drivers</strong> are up to date</li>
+                        <li>Install <strong>all runtimes and DirectX runtimes</strong> - just choose to install them when running the Scooby Installer, then <strong>restart your PC</strong> afterwards</li>
+                        <li><strong>Disable Windows Defender.</strong> Turn it off normally - <strong>do not use Sordum / Defender Control</strong>, it causes issues for some people and turning Defender off manually removes that possibility of errors</li>
+                        <li>If you have any <strong>third-party antivirus</strong> installed (Norton, Avast, Malwarebytes, etc.) you need to <strong>uninstall</strong> it. These still cause issues even when they are "off"</li>
+                    </ul>
+                </div>
+                <!--== Launching ==-->
+                <div class="guide-card" id="rdr2-launch">
+                    <h2>How to Launch Scooby</h2>
+                    <p>Follow these steps in order:</p>
+                    <ul>
+                        <li>Sign into your <strong>Scooby account</strong></li>
+                        <li>Select <strong>RDR2</strong></li>
+                        <li>Launch <strong>Red Dead Redemption 2</strong> and wait for it to load</li>
+                        <li>Once you are at the <strong>main menu</strong>, click <strong>"▶️ LOAD"</strong> on the Scooby loader</li>
+                        <li>You can enter <strong>story mode or online</strong> after the CMD console appears on screen</li>
+                    </ul>
+                    <div class="error-card">
+                        <h4>Menu doesn't appear in-game</h4>
+                        <p>You may need to change your <strong>graphics settings / resolution</strong>. Alternatively you may need to use a <strong>VPN</strong>.</p>
+                    </div>
+                </div>
+                <!--== Crashing ==-->
+                <div class="guide-card" id="rdr2-crashing">
+                    <h2>Crashing? Switch to DX12</h2>
+                    <div class="warning-banner" style="margin-bottom: 25px;">
+                        IF YOU ARE CRASHING THEN YOU NEED TO SWITCH FROM VULKAN TO DX12
+                    </div>
+                    <p>In Red Dead Redemption 2, open <strong>Settings → Graphics</strong> and scroll down to <strong>Advanced Graphics</strong>. Change <strong>Graphics API</strong> from <strong>Vulkan</strong> to <strong>DX12</strong>, then apply the change and restart the game.</p>
+                    <img src="/assets/images/guides/rdr2-graphics-api.png" alt="Red Dead Redemption 2 graphics settings with the Graphics API option highlighted, currently set to Vulkan" class="guide-image" style="max-width: 739px; margin: 30px auto;">
                 </div>
             </div>
             <!--== End RDR2 Tab ==-->
+            <!--== General Tab ==-->
+            <div id="general" class="tab-content">
+                <div class="warning-banner" style="margin-bottom: 40px;">
+                    These guides apply to every game. Please read the whole thing before asking for help!
+                </div>
+                <!--== Table of Contents ==-->
+                <div class="toc">
+                    <h3>TABLE OF CONTENTS</h3>
+                    <ul>
+                        <li><a href="#free-key">Getting a Free Key</a></li>
+                        <li><a href="#crashing">Crashing Solutions</a></li>
+                        <li><a href="#connection">Connection or SSL Errors</a></li>
+                        <li><a href="#hwid">Resetting Your HWID</a></li>
+                    </ul>
+                </div>
+                <!--== Free Key ==-->
+                <div class="guide-card" id="free-key">
+                    <h2>Getting a Free Key</h2>
+                    <p>Follow these steps to get your Scooby free key:</p>
+                    <ul>
+                        <li>Click the official link: <a href="https://bstlar.com/F/ScoobyKEY" target="_blank" rel="noopener">https://bstlar.com/F/ScoobyKEY</a></li>
+                        <li>Complete the steps on the page and follow the instructions. <strong>Can't complete the steps?</strong> Switch to Microsoft Edge or another browser</li>
+                        <li>Once done, your key will appear on the page - <strong>copy the key shown</strong></li>
+                        <li>Open the loader, press <strong>"Free"</strong>, then paste your key</li>
+                    </ul>
+                    <div class="warning-banner" style="margin: 25px 0;">
+                        The free key auto-resets every 4 hours - you must redo the steps to get a new one
+                    </div>
+                    <h3>Important</h3>
+                    <ul>
+                        <li>Only use the <strong>official link above</strong> to avoid scams</li>
+                        <li>Close any ad pop-ups. The key will <strong>always show on the page itself</strong> - it is <strong>never an .exe</strong></li>
+                        <li><strong>Do not share your key</strong> with anyone</li>
+                        <li>After you get a key, download the loader from <a href="https://scoobymenu.cc/">scoobymenu.cc</a> - <strong>do not download from bstlar</strong></li>
+                    </ul>
+                    <h3>Free Version Limitations</h3>
+                    <div class="error-card">
+                        <h4>Free version is invite-only / solo</h4>
+                        <p>The free version is limited to <strong>invite only sessions</strong> or sessions with other modders in GTA Online. <strong>Joining a public lobby on the free version will crash.</strong></p>
+                    </div>
+                    <p>If you have used Scooby before, delete the <code>C:\scooby</code> folder - <strong>the folder, not the loader</strong>. If you don't, it will probably crash due to old settings.</p>
+                </div>
+                <!--== Crashing Solutions ==-->
+                <div class="guide-card" id="crashing">
+                    <h2>Crashing Solutions</h2>
+                    <p>Work through these in order - they resolve the overwhelming majority of crashes:</p>
+                    <ul>
+                        <li>Delete <code>C:\scooby</code>. Do this <strong>after every Scooby update</strong> to avoid conflicts with your old settings</li>
+                        <li><strong>Do not use third-party antivirus</strong> software (Norton, Avast, Malwarebytes, etc.)</li>
+                        <li><strong>Turn off Windows Defender.</strong> Avoid Defender Control - just turn it off normally and avoid any issues DC may cause</li>
+                        <li>Make sure <strong>DirectX runtimes</strong> and <strong>C++ runtimes</strong> are installed</li>
+                        <li>Make sure your <strong>graphics drivers</strong> are up to date</li>
+                        <li>Try using a <strong>VPN</strong>, and make sure it has no built-in antivirus or anti-malware settings. Cloudflare works for most users</li>
+                        <li>Make sure <strong>Date &amp; Time is synced</strong> in Windows settings</li>
+                        <li>If all of the above fails and you are still crashing, it is probably your <strong>user permissions</strong> - create a new Windows user with admin rights</li>
+                    </ul>
+                    <img src="/assets/images/guides/crashing-fix.png" alt="Windows File Explorer showing Local Disk (C:) with the scooby folder highlighted for deletion" class="guide-image" style="max-width: 659px; margin: 30px auto;">
+                    <div class="error-card">
+                        <h4>Free users</h4>
+                        <p>Make sure you are <strong>following the injection instructions properly</strong>. Almost every issue comes from skipping steps. The guides exist for a reason - if you want to play without the restrictions, the Premium Plus version gives you access to everything. Otherwise, use the limited free version as documented.</p>
+                    </div>
+                </div>
+                <!--== Connection / SSL ==-->
+                <div class="guide-card" id="connection">
+                    <h2>Connection or SSL Errors</h2>
+                    <p>If you get connection errors trying to load the website or the loader, it is because <strong>your ISP is blocking the connection</strong> to the servers.</p>
+                    <div class="warning-banner" style="margin: 25px 0;">
+                        USE A VPN
+                    </div>
+                    <p><strong>Cloudflare</strong> is usually good for most users, or you can use <strong>Proton</strong>.</p>
+                    <p>If you are still getting errors while connected to a VPN, it probably means you need to use a better VPN.</p>
+                </div>
+                <!--== HWID Reset ==-->
+                <div class="guide-card" id="hwid">
+                    <h2>Resetting Your HWID</h2>
+                    <p>If you have changed hardware or are getting an HWID mismatch, reset it from the portal:</p>
+                    <ul>
+                        <li>Go to <a href="https://scoobymenu.cc/portal" target="_blank" rel="noopener">scoobymenu.cc/portal</a> and log in</li>
+                        <li>Open the <strong>dropdown menu in the top right</strong></li>
+                        <li>Click <strong>"My Profile"</strong></li>
+                        <li>Scroll down to <strong>Hardware ID</strong></li>
+                        <li>Click <strong>"Reset HWID"</strong></li>
+                    </ul>
+                    <img src="/assets/images/guides/portal-reset-hwid.png" alt="Scooby portal account dropdown open in the top right with My Profile highlighted" class="guide-image" style="max-width: 432px; margin: 30px auto;">
+                    <div class="error-card">
+                        <h4>On cooldown?</h4>
+                        <p>If you are on cooldown then you need to wait - the reset cannot be forced through early.</p>
+                    </div>
+                </div>
+            </div>
+            <!--== End General Tab ==-->
             <div style="text-align: center; margin-top: 50px;">
                 <a href="/" class="back-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
