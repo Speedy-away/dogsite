@@ -10,12 +10,12 @@
 <meta property="og:url" content="https://scoobymenu.cc/resellers">
 <meta property="og:title" content="Resellers - Scooby Mod Menu | Official Resellers">
 <meta property="og:description" content="Buy Scooby mod menu from official resellers worldwide. Multiple payment options including PayPal, crypto, and gift cards. GTA 5, FiveM, RedM, RDR2, CS2, GMOD and more.">
-<meta property="og:image" content="https://scoobymenu.cc/background-home.png">
+<meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Resellers - Scooby Mod Menu | Official Resellers">
 <meta name="twitter:description" content="Buy Scooby mod menu from official resellers worldwide. Multiple payment options including PayPal, crypto, and gift cards. GTA 5, FiveM, RedM, RDR2, CS2, GMOD and more.">
-<meta name="twitter:image" content="https://scoobymenu.cc/background-home.png">
+<meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta name="keywords" content="Scooby resellers, buy Scooby mod menu, Scooby official reseller, mod menu reseller, Scooby PayPal, Scooby cheap, Scooby discount, mod menu shop, buy GTA 5 mod menu, buy FiveM mod menu, buy RedM mod menu, Scooby mod menu price">
 <meta name="robots" content="index, follow">
 <link rel="shortcut icon" href="/assets/images/icon.png">
@@ -466,6 +466,7 @@
     }
 </style>
   <script src="/assets/i18n/i18n.js"></script>
+  <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -492,7 +493,7 @@
                 <!-- zscooby links commented out, using fusiondash for now -->
                 <div class="reseller-item" id="officialStoreItem" onclick="openProductModal('official')" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm-lifetime">
                     <div class="reseller-avatar">
-                        <img src="resellers/scoobystore.png" alt="Scooby Store Logo">
+                        <img src="/resellers/scoobystore.png" alt="Scooby Store Logo">
                     </div>
                     <div class="reseller-info">
                         <div class="reseller-name pink">Scooby Store (Official)</div>
@@ -506,7 +507,7 @@
                 </div>
                 <div class="reseller-item" onclick="openProductModal('fusionmonkey')" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm">
                     <div class="reseller-avatar">
-                        <img src="resellers/fusmonkey.png" alt="FusionMonkey Logo">
+                        <img src="/resellers/fusmonkey.png" alt="FusionMonkey Logo">
                     </div>
                     <div class="reseller-info">
                         <div class="reseller-name">FusionMonkey</div>
@@ -520,7 +521,7 @@
                 </div>
                 <div class="reseller-item" onclick="openProductModal('ezmod')" data-gta5="https://ezmod.vip/product/scooby-mod-menu/" data-rdr2="https://ezmod.vip/product/scooby-rdr2/" data-fivem="https://ezmod.vip/product/scooby-fivem/" data-redm="https://ezmod.vip/product/scooby-redm-mod-menu/">
                     <div class="reseller-avatar">
-                        <img src="resellers/ezMod.png" alt="Ezmod Logo">
+                        <img src="/resellers/ezMod.png" alt="Ezmod Logo">
                     </div>
                     <div class="reseller-info">
                         <div class="reseller-name">Ezmod</div>
@@ -534,7 +535,7 @@
                 </div>
                 <div class="reseller-item" onclick="openProductModal('recoverygods')" data-gta5="https://recoverygods.xyz/product/scooby-gta/" data-rdr2="https://recoverygods.xyz/product/scooby-rdr2/" data-fivem="https://recoverygods.xyz/product/scooby-fivem/" data-redm="https://recoverygods.xyz/product/scooby-redm/">
                     <div class="reseller-avatar">
-                        <img src="resellers/Recoverygods.png" alt="RecoveryGods Logo">
+                        <img src="/resellers/Recoverygods.png" alt="RecoveryGods Logo">
                     </div>
                     <div class="reseller-info">
                         <div class="reseller-name">RecoveryGods</div>
@@ -617,10 +618,10 @@
     <script>
         var currentResellerId = null;
         var productInfo = {
-            gta5: { name: 'Grand Theft Auto V', desc: 'Mod menu with 500+ features', img: 'products/images/gta5.jpg' },
-            rdr2: { name: 'Red Dead Redemption 2', desc: 'Premium RDR2 Online enhancement', img: 'products/images/rdr2.jpg' },
-            fivem: { name: 'FiveM', desc: 'PVP, ESP, Lua executor & more', img: 'products/images/fivem.jpg' },
-            redm: { name: 'RedM', desc: 'Resource Manager, Triggers & more', img: 'products/images/REDM.jpg' }
+            gta5: { name: 'Grand Theft Auto V', desc: 'Mod menu with 500+ features', img: '/products/images/gta5.webp' },
+            rdr2: { name: 'Red Dead Redemption 2', desc: 'Premium RDR2 Online enhancement', img: '/products/images/rdr2.webp' },
+            fivem: { name: 'FiveM', desc: 'PVP, ESP, Lua executor & more', img: '/products/images/fivem.webp' },
+            redm: { name: 'RedM', desc: 'Resource Manager, Triggers & more', img: '/products/images/REDM.jpg' }
         };
         var resellerNames = {
             official: 'Scooby Store (Official)',
@@ -657,7 +658,7 @@
                     option.style.cursor = 'pointer';
                 }
                 option.innerHTML =
-                    '<div class="product-option-icon"><img src="' + info.img + '" alt="' + info.name + '"></div>' +
+                    '<div class="product-option-icon"><img loading="lazy" decoding="async" src="' + info.img + '" alt="' + info.name + '"></div>' +
                     '<div class="product-option-info"><div class="product-option-name">' + info.name + '</div><div class="product-option-desc">' + info.desc + '</div></div>' +
                     '<svg class="product-option-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>';
                 container.appendChild(option);

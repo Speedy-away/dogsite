@@ -1,6 +1,6 @@
 # Translations — language selector & i18n
 
-The site ships in **6 languages**, with a selector in the **top-left corner of the navbar**.
+The site ships in **10 languages**, with a flagged selector in the **top-left corner of the navbar** and a **first-visit language picker**.
 
 | Code | Language | Dictionary |
 | --- | --- | --- |
@@ -10,6 +10,20 @@ The site ships in **6 languages**, with a selector in the **top-left corner of t
 | `fr` | Français | [assets/i18n/fr.js](assets/i18n/fr.js) |
 | `de` | Deutsch | [assets/i18n/de.js](assets/i18n/de.js) |
 | `ru` | Русский | [assets/i18n/ru.js](assets/i18n/ru.js) |
+| `tr` | Türkçe | [assets/i18n/tr.js](assets/i18n/tr.js) |
+| `pl` | Polski | [assets/i18n/pl.js](assets/i18n/pl.js) |
+| `it` | Italiano | [assets/i18n/it.js](assets/i18n/it.js) |
+| `zh` | 简体中文 | [assets/i18n/zh.js](assets/i18n/zh.js) |
+
+## First-visit picker
+
+On a visitor's **first** visit a modal asks them to choose a language, with their browser language marked **Suggested**. Choosing one (or "Continue in English") writes the choice to `localStorage`, so it never appears again. Clicking outside or pressing Escape keeps the current language and also dismisses it for good.
+
+Re-open it any time from the console with `__scoobyI18n.showPicker()`, or clear the saved choice with `__scoobyI18n.reset()` to see it as a new visitor would.
+
+## Flags
+
+Flags are **inline SVG**, not emoji. Emoji flags (🇩🇪, 🇧🇷) do not render on Windows — the OS ships no flag glyphs, so they fall back to plain letters like "DE". Drawing them guarantees they look identical on every platform. The flag set lives in the `FLAGS` map in [assets/i18n/i18n.js](assets/i18n/i18n.js).
 
 ---
 
@@ -89,8 +103,15 @@ It also lists the worst-covered pages, so you know where to spend effort next.
    ```
 3. Add it to the `LANGS` list near the top of [assets/i18n/i18n.js](assets/i18n/i18n.js):
    ```js
-   { code: 'it', label: 'IT', native: 'Italiano' },
+   { code: 'nl', label: 'NL', native: 'Nederlands' },
    ```
+4. Add a flag to the `FLAGS` map in the same file (plain SVG shapes on a `0 0 60 40` canvas):
+   ```js
+   nl: '<rect width="60" height="40" fill="#fff"/>' +
+       '<rect width="60" height="13.3" fill="#AE1C28"/>' +
+       '<rect y="26.7" width="60" height="13.3" fill="#21468B"/>',
+   ```
+   Skip this and the entry still works — it just shows without a flag.
 
 It appears in the selector immediately. Dictionaries load lazily, so extra languages cost returning visitors nothing.
 
@@ -147,10 +168,12 @@ The two redirect stubs (`discord.html`, `scoobyontop.html`) are intentionally sk
 Available on any page as `window.__scoobyI18n`:
 
 ```js
-__scoobyI18n.set('fr')    // switch language
-__scoobyI18n.get()        // current language code
-__scoobyI18n.langs        // configured languages
-__scoobyI18n.missing()    // untranslated strings on THIS page, current language
+__scoobyI18n.set('fr')      // switch language
+__scoobyI18n.get()          // current language code
+__scoobyI18n.langs          // configured languages
+__scoobyI18n.missing()      // untranslated strings on THIS page, current language
+__scoobyI18n.showPicker()   // re-open the first-visit language picker
+__scoobyI18n.reset()        // forget the saved choice (picker shows again on reload)
 ```
 
 `missing()` is the quickest way to finish a specific page: open it, switch language, run it, translate what it lists.
@@ -159,7 +182,7 @@ __scoobyI18n.missing()    // untranslated strings on THIS page, current language
 
 ## Current coverage
 
-Each dictionary has **392 entries**, all verified against real page text (zero dead keys). That covers:
+Each of the 9 dictionaries has **392 entries**, all verified against real page text (zero dead keys). That covers:
 
 - the full site chrome — nav, footer, buttons, modals — on **every one of the 30 pages**
 - homepage in full, including hero, feature sections, FAQ and reviews

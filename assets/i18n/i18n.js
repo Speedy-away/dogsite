@@ -23,7 +23,11 @@
     { code: 'pt', label: 'PT', native: 'Português'  },
     { code: 'fr', label: 'FR', native: 'Français'   },
     { code: 'de', label: 'DE', native: 'Deutsch'    },
-    { code: 'ru', label: 'RU', native: 'Русский'    }
+    { code: 'ru', label: 'RU', native: 'Русский'    },
+    { code: 'tr', label: 'TR', native: 'Türkçe'     },
+    { code: 'pl', label: 'PL', native: 'Polski'     },
+    { code: 'it', label: 'IT', native: 'Italiano'   },
+    { code: 'zh', label: 'ZH', native: '简体中文'    }
   ];
   var CODES = LANGS.map(function (l) { return l.code; });
 
@@ -284,6 +288,11 @@
     '.i18n-badge{display:inline-flex;align-items:center;justify-content:center;min-width:30px;padding:3px 6px;',
     'border-radius:5px;background:rgba(255,255,255,.08);font-size:.68rem;font-weight:700;letter-spacing:.05em;',
     'color:#d5d5e2;flex-shrink:0}',
+    /* Drawn SVG flags - emoji flags do not render on Windows. */
+    '.i18n-flag{display:inline-block;width:20px;height:14px;border-radius:2.5px;overflow:hidden;',
+    'flex-shrink:0;line-height:0;box-shadow:0 0 0 1px rgba(255,255,255,.14) inset}',
+    '.i18n-flag svg{display:block;width:100%;height:100%}',
+    '.i18n-toggle .i18n-flag{width:19px;height:13px}',
     '.i18n-option[aria-selected="true"] .i18n-badge{background:rgba(79,142,245,.28);color:#fff}',
     '.i18n-check{margin-left:auto;width:14px;height:14px;stroke:#4f8ef5;fill:none;stroke-width:2.5;opacity:0;flex-shrink:0}',
     '.i18n-option[aria-selected="true"] .i18n-check{opacity:1}',
@@ -293,11 +302,79 @@
     '.i18n-floating{position:fixed;top:16px;left:16px;z-index:99999}',
     '.i18n-floating .i18n-toggle{background:rgba(12,12,14,.9);border-color:rgba(255,255,255,.18);',
     'backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
-    '@media (max-width:600px){.i18n-menu{min-width:170px}.i18n-toggle{padding:6px 9px;font-size:.78rem}}'
+    '@media (max-width:600px){.i18n-menu{min-width:170px}.i18n-toggle{padding:6px 9px;font-size:.78rem}}',
+
+    /* ---- first-visit language picker ---- */
+    '.i18n-modal-overlay{position:fixed;inset:0;z-index:100000;background:rgba(4,4,6,.84);',
+    '-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;',
+    'justify-content:center;padding:20px;opacity:0;transition:opacity .25s;font-family:inherit}',
+    '.i18n-modal-overlay.show{opacity:1}',
+    '.i18n-modal{width:100%;max-width:520px;max-height:90vh;overflow-y:auto;background:#0f0f12;',
+    'border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px;',
+    'box-shadow:0 30px 80px rgba(0,0,0,.7);transform:translateY(12px) scale(.985);transition:transform .25s}',
+    '.i18n-modal-overlay.show .i18n-modal{transform:none}',
+    '.i18n-modal-head{display:flex;align-items:center;gap:11px;margin-bottom:7px}',
+    '.i18n-modal-head svg{width:21px;height:21px;stroke:#4f8ef5;fill:none;stroke-width:2;flex-shrink:0}',
+    '.i18n-modal h2{margin:0;font-size:1.15rem;font-weight:800;color:#fff;letter-spacing:-.01em}',
+    '.i18n-modal-sub{margin:0 0 18px;color:#9a9aaa;font-size:.88rem;line-height:1.5}',
+    '.i18n-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}',
+    '.i18n-pick{display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;',
+    'border:1px solid rgba(255,255,255,.1);border-radius:11px;background:rgba(255,255,255,.03);',
+    'color:#d5d5e2;font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;text-align:left;',
+    'transition:background .15s,border-color .15s,color .15s}',
+    '.i18n-pick:hover{background:rgba(79,142,245,.14);border-color:rgba(79,142,245,.5);color:#fff}',
+    '.i18n-pick:focus-visible{outline:2px solid #4f8ef5;outline-offset:2px}',
+    '.i18n-pick.suggested{border-color:rgba(79,142,245,.55);background:rgba(79,142,245,.1);color:#fff}',
+    '.i18n-suggested-tag{margin-left:auto;font-size:.62rem;font-weight:700;letter-spacing:.06em;',
+    'color:#4f8ef5;text-transform:uppercase}',
+    '.i18n-modal-foot{margin-top:17px;text-align:center}',
+    '.i18n-dismiss{background:none;border:0;color:#6a6a7c;font-family:inherit;font-size:.82rem;',
+    'cursor:pointer;text-decoration:underline;padding:6px}',
+    '.i18n-dismiss:hover{color:#9a9aaa}',
+    '@media (max-width:520px){.i18n-modal{padding:20px}.i18n-pick{padding:10px;font-size:.85rem;gap:8px}}'
   ].join('');
 
   var GLOBE = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/>' +
               '<path d="M2.5 12h19"/><path d="M12 2.5a15 15 0 0 1 0 19a15 15 0 0 1 0-19z"/></svg>';
+
+  // Inline SVG flags. Emoji flags are not rendered on Windows (they fall back to
+  // the two letters), so they are drawn instead of using the emoji codepoints.
+  var STAR = '0,-1 .225,-.309 .951,-.309 .363,.118 .588,.809 0,.382 -.588,.809 -.363,.118 -.951,-.309 -.225,-.309';
+  function star(x, y, r, rot) {
+    return '<polygon points="' + STAR + '" fill="#FFDE00" transform="translate(' + x + ',' + y + ') ' +
+           'scale(' + r + ')' + (rot ? ' rotate(' + rot + ')' : '') + '"/>';
+  }
+  var FLAGS = {
+    en: '<rect width="60" height="40" fill="#012169"/>' +
+        '<path d="M0,0 60,40 M60,0 0,40" stroke="#fff" stroke-width="9"/>' +
+        '<path d="M0,0 60,40 M60,0 0,40" stroke="#C8102E" stroke-width="5"/>' +
+        '<path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/>' +
+        '<path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/>',
+    es: '<rect width="60" height="40" fill="#AA151B"/><rect y="10" width="60" height="20" fill="#F1BF00"/>',
+    pt: '<rect width="60" height="40" fill="#009B3A"/>' +
+        '<path d="M30,5 55,20 30,35 5,20Z" fill="#FEDF00"/><circle cx="30" cy="20" r="8.5" fill="#002776"/>',
+    fr: '<rect width="60" height="40" fill="#fff"/><rect width="20" height="40" fill="#002395"/>' +
+        '<rect x="40" width="20" height="40" fill="#ED2939"/>',
+    de: '<rect width="60" height="40" fill="#FFCE00"/><rect width="60" height="26.7" fill="#D00"/>' +
+        '<rect width="60" height="13.3" fill="#000"/>',
+    ru: '<rect width="60" height="40" fill="#D52B1E"/><rect width="60" height="26.7" fill="#0039A6"/>' +
+        '<rect width="60" height="13.3" fill="#fff"/>',
+    tr: '<rect width="60" height="40" fill="#E30A17"/><circle cx="24" cy="20" r="9" fill="#fff"/>' +
+        '<circle cx="27.5" cy="20" r="7.2" fill="#E30A17"/>' +
+        '<polygon points="' + STAR + '" fill="#fff" transform="translate(38,20) scale(5) rotate(15)"/>',
+    pl: '<rect width="60" height="40" fill="#DC143C"/><rect width="60" height="20" fill="#fff"/>',
+    it: '<rect width="60" height="40" fill="#fff"/><rect width="20" height="40" fill="#008C45"/>' +
+        '<rect x="40" width="20" height="40" fill="#CD212A"/>',
+    zh: '<rect width="60" height="40" fill="#DE2910"/>' + star(13, 12, 6.5) +
+        star(24, 5, 2.2, 20) + star(29, 10, 2.2, 45) + star(29, 17, 2.2, 70) + star(24, 22, 2.2, 20)
+  };
+
+  function flagHTML(code) {
+    var body = FLAGS[code];
+    if (!body) return '';
+    return '<span class="i18n-flag" aria-hidden="true"><svg viewBox="0 0 60 40" preserveAspectRatio="none">' +
+           body + '</svg></span>';
+  }
   var CARET = '<svg class="i18n-caret" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
   var CHECK = '<svg class="i18n-check" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
 
@@ -326,7 +403,8 @@
     toggle.setAttribute('aria-haspopup', 'listbox');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Change language');
-    toggle.innerHTML = GLOBE + '<span class="i18n-current">EN</span>' + CARET;
+    toggle.innerHTML = '<span class="i18n-toggle-flag">' + flagHTML(current) + '</span>' +
+                       '<span class="i18n-current">EN</span>' + CARET;
 
     var menu = document.createElement('ul');
     menu.className = 'i18n-menu';
@@ -341,7 +419,8 @@
       btn.setAttribute('role', 'option');
       btn.setAttribute('data-lang', l.code);
       btn.setAttribute('aria-selected', 'false');
-      btn.innerHTML = '<span class="i18n-badge">' + l.label + '</span><span>' + l.native + '</span>' + CHECK;
+      btn.innerHTML = flagHTML(l.code) + '<span class="i18n-badge">' + l.label + '</span>' +
+                      '<span>' + l.native + '</span>' + CHECK;
       btn.addEventListener('click', function () {
         close();
         setLang(l.code);
@@ -400,10 +479,86 @@
     var meta = LANGS.filter(function (l) { return l.code === current; })[0] || LANGS[0];
     var label = root.querySelector('.i18n-current');
     if (label) label.textContent = meta.label;
+    var tf = root.querySelector('.i18n-toggle-flag');
+    if (tf) tf.innerHTML = flagHTML(current);
     var opts = root.querySelectorAll('.i18n-option');
     for (var i = 0; i < opts.length; i++) {
       opts[i].setAttribute('aria-selected', String(opts[i].getAttribute('data-lang') === current));
     }
+  }
+
+  // ------------------------------------------------- first-visit picker ---
+
+  var picker = null;
+
+  function showPicker(force) {
+    // Only on a genuine first visit: any explicit choice writes to storage.
+    if (!force && stored()) return;
+    if (picker) return;
+
+    var suggested = detect();
+
+    picker = document.createElement('div');
+    picker.className = 'i18n-modal-overlay';
+    picker.setAttribute('data-i18n-skip', '');       // never translate this UI
+    picker.setAttribute('role', 'dialog');
+    picker.setAttribute('aria-modal', 'true');
+    picker.setAttribute('aria-label', 'Choose your language');
+
+    var box = document.createElement('div');
+    box.className = 'i18n-modal';
+
+    var head = '<div class="i18n-modal-head">' + GLOBE + '<h2>Choose your language</h2></div>' +
+               '<p class="i18n-modal-sub">Select the language you would like to browse the site in. ' +
+               'You can change it any time from the top-left of the page.</p>';
+
+    var grid = '<div class="i18n-grid">';
+    LANGS.forEach(function (l) {
+      var isSuggested = l.code === suggested && suggested !== DEFAULT_LANG;
+      grid += '<button type="button" class="i18n-pick' + (isSuggested ? ' suggested' : '') +
+              '" data-lang="' + l.code + '">' + flagHTML(l.code) +
+              '<span>' + l.native + '</span>' +
+              (isSuggested ? '<span class="i18n-suggested-tag">Suggested</span>' : '') +
+              '</button>';
+    });
+    grid += '</div>';
+
+    var foot = '<div class="i18n-modal-foot">' +
+               '<button type="button" class="i18n-dismiss">Continue in English</button></div>';
+
+    box.innerHTML = head + grid + foot;
+    picker.appendChild(box);
+    document.body.appendChild(picker);
+
+    var prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    function close(code) {
+      document.body.style.overflow = prevOverflow;
+      picker.classList.remove('show');
+      var node = picker;
+      picker = null;
+      setTimeout(function () { if (node.parentNode) node.parentNode.removeChild(node); }, 260);
+      // Storing the choice is what stops this reappearing on the next visit.
+      setLang(code, {});
+    }
+
+    box.addEventListener('click', function (e) {
+      var pick = e.target.closest ? e.target.closest('.i18n-pick') : null;
+      if (pick) { close(pick.getAttribute('data-lang')); return; }
+      if (e.target.closest && e.target.closest('.i18n-dismiss')) close(DEFAULT_LANG);
+    });
+    picker.addEventListener('click', function (e) {
+      if (e.target === picker) close(current);          // click outside = keep as-is
+    });
+    document.addEventListener('keydown', function onKey(e) {
+      if (e.key === 'Escape' && picker) { document.removeEventListener('keydown', onKey); close(current); }
+    });
+
+    // Next frame so the CSS transition runs.
+    setTimeout(function () { if (picker) picker.classList.add('show'); }, 20);
+    var first = box.querySelector('.i18n-pick.suggested') || box.querySelector('.i18n-pick');
+    if (first) first.focus();
   }
 
   // ------------------------------------------------------------------ boot ---
@@ -414,6 +569,7 @@
     buildSelector();
     if (initial !== DEFAULT_LANG) setLang(initial, { silent: true });
     else { current = DEFAULT_LANG; syncUI(); startObserver(); reveal(); }
+    showPicker();                       // no-ops unless this is a first visit
   }
 
   // Exported before boot() so a dictionary that lands early can always register.
@@ -422,6 +578,10 @@
     set: setLang,
     get: function () { return current; },
     langs: LANGS,
+    /** Re-open the language picker (pass true to force it after a choice). */
+    showPicker: function () { showPicker(true); },
+    /** Forget the saved choice, so the first-visit picker shows again. */
+    reset: function () { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} },
     /** Strings on the page with no translation in the active language. */
     missing: function () {
       var table = dicts[current] || {}, out = {}, w = document.createTreeWalker(

@@ -193,13 +193,13 @@ async function fetchSubscriptionsConfig() {
 
     // Local subscription image map
     const subscriptionImages = {
-        'GTALegacy': 'images/GTA5.jpg',
+        'GTALegacy': 'images/GTA5.webp',
         'GTAEnhanced': 'images/GTA5Enhanced.jpg',
-        'RDR': 'images/RDR2.jpg',
-        'FiveM': 'images/FIVEM.jpg',
+        'RDR': 'images/RDR2.webp',
+        'FiveM': 'images/FIVEM.webp',
         'Spoofer': 'images/Spoofer.jpg',
         'cs2': 'images/cs2.jpg',
-        'GTABE': 'images/GTA5BE.png'
+        'GTABE': 'images/GTA5BE.webp'
     };
 
     try {

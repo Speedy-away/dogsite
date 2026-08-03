@@ -191,6 +191,7 @@
         }
     </style>
   <script src="/assets/i18n/i18n.js"></script>
+  <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -217,7 +218,7 @@
     </nav>
     <!-- Hero Section -->
     <section class="hero">
-        <img src="/products/images/backgrounds/cs2background.jpg" alt="Counter-Strike 2" class="hero-image">
+        <img src="/products/images/backgrounds/cs2background.webp" alt="Counter-Strike 2" class="hero-image">
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="badge-group">
@@ -243,16 +244,16 @@
                 </h2>
                 <div class="screenshot-gallery">
                     <div class="screenshot-item main" onclick="openLightbox(0)">
-                        <img src="/assets/images/previews/cs2/cs2_k2K4jfHLNB.jpg" alt="CS2 ClickUI ESP & Visuals">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2_k2K4jfHLNB.webp" alt="CS2 ClickUI ESP & Visuals">
                     </div>
                     <div class="screenshot-item" onclick="openLightbox(1)">
-                        <img src="/assets/images/previews/cs2/cs2_J9840hLEwv.jpg" alt="CS2 ListUI ESP Menu">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2_J9840hLEwv.webp" alt="CS2 ListUI ESP Menu">
                     </div>
                     <div class="screenshot-item" onclick="openLightbox(2)">
-                        <img src="/assets/images/previews/cs2/cs2_iuvDGI3TWX.jpg" alt="CS2 ESP Box & Chams">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2_iuvDGI3TWX.webp" alt="CS2 ESP Box & Chams">
                     </div>
                     <div class="screenshot-item" onclick="openLightbox(3)">
-                        <img src="/assets/images/previews/cs2/cs2_LvH1XZ3U24.jpg" alt="CS2 Radar & Item ESP">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2_LvH1XZ3U24.webp" alt="CS2 Radar & Item ESP">
                     </div>
                 </div>
             </div>
@@ -423,7 +424,7 @@
                 <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
         </button>
-        <img id="lightbox-img" src="" alt="Preview">
+        <img loading="lazy" decoding="async" id="lightbox-img" alt="Preview">
         <button class="lightbox-nav lightbox-next" onclick="nextImage()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -483,10 +484,10 @@
     </footer>
     <script>
         const images = [
-            '/assets/images/previews/cs2/cs2_k2K4jfHLNB.jpg',
-            '/assets/images/previews/cs2/cs2_J9840hLEwv.jpg',
-            '/assets/images/previews/cs2/cs2_iuvDGI3TWX.jpg',
-            '/assets/images/previews/cs2/cs2_LvH1XZ3U24.jpg'
+            '/assets/images/previews/cs2/cs2_k2K4jfHLNB.webp',
+            '/assets/images/previews/cs2/cs2_J9840hLEwv.webp',
+            '/assets/images/previews/cs2/cs2_iuvDGI3TWX.webp',
+            '/assets/images/previews/cs2/cs2_LvH1XZ3U24.webp'
         ];
         let currentIndex = 0;
         function openLightbox(index) {
