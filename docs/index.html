@@ -114,54 +114,91 @@
         <p class="subtitle">Select a platform to view native function documentation</p>
 
         <div class="cards">
-            <a href="/docs/redm" class="card redm">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                </div>
-                <h2>RedM</h2>
-                <p>Red Dead Redemption 2 native functions</p>
-                <span class="status enabled">Available</span>
-            </a>
-
             <a href="/docs/fivem" class="card fivem">
                 <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
                 </div>
                 <h2>FiveM</h2>
                 <p>Grand Theft Auto V native functions</p>
+                <div class="card-tags">
+                    <span class="tag lua">Lua</span>
+                    <span class="tag js">JavaScript</span>
+                    <span class="tag cs">C#</span>
+                </div>
+                <span class="status enabled">Available</span>
+            </a>
+
+            <a href="/docs/redm" class="card redm">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h2>RedM</h2>
+                <p>Red Dead Redemption 2 native functions</p>
+                <div class="card-tags">
+                    <span class="tag lua">Lua</span>
+                    <span class="tag js">JavaScript</span>
+                    <span class="tag cs">C#</span>
+                </div>
                 <span class="status enabled">Available</span>
             </a>
         </div>
 
-        <h2 style="margin-top: 60px;">Scooby API</h2>
+        <h2 class="docs-section">Scooby API</h2>
         <p class="subtitle">Lua API reference for Scooby menus</p>
 
         <div class="cards">
             <a href="/fivem_api_reference.html" target="_blank" rel="noopener noreferrer" class="card fivem">
                 <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/>
                     </svg>
                 </div>
                 <h2>FiveM</h2>
                 <p>Scooby FiveM Lua API reference</p>
-                <span class="status enabled" style="background: rgba(0, 212, 255, 0.15); color: #00d4ff;">Available</span>
+                <div class="card-tags"><span class="tag lua">Lua</span></div>
+                <span class="status enabled">Available</span>
             </a>
 
             <a href="/redm_api_reference.html" target="_blank" rel="noopener noreferrer" class="card redm">
                 <div class="card-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/>
                     </svg>
                 </div>
                 <h2>RedM</h2>
                 <p>Scooby RedM Lua API reference</p>
+                <div class="card-tags"><span class="tag lua">Lua</span></div>
                 <span class="status enabled">Available</span>
             </a>
+
+            <!-- Placeholders: documentation not written yet. -->
+            <div class="card gta5 placeholder" aria-disabled="true">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/>
+                    </svg>
+                </div>
+                <h2>GTA 5</h2>
+                <p>Scooby GTA 5 Lua API reference</p>
+                <div class="card-tags"><span class="tag lua">Lua</span></div>
+                <span class="status soon">Coming Soon</span>
+            </div>
+
+            <div class="card rdr2 placeholder" aria-disabled="true">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 8V3l5 5h-5zM8 13h8v2H8v-2zm0 4h8v2H8v-2zm0-8h3v2H8V9z"/>
+                    </svg>
+                </div>
+                <h2>RDR2</h2>
+                <p>Scooby RDR2 Lua API reference</p>
+                <div class="card-tags"><span class="tag lua">Lua</span></div>
+                <span class="status soon">Coming Soon</span>
+            </div>
         </div>
 
         <div class="info">

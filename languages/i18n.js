@@ -27,7 +27,14 @@
     { code: 'tr', label: 'TR', native: 'Türkçe'     },
     { code: 'pl', label: 'PL', native: 'Polski'     },
     { code: 'it', label: 'IT', native: 'Italiano'   },
-    { code: 'zh', label: 'ZH', native: '简体中文'    }
+    { code: 'zh', label: 'ZH', native: '简体中文'    },
+    { code: 'ja', label: 'JA', native: '日本語'      },
+    { code: 'ko', label: 'KO', native: '한국어'      },
+    { code: 'th', label: 'TH', native: 'ไทย'        },
+    { code: 'vi', label: 'VI', native: 'Tiếng Việt' },
+    { code: 'id', label: 'ID', native: 'Indonesia'  },
+    { code: 'hi', label: 'HI', native: 'हिन्दी'       },
+    { code: 'sr', label: 'SR', native: 'Српски'     }
   ];
   var CODES = LANGS.map(function (l) { return l.code; });
 
@@ -366,7 +373,45 @@
     it: '<rect width="60" height="40" fill="#fff"/><rect width="20" height="40" fill="#008C45"/>' +
         '<rect x="40" width="20" height="40" fill="#CD212A"/>',
     zh: '<rect width="60" height="40" fill="#DE2910"/>' + star(13, 12, 6.5) +
-        star(24, 5, 2.2, 20) + star(29, 10, 2.2, 45) + star(29, 17, 2.2, 70) + star(24, 22, 2.2, 20)
+        star(24, 5, 2.2, 20) + star(29, 10, 2.2, 45) + star(29, 17, 2.2, 70) + star(24, 22, 2.2, 20),
+    ja: '<rect width="60" height="40" fill="#fff"/><circle cx="30" cy="20" r="12" fill="#BC002D"/>',
+    ko: '<rect width="60" height="40" fill="#fff"/>' +
+        // Taegeuk: red over blue, rotated as on the real flag.
+        '<g transform="rotate(-33 30 20)">' +
+        '<path d="M30,11 A9,9 0 0 1 30,29 A4.5,4.5 0 0 0 30,20 A4.5,4.5 0 0 1 30,11Z" fill="#CD2E3A"/>' +
+        '<path d="M30,29 A9,9 0 0 1 30,11 A4.5,4.5 0 0 1 30,20 A4.5,4.5 0 0 0 30,29Z" fill="#0047A0"/>' +
+        '</g>' +
+        // Four trigrams, simplified to bars at the corners.
+        '<g fill="#000">' +
+        '<rect x="10" y="8"  width="9" height="1.6" transform="rotate(56 14.5 8.8)"/>' +
+        '<rect x="10" y="11" width="9" height="1.6" transform="rotate(56 14.5 11.8)"/>' +
+        '<rect x="41" y="8"  width="9" height="1.6" transform="rotate(-56 45.5 8.8)"/>' +
+        '<rect x="41" y="11" width="9" height="1.6" transform="rotate(-56 45.5 11.8)"/>' +
+        '<rect x="10" y="28" width="9" height="1.6" transform="rotate(-56 14.5 28.8)"/>' +
+        '<rect x="10" y="31" width="9" height="1.6" transform="rotate(-56 14.5 31.8)"/>' +
+        '<rect x="41" y="28" width="9" height="1.6" transform="rotate(56 45.5 28.8)"/>' +
+        '<rect x="41" y="31" width="9" height="1.6" transform="rotate(56 45.5 31.8)"/>' +
+        '</g>',
+    th: '<rect width="60" height="40" fill="#A51931"/>' +
+        '<rect y="6.67" width="60" height="26.67" fill="#F4F5F8"/>' +
+        '<rect y="13.33" width="60" height="13.33" fill="#2D2A4A"/>',
+    vi: '<rect width="60" height="40" fill="#DA251D"/>' +
+        '<polygon points="' + STAR + '" fill="#FFFF00" transform="translate(30,20) scale(11)"/>',
+    id: '<rect width="60" height="40" fill="#fff"/><rect width="60" height="20" fill="#CE1126"/>',
+    hi: '<rect width="60" height="40" fill="#fff"/>' +
+        '<rect width="60" height="13.33" fill="#FF9933"/>' +
+        '<rect y="26.67" width="60" height="13.33" fill="#138808"/>' +
+        // Ashoka Chakra, simplified to a rim plus spokes.
+        '<circle cx="30" cy="20" r="5.6" fill="none" stroke="#000080" stroke-width="1.1"/>' +
+        '<circle cx="30" cy="20" r="1.1" fill="#000080"/>' +
+        '<g stroke="#000080" stroke-width=".55">' +
+        '<path d="M30,14.4V25.6M24.4,20H35.6M26,16L34,24M34,16L26,24"/>' +
+        '</g>',
+    sr: '<rect width="60" height="40" fill="#C6363C"/>' +
+        '<rect y="13.33" width="60" height="13.33" fill="#0C4076"/>' +
+        '<rect y="26.67" width="60" height="13.33" fill="#fff"/>' +
+        // Coat of arms, reduced to a shield at the hoist side.
+        '<path d="M16,13 h9 v7 a4.5,4.5 0 0 1 -4.5,4.5 a4.5,4.5 0 0 1 -4.5,-4.5 z" fill="#C6363C" stroke="#EDB92E" stroke-width="1"/>'
   };
 
   function flagHTML(code) {

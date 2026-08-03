@@ -223,3 +223,40 @@ footer p {
         max-width: 320px;
     }
 }
+
+/* ===== GTA 5 / RDR2 card themes ===== */
+.card.gta5 { border-color: #2f5d3a; }
+.card.gta5:hover { border-color: #4ade80; box-shadow: 0 12px 40px rgba(74, 222, 128, .18); }
+.card.gta5 .card-icon { color: #4ade80; }
+.card.gta5 .status.enabled { background: rgba(74, 222, 128, .15); color: #4ade80; }
+
+.card.rdr2 { border-color: #6b4423; }
+.card.rdr2:hover { border-color: #e0a458; box-shadow: 0 12px 40px rgba(224, 164, 88, .18); }
+.card.rdr2 .card-icon { color: #e0a458; }
+.card.rdr2 .status.enabled { background: rgba(224, 164, 88, .15); color: #e0a458; }
+
+/* ===== Placeholder cards ===== */
+.card.placeholder { cursor: default; border-style: dashed; }
+.card.placeholder:hover { transform: none; box-shadow: none; }
+.card.placeholder .card-icon { opacity: .45; }
+.card.placeholder h2, .card.placeholder p { opacity: .7; }
+.status.soon { background: rgba(255, 255, 255, .07); color: #9a9aaa; }
+
+/* ===== Scripting-language tags ===== */
+.card-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center; margin: 0 0 16px;
+}
+.tag {
+    display: inline-block; padding: 3px 9px; border-radius: 6px;
+    font-size: .7rem; font-weight: 700; letter-spacing: .04em;
+    background: rgba(255, 255, 255, .06); color: #9a9aaa;
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+.tag.lua { background: rgba(0, 128, 255, .13); color: #6aa9ff; border-color: rgba(0, 128, 255, .25); }
+.tag.js  { background: rgba(240, 219, 79, .12); color: #e3cf5a; border-color: rgba(240, 219, 79, .25); }
+.tag.cs  { background: rgba(149, 91, 234, .13); color: #b083f0; border-color: rgba(149, 91, 234, .28); }
+
+/* ===== Section spacing =====
+   Separates the "Scooby API" block from the native-reference cards above it. */
+.docs-section { margin-top: 72px; }
