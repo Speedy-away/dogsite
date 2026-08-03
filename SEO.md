@@ -94,7 +94,9 @@ This is a brand-authority problem, not a technical one, and it is worth being cl
 
 ### What was added
 
-The homepage now carries `Organization` and `WebSite` structured data whose `sameAs` field points at your official Discord, Telegram and YouTube. That is the main mechanism search engines use to decide **which domain is the real Scooby**. Impersonators can copy your text and design, but they cannot claim accounts they do not control — so the entity link is the one thing they can't fake.
+The homepage now carries `Organization` and `WebSite` structured data whose `sameAs` field points at your official Discord and Telegram. That is the main mechanism search engines use to decide **which domain is the real Scooby**. Impersonators can copy your text and design, but they cannot claim accounts they do not control — so the entity link is the one thing they can't fake.
+
+Only two profiles are listed because those are the only official accounts. If a YouTube channel is ever created, add it to `sameAs` in [index.html](index.html) and to the footer — more verified profiles means a stronger entity signal.
 
 `alternateName` also declares the search variants people actually type — "Scooby Menu", "Scooby Mod Menu", "scoobymenu", "ScoobyOnTop" — so those queries resolve to this domain rather than to whoever happens to have the phrase in their title tag.
 
@@ -104,8 +106,8 @@ The homepage now carries `Organization` and `WebSite` structured data whose `sam
 
 Ranked by real-world impact:
 
-1. **Own the entity.** Every official channel should link back to `scoobymenu.cc` — Discord server description and channel topic, YouTube channel "Links", Telegram bio. Search engines cross-check those links against `sameAs`. A reciprocal link is far stronger than a one-way declaration.
-2. **Be the source people link to.** Post the guides URL in your Discord instead of pasting instructions, use `scoobymenu.cc` links in YouTube descriptions. Fakes rarely accumulate genuine inbound links.
+1. **Own the entity.** Every official channel should link back to `scoobymenu.cc` — the Discord server description and channel topic, and the Telegram bio. Search engines cross-check those links against `sameAs`. A reciprocal link is far stronger than a one-way declaration.
+2. **Be the source people link to.** Post the guides URL in your Discord instead of pasting instructions. Fakes rarely accumulate genuine inbound links.
 3. **Report them.** They usually violate somebody's terms:
    - Google: [Search spam report](https://search.google.com/search-console/report-spam) and [phishing report](https://safebrowsing.google.com/safebrowsing/report_phish/)
    - Bing / DuckDuckGo: report via [Bing Webmaster Tools](https://www.bing.com/webmasters) once verified
