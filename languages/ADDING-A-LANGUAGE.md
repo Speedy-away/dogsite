@@ -117,11 +117,13 @@ Arabic, Hebrew, Persian and Urdu need more than a dictionary — the whole layou
 | `zh` | 简体中文 | ✅ |
 | `ja` | 日本語 | ✅ |
 | `ko` | 한국어 | ✅ |
-| `th` | ไทย | ⬜ registered, dictionary pending |
-| `vi` | Tiếng Việt | ⬜ registered, dictionary pending |
-| `id` | Indonesia | ⬜ registered, dictionary pending |
-| `hi` | हिन्दी | ⬜ registered, dictionary pending |
-| `sr` | Српски | ⬜ registered, dictionary pending |
+| `th` | ไทย | ✅ |
+| `vi` | Tiếng Việt | ✅ |
+| `id` | Indonesia | ✅ |
+| `hi` | हिन्दी | ✅ |
+| `sr` | Српски | ✅ |
+
+All 16 dictionaries carry the same 392 keys, verified with zero dead keys.
 
 A language that is registered without a dictionary is **safe** — it appears in the picker, and choosing it leaves the page in English rather than erroring. It is just not useful until the file exists.
 

@@ -1,6 +1,8 @@
 # Translations — language selector & i18n
 
-The site ships in **10 languages**, with a flagged selector in the **top-left corner of the navbar** and a **first-visit language picker**.
+The site ships in **17 languages**, with a flagged selector in the **top-left corner of the navbar** and a **first-visit language picker**.
+
+To add another, follow [languages/ADDING-A-LANGUAGE.md](languages/ADDING-A-LANGUAGE.md) — it is a self-contained runbook.
 
 | Code | Language | Dictionary |
 | --- | --- | --- |
@@ -14,6 +16,13 @@ The site ships in **10 languages**, with a flagged selector in the **top-left co
 | `pl` | Polski | [languages/pl.js](languages/pl.js) |
 | `it` | Italiano | [languages/it.js](languages/it.js) |
 | `zh` | 简体中文 | [languages/zh.js](languages/zh.js) |
+| `ja` | 日本語 | [languages/ja.js](languages/ja.js) |
+| `ko` | 한국어 | [languages/ko.js](languages/ko.js) |
+| `th` | ไทย | [languages/th.js](languages/th.js) |
+| `vi` | Tiếng Việt | [languages/vi.js](languages/vi.js) |
+| `id` | Indonesia | [languages/id.js](languages/id.js) |
+| `hi` | हिन्दी | [languages/hi.js](languages/hi.js) |
+| `sr` | Српски | [languages/sr.js](languages/sr.js) |
 
 ## First-visit picker
 
