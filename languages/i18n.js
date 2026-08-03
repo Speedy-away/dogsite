@@ -289,7 +289,9 @@
     '.i18n-toggle .i18n-caret{width:11px;height:11px;opacity:.65;transition:transform .2s}',
     '.i18n-switcher.open .i18n-toggle .i18n-caret{transform:rotate(180deg)}',
     '.i18n-switcher.open .i18n-toggle{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3);color:#fff}',
+    /* Capped so a long language list scrolls instead of running off-screen. */
     '.i18n-menu{position:absolute;top:calc(100% + 9px);left:0;min-width:186px;margin:0;padding:6px;',
+    'max-height:min(70vh,520px);overflow-y:auto;overscroll-behavior:contain;',
     'list-style:none;background:#111114;border:1px solid rgba(255,255,255,.13);border-radius:13px;',
     'box-shadow:0 18px 48px rgba(0,0,0,.62);opacity:0;visibility:hidden;transform:translateY(-6px);',
     'transition:opacity .17s,transform .17s,visibility .17s}',
@@ -525,10 +527,46 @@
     function open() { root.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
     function close() { root.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
 
+    /*
+     * Some navbars (the portal's, for one) use overflow-x:auto for horizontal
+     * scrolling, which also clips the absolutely-positioned dropdown. When an
+     * ancestor would clip us, pin the menu with position:fixed instead so it
+     * escapes the scroll container.
+     */
+    function clippedByAncestor() {
+      for (var n = root.parentNode; n && n.nodeType === 1 && n !== document.body; n = n.parentNode) {
+        var o = getComputedStyle(n);
+        if (o.overflow !== 'visible' || o.overflowX !== 'visible' || o.overflowY !== 'visible') return true;
+      }
+      return false;
+    }
+
+    function positionMenu() {
+      if (!clippedByAncestor()) {
+        menu.style.position = menu.style.top = menu.style.left = menu.style.right = '';
+        return;
+      }
+      var r = toggle.getBoundingClientRect();
+      var rtl = document.documentElement.getAttribute('dir') === 'rtl';
+      menu.style.position = 'fixed';
+      menu.style.top = Math.round(r.bottom + 9) + 'px';
+      if (rtl) {
+        menu.style.right = Math.round(window.innerWidth - r.right) + 'px';
+        menu.style.left = 'auto';
+      } else {
+        menu.style.left = Math.round(r.left) + 'px';
+        menu.style.right = 'auto';
+      }
+    }
+
     toggle.addEventListener('click', function (e) {
       e.stopPropagation();
-      root.classList.contains('open') ? close() : open();
+      if (root.classList.contains('open')) { close(); return; }
+      positionMenu();
+      open();
     });
+    window.addEventListener('resize', function () { if (root.classList.contains('open')) positionMenu(); });
+    window.addEventListener('scroll', function () { if (root.classList.contains('open')) close(); }, true);
     document.addEventListener('click', function (e) {
       if (!root.contains(e.target)) close();
     });
