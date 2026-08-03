@@ -97,7 +97,15 @@ These are followed by every existing dictionary — match them.
 
 ## Right-to-left languages
 
-Arabic, Hebrew, Persian and Urdu need more than a dictionary — the whole layout has to mirror. The engine does **not** do this yet. Adding one properly means setting `dir="rtl"` on `<html>` alongside `lang`, and auditing every page for hard-coded `left`/`right` CSS. Treat it as a separate piece of work, not a drop-in.
+**RTL is supported.** Mark the language in `LANGS` and the engine handles the rest:
+
+```js
+{ code: 'fa', label: 'FA', native: 'فارسی', rtl: true }
+```
+
+On switching, the engine sets `dir="rtl"` on `<html>` alongside `lang`. The selector's dropdown and floating pill anchor flips from `left` to `right` so it stays on screen, and the option rows right-align. Verified: the selector moves from x=74 to x=1119 on a 1280px viewport, and the dropdown stays inside the viewport.
+
+One caveat worth knowing: `dir="rtl"` mirrors normal document flow, but any **page CSS that hard-codes `left`/`right`** (rather than `inline-start`/`inline-end`) will not mirror on its own. The shared chrome is fine; if a specific page looks off in Arabic or Hebrew, that is where to look.
 
 ---
 
@@ -122,8 +130,12 @@ Arabic, Hebrew, Persian and Urdu need more than a dictionary — the whole layou
 | `id` | Indonesia | ✅ |
 | `hi` | हिन्दी | ✅ |
 | `sr` | Српски | ✅ |
+| `ar` | العربية | ✅ **RTL** |
+| `nl` | Nederlands | ⬜ registered + flag, dictionary pending |
+| `ka` | ქართული | ⬜ registered + flag, dictionary pending |
+| `he` | עברית | ⬜ registered + flag, dictionary pending (**RTL**) |
 
-All 16 dictionaries carry the same 392 keys, verified with zero dead keys.
+All completed dictionaries carry the same 392 keys, verified with zero dead keys.
 
 A language that is registered without a dictionary is **safe** — it appears in the picker, and choosing it leaves the page in English rather than erroring. It is just not useful until the file exists.
 

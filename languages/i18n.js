@@ -34,7 +34,12 @@
     { code: 'vi', label: 'VI', native: 'Tiếng Việt' },
     { code: 'id', label: 'ID', native: 'Indonesia'  },
     { code: 'hi', label: 'HI', native: 'हिन्दी'       },
-    { code: 'sr', label: 'SR', native: 'Српски'     }
+    { code: 'sr', label: 'SR', native: 'Српски'     },
+    { code: 'nl', label: 'NL', native: 'Nederlands' },
+    { code: 'ka', label: 'KA', native: 'ქართული'    },
+    // Right-to-left: these also flip <html dir> and mirror the selector.
+    { code: 'ar', label: 'AR', native: 'العربية', rtl: true },
+    { code: 'he', label: 'HE', native: 'עברית',  rtl: true }
   ];
   var CODES = LANGS.map(function (l) { return l.code; });
 
@@ -255,6 +260,9 @@
       applying = false;
 
       document.documentElement.setAttribute('lang', code);
+      // Right-to-left scripts need the whole document mirrored, not just translated.
+      var meta = LANGS.filter(function (l) { return l.code === code; })[0];
+      document.documentElement.setAttribute('dir', meta && meta.rtl ? 'rtl' : 'ltr');
       if (!opts.silent) store(code);
       syncUI();
       reveal();
@@ -310,6 +318,17 @@
     '.i18n-floating .i18n-toggle{background:rgba(12,12,14,.9);border-color:rgba(255,255,255,.18);',
     'backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
     '@media (max-width:600px){.i18n-menu{min-width:170px}.i18n-toggle{padding:6px 9px;font-size:.78rem}}',
+
+    /* ---- right-to-left ---- */
+    /* The dropdown and the floating pill are anchored with `left`, which has to
+       flip so the menu stays inside the viewport when the page is mirrored. */
+    '[dir="rtl"] .i18n-menu{left:auto;right:0}',
+    '[dir="rtl"] .i18n-floating{left:auto;right:16px}',
+    '[dir="rtl"] .i18n-option{text-align:right}',
+    '[dir="rtl"] .i18n-check{margin-left:0;margin-right:auto}',
+    '[dir="rtl"] .i18n-suggested-tag{margin-left:0;margin-right:auto}',
+    /* Language names stay in their own script and direction. */
+    '.i18n-option,.i18n-pick{unicode-bidi:isolate}',
 
     /* ---- first-visit language picker ---- */
     '.i18n-modal-overlay{position:fixed;inset:0;z-index:100000;background:rgba(4,4,6,.84);',
@@ -406,6 +425,32 @@
         '<circle cx="30" cy="20" r="1.1" fill="#000080"/>' +
         '<g stroke="#000080" stroke-width=".55">' +
         '<path d="M30,14.4V25.6M24.4,20H35.6M26,16L34,24M34,16L26,24"/>' +
+        '</g>',
+    nl: '<rect width="60" height="40" fill="#fff"/>' +
+        '<rect width="60" height="13.33" fill="#AE1C28"/>' +
+        '<rect y="26.67" width="60" height="13.33" fill="#21468B"/>',
+    ka: '<rect width="60" height="40" fill="#fff"/>' +
+        // St George's cross plus the four Bolnisi crosses.
+        '<path d="M26,0 h8 v40 h-8 z M0,16 h60 v8 h-60 z" fill="#FF0000"/>' +
+        '<g fill="#FF0000">' +
+        '<path d="M10,6 h3 v-3 h3 v3 h3 v3 h-3 v3 h-3 v-3 h-3 z"/>' +
+        '<path d="M44,6 h3 v-3 h3 v3 h3 v3 h-3 v3 h-3 v-3 h-3 z"/>' +
+        '<path d="M10,31 h3 v-3 h3 v3 h3 v3 h-3 v3 h-3 v-3 h-3 z"/>' +
+        '<path d="M44,31 h3 v-3 h3 v3 h3 v3 h-3 v3 h-3 v-3 h-3 z"/>' +
+        '</g>',
+    ar: '<rect width="60" height="40" fill="#006C35"/>' +
+        // Stylised shahada line above the sword, as on the Saudi flag.
+        '<path d="M14,15 h32" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>' +
+        '<path d="M14,19.5 h26" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>' +
+        '<path d="M15,26 h30" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>' +
+        '<path d="M45,26 l-4,-2.2 v4.4 z" fill="#fff"/>',
+    he: '<rect width="60" height="40" fill="#fff"/>' +
+        '<rect y="5" width="60" height="4.5" fill="#0038B8"/>' +
+        '<rect y="30.5" width="60" height="4.5" fill="#0038B8"/>' +
+        // Star of David: two overlapping triangles.
+        '<g fill="none" stroke="#0038B8" stroke-width="1.5">' +
+        '<path d="M30,13 L36,23.5 L24,23.5 Z"/>' +
+        '<path d="M30,27 L24,16.5 L36,16.5 Z"/>' +
         '</g>',
     sr: '<rect width="60" height="40" fill="#C6363C"/>' +
         '<rect y="13.33" width="60" height="13.33" fill="#0C4076"/>' +
