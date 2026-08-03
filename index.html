@@ -28,6 +28,47 @@
 <link rel="canonical" href="https://scoobymenu.cc/">
 <link rel="shortcut icon" href="/assets/images/logo.png">
 <link rel="apple-touch-icon" href="/assets/images/logo.png">
+<!--
+  Brand identity for search engines. `sameAs` ties this domain to the official
+  Discord / Telegram / YouTube accounts, which is the main signal engines use to
+  decide which site is the real Scooby and which are impersonators.
+  Keep these links in sync with the footer.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://scoobymenu.cc/#organization",
+      "name": "Scooby",
+      "alternateName": ["Scooby Menu", "Scooby Mod Menu", "scoobymenu", "ScoobyOnTop"],
+      "url": "https://scoobymenu.cc/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://scoobymenu.cc/assets/images/logo.png",
+        "width": 956,
+        "height": 956
+      },
+      "description": "Official developer of the Scooby mod menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod.",
+      "sameAs": [
+        "https://discord.gg/XDwmFTJW2P",
+        "https://t.me/ScoobyOnTop",
+        "https://youtube.com/@ScoobyOnTop"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://scoobymenu.cc/#website",
+      "url": "https://scoobymenu.cc/",
+      "name": "Scooby",
+      "alternateName": ["Scooby Menu", "Scooby Mod Menu"],
+      "inLanguage": "en",
+      "publisher": { "@id": "https://scoobymenu.cc/#organization" }
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

@@ -88,6 +88,39 @@ Run that on DuckDuckGo, Bing and Google. Nothing returned means not indexed yet 
 
 ---
 
+## Fake sites outranking you
+
+This is a brand-authority problem, not a technical one, and it is worth being clear about what does and doesn't move it.
+
+### What was added
+
+The homepage now carries `Organization` and `WebSite` structured data whose `sameAs` field points at your official Discord, Telegram and YouTube. That is the main mechanism search engines use to decide **which domain is the real Scooby**. Impersonators can copy your text and design, but they cannot claim accounts they do not control — so the entity link is the one thing they can't fake.
+
+`alternateName` also declares the search variants people actually type — "Scooby Menu", "Scooby Mod Menu", "scoobymenu", "ScoobyOnTop" — so those queries resolve to this domain rather than to whoever happens to have the phrase in their title tag.
+
+**Keep `sameAs` in sync with the footer.** If the Discord invite changes, update it in both places, or the signal weakens.
+
+### What actually beats impersonators
+
+Ranked by real-world impact:
+
+1. **Own the entity.** Every official channel should link back to `scoobymenu.cc` — Discord server description and channel topic, YouTube channel "Links", Telegram bio. Search engines cross-check those links against `sameAs`. A reciprocal link is far stronger than a one-way declaration.
+2. **Be the source people link to.** Post the guides URL in your Discord instead of pasting instructions, use `scoobymenu.cc` links in YouTube descriptions. Fakes rarely accumulate genuine inbound links.
+3. **Report them.** They usually violate somebody's terms:
+   - Google: [Search spam report](https://search.google.com/search-console/report-spam) and [phishing report](https://safebrowsing.google.com/safebrowsing/report_phish/)
+   - Bing / DuckDuckGo: report via [Bing Webmaster Tools](https://www.bing.com/webmasters) once verified
+   - The host or registrar: nearly all have an abuse contact, and copied branding is a straightforward trademark/DMCA complaint
+   - Cloudflare, if they sit behind it: <https://abuse.cloudflare.com>
+4. **Make "official" obvious to humans.** Your [resellers page](resellers/index.html) already does this. Linking it prominently and stating the official domain plainly gives users a way to check, which reduces the damage even while a fake still ranks.
+
+### What will not work
+
+Nothing you do on your own site removes a competitor from the index — only the search engine or the fake's host can. Anyone promising otherwise is selling something. Similarly, attacking or overloading those sites is both illegal and counter-productive; the reporting routes above are the effective path.
+
+Expect this to be ongoing rather than a one-time fix: scam clones in this niche reappear under new domains. The durable defence is that your entity signals and community links stay stronger than theirs.
+
+---
+
 ## Realistic expectations for this niche
 
 Worth saying plainly: game-cheat and mod-menu sites have a harder time in search than most. Search engines apply extra scrutiny to the category, some sites in it get filtered or demoted regardless of technical quality, and ad networks and hosts can be twitchy about it. Clean markup and a valid sitemap remove every *technical* reason not to index you — they cannot override an editorial or policy decision.
