@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const TAG = '<script src="/assets/i18n/i18n.js"></script>';
+const TAG = '<script src="/languages/i18n.js"></script>';
 const CHECK = process.argv.includes('--check');
 const SKIP_DIRS = ['.git', '.claude', 'backup', 'node_modules', 'revolution', 'tools'];
 
@@ -31,7 +31,7 @@ for (const file of walk(ROOT)) {
   const rel = path.relative(ROOT, file).replace(/\\/g, '/');
   let html = fs.readFileSync(file, 'utf8');
 
-  if (html.includes('/assets/i18n/i18n.js')) { already++; continue; }
+  if (html.includes('/languages/i18n.js')) { already++; continue; }
 
   // Load in <head> (not deferred) so the anti-flash cloak applies before paint.
   let out;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Scooby</title>
+<meta name="description" content="That page doesn't exist. Head back to the Scooby homepage for mod menus for GTA 5, RDR2, FiveM, RedM, CS2 and GMOD.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://scoobymenu.cc/404.html">
+<link rel="shortcut icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+<style>
+:root {
+  --bg: #080808;
+  --border: rgba(255,255,255,.07);
+  --border-strong: rgba(255,255,255,.13);
+  --accent: #4f8ef5;
+  --text: #f4f4f7;
+  --text-dim: #9a9aaa;
+  --radius-pill: 50px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text); min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 40px 24px; gap: 4px;
+}
+.glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background: radial-gradient(circle at 50% 38%, rgba(79,142,245,.13), transparent 55%);
+}
+.wrap { position: relative; z-index: 1; max-width: 560px; }
+.code {
+  font-size: clamp(5rem, 22vw, 9rem); font-weight: 800; line-height: 1;
+  letter-spacing: -.04em; color: #fff;
+  background: linear-gradient(180deg, #fff 25%, rgba(255,255,255,.25));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h1 { font-size: clamp(1.25rem, 5vw, 1.7rem); font-weight: 800; margin: 10px 0 12px; letter-spacing: -.01em; }
+p { color: var(--text-dim); font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: var(--radius-pill);
+  font-size: .92rem; font-weight: 600; text-decoration: none;
+  border: 1px solid var(--border-strong); color: var(--text-dim);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn:hover { color: #fff; border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.05); }
+.btn-primary {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.btn-primary:hover { background: #2563eb; border-color: #2563eb; color: #fff; }
+.links {
+  margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center;
+}
+.links a { color: var(--text-dim); font-size: .88rem; text-decoration: none; }
+.links a:hover { color: #fff; }
+</style>
+<script src="/languages/i18n.js"></script>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+  <div class="code">404</div>
+  <h1>Page not found</h1>
+  <p>That page doesn't exist, or it moved. Everything still works from the homepage.</p>
+  <div class="actions">
+    <a href="/" class="btn btn-primary">Back to Home</a>
+    <a href="https://discord.gg/XDwmFTJW2P" target="_blank" rel="noopener" class="btn">Join Discord</a>
+  </div>
+  <nav class="links">
+    <a href="/#products">Products</a>
+    <a href="/store">Store</a>
+    <a href="/guides">Guides</a>
+    <a href="/docs">Docs</a>
+    <a href="/videos">Videos</a>
+    <a href="/changelog">Changelog</a>
+  </nav>
+</div>
+</body>
+</html>

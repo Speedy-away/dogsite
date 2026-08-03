@@ -118,7 +118,7 @@ if (require.main === module) {
     const vm = require('vm');
     const sandbox = { window: {} };
     vm.createContext(sandbox);
-    vm.runInContext(fs.readFileSync(path.join(ROOT, 'assets/i18n', code + '.js'), 'utf8'), sandbox);
+    vm.runInContext(fs.readFileSync(path.join(ROOT, 'languages', code + '.js'), 'utf8'), sandbox);
     const pair = (sandbox.window.__scoobyI18nQueue || []).find(p => p[0] === code) || [null, {}];
     const dict = pair[1];
     const missing = core.filter(e => dict[e.text] === undefined);

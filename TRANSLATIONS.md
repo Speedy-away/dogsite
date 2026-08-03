@@ -5,15 +5,15 @@ The site ships in **10 languages**, with a flagged selector in the **top-left co
 | Code | Language | Dictionary |
 | --- | --- | --- |
 | `en` | English | *(source — no file needed)* |
-| `es` | Español | [assets/i18n/es.js](assets/i18n/es.js) |
-| `pt` | Português (BR) | [assets/i18n/pt.js](assets/i18n/pt.js) |
-| `fr` | Français | [assets/i18n/fr.js](assets/i18n/fr.js) |
-| `de` | Deutsch | [assets/i18n/de.js](assets/i18n/de.js) |
-| `ru` | Русский | [assets/i18n/ru.js](assets/i18n/ru.js) |
-| `tr` | Türkçe | [assets/i18n/tr.js](assets/i18n/tr.js) |
-| `pl` | Polski | [assets/i18n/pl.js](assets/i18n/pl.js) |
-| `it` | Italiano | [assets/i18n/it.js](assets/i18n/it.js) |
-| `zh` | 简体中文 | [assets/i18n/zh.js](assets/i18n/zh.js) |
+| `es` | Español | [languages/es.js](languages/es.js) |
+| `pt` | Português (BR) | [languages/pt.js](languages/pt.js) |
+| `fr` | Français | [languages/fr.js](languages/fr.js) |
+| `de` | Deutsch | [languages/de.js](languages/de.js) |
+| `ru` | Русский | [languages/ru.js](languages/ru.js) |
+| `tr` | Türkçe | [languages/tr.js](languages/tr.js) |
+| `pl` | Polski | [languages/pl.js](languages/pl.js) |
+| `it` | Italiano | [languages/it.js](languages/it.js) |
+| `zh` | 简体中文 | [languages/zh.js](languages/zh.js) |
 
 ## First-visit picker
 
@@ -23,7 +23,7 @@ Re-open it any time from the console with `__scoobyI18n.showPicker()`, or clear 
 
 ## Flags
 
-Flags are **inline SVG**, not emoji. Emoji flags (🇩🇪, 🇧🇷) do not render on Windows — the OS ships no flag glyphs, so they fall back to plain letters like "DE". Drawing them guarantees they look identical on every platform. The flag set lives in the `FLAGS` map in [assets/i18n/i18n.js](assets/i18n/i18n.js).
+Flags are **inline SVG**, not emoji. Emoji flags (🇩🇪, 🇧🇷) do not render on Windows — the OS ships no flag glyphs, so they fall back to plain letters like "DE". Drawing them guarantees they look identical on every platform. The flag set lives in the `FLAGS` map in [languages/i18n.js](languages/i18n.js).
 
 ---
 
@@ -31,7 +31,7 @@ Flags are **inline SVG**, not emoji. Emoji flags (🇩🇪, 🇧🇷) do not ren
 
 Pages stay written in **plain English**. Nothing in the HTML is marked up for translation — no `data-i18n` attributes, no template tags, no build step.
 
-At runtime [assets/i18n/i18n.js](assets/i18n/i18n.js) walks the page, takes each piece of visible text, looks the **English string itself** up in the chosen dictionary, and swaps in the translation.
+At runtime [languages/i18n.js](languages/i18n.js) walks the page, takes each piece of visible text, looks the **English string itself** up in the chosen dictionary, and swaps in the translation.
 
 That design has one big consequence worth understanding:
 
@@ -76,7 +76,7 @@ It prints ready-to-paste lines, already JSON-escaped:
     "Vehicle Spawner": "Vehicle Spawner",
 ```
 
-Replace each right-hand side with the translation and paste into `assets/i18n/es.js`.
+Replace each right-hand side with the translation and paste into `languages/es.js`.
 
 ### Checking your work
 
@@ -95,13 +95,13 @@ It also lists the worst-covered pages, so you know where to spend effort next.
 
 ## Adding a new language
 
-1. Copy an existing dictionary, e.g. `assets/i18n/es.js` → `assets/i18n/it.js`.
+1. Copy an existing dictionary, e.g. `languages/es.js` → `languages/it.js`.
 2. Change **both** occurrences of the code at the bottom of the file:
    ```js
    if (window.__scoobyI18n) window.__scoobyI18n.register('it', t);
    else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push(['it', t]);
    ```
-3. Add it to the `LANGS` list near the top of [assets/i18n/i18n.js](assets/i18n/i18n.js):
+3. Add it to the `LANGS` list near the top of [languages/i18n.js](languages/i18n.js):
    ```js
    { code: 'nl', label: 'NL', native: 'Nederlands' },
    ```
@@ -128,7 +128,7 @@ Adds the script tag to any page missing it and skips the rest, so it's safe to r
 The tag it inserts, in `<head>`:
 
 ```html
-<script src="/assets/i18n/i18n.js"></script>
+<script src="/languages/i18n.js"></script>
 ```
 
 It goes in `<head>` deliberately — see *Flash of English* below.
@@ -206,10 +206,45 @@ Adjust that list in the `DUMP` set in [tools/i18n-extract.js](tools/i18n-extract
 
 ## Files
 
+## Keeping translations up to date
+
+When site copy changes, dictionaries drift. [tools/i18n-update.js](tools/i18n-update.js) manages that:
+
+```bash
+node tools/i18n-update.js            # report drift, change nothing
+node tools/i18n-update.js --apply    # refresh the to-translate lists
+node tools/i18n-update.js --merge    # fold finished translations back in
+node tools/i18n-update.js --prune    # drop entries no page uses any more
+node tools/i18n-update.js --watch    # re-report whenever a page changes
+```
+
+The round trip:
+
+1. Content changes on the site.
+2. `--apply` writes `languages/_todo/<lang>.js`, listing every new English string as a `"English": "English"` placeholder.
+3. You translate the right-hand sides in that file.
+4. `--merge` moves each finished line into `languages/<lang>.js` and drops it from the to-do list. Lines still identical to the English are left behind as unfinished.
+
+The to-do files live in `languages/_todo/` and are **never loaded by the website** — untranslated strings already fall back to English at runtime, so shipping placeholders would add ~120 KB per language for no benefit.
+
+Run it on every commit:
+
+```bash
+node tools/i18n-update.js --install-hook
+```
+
+That adds a `pre-commit` hook which reports drift and **never blocks the commit**. The no-argument form exits non-zero when anything is out of sync, so it also works as a CI gate.
+
+---
+
+## Files
+
 | File | Purpose |
 | --- | --- |
-| [assets/i18n/i18n.js](assets/i18n/i18n.js) | Engine, selector UI and styles. The only file pages load |
-| `assets/i18n/{es,pt,fr,de,ru}.js` | Dictionaries, loaded on demand |
+| [languages/i18n.js](languages/i18n.js) | Engine, selector UI, flags and styles. The only file pages load |
+| `languages/{es,pt,fr,de,ru,tr,pl,it,zh}.js` | Dictionaries, loaded on demand |
+| `languages/_todo/*.js` | Strings awaiting translation. Working files, never shipped |
+| [tools/i18n-update.js](tools/i18n-update.js) | Keeps dictionaries in sync with the site |
 | [tools/i18n-extract.js](tools/i18n-extract.js) | Pull translatable strings; `--list`, `--missing <lang>` |
 | [tools/i18n-verify.js](tools/i18n-verify.js) | Check dictionaries for dead keys and report coverage |
 | [tools/i18n-inject.js](tools/i18n-inject.js) | Add the script tag to pages; `--check` to preview |
