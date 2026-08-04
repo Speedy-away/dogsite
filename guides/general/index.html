@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Setup Guides - Scooby Mod Menu</title>
-<meta name="description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
-<link rel="canonical" href="https://scoobymenu.cc/guides/">
+<title>General Guides - Scooby Mod Menu</title>
+<meta name="description" content="General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.">
+<link rel="canonical" href="https://scoobymenu.cc/guides/general/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://scoobymenu.cc/guides/">
-<meta property="og:title" content="Setup Guides - Scooby Mod Menu">
-<meta property="og:description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta property="og:url" content="https://scoobymenu.cc/guides/general/">
+<meta property="og:title" content="General Guides - Scooby Mod Menu">
+<meta property="og:description" content="General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Setup Guides - Scooby Mod Menu">
-<meta name="twitter:description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta name="twitter:title" content="General Guides - Scooby Mod Menu">
+<meta name="twitter:description" content="General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5">
 <link rel="shortcut icon" href="/assets/images/logo.png">
@@ -587,45 +587,74 @@
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
 <style>
-    .hub-grid {
+    /* Two-column guide layout with a sticky section nav */
+    .guide-layout {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 18px;
-        margin-bottom: 50px;
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 40px;
+        /* No align-items:start - the aside must stretch to the row height or
+           the sticky inner has no travel room and scrolls away immediately. */
     }
-    .hub-card {
-        display: block;
+    .guide-sidebar-inner {
+        position: sticky;
+        top: 100px;
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        text-decoration: none;
-        transition: all .25s ease;
+        border-radius: 14px;
+        padding: 20px;
+        max-height: calc(100vh - 130px);
+        overflow-y: auto;
     }
-    .hub-card:hover {
-        background: var(--card-hover);
-        border-color: var(--accent-line);
-        transform: translateY(-3px);
-    }
-    .hub-card h2 {
-        font-size: 1.35rem;
+    .guide-sidebar-inner h3 {
+        font-size: .72rem;
         font-weight: 700;
-        color: var(--text-primary);
-        margin: 0 0 8px;
-    }
-    .hub-card p {
+        text-transform: uppercase;
+        letter-spacing: 1px;
         color: var(--text-secondary);
-        font-size: .93rem;
-        line-height: 1.6;
-        margin: 0 0 16px;
+        margin: 0 0 14px;
     }
-    .hub-go {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+    .guide-nav { display: flex; flex-direction: column; gap: 2px; }
+    .guide-nav a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border-left: 2px solid transparent;
+        color: var(--text-secondary);
+        font-size: .87rem;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+    .guide-nav a:hover {
+        background: rgba(255,255,255,.04);
+        color: var(--text-primary);
+    }
+    .guide-nav a.active {
+        background: var(--accent-soft);
+        border-left-color: var(--accent);
         color: var(--accent);
-        font-size: .88rem;
         font-weight: 600;
+    }
+    .guide-main { min-width: 0; }
+    @media (max-width: 900px) {
+        .guide-layout { grid-template-columns: 1fr; gap: 24px; }
+        .guide-sidebar-inner {
+            position: static;
+            max-height: none;
+            padding: 16px;
+        }
+        .guide-nav {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .guide-nav a {
+            border-left: none;
+            border: 1px solid var(--border);
+            padding: 7px 13px;
+            font-size: .82rem;
+        }
+        .guide-nav a.active { border-color: var(--accent-line); }
     }
 </style>
 </head>
@@ -660,57 +689,137 @@
     <!--== Page Header ==-->
     <div class="page-header">
         <div class="container">
-            <h1 class="page-title">SETUP GUIDES</h1>
-            <p class="page-subtitle">Select a game to view setup guides and tutorials</p>
+            <h1 class="page-title">GENERAL GUIDES</h1>
+            <p class="page-subtitle">Free keys, HWID resets and common fixes</p>
         </div>
     </div>
+    <!--== Guide Content ==-->
     <section class="guide-section">
         <div class="container">
-            <div class="hub-grid">
-                <a class="hub-card" href="/guides/gta5/">
-                    <h2>GTA 5</h2>
-                    <p>Setup, features and troubleshooting for GTA 5</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/fivem/">
-                    <h2>FiveM</h2>
-                    <p>Requirements and installation for FiveM</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/redm/">
-                    <h2>RedM</h2>
-                    <p>Requirements and installation for RedM</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/rdr2/">
-                    <h2>RDR2</h2>
-                    <p>Setup and troubleshooting for Red Dead Redemption 2</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/general/">
-                    <h2>General</h2>
-                    <p>Free keys, HWID resets and common fixes</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+            <div class="game-tabs">
+                <a class="game-tab" href="/guides/gta5/">GTA 5</a>
+                <a class="game-tab" href="/guides/fivem/">FiveM</a>
+                <a class="game-tab" href="/guides/redm/">RedM</a>
+                <a class="game-tab" href="/guides/rdr2/">RDR2</a>
+                <a class="game-tab active" href="/guides/general/">General</a>
             </div>
-            <div style="text-align:center;">
-                <a href="/" class="back-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    Back to Home
-                </a>
+            <div class="guide-layout">
+                <aside class="guide-sidebar">
+                    <div class="guide-sidebar-inner">
+                        <h3>On this page</h3>
+                        <nav class="guide-nav">
+                            <a href="#free-key">Getting a Free Key</a>
+                            <a href="#crashing">Crashing Solutions</a>
+                            <a href="#connection">Connection or SSL Errors</a>
+                            <a href="#hwid">Resetting Your HWID</a>
+                        </nav>
+                    </div>
+                </aside>
+                <div class="guide-main">
+
+                <div class="warning-banner" style="margin-bottom: 40px;">
+                    These guides apply to every game. Please read the whole thing before asking for help!
+                </div>
+                <!--== Table of Contents ==-->
+                
+                <!--== Free Key ==-->
+                <div class="guide-card" id="free-key">
+                    <h2>Getting a Free Key</h2>
+                    <p>Follow these steps to get your Scooby free key:</p>
+                    <ul>
+                        <li>Click the official link: <a href="https://bstlar.com/F/ScoobyKEY" target="_blank" rel="noopener">https://bstlar.com/F/ScoobyKEY</a></li>
+                        <li>Complete the steps on the page and follow the instructions. <strong>Can't complete the steps?</strong> Switch to Microsoft Edge or another browser</li>
+                        <li>Once done, your key will appear on the page - <strong>copy the key shown</strong></li>
+                        <li>Open the loader, press <strong>"Free"</strong>, then paste your key</li>
+                    </ul>
+                    <div class="warning-banner" style="margin: 25px 0;">
+                        The free key auto-resets every 4 hours - you must redo the steps to get a new one
+                    </div>
+                    <h3>Important</h3>
+                    <ul>
+                        <li>Only use the <strong>official link above</strong> to avoid scams</li>
+                        <li>Close any ad pop-ups. The key will <strong>always show on the page itself</strong> - it is <strong>never an .exe</strong></li>
+                        <li><strong>Do not share your key</strong> with anyone</li>
+                        <li>After you get a key, download the loader from <a href="https://scoobymenu.cc/">scoobymenu.cc</a> - <strong>do not download from bstlar</strong></li>
+                    </ul>
+                    <h3>Free Version Limitations</h3>
+                    <div class="error-card">
+                        <h4>Free version is invite-only / solo</h4>
+                        <p>The free version is limited to <strong>invite only sessions</strong> or sessions with other modders in GTA Online. <strong>Joining a public lobby on the free version will crash.</strong></p>
+                    </div>
+                    <p>If you have used Scooby before, delete the <code>C:\scooby</code> folder - <strong>the folder, not the loader</strong>. If you don't, it will probably crash due to old settings.</p>
+                </div>
+                <!--== Crashing Solutions ==-->
+                <div class="guide-card" id="crashing">
+                    <h2>Crashing Solutions</h2>
+                    <p>Work through these in order - they resolve the overwhelming majority of crashes:</p>
+                    <ul>
+                        <li>Delete <code>C:\scooby</code>. Do this <strong>after every Scooby update</strong> to avoid conflicts with your old settings</li>
+                        <li><strong>Do not use third-party antivirus</strong> software (Norton, Avast, Malwarebytes, etc.)</li>
+                        <li><strong>Turn off Windows Defender.</strong> Avoid Defender Control - just turn it off normally and avoid any issues DC may cause</li>
+                        <li>Make sure <strong>DirectX runtimes</strong> and <strong>C++ runtimes</strong> are installed</li>
+                        <li>Make sure your <strong>graphics drivers</strong> are up to date</li>
+                        <li>Try using a <strong>VPN</strong>, and make sure it has no built-in antivirus or anti-malware settings. Cloudflare works for most users</li>
+                        <li>Make sure <strong>Date &amp; Time is synced</strong> in Windows settings</li>
+                        <li>If all of the above fails and you are still crashing, it is probably your <strong>user permissions</strong> - create a new Windows user with admin rights</li>
+                    </ul>
+                    <img loading="lazy" decoding="async" src="/assets/images/guides/crashing-fix.png" alt="Windows File Explorer showing Local Disk (C:) with the scooby folder highlighted for deletion" class="guide-image" style="max-width: 659px; margin: 30px auto;">
+                    <div class="error-card">
+                        <h4>Free users</h4>
+                        <p>Make sure you are <strong>following the injection instructions properly</strong>. Almost every issue comes from skipping steps. The guides exist for a reason - if you want to play without the restrictions, the Premium Plus version gives you access to everything. Otherwise, use the limited free version as documented.</p>
+                    </div>
+                </div>
+                <!--== Connection / SSL ==-->
+                <div class="guide-card" id="connection">
+                    <h2>Connection or SSL Errors</h2>
+                    <p>If you get connection errors trying to load the website or the loader, it is because <strong>your ISP is blocking the connection</strong> to the servers.</p>
+                    <div class="warning-banner" style="margin: 25px 0;">
+                        USE A VPN
+                    </div>
+                    <p><strong>Cloudflare</strong> is usually good for most users, or you can use <strong>Proton</strong>.</p>
+                    <p>If you are still getting errors while connected to a VPN, it probably means you need to use a better VPN.</p>
+                </div>
+                <!--== HWID Reset ==-->
+                <div class="guide-card" id="hwid">
+                    <h2>Resetting Your HWID</h2>
+                    <p>If you have changed hardware or are getting an HWID mismatch, reset it from the portal:</p>
+                    <ul>
+                        <li>Go to <a href="https://scoobymenu.cc/portal" target="_blank" rel="noopener">scoobymenu.cc/portal</a> and log in</li>
+                        <li>Open the <strong>dropdown menu in the top right</strong></li>
+                        <li>Click <strong>"My Profile"</strong></li>
+                        <li>Scroll down to <strong>Hardware ID</strong></li>
+                        <li>Click <strong>"Reset HWID"</strong></li>
+                    </ul>
+                    <img loading="lazy" decoding="async" src="/assets/images/guides/portal-reset-hwid.png" alt="Scooby portal account dropdown open in the top right with My Profile highlighted" class="guide-image" style="max-width: 432px; margin: 30px auto;">
+                    <div class="error-card">
+                        <h4>On cooldown?</h4>
+                        <p>If you are on cooldown then you need to wait - the reset cannot be forced through early.</p>
+                    </div>
+                </div>
+                            </div>
             </div>
         </div>
     </section>
+    <script>
+    // Highlight the sidebar row for whichever section is currently in view.
+    (function () {
+        var links = [].slice.call(document.querySelectorAll('.guide-nav a'));
+        if (!links.length) return;
+        var targets = links.map(function (a) {
+            return document.getElementById(a.getAttribute('href').slice(1));
+        });
+        function sync() {
+            var best = 0;
+            for (var i = 0; i < targets.length; i++) {
+                if (targets[i] && targets[i].getBoundingClientRect().top <= 140) best = i;
+            }
+            links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
+        }
+        window.addEventListener('scroll', sync, { passive: true });
+        sync();
+    })();
+    </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scoobymenu.cc/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://scoobymenu.cc/guides/"},{"@type":"ListItem","position":3,"name":"General Guide","item":"https://scoobymenu.cc/guides/general/"}]}</script>
     <!--== Footer ==-->
     <footer class="footer">
       <div class="container">

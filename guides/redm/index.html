@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Setup Guides - Scooby Mod Menu</title>
-<meta name="description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
-<link rel="canonical" href="https://scoobymenu.cc/guides/">
+<title>RedM Setup Guide - Scooby Mod Menu</title>
+<meta name="description" content="RedM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.">
+<link rel="canonical" href="https://scoobymenu.cc/guides/redm/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://scoobymenu.cc/guides/">
-<meta property="og:title" content="Setup Guides - Scooby Mod Menu">
-<meta property="og:description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta property="og:url" content="https://scoobymenu.cc/guides/redm/">
+<meta property="og:title" content="RedM Setup Guide - Scooby Mod Menu">
+<meta property="og:description" content="RedM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Setup Guides - Scooby Mod Menu">
-<meta name="twitter:description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta name="twitter:title" content="RedM Setup Guide - Scooby Mod Menu">
+<meta name="twitter:description" content="RedM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5">
 <link rel="shortcut icon" href="/assets/images/logo.png">
@@ -587,45 +587,74 @@
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
 <style>
-    .hub-grid {
+    /* Two-column guide layout with a sticky section nav */
+    .guide-layout {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 18px;
-        margin-bottom: 50px;
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 40px;
+        /* No align-items:start - the aside must stretch to the row height or
+           the sticky inner has no travel room and scrolls away immediately. */
     }
-    .hub-card {
-        display: block;
+    .guide-sidebar-inner {
+        position: sticky;
+        top: 100px;
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 28px;
-        text-decoration: none;
-        transition: all .25s ease;
+        border-radius: 14px;
+        padding: 20px;
+        max-height: calc(100vh - 130px);
+        overflow-y: auto;
     }
-    .hub-card:hover {
-        background: var(--card-hover);
-        border-color: var(--accent-line);
-        transform: translateY(-3px);
-    }
-    .hub-card h2 {
-        font-size: 1.35rem;
+    .guide-sidebar-inner h3 {
+        font-size: .72rem;
         font-weight: 700;
-        color: var(--text-primary);
-        margin: 0 0 8px;
-    }
-    .hub-card p {
+        text-transform: uppercase;
+        letter-spacing: 1px;
         color: var(--text-secondary);
-        font-size: .93rem;
-        line-height: 1.6;
-        margin: 0 0 16px;
+        margin: 0 0 14px;
     }
-    .hub-go {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+    .guide-nav { display: flex; flex-direction: column; gap: 2px; }
+    .guide-nav a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 8px;
+        border-left: 2px solid transparent;
+        color: var(--text-secondary);
+        font-size: .87rem;
+        line-height: 1.4;
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+    .guide-nav a:hover {
+        background: rgba(255,255,255,.04);
+        color: var(--text-primary);
+    }
+    .guide-nav a.active {
+        background: var(--accent-soft);
+        border-left-color: var(--accent);
         color: var(--accent);
-        font-size: .88rem;
         font-weight: 600;
+    }
+    .guide-main { min-width: 0; }
+    @media (max-width: 900px) {
+        .guide-layout { grid-template-columns: 1fr; gap: 24px; }
+        .guide-sidebar-inner {
+            position: static;
+            max-height: none;
+            padding: 16px;
+        }
+        .guide-nav {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .guide-nav a {
+            border-left: none;
+            border: 1px solid var(--border);
+            padding: 7px 13px;
+            font-size: .82rem;
+        }
+        .guide-nav a.active { border-color: var(--accent-line); }
     }
 </style>
 </head>
@@ -660,57 +689,61 @@
     <!--== Page Header ==-->
     <div class="page-header">
         <div class="container">
-            <h1 class="page-title">SETUP GUIDES</h1>
-            <p class="page-subtitle">Select a game to view setup guides and tutorials</p>
+            <h1 class="page-title">REDM GUIDES</h1>
+            <p class="page-subtitle">Requirements and installation for RedM</p>
         </div>
     </div>
+    <!--== Guide Content ==-->
     <section class="guide-section">
         <div class="container">
-            <div class="hub-grid">
-                <a class="hub-card" href="/guides/gta5/">
-                    <h2>GTA 5</h2>
-                    <p>Setup, features and troubleshooting for GTA 5</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/fivem/">
-                    <h2>FiveM</h2>
-                    <p>Requirements and installation for FiveM</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/redm/">
-                    <h2>RedM</h2>
-                    <p>Requirements and installation for RedM</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/rdr2/">
-                    <h2>RDR2</h2>
-                    <p>Setup and troubleshooting for Red Dead Redemption 2</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
-                <a class="hub-card" href="/guides/general/">
-                    <h2>General</h2>
-                    <p>Free keys, HWID resets and common fixes</p>
-                    <span class="hub-go">Open guide
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </span>
-                </a>
+            <div class="game-tabs">
+                <a class="game-tab" href="/guides/gta5/">GTA 5</a>
+                <a class="game-tab" href="/guides/fivem/">FiveM</a>
+                <a class="game-tab active" href="/guides/redm/">RedM</a>
+                <a class="game-tab" href="/guides/rdr2/">RDR2</a>
+                <a class="game-tab" href="/guides/general/">General</a>
             </div>
-            <div style="text-align:center;">
-                <a href="/" class="back-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    Back to Home
-                </a>
-            </div>
-        </div>
+
+                <div class="guide-card" id="redm-requirements">
+                    <h2>Requirements</h2>
+                    <p>Before running Scooby on RedM, make sure the <strong>VC Runtimes</strong> are installed:</p>
+                    <div class="requirements-box">
+                        <h4>Required Software:</h4>
+                        <p><strong>VC Runtimes (all-in-one package):</strong></p>
+                        <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener">https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/</a>
+                        <p style="margin-top: 15px;"><strong>Or install these two directly from Microsoft:</strong></p>
+                        <a href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank" rel="noopener">https://aka.ms/vc14/vc_redist.x86.exe</a>
+                        <a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">https://aka.ms/vc14/vc_redist.x64.exe</a>
+                    </div>
+                    <p>Install those and <strong>restart your PC</strong>.</p>
+                    <p>Still having problems? See <a href="/guides/general/#crashing">Crashing Solutions</a> and <a href="/guides/general/#connection">Connection or SSL Errors</a> in the General tab.</p>
+                </div>
+                <div class="coming-soon-card">
+                    <h2>More RedM Guides Coming Soon</h2>
+                    <p>Full RedM setup guides and tutorials are on the way. Stay tuned!</p>
+                </div>
+                    </div>
     </section>
+    <script>
+    // Highlight the sidebar row for whichever section is currently in view.
+    (function () {
+        var links = [].slice.call(document.querySelectorAll('.guide-nav a'));
+        if (!links.length) return;
+        var targets = links.map(function (a) {
+            return document.getElementById(a.getAttribute('href').slice(1));
+        });
+        function sync() {
+            var best = 0;
+            for (var i = 0; i < targets.length; i++) {
+                if (targets[i] && targets[i].getBoundingClientRect().top <= 140) best = i;
+            }
+            links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
+        }
+        window.addEventListener('scroll', sync, { passive: true });
+        sync();
+    })();
+    </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scoobymenu.cc/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://scoobymenu.cc/guides/"},{"@type":"ListItem","position":3,"name":"RedM Guide","item":"https://scoobymenu.cc/guides/redm/"}]}</script>
     <!--== Footer ==-->
     <footer class="footer">
       <div class="container">
