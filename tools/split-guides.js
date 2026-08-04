@@ -1,10 +1,16 @@
 /*
- * Splits guides/index.html (5 tabs in one document) into one page per game,
- * and rewrites guides/index.html as a hub. Shared head/nav/footer/scripts are
- * lifted verbatim from the source so every page stays byte-identical in chrome.
+ * ONE-TIME MIGRATION - kept for reference, not for re-running.
  *
- *   node split-guides.js            # dry run
- *   node split-guides.js --apply
+ * Split guides/index.html (5 tabs in one document) into one page per game and
+ * rewrote guides/index.html as a hub. Shared head/nav/footer/scripts were
+ * lifted verbatim from the source so every page kept identical chrome.
+ *
+ * It reads guides/index.html as its input, and that file is now the HUB - so
+ * running it again would produce nonsense. The per-game pages under
+ * guides/<slug>/ are the source of truth now; edit those directly.
+ *
+ * To re-run it against the original tabbed document:
+ *   git show 8644941:guides/index.html > /tmp/guides-orig.html
  */
 const fs = require('fs');
 const path = require('path');
