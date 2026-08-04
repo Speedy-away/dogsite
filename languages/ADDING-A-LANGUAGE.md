@@ -15,7 +15,7 @@ Everything lives in `languages/`. There is no build step.
 { code: 'nl', label: 'NL', native: 'Nederlands' }
 ```
 
-- `code` — ISO 639-1, lowercase, two letters. Must match the dictionary filename.
+- `code` — ISO 639-1, lowercase, two letters, optionally with a region subtag (`pt-br`). Must match the dictionary filename.
 - `label` — the badge text, uppercase, two letters.
 - `native` — the language's own name, **written in that language** (Deutsch, not German). This is what users scan for, so it must never be translated.
 
@@ -140,6 +140,26 @@ All completed dictionaries carry the same 392 keys, verified with zero dead keys
 A language that is registered without a dictionary is **safe** — it appears in the picker, and choosing it leaves the page in English rather than erroring. It is just not useful until the file exists.
 
 ---
+
+## Regional variants
+
+A language can have a region subtag — `pt` (Portugal) and `pt-br` (Brazil) both
+ship. Everything works the same, with three things to know:
+
+- The **filename carries the full code**: `pt-br.js`, registered as `'pt-br'`.
+- `detect()` tries the **full browser tag first**, then falls back to the base.
+  So a `pt-BR` browser gets Brazilian and a `pt-PT` browser gets European. Order
+  the base language *before* its variants in `LANGS` so the list reads sensibly.
+- The **flags must actually differ**, otherwise the two rows are
+  indistinguishable in the dropdown. `pt` is the Portuguese green/red; `pt-br` is
+  the Brazilian green with the yellow diamond.
+
+The `pt`/`pt-br` pair is ~97% identical text: the real divergences are lexical
+(transferir/baixar, ficheiro/arquivo, utilizador/usuário, ecrã/tela, equipa/equipe,
+registo/registro, num/em um) plus the gerund, where European Portuguese says
+"está a fazer" and Brazilian says "está fazendo". The `você` vs `tu` register
+difference has **not** been applied — that needs a native speaker, since it means
+re-conjugating verbs rather than swapping words.
 
 ## Removing a language
 

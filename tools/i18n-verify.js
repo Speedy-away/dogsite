@@ -32,7 +32,7 @@ function loadDict(code) {
 }
 
 const codes = fs.readdirSync(I18N_DIR)
-  .filter(f => /^[a-z]{2}\.js$/.test(f))
+  .filter(f => /^[a-z]{2}(-[a-z]{2})?\.js$/.test(f))
   .map(f => f.replace('.js', ''));
 
 console.log('site strings:', siteKeys.size, '\n');

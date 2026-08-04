@@ -20,7 +20,8 @@
   var LANGS = [
     { code: 'en', label: 'EN', native: 'English'    },
     { code: 'es', label: 'ES', native: 'Español'    },
-    { code: 'pt', label: 'PT', native: 'Português'  },
+    { code: 'pt',    label: 'PT', native: 'Português'          },
+    { code: 'pt-br', label: 'BR', native: 'Português (Brasil)' },
     { code: 'fr', label: 'FR', native: 'Français'   },
     { code: 'de', label: 'DE', native: 'Deutsch'    },
     { code: 'ru', label: 'RU', native: 'Русский'    },
@@ -80,7 +81,10 @@
     if (saved && CODES.indexOf(saved) !== -1) return saved;
     var navLangs = navigator.languages || [navigator.language || ''];
     for (var i = 0; i < navLangs.length; i++) {
-      var base = String(navLangs[i]).toLowerCase().split('-')[0];
+      // Try the full tag first so pt-BR gets Brazilian, not European, Portuguese.
+      var full = String(navLangs[i]).toLowerCase();
+      if (CODES.indexOf(full) !== -1) return full;
+      var base = full.split('-')[0];
       if (CODES.indexOf(base) !== -1) return base;
     }
     return DEFAULT_LANG;
@@ -379,7 +383,10 @@
         '<path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="14"/>' +
         '<path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/>',
     es: '<rect width="60" height="40" fill="#AA151B"/><rect y="10" width="60" height="20" fill="#F1BF00"/>',
-    pt: '<rect width="60" height="40" fill="#009B3A"/>' +
+    pt: '<rect width="60" height="40" fill="#FF0000"/><rect width="24" height="40" fill="#006600"/>' +
+        '<circle cx="24" cy="20" r="7.5" fill="none" stroke="#FFE800" stroke-width="2"/>' +
+        '<rect x="20.5" y="15.5" width="7" height="9" rx="1.5" fill="#fff" stroke="#FF0000" stroke-width="1.4"/>',
+    'pt-br': '<rect width="60" height="40" fill="#009B3A"/>' +
         '<path d="M30,5 55,20 30,35 5,20Z" fill="#FEDF00"/><circle cx="30" cy="20" r="8.5" fill="#002776"/>',
     fr: '<rect width="60" height="40" fill="#fff"/><rect width="20" height="40" fill="#002395"/>' +
         '<rect x="40" width="20" height="40" fill="#ED2939"/>',

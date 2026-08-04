@@ -1,9 +1,7 @@
-/* pt - European Portuguese.
+/* pt-br - Brazilian Portuguese.
    Keys are the exact English source strings. See languages/ADDING-A-LANGUAGE.md.
-   Derived from the Brazilian dictionary (now pt-br.js) by a lexical and
-   grammatical pass: transferir/ficheiro/utilizador/ecrã, "está a fazer" for the
-   gerund, num/numa contractions. Not an independent human translation - if a
-   native speaker reviews it, this file is the one to correct. */
+   This is the original pt.js: it was always Brazilian. European Portuguese now
+   lives in pt.js. */
 (function () {
   var t = {
     /* ---- navigation & chrome ---- */
@@ -20,14 +18,14 @@
     "Company": "Empresa",
     "Terms": "Termos",
     "Terms of Service": "Termos de serviço",
-    "Changelog": "Registo de alterações",
+    "Changelog": "Registro de alterações",
     "Overview": "Visão geral",
     "Reviews": "Avaliações",
     "Login": "Entrar",
     "Portal": "Portal",
     "Portal / Login": "Portal / Entrar",
     "Login / Portal": "Entrar / Portal",
-    "Download": "Transferir",
+    "Download": "Baixar",
     "Menu": "Menu",
     "Settings": "Configurações",
     "Details": "Detalhes",
@@ -60,12 +58,12 @@
     "The premium modding experience across all your favourite games.": "A experiência de modding premium em todos os seus jogos favoritos.",
     "Start Dominating": "Comece a dominar",
     "Click on any game below to explore our available cheats and features": "Clique em qualquer jogo abaixo para explorar nossos cheats e recursos",
-    "Everything you need, in one menu": "Tudo o que você precisa, num só menu",
+    "Everything you need, in one menu": "Tudo o que você precisa, em um só menu",
     "Why Choose Us": "Por que nos escolher",
     "Frequently asked questions": "Perguntas frequentes",
     "Loved by the community": "Amado pela comunidade",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "Milhares de jogadores confiam no Scooby no dia a dia. Veja o que alguns deles dizem.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Tudo o que você precisa saber sobre o Scooby. Ainda com dúvidas? Nossa equipa no Discord está disponível 24/7.",
+    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Tudo o que você precisa saber sobre o Scooby. Ainda com dúvidas? Nossa equipe no Discord está disponível 24/7.",
     "Easy to Use": "Fácil de usar",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "Nossos cheats foram feitos para configuração instantânea e controle intuitivo. Você estará no jogo e à frente da concorrência em minutos.",
     "Quality and Security": "Qualidade e segurança",
@@ -95,7 +93,7 @@
     "Do I pay once or is it a subscription?": "Pago uma vez ou é assinatura?",
     "Lifetime licenses are a one-time payment — no recurring fees. Exact pricing depends on the game; open any product page for its current price. Crypto payments save you 20%.": "As licenças vitalícias são pagamento único, sem mensalidades. O preço exato depende do jogo; abra qualquer página de produto para ver o valor atual. Pagando com cripto você economiza 20%.",
     "How do I get support?": "Como consigo suporte?",
-    "Join our Discord for instant help from the team and community, browse the Guides and Docs, or reach us on Telegram. Delivery is instant after purchase.": "Entre no nosso Discord para ajuda imediata da equipa e da comunidade, consulte os Guias e a Documentação, ou fale com a gente no Telegram. A entrega é instantânea após a compra.",
+    "Join our Discord for instant help from the team and community, browse the Guides and Docs, or reach us on Telegram. Delivery is instant after purchase.": "Entre no nosso Discord para ajuda imediata da equipe e da comunidade, consulte os Guias e a Documentação, ou fale com a gente no Telegram. A entrega é instantânea após a compra.",
 
     /* ---- store, pricing & payment ---- */
     "Price": "Preço",
@@ -168,13 +166,13 @@
     "🌐 International": "🌐 Internacional",
 
     /* ---- download & free key flow ---- */
-    "Download Launcher": "Transferir o launcher",
-    "Download Scooby Launcher": "Transferir o launcher do Scooby",
-    "Click below to download the installer.": "Clique abaixo para transferir o instalador.",
+    "Download Launcher": "Baixar o launcher",
+    "Download Scooby Launcher": "Baixar o launcher do Scooby",
+    "Click below to download the installer.": "Clique abaixo para baixar o instalador.",
     "Get the Scooby launcher installer": "Obtenha o instalador do launcher do Scooby",
     "Install VC Runtimes": "Instalar os VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "Evite travamentos e instale os VC Runtimes.",
-    "Download Defender Control": "Transferir o Defender Control",
+    "Download Defender Control": "Baixar o Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "Ative ou desative totalmente o antivírus do Windows com um clique.",
     "Recommended tool": "Ferramenta recomendada",
     "Get Free Key": "Pegue sua chave grátis",
@@ -202,8 +200,8 @@
     "Key Features": "Principais recursos",
     "Planned Features": "Recursos planejados",
     "View All Features": "Ver todos os recursos",
-    "Screenshots": "Capturas de ecrã",
-    "Screenshots Coming Soon": "Capturas de ecrã em breve",
+    "Screenshots": "Capturas de tela",
+    "Screenshots Coming Soon": "Capturas de tela em breve",
     "Showcase Video": "Vídeo de demonstração",
     "Showcase": "Demonstração",
     "Featured Showcase": "Demonstração em destaque",
@@ -357,7 +355,7 @@
     "TERMS OF SERVICE": "TERMOS DE SERVIÇO",
     "Please read these terms carefully before purchasing or using Scooby": "Leia estes termos com atenção antes de comprar ou usar o Scooby",
     "Last Updated: December 2025": "Última atualização: dezembro de 2025",
-    "By purchasing, downloading, or using any products sold through Scooby, you fully agree to the following Terms of Service. If you do not agree, you must not purchase, download, or use our products.": "Ao comprar, transferir ou usar qualquer produto vendido pelo Scooby, você concorda integralmente com os Termos de serviço a seguir. Se não concordar, não deve comprar, transferir nem usar nossos produtos.",
+    "By purchasing, downloading, or using any products sold through Scooby, you fully agree to the following Terms of Service. If you do not agree, you must not purchase, download, or use our products.": "Ao comprar, baixar ou usar qualquer produto vendido pelo Scooby, você concorda integralmente com os Termos de serviço a seguir. Se não concordar, não deve comprar, baixar nem usar nossos produtos.",
     "Refund Policy": "Política de reembolso",
     "All sales are final. No refunds will be provided under any circumstance.": "Todas as vendas são finais. Nenhum reembolso será concedido em qualquer circunstância.",
     "Chargebacks are strictly prohibited. Any chargeback will result in a permanent ban of your product key and blacklisting from future services.": "Estornos são estritamente proibidos. Qualquer estorno resultará em banimento permanente da sua chave de produto e inclusão na lista negra de serviços futuros.",
@@ -367,7 +365,7 @@
     "Cryptocurrency payments are final and cannot be reversed, refunded, or disputed.": "Os pagamentos em criptomoedas são definitivos e não podem ser revertidos, reembolsados nem contestados.",
     "Cryptocurrency payments are non-refundable. Incorrect amounts or wrong addresses are the buyer's responsibility.": "Os pagamentos em criptomoedas não são reembolsáveis. Valores incorretos ou endereços errados são responsabilidade do comprador.",
     "It is your responsibility to send the exact payment amount to the correct wallet address.": "É sua responsabilidade enviar o valor exato para o endereço de carteira correto.",
-    "Failure to cover transaction fees on the blockchain will result in an incomplete payment.": "Não cobrir as taxas de transação na blockchain resultará num pagamento incompleto.",
+    "Failure to cover transaction fees on the blockchain will result in an incomplete payment.": "Não cobrir as taxas de transação na blockchain resultará em um pagamento incompleto.",
     "We are not responsible for payments sent to the wrong address, incorrect payment amounts, or network fee issues.": "Não nos responsabilizamos por pagamentos enviados para o endereço errado, valores incorretos ou problemas com taxas de rede.",
     "Payment and Fraud Protection": "Pagamento e proteção contra fraude",
     "We reserve the right to decline, hold, or cancel any payment flagged as suspicious, fraudulent, or high-risk.": "Reservamo-nos o direito de recusar, reter ou cancelar qualquer pagamento sinalizado como suspeito, fraudulento ou de alto risco.",
@@ -394,7 +392,7 @@
     "Spamming support channels will result in refusal of further assistance.": "Enviar spam nos canais de suporte resultará na recusa de atendimento adicional.",
     "Data Collection and Privacy": "Coleta de dados e privacidade",
     "We collect and log your PC hardware ID (HWID) and IP address for security and verification purposes.": "Coletamos e registramos o ID de hardware (HWID) do seu PC e seu endereço IP para fins de segurança e verificação.",
-    "If you link your Discord account, your Discord User ID will be logged and connected to your product key.": "Se você vincular sua conta do Discord, seu ID de utilizador do Discord será registrado e associado à sua chave de produto.",
+    "If you link your Discord account, your Discord User ID will be logged and connected to your product key.": "Se você vincular sua conta do Discord, seu ID de usuário do Discord será registrado e associado à sua chave de produto.",
     "Your data is used solely for security, verification, and fraud prevention purposes.": "Seus dados são usados exclusivamente para fins de segurança, verificação e prevenção de fraudes.",
     "We prioritize security and thorough testing before public releases.": "Priorizamos a segurança e testes minuciosos antes de cada lançamento público.",
     "We recommend trying the Free version first to ensure compatibility before purchasing Premium.": "Recomendamos testar primeiro a versão gratuita para garantir a compatibilidade antes de comprar o Premium.",
@@ -457,6 +455,6 @@
     "Resetting Your HWID": "Redefinir seu HWID"
   };
 
-  if (window.__scoobyI18n) window.__scoobyI18n.register('pt', t);
-  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push(['pt', t]);
+  if (window.__scoobyI18n) window.__scoobyI18n.register('pt-br', t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push(['pt-br', t]);
 })();

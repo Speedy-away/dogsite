@@ -46,7 +46,7 @@ const MERGED_BEGIN = '/* ===== merged by tools/i18n-update.js ===== */';
 // ---------------------------------------------------------------- helpers ---
 
 const langs = () => fs.readdirSync(I18N)
-  .filter(f => /^[a-z]{2}\.js$/.test(f))
+  .filter(f => /^[a-z]{2}(-[a-z]{2})?\.js$/.test(f))
   .map(f => f.replace('.js', ''))
   .filter(c => !ONLY || c === ONLY);
 
