@@ -3,45 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Changelog - Scooby Mod Menu</title>
-<meta name="description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5, FiveM, RedM, CS2, GMOD, and more.">
-<link rel="canonical" href="https://scoobymenu.cc/changelog">
+<meta name="description" content="Every Scooby release, with what changed in each version across GTA 5, RDR2, FiveM, RedM and the loader.">
+<link rel="canonical" href="https://scoobymenu.cc/changelog/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://scoobymenu.cc/changelog">
+<meta property="og:url" content="https://scoobymenu.cc/changelog/">
 <meta property="og:title" content="Changelog - Scooby Mod Menu">
-<meta property="og:description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5, FiveM, RedM, CS2, GMOD, and more.">
+<meta property="og:description" content="Every Scooby release, with what changed in each version across GTA 5, RDR2, FiveM, RedM and the loader.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Changelog - Scooby Mod Menu">
-<meta name="twitter:description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5, FiveM, RedM, CS2, GMOD, and more.">
-<meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
-<meta name="keywords" content="Scooby mod menu changelog, GTA 5 mod menu updates, FiveM mod menu updates, RedM mod menu updates, CS2 mod menu updates, RDR2 mod menu updates, GMOD mod menu updates, Scooby version history, Scooby changelog, mod menu update log, Scooby new features, Scooby patch notes 2026">
-<meta name="robots" content="index, follow">
+<meta name="twitter:description" content="Every Scooby release, with what changed in each version across GTA 5, RDR2, FiveM, RedM and the loader.">
 <link rel="shortcut icon" href="/assets/images/logo.png">
-<!-- DNS Prefetch for external resources -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
     :root {
+        --bg: #080808;
+        --surface: #0d0d0d;
+        --card: #111111;
+        --card-hover: #161616;
+        --border: rgba(255,255,255,.07);
+        --border-strong: rgba(255,255,255,.13);
+        --accent: #4f8ef5;
+        --accent-2: #2563eb;
+        --accent-soft: rgba(79,142,245,.13);
+        --accent-line: rgba(79,142,245,.3);
+        --text: #f4f4f7;
+        --text-dim: #9a9aaa;
+        --text-faint: #5c5c6c;
+        --green: #22c55e;
+        --amber: #eab308;
+        --radius: 14px;
+        --radius-pill: 50px;
+        --maxw: 1180px;
+        /* legacy aliases */
         --bg-primary: #080808;
         --bg-secondary: #0d0d0d;
         --bg-card: #111111;
         --bg-card-hover: #161616;
         --accent-cyan: #4f8ef5;
         --accent-purple: #2563eb;
-        --accent-pink: #2563eb;
-        --accent-gradient: linear-gradient(135deg, #6ba3f7 0%, #4f8ef5 50%, #2563eb 100%);
-        --accent-glow: rgba(79, 142, 245, 0.5);
-        --text-primary: #ffffff;
+        --accent-pink: #4f8ef5;
+        --accent-gradient: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
+        --accent-glow: rgba(79,142,245,0.5);
+        --text-primary: #f4f4f7;
         --text-secondary: #9a9aaa;
         --border-color: rgba(255,255,255,.07);
-        --glass: rgba(20, 20, 30, 0.8);
+        --glass: rgba(17,17,17,0.8);
+        --green-accent: #22c55e;
     }
     * {
         margin: 0;
@@ -58,6 +70,7 @@
         min-height: 100vh;
         overflow-x: hidden;
         position: relative;
+        line-height: 1.7;
     }
     /* Animated Background */
     body::before {
@@ -68,200 +81,86 @@
         width: 100%;
         height: 100%;
         background:
-            radial-gradient(ellipse at 20% 20%, rgba(79, 142, 245, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 70%);
+            radial-gradient(ellipse at 20% 20%, rgba(79,142,245,0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(37,99,235,0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(79,142,245,0.04) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
-        animation: bgPulse 15s ease-in-out infinite alternate;
-    }
-    @keyframes bgPulse {
-        0% { opacity: 0.6; }
-        100% { opacity: 1; }
-    }
-    /* Floating Particles */
-    .particles-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-    }
-    .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: var(--accent-cyan);
-        border-radius: 50%;
-        opacity: 0;
-        animation: floatParticle 20s infinite;
-        box-shadow: 0 0 10px var(--accent-glow);
-    }
-    @keyframes floatParticle {
-        0% {
-            opacity: 0;
-            transform: translateY(100vh) scale(0);
-        }
-        10% {
-            opacity: 0.6;
-        }
-        90% {
-            opacity: 0.6;
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(-100vh) scale(1);
-        }
     }
     /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
     ::-webkit-scrollbar-thumb {
-        background: var(--accent-gradient);
+        background: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
         border-radius: 10px;
-        box-shadow: 0 0 10px var(--accent-glow);
     }
-    ::-webkit-scrollbar-thumb:hover {
-        box-shadow: 0 0 20px var(--accent-glow);
-    }
-    /* ========================================
-       NAVBAR
-       ======================================== */
+    /* Navbar */
     .nav {
-        position: fixed;
-        top: 0; left: 0; right: 0;
-        z-index: 1000;
-        padding: 16px 0;
-        transition: padding 0.4s ease;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      transition: all .3s ease;
     }
     .nav-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 32px;
-        background: rgba(8,8,8,0.6);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255,255,255,0.06);
-        border-radius: 999px;
-        padding: 10px 20px;
-        transition: all 0.4s ease;
+      max-width: 1180px; margin: 0 auto; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      transition: all .3s ease;
     }
-    .nav.scrolled { padding: 10px 0; }
     .nav.scrolled .nav-inner {
-        background: rgba(8,8,8,0.92);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      max-width: 860px; margin: 12px auto 0;
+      padding: 10px 20px;
+      background: rgba(14,14,14,.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.13); border-radius: 50px;
     }
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        flex-shrink: 0;
-    }
-    .brand-name {
-        font-size: 1.2rem;
-        font-weight: 900;
-        color: #fff;
-        letter-spacing: -0.5px;
-    }
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        list-style: none;
-        flex: 1;
-    }
-    .nav-links a {
-        color: rgba(255,255,255,0.6);
-        text-decoration: none;
-        font-size: 0.9rem;
-        font-weight: 500;
-        padding: 6px 12px;
-        border-radius: 8px;
-        transition: color 0.2s, background 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active {
-        color: #fff;
-        background: rgba(255,255,255,0.06);
-    }
-    .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-shrink: 0;
-    }
+    .brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em; display: flex; align-items: center; }
+    .brand-name { color: #fff; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: #9a9aaa; font-size: .9rem; font-weight: 500; transition: color .2s; text-decoration: none; }
+    .nav-links a:hover { color: #fff; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .btn-nav-ghost {
-        padding: 7px 16px;
-        border-radius: 8px;
-        border: 1px solid rgba(255,255,255,0.15);
-        background: transparent;
-        color: rgba(255,255,255,0.8);
-        font-size: 0.875rem;
-        font-weight: 500;
-        text-decoration: none;
-        cursor: pointer;
-        transition: border-color 0.2s, color 0.2s;
+      padding: 8px 18px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; color: #9a9aaa;
+      background: transparent; border: 1px solid rgba(255,255,255,.13);
+      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
     }
-    .btn-nav-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+    .btn-nav-ghost:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .btn-nav-ghost svg { width: 15px; height: 15px; }
     .btn-nav-primary {
-        padding: 7px 16px;
-        border-radius: 8px;
-        border: none;
-        background: #4f8ef5;
-        color: #fff;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background 0.2s, transform 0.2s;
+      padding: 8px 20px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; color: #fff;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.13);
+      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
     }
-    .btn-nav-primary:hover { background: #3a7ae8; transform: translateY(-1px); }
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        padding: 6px;
-        background: none;
-        border: none;
-        margin-left: auto;
-    }
-    .hamburger span {
-        width: 22px; height: 2px;
-        background: rgba(255,255,255,0.7);
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-    @media (max-width: 768px) {
-        .nav-links { display: none; }
-        .nav-actions { display: none; }
-        .hamburger { display: flex; }
-        .nav-links.mobile-open {
-            display: flex;
-            position: fixed;
-            top: 70px; left: 0; right: 0; bottom: 0;
-            background: rgba(8,8,8,0.98);
-            flex-direction: column;
-            align-items: center;
-            padding: 24px 20px;
-            gap: 4px;
-            z-index: 999;
-            overflow-y: auto;
-        }
-        .nav-links.mobile-open li { width: 100%; text-align: center; }
-        .nav-links.mobile-open a { display: block; padding: 14px 20px; font-size: 1rem; color: rgba(255,255,255,0.8); border-radius: 10px; }
+    .btn-nav-primary:hover { background: rgba(255,255,255,.16); }
+    .btn-nav-primary svg { width: 15px; height: 15px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+    .hamburger span { width: 22px; height: 2px; background: #f4f4f7; border-radius: 2px; transition: .25s; }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media(max-width:760px) {
+      .nav-links, .nav-actions .btn-nav-ghost { display: none; }
+      .hamburger { display: flex; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: flex-start; gap: 0;
+        background: rgba(8,8,8,.97); backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,.07);
+        padding: 8px 24px 16px; transform: translateY(-10px);
+        opacity: 0; pointer-events: none; transition: .25s;
+      }
+      .nav-links.open { display: flex; transform: none; opacity: 1; pointer-events: auto; }
+      .nav-links a { width: 100%; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: .98rem; }
+      .nav.scrolled .nav-inner { border-radius: 16px; margin: 8px; max-width: none; }
     }
     /* Page Header */
     .page-header {
-        padding: 160px 0 100px;
+        padding: 160px 0 80px;
         text-align: center;
         position: relative;
-        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        overflow: hidden;
+        background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
         z-index: 1;
     }
     .page-header::before {
@@ -271,370 +170,344 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background:
-            radial-gradient(circle at 50% 0%, rgba(79, 142, 245, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
-            radial-gradient(circle at 80% 60%, rgba(37, 99, 235, 0.08) 0%, transparent 40%);
+        background: radial-gradient(circle at 50% 0%, rgba(79,142,245,0.15) 0%, transparent 50%);
         pointer-events: none;
-        animation: headerGlow 8s ease-in-out infinite alternate;
-    }
-    .page-header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.3), transparent);
-    }
-    @keyframes headerGlow {
-        0% { opacity: 0.7; }
-        100% { opacity: 1; }
     }
     .page-title {
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 900;
-        background: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-        margin-bottom: 25px;
-        letter-spacing: 8px;
-        display: inline-block;
-        position: relative;
-        animation: titleGlow 3s ease-in-out infinite alternate;
-    }
-    .page-title::before {
-        content: 'CHANGELOG';
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: var(--accent-gradient);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        filter: blur(20px);
-        opacity: 0.5;
-        z-index: -1;
-    }
-    @keyframes titleGlow {
-        0% { filter: drop-shadow(0 0 20px rgba(79, 142, 245, 0.3)); }
-        100% { filter: drop-shadow(0 0 40px rgba(79, 142, 245, 0.6)); }
+        color: #f4f4f7;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
     }
     .page-subtitle {
         color: var(--text-secondary);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         max-width: 600px;
         margin: 0 auto;
-        line-height: 1.8;
+    }
+    .warning-banner {
+        background: linear-gradient(135deg, rgba(255, 200, 0, 0.15) 0%, rgba(255, 150, 0, 0.1) 100%);
+        border: 1px solid rgba(255, 200, 0, 0.3);
+        border-radius: 12px;
+        padding: 20px 30px;
+        max-width: 800px;
+        margin: 30px auto 0;
+        color: #ffcc00;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    /* Main Content */
+    .guide-section {
+        padding: 80px 0;
+        position: relative;
+        z-index: 1;
     }
     .container {
-        max-width: 1100px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 0 30px;
-        position: relative;
-        z-index: 1;
     }
-    /* Changelog Section */
-    .changelog-section {
-        padding: 100px 0;
-        background: var(--bg-primary);
-        position: relative;
-        z-index: 1;
-    }
-    .changelog-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:
-            radial-gradient(circle at 10% 20%, rgba(79, 142, 245, 0.05) 0%, transparent 40%),
-            radial-gradient(circle at 90% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 40%);
-        pointer-events: none;
-    }
-    .version-card {
+    /* Section Cards */
+    .guide-card {
         background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
         border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 24px;
+        border-radius: 20px;
+        padding: 40px;
         margin-bottom: 40px;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
-        backdrop-filter: blur(10px);
+        overflow: hidden;
     }
-    .version-card::before {
+    .guide-card::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         height: 3px;
-        background: var(--accent-gradient);
-        opacity: 0;
-        transition: opacity 0.4s ease;
+        background: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
     }
-    .version-card::after {
-        content: '';
+    .guide-card h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #22c55e;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .guide-card h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #4f8ef5;
+        margin: 25px 0 15px;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+    .guide-card p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        margin-bottom: 15px;
+        line-height: 1.8;
+    }
+    .guide-card ul {
+        color: var(--text-secondary);
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+    .guide-card li {
+        margin-bottom: 8px;
+    }
+    .guide-card code, .guide-card .path {
+        background: rgba(79,142,245,0.1);
+        border: 1px solid rgba(79,142,245,0.2);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-family: 'Consolas', monospace;
+        color: #4f8ef5;
+        font-size: 0.9rem;
+    }
+    .guide-card a {
+        color: #4f8ef5;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .guide-card a:hover {
+        text-decoration: underline;
+    }
+    /* Image Gallery */
+    .guide-image {
+        border: 3px solid var(--green-accent);
+        border-radius: 12px;
+        margin: 20px 0;
+        max-width: 100%;
+        display: block;
+    }
+    .image-row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    .image-row img {
+        flex: 1;
+        min-width: 280px;
+        max-width: 100%;
+    }
+    /* Video Guides Section */
+    .video-guides-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .video-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    .video-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(79,142,245,0.3);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
+    .video-wrapper iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle at 50% 0%, rgba(79, 142, 245, 0.08) 0%, transparent 50%);
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        pointer-events: none;
+        border: none;
     }
-    .version-card:hover {
-        transform: translateY(-8px);
-        border-color: rgba(79, 142, 245, 0.3);
-        box-shadow:
-            0 25px 60px rgba(0, 0, 0, 0.4),
-            0 0 40px rgba(79, 142, 245, 0.12),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    .video-info {
+        padding: 20px;
     }
-    .version-card:hover::before {
-        opacity: 1;
+    .video-info h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #4f8ef5;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
     }
-    .version-card:hover::after {
-        opacity: 1;
-    }
-    .version-header {
-        background: linear-gradient(135deg, rgba(79, 142, 245, 0.08) 0%, rgba(37, 99, 235, 0.04) 100%);
-        padding: 28px 35px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 15px;
-        position: relative;
-    }
-    .version-title {
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: var(--accent-cyan);
-        letter-spacing: 3px;
-        text-shadow: 0 0 20px rgba(79, 142, 245, 0.3);
-    }
-    .version-badge {
-        display: inline-block;
-        padding: 10px 20px;
-        background: var(--accent-gradient);
-        border-radius: 25px;
-        color: white;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        box-shadow: 0 4px 15px rgba(79, 142, 245, 0.3);
-    }
-    .version-badge.coming-soon {
-        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-    }
-    .version-date {
+    .video-info p {
         color: var(--text-secondary);
         font-size: 0.9rem;
-        margin-left: auto;
-        margin-right: 15px;
-        padding: 6px 14px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .version-content {
-        padding: 35px;
-    }
-    .feature-category {
-        margin-bottom: 35px;
-    }
-    .feature-category:last-child {
-        margin-bottom: 0;
-    }
-    .category-title {
-        font-size: 1.1rem;
-        color: var(--accent-cyan);
-        margin-bottom: 18px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(79, 142, 245, 0.15);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        letter-spacing: 1px;
-    }
-    .feature-list {
-        list-style: none;
-        padding: 0;
         margin: 0;
     }
-    .feature-list li {
-        color: var(--text-secondary);
-        padding: 10px 0;
-        padding-left: 30px;
-        position: relative;
-        font-size: 0.95rem;
-        line-height: 1.7;
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        margin: 2px 0;
-    }
-    .feature-list li:hover {
-        background: rgba(79, 142, 245, 0.03);
-        padding-left: 35px;
-        color: var(--text-primary);
-    }
-    .feature-list li::before {
-        content: '';
-        position: absolute;
-        left: 8px;
-        top: 16px;
-        width: 8px;
-        height: 8px;
-        background: var(--accent-cyan);
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(79, 142, 245, 0.5);
-        transition: all 0.3s ease;
-    }
-    .feature-list li:hover::before {
-        transform: scale(1.3);
-        box-shadow: 0 0 15px rgba(79, 142, 245, 0.8);
-    }
-    .feature-list li strong {
-        color: var(--text-primary);
-        font-weight: 600;
-    }
-    .sub-feature-list {
-        list-style: none;
-        padding: 0;
-        margin: 10px 0 0 20px;
-    }
-    .sub-feature-list li {
-        padding: 6px 0;
-        padding-left: 22px;
-        font-size: 0.9rem;
-    }
-    .sub-feature-list li::before {
-        width: 6px;
-        height: 6px;
-        top: 12px;
-        left: 4px;
-        background: rgba(79, 142, 245, 0.5);
-    }
-    .sub-feature-list li:hover::before {
-        background: var(--accent-cyan);
-    }
-    /* Section Divider */
-    .section-divider {
-        text-align: center;
-        margin: 60px 0;
-        position: relative;
-    }
-    .section-divider::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.3), transparent);
-    }
-    .section-divider span {
-        background: var(--bg-primary);
-        padding: 0 30px;
-        position: relative;
-        z-index: 1;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--accent-cyan);
-        letter-spacing: 3px;
-        text-shadow: 0 0 20px rgba(79, 142, 245, 0.4);
-    }
-    /* Footer */
-    .footer {
-        border-top: 1px solid rgba(255,255,255,0.06);
-        padding: 60px 0 0;
-        margin-top: 80px;
-    }
-    .footer-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
-    }
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 48px;
-        padding-bottom: 48px;
-    }
-    .footer-brand-name {
-        font-size: 1.3rem;
-        font-weight: 900;
-        color: #fff;
-        letter-spacing: -0.5px;
-        margin-bottom: 10px;
-    }
-    .footer-tag {
-        font-size: 0.875rem;
-        color: rgba(255,255,255,0.4);
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-    .footer-social {
-        display: flex;
-        gap: 10px;
-    }
-    .footer-social a {
-        width: 36px; height: 36px;
-        border-radius: 8px;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.08);
-        display: flex; align-items: center; justify-content: center;
-        color: rgba(255,255,255,0.5);
-        text-decoration: none;
-        transition: background 0.2s, color 0.2s;
-    }
-    .footer-social a:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .footer-col h4 {
-        font-size: 0.8rem;
+    .video-badge {
+        display: inline-block;
+        background: rgba(79,142,245,0.15);
+        color: #4f8ef5;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: rgba(255,255,255,0.35);
-        margin-bottom: 16px;
+        margin-bottom: 10px;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a {
-        color: rgba(255,255,255,0.55);
+    /* Table of Contents */
+    .toc {
+        background: rgba(79,142,245,0.05);
+        border: 1px solid rgba(79,142,245,0.2);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+    .toc h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #4f8ef5;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+    .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .toc li {
+        margin-bottom: 12px;
+    }
+    .toc a {
+        color: var(--text-secondary);
         text-decoration: none;
-        font-size: 0.875rem;
-        transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: #fff; }
-    .footer-bottom {
-        border-top: 1px solid rgba(255,255,255,0.06);
-        padding: 20px 0;
+        font-size: 1rem;
+        transition: all 0.3s ease;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 16px;
+        gap: 10px;
     }
-    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-    .footer-bottom-links {
+    .toc a::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #4f8ef5;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    .toc a:hover {
+        color: #4f8ef5;
+        padding-left: 10px;
+    }
+    /* Requirements Box */
+    .requirements-box {
+        background: rgba(56, 118, 29, 0.1);
+        border: 1px solid rgba(56, 118, 29, 0.3);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+    .requirements-box h4 {
+        color: var(--green-accent);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .requirements-box a {
+        display: block;
+        margin-bottom: 10px;
+        word-break: break-all;
+    }
+    /* Error Solutions */
+    .error-card {
+        background: rgba(255, 50, 50, 0.05);
+        border: 1px solid rgba(255, 100, 100, 0.2);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+    .error-card h4 {
+        color: #ff6b6b;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .error-card p {
+        color: var(--text-secondary);
+        margin-bottom: 0;
+    }
+    /* Footer */
+    .footer { border-top: 1px solid rgba(255,255,255,.07); background: #0d0d0d; padding: 64px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+    .footer-tag { color: #9a9aaa; font-size: .9rem; max-width: 280px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 8px; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.07); color: #9a9aaa; transition: .2s; text-decoration: none; }
+    .footer-social a:hover { color: #4f8ef5; border-color: rgba(79,142,245,.3); background: rgba(79,142,245,.13); }
+    .footer-col h4 { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: #5c5c6c; margin-bottom: 14px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: #9a9aaa; font-size: .9rem; transition: color .2s; text-decoration: none; }
+    .footer-col a:hover { color: #4f8ef5; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.07); flex-wrap: wrap; }
+    .footer-bottom p { color: #5c5c6c; font-size: .84rem; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #5c5c6c; font-size: .84rem; transition: color .2s; text-decoration: none; }
+    .footer-bottom-links a:hover { color: #4f8ef5; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    @media(max-width:980px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media(max-width:560px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; text-align: center; } }
+    /* Game Tabs */
+    .game-tabs {
         display: flex;
-        gap: 20px;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
     }
-    .footer-bottom-links a {
-        font-size: 0.8rem;
-        color: rgba(255,255,255,0.3);
-        text-decoration: none;
-        transition: color 0.2s;
+    .game-tab {
+        padding: 10px 28px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-secondary);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
-    .footer-bottom-links a:hover { color: rgba(255,255,255,0.7); }
+    .game-tab:hover {
+        background: rgba(79,142,245,0.08);
+        border-color: rgba(79,142,245,0.2);
+        color: var(--text-primary);
+    }
+    .game-tab.active {
+        background: rgba(79,142,245,0.12);
+        border-color: rgba(79,142,245,0.4);
+        color: #4f8ef5;
+    }
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .coming-soon-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 60px 40px;
+        text-align: center;
+    }
+    .coming-soon-card h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #4f8ef5;
+        margin-bottom: 15px;
+    }
+    .coming-soon-card p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+    }
     .back-link {
         display: inline-flex;
         align-items: center;
@@ -643,563 +516,235 @@
         text-decoration: none;
         margin-top: 30px;
         padding: 12px 24px;
-        border: 1px solid rgba(79, 142, 245, 0.3);
+        border: 1px solid rgba(79,142,245,0.3);
         border-radius: 30px;
         font-weight: 500;
         transition: all 0.3s ease;
-        background: rgba(79, 142, 245, 0.05);
+        background: rgba(79,142,245,0.05);
     }
     .back-link:hover {
-        background: rgba(79, 142, 245, 0.15);
+        background: rgba(79,142,245,0.15);
         border-color: #4f8ef5;
         transform: translateX(-5px);
-        box-shadow: 0 0 20px rgba(79, 142, 245, 0.2);
     }
+    /* Responsive */
     @media (max-width: 768px) {
-        .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-        .footer-bottom { flex-direction: column; text-align: center; }
+        .navbar-inner {
+            padding: 0 20px;
+            flex-wrap: wrap;
+            height: auto;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .navbar-nav {
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 6px 10px;
+        }
+        .navbar-nav li a {
+            padding: 8px 14px;
+            font-size: 11px;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+        }
+        .guide-card {
+            padding: 25px;
+        }
+        .guide-card h2 {
+            font-size: 1.4rem;
+        }
+        .container {
+            padding: 0 15px;
+        }
+        .video-guides-grid {
+            grid-template-columns: 1fr;
+        }
     }
     @media (max-width: 480px) {
-        .footer-grid { grid-template-columns: 1fr; }
-    }
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
+        .page-header {
+            padding: 130px 0 60px;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    @keyframes pulse {
-        0%, 100% {
-            box-shadow: 0 0 0 0 rgba(79, 142, 245, 0.4);
-        }
-        50% {
-            box-shadow: 0 0 0 10px rgba(79, 142, 245, 0);
-        }
-    }
-    .version-card {
-        animation: fadeInUp 0.6s ease forwards;
-        opacity: 0;
-    }
-    .version-card:nth-child(1) { animation-delay: 0.1s; }
-    .version-card:nth-child(2) { animation-delay: 0.2s; }
-    .version-card:nth-child(3) { animation-delay: 0.3s; }
-    .version-card:nth-child(4) { animation-delay: 0.4s; }
-    .page-title {
-        animation: fadeInUp 0.8s ease forwards;
-    }
-    .page-subtitle {
-        animation: fadeInUp 0.8s ease forwards;
-        animation-delay: 0.2s;
-        opacity: 0;
-    }
-    .section-title {
-        animation: fadeInUp 0.6s ease forwards;
-    }
-    .version-badge {
-        animation: pulse 2s ease-in-out infinite;
-    }
-    /* Section Divider */
-    .section-divider {
-        display: flex;
-        align-items: center;
-        margin: 60px 0 40px;
-        gap: 20px;
-    }
-    .section-divider::before,
-    .section-divider::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.3), transparent);
-    }
-    .section-divider h2 {
-        font-size: 1.5rem;
-        background: linear-gradient(135deg, #6ba3f7 0%, #4f8ef5 50%, #2563eb 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: 3px;
-        margin: 0;
-        white-space: nowrap;
-    }
-    @media (max-width: 768px) {
-        .page-title { font-size: 2.5rem; }
-        .version-title { font-size: 1.4rem; }
-        .version-header { padding: 20px; }
-        .version-content { padding: 20px; }
-    }
-    /* ========================================
-       VERSION STATS SUMMARY
-       ======================================== */
-    .changelog-stats {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
-        margin-bottom: 60px;
-        padding: 30px;
-        background: linear-gradient(145deg, rgba(20, 20, 28, 0.6) 0%, rgba(16, 16, 24, 0.7) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-    }
-    .stat-item {
-        text-align: center;
-        min-width: 100px;
-    }
-    .stat-value {
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: 0 0 30px rgba(79, 142, 245, 0.3);
-    }
-    .stat-label {
-        font-size: 0.85rem;
-        color: var(--text-secondary);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-top: 5px;
-    }
-    /* ========================================
-       VERSION QUICK JUMP
-       ======================================== */
-    .version-jump {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 50px;
-    }
-    .version-jump-btn {
-        padding: 10px 20px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 25px;
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        letter-spacing: 1px;
-    }
-    .version-jump-btn:hover {
-        background: rgba(79, 142, 245, 0.1);
-        border-color: rgba(79, 142, 245, 0.4);
-        color: var(--accent-cyan);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(79, 142, 245, 0.2);
-    }
-    .version-jump-btn.latest {
-        background: var(--accent-gradient);
-        border-color: transparent;
-        color: white;
-        box-shadow: 0 4px 15px rgba(79, 142, 245, 0.3);
-    }
-    .version-jump-btn.latest:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(79, 142, 245, 0.4);
-    }
-    /* ========================================
-       CATEGORY ICONS
-       ======================================== */
-    .category-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 8px;
-        margin-right: 10px;
-    }
-    .category-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-    .category-icon.new {
-        background: rgba(0, 200, 100, 0.15);
-        color: #00c864;
-    }
-    .category-icon.improved {
-        background: rgba(0, 180, 255, 0.15);
-        color: #00b4ff;
-    }
-    .category-icon.fixed {
-        background: rgba(255, 180, 0, 0.15);
-        color: #ffb400;
-    }
-    .category-icon.updated {
-        background: rgba(160, 100, 255, 0.15);
-        color: #a064ff;
-    }
-    .category-icon.wip {
-        background: rgba(255, 100, 100, 0.15);
-        color: #ff6464;
-    }
-    /* ========================================
-       TIMELINE CONNECTOR
-       ======================================== */
-    .changelog-timeline {
-        position: relative;
-        padding-left: 30px;
-    }
-    .changelog-timeline::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: linear-gradient(180deg, var(--accent-cyan) 0%, rgba(79, 142, 245, 0.3) 50%, rgba(79, 142, 245, 0.1) 100%);
-        border-radius: 3px;
-    }
-    .changelog-timeline .version-card {
-        position: relative;
-    }
-    .changelog-timeline .version-card::after {
-        content: '';
-        position: absolute;
-        left: -30px;
-        top: 35px;
-        width: 15px;
-        height: 15px;
-        background: var(--accent-gradient);
-        border-radius: 50%;
-        border: 3px solid var(--bg-primary);
-        box-shadow: 0 0 15px rgba(79, 142, 245, 0.5);
-        z-index: 2;
-    }
-    .changelog-timeline .version-card:first-child::after {
-        width: 19px;
-        height: 19px;
-        left: -32px;
-        top: 33px;
-        animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-        0%, 100% { box-shadow: 0 0 15px rgba(79, 142, 245, 0.5); }
-        50% { box-shadow: 0 0 25px rgba(79, 142, 245, 0.8), 0 0 40px rgba(79, 142, 245, 0.4); }
-    }
-    /* ========================================
-       SEARCH/FILTER BAR
-       ======================================== */
-    .changelog-filter {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
-    }
-    .filter-input {
-        width: 100%;
-        max-width: 400px;
-        padding: 14px 24px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 30px;
-        color: var(--text-primary);
-        font-family: 'Inter', sans-serif;
-        font-size: 0.95rem;
-        outline: none;
-        transition: all 0.3s ease;
-    }
-    .filter-input::placeholder {
-        color: var(--text-secondary);
-    }
-    .filter-input:focus {
-        border-color: rgba(79, 142, 245, 0.5);
-        box-shadow: 0 0 20px rgba(79, 142, 245, 0.15);
-        background: rgba(79, 142, 245, 0.03);
-    }
-    @media (max-width: 768px) {
-        .changelog-stats {
-            gap: 25px;
-            padding: 25px 20px;
-        }
-        .stat-value {
+        .page-title {
             font-size: 2rem;
         }
-        .changelog-timeline {
-            padding-left: 20px;
-        }
-        .changelog-timeline::before {
-            left: 0;
-        }
-        .changelog-timeline .version-card::after {
-            left: -20px;
-            width: 12px;
-            height: 12px;
-        }
-        .changelog-timeline .version-card:first-child::after {
-            width: 14px;
-            height: 14px;
-            left: -21px;
-        }
-        .version-jump {
-            gap: 8px;
-        }
-        .version-jump-btn {
-            padding: 8px 14px;
-            font-size: 0.75rem;
+        .guide-section {
+            padding: 50px 0;
         }
     }
-    /* Scroll animation for cards */
-    .animate-card {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-    .animate-card.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    /* Enhanced version card hover effects */
-    .version-card {
-        position: relative;
-        overflow: hidden;
-    }
-    .version-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(79, 142, 245, 0.05), transparent);
-        transition: left 0.8s ease;
-        pointer-events: none;
-    }
-    .version-card:hover::before {
-        left: 100%;
-    }
-    /* Blurred/Coming Soon Version Cards */
-    .version-card.blurred {
-        position: relative;
-    }
-    .version-card.blurred .version-content {
-        filter: blur(5px);
-        user-select: none;
-        pointer-events: none;
-    }
-    .version-card.blurred .blur-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(10, 10, 15, 0.6);
-        z-index: 10;
-        border-radius: 24px;
-    }
-    .blur-overlay-text {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--accent-cyan);
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        text-shadow: 0 0 20px rgba(79, 142, 245, 0.5);
-        padding: 20px 40px;
-        background: rgba(79, 142, 245, 0.1);
-        border: 2px solid rgba(79, 142, 245, 0.3);
-        border-radius: 12px;
-    }
-    /* Product Tabs */
-    .product-tabs {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 40px;
-        padding: 15px;
-        background: rgba(20, 20, 30, 0.5);
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .product-tab {
-        padding: 12px 24px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
-        color: var(--text-secondary);
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-    }
-    .product-tab:hover {
-        background: rgba(79, 142, 245, 0.1);
-        border-color: rgba(79, 142, 245, 0.3);
-        color: var(--text-primary);
-    }
-    .product-tab.active {
-        background: var(--accent-gradient);
-        border-color: transparent;
-        color: #000;
-        box-shadow: 0 4px 20px rgba(79, 142, 245, 0.3);
-    }
-    .product-content {
-        display: none;
-    }
-    .product-content.active {
-        display: block;
-        animation: fadeIn 0.4s ease;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .coming-soon-msg {
-        text-align: center;
-        padding: 80px 20px;
-        background: rgba(20, 20, 30, 0.5);
-        border-radius: 20px;
-        border: 1px dashed rgba(255, 255, 255, 0.1);
-    }
-    .coming-soon-msg svg {
-        width: 60px;
-        height: 60px;
-        color: var(--text-secondary);
-        margin-bottom: 20px;
-        opacity: 0.5;
-    }
-    .coming-soon-msg h3 {
-        font-size: 1.3rem;
-        color: var(--text-primary);
-        margin-bottom: 10px;
-    }
-    .coming-soon-msg p {
-        color: var(--text-secondary);
-        font-size: 0.95rem;
-    }
-    @media (max-width: 768px) {
-        .product-tabs {
-            gap: 8px;
-            padding: 10px;
-        }
-        .product-tab {
-            padding: 10px 14px;
-            font-size: 0.7rem;
-        }
-    }
+</style>
+<style>
+:root{--cl-card:#111;--cl-border:rgba(255,255,255,.07);--cl-border-hi:rgba(255,255,255,.13);
+--cl-accent:#4f8ef5;--cl-soft:rgba(79,142,245,.13);--cl-line:rgba(79,142,245,.32);
+--cl-text:#f4f4f7;--cl-dim:#9a9aaa;--cl-faint:#5c5c6c}
+.cl-hero{padding:150px 0 36px;text-align:center}
+.cl-title{font-size:3.1rem;font-weight:900;letter-spacing:2px;margin-bottom:12px;color:var(--cl-text)}
+.cl-sub{color:var(--cl-dim);max-width:600px;margin:0 auto 26px}
+.cl-stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cl-stat{background:var(--cl-card);border:1px solid var(--cl-border);border-radius:14px;padding:15px 26px;min-width:112px}
+.cl-stat b{display:block;font-size:1.6rem;font-weight:800;color:var(--cl-accent);line-height:1.2}
+.cl-stat span{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--cl-faint)}
+.cl-search{position:sticky;top:0;z-index:50;padding:14px 0;background:rgba(8,8,8,.93);
+backdrop-filter:blur(14px);border-bottom:1px solid var(--cl-border);margin-bottom:30px}
+.cl-search-in{position:relative}
+.cl-search input{width:100%;padding:13px 18px 13px 46px;border-radius:12px;background:var(--cl-card);
+border:1px solid var(--cl-border-hi);color:var(--cl-text);font-family:inherit;font-size:.94rem;outline:none}
+.cl-search input:focus{border-color:var(--cl-line)}
+.cl-search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--cl-faint)}
+.cl-layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:36px}
+.cl-side-in{position:sticky;top:86px;background:var(--cl-card);border:1px solid var(--cl-border);
+border-radius:14px;padding:16px;max-height:calc(100vh - 116px);overflow-y:auto}
+.cl-side-in h3{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+color:var(--cl-faint);margin-bottom:12px}
+.cl-jump{display:flex;flex-direction:column;gap:1px}
+.cl-jump a{display:flex;justify-content:space-between;gap:8px;padding:7px 11px;border-radius:8px;
+border-left:2px solid transparent;color:var(--cl-dim);font-size:.85rem;text-decoration:none;transition:.18s}
+.cl-jump a:hover{background:rgba(255,255,255,.04);color:var(--cl-text)}
+.cl-jump a.active{background:var(--cl-soft);border-left-color:var(--cl-accent);color:var(--cl-accent);font-weight:600}
+.cl-jump a i{font-style:normal;font-size:.72rem;color:var(--cl-faint)}
+.cl-main{min-width:0}
+.cl-v{background:var(--cl-card);border:1px solid var(--cl-border);border-radius:16px;
+padding:26px 28px;margin-bottom:16px;scroll-margin-top:96px;transition:border-color .2s}
+.cl-v:hover{border-color:var(--cl-border-hi)}
+.cl-v-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;
+padding-bottom:14px;border-bottom:1px solid var(--cl-border)}
+.cl-v-title{font-size:1.5rem;font-weight:800;color:var(--cl-text)}
+.cl-v-date{color:var(--cl-faint);font-size:.85rem}
+.cl-v-badge{margin-left:auto;padding:4px 12px;border-radius:30px;font-size:.7rem;font-weight:700;
+text-transform:uppercase;letter-spacing:.5px;background:var(--cl-soft);color:var(--cl-accent);
+border:1px solid var(--cl-line)}
+.cl-v-badge.soon{background:rgba(234,179,8,.12);color:#eab308;border-color:rgba(234,179,8,.3)}
+.cl-v-body .feature-category{margin-bottom:18px}
+.cl-v-body .feature-category:last-child{margin-bottom:0}
+.cl-v-body .category-title{font-size:.74rem;font-weight:700;text-transform:uppercase;
+letter-spacing:1px;color:var(--cl-accent);margin-bottom:9px}
+.cl-v-body ul{list-style:none;padding:0;margin:0}
+.cl-v-body li{position:relative;padding-left:18px;margin-bottom:7px;color:var(--cl-dim);
+font-size:.9rem;line-height:1.6}
+.cl-v-body li::before{content:'';position:absolute;left:3px;top:.62em;width:5px;height:5px;
+border-radius:50%;background:var(--cl-line)}
+.cl-v-body li strong{color:var(--cl-text);font-weight:600}
+.cl-v-body p{color:var(--cl-dim);font-size:.9rem;margin-bottom:10px}
+.cl-v-body h3,.cl-v-body h4{color:var(--cl-text);font-size:.95rem;margin:14px 0 8px}
+.cl-v-body img{max-width:100%;height:auto;border-radius:10px;margin:10px 0}
+.cl-empty{display:none;text-align:center;padding:70px 20px;color:var(--cl-dim)}
+.cl-empty b{display:block;font-size:1.1rem;color:var(--cl-text);margin-bottom:6px}
+mark{background:rgba(79,142,245,.28);color:#cfe0ff;border-radius:3px;padding:0 2px}
+@media(max-width:900px){
+.cl-layout{grid-template-columns:1fr;gap:20px}
+.cl-side-in{position:static;max-height:none}
+.cl-jump{flex-direction:row;flex-wrap:wrap;gap:7px}
+.cl-jump a{border-left:none;border:1px solid var(--cl-border);padding:6px 12px;font-size:.8rem}
+.cl-jump a i{display:none}
+.cl-hero{padding:120px 0 26px}
+.cl-title{font-size:2.1rem}
+.cl-v{padding:20px}
+}
 </style>
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body>
-    <!--== Floating Particles Background ==-->
-    <div class="particles-bg">
-        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
-        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
-        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
-        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
-        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
-        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
-        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
-        <div class="particle" style="left: 90%; animation-delay: 4.5s;"></div>
-        <div class="particle" style="left: 15%; animation-delay: 6s;"></div>
-        <div class="particle" style="left: 45%; animation-delay: 7s;"></div>
-        <div class="particle" style="left: 75%; animation-delay: 8s;"></div>
-    </div>
     <!--== Header ==-->
     <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="/" class="brand">
-                <img src="/assets/images/logo.png" alt="Scooby" width="32" height="32" style="border-radius:8px;">
-                <span class="brand-name">SCOOBY</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/store">Store</a></li>
-                <li><a href="/videos">Videos</a></li>
-                <li><a href="/changelog" class="active">Changelog</a></li>
-                <li><a href="/guides">Guides</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="https://discord.gg/tGtvzChYQq" class="btn-nav-ghost" target="_blank">Discord</a>
-                <a href="/store" class="btn-nav-primary">Get Access</a>
-            </div>
-            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+      <div class="nav-inner">
+        <a href="/" class="brand">
+          <span class="brand-name">scooby</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+          <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+          <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="/portal" target="_blank" rel="noopener" class="btn-nav-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Login
+          </a>
+          <a href="#" onclick="openModal('downloadModal');return false;" class="btn-nav-primary">
+            Download
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
         </div>
+      </div>
     </nav>
-    <!--== Page Header ==-->
-    <div class="page-header">
-        <div class="container">
-            <h1 class="page-title">CHANGELOG</h1>
-            <p class="page-subtitle">Version history and updates for all Scooby products</p>
+    <div class="cl-hero">
+      <div class="container">
+        <h1 class="cl-title">CHANGELOG</h1>
+        <p class="cl-sub">Every Scooby release, with what changed in each version across GTA 5, RDR2, FiveM, RedM and the loader.</p>
+        <div class="cl-stats">
+          <div class="cl-stat"><b>35</b><span>Releases</span></div>
+          <div class="cl-stat"><b>v3.2</b><span>Latest</span></div>
+          <div class="cl-stat"><b>March</b><span>Released</span></div>
         </div>
+      </div>
     </div>
-    <!--== Changelog Section ==-->
-    <section class="changelog-section">
-        <div class="container">
-            <!--== Product Tabs ==-->
-            <div class="product-tabs">
-                <button class="product-tab active" onclick="showProductTab('gta5')">GTA 5</button>
-                <button class="product-tab" onclick="showProductTab('loader')">Loader</button>
-                <button class="product-tab" onclick="showProductTab('spoofer')">Spoofer</button>
-                <button class="product-tab" onclick="showProductTab('rdr2')">RDR2</button>
-                <button class="product-tab" onclick="showProductTab('fivem')">FiveM</button>
-                <button class="product-tab" onclick="showProductTab('redm')">RedM</button>
-                <button class="product-tab" onclick="showProductTab('r6')">Rainbow Six</button>
-                <button class="product-tab" onclick="showProductTab('pubg')">PUBG</button>
-                <button class="product-tab" onclick="showProductTab('cs2')">CS2</button>
-            </div>
-            <!--== GTA 5 Tab Content ==-->
-            <div id="gta5" class="product-content active">
-            <!--== Stats Summary (Dynamic) ==-->
-            <div class="changelog-stats" id="changelog-stats">
-                <div class="stat-item">
-                    <div class="stat-value" id="stat-versions">...</div>
-                    <div class="stat-label">Versions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">370+</div>
-                    <div class="stat-label">Features</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="stat-latest">...</div>
-                    <div class="stat-label">Latest Update</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">2026</div>
-                    <div class="stat-label">Active Year</div>
-                </div>
-            </div>
-            <!--== Quick Jump Navigation (Dynamic) ==-->
-            <div class="version-jump" id="version-jump">
-                <span style="color: var(--text-secondary);">Loading...</span>
-            </div>
-            <!--== Timeline Container (Dynamic) ==-->
-            <div class="changelog-timeline" id="changelog-timeline">
-                <div style="text-align: center; padding: 60px 20px;">
-                    <div style="width: 50px; height: 50px; border: 3px solid var(--border-color); border-top-color: var(--accent-cyan); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
-                    <p style="color: var(--text-secondary);">Loading changelog...</p>
-                </div>
-            </div>
-            <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
-            <!--== Static content below for SEO (hidden, replaced by JS) ==-->
-            <noscript>
-            <div class="changelog-timeline">
-            <!--== Version 3.2 ==-->
-<div class="version-card" id="v3.2">
-    <div class="version-header">
-        <h2 class="version-title">v3.2</h2>
-        <span class="version-date">March 2026</span>
-        <span class="version-badge">Latest</span>
+
+    <div class="cl-search">
+      <div class="container">
+        <div class="cl-search-in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="clSearch" type="search" placeholder="Search all 35 releases&hellip;" autocomplete="off" data-i18n-skip>
+        </div>
+      </div>
     </div>
-    <div class="version-content">
+
+    <div class="container">
+      <div class="cl-layout">
+        <aside>
+          <div class="cl-side-in">
+            <h3>Versions</h3>
+            <nav class="cl-jump">
+            <a href="#v3.2">v3.2<i>March</i></a>
+            <a href="#v3.1">v3.1<i>February</i></a>
+            <a href="#loader-v2.6">Loader v2.6<i>March</i></a>
+            <a href="#loader-v2.5">Loader v2.5<i>February</i></a>
+            <a href="#rdr2-v1.0">RDR2 v1.0<i>February</i></a>
+            <a href="#loader-v2.2">Loader v2.2<i>February</i></a>
+            <a href="#v3.0">v3.0<i>January</i></a>
+            <a href="#loader-v2.0">Loader v2.0<i>January</i></a>
+            <a href="#loader-v1.4">Loader v1.4<i>January</i></a>
+            <a href="#v2.9.5">v2.9.5<i>January</i></a>
+            <a href="#v2.9">v2.9<i>January</i></a>
+            <a href="#v2.8.2">v2.8.2<i>January</i></a>
+            <a href="#v2.8">v2.8<i>December 31,</i></a>
+            <a href="#v2.6">v2.6<i>December 18,</i></a>
+            <a href="#v2.4">v2.4<i>December 10,</i></a>
+            <a href="#v2.3">v2.3<i>December 10,</i></a>
+            <a href="#v2.2">v2.2<i>December 8,</i></a>
+            <a href="#v2.1">v2.1<i>December 5,</i></a>
+            <a href="#v2.0">v2.0<i>December 1,</i></a>
+            <a href="#v1.2">v1.2<i>December 31,</i></a>
+            <a href="#v1.1">v1.1<i>December 5,</i></a>
+            <a href="#v1.0">v1.0<i>December 1,</i></a>
+            <a href="#loader-v3.6-tab">v3.6<i>March</i></a>
+            <a href="#loader-v2.6-tab">v2.6<i>March</i></a>
+            <a href="#loader-v2.5-tab">v2.5<i>February</i></a>
+            <a href="#loader-v2.2-tab">v2.2<i>February</i></a>
+            <a href="#loader-v2.0-tab">v2.0<i>January</i></a>
+            <a href="#rdr2-v1.0-tab">v1.0<i>February</i></a>
+            <a href="#fivem-v1.1-tab">v1.1<i>March</i></a>
+            <a href="#fivem-v1.0-tab">v1.0<i>March</i></a>
+            <a href="#redm-v1.0-tab">v1.0<i>March</i></a>
+            <a href="#cs2-v1.1-tab">v1.1<i>March</i></a>
+            <a href="#cs2-recode-tab">v1.0 Recode<i>March</i></a>
+            <a href="#cs2-beta">CS2 Beta<i>February</i></a>
+            <a href="#${v.id}">${v.version}<i>${v.date}</i></a>
+            </nav>
+          </div>
+        </aside>
+        <div class="cl-main">
+      <div class="cl-v" id="v3.2" data-s="v3.2 march 2026 latest gta 5 legacy updated updated to newest game version - full compatibility with the latest gta 5 update legacy options refreshed - all legacy options updated and working with new game version stability improvements - various stability fixes for the new game version fixes &amp; changes fixed compatibility issues with latest game patch improved injection stability various bug fixes and optimizations">
+        <div class="cl-v-head"><span class="cl-v-title">v3.2</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Latest</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">GTA 5 LEGACY UPDATED</h3>
             <ul class="feature-list">
@@ -1217,15 +762,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 3.1 ==-->
-<div class="version-card" id="v3.1">
-    <div class="version-header">
-        <h2 class="version-title">v3.1</h2>
-        <span class="version-date">February 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v3.1" data-s="v3.1 february 2026 released new features &amp; improvements readded business manager - business manager has been readded and improved improvements for many options - various options enhanced and optimized improved lua support &amp; api - better lua scripting capabilities and api access layout overview improvements - cleaner and more intuitive menu layout theme loader for clickui - added theme customization to clickui list ui (wip) - new list ui in development reorganized options &amp; tabs - moved around options and tabs for better organization fixes &amp; changes fixed problems with the lua api various bug fixes and improvements other misc fixes and optimizations">
+        <div class="cl-v-head"><span class="cl-v-title">v3.1</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">NEW FEATURES & IMPROVEMENTS</h3>
             <ul class="feature-list">
@@ -1247,15 +787,10 @@
             </ul>
         </div>
     </div>
-</div>
-<!--== Loader v2.6 ==-->
-<div class="version-card" id="loader-v2.6">
-    <div class="version-header">
-        <h2 class="version-title">Loader v2.6</h2>
-        <span class="version-date">March 2026</span>
-        <span class="version-badge">Latest</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.6" data-s="loader v2.6 march 2026 latest loader update fivem &amp; cs2 support - added fivem and cs2 to the game selector improved injection - faster and more reliable injection process updated anti-detection - enhanced security measures bug fixes - various loader stability improvements">
+        <div class="cl-v-head"><span class="cl-v-title">Loader v2.6</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Latest</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">LOADER UPDATE</h3>
             <ul class="feature-list">
@@ -1266,15 +801,10 @@
             </ul>
         </div>
     </div>
-</div>
-<!--== Loader v2.5 ==-->
-<div class="version-card" id="loader-v2.5">
-    <div class="version-header">
-        <h2 class="version-title">Loader v2.5</h2>
-        <span class="version-date">February 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.5" data-s="loader v2.5 february 2026 released new features game selector - added game selector for gta5/rdr2/fivem/redm">
+        <div class="cl-v-head"><span class="cl-v-title">Loader v2.5</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">NEW FEATURES</h3>
             <ul class="feature-list">
@@ -1282,15 +812,10 @@
             </ul>
         </div>
     </div>
-</div>
-<!--== RDR2 v1.0 ==-->
-<div class="version-card" id="rdr2-v1.0">
-    <div class="version-header">
-        <h2 class="version-title">RDR2 v1.0</h2>
-        <span class="version-date">February 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="rdr2-v1.0" data-s="rdr2 v1.0 february 2026 released initial release rdr2 support - red dead redemption 2 mod menu released">
+        <div class="cl-v-head"><span class="cl-v-title">RDR2 v1.0</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">INITIAL RELEASE</h3>
             <ul class="feature-list">
@@ -1298,15 +823,10 @@
             </ul>
         </div>
     </div>
-</div>
-<!--== Loader v2.2 ==-->
-<div class="version-card" id="loader-v2.2">
-    <div class="version-header">
-        <h2 class="version-title">Loader v2.2</h2>
-        <span class="version-date">February 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.2" data-s="loader v2.2 february 2026 released fixes fixed issues - various loader issues resolved fixed overlapping - fixed any overlapping ui elements">
+        <div class="cl-v-head"><span class="cl-v-title">Loader v2.2</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">FIXES</h3>
             <ul class="feature-list">
@@ -1315,15 +835,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 3.0 ==-->
-<div class="version-card" id="v3.0">
-    <div class="version-header">
-        <h2 class="version-title">v3.0</h2>
-        <span class="version-date">January 2026</span>
-        <span class="version-badge" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">Beta</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v3.0" data-s="v3.0 january 2026 beta v3.0 beta released select beta in the loader - choose &quot;beta&quot; option in the loader to access v3.0 public lobby support - play in public lobbies with battleye disabled (host is needed) player magnet - pulls legit players into your lobby fixed &amp; updated fixed &amp; updated legacy options various bug fixes and stability improvements performance optimizations notes this is a beta release - report any bugs on discord more features and improvements coming in the full release">
+        <div class="cl-v-head"><span class="cl-v-title">v3.0</span><span class="cl-v-date">January 2026</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">v3.0 BETA RELEASED</h3>
             <ul class="feature-list">
@@ -1348,15 +863,10 @@
             </ul>
         </div>
     </div>
-</div>
-<!--== Loader v2.0 ==-->
-<div class="version-card" id="loader-v2.0">
-    <div class="version-header">
-        <h2 class="version-title">Loader v2.0</h2>
-        <span class="version-date">January 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.0" data-s="loader v2.0 january 2026 released redesign fully redesigned loader - complete visual and functional overhaul improved user interface and experience">
+        <div class="cl-v-head"><span class="cl-v-title">Loader v2.0</span><span class="cl-v-date">January 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">REDESIGN</h3>
             <ul class="feature-list">
@@ -1365,15 +875,10 @@
             </ul>
         </div>
     </div>
-</div>
-<!--== Loader v1.4 ==-->
-<div class="version-card" id="loader-v1.4">
-    <div class="version-header">
-        <h2 class="version-title">Loader v1.4</h2>
-        <span class="version-date">January 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v1.4" data-s="loader v1.4 january 2026 released new features beta support - added ability to select beta version in the loader auto loader updater - loader now automatically updates itself fixes fixed multiple bugs improved stability and reliability">
+        <div class="cl-v-head"><span class="cl-v-title">Loader v1.4</span><span class="cl-v-date">January 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">NEW FEATURES</h3>
             <ul class="feature-list">
@@ -1389,15 +894,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 2.9.5 ==-->
-<div class="version-card" id="v2.9.5">
-    <div class="version-header">
-        <h2 class="version-title">v2.9.5</h2>
-        <span class="version-date">January 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.9.5" data-s="v2.9.5 january 2026 released new features frame generation support - enhanced performance with frame generation technology casino options rig horse racing - control horse racing outcomes at the casino auto play - automatically play casino games auto place max bet - instantly place maximum bets instant roll - skip animations for instant results much more casino features and options legacy support more improvements for legacy version additional fixes for legacy version updated options for legacy compatibility lua improvements lua compatibility layers - better support for existing lua scripts expanded lua api - more functions and features added to the api backend changes overall backend improvements and optimizations stability enhancements performance improvements coming soon stay tuned for v3.0! - major update in development">
+        <div class="cl-v-head"><span class="cl-v-title">v2.9.5</span><span class="cl-v-date">January 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">NEW FEATURES</h3>
             <ul class="feature-list">
@@ -1444,15 +944,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 2.9 ==-->
-<div class="version-card" id="v2.9">
-    <div class="version-header">
-        <h2 class="version-title">v2.9</h2>
-        <span class="version-date">January 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.9" data-s="v2.9 january 2026 released recovery &gt; businesses all businesses tab ultimate business bot - everything automated (resupply, production, prices, safes, cooldowns) auto resupply all - keeps all business supplies at 100% instant production all - all businesses produce instantly max sale prices all - boost all business sale prices to max ceo/vip work boost - $100k per job, no cooldowns mc work boost - $100k per contract, no cooldowns payphone hit boost - $500k per hit, no cooldown taxi boost - max fares, no heat auto sell ready - keeps all sell cooldowns at zero fill stock commands fill all business stock - fill stock for all businesses at once fill nightclub stock - fill all nightclub warehouse stock to max fill bunker stock - fill bunker stock and supplies to max fill mc stock - fill all mc business stock and supplies fill special cargo - fill warehouse to 111 crates fill hangar stock - fill air freight to max fill acid lab stock - fill acid lab product and supplies quick actions max all safes - collect money from all business safes reset all business cooldowns - reset all business and heist cooldowns business staff boost - max out all business upgrades and staff max agency clients - sets agency to 500 clients for max passive income protection &amp; safety raid prevention - prevents all business raids (bunker, mc, nightclub, acid lab, hangar, warehouse) max nightclub popularity - keeps nightclub popularity at 100% high demand boost - always get max high demand bonus (solo lobby bonus) skip sell timer - removes time limit on sell missions delivery helpers delivery speed boost - makes delivery vehicles faster and invincible instant sell complete - instantly complete active sell mission ceo/vip features free ghost org - activate ghost organization for free (3 minutes) free bribe authorities - bribe authorities for free (2 minutes no cops) free off radar - go off radar for free (60 seconds) business teleports teleport to nightclub, bunker, agency, arcade, kosatka, auto shop, salvage yard business info control boxes collapsible nightclub status (popularity, safe cash, production + quick actions) collapsible bunker status (stock, supplies, research + quick actions) collapsible agency status (safe cash, clients + quick actions) collapsible arcade status (safe cash + quick actions) collapsible mc businesses status (all 5 business stocks + fill all) collapsible acid lab status (product, safe + quick actions) recovery &gt; properties properties unlocker - master presets master business preset - unlock/upgrade/stock everything in one click unlock all properties - unlocks all properties with upgrades upgrade all properties - maxes all property upgrades setup all businesses - sets up all businesses fill all stock - fills all business stock resupply all businesses - resupplies all businesses collect all safes - collects from all business safes reset all business cooldowns - resets all cooldowns individual property unlocks unlock ceo office, bunker, nightclub, kosatka, agency, arcade, facility, auto shop, salvage yard unlock all mc businesses, unlock all warehouses recovery &gt; casino slot machines - rig slot machines (toggle), win slots, lose slots game rigging - night tab features blackjack - reveal card (reveals dealer's hidden card), trick dealer three card poker - reveal cards, give hand (gives winning hand), trick dealer roulette - land on 13, land on 16 casino settings - casino region bypass, chips limit control, acquire limit, trade limit lucky wheel - lucky wheel prize selector (20 prizes), give prize button night tab &gt; heists cayo perico - new features cayo offline cooldown reset, cayo online cooldown reset cayo loot value editors: cash, weed, cocaine, gold, paintings (0-999999) apply loot values button, reset loot values button heist extras solo launch - allows launching heists alone casino autograbber - instantly grab all loot in casino heist woman's bag - extended bag capacity for cayo perico skip cutscene, skip checkpoint cut editor with presets, self cut editor mc businesses - mc heat lock - keeps all mc business heat at 0 debug &gt; features (new) self tab - player ped info (handle, position, heading, health, armor, status), player flags (god mode, invisible, no ragdoll toggles), movement overrides, wanted level control, force actions, model info weapon tab - current weapon info (hash, ammo in clip, total ammo, max ammo), weapon modifiers (damage/melee multiplier sliders), ammo controls, weapon flags (infinite ammo, infinite clip, no reload) vehicle tab - current vehicle info (handle, model, position, speed, health, colors), vehicle modifiers (top speed/torque mult sliders), vehicle flags, vehicle actions, vehicle doors world tab - time control, weather control (13 types), blackout, gravity slider, nearby entity count misc tab - session info, network actions, teleport utils, script event sender, quick stat editor tunables tab - tuneable base display (262145), offset input with read int/float buttons, value input with write int/float buttons, common tunable offsets reference guide lua api improvements auto-generated example scripts bugga101.lua - feature-rich script (self protection, weapon management, vehicle spawner, teleport hotspots, quick toggle presets) debuggingguide.lua, scoobyexample.lua, imguiexample.lua, httpexample.lua, statsexample.lua, timerexample.lua, inputexample.lua, fileioexample.lua improved lua examples - statsexample.lua, globalsexample.lua, tunablesexample.lua, vehicleadvancedexample.lua, debuggingexample.lua lua repository system - new tab repository tab in lua scripts window browse and download scripts from repository one-click install/reinstall/uninstall auto-extract zip files placeholder scripts: ultimate recovery, vehicle spawner pro, teleport suite, heist helper, protection plus, business manager, esp addon, session tools lua debugging features - safe function wrapper (pcall-based), debug print with type information, performance timer utilities, common error explanations, api reference quick-access settings startup settings - new group hide welcome screen toggle show welcome screen now button welcome screen persists until explicitly disabled">
+        <div class="cl-v-head"><span class="cl-v-title">v2.9</span><span class="cl-v-date">January 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">RECOVERY > BUSINESSES</h3>
             <ul class="feature-list">
@@ -1632,15 +1127,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 2.8.2 ==-->
-<div class="version-card" id="v2.8.2">
-    <div class="version-header">
-        <h2 class="version-title">v2.8.2</h2>
-        <span class="version-date">January 2026</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.8.2" data-s="v2.8.2 january 2026 released recovery tab redone recovery tab - complete overhaul of the recovery section business manager - added back the business manager feature new features awards - access and manage in-game awards gun van - gun van features and options many other features and improvements">
+        <div class="cl-v-head"><span class="cl-v-title">v2.8.2</span><span class="cl-v-date">January 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">RECOVERY TAB</h3>
             <ul class="feature-list">
@@ -1657,15 +1147,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 2.8 ==-->
-<div class="version-card" id="v2.8">
-    <div class="version-header">
-        <h2 class="version-title">v2.8</h2>
-        <span class="version-date">December 31, 2025</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.8" data-s="v2.8 december 31, 2025 released recovery menu overhaul heist features solo mantrap bypass - bypass casino heist mantrap door solo skip hacking - auto-complete fingerprint hack skip drilling - instantly drill the vault diamond casino heist instant finish rep &amp; ap multipliers ls car meet rep boost (10x) auto shop rep boost (10x) street race rep boost (10x) arena points (ap) multiplier (10x) salvage yard instant finish duggan robbery cargo ship robbery podium robbery police impound robbery mctony robbery tow truck delivery business features register as ceo register as mc president mc bar boost instant resupply (all/mc/bunker/acid) special cargo instant buy special cargo instant sell air cargo instant sell unlocks enable hidden dlc liveries unlock rare casino items (paintings, masks, tabletop pieces) guide windows business recovery guide tunables guide salvage yard guide cargo guide resupply guide heist guide casino heist guide all guides display as draggable overlay windows with toggle buttons">
+        <div class="cl-v-head"><span class="cl-v-title">v2.8</span><span class="cl-v-date">December 31, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
         <div class="feature-category">
             <h3 class="category-title">RECOVERY MENU OVERHAUL</h3>
             <ul class="feature-list">
@@ -1727,15 +1212,10 @@
             </ul>
         </div>
     </div>
-</div>
-            <!--== Version 2.6 ==-->
-<div class="version-card" id="v2.6">
-    <div class="version-header">
-        <h2 class="version-title">v2.6</h2>
-        <span class="version-date">December 18, 2025</span>
-        <span class="version-badge">Released</span>
-    </div>
-    <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.6" data-s="v2.6 december 18, 2025 released updated updated all outdated options to the latest game update improvements significantly improved overall menu performance enhanced stability across multiple features reduced memory usage and improved efficiency optimized internal systems for smoother operation various minor improvements and refinements">
+        <div class="cl-v-head"><span class="cl-v-title">v2.6</span><span class="cl-v-date">December 18, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
     <div class="feature-category">
         <h3 class="category-title">UPDATED</h3>
         <ul class="feature-list">
@@ -1753,15 +1233,10 @@
         </ul>
     </div>
     </div>
-</div>
-			<!--== Version 2.4 ==-->
-            <div class="version-card" id="v2.4">
-                <div class="version-header">
-                    <h2 class="version-title">v2.4</h2>
-                    <span class="version-date">December 10, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.4" data-s="v2.4 december 10, 2025 released updated updated for after the safehouse in the hills dlc improvements improved overall menu performance enhanced feature stability optimized memory usage much more improvements across the board">
+        <div class="cl-v-head"><span class="cl-v-title">v2.4</span><span class="cl-v-date">December 10, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">UPDATED</h3>
                         <ul class="feature-list">
@@ -1778,15 +1253,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Version 2.3 ==-->
-            <div class="version-card" id="v2.3">
-                <div class="version-header">
-                    <h2 class="version-title">v2.3</h2>
-                    <span class="version-date">December 10, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.3" data-s="v2.3 december 10, 2025 released power features kd editor - edit your kill/death ratio free shopping - get items without paying all unlocks - unlock everything in the game business setups - auto-complete business setups business teleports - instant teleport to any business stat editor - modify player statistics rank editor - change your rank level mini games zombie mode - survive waves of zombies crazy taxi - classic taxi driving game 20+ mini games were added superhero mods superhero abilities and powers (wip) custom superhero skins (wip) more superhero content being developed misc features info box for controls - on-screen display for noclip, vehicle fly, and other controls quick actions menu - faster access to common features custom hotkeys - bind features to your preferred keys session manager - better session control options many more miscellaneous features improvements improved overall menu performance better ui responsiveness enhanced feature stability optimized memory usage improved feature toggles much more improvements across the board fixes fixed heist tool not working properly fixed business tool issues many more bug fixes and stability improvements">
+        <div class="cl-v-head"><span class="cl-v-title">v2.3</span><span class="cl-v-date">December 10, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">POWER FEATURES</h3>
                         <ul class="feature-list">
@@ -1845,15 +1315,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Version 2.2 ==-->
-            <div class="version-card" id="v2.2">
-                <div class="version-header">
-                    <h2 class="version-title">v2.2</h2>
-                    <span class="version-date">December 8, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.2" data-s="v2.2 december 8, 2025 released improvements improved aimbot improved silent aim improved magic bullet improved triggerbot new features added more esp settings added ped/player chams (wip) added wireframe mode (wip) started on legacy support (not released) (wip) started on battleye enabled support (not released) (wip) lua tab rework redid the whole lua tab added lua editor/text editor added lua api docs more changes note if you find any bugs, report them on discord">
+        <div class="cl-v-head"><span class="cl-v-title">v2.2</span><span class="cl-v-date">December 8, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">IMPROVEMENTS</h3>
                         <ul class="feature-list">
@@ -1889,15 +1354,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Version 2.1 ==-->
-            <div class="version-card" id="v2.1">
-                <div class="version-header">
-                    <h2 class="version-title">v2.1</h2>
-                    <span class="version-date">December 5, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.1" data-s="v2.1 december 5, 2025 released combat features aimbot - multiple hit bones, adjustable fov, activation modes, smooth aiming, auto-fire, visibility checks, target indicators silent aim - separate system with fov targeting, shoot through walls option, custom fov circle magic bullet - bullets hit through walls, adjustable damage, silent mode, target indicators triggerbot - auto-fire on crosshair, burst fire mode, magnet mode with snap aiming hitmarkers - visual/sound feedback, custom colors for hits/headshots/kills, rainbow mode damage indicators - floating damage numbers, critical hit colors, stack rapid damage powers telekinesis - grab entities, 10 action modes (hold, throw, ragdoll, spin, orbit, etc.) forcefield - push peds/vehicles away, adjustable radius and force aura - visual aura effect, multiple types, rainbow mode, push entities electric touch - zap nearby entities with multiple effects flaming fists - explosive/burn/ragdoll on punch, one punch kill dash - shift + wasd dash with invincibility and visual effects paraglider - glide with boost/dive controls, auto-activate on fall shockwave ball - energy balls with push, pull, bounce, homing, black hole modes god slap - dash and slap with explosive/burn/launch options walk on air - invisible platform at adjustable height matrix - slow-motion bullet time effect esp features player esp - names, distance, skeleton, box, tracelines with custom colors ped esp - names, weapons, distance, skeleton, box, tracelines vehicle esp - names, distance, box, health display crosshair - multiple styles (cross, circle, dot, spinning), rainbow fade health bars - position options, armor bar, custom colors box settings - full/corners/3d, rounded corners, glow effects skeleton settings - outline, glow, head dot styles tracelines - multiple origins, curve/fade/dashed options projectile trails - bullet/throwable trails, rainbow mode, impact boxes weapon features no recoil / no spread - perfect accuracy custom weapons - gravity gun, vehicle gun, paint gun with rainbow weapon globals - infinite ammo/clip, rapid fire, fire ammo, explosive ammo, damage multipliers movement &amp; teleport noclip / freecam - fly through walls with adjustable speed super jump / beast jump - enhanced jump abilities super run / superman - enhanced speed and flying blink teleport - quick forward teleport with marker styles mark &amp; recall - save and return to positions quick teleports - waypoint, objective, aim, vehicle teleports ipl loader - load/unload interiors with teleport ui &amp; bug fixes organized esp into tabs (main, crosshair, debug, visuals, settings) organized weapons into tabs (main, aimbot) fixed triggerbot not detecting peds inside vehicles fixed silent aim functionality fixed magic bullet activation modes fixed esp box settings display issues fixed multiple imgui duplicate id errors">
+        <div class="cl-v-head"><span class="cl-v-title">v2.1</span><span class="cl-v-date">December 5, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">COMBAT FEATURES</h3>
                         <ul class="feature-list">
@@ -1972,15 +1432,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Version 2.0 ==-->
-            <div class="version-card" id="v2.0">
-                <div class="version-header">
-                    <h2 class="version-title">v2.0</h2>
-                    <span class="version-date">December 1, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v2.0" data-s="v2.0 december 1, 2025 released initial release full gta v enhanced edition support complete menu system with all core features heist editor integration player options and protections vehicle spawner and customization weapon modifications teleport system world options recovery features">
+        <div class="cl-v-head"><span class="cl-v-title">v2.0</span><span class="cl-v-date">December 1, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">INITIAL RELEASE</h3>
                         <ul class="feature-list">
@@ -1996,19 +1451,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Loader Section ==-->
-            <div class="section-divider" id="loader">
-                <h2>LOADER</h2>
-            </div>
-            <!--== Loader v1.2 ==-->
-            <div class="version-card">
-                <div class="version-header">
-                    <h2 class="version-title">v1.2</h2>
-                    <span class="version-date">December 31, 2025</span>
-                    <span class="version-badge">Latest</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v1.2" data-s="v1.2 december 31, 2025 latest improvements updated and fixed issues added more detailed information to error codes enhanced error reporting and diagnostics general stability improvements">
+        <div class="cl-v-head"><span class="cl-v-title">v1.2</span><span class="cl-v-date">December 31, 2025</span><span class="cl-v-badge">Latest</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">IMPROVEMENTS</h3>
                         <ul class="feature-list">
@@ -2019,15 +1465,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Loader v1.1 ==-->
-            <div class="version-card">
-                <div class="version-header">
-                    <h2 class="version-title">v1.1</h2>
-                    <span class="version-date">December 5, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v1.1" data-s="v1.1 december 5, 2025 released improvements fixed icons faster injecting time">
+        <div class="cl-v-head"><span class="cl-v-title">v1.1</span><span class="cl-v-date">December 5, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">IMPROVEMENTS</h3>
                         <ul class="feature-list">
@@ -2036,15 +1477,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!--== Loader v1.0 ==-->
-            <div class="version-card">
-                <div class="version-header">
-                    <h2 class="version-title">v1.0</h2>
-                    <span class="version-date">December 1, 2025</span>
-                    <span class="version-badge">Released</span>
-                </div>
-                <div class="version-content">
+      </div>
+      <div class="cl-v" id="v1.0" data-s="v1.0 december 1, 2025 released initial release initial loader release">
+        <div class="cl-v-head"><span class="cl-v-title">v1.0</span><span class="cl-v-date">December 1, 2025</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                     <div class="feature-category">
                         <h3 class="category-title">INITIAL RELEASE</h3>
                         <ul class="feature-list">
@@ -2052,21 +1488,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            </div>
-            <!--== End Timeline Container ==-->
-            </div>
-            <!--== End GTA 5 Tab ==-->
-            <!--== Loader Tab ==-->
-            <div id="loader" class="product-content">
-                <div class="changelog-timeline">
-                    <div class="version-card" id="loader-v3.6-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v3.6</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge">Latest</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v3.6-tab" data-s="v3.6 march 2026 latest loader update added redm &amp; fivem - redm and fivem now available in the game selector improvements - various loader improvements and optimizations">
+        <div class="cl-v-head"><span class="cl-v-title">v3.6</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Latest</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">LOADER UPDATE</h3>
                                 <ul class="feature-list">
@@ -2075,14 +1500,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="loader-v2.6-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v2.6</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.6-tab" data-s="v2.6 march 2026 released loader update fivem &amp; cs2 support - added fivem and cs2 to the game selector improved injection - faster and more reliable injection process updated anti-detection - enhanced security measures bug fixes - various loader stability improvements">
+        <div class="cl-v-head"><span class="cl-v-title">v2.6</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">LOADER UPDATE</h3>
                                 <ul class="feature-list">
@@ -2093,14 +1514,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="loader-v2.5-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v2.5</h2>
-                            <span class="version-date">February 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.5-tab" data-s="v2.5 february 2026 released new features game selector - added game selector for gta5/rdr2/fivem/redm">
+        <div class="cl-v-head"><span class="cl-v-title">v2.5</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">NEW FEATURES</h3>
                                 <ul class="feature-list">
@@ -2108,14 +1525,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="loader-v2.2-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v2.2</h2>
-                            <span class="version-date">February 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.2-tab" data-s="v2.2 february 2026 released fixes fixed issues - various loader issues resolved fixed overlapping - fixed any overlapping ui elements">
+        <div class="cl-v-head"><span class="cl-v-title">v2.2</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">FIXES</h3>
                                 <ul class="feature-list">
@@ -2124,14 +1537,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="loader-v2.0-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v2.0</h2>
-                            <span class="version-date">January 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="loader-v2.0-tab" data-s="v2.0 january 2026 released redesign fully redesigned loader - complete visual and functional overhaul improved user interface and experience">
+        <div class="cl-v-head"><span class="cl-v-title">v2.0</span><span class="cl-v-date">January 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">REDESIGN</h3>
                                 <ul class="feature-list">
@@ -2140,29 +1549,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--== Spoofer Tab ==-->
-            <div id="spoofer" class="product-content">
-                <div class="coming-soon-msg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    <h3>Spoofer Changelog</h3>
-                    <p>Spoofer changelog will be displayed here. Check back soon for updates.</p>
-                </div>
-            </div>
-            <!--== RDR2 Tab ==-->
-            <div id="rdr2" class="product-content">
-                <div class="changelog-timeline">
-                    <div class="version-card" id="rdr2-v1.0-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v1.0</h2>
-                            <span class="version-date">February 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="rdr2-v1.0-tab" data-s="v1.0 february 2026 released initial release rdr2 support - red dead redemption 2 mod menu released">
+        <div class="cl-v-head"><span class="cl-v-title">v1.0</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">INITIAL RELEASE</h3>
                                 <ul class="feature-list">
@@ -2170,19 +1560,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--== FiveM Tab ==-->
-            <div id="fivem" class="product-content">
-                <div class="changelog-timeline">
-                    <div class="version-card" id="fivem-v1.1-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v1.1</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge">Latest</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="fivem-v1.1-tab" data-s="v1.1 march 2026 latest new features silent aim &amp; magic bullet - hit targets without visibly aiming at them image esp - display player images through walls for easy identification improved radar overlay - enhanced radar with full map support improved code editor - better scripting experience with enhanced code editor improvements many improvements to local features added more local player options and enhancements various bug fixes and optimizations overall stability improvements">
+        <div class="cl-v-head"><span class="cl-v-title">v1.1</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Latest</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">NEW FEATURES</h3>
                                 <ul class="feature-list">
@@ -2202,14 +1583,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="fivem-v1.0-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v1.0</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="fivem-v1.0-tab" data-s="v1.0 march 2026 released fivem released scooby fivem released - fivem mod menu is now available esp / wallhacks - see players through walls with health, distance, and name info aimbot - precision aim assistance with configurable settings anti-cheat checker - detect which anti-cheat is running on the server anti-cheat disabler - disable server-side anti-cheat systems ac bypasses - bypass popular fivem anti-cheat solutions triggerbot - automatically fires when crosshair is on a player vehicle options - spawn, modify, and customize vehicles teleport options - teleport to waypoints and coordinates player options - various player modifications and enhancements notes available for free via the get free key system more features and improvements coming in future updates report any bugs on discord">
+        <div class="cl-v-head"><span class="cl-v-title">v1.0</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">FIVEM RELEASED</h3>
                                 <ul class="feature-list">
@@ -2234,19 +1611,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--== RedM Tab ==-->
-            <div id="redm" class="product-content">
-                <div class="changelog-timeline">
-                    <div class="version-card" id="redm-v1.0-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v1.0</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">Online</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="redm-v1.0-tab" data-s="v1.0 march 2026 online redm pushed to user testing scooby redm v1.0 - redm mod menu pushed to user testing phase esp / wallhacks - see players through walls with health and distance info aimbot - precision aim assistance for red dead online player options - various player modifications and enhancements vehicle/horse options - spawn and modify vehicles and horses teleport options - teleport to waypoints and coordinates notes currently in user testing - report any bugs on discord more features coming after testing phase">
+        <div class="cl-v-head"><span class="cl-v-title">v1.0</span><span class="cl-v-date">March 2026</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">REDM PUSHED TO USER TESTING</h3>
                                 <ul class="feature-list">
@@ -2266,43 +1634,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!--== R6 Tab ==-->
-            <div id="r6" class="product-content">
-                <div class="coming-soon-msg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
-                    <h3>Coming Soon</h3>
-                    <p>Rainbow Six changelog will be added here once the product is released.</p>
-                </div>
-            </div>
-            <!--== PUBG Tab ==-->
-            <div id="pubg" class="product-content">
-                <div class="coming-soon-msg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
-                    <h3>Coming Soon</h3>
-                    <p>PUBG changelog will be added here once the product is released.</p>
-                </div>
-            </div>
-            <!--== CS2 Tab ==-->
-            <div id="cs2" class="product-content">
-                <div class="changelog-timeline">
-                    <div class="version-card" id="cs2-v1.1-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v1.1</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge">Latest</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="cs2-v1.1-tab" data-s="v1.1 march 2026 latest cs2 updated updated game version - full compatibility with the latest cs2 update dual ui - listui &amp; clickui both fully supported more player esp features - additional esp options for better player visibility aimbot &amp; triggerbot - improved aimbot and triggerbot with more settings improvements many new features added across all categories improved overall performance and stability various bug fixes and optimizations enhanced anti-detection measures">
+        <div class="cl-v-head"><span class="cl-v-title">v1.1</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Latest</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">CS2 UPDATED</h3>
                                 <ul class="feature-list">
@@ -2322,14 +1657,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="cs2-recode-tab">
-                        <div class="version-header">
-                            <h2 class="version-title">v1.0 Recode</h2>
-                            <span class="version-date">March 2026</span>
-                            <span class="version-badge">Released</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="cs2-recode-tab" data-s="v1.0 recode march 2026 released cs2 recode released complete recode - cs2 menu has been fully recoded from the ground up dual ui support - clickui &amp; listui now available for cs2 improved esp - enhanced visuals with more customization options improved aimbot - better target acquisition with smoother aim improved triggerbot - more responsive with configurable delays enhanced bhop - better movement prediction and consistency performance boost - significantly improved performance and stability new skinchanger - change weapon skins, knives, and gloves in-game fixes &amp; improvements fixed various crashes and stability issues from beta improved anti-detection measures better compatibility with latest cs2 updates optimized memory usage">
+        <div class="cl-v-head"><span class="cl-v-title">v1.0 Recode</span><span class="cl-v-date">March 2026</span><span class="cl-v-badge">Released</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">CS2 RECODE RELEASED</h3>
                                 <ul class="feature-list">
@@ -2353,14 +1684,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="version-card" id="cs2-beta">
-                        <div class="version-header">
-                            <h2 class="version-title">CS2 Beta</h2>
-                            <span class="version-date">February 2026</span>
-                            <span class="version-badge">Beta</span>
-                        </div>
-                        <div class="version-content">
+      </div>
+      <div class="cl-v" id="cs2-beta" data-s="cs2 beta february 2026 beta cs2 beta released scooby cs2 beta released - counter-strike 2 mod menu now available as a free beta esp / wallhacks - see enemies through walls with health bars, distance, and weapon info aimbot - precision aim assistance with configurable fov, smoothing, and bone selection triggerbot - automatically fires when crosshair is on an enemy no recoil - eliminate weapon recoil and spread for perfect accuracy radar - enhanced radar showing all enemy positions bhop - automated bunny hopping for maximum movement speed chams - colored player models visible through walls coming soon skinchanger - use any skin in-game including knives and gloves (in development) paid early access - premium tier with additional features coming soon notes this is a beta release - report any bugs on discord currently available for free via the get free key system more features and improvements coming in future updates">
+        <div class="cl-v-head"><span class="cl-v-title">CS2 Beta</span><span class="cl-v-date">February 2026</span><span class="cl-v-badge">Beta</span></div>
+        <div class="cl-v-body">
                             <div class="feature-category">
                                 <h3 class="category-title">CS2 BETA RELEASED</h3>
                                 <ul class="feature-list">
@@ -2390,263 +1717,145 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="/" class="back-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    Back to Home
-                </a>
-            </div>
-        </div>
-    </section>
-    <!--== Footer ==-->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-brand-name">SCOOBY</div>
-                    <p class="footer-tag">Premium mod menus for GTA 5, FiveM, RDR2, RedM, CS2 &amp; more.</p>
-                    <div class="footer-social">
-                        <a href="https://discord.gg/tGtvzChYQq" target="_blank" aria-label="Discord">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.102 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-                        </a>
-                        </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="/products/gta5">GTA 5</a></li>
-                        <li><a href="/products/fivem">FiveM</a></li>
-                        <li><a href="/products/rdr2">RDR2</a></li>
-                        <li><a href="/products/redm">RedM</a></li>
-                        <li><a href="/products/cs2">CS2</a></li>
-                        <li><a href="/products/gmod">GMOD</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/guides">Guides</a></li>
-                        <li><a href="/videos">Videos</a></li>
-                        <li><a href="/changelog">Changelog</a></li>
-                        <li><a href="/docs">Docs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="/tos">Terms of Service</a></li>
-                        <li><a href="https://discord.gg/tGtvzChYQq" target="_blank">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Scooby. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="/tos">Terms</a>
-                    <a href="https://discord.gg/tGtvzChYQq" target="_blank">Discord</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script>
-        // Load changelog from JSON
-        async function loadChangelog() {
-            try {
-                const response = await fetch('changelog.json');
-                const data = await response.json();
-                // Update stats
-                if (data.stats) {
-                    document.getElementById('stat-versions').textContent = data.stats.totalVersions;
-                    document.getElementById('stat-latest').textContent = data.stats.latestUpdate;
-                }
-                // Build version jump navigation
-                const jumpContainer = document.getElementById('version-jump');
-                let jumpHTML = '';
-                data.versions.forEach((v, i) => {
-                    const isLatest = i === 0;
-                    jumpHTML += `<a href="#${v.id}" class="version-jump-btn${isLatest ? ' latest' : ''}">${v.version}</a>`;
-                });
-                jumpHTML += '<a href="#loader" class="version-jump-btn">Loader</a>';
-                jumpContainer.innerHTML = jumpHTML;
-                // Build timeline
-                const timeline = document.getElementById('changelog-timeline');
-                let timelineHTML = '';
-                // Menu versions
-                data.versions.forEach(v => {
-                    timelineHTML += renderVersionCard(v);
-                });
-                // Loader section divider
-                timelineHTML += `
-                    <div class="section-divider" id="loader">
-                        <h2>LOADER</h2>
-                    </div>
-                `;
-                // Loader versions
-                data.loader.forEach(v => {
-                    timelineHTML += renderVersionCard(v);
-                });
-                // RDR2 section divider
-                if (data.rdr2 && data.rdr2.length > 0) {
-                    timelineHTML += `
-                        <div class="section-divider" id="rdr2-section">
-                            <h2>RDR2</h2>
-                        </div>
-                    `;
-                    data.rdr2.forEach(v => {
-                        timelineHTML += renderVersionCard(v);
-                    });
-                }
-                timeline.innerHTML = timelineHTML;
-                // Initialize animations
-                initAnimations();
-            } catch (error) {
-                console.error('Failed to load changelog:', error);
-                document.getElementById('changelog-timeline').innerHTML = `
-                    <div style="text-align: center; padding: 60px 20px;">
-                        <p style="color: #ff6b6b;">Failed to load changelog</p>
-                        <button onclick="loadChangelog()" style="margin-top: 20px; padding: 12px 24px; background: var(--accent-gradient); border: none; border-radius: 8px; color: white; cursor: pointer;">Retry</button>
-                    </div>
-                `;
-            }
-        }
-        function renderVersionCard(v) {
-            const badgeStyle = v.badgeStyle === 'beta'
-                ? 'background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);'
-                : v.badgeStyle === 'latest'
-                ? 'background: var(--accent-gradient);'
-                : '';
-            let categoriesHTML = '';
-            v.categories.forEach(cat => {
-                let featuresHTML = '';
-                cat.features.forEach(feat => {
-                    // Handle features with bold parts
-                    const boldMatch = feat.match(/^(.+?) - (.+)$/);
-                    if (boldMatch) {
-                        featuresHTML += `<li><strong>${boldMatch[1]}</strong> - ${boldMatch[2]}</li>`;
-                    } else {
-                        featuresHTML += `<li>${feat}</li>`;
-                    }
-                });
-                categoriesHTML += `
-                    <div class="feature-category">
-                        <h3 class="category-title">${cat.title}</h3>
-                        <ul class="feature-list">${featuresHTML}</ul>
-                    </div>
-                `;
-            });
-            return `
-                <div class="version-card" id="${v.id}">
-                    <div class="version-header">
-                        <h2 class="version-title">${v.version}</h2>
-                        <span class="version-date">${v.date}</span>
-                        <span class="version-badge" style="${badgeStyle}">${v.badge}</span>
-                    </div>
-                    <div class="version-content">
+      </div>
+      <div class="cl-v" id="${v.id}" data-s="${v.version} ${v.date} ${v.badge} ${categorieshtml}">
+        <div class="cl-v-head"><span class="cl-v-title">${v.version}</span><span class="cl-v-date">${v.date}</span></div>
+        <div class="cl-v-body">
                         ${categoriesHTML}
                     </div>
-                </div>
-            `;
-        }
-        function initAnimations() {
-            // Scroll animations for version cards
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            document.querySelectorAll('.version-card').forEach((el, index) => {
-                el.classList.add('animate-card');
-                el.style.transitionDelay = `${index * 0.1}s`;
-                observer.observe(el);
-            });
-            // Smooth scroll for version jump buttons
-            document.querySelectorAll('.version-jump-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = btn.getAttribute('href').substring(1);
-                    const targetEl = document.getElementById(targetId);
-                    if (targetEl) {
-                        const navbarHeight = 80;
-                        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    }
-                });
-            });
-            // Highlight active version on scroll
-            const highlightActiveVersion = () => {
-                const versionCards = document.querySelectorAll('.version-card[id], .section-divider[id]');
-                const jumpBtns = document.querySelectorAll('.version-jump-btn');
-                let currentVersion = '';
-                versionCards.forEach(card => {
-                    const rect = card.getBoundingClientRect();
-                    if (rect.top <= 150) currentVersion = card.id;
-                });
-                jumpBtns.forEach(btn => {
-                    const href = btn.getAttribute('href').substring(1);
-                    if (href === currentVersion) {
-                        btn.style.background = 'rgba(79, 142, 245, 0.2)';
-                        btn.style.borderColor = 'rgba(79, 142, 245, 0.5)';
-                        btn.style.color = '#4f8ef5';
-                    } else if (!btn.classList.contains('latest')) {
-                        btn.style.background = '';
-                        btn.style.borderColor = '';
-                        btn.style.color = '';
-                    }
-                });
-            };
-            window.addEventListener('scroll', highlightActiveVersion);
-        }
-        // Parallax effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            const x = (e.clientX / window.innerWidth - 0.5) * 10;
-            const y = (e.clientY / window.innerHeight - 0.5) * 10;
-            particles.forEach((p, i) => {
-                const speed = (i % 5 + 1) * 0.3;
-                p.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        });
-        // Nav scroll behaviour
-        (function() {
-            const nav = document.getElementById('nav');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 60) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
-            }, { passive: true });
-        })();
-        // Mobile menu toggle
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('mobile-open');
-        }
-        // Load changelog when page loads
-        document.addEventListener('DOMContentLoaded', loadChangelog);
-        // Product Tab Switching
-        function showProductTab(tabId) {
-            // Hide all tab contents
-            document.querySelectorAll('.product-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            // Remove active class from all tabs
-            document.querySelectorAll('.product-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-        }
+      </div>
+          <div class="cl-empty" id="clEmpty"><b>No releases match that search</b>Try a different word, or clear the filter.</div>
+        </div>
+      </div>
+    </div>
+
+<script>
+(function () {
+  var input = document.getElementById('clSearch');
+  var cards = [].slice.call(document.querySelectorAll('.cl-v'));
+  var links = [].slice.call(document.querySelectorAll('.cl-jump a'));
+  var empty = document.getElementById('clEmpty');
+  var timer;
+
+  function apply() {
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (c) {
+      var on = !q || (c.getAttribute('data-s') || '').indexOf(q) !== -1;
+      c.style.display = on ? '' : 'none';
+      if (on) shown++;
+      var id = c.id;
+      links.forEach(function (a) {
+        if (a.getAttribute('href') === '#' + id) a.style.display = on ? '' : 'none';
+      });
+    });
+    empty.style.display = shown ? 'none' : 'block';
+  }
+  input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(apply, 120); });
+
+  // highlight whichever release is currently in view
+  function spy() {
+    var best = null;
+    cards.forEach(function (c) {
+      if (c.style.display === 'none') return;
+      if (c.getBoundingClientRect().top <= 130) best = c.id;
+    });
+    if (!best && cards.length) best = cards[0].id;
+    links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + best); });
+  }
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+})();
+</script>
+    <!--== Footer ==-->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand"><span class="brand-name">scooby</span></div>
+            <p class="footer-tag">Premium gaming enhancement menus. The ultimate modding experience for GTA Online, RDR2, FiveM and more.</p>
+            <div class="footer-social">
+              <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+              <a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+              </div>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="/products/gta5">GTA 5</a></li>
+              <li><a href="/products/rdr2">RDR2</a></li>
+              <li><a href="/products/fivem">FiveM</a></li>
+              <li><a href="/products/redm">RedM</a></li>
+              <li><a href="/products/cs2">CS2</a></li>
+              <li><a href="/products/gmod">GMOD</a></li>
+              <li><a href="/products/spoofer">Spoofer + Cleaner</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+              <li><a href="/videos" rel="noopener">Videos</a></li>
+              <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
+              <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Discord Server</a></li>
+              <li><a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener">Telegram</a></li>
+              <li><a href="/portal" target="_blank" rel="noopener">Portal / Login</a></li>
+              <li><a href="/tos">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Scooby. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="/tos">Terms</a>
+            <a href="/portal" target="_blank" rel="noopener">Portal</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="downloadModal" style="position:fixed;inset:0;z-index:1000;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s;">
+      <div style="background:linear-gradient(180deg,#141414,#111);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:32px;width:100%;max-width:440px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.7);max-height:90vh;overflow-y:auto;">
+        <button onclick="closeModal('downloadModal')" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:none;color:#9a9aaa;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <h3 style="font-size:1.25rem;font-weight:800;text-align:center;margin-bottom:8px;color:#fff;">Download Launcher</h3>
+        <p style="color:#9a9aaa;text-align:center;font-size:.92rem;margin-bottom:20px;">Click below to download the installer.</p>
+        <a href="https://limewire.com/d/YtOlY#6k1TG2kUxB" target="_blank" rel="noopener" onclick="closeModal('downloadModal')" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:50px;font-size:.93rem;font-weight:600;background:#4f8ef5;color:#fff;border:none;cursor:pointer;text-decoration:none;font-family:inherit;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Scooby Launcher
+        </a>
+      </div>
+    </div>
+
+    <script>
+    // Navbar scroll
+    var nav = document.getElementById('nav');
+    if (nav) {
+      window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    }
+    // Mobile menu
+    function toggleMenu() {
+      var h = document.getElementById('hamburger'), n = document.getElementById('navLinks');
+      var open = n.classList.toggle('open');
+      h.classList.toggle('active');
+      h.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    document.querySelectorAll('#navLinks a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    function openModal(id) { var el = document.getElementById(id); if(el){el.style.display='flex';el.style.opacity='1';document.body.style.overflow='hidden';} }
+    function closeModal(id) { var el = document.getElementById(id); if(el){el.style.display='none';document.body.style.overflow='';} }
+    document.querySelectorAll('.modal-overlay').forEach(function(o){ o.addEventListener('click',function(e){if(e.target===o)closeModal(o.id);}); });
     </script>
 </body>
 </html>
