@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>General Guides - Scooby Mod Menu</title>
-<meta name="description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, free keys, HWID resets and crash fixes.">
+<meta name="description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, running Scooby on Linux and Mac, free keys, HWID resets and crash fixes.">
 <link rel="canonical" href="https://scoobymenu.cc/guides/general/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/general/">
 <meta property="og:title" content="General Guides - Scooby Mod Menu">
-<meta property="og:description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, free keys, HWID resets and crash fixes.">
+<meta property="og:description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, running Scooby on Linux and Mac, free keys, HWID resets and crash fixes.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="General Guides - Scooby Mod Menu">
-<meta name="twitter:description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, free keys, HWID resets and crash fixes.">
+<meta name="twitter:description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, running Scooby on Linux and Mac, free keys, HWID resets and crash fixes.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
-<meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5">
+<meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5, Scooby Linux, mod menu Linux, GTA 5 mod menu Lutris, Scooby WINE, Scooby Proton, mod menu Mac, Scooby CrossOver, GTA 5 mod menu Mac">
 <link rel="shortcut icon" href="/assets/images/logo.png">
 <!-- DNS Prefetch for external resources -->
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -729,7 +729,7 @@
     <div class="page-header">
         <div class="container">
             <h1 class="page-title">GENERAL GUIDES</h1>
-            <p class="page-subtitle">Antivirus fixes, troubleshooting, free keys and HWID resets</p>
+            <p class="page-subtitle">Antivirus fixes, troubleshooting, Linux &amp; Mac, free keys and HWID resets</p>
         </div>
     </div>
     <!--== Guide Content ==-->
@@ -754,6 +754,7 @@
                             <a href="#universal">Universal Troubleshooting</a>
                             <a href="#connection">Connection or SSL Errors</a>
                             <a href="#hwid">Resetting Your HWID</a>
+                            <a href="#linux-mac">Scooby on Linux &amp; Mac</a>
                         </nav>
                     </div>
                 </aside>
@@ -948,6 +949,37 @@
                     <div class="error-card">
                         <h4>On cooldown?</h4>
                         <p>If you are on cooldown then you need to wait - the reset cannot be forced through early.</p>
+                    </div>
+                </div>
+                <div class="guide-card" id="linux-mac">
+                    <h2>Use Scooby on Linux &amp; Mac</h2>
+                    <p>Scooby is a Windows application, but it runs on Linux and Mac through a Windows compatibility layer. The trick is making sure the loader and the game live in the <strong>same prefix</strong> - otherwise the loader cannot see the game to inject into.</p>
+
+                    <h3>Linux</h3>
+                    <ul>
+                        <li>Install <strong>Lutris</strong></li>
+                        <li>Install the <strong>Rockstar Games Launcher</strong> through Lutris and let it update to the latest version</li>
+                        <li>Install <strong>GTA V</strong> through the Rockstar Games Launcher, inside Lutris</li>
+                        <li>Add <code>ScoobyLoader.exe</code> to Lutris as a <strong>pre-installed game</strong>, and set its <strong>WINE prefix to the same prefix the Rockstar Games Launcher uses</strong></li>
+                        <li>Copy <code>segoeui.ttf</code> into that prefix's <code>Windows\Fonts</code> folder</li>
+                        <li>Launch <code>ScoobyLoader.exe</code> through Lutris and play as normal</li>
+                    </ul>
+
+                    <div class="requirements-box">
+                        <h4>Why the font matters</h4>
+                        <p style="margin-bottom:0;">Segoe UI is a Windows font that WINE does not ship. Without it the menu can render with missing or broken text, so copy <code>segoeui.ttf</code> into the prefix before you launch.</p>
+                    </div>
+
+                    <h3>Performance</h3>
+                    <p><strong>Scooby itself does not really affect performance.</strong> If the game runs badly, that is the compatibility layer rather than the menu.</p>
+                    <p>Try <strong>different WINE or Proton versions</strong> - performance varies a lot between builds, and switching runner version is usually the single biggest win.</p>
+
+                    <h3>Mac</h3>
+                    <p>The same approach works on Mac through <strong>CrossOver</strong>, and other tools for running Windows apps on Mac will work the same way. Set it up exactly as above: game and loader in the same bottle/prefix, with the Segoe UI font added.</p>
+
+                    <div class="error-card">
+                        <h4>Heads-up on Mac performance</h4>
+                        <p><strong>GTA 5 itself runs poorly on Mac</strong> in our testing, including on <strong>M4 Pro and M4 Pro Max</strong>. It does run - it is just not a great experience. That is the game under translation, <strong>not a Scooby issue</strong>, and there is nothing on our side that changes it.</p>
                     </div>
                 </div>
                             </div>
