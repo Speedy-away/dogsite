@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>General Guides - Scooby Mod Menu</title>
-<meta name="description" content="General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.">
+<meta name="description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, free keys, HWID resets and crash fixes.">
 <link rel="canonical" href="https://scoobymenu.cc/guides/general/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/general/">
 <meta property="og:title" content="General Guides - Scooby Mod Menu">
-<meta property="og:description" content="General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.">
+<meta property="og:description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, free keys, HWID resets and crash fixes.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="General Guides - Scooby Mod Menu">
-<meta name="twitter:description" content="General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.">
+<meta name="twitter:description" content="General Scooby guides: why Scooby is flagged as a virus, how to download the loader, Windows Defender exclusions, free keys, HWID resets and crash fixes.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5">
 <link rel="shortcut icon" href="/assets/images/logo.png">
@@ -636,6 +636,44 @@
         font-weight: 600;
     }
     .guide-main { min-width: 0; }
+    /* FAQ accordion - matches the homepage pattern */
+    .faq-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .faq {
+        background: rgba(255,255,255,.02);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: border-color .2s;
+    }
+    .faq.open { border-color: var(--accent-line); }
+    .faq-q {
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        padding: 18px 22px; cursor: pointer; font-weight: 600; font-size: 1rem;
+        color: var(--text-primary); user-select: none;
+    }
+    .faq-q svg { width: 18px; height: 18px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+    .faq.open .faq-q svg { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 22px 20px; }
+    .faq-a-inner p { color: var(--text-secondary); font-size: .95rem; margin-bottom: 12px; }
+    .faq-a-inner p:last-child { margin-bottom: 0; }
+    .faq-a-inner ul { color: var(--text-secondary); font-size: .95rem; margin-left: 22px; margin-bottom: 12px; }
+    /* Error cards carrying a checklist rather than a single paragraph */
+    .error-card ul { margin: 0 0 0 20px; font-size: .96rem; }
+    .error-card ul li { margin-bottom: 10px; }
+    .error-card ul li:last-child { margin-bottom: 0; }
+    .error-card p + p { margin-top: 12px; }
+    .faq-path {
+        display: inline-block;
+        background: rgba(79,142,245,0.08);
+        border: 1px solid rgba(79,142,245,0.2);
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin: 4px 0 14px;
+        font-size: .9rem;
+        color: #4f8ef5;
+        line-height: 1.9;
+    }
     @media (max-width: 900px) {
         .guide-layout { grid-template-columns: 1fr; gap: 24px; }
         .guide-sidebar-inner {
@@ -657,6 +695,7 @@
         .guide-nav a.active { border-color: var(--accent-line); }
     }
 </style>
+<link rel="stylesheet" href="/assets/css/guide-sections.css">
 </head>
 <body>
     <!--== Header ==-->
@@ -690,7 +729,7 @@
     <div class="page-header">
         <div class="container">
             <h1 class="page-title">GENERAL GUIDES</h1>
-            <p class="page-subtitle">Free keys, HWID resets and common fixes</p>
+            <p class="page-subtitle">Antivirus fixes, troubleshooting, free keys and HWID resets</p>
         </div>
     </div>
     <!--== Guide Content ==-->
@@ -701,6 +740,7 @@
                 <a class="game-tab" href="/guides/fivem/">FiveM</a>
                 <a class="game-tab" href="/guides/redm/">RedM</a>
                 <a class="game-tab" href="/guides/rdr2/">RDR2</a>
+                <a class="game-tab" href="/guides/cs2/">CS2</a>
                 <a class="game-tab active" href="/guides/general/">General</a>
             </div>
             <div class="guide-layout">
@@ -708,8 +748,10 @@
                     <div class="guide-sidebar-inner">
                         <h3>On this page</h3>
                         <nav class="guide-nav">
+                            <a href="#faq">Antivirus &amp; Download FAQ</a>
                             <a href="#free-key">Getting a Free Key</a>
                             <a href="#crashing">Crashing Solutions</a>
+                            <a href="#universal">Universal Troubleshooting</a>
                             <a href="#connection">Connection or SSL Errors</a>
                             <a href="#hwid">Resetting Your HWID</a>
                         </nav>
@@ -720,8 +762,37 @@
                 <div class="warning-banner" style="margin-bottom: 40px;">
                     These guides apply to every game. Please read the whole thing before asking for help!
                 </div>
-                <!--== Table of Contents ==-->
-                
+                <!--== Antivirus & Download FAQ ==-->
+                <div class="guide-card" id="faq">
+                    <h2>Antivirus &amp; Download FAQ</h2>
+                    <p>The most common questions people ask before they even get the loader running. Read these first if Windows is blocking or removing your download.</p>
+                    <div class="faq-wrap">
+                        <div class="faq">
+                            <div class="faq-q">Why is Scooby flagged as a virus?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p>It is most commonly known as a <strong>false positive</strong>, which means your PC may automatically flag the mod menu as malware because it doesn't recognise the file or its intentions.</p>
+                                <p>This happens due to the way mod menus are developed, not necessarily because they are malicious.</p>
+                            </div></div>
+                        </div>
+                        <div class="faq">
+                            <div class="faq-q">How can I download the loader?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p>Simply disable <strong>Real-time Protection</strong> in Windows Security.</p>
+                                <p>You may also need to temporarily disable your browser's <strong>Safe Browsing</strong> or <strong>Safe Search</strong> feature if it prevents the download.</p>
+                                <p>Recommended browsers are <strong>Chrome</strong> and <strong>Firefox</strong>.</p>
+                            </div></div>
+                        </div>
+                        <div class="faq">
+                            <div class="faq-q">Why does the Scooby loader delete itself after some time?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                            <div class="faq-a"><div class="faq-a-inner">
+                                <p>This usually happens because the loader hasn't been added as an <strong>exclusion</strong> in Windows Defender. When Real-time Protection is re-enabled, Windows Defender may automatically remove the loader.</p>
+                                <p>To prevent this, open <strong>Windows Security</strong> and go to:</p>
+                                <span class="faq-path">Virus &amp; threat protection → Manage settings → Add or remove exclusions → Add an exclusion</span>
+                                <p>Select the Scooby loader. Once it has been added as an exclusion, Windows Defender should no longer remove it automatically.</p>
+                            </div></div>
+                        </div>
+                    </div>
+                </div>
                 <!--== Free Key ==-->
                 <div class="guide-card" id="free-key">
                     <h2>Getting a Free Key</h2>
@@ -769,6 +840,89 @@
                         <p>Make sure you are <strong>following the injection instructions properly</strong>. Almost every issue comes from skipping steps. The guides exist for a reason - if you want to play without the restrictions, the Premium Plus version gives you access to everything. Otherwise, use the limited free version as documented.</p>
                     </div>
                 </div>
+                <!--== Universal Troubleshooting ==-->
+                <div class="guide-card" id="universal">
+                    <h2>Universal Troubleshooting</h2>
+                    <p>Fixes for the specific errors people hit most often. This list is <strong>updated regularly</strong> - check back after an update before opening a ticket.</p>
+
+                    <div class="error-card">
+                        <h4>Not injecting</h4>
+                        <ul>
+                            <li>Make sure you have <strong>disabled BattlEye</strong> in the Rockstar Launcher. If you launch through <strong>Steam or Epic</strong>, disable it there too with the launch argument <code>-nobattleye</code></li>
+                            <li><strong>Exclude the Scooby application and its folder in Documents</strong> from Windows Defender. Third-party antivirus can still cause issues even when fully disabled</li>
+                            <li><strong>Run Scooby as Administrator</strong></li>
+                            <li>Delete the <strong>Scooby folder</strong> in your <code>C:\</code> drive</li>
+                            <li><strong>Remove OneDrive</strong> - it can cause permission issues in the Documents folder</li>
+                            <li>Verify your system files: open <strong>CMD as Administrator</strong> and run <code>sfc /scannow</code></li>
+                            <li>Make sure your <strong>C: drive and Scooby folder have Full Control</strong> in their Properties → Security settings</li>
+                        </ul>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>"Failed to inject module. Try disabling your Anti-Virus."</h4>
+                        <p>A few different things cause this error. Follow these steps correctly and it should stop appearing:</p>
+                        <ul>
+                            <li>Make sure you are using the <strong>correct Windows user profile with Administrator privileges</strong>, and always <strong>run the Scooby loader as Administrator</strong></li>
+                            <li><strong>Move the Scooby loader to your Desktop</strong>, then add <strong>both the loader and your C: drive folder</strong> to your antivirus exclusions</li>
+                            <li>If you have <strong>OneDrive</strong> enabled, <strong>fully unlink and uninstall it</strong></li>
+                        </ul>
+                        <p>You can tell OneDrive is getting in the way if <strong>you can't find the Scooby folder in your normal Documents folder</strong>, or if the path shown in your antivirus exclusions <strong>contains "OneDrive"</strong>.</p>
+                        <!-- Drop the exclusions screenshot in /assets/images/guides/ and uncomment:
+                        <img loading="lazy" decoding="async" src="/assets/images/guides/defender-exclusions.png" alt="Windows Security exclusions list showing the Scooby loader and C: drive folder added as exclusions" class="guide-image" style="max-width: 700px; margin: 25px auto;">
+                        -->
+                    </div>
+
+                    <div class="error-card">
+                        <h4>Crashing on inject</h4>
+                        <ul>
+                            <li><strong>Exclude the Scooby application and its folder in Documents</strong> from Windows Defender. Third-party antivirus can still cause issues even when fully disabled</li>
+                            <li>Check the log to see if you are getting <strong>Failed to Find Patterns</strong> - if so, follow the Failed to Find Patterns guide in our <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Discord</a></li>
+                            <li>Make sure <strong>HDR is disabled</strong> in Windows Display Settings</li>
+                            <li><strong>Verify your GTA game files</strong></li>
+                            <li>Delete the <strong>Scooby folder</strong> in your <code>C:\</code> drive</li>
+                            <li>Verify your system files: open <strong>CMD as Administrator</strong> and run <code>sfc /scannow</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>Loader not opening, or "Auth Failed" error</h4>
+                        <ul>
+                            <li>Use a VPN - <a href="https://one.one.one.one/" target="_blank" rel="noopener">https://one.one.one.one/</a></li>
+                            <li><strong>Disable or remove any third-party antivirus</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>"GTA detected a fatal error"</h4>
+                        <p>Most of the time this is <strong>not caused by Scooby</strong>, but by faulty game files or something else on your system. Look up the specific error code shown (for example <code>ERR_GFX_STATE</code>) - it will point you to the actual cause.</p>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>Subscribed scripts not showing up</h4>
+                        <p>Use a VPN - <a href="https://one.one.one.one/" target="_blank" rel="noopener">https://one.one.one.one/</a></p>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>Why am I getting desync-kicked by BattlEye while using Scooby?</h4>
+                        <p>The reason for the desync-kick is that you are <strong>joining public sessions as a non-host</strong>, which causes BattlEye to remove you from the session.</p>
+                        <p>This happens because you are playing GTA Online with <strong>BattlEye disabled</strong> while other players have it <strong>enabled</strong>.</p>
+                        <p><strong>To prevent it, start your own sessions as the host.</strong> You will then be able to play normally with non-modders who have BattlEye enabled. In the menu, go to:</p>
+                        <span class="faq-path">Session Tab → Session Starter → Invite-Only Session or New Public Session</span>
+                        <p>If you want other players to join, enable the <strong>Advertise Session</strong> function in the host toolkit, or simply invite your friends. See <a href="/guides/gta5/#host-public">How To Host Public Sessions with Scooby</a> for the full walkthrough.</p>
+                        <p>We also have a <strong>BattlEye bypass</strong> that lets you join anyone, including random public sessions - all the information on that is on the <a href="/products/gta5/">GTA 5 product page</a>.</p>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>Getting BattlEye kicked even without Scooby running</h4>
+                        <p>You most likely joined a <strong>public lobby where you were not the host</strong> and got kicked by BattlEye while using Scooby. You will need to <strong>wait 12-24 hours</strong> for the kick to go away.</p>
+                        <p>Until then, stick to lobbies where <strong>you are the host</strong>, or where another BattlEye-disabled player is the host.</p>
+                    </div>
+
+                    <div class="error-card">
+                        <h4>Scooby folder not in Documents</h4>
+                        <p>Check your <code>C:\</code> drive for it. It falls back there if permissions fail in Documents - usually because of OneDrive.</p>
+                    </div>
+                </div>
                 <!--== Connection / SSL ==-->
                 <div class="guide-card" id="connection">
                     <h2>Connection or SSL Errors</h2>
@@ -800,25 +954,21 @@
             </div>
         </div>
     </section>
+    <script src="/assets/js/guide-sections.js"></script>
     <script>
-    // Highlight the sidebar row for whichever section is currently in view.
-    (function () {
-        var links = [].slice.call(document.querySelectorAll('.guide-nav a'));
-        if (!links.length) return;
-        var targets = links.map(function (a) {
-            return document.getElementById(a.getAttribute('href').slice(1));
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(function (q) {
+        q.addEventListener('click', function () {
+            var item = q.parentElement, ans = item.querySelector('.faq-a'), isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq').forEach(function (f) {
+                f.classList.remove('open');
+                f.querySelector('.faq-a').style.maxHeight = null;
+            });
+            if (!isOpen) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
         });
-        function sync() {
-            var best = 0;
-            for (var i = 0; i < targets.length; i++) {
-                if (targets[i] && targets[i].getBoundingClientRect().top <= 140) best = i;
-            }
-            links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
-        }
-        window.addEventListener('scroll', sync, { passive: true });
-        sync();
-    })();
+    });
     </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is Scooby flagged as a virus?","acceptedAnswer":{"@type":"Answer","text":"It is most commonly known as a false positive, which means your PC may automatically flag the mod menu as malware because it doesn't recognise the file or its intentions. This happens due to the way mod menus are developed, not necessarily because they are malicious."}},{"@type":"Question","name":"How can I download the loader?","acceptedAnswer":{"@type":"Answer","text":"Simply disable Real-time Protection in Windows Security. You may also need to temporarily disable your browser's Safe Browsing or Safe Search feature if it prevents the download. Recommended browsers are Chrome and Firefox."}},{"@type":"Question","name":"Why does the Scooby loader delete itself after some time?","acceptedAnswer":{"@type":"Answer","text":"This usually happens because the loader hasn't been added as an exclusion in Windows Defender. When Real-time Protection is re-enabled, Windows Defender may automatically remove the loader. To prevent this, open Windows Security and go to Virus & threat protection → Manage settings → Add or remove exclusions → Add an exclusion, then select the Scooby loader. Once it has been added as an exclusion, Windows Defender should no longer remove it automatically."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scoobymenu.cc/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://scoobymenu.cc/guides/"},{"@type":"ListItem","position":3,"name":"General Guide","item":"https://scoobymenu.cc/guides/general/"}]}</script>
     <!--== Footer ==-->
     <footer class="footer">

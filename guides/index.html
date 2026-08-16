@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Setup Guides - Scooby Mod Menu</title>
-<meta name="description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta name="description" content="Scooby setup guides for GTA 5, FiveM, RedM, RDR2 and CS2, plus antivirus false positive answers, free keys, HWID resets and fixes for crashes and connection errors.">
 <link rel="canonical" href="https://scoobymenu.cc/guides/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/">
 <meta property="og:title" content="Setup Guides - Scooby Mod Menu">
-<meta property="og:description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta property="og:description" content="Scooby setup guides for GTA 5, FiveM, RedM, RDR2 and CS2, plus antivirus false positive answers, free keys, HWID resets and fixes for crashes and connection errors.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Setup Guides - Scooby Mod Menu">
-<meta name="twitter:description" content="Scooby setup guides for GTA 5, FiveM, RedM and RDR2, plus free keys, HWID resets and fixes for crashes and connection errors.">
+<meta name="twitter:description" content="Scooby setup guides for GTA 5, FiveM, RedM, RDR2 and CS2, plus antivirus false positive answers, free keys, HWID resets and fixes for crashes and connection errors.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles, Scooby, Scooby menu, Scooby mod menu, Scooby GTA 5, Scooby mod, Scooby download, GTA 5 mod menu, GTA V mod menu, GTA 5 mod menu free, free GTA 5 mod menu, best free mod menu, GTA 5 mod menu 2025, heist editor, money recovery, cayo perico heist, casino heist, modded heist, GTA online mods, undetected mod menu, GTA 5 money drop, GTA 5 recovery, GTA 5 unlock all, public lobby mod menu, play with friends mod menu, GTA 5 public lobby, mod menu public lobby, GTA online public lobby mod, play GTA with friends mod menu, public session mod menu, GTA 5 online mod menu public, battleye bypass, battle eye bypass, GTA 5 battleye bypass, anti cheat bypass, GTA enhanced battleye, battleye undetected, bypass battleye GTA 5">
 <link rel="shortcut icon" href="/assets/images/logo.png">
@@ -627,6 +627,47 @@
         font-size: .88rem;
         font-weight: 600;
     }
+    /* Quick links to the antivirus/download questions everyone hits first */
+    .quick-faq {
+        background: rgba(79,142,245,0.05);
+        border: 1px solid rgba(79,142,245,0.2);
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 50px;
+    }
+    .quick-faq h2 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 6px;
+    }
+    .quick-faq > p {
+        color: var(--text-secondary);
+        font-size: .93rem;
+        margin: 0 0 18px;
+    }
+    .quick-faq-links { display: flex; flex-direction: column; gap: 8px; }
+    .quick-faq-links a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 13px 16px;
+        border-radius: 10px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+        font-size: .92rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all .2s ease;
+    }
+    .quick-faq-links a:hover {
+        background: var(--card-hover);
+        border-color: var(--accent-line);
+        color: var(--accent);
+    }
+    .quick-faq-links svg { flex-shrink: 0; color: var(--accent); }
 </style>
 </head>
 <body>
@@ -695,13 +736,39 @@
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </span>
                 </a>
-                <a class="hub-card" href="/guides/general/">
-                    <h2>General</h2>
-                    <p>Free keys, HWID resets and common fixes</p>
+                <a class="hub-card" href="/guides/cs2/">
+                    <h2>CS2</h2>
+                    <p>Requirements, injecting and post-update fixes for Counter-Strike 2</p>
                     <span class="hub-go">Open guide
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </span>
                 </a>
+                <a class="hub-card" href="/guides/general/">
+                    <h2>General</h2>
+                    <p>Antivirus FAQ, free keys, HWID resets and common fixes</p>
+                    <span class="hub-go">Open guide
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </span>
+                </a>
+            </div>
+            <!--== Quick FAQ ==-->
+            <div class="quick-faq">
+                <h2>Before you start</h2>
+                <p>Windows blocking the download, or the loader vanishing after a while? These are the questions we get asked the most.</p>
+                <div class="quick-faq-links">
+                    <a href="/guides/general/#faq">
+                        Why is Scooby flagged as a virus?
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                    <a href="/guides/general/#faq">
+                        How can I download the loader?
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                    <a href="/guides/general/#faq">
+                        Why does the Scooby loader delete itself after some time?
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                </div>
             </div>
             <div style="text-align:center;">
                 <a href="/" class="back-link">

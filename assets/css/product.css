@@ -395,8 +395,8 @@ body::before {
 
 /* Countdown Timer */
 .countdown-wrapper {
-    background: linear-gradient(135deg, rgba(255, 105, 180, 0.15) 0%, rgba(255, 20, 147, 0.1) 100%);
-    border: 1px solid rgba(255, 105, 180, 0.3);
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.13) 0%, rgba(234, 179, 8, 0.06) 100%);
+    border: 1px solid rgba(234, 179, 8, 0.3);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 20px;
@@ -405,7 +405,7 @@ body::before {
 
 .countdown-label {
     font-size: 0.8rem;
-    color: #ff69b4;
+    color: #eab308;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -427,7 +427,7 @@ body::before {
 .countdown-value {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #ff69b4;
+    color: #eab308;
     min-width: 50px;
 }
 
@@ -440,7 +440,7 @@ body::before {
 .countdown-separator {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #ff69b4;
+    color: #eab308;
     line-height: 1.2;
 }
 

@@ -1,0 +1,135 @@
+/* Guide pages: the sidebar acts as a section switcher, so picking a topic shows
+   that section on its own instead of one long scrolling page.
+
+   Everything here is gated behind classes that guide-sections.js adds at runtime,
+   so with JS unavailable the page still renders every section stacked as before -
+   which also keeps the full text in the DOM for crawlers. */
+
+/* ---- One section at a time ---- */
+.guide-main.guide-sections > .is-guide-section { display: none; }
+.guide-main.guide-sections > .is-guide-section.is-active {
+    display: block;
+    animation: guideSectionIn .25s ease both;
+}
+@keyframes guideSectionIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .guide-main.guide-sections > .is-guide-section.is-active { animation: none; }
+}
+
+/* ---- Numbered sidebar steps ---- */
+.guide-sections-on .guide-nav { counter-reset: guide-step; }
+.guide-sections-on .guide-nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.guide-sections-on .guide-nav a::before {
+    content: counter(guide-step);
+    counter-increment: guide-step;
+    flex-shrink: 0;
+    min-width: 15px;
+    font-size: .72rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-faint);
+    transition: color .2s ease;
+}
+.guide-sections-on .guide-nav a.active::before { color: var(--accent); }
+
+/* ---- Sidebar footer: progress + show-all toggle ---- */
+.guide-progress {
+    margin: 14px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: .74rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+.guide-show-all {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: .8rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.guide-show-all:hover {
+    background: rgba(255,255,255,.04);
+    border-color: var(--accent-line);
+    color: var(--accent);
+}
+.guide-show-all[aria-pressed="true"] {
+    background: var(--accent-soft);
+    border-color: var(--accent-line);
+    color: var(--accent);
+}
+
+/* ---- Previous / next stepper ---- */
+.guide-step-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.guide-step-nav:empty { display: none; }
+.guide-step-nav a {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: all .2s ease;
+}
+.guide-step-nav a:hover {
+    background: var(--card-hover);
+    border-color: var(--accent-line);
+    transform: translateY(-2px);
+}
+.guide-step-nav .step-dir {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+.guide-step-nav .step-label {
+    font-size: .92rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+.guide-step-nav a:hover .step-label { color: var(--accent); }
+.guide-step-nav a.guide-step-next {
+    grid-column: 2;
+    text-align: right;
+}
+
+@media (max-width: 900px) {
+    /* The sidebar collapses to a pill row above the content on small screens. */
+    .guide-progress {
+        margin-top: 12px;
+        padding-top: 10px;
+    }
+    .guide-show-all { text-align: center; }
+}
+@media (max-width: 560px) {
+    .guide-step-nav { grid-template-columns: 1fr; }
+    .guide-step-nav a.guide-step-next { grid-column: 1; text-align: left; }
+}

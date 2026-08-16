@@ -1,262 +1,267 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Scooby docs landing page.
+   Palette and card treatment follow the rest of the site (blue accent, #080808
+   ground) rather than the per-game colours this page used to mix. */
+
+:root {
+    --bg: #080808;
+    --surface: #0d0d0d;
+    --card: #111111;
+    --card-hover: #161616;
+    --border: rgba(255,255,255,.07);
+    --border-strong: rgba(255,255,255,.13);
+    --accent: #4f8ef5;
+    --accent-2: #2563eb;
+    --accent-soft: rgba(79,142,245,.13);
+    --accent-line: rgba(79,142,245,.3);
+    --text: #f4f4f7;
+    --text-dim: #9a9aaa;
+    --text-faint: #5c5c6c;
+    --green: #22c55e;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    background: #0a0a0f;
-    color: #e6e6e6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    line-height: 1.7;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 20px 40px;
-    background: #12121a;
-    border-bottom: 1px solid #1e1e2e;
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    border-radius: 10px;
 }
 
-header .logo {
-    font-size: 1.5rem;
+/* ---- Page header ---- */
+.docs-hero {
+    position: relative;
+    padding: 90px 24px 70px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    overflow: hidden;
+}
+.docs-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(79,142,245,.15) 0%, transparent 55%);
+    pointer-events: none;
+}
+.docs-hero > * { position: relative; }
+.docs-eyebrow {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+    font-size: .72rem;
     font-weight: 700;
-    color: #00d4ff;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-header .logo:hover {
-    opacity: 0.8;
-}
-
-header .separator {
-    color: #444;
-    font-size: 1.2rem;
-}
-
-header .page-title {
-    color: #888;
-    font-size: 1rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
 }
 
 main {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px 90px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -.02em;
+    margin-bottom: 14px;
 }
 
 .subtitle {
-    color: #888;
-    font-size: 1.1rem;
-    margin-bottom: 50px;
-    text-align: center;
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 620px;
+    margin: 0 auto;
 }
 
-.cards {
+/* ---- Section headings ---- */
+.docs-section {
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 800px;
+    align-items: baseline;
+    gap: 14px;
+    margin: 72px 0 6px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -.01em;
+}
+.docs-section::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-line), transparent);
+}
+.docs-section + .subtitle {
+    margin: 0 0 30px;
+    text-align: left;
+    font-size: .95rem;
+}
+
+/* ---- Cards ---- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
 }
 
 .card {
     position: relative;
-    width: 320px;
-    padding: 40px 30px;
-    background: #14141f;
-    border: 1px solid #1e1e2e;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px;
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    text-align: center;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-    overflow: hidden;
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
 }
-
-.card:not(.disabled):hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.card.redm {
-    border-color: #8b2020;
-}
-
-.card.redm:hover {
-    border-color: #c53030;
-    box-shadow: 0 12px 40px rgba(197, 48, 48, 0.2);
-}
-
-.card.redm .card-icon {
-    color: #c53030;
-}
-
-.card.redm .status.enabled {
-    background: rgba(197, 48, 48, 0.2);
-    color: #ff6b6b;
-}
-
-.card.fivem {
-    border-color: #1a4a5e;
-}
-
-.card.fivem:hover {
-    border-color: #00d4ff;
-    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
-}
-
-.card.fivem .card-icon {
-    color: #00d4ff;
-}
-
-.card.fivem .status.enabled {
-    background: rgba(0, 212, 255, 0.15);
-    color: #00d4ff;
-}
-
-.card.disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.card .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 10, 15, 0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #00d4ff;
+.card:not(.placeholder):hover {
+    background: var(--card-hover);
+    border-color: var(--accent-line);
+    transform: translateY(-3px);
 }
 
 .card-icon {
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
 }
+.card-icon svg { width: 22px; height: 22px; }
 
 .card h2 {
-    font-size: 1.8rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
-
 .card p {
-    color: #888;
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-
-.status {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.status.coming-soon {
-    background: rgba(0, 212, 255, 0.15);
-    color: #00d4ff;
-}
-
-.info {
-    margin-top: 50px;
-    padding: 20px 30px;
-    background: rgba(0, 212, 255, 0.08);
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 10px;
-    max-width: 600px;
-    text-align: center;
-}
-
-.info p {
-    color: #aaa;
-    font-size: 0.9rem;
+    color: var(--text-dim);
+    font-size: .92rem;
     line-height: 1.6;
+    margin-bottom: 16px;
 }
 
-footer {
-    padding: 20px 40px;
-    background: #12121a;
-    border-top: 1px solid #1e1e2e;
-    text-align: center;
-}
-
-footer p {
-    color: #555;
-    font-size: 0.85rem;
-}
-
-@media (max-width: 700px) {
-    header {
-        padding: 15px 20px;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 320px;
-    }
-}
-
-/* ===== GTA 5 / RDR2 card themes ===== */
-.card.gta5 { border-color: #2f5d3a; }
-.card.gta5:hover { border-color: #4ade80; box-shadow: 0 12px 40px rgba(74, 222, 128, .18); }
-.card.gta5 .card-icon { color: #4ade80; }
-.card.gta5 .status.enabled { background: rgba(74, 222, 128, .15); color: #4ade80; }
-
-.card.rdr2 { border-color: #6b4423; }
-.card.rdr2:hover { border-color: #e0a458; box-shadow: 0 12px 40px rgba(224, 164, 88, .18); }
-.card.rdr2 .card-icon { color: #e0a458; }
-.card.rdr2 .status.enabled { background: rgba(224, 164, 88, .15); color: #e0a458; }
-
-/* ===== Placeholder cards ===== */
-.card.placeholder { cursor: default; border-style: dashed; }
-.card.placeholder:hover { transform: none; box-shadow: none; }
-.card.placeholder .card-icon { opacity: .45; }
-.card.placeholder h2, .card.placeholder p { opacity: .7; }
-.status.soon { background: rgba(255, 255, 255, .07); color: #9a9aaa; }
-
-/* ===== Scripting-language tags ===== */
+/* Row of scripting-language chips */
 .card-tags {
-    display: flex; flex-wrap: wrap; gap: 6px;
-    justify-content: center; margin: 0 0 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
 }
 .tag {
-    display: inline-block; padding: 3px 9px; border-radius: 6px;
-    font-size: .7rem; font-weight: 700; letter-spacing: .04em;
-    background: rgba(255, 255, 255, .06); color: #9a9aaa;
-    border: 1px solid rgba(255, 255, 255, .08);
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
 }
-.tag.lua { background: rgba(0, 128, 255, .13); color: #6aa9ff; border-color: rgba(0, 128, 255, .25); }
-.tag.js  { background: rgba(240, 219, 79, .12); color: #e3cf5a; border-color: rgba(240, 219, 79, .25); }
-.tag.cs  { background: rgba(149, 91, 234, .13); color: #b083f0; border-color: rgba(149, 91, 234, .28); }
+.tag.lua { background: rgba(0,128,255,.13); color: #6aa9ff; border-color: rgba(0,128,255,.25); }
+.tag.js  { background: rgba(240,219,79,.12); color: #e3cf5a; border-color: rgba(240,219,79,.25); }
+.tag.cs  { background: rgba(149,91,234,.13); color: #b083f0; border-color: rgba(149,91,234,.28); }
 
-/* ===== Section spacing =====
-   Separates the "Scooby API" block from the native-reference cards above it. */
-.docs-section { margin-top: 72px; }
+/* Status + count share the card's bottom rail */
+.card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+.status.enabled {
+    background: rgba(34,197,94,.12);
+    border: 1px solid rgba(34,197,94,.28);
+    color: var(--green);
+}
+.status.enabled::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+}
+.status.soon {
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    color: var(--text-faint);
+}
+.card-count {
+    color: var(--text-faint);
+    font-size: .78rem;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Cards for docs that do not exist yet */
+.card.placeholder {
+    cursor: default;
+    border-style: dashed;
+    background: transparent;
+}
+.card.placeholder .card-icon {
+    background: rgba(255,255,255,.04);
+    border-color: var(--border);
+    color: var(--text-faint);
+}
+.card.placeholder h2,
+.card.placeholder p { color: var(--text-faint); }
+
+/* ---- Footnote ---- */
+.info {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 14px;
+}
+.info svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--accent); margin-top: 3px; }
+.info p { color: var(--text-dim); font-size: .92rem; line-height: 1.7; }
+
+@media (max-width: 700px) {
+    .docs-hero { padding: 60px 20px 50px; }
+    h1 { font-size: 2rem; }
+    .subtitle { font-size: .95rem; }
+    .docs-section { font-size: 1.25rem; margin-top: 56px; }
+    main { padding-bottom: 60px; }
+}

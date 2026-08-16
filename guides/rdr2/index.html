@@ -657,6 +657,7 @@
         .guide-nav a.active { border-color: var(--accent-line); }
     }
 </style>
+<link rel="stylesheet" href="/assets/css/guide-sections.css">
 </head>
 <body>
     <!--== Header ==-->
@@ -701,6 +702,7 @@
                 <a class="game-tab" href="/guides/fivem/">FiveM</a>
                 <a class="game-tab" href="/guides/redm/">RedM</a>
                 <a class="game-tab active" href="/guides/rdr2/">RDR2</a>
+                <a class="game-tab" href="/guides/cs2/">CS2</a>
                 <a class="game-tab" href="/guides/general/">General</a>
             </div>
             <div class="guide-layout">
@@ -711,6 +713,7 @@
                             <a href="#rdr2-before">Before Launching Scooby</a>
                             <a href="#rdr2-launch">How to Launch Scooby</a>
                             <a href="#rdr2-crashing">Crashing? Switch to DX12</a>
+                            <a href="#rdr2-more-help">Still Stuck?</a>
                         </nav>
                     </div>
                 </aside>
@@ -758,29 +761,22 @@
                     <p>In Red Dead Redemption 2, open <strong>Settings → Graphics</strong> and scroll down to <strong>Advanced Graphics</strong>. Change <strong>Graphics API</strong> from <strong>Vulkan</strong> to <strong>DX12</strong>, then apply the change and restart the game.</p>
                     <img loading="lazy" decoding="async" src="/assets/images/guides/rdr2-graphics-api.webp" alt="Red Dead Redemption 2 graphics settings with the Graphics API option highlighted, currently set to Vulkan" class="guide-image" style="max-width: 739px; margin: 30px auto;">
                 </div>
+                <!--== More Help ==-->
+                <div class="guide-card" id="rdr2-more-help">
+                    <h2>Still Stuck?</h2>
+                    <p>These apply to every game, not just RDR2:</p>
+                    <ul>
+                        <li><a href="/guides/general/#faq">Antivirus &amp; Download FAQ</a> - why Scooby is flagged as a virus, how to download the loader and how to stop Defender deleting it</li>
+                        <li><a href="/guides/general/#universal">Universal Troubleshooting</a> - "Failed to inject module", Auth Failed, crashing on inject and more</li>
+                        <li><a href="/guides/general/#connection">Connection or SSL Errors</a> - the loader or site will not connect</li>
+                        <li><a href="/guides/general/#hwid">Resetting Your HWID</a></li>
+                    </ul>
+                </div>
                             </div>
             </div>
         </div>
     </section>
-    <script>
-    // Highlight the sidebar row for whichever section is currently in view.
-    (function () {
-        var links = [].slice.call(document.querySelectorAll('.guide-nav a'));
-        if (!links.length) return;
-        var targets = links.map(function (a) {
-            return document.getElementById(a.getAttribute('href').slice(1));
-        });
-        function sync() {
-            var best = 0;
-            for (var i = 0; i < targets.length; i++) {
-                if (targets[i] && targets[i].getBoundingClientRect().top <= 140) best = i;
-            }
-            links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
-        }
-        window.addEventListener('scroll', sync, { passive: true });
-        sync();
-    })();
-    </script>
+    <script src="/assets/js/guide-sections.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scoobymenu.cc/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://scoobymenu.cc/guides/"},{"@type":"ListItem","position":3,"name":"RDR2 Guide","item":"https://scoobymenu.cc/guides/rdr2/"}]}</script>
     <!--== Footer ==-->
     <footer class="footer">

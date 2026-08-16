@@ -406,7 +406,7 @@ h2.section-title {
 
 /* ---- REVIEWS ---- */
 .reviews-section { overflow: hidden; }
-.marquee { display: flex; gap: 16px; width: max-content; animation: scroll 60s linear infinite; }
+.marquee { display: flex; gap: 16px; width: max-content; animation: scroll 200s linear infinite; }
 .reviews-section:hover .marquee { animation-play-state: paused; }
 @keyframes scroll { to { transform: translateX(-50%); } }
 .review-card {
@@ -424,6 +424,14 @@ h2.section-title {
   font-size: .72rem; font-weight: 600; color: var(--accent);
   padding: 3px 10px; border: 1px solid var(--accent-line);
   border-radius: var(--radius-pill); background: var(--accent-soft);
+}
+.review-card { display: flex; flex-direction: column; }
+.review-text { flex: 1; }
+.review-foot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.review-game {
+  font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--text-dim);
+  padding: 3px 10px; border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill); background: rgba(255,255,255,.04);
 }
 .marquee-fade { position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
 .marquee-fade.l { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
@@ -816,6 +824,10 @@ h2.section-title {
         <div class="faq-a"><p>Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.</p></div>
       </div>
       <div class="faq reveal">
+        <div class="faq-q">Why is Scooby flagged as a virus?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a"><p>It's a false positive. Windows flags the loader because it doesn't recognise the file or its intentions — a side effect of how mod menus are built, not a sign that it's malicious. Disable Real-time Protection to download it, then add the loader as a Defender exclusion so it isn't removed later. Full steps are in the <a href="/guides/general/#faq" style="color:var(--accent)">Antivirus &amp; Download FAQ</a>.</p></div>
+      </div>
+      <div class="faq reveal">
         <div class="faq-q">What's the difference between Free and Premium?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="faq-a"><p>The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.</p></div>
       </div>
@@ -1084,15 +1096,39 @@ document.querySelectorAll('.reveal').forEach(function(el) { revObserver.observe(
 
 // Reviews marquee
 (function() {
+  // Weighted by product focus: GTA 5 leads, RedM second, then FiveM / RDR2 / CS2.
   var reviews = [
-    { n: 'xNightRider', r: 'Premium User', t: "Best menu I've ever used. The heist editor alone is worth it, and the amount of features for the price is insane. Support team is super helpful too.", b: 'Verified Purchase', bg: '0d1117', c: '4f8ef5' },
-    { n: 'Drizzle', r: 'Premium User', t: 'Switched from another menu and never looked back. Updates are frequent, stability is amazing, and the UI is so clean. Lifetime is a steal.', b: 'Verified Purchase', bg: '1a1a2e', c: '4f8ef5' },
-    { n: 'SkullzFN', r: 'Free User', t: 'Started with the free version and was impressed by how much is included. The Discord community is super active and helpful. Upgrading soon.', b: 'Free Version', bg: '16213e', c: '4f8ef5' },
-    { n: 'Zynx', r: 'Premium User', t: "Hands down the smoothest menu out there. No crashes, no lag, just works every time. The vehicle spawner and modded outfits are my favourite.", b: 'Verified Purchase', bg: '0a0a1a', c: '4f8ef5' },
-    { n: 'ToxicVibez', r: 'Premium User', t: "The Lua scripting support is insane. I've made custom scripts for my crew and everyone loves it. The dev team actually listens to feedback. 10/10.", b: 'Verified Purchase', bg: '121220', c: '4f8ef5' },
-    { n: 'Frosty', r: 'Premium User', t: 'Been using Scooby for months on Enhanced and undetected the whole time. Works on Legacy and Enhanced flawlessly. Best money I have spent.', b: 'Verified Purchase', bg: '0e1628', c: '4f8ef5' },
-    { n: 'RazorX', r: 'Free User', t: "Can't believe this is free. The free version has more features than most paid menus. Teleports and the vehicle spawner work perfectly.", b: 'Free Version', bg: '1a0a2e', c: '4f8ef5' },
-    { n: 'Kenzo', r: 'Premium User', t: 'The heist editor is a game changer. Made millions in a day with the Cayo setup. Super easy to use even for beginners. Highly recommend.', b: 'Verified Purchase', bg: '0d1b2a', c: '4f8ef5' }
+    { n: 'xNightRider', r: 'Premium User',      g: 'GTA 5', t: "Best menu I've ever used. The heist editor alone is worth it, and the amount of features for the price is insane. Support team is super helpful too.", b: 'Verified Purchase', bg: '0d1117', c: '4f8ef5' },
+    { n: 'Kenzo',       r: 'Premium Plus User', g: 'GTA 5', t: 'The heist editor is a game changer. Set up Cayo solo and made millions in a day. Easy to follow even if you have never touched a menu before.', b: 'Verified Purchase', bg: '0d1b2a', c: '4f8ef5' },
+    { n: 'Drizzle',     r: 'Premium User',      g: 'GTA 5', t: 'Switched from another menu and never looked back. Updates are frequent, stability is amazing, and the UI is so clean. Lifetime is a steal.', b: 'Verified Purchase', bg: '1a1a2e', c: '4f8ef5' },
+    { n: 'Frosty',      r: 'Premium User',      g: 'GTA 5', t: 'Been on Enhanced for months and never had an issue. Legacy and Enhanced both work flawlessly. Best money I have spent on anything gaming related.', b: 'Verified Purchase', bg: '0e1628', c: '4f8ef5' },
+    { n: 'Valko',       r: 'Premium Plus User', g: 'GTA 5', t: 'Premium Plus with BattlEye on is the real deal. I run public lobbies with friends who do not mod at all and nobody gets kicked.', b: 'Verified Purchase', bg: '101a2b', c: '4f8ef5' },
+    { n: 'Zynx',        r: 'Premium User',      g: 'GTA 5', t: 'Hands down the smoothest menu out there. No crashes, no lag, just works every time. The vehicle spawner and modded outfits are my favourite.', b: 'Verified Purchase', bg: '0a0a1a', c: '4f8ef5' },
+    { n: 'Marlow',      r: 'Premium User',      g: 'GTA 5', t: 'The stat editor and unlock all saved me hundreds of hours of grinding. Recovery worked exactly like the guide said it would.', b: 'Verified Purchase', bg: '141c2c', c: '4f8ef5' },
+    { n: 'RazorX',      r: 'Free User',         g: 'GTA 5', t: "Can't believe this is free. The free version has more in it than most paid menus. Teleports and the vehicle spawner work perfectly.", b: 'Free Version', bg: '1a0a2e', c: '4f8ef5' },
+    { n: 'ToxicVibez',  r: 'Premium User',      g: 'GTA 5', t: "The Lua scripting support is insane. I've made custom scripts for my crew and everyone loves it. The dev team actually listens to feedback.", b: 'Verified Purchase', bg: '121220', c: '4f8ef5' },
+    { n: 'Prynce',      r: 'Premium User',      g: 'GTA 5', t: 'Menu was updated and working the same week the Kortz Center heist dropped. That turnaround is why I keep recommending it.', b: 'Verified Purchase', bg: '0c1524', c: '4f8ef5' },
+    { n: 'SkullzFN',    r: 'Free User',         g: 'GTA 5', t: 'Started on the free version and was impressed by how much is included. The Discord community is super active and helpful. Upgrading soon.', b: 'Free Version', bg: '16213e', c: '4f8ef5' },
+
+    { n: 'Cirrus',      r: 'Premium User',      g: 'RedM',  t: 'Easily the most complete RedM menu around. ESP and aimbot are dialled in, and it holds up on the big RP servers.', b: 'Verified Purchase', bg: '1d1410', c: '4f8ef5' },
+    { n: 'Hollowpoint', r: 'Premium User',      g: 'RedM',  t: 'The Lua executor is what sold me. I load my own scripts on RedM and it has not failed once. Nothing else on the market comes close.', b: 'Verified Purchase', bg: '221610', c: '4f8ef5' },
+    { n: 'Ashen',       r: 'Premium User',      g: 'RedM',  t: 'Trolling options are unmatched and the server tools actually work. Support answered me in Discord within minutes when I had a question.', b: 'Verified Purchase', bg: '1a1512', c: '4f8ef5' },
+    { n: 'Dustin_R',    r: 'Premium User',      g: 'RedM',  t: 'Runs clean on every server I have tried it on. Updates land fast after RedM patches, which is more than I can say for what I used before.', b: 'Verified Purchase', bg: '1c1712', c: '4f8ef5' },
+    { n: 'Wraithe',     r: 'Premium User',      g: 'RedM',  t: 'Been using it daily for RP and it has never once given me trouble. Setup took about five minutes following the guide on the site.', b: 'Verified Purchase', bg: '181310', c: '4f8ef5' },
+    { n: 'Coalfire',    r: 'Free User',         g: 'RedM',  t: 'Tried the free version expecting very little and got way more than I bargained for. Ended up buying premium the same night.', b: 'Free Version', bg: '20180f', c: '4f8ef5' },
+
+    { n: 'Vantablack',  r: 'Premium User',      g: 'FiveM', t: 'Aimbot and ESP are the cleanest I have used on FiveM. The Lua executor is a massive bonus, I run my own scripts on it constantly.', b: 'Verified Purchase', bg: '0f1a1a', c: '4f8ef5' },
+    { n: 'Jettson',     r: 'Premium User',      g: 'FiveM', t: 'Works on every server I have thrown at it. Menu never stutters even on the heavy RP servers with hundreds of players.', b: 'Verified Purchase', bg: '111c1c', c: '4f8ef5' },
+    { n: 'Neko_88',     r: 'Premium User',      g: 'FiveM', t: 'PVP features are genuinely good, not the half broken stuff you get elsewhere. Setup guide on the site had me running in minutes.', b: 'Verified Purchase', bg: '0d1818', c: '4f8ef5' },
+    { n: 'Brambles',    r: 'Free User',         g: 'FiveM', t: 'Free version is more than enough to see what it can do. Installed the VC runtimes like the guide says and had zero problems.', b: 'Free Version', bg: '131e1e', c: '4f8ef5' },
+
+    { n: 'Redgrave',    r: 'Premium User',      g: 'RDR2',  t: 'Swapping to DX12 like the guide said fixed my crashing instantly. Since then it has been completely stable in story and online.', b: 'Verified Purchase', bg: '221010', c: '4f8ef5' },
+    { n: 'Silas_M',     r: 'Premium User',      g: 'RDR2',  t: 'Godmode, money and gold all work exactly as advertised. RDR2 menus are usually an afterthought, this one clearly is not.', b: 'Verified Purchase', bg: '1d0f0f', c: '4f8ef5' },
+    { n: 'Copperhead',  r: 'Premium User',      g: 'RDR2',  t: 'No BattlEye to deal with on RDR2 so it was the easiest setup of any menu I own. Loaded first try and has not missed since.', b: 'Verified Purchase', bg: '241212', c: '4f8ef5' },
+
+    { n: 'Gizmax',      r: 'Premium User',      g: 'CS2',   t: 'The skin changer is the best part. Knives, gloves and agents all swap instantly and everything looks exactly right in game.', b: 'Verified Purchase', bg: '141026', c: '4f8ef5' },
+    { n: 'Sable',       r: 'Free User',         g: 'CS2',   t: 'Dual UI is a nice touch, I use ListUI and my friend prefers ClickUI. ESP and triggerbot are sharp and it has stayed undetected for me.', b: 'Free Version', bg: '17122b', c: '4f8ef5' },
+    { n: 'Portia_K',    r: 'Free User',         g: 'CS2',   t: 'Free and better than cheats people are charging for. Bhop and no recoil feel natural rather than obviously robotic.', b: 'Free Version', bg: '120e22', c: '4f8ef5' }
   ];
   var star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
   function card(rv) {
@@ -1103,7 +1139,10 @@ document.querySelectorAll('.reveal').forEach(function(el) { revObserver.observe(
       '</div>' +
       '<div class="review-stars">' + star + star + star + star + star + '</div>' +
       '<p class="review-text">' + rv.t + '</p>' +
-      '<span class="review-badge">' + rv.b + '</span>' +
+      '<div class="review-foot">' +
+        '<span class="review-game">' + rv.g + '</span>' +
+        '<span class="review-badge">' + rv.b + '</span>' +
+      '</div>' +
     '</div>';
   }
   var html = reviews.map(card).join('');

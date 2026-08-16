@@ -657,6 +657,7 @@
         .guide-nav a.active { border-color: var(--accent-line); }
     }
 </style>
+<link rel="stylesheet" href="/assets/css/guide-sections.css">
 </head>
 <body>
     <!--== Header ==-->
@@ -701,9 +702,21 @@
                 <a class="game-tab" href="/guides/fivem/">FiveM</a>
                 <a class="game-tab active" href="/guides/redm/">RedM</a>
                 <a class="game-tab" href="/guides/rdr2/">RDR2</a>
+                <a class="game-tab" href="/guides/cs2/">CS2</a>
                 <a class="game-tab" href="/guides/general/">General</a>
             </div>
 
+            <div class="guide-layout">
+                <aside class="guide-sidebar">
+                    <div class="guide-sidebar-inner">
+                        <h3>On this page</h3>
+                        <nav class="guide-nav">
+                            <a href="#redm-requirements">Requirements</a>
+                            <a href="#redm-inject">How to Inject</a>
+                        </nav>
+                    </div>
+                </aside>
+                <div class="guide-main">
                 <div class="guide-card" id="redm-requirements">
                     <h2>Requirements</h2>
                     <p>Before running Scooby on RedM, make sure the <strong>VC Runtimes</strong> are installed:</p>
@@ -716,33 +729,44 @@
                         <a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">https://aka.ms/vc14/vc_redist.x64.exe</a>
                     </div>
                     <p>Install those and <strong>restart your PC</strong>.</p>
-                    <p>Still having problems? See <a href="/guides/general/#crashing">Crashing Solutions</a> and <a href="/guides/general/#connection">Connection or SSL Errors</a> in the General tab.</p>
+                    <p>Still having problems? See <a href="/guides/general/#universal">Universal Troubleshooting</a>, <a href="/guides/general/#crashing">Crashing Solutions</a> and <a href="/guides/general/#connection">Connection or SSL Errors</a> in the General tab.</p>
+                </div>
+                <div class="guide-card" id="redm-inject">
+                    <h2>How to Inject</h2>
+                    <p>Timing is the single biggest factor in whether the injection works. Do it at the right moment and it is reliable every time.</p>
+
+                    <div class="requirements-box">
+                        <h4>Best way to inject</h4>
+                        <p style="margin-bottom:12px;">Inject at the <strong>RedM main menu</strong>, or while the server is <strong>loading its resources and assets</strong> (the loading screen you get after picking a server).</p>
+                        <p style="margin-bottom:0;">This is the most reliable point and the method we recommend.</p>
+                    </div>
+
+                    <h3>Step by step</h3>
+                    <ul>
+                        <li>Open the <strong>Scooby loader</strong> and sign in</li>
+                        <li>Select <strong>RedM</strong></li>
+                        <li>Launch <strong>RedM</strong></li>
+                        <li>Click <strong>Inject</strong> at the <strong>main menu</strong>, or once you have joined a server and it is <strong>loading resources/assets</strong></li>
+                        <li>Wait for Scooby to finish loading, then open the menu</li>
+                    </ul>
+
+                    <h3>Already in a server?</h3>
+                    <p>You <strong>can</strong> still inject while you are already in a server and in game - it is supported and it works. The main menu / resource loading screen is simply the more reliable moment, so use that when you can.</p>
+
+                    <div class="error-card">
+                        <h4>Injection not working?</h4>
+                        <p>Make sure your <strong>antivirus is fully disabled</strong> and the loader is <strong>excluded from Windows Defender</strong>, then try again from the main menu. If it still fails, work through <a href="/guides/general/#universal">Universal Troubleshooting</a> in the General tab.</p>
+                    </div>
                 </div>
                 <div class="coming-soon-card">
                     <h2>More RedM Guides Coming Soon</h2>
                     <p>Full RedM setup guides and tutorials are on the way. Stay tuned!</p>
                 </div>
+                </div>
+            </div>
                     </div>
     </section>
-    <script>
-    // Highlight the sidebar row for whichever section is currently in view.
-    (function () {
-        var links = [].slice.call(document.querySelectorAll('.guide-nav a'));
-        if (!links.length) return;
-        var targets = links.map(function (a) {
-            return document.getElementById(a.getAttribute('href').slice(1));
-        });
-        function sync() {
-            var best = 0;
-            for (var i = 0; i < targets.length; i++) {
-                if (targets[i] && targets[i].getBoundingClientRect().top <= 140) best = i;
-            }
-            links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
-        }
-        window.addEventListener('scroll', sync, { passive: true });
-        sync();
-    })();
-    </script>
+    <script src="/assets/js/guide-sections.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scoobymenu.cc/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://scoobymenu.cc/guides/"},{"@type":"ListItem","position":3,"name":"RedM Guide","item":"https://scoobymenu.cc/guides/redm/"}]}</script>
     <!--== Footer ==-->
     <footer class="footer">
