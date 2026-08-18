@@ -742,25 +742,28 @@ body::before {
 }
 
 .payment-modal-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    width: 60px;
+    height: 60px;
+    background: rgba(79, 142, 245, 0.12);
+    border: 1px solid rgba(79, 142, 245, 0.3);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 25px;
+    margin: 0 auto 20px;
+    color: #4f8ef5;
 }
 
 .payment-modal-icon svg {
-    color: #fff;
+    color: inherit;
 }
 
 .payment-modal-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -.01em;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     color: #fff;
 }
 
@@ -768,8 +771,14 @@ body::before {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: 18px;
+    margin-bottom: 12px;
+    transition: background .2s ease, border-color .2s ease;
+}
+
+.payment-option:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .payment-option:last-child {
@@ -777,7 +786,7 @@ body::before {
 }
 
 .payment-option-header {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .payment-option-header h3 {
@@ -798,34 +807,37 @@ body::before {
     justify-content: center;
     gap: 10px;
     width: 100%;
-    padding: 14px 24px;
+    padding: 13px 24px;
     border-radius: 12px;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
     cursor: pointer;
-    border: none;
+    border: 1px solid transparent;
 }
 
+.payment-btn svg { flex-shrink: 0; }
+.payment-btn:hover { transform: translateY(-1px); }
+
 .payment-btn.card-btn {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    background: #4f8ef5;
     color: #fff;
 }
 
 .payment-btn.card-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+    background: #2563eb;
 }
 
 .payment-btn.crypto-btn {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    color: #fff;
+    background: rgba(247, 147, 26, 0.12);
+    border-color: rgba(247, 147, 26, 0.35);
+    color: #f7931a;
 }
 
 .payment-btn.crypto-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+    background: rgba(247, 147, 26, 0.2);
+    border-color: rgba(247, 147, 26, 0.55);
 }
 
 .payment-option-tag {
@@ -836,13 +848,13 @@ body::before {
 }
 
 .payment-btn.support-btn {
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.13);
+    color: #f4f4f7;
 }
 
 .payment-btn.support-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+    background: rgba(255, 255, 255, 0.09);
 }
 
 /* Tier Selection Modal */
