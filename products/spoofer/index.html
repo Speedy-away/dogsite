@@ -189,6 +189,37 @@
         .freekey-tip svg {
             flex-shrink: 0;
         }
+    
+        /* --- Free-key modal ad slot --- */
+        .freekey-ad {
+            margin-top: 16px;
+            padding: 14px;
+            border: 1px dashed rgba(255,255,255,.14);
+            border-radius: 14px;
+            background: rgba(255,255,255,.03);
+            text-align: center;
+        }
+        .freekey-ad-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.35);
+        }
+        .freekey-ad-link {
+            display: block;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4f8ef5, #2563eb);
+            color: #fff;
+            font-size: .92rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, filter .2s ease;
+        }
+        .freekey-ad-link:hover { transform: translateY(-1px); filter: brightness(1.08); }
     </style>
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
@@ -378,6 +409,11 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 <span>Having issues? Try using <strong>Microsoft Edge</strong> or <strong>Chrome</strong> for the best experience</span>
             </div>
+            <!-- Modal banner ad -->
+            <div class="freekey-ad">
+                <span class="freekey-ad-label">Sponsored</span>
+                <a href="https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="nofollow noopener sponsored" class="freekey-ad-link">Sponsored Offer</a>
+            </div>
         </div>
     </div>
     <!-- Footer -->
@@ -434,7 +470,20 @@
     <script>
         // Free Key Modal
         let freeKeyCountdownInterval;
-        function openFreeKeyModal() {
+            // Free-key modal: arm the popunder the first time the modal is opened.
+    // Skipped when the page already loads this script in <head>.
+    function scoobyArmModalAd() {
+        var SRC = 'https://aloudalimonyexplosion.com/21/ba/c2/21bac2cf6146c6ff2689111563b5f00a.js';
+        if (window.__scoobyModalAd) return;
+        window.__scoobyModalAd = true;
+        if (document.querySelector('script[src="' + SRC + '"]')) return;   // already on the page
+        var t = document.createElement('script');
+        t.src = SRC;
+        t.async = true;
+        document.body.appendChild(t);
+    }
+    function openFreeKeyModal() {
+        scoobyArmModalAd();
             const modal = document.getElementById('freeKeyModal');
             const countdown = document.getElementById('freeKeyCountdown');
             const btn = document.getElementById('freeKeyBtn');

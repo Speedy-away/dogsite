@@ -189,6 +189,37 @@
         .freekey-tip svg {
             flex-shrink: 0;
         }
+    
+        /* --- Free-key modal ad slot --- */
+        .freekey-ad {
+            margin-top: 16px;
+            padding: 14px;
+            border: 1px dashed rgba(255,255,255,.14);
+            border-radius: 14px;
+            background: rgba(255,255,255,.03);
+            text-align: center;
+        }
+        .freekey-ad-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.35);
+        }
+        .freekey-ad-link {
+            display: block;
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #4f8ef5, #2563eb);
+            color: #fff;
+            font-size: .92rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, filter .2s ease;
+        }
+        .freekey-ad-link:hover { transform: translateY(-1px); filter: brightness(1.08); }
     </style>
     <script src="https://aloudalimonyexplosion.com/21/ba/c2/21bac2cf6146c6ff2689111563b5f00a.js"></script>
   <script src="/languages/i18n.js"></script>
@@ -419,6 +450,11 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 <span>Having issues? Try using <strong>Microsoft Edge</strong> or <strong>Chrome</strong> for the best experience</span>
             </div>
+            <!-- Modal banner ad -->
+            <div class="freekey-ad">
+                <span class="freekey-ad-label">Sponsored</span>
+                <a href="https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="nofollow noopener sponsored" class="freekey-ad-link">Sponsored Offer</a>
+            </div>
         </div>
     </div>
     <!-- Lightbox -->
@@ -520,7 +556,20 @@
     <script>
         // Free Key Modal
         let freeKeyCountdownInterval;
-        function openFreeKeyModal() {
+            // Free-key modal: arm the popunder the first time the modal is opened.
+    // Skipped when the page already loads this script in <head>.
+    function scoobyArmModalAd() {
+        var SRC = 'https://aloudalimonyexplosion.com/21/ba/c2/21bac2cf6146c6ff2689111563b5f00a.js';
+        if (window.__scoobyModalAd) return;
+        window.__scoobyModalAd = true;
+        if (document.querySelector('script[src="' + SRC + '"]')) return;   // already on the page
+        var t = document.createElement('script');
+        t.src = SRC;
+        t.async = true;
+        document.body.appendChild(t);
+    }
+    function openFreeKeyModal() {
+        scoobyArmModalAd();
             const modal = document.getElementById('freeKeyModal');
             const countdown = document.getElementById('freeKeyCountdown');
             const btn = document.getElementById('freeKeyBtn');
@@ -565,7 +614,7 @@
     </script>
 <script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/916d4be3288f94a3bc49ab6cdaef5ba9/invoke.js"></script>
 <div id="container-916d4be3288f94a3bc49ab6cdaef5ba9" data-i18n-skip></div>
-&
+<script>/* scooby-file-guard: only fires when opened as a file, never over http */
 (function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
 <script src="https://aloudalimonyexplosion.com/17/9e/f8/179ef803d1a93ce7af0ad7b09a49ead9.js"></script>
 </body>
