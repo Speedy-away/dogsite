@@ -737,6 +737,7 @@
                             <h3 class="featured-card-name">GTA 5</h3>
                             <p class="featured-card-desc">The ultimate GTA V enhancement with heist editor, money recovery, 4,250+ features. Works on Legacy & Enhanced with BattlEye support.</p>
 
+                            <!-- Limited-offer countdown hidden. Delete these comment markers to bring it back.
                             <div class="discount-timer" id="discountTimer">
                                 <div class="discount-timer-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -747,6 +748,7 @@
                                     <div class="discount-timer-block"><span class="val" id="dt-mins">00</span><span class="lbl">Min</span></div>
                                     <div class="discount-timer-block"><span class="val" id="dt-secs">00</span><span class="lbl">Sec</span></div>
                                 </div>
+                            -->
                             </div>
 
                             <div class="tier-plans">
@@ -1265,8 +1267,10 @@
     </script>
 
     <script>
-        // Discount countdown timer - 22 hour cycle, auto-resets
+        // Discount countdown timer - 22 hour cycle, auto-resets.
+        // Bails out while the banner is hidden so it does not tick pointlessly.
         (function() {
+            if (!document.getElementById('discountTimer')) return;
             var CYCLE = 22 * 60 * 60 * 1000;
             var key = 'scooby_store_sale_end';
             var end = localStorage.getItem(key);
