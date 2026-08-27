@@ -27,6 +27,11 @@
          "desc": "Spawn different zombie models each wave"
         },
         {
+         "id": "zombiespecialtypes",
+         "label": "Special Types",
+         "desc": "Mix in Runner / Tank / Exploder zombies as rounds progress"
+        },
+        {
          "id": "bosszombies",
          "label": "Boss Zombies",
          "desc": "Spawn a boss zombie every 5 rounds"
@@ -55,6 +60,16 @@
          "id": "zombiemaxalive",
          "label": "Max Alive",
          "desc": "Cap on simultaneously active zombies"
+        },
+        {
+         "id": "zombieautoarm",
+         "label": "Auto-Arm",
+         "desc": "Give the player a knife on enable if unarmed"
+        },
+        {
+         "id": "zombieroundheal",
+         "label": "Round Heal",
+         "desc": "Restore player health between rounds"
         }
        ]
       },
@@ -70,6 +85,16 @@
          "id": "zombiehud",
          "label": "Show HUD",
          "desc": "Display round and score information on screen"
+        },
+        {
+         "id": "zombieoverlay",
+         "label": "ImGui Overlay",
+         "desc": "Polished foreground overlay panel with round / kills / boss info"
+        },
+        {
+         "id": "zombieblips",
+         "label": "Enemy Blips",
+         "desc": "Track living undead and bosses on the map"
         },
         {
          "id": "zombieslogging",
@@ -90,6 +115,11 @@
          "id": "duelhud",
          "label": "Show Duel HUD",
          "desc": "Display duel info on screen"
+        },
+        {
+         "id": "duelblip",
+         "label": "Opponent Blip",
+         "desc": "Track the current duel opponent on the map"
         }
        ]
       },
@@ -110,89 +140,19 @@
          "id": "huntinglegendary",
          "label": "Legendary Spawns",
          "desc": "Include legendary animal spawns in challenges"
+        },
+        {
+         "id": "huntingblips",
+         "label": "Target Blips",
+         "desc": "Track living hunting targets on the map"
         }
        ]
       }
      ]
     },
     {
-     "name": "World State",
+     "name": "World",
      "groups": [
-      {
-       "name": "Kill",
-       "items": [
-        {
-         "id": "killallpeds",
-         "label": "Kill All Peds",
-         "desc": "Kills all peds in the game world"
-        },
-        {
-         "id": "killallenemies",
-         "label": "Kill All Enemies",
-         "desc": "Kills all enemies in the game world"
-        },
-        {
-         "id": "killallanimals",
-         "label": "Kill All Animals",
-         "desc": "Kill all animals in the world"
-        },
-        {
-         "id": "reviveallpeds",
-         "label": "Revive All Peds",
-         "desc": "Revive all nearby dead peds"
-        },
-        {
-         "id": "hogtieall",
-         "label": "Hogtie All",
-         "desc": "Hogtie all nearby peds"
-        }
-       ]
-      },
-      {
-       "name": "Delete",
-       "items": [
-        {
-         "id": "delpeds",
-         "label": "Delete All Peds",
-         "desc": "Deletes all peds in the game world, including mission critical peds"
-        },
-        {
-         "id": "delvehs",
-         "label": "Delete All Vehicles",
-         "desc": "Deletes all vehicles in the game world, including mission critical vehicles"
-        },
-        {
-         "id": "delobjs",
-         "label": "Delete All Objects",
-         "desc": "Deletes all objects in the game world, including mission critical objects"
-        },
-        {
-         "id": "explodevehicles",
-         "label": "Explode Vehicles",
-         "desc": "Explode all nearby vehicles"
-        }
-       ]
-      },
-      {
-       "name": "Bring",
-       "items": [
-        {
-         "id": "bringpeds",
-         "label": "Bring All Peds",
-         "desc": "Teleports all game peds to you"
-        },
-        {
-         "id": "bringvehs",
-         "label": "Bring All Vehicles",
-         "desc": "Teleports all game vehicles to you"
-        },
-        {
-         "id": "bringobjs",
-         "label": "Bring All Objects",
-         "desc": "Teleports all game objects to you"
-        }
-       ]
-      },
       {
        "name": "Misc",
        "items": [
@@ -262,6 +222,36 @@
        "name": "Ped Control",
        "items": [
         {
+         "id": "bringpeds",
+         "label": "Bring All Peds",
+         "desc": "Teleports all game peds to you"
+        },
+        {
+         "id": "reviveallpeds",
+         "label": "Revive All Peds",
+         "desc": "Revive all nearby dead peds"
+        },
+        {
+         "id": "hogtieall",
+         "label": "Hogtie All",
+         "desc": "Hogtie all nearby peds"
+        },
+        {
+         "id": "killallpeds",
+         "label": "Kill All Peds",
+         "desc": "Kills all peds in the game world"
+        },
+        {
+         "id": "killallenemies",
+         "label": "Kill All Enemies",
+         "desc": "Kills all enemies in the game world"
+        },
+        {
+         "id": "killallanimals",
+         "label": "Kill All Animals",
+         "desc": "Kill all animals in the world"
+        },
+        {
          "id": "allpedsignore",
          "label": "All Peds Ignore",
          "desc": "Make all nearby peds ignore you completely"
@@ -305,6 +295,306 @@
          "id": "pedarmycount",
          "label": "Count",
          "desc": "Number of soldiers to spawn"
+        },
+        {
+         "id": "delpeds",
+         "label": "Delete All Peds",
+         "desc": "Deletes all peds in the game world, including mission critical peds"
+        },
+        {
+         "id": "ragdollpeds",
+         "label": "Ragdoll Peds",
+         "desc": "Make all nearby peds ragdoll"
+        },
+        {
+         "id": "ragdollradius",
+         "label": "Radius",
+         "desc": "Ragdoll effect radius"
+        },
+        {
+         "id": "ragdollduration",
+         "label": "Duration",
+         "desc": "Ragdoll time in ms"
+        },
+        {
+         "id": "chaos",
+         "label": "Chaos Mode",
+         "desc": "Random chaos effects on all nearby peds"
+        },
+        {
+         "id": "chaosradius",
+         "label": "Radius",
+         "desc": "Chaos effect radius"
+        },
+        {
+         "id": "chaosintensity",
+         "label": "Intensity",
+         "desc": "Ticks between effects (lower = more chaotic)"
+        },
+        {
+         "id": "pedflee",
+         "label": "Ped Panic",
+         "desc": "All nearby peds flee in terror"
+        },
+        {
+         "id": "pedfleeradius",
+         "label": "Radius",
+         "desc": "Panic radius"
+        },
+        {
+         "id": "pedbounce",
+         "label": "Bouncy Peds",
+         "desc": "Peds bounce when they hit the ground"
+        },
+        {
+         "id": "pedbounceforce",
+         "label": "Bounce Force",
+         "desc": "How high peds bounce"
+        },
+        {
+         "id": "launchpeds",
+         "label": "Launch Peds",
+         "desc": "Launch all nearby peds into the air"
+        },
+        {
+         "id": "launchforce",
+         "label": "Force",
+         "desc": "Launch force"
+        },
+        {
+         "id": "launchradius",
+         "label": "Radius",
+         "desc": "Launch radius"
+        },
+        {
+         "id": "ignitepeds",
+         "label": "Ignite Peds",
+         "desc": "Set all nearby peds on fire"
+        },
+        {
+         "id": "igniteradius",
+         "label": "Radius",
+         "desc": "Ignite radius"
+        },
+        {
+         "id": "barfight",
+         "label": "Bar Fight",
+         "desc": "Start an all-out fist fight between nearby peds"
+        },
+        {
+         "id": "pedclones",
+         "label": "Clone Self",
+         "desc": "Spawn clones of your character around you"
+        },
+        {
+         "id": "clonecount",
+         "label": "Count",
+         "desc": "Number of clones to spawn"
+        },
+        {
+         "id": "clonearmed",
+         "label": "Armed",
+         "desc": "Give clones weapons"
+        },
+        {
+         "id": "pedmagnet",
+         "label": "Ped Magnet",
+         "desc": "Attract all nearby peds to walk toward you"
+        },
+        {
+         "id": "magnetradius",
+         "label": "Radius",
+         "desc": "Attraction radius"
+        },
+        {
+         "id": "magnetspeed",
+         "label": "Speed",
+         "desc": "Movement speed multiplier"
+        },
+        {
+         "id": "magnetanimals",
+         "label": "Include Animals",
+         "desc": "Also attract animals"
+        },
+        {
+         "id": "pedrain",
+         "label": "Ped Rain",
+         "desc": "Peds fall from the sky around you"
+        },
+        {
+         "id": "pedraininterval",
+         "label": "Interval",
+         "desc": "Ticks between spawns (lower = faster)"
+        },
+        {
+         "id": "pedrainheight",
+         "label": "Height",
+         "desc": "Spawn height above player"
+        },
+        {
+         "id": "pedrainspread",
+         "label": "Spread",
+         "desc": "Horizontal spawn spread"
+        },
+        {
+         "id": "pedfightclub",
+         "label": "Fight Club",
+         "desc": "Make all nearby peds fight each other"
+        },
+        {
+         "id": "fightclubradius",
+         "label": "Radius",
+         "desc": "Fight club area radius"
+        },
+        {
+         "id": "zombiemode",
+         "label": "Zombie Mode",
+         "desc": "Nearby peds become slow hostile melee attackers"
+        },
+        {
+         "id": "zombieradius",
+         "label": "Radius",
+         "desc": "Zombie infection radius"
+        },
+        {
+         "id": "wildwest",
+         "label": "Wild West Showdown",
+         "desc": "Arm all nearby peds and let them duel"
+        },
+        {
+         "id": "wildwestradius",
+         "label": "Radius",
+         "desc": "Armed peds radius"
+        },
+        {
+         "id": "onepunchman",
+         "label": "One Punch Man",
+         "desc": "Kill and launch peds with a single hit"
+        },
+        {
+         "id": "shrinkpeds",
+         "label": "Shrink Peds",
+         "desc": "Make all nearby peds tiny"
+        },
+        {
+         "id": "shrinkscale",
+         "label": "Scale",
+         "desc": "How small peds get"
+        },
+        {
+         "id": "shrinkradius",
+         "label": "Radius",
+         "desc": "Effect radius"
+        },
+        {
+         "id": "giantpeds",
+         "label": "Giant Peds",
+         "desc": "Make all nearby peds giant"
+        },
+        {
+         "id": "giantscale",
+         "label": "Scale",
+         "desc": "How big peds get"
+        },
+        {
+         "id": "giantradius",
+         "label": "Radius",
+         "desc": "Effect radius"
+        }
+       ]
+      },
+      {
+       "name": "Animal Fun",
+       "items": [
+        {
+         "id": "stampede",
+         "label": "Stampede",
+         "desc": "Spawn a stampede of animals charging through"
+        },
+        {
+         "id": "stampedecount",
+         "label": "Count",
+         "desc": "Number of animals"
+        },
+        {
+         "id": "stampedeanimal",
+         "label": "Animal",
+         "desc": "Animal type for stampede"
+        }
+       ]
+      },
+      {
+       "name": "Vehicle Control",
+       "items": [
+        {
+         "id": "worldvehiclecontrolradius",
+         "label": "Control Radius",
+         "desc": "Radius used by nearby vehicle actions"
+        },
+        {
+         "id": "bringvehs",
+         "label": "Bring All Vehicles",
+         "desc": "Teleports all game vehicles to you"
+        },
+        {
+         "id": "repairnearbyvehicles",
+         "label": "Repair Nearby Vehicles",
+         "desc": "Repair every vehicle inside the control radius"
+        },
+        {
+         "id": "cleannearbyvehicles",
+         "label": "Clean Nearby Vehicles",
+         "desc": "Remove dirt from every vehicle inside the control radius"
+        },
+        {
+         "id": "stopnearbyvehicles",
+         "label": "Stop Nearby Vehicles",
+         "desc": "Stop every vehicle inside the control radius"
+        },
+        {
+         "id": "flipnearbyvehicles",
+         "label": "Flip Nearby Vehicles",
+         "desc": "Place every vehicle inside the control radius upright"
+        },
+        {
+         "id": "unlocknearbyvehicles",
+         "label": "Unlock Nearby Vehicles",
+         "desc": "Unlock every vehicle inside the control radius"
+        },
+        {
+         "id": "launchnearbyvehicles",
+         "label": "Launch Nearby Vehicles",
+         "desc": "Launch nearby vehicles upward while keeping your current vehicle grounded"
+        },
+        {
+         "id": "worldvehiclelaunchforce",
+         "label": "Launch Force",
+         "desc": "Upward force used by Launch Nearby Vehicles"
+        },
+        {
+         "id": "explodevehicles",
+         "label": "Explode Vehicles",
+         "desc": "Explode all nearby vehicles"
+        },
+        {
+         "id": "delvehs",
+         "label": "Delete All Vehicles",
+         "desc": "Deletes all vehicles in the game world, including mission critical vehicles"
+        }
+       ]
+      },
+      {
+       "name": "Object Control",
+       "items": [
+        {
+         "id": "bringobjs",
+         "label": "Bring All Objects",
+         "desc": "Teleports all game objects to you"
+        },
+        {
+         "id": "delobjs",
+         "label": "Delete All Objects",
+         "desc": "Deletes all objects in the game world, including mission critical objects"
         }
        ]
       },
@@ -432,264 +722,14 @@
          "desc": "Wind speed (0.0 = calm, 10.0 = gale)"
         }
        ]
-      }
-     ]
-    },
-    {
-     "name": "Chaos",
-     "groups": [
-      {
-       "name": "Ped Chaos",
-       "items": [
-        {
-         "id": "ragdollpeds",
-         "label": "Ragdoll Peds",
-         "desc": "Make all nearby peds ragdoll"
-        },
-        {
-         "id": "ragdollradius",
-         "label": "Radius",
-         "desc": "Ragdoll effect radius"
-        },
-        {
-         "id": "ragdollduration",
-         "label": "Duration",
-         "desc": "Ragdoll time in ms"
-        },
-        {
-         "id": "chaos",
-         "label": "Chaos Mode",
-         "desc": "Random chaos effects on all nearby peds"
-        },
-        {
-         "id": "chaosradius",
-         "label": "Radius",
-         "desc": "Chaos effect radius"
-        },
-        {
-         "id": "chaosintensity",
-         "label": "Intensity",
-         "desc": "Ticks between effects (lower = more chaotic)"
-        },
-        {
-         "id": "pedflee",
-         "label": "Ped Panic",
-         "desc": "All nearby peds flee in terror"
-        },
-        {
-         "id": "pedfleeradius",
-         "label": "Radius",
-         "desc": "Panic radius"
-        },
-        {
-         "id": "pedbounce",
-         "label": "Bouncy Peds",
-         "desc": "Peds bounce when they hit the ground"
-        },
-        {
-         "id": "pedbounceforce",
-         "label": "Bounce Force",
-         "desc": "How high peds bounce"
-        }
-       ]
       },
       {
-       "name": "Ped Actions",
+       "name": "More",
        "items": [
         {
-         "id": "launchpeds",
-         "label": "Launch Peds",
-         "desc": "Launch all nearby peds into the air"
-        },
-        {
-         "id": "launchforce",
-         "label": "Force",
-         "desc": "Launch force"
-        },
-        {
-         "id": "launchradius",
-         "label": "Radius",
-         "desc": "Launch radius"
-        },
-        {
-         "id": "ignitepeds",
-         "label": "Ignite Peds",
-         "desc": "Set all nearby peds on fire"
-        },
-        {
-         "id": "igniteradius",
-         "label": "Radius",
-         "desc": "Ignite radius"
-        },
-        {
-         "id": "barfight",
-         "label": "Bar Fight",
-         "desc": "Start an all-out fist fight between nearby peds"
-        },
-        {
-         "id": "pedclones",
-         "label": "Clone Self",
-         "desc": "Spawn clones of your character around you"
-        },
-        {
-         "id": "clonecount",
-         "label": "Count",
-         "desc": "Number of clones to spawn"
-        },
-        {
-         "id": "clonearmed",
-         "label": "Armed",
-         "desc": "Give clones weapons"
-        }
-       ]
-      },
-      {
-       "name": "Ped Effects",
-       "items": [
-        {
-         "id": "pedmagnet",
-         "label": "Ped Magnet",
-         "desc": "Attract all nearby peds to walk toward you"
-        },
-        {
-         "id": "magnetradius",
-         "label": "Radius",
-         "desc": "Attraction radius"
-        },
-        {
-         "id": "magnetspeed",
-         "label": "Speed",
-         "desc": "Movement speed multiplier"
-        },
-        {
-         "id": "magnetanimals",
-         "label": "Include Animals",
-         "desc": "Also attract animals"
-        },
-        {
-         "id": "pedrain",
-         "label": "Ped Rain",
-         "desc": "Peds fall from the sky around you"
-        },
-        {
-         "id": "pedraininterval",
-         "label": "Interval",
-         "desc": "Ticks between spawns (lower = faster)"
-        },
-        {
-         "id": "pedrainheight",
-         "label": "Height",
-         "desc": "Spawn height above player"
-        },
-        {
-         "id": "pedrainspread",
-         "label": "Spread",
-         "desc": "Horizontal spawn spread"
-        }
-       ]
-      },
-      {
-       "name": "Combat Modes",
-       "items": [
-        {
-         "id": "pedfightclub",
-         "label": "Fight Club",
-         "desc": "Make all nearby peds fight each other"
-        },
-        {
-         "id": "fightclubradius",
-         "label": "Radius",
-         "desc": "Fight club area radius"
-        },
-        {
-         "id": "zombiemode",
-         "label": "Zombie Mode",
-         "desc": "Nearby peds become slow hostile melee attackers"
-        },
-        {
-         "id": "zombieradius",
-         "label": "Radius",
-         "desc": "Zombie infection radius"
-        },
-        {
-         "id": "wildwest",
-         "label": "Wild West Showdown",
-         "desc": "Arm all nearby peds and let them duel"
-        },
-        {
-         "id": "wildwestradius",
-         "label": "Radius",
-         "desc": "Armed peds radius"
-        },
-        {
-         "id": "onepunchman",
-         "label": "One Punch Man",
-         "desc": "Kill and launch peds with a single hit"
-        }
-       ]
-      },
-      {
-       "name": "Ped Scale",
-       "items": [
-        {
-         "id": "shrinkpeds",
-         "label": "Shrink Peds",
-         "desc": "Make all nearby peds tiny"
-        },
-        {
-         "id": "shrinkscale",
-         "label": "Scale",
-         "desc": "How small peds get"
-        },
-        {
-         "id": "shrinkradius",
-         "label": "Radius",
-         "desc": "Effect radius"
-        },
-        {
-         "id": "giantpeds",
-         "label": "Giant Peds",
-         "desc": "Make all nearby peds giant"
-        },
-        {
-         "id": "giantscale",
-         "label": "Scale",
-         "desc": "How big peds get"
-        },
-        {
-         "id": "giantradius",
-         "label": "Radius",
-         "desc": "Effect radius"
-        }
-       ]
-      },
-      {
-       "name": "Animal Fun",
-       "items": [
-        {
-         "id": "stampede",
-         "label": "Stampede",
-         "desc": "Spawn a stampede of animals charging through"
-        },
-        {
-         "id": "stampedecount",
-         "label": "Count",
-         "desc": "Number of animals"
-        },
-        {
-         "id": "stampedeanimal",
-         "label": "Animal",
-         "desc": "Animal type for stampede"
-        }
-       ]
-      },
-      {
-       "name": "Weather Chaos",
-       "items": [
-        {
-         "id": "spawnthunderstorm",
-         "label": "Thunderstorm",
-         "desc": "Start a thunderstorm"
+         "id": "spawnanimal",
+         "label": "Spawn Animal",
+         "desc": "Spawn an animal at your location"
         },
         {
          "id": "spawnlightning",
@@ -697,24 +737,24 @@
          "desc": "Spawn a lightning strike above you"
         },
         {
+         "id": "spawnthunderstorm",
+         "label": "Thunderstorm",
+         "desc": "Start a thunderstorm"
+        },
+        {
          "id": "meteorshower",
          "label": "Meteor Shower",
          "desc": "Rain down fiery explosions around you"
         },
         {
-         "id": "meteortype",
-         "label": "Type",
-         "desc": "Explosion type"
+         "id": "meteorradius",
+         "label": "Radius",
+         "desc": "Meteor spread radius"
         },
         {
          "id": "meteorinterval",
          "label": "Interval",
          "desc": "Ticks between meteor waves"
-        },
-        {
-         "id": "meteorradius",
-         "label": "Radius",
-         "desc": "Meteor spread radius"
         },
         {
          "id": "meteorsize",
@@ -725,6 +765,226 @@
          "id": "meteorcount",
          "label": "Per Wave",
          "desc": "Meteors per wave"
+        },
+        {
+         "id": "meteortype",
+         "label": "Type",
+         "desc": "Explosion type"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Bodyguards",
+     "groups": [
+      {
+       "name": "Squad Setup",
+       "items": [
+        {
+         "id": "companionfollowers",
+         "label": "Bodyguard Manager",
+         "desc": "Deploy and manage a configurable local bodyguard squad"
+        },
+        {
+         "id": "companionfollowermodel",
+         "label": "Guard Ped",
+         "desc": "Ped spawned by Deploy or Add Selected Guard"
+        },
+        {
+         "id": "companionfollowercount",
+         "label": "Squad Size",
+         "desc": "Number of bodyguards to deploy"
+        },
+        {
+         "id": "bodyguardautoreplace",
+         "label": "Auto Replace",
+         "desc": "Automatically replace missing or dead bodyguards"
+        },
+        {
+         "id": "bodyguardscale",
+         "label": "Ped Scale",
+         "desc": "Scale applied to spawned and active bodyguards"
+        },
+        {
+         "id": "bodyguardblips",
+         "label": "Show Guard Blips",
+         "desc": "Show active bodyguards on the radar"
+        }
+       ]
+      },
+      {
+       "name": "Combat & Behavior",
+       "items": [
+        {
+         "id": "bodyguardweapon",
+         "label": "Weapon",
+         "desc": "Weapon equipped by every bodyguard"
+        },
+        {
+         "id": "bodyguardinfiniteammo",
+         "label": "Infinite Ammo",
+         "desc": "Prevent bodyguards from running out of ammunition"
+        },
+        {
+         "id": "bodyguardaccuracy",
+         "label": "Accuracy",
+         "desc": "Bodyguard weapon accuracy"
+        },
+        {
+         "id": "bodyguardcombatstyle",
+         "label": "Combat Style",
+         "desc": "How aggressively bodyguards respond to threats"
+        },
+        {
+         "id": "bodyguardcombatrange",
+         "label": "Combat Range",
+         "desc": "Preferred distance from enemies during combat"
+        },
+        {
+         "id": "bodyguardfriendlyfire",
+         "label": "Friendly Fire Protection",
+         "desc": "Prevent you from targeting your own bodyguards"
+        },
+        {
+         "id": "bodyguardmaxhealth",
+         "label": "Max Health",
+         "desc": "Maximum health applied when a bodyguard is deployed or healed"
+        },
+        {
+         "id": "bodyguardarmor",
+         "label": "Armor",
+         "desc": "Armor applied when a bodyguard is deployed or healed"
+        },
+        {
+         "id": "companionfollowerinvincible",
+         "label": "Invincible",
+         "desc": "Keep bodyguards protected from damage"
+        },
+        {
+         "id": "bodyguardallowragdoll",
+         "label": "Allow Ragdoll",
+         "desc": "Allow bodyguards to react physically to impacts"
+        },
+        {
+         "id": "bodyguardformation",
+         "label": "Formation",
+         "desc": "Formation used while following you"
+        },
+        {
+         "id": "bodyguardholdposition",
+         "label": "Hold Position",
+         "desc": "Keep the squad in place while still defending against threats"
+        },
+        {
+         "id": "companionfollowerautoride",
+         "label": "Ride With You",
+         "desc": "Warp bodyguards into free vehicle seats when you are in a vehicle"
+        },
+        {
+         "id": "companionfollowercatchup",
+         "label": "Auto Catch Up",
+         "desc": "Move bodyguards back to you when they fall too far behind"
+        }
+       ]
+      },
+      {
+       "name": "Squad Actions",
+       "items": [
+        {
+         "id": "bodyguardaddselected",
+         "label": "Add Selected Guard",
+         "desc": "Add one guard using the currently selected ped without replacing the rest of the squad"
+        },
+        {
+         "id": "spawncompanionfollowers",
+         "label": "Deploy Squad",
+         "desc": "Enable the manager and synchronize the active squad with Squad Size using the selected ped"
+        },
+        {
+         "id": "bodyguardapplysettings",
+         "label": "Apply Settings",
+         "desc": "Apply the selected loadout, combat behavior, appearance, and formation to active bodyguards"
+        },
+        {
+         "id": "bodyguardhealall",
+         "label": "Heal & Rearmor",
+         "desc": "Restore configured health and armor for every active bodyguard"
+        },
+        {
+         "id": "teleportcompanionfollowers",
+         "label": "Regroup Bodyguards",
+         "desc": "Move active bodyguards back to your position"
+        },
+        {
+         "id": "bodyguarddismisslast",
+         "label": "Dismiss Last Guard",
+         "desc": "Remove the most recently added bodyguard"
+        },
+        {
+         "id": "dismisscompanionfollowers",
+         "label": "Dismiss Squad",
+         "desc": "Delete all bodyguards and disable the manager"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fun",
+     "groups": [
+      {
+       "name": "Chaos",
+       "items": [
+        {
+         "id": "chaosmod",
+         "label": "Chaos Mod",
+         "desc": "Automatically trigger a different random RDR2 chaos effect on a timer"
+        },
+        {
+         "id": "chaosmodinterval",
+         "label": "Effect Interval",
+         "desc": "Seconds between random chaos effects"
+        },
+        {
+         "id": "chaosmodduration",
+         "label": "Effect Duration",
+         "desc": "Seconds that timed chaos effects stay active"
+        },
+        {
+         "id": "chaosmodradius",
+         "label": "Effect Radius",
+         "desc": "Radius used by nearby-ped chaos effects"
+        },
+        {
+         "id": "chaosmodincludeplayer",
+         "label": "Include Player",
+         "desc": "Allow chaos effects that target your player, mount, or vehicle"
+        },
+        {
+         "id": "chaosmodnonlethal",
+         "label": "Non-Lethal Pool",
+         "desc": "Exclude meteors, airstrikes, and explosive weapons from random selection"
+        },
+        {
+         "id": "chaosmodselected",
+         "label": "Selected Effect",
+         "desc": "Effect used by Trigger Selected"
+        },
+        {
+         "id": "chaosmodtrigger",
+         "label": "Trigger Selected",
+         "desc": "Stop the current effect and trigger the selected chaos effect"
+        },
+        {
+         "id": "chaosmodnext",
+         "label": "Trigger Random Now",
+         "desc": "Stop the current effect and trigger another random chaos effect"
+        },
+        {
+         "id": "chaosmodstop",
+         "label": "Stop Current Effect",
+         "desc": "Clean up the active timed chaos effect without disabling the timer"
         }
        ]
       },
@@ -784,7 +1044,7 @@
        ]
       },
       {
-       "name": "Black Hole - Targets",
+       "name": "Black Hole Targets",
        "items": [
         {
          "id": "blackholeaffectpeds",
@@ -809,7 +1069,7 @@
        ]
       },
       {
-       "name": "Black Hole - Effects",
+       "name": "Black Hole Effects",
        "items": [
         {
          "id": "blackholeaimpos",
@@ -939,7 +1199,7 @@
         {
          "id": "firetrail",
          "label": "Fire Trail",
-         "desc": "Leave a trail of fire behind you as you move"
+         "desc": "Leave a grounded trail of visible fire behind you as you move"
         },
         {
          "id": "explosiontrail",
@@ -1124,656 +1384,11 @@
        ]
       }
      ]
-    },
-    {
-     "name": "Visual FX",
-     "groups": [
-      {
-       "name": "Transition Filter",
-       "items": [
-        {
-         "id": "transitionfilter",
-         "label": "Transition Filter",
-         "desc": "Apply a secondary overlay screen filter"
-        }
-       ]
-      },
-      {
-       "name": "Colorized PostFX",
-       "items": [
-        {
-         "id": "postfxcolorized",
-         "label": "Colorized PostFX",
-         "desc": "Apply color-tinted post effect"
-        }
-       ]
-      },
-      {
-       "name": "Sky Tint",
-       "items": [
-        {
-         "id": "skytint",
-         "label": "Sky Tint",
-         "desc": "Apply color tint to sky via Eagle Eye effect"
-        }
-       ]
-      },
-      {
-       "name": "Night Vision",
-       "items": [
-        {
-         "id": "nightvision",
-         "label": "Night Vision",
-         "desc": "Green-tinted night vision using spotlight effect"
-        }
-       ]
-      },
-      {
-       "name": "Damage Tint",
-       "items": [
-        {
-         "id": "damagetint",
-         "label": "Damage Tint",
-         "desc": "Colorized damage screen overlay"
-        }
-       ]
-      },
-      {
-       "name": "Death Tint",
-       "items": [
-        {
-         "id": "deathtint",
-         "label": "Death Tint",
-         "desc": "Colorized death screen overlay"
-        }
-       ]
-      },
-      {
-       "name": "Drunk Tint",
-       "items": [
-        {
-         "id": "drunktint",
-         "label": "Drunk Tint",
-         "desc": "Colorized drunk vision overlay"
-        }
-       ]
-      },
-      {
-       "name": "Focus Tint",
-       "items": [
-        {
-         "id": "focustint",
-         "label": "Focus Tint",
-         "desc": "Colorized focus blur overlay"
-        }
-       ]
-      },
-      {
-       "name": "Camera Transition Tint",
-       "items": [
-        {
-         "id": "camtranstint",
-         "label": "Cam Transition Tint",
-         "desc": "Colorized camera transition overlay"
-        }
-       ]
-      },
-      {
-       "name": "Snow",
-       "items": [
-        {
-         "id": "snoweffect",
-         "label": "Snow Effect",
-         "desc": "Enable snow on the ground"
-        }
-       ]
-      },
-      {
-       "name": "Rain",
-       "items": [
-        {
-         "id": "raineffect",
-         "label": "Rain Effect",
-         "desc": "Control rain intensity"
-        }
-       ]
-      },
-      {
-       "name": "Wind",
-       "items": [
-        {
-         "id": "windeffect",
-         "label": "Wind Effect",
-         "desc": "Control wind speed and direction"
-        }
-       ]
-      },
-      {
-       "name": "Lightning",
-       "items": [
-        {
-         "id": "lightningstorm",
-         "label": "Lightning Storm",
-         "desc": "Continuous lightning strikes"
-        }
-       ]
-      },
-      {
-       "name": "Moon",
-       "items": [
-        {
-         "id": "moonoverride",
-         "label": "Moon Override",
-         "desc": "Override moon phase"
-        },
-        {
-         "id": "ptrmooncontrol",
-         "label": "Moon Control",
-         "desc": "Override moon size, alpha, and color via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Clouds",
-       "items": [
-        {
-         "id": "cloudcontrol",
-         "label": "Cloud Control",
-         "desc": "Control cloud height and layers"
-        }
-       ]
-      },
-      {
-       "name": "Cloud Position",
-       "items": [
-        {
-         "id": "cloudposition",
-         "label": "Cloud Position",
-         "desc": "Override cloud position in sky"
-        }
-       ]
-      },
-      {
-       "name": "Artificial Lights",
-       "items": [
-        {
-         "id": "artificiallights",
-         "label": "Blackout",
-         "desc": "Disable all artificial lights"
-        },
-        {
-         "id": "disablefarlights",
-         "label": "Disable Far Lights",
-         "desc": "Disable distant artificial lights"
-        }
-       ]
-      },
-      {
-       "name": "Weather Control",
-       "items": [
-        {
-         "id": "weatherfreeze",
-         "label": "Freeze Weather",
-         "desc": "Freeze current weather state"
-        },
-        {
-         "id": "weathervariation",
-         "label": "Weather Variation",
-         "desc": "Apply weather variation effects"
-        }
-       ]
-      },
-      {
-       "name": "Ambient Light",
-       "items": [
-        {
-         "id": "ambientlight",
-         "label": "Ambient Light",
-         "desc": "Large colored light above player area"
-        }
-       ]
-      },
-      {
-       "name": "Ground Light",
-       "items": [
-        {
-         "id": "groundlight",
-         "label": "Ground Light",
-         "desc": "Colored light below player"
-        }
-       ]
-      },
-      {
-       "name": "Area Lights",
-       "items": [
-        {
-         "id": "arealight",
-         "label": "Area Lights",
-         "desc": "Multiple lights surrounding player"
-        }
-       ]
-      },
-      {
-       "name": "Player Particle FX",
-       "items": [
-        {
-         "id": "playerparticlefx",
-         "label": "Player Particle FX",
-         "desc": "Spawn looped particle effect at player"
-        }
-       ]
-      },
-      {
-       "name": "Lightning Effects",
-       "items": [
-        {
-         "id": "lightningptfx",
-         "label": "Lightning Strike",
-         "desc": "Continuous lightning at player position"
-        },
-        {
-         "id": "lightningaim",
-         "label": "Lightning Aim",
-         "desc": "Lightning strikes where player is facing"
-        }
-       ]
-      },
-      {
-       "name": "Shadow Quality",
-       "items": [
-        {
-         "id": "shadowoverride",
-         "label": "Shadow Override",
-         "desc": "Override shadow sampling quality"
-        }
-       ]
-      },
-      {
-       "name": "Shadow Distance",
-       "items": [
-        {
-         "id": "shadowdistance",
-         "label": "Shadow Distance",
-         "desc": "Control cascade shadow distance"
-        }
-       ]
-      },
-      {
-       "name": "Shadow Misc",
-       "items": [
-        {
-         "id": "shadowtracker",
-         "label": "Shadow Tracker",
-         "desc": "Enable nearby shadow rendering"
-        }
-       ]
-      },
-      {
-       "name": "Motion Blur",
-       "items": [
-        {
-         "id": "motionblur",
-         "label": "Motion Blur",
-         "desc": "Override motion blur strength"
-        }
-       ]
-      },
-      {
-       "name": "Photo Mode",
-       "items": [
-        {
-         "id": "photofreeze",
-         "label": "Photo Freeze",
-         "desc": "Freeze world for photo mode"
-        }
-       ]
-      },
-      {
-       "name": "Sun",
-       "items": [
-        {
-         "id": "ptrsuncontrol",
-         "label": "Sun Control",
-         "desc": "Override sun size and color via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Stars",
-       "items": [
-        {
-         "id": "ptrstarscontrol",
-         "label": "Stars Control",
-         "desc": "Override star size, intensity, glow, and color via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Sky Color",
-       "items": [
-        {
-         "id": "ptrskycolorcontrol",
-         "label": "Sky Color Control",
-         "desc": "Override sky color, gamma, and darkness via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Galaxy/Aura",
-       "items": [
-        {
-         "id": "ptrauracontrol",
-         "label": "Galaxy/Aura Control",
-         "desc": "Override galaxy aura color and stars via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Sunset",
-       "items": [
-        {
-         "id": "ptrsunsetcontrol",
-         "label": "Sunset Control",
-         "desc": "Override sunset light color via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Night Mode",
-       "items": [
-        {
-         "id": "ptrnightmode",
-         "label": "Night Mode",
-         "desc": "Override night light intensity via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Sky Flash",
-       "items": [
-        {
-         "id": "ptrskyflashcmd",
-         "label": "Sky Flash",
-         "desc": "Override sky flash intensity via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Lighting Color",
-       "items": [
-        {
-         "id": "ptrlightingcolorcmd",
-         "label": "Lighting Color",
-         "desc": "Override global lighting color via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Core & Hit Effects",
-       "items": [
-        {
-         "id": "ptrcoreeffectcmd",
-         "label": "Core & Hit Effects",
-         "desc": "Override core/hit visual effects via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Glow Control",
-       "items": [
-        {
-         "id": "ptrglowcontrol",
-         "label": "Glow Control",
-         "desc": "Override core, lighting, and top glow via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Light Spread",
-       "items": [
-        {
-         "id": "ptrspreadcontrol",
-         "label": "Light Spread",
-         "desc": "Override light spread directions via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Sharpness & Effects",
-       "items": [
-        {
-         "id": "ptrsharpnesscontrol",
-         "label": "Sharpness & Effects",
-         "desc": "Override sharpness, sky, and cloud effects via pointer"
-        }
-       ]
-      },
-      {
-       "name": "World Light & HDR",
-       "items": [
-        {
-         "id": "ptrworldlightcontrol",
-         "label": "World Light & HDR",
-         "desc": "Override world light, HDR, and screen/game light via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Shadow Toggles",
-       "items": [
-        {
-         "id": "ptrshadowdarkness",
-         "label": "Shadow Darkness",
-         "desc": "Enable game shadow darkness via pointer"
-        },
-        {
-         "id": "ptrdeepshadow",
-         "label": "Deep Shadows",
-         "desc": "Enable deep/snow shadows via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Ped Lighting",
-       "items": [
-        {
-         "id": "ptrpedlightcontrol",
-         "label": "Ped Light Control",
-         "desc": "Override ped light colors and sun reaction via pointer"
-        }
-       ]
-      },
-      {
-       "name": "TC Sky & Moon",
-       "items": [
-        {
-         "id": "ptrtcskycontrol",
-         "label": "TC Sky & Moon",
-         "desc": "Override timecycle sky, cloud, moon light, and sun size via pointer"
-        }
-       ]
-      },
-      {
-       "name": "Fog & Atmosphere",
-       "items": [
-        {
-         "id": "ptrfogatmosphere",
-         "label": "Fog & Atmosphere",
-         "desc": "Override fog, sun power, ground clouds, and far light via pointer"
-        }
-       ]
-      },
-      {
-       "name": "TC Cloud Control",
-       "items": [
-        {
-         "id": "ptrcloudcontrolcmd",
-         "label": "TC Cloud Control",
-         "desc": "Override cloud count, rain, spread, and intensity via pointer"
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "name": "Overlays",
-     "groups": [
-      {
-       "name": "Crosshair",
-       "items": [
-        {
-         "id": "crosshair",
-         "label": "Crosshair",
-         "desc": "Draw a custom crosshair overlay"
-        },
-        {
-         "id": "crosshairshape",
-         "label": "Shape",
-         "desc": "Crosshair shape"
-        },
-        {
-         "id": "crosshairsize",
-         "label": "Size",
-         "desc": "Crosshair size in pixels"
-        },
-        {
-         "id": "crosshairthickness",
-         "label": "Thickness",
-         "desc": "Line thickness"
-        },
-        {
-         "id": "crosshairgap",
-         "label": "Gap",
-         "desc": "Center gap size (cross shapes)"
-        },
-        {
-         "id": "crosshaircolor",
-         "label": "Color",
-         "desc": "Crosshair color"
-        }
-       ]
-      },
-      {
-       "name": "Crosshair Options",
-       "items": [
-        {
-         "id": "crosshairoutline",
-         "label": "Outline",
-         "desc": "Draw black outline for visibility"
-        },
-        {
-         "id": "crosshairmhideads",
-         "label": "Hide in ADS",
-         "desc": "Hide crosshair when aiming down sights"
-        },
-        {
-         "id": "crosshairdot",
-         "label": "Center Dot",
-         "desc": "Draw a center dot"
-        },
-        {
-         "id": "crosshairdotsize",
-         "label": "Dot Size",
-         "desc": "Center dot radius"
-        }
-       ]
-      },
-      {
-       "name": "Hitmarker",
-       "items": [
-        {
-         "id": "hitmarker",
-         "label": "Hitmarker",
-         "desc": "Show a hitmarker when you damage someone"
-        },
-        {
-         "id": "hitmarkershape",
-         "label": "Shape",
-         "desc": "Hitmarker shape on hit"
-        },
-        {
-         "id": "hitmarkersize",
-         "label": "Size",
-         "desc": "Hitmarker size in pixels"
-        },
-        {
-         "id": "hitmarkerthickness",
-         "label": "Thickness",
-         "desc": "Line thickness"
-        },
-        {
-         "id": "hitmarkerduration",
-         "label": "Duration",
-         "desc": "How long the hitmarker displays (seconds)"
-        },
-        {
-         "id": "hitmarkercolor",
-         "label": "Color",
-         "desc": "Hitmarker color"
-        }
-       ]
-      },
-      {
-       "name": "Hitmarker Effects",
-       "items": [
-        {
-         "id": "hitmarkerfade",
-         "label": "Fade Out",
-         "desc": "Fade out the hitmarker over its duration"
-        },
-        {
-         "id": "hitmarkerexpand",
-         "label": "Expand Effect",
-         "desc": "Hitmarker expands slightly on hit"
-        },
-        {
-         "id": "hitmarkerheadshot",
-         "label": "Headshot Indicator",
-         "desc": "Different color for headshots"
-        },
-        {
-         "id": "hitmarkerheadshotcolor",
-         "label": "Headshot Color",
-         "desc": "Color when hitting the head"
-        }
-       ]
-      },
-      {
-       "name": "Kill Indicator",
-       "items": [
-        {
-         "id": "hitmarkerkill",
-         "label": "Kill Indicator",
-         "desc": "Show a different marker on kills"
-        },
-        {
-         "id": "hitmarkerkillsize",
-         "label": "Kill Size",
-         "desc": "Kill marker size multiplier"
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "name": "world",
-     "groups": [
-      {
-       "name": "More",
-       "items": [
-        {
-         "id": "spawnanimal",
-         "label": "Spawn Animal",
-         "desc": "Spawn an animal at your location"
-        }
-       ]
-      }
-     ]
     }
    ]
   },
   {
-   "name": "SelfWeapons",
+   "name": "Weapons",
    "categories": [
     {
      "name": "Weapons",
@@ -1830,6 +1445,11 @@
          "id": "tranquilizerammo",
          "label": "Tranquilizer Ammo",
          "desc": "Your bullets put NPCs to sleep instead of killing them"
+        },
+        {
+         "id": "bulletchanger",
+         "label": "Bullet Changer",
+         "desc": "Fire the selected RDR2 projectile from normal and Rapid Fire gunshots"
         }
        ]
       },
@@ -1984,7 +1604,7 @@
         {
          "id": "rapidfire",
          "label": "Rapid Fire",
-         "desc": "Fire your weapon faster by shooting extra bullets"
+         "desc": "Fires the equipped gun continuously at the camera target while the fire control is held"
         },
         {
          "id": "pvpinfinitecombatroll",
@@ -2005,6 +1625,16 @@
          "id": "pvpoverlay",
          "label": "PvP Overlay",
          "desc": "Shows session kills, deaths, K/D, and recent PvP events"
+        },
+        {
+         "id": "pvpoverlayscale",
+         "label": "Overlay Scale",
+         "desc": "Changes the size of the PvP scoreboard"
+        },
+        {
+         "id": "pvpoverlayrows",
+         "label": "Opponent Rows",
+         "desc": "Maximum number of opponents shown on the PvP scoreboard"
         }
        ]
       },
@@ -2014,72 +1644,72 @@
         {
          "id": "infogun",
          "label": "Info Gun",
-         "desc": "Aim at an entity to show model, hash, coords, health, and more. Press E to copy."
+         "desc": "Point at an entity to show model, hash, coords, health, and more. Press E to copy."
         },
         {
          "id": "deletegun",
          "label": "Delete Gun",
-         "desc": "Aim and shoot to delete entities"
+         "desc": "Shoot to delete entities"
         },
         {
          "id": "teleportgun",
          "label": "Teleport Gun",
-         "desc": "Aim and shoot to teleport to location"
+         "desc": "Shoot to teleport to location"
         },
         {
          "id": "freezegun",
          "label": "Freeze Gun",
-         "desc": "Aim and shoot to freeze/unfreeze entities"
+         "desc": "Shoot to freeze/unfreeze entities"
         },
         {
          "id": "burngun",
          "label": "Burn Gun",
-         "desc": "Aim and shoot to set entities on fire"
+         "desc": "Shoot to set entities on fire"
         },
         {
          "id": "ragdollgun",
          "label": "Ragdoll Gun",
-         "desc": "Aim and shoot to make peds ragdoll"
+         "desc": "Shoot to make peds ragdoll"
         },
         {
          "id": "drunkgun",
          "label": "Drunk Gun",
-         "desc": "Aim and shoot to make NPCs drunk and stumble around"
+         "desc": "Shoot to make NPCs drunk and stumble around"
         },
         {
          "id": "swapgun",
          "label": "Swap Gun",
-         "desc": "Aim and shoot to swap positions with any entity"
+         "desc": "Shoot to swap positions with any entity"
         },
         {
          "id": "healgun",
          "label": "Heal Gun",
-         "desc": "Aim and shoot to heal peds or repair vehicles"
+         "desc": "Shoot to heal peds or repair vehicles"
         },
         {
          "id": "revivegun",
          "label": "Revive Gun",
-         "desc": "Aim and shoot at dead peds to bring them back to life"
+         "desc": "Shoot at dead peds to bring them back to life"
         },
         {
          "id": "gravitygun",
          "label": "Gravity Gun",
-         "desc": "Aim and shoot to grab entities, release to throw"
+         "desc": "Shoot to grab entities, then shoot again to throw"
         },
         {
          "id": "launchgun",
          "label": "Launch Gun",
-         "desc": "Aim and shoot to launch entities into the air"
+         "desc": "Shoot to launch entities into the air"
         },
         {
          "id": "pushgun",
          "label": "Push Gun",
-         "desc": "Aim and shoot to push entities away"
+         "desc": "Shoot to push entities away"
         },
         {
          "id": "shrinkgun",
          "label": "Shrink Gun",
-         "desc": "Aim and shoot to shrink peds"
+         "desc": "Shoot to shrink peds"
         },
         {
          "id": "shrinkgunscale",
@@ -2089,7 +1719,7 @@
         {
          "id": "enlargegun",
          "label": "Enlarge Gun",
-         "desc": "Aim and shoot to enlarge peds"
+         "desc": "Shoot to enlarge peds"
         },
         {
          "id": "enlargegunscale",
@@ -2099,12 +1729,12 @@
         {
          "id": "clonegun",
          "label": "Clone Gun",
-         "desc": "Aim and shoot at a ped to create clones of them"
+         "desc": "Shoot at a ped to create clones of them"
         },
         {
          "id": "airstrikegun",
          "label": "Airstrike Gun",
-         "desc": "Aim and shoot to call in an airstrike"
+         "desc": "Shoot to call in an airstrike"
         }
        ]
       },
@@ -2119,12 +1749,12 @@
         {
          "id": "lightninggun",
          "label": "Lightning Gun",
-         "desc": "Aim and shoot to call down a lightning strike"
+         "desc": "Shoot to call down a lightning strike"
         },
         {
          "id": "vortexgun",
          "label": "Vortex Gun",
-         "desc": "Aim and shoot to create a vortex that pulls in nearby entities"
+         "desc": "Shoot to create a vortex that pulls in nearby entities"
         },
         {
          "id": "blackholegun",
@@ -2134,17 +1764,17 @@
         {
          "id": "levitationgun",
          "label": "Levitation Gun",
-         "desc": "Aim and shoot to make entities float, shoot again to drop them"
+         "desc": "Shoot to make entities float, shoot again to drop them"
         },
         {
          "id": "catapultgun",
          "label": "Catapult Gun",
-         "desc": "Aim and shoot to fling entities into the sky in a high arc"
+         "desc": "Shoot to fling entities into the sky in a high arc"
         },
         {
          "id": "meteorgun",
          "label": "Meteor Gun",
-         "desc": "Aim and shoot to rain down a meteor shower at the target location"
+         "desc": "Shoot to rain down a meteor shower at the target location"
         }
        ]
       },
@@ -2277,11 +1907,6 @@
          "desc": "Magic bullets hit animals through walls"
         },
         {
-         "id": "magicbulletusefov",
-         "label": "Use FOV Limit",
-         "desc": "Only target enemies within FOV circle"
-        },
-        {
          "id": "magicbulletfov",
          "label": "FOV Size",
          "desc": "Field of view circle size for targeting"
@@ -2383,8 +2008,8 @@
         },
         {
          "id": "aimbotindicator",
-         "label": "Show Indicator",
-         "desc": "Display on-screen aimbot status"
+         "label": "Show Lock Text",
+         "desc": "Display Aimbot Locked On while a target is acquired"
         },
         {
          "id": "aimbotsilentshowfov",
@@ -2408,18 +2033,18 @@
         },
         {
          "id": "magicbulletshowtarget",
-         "label": "Show Target Indicator",
-         "desc": "Display an indicator on the target"
+         "label": "Show Lock Dot",
+         "desc": "Display a small dot on the locked target"
         },
         {
          "id": "magicbullettargetcolor",
-         "label": "Target Indicator Color",
-         "desc": "Color of the target indicator"
+         "label": "Lock Dot Color",
+         "desc": "Color of the locked-target dot"
         },
         {
          "id": "magicbulletindicator",
-         "label": "Show Indicator",
-         "desc": "Display on-screen magic bullet status"
+         "label": "Show Lock Text",
+         "desc": "Display Magic Bullet Locked On while a target is acquired"
         }
        ]
       },
@@ -2449,7 +2074,7 @@
         {
          "id": "aimbotsilentwalls",
          "label": "Through Walls",
-         "desc": "Silent aim hits targets through walls"
+         "desc": "Redirect equipped-weapon bullets through obstructions to the locked target"
         }
        ]
       },
@@ -2564,6 +2189,146 @@
        ]
       }
      ]
+    },
+    {
+     "name": "ESP",
+     "groups": [
+      {
+       "name": "Crosshair",
+       "items": [
+        {
+         "id": "crosshair",
+         "label": "Crosshair",
+         "desc": "Draw a custom crosshair overlay"
+        },
+        {
+         "id": "crosshairshape",
+         "label": "Shape",
+         "desc": "Crosshair shape"
+        },
+        {
+         "id": "crosshairsize",
+         "label": "Size",
+         "desc": "Crosshair size in pixels"
+        },
+        {
+         "id": "crosshairthickness",
+         "label": "Thickness",
+         "desc": "Line thickness"
+        },
+        {
+         "id": "crosshairgap",
+         "label": "Gap",
+         "desc": "Center gap size (cross shapes)"
+        },
+        {
+         "id": "crosshaircolor",
+         "label": "Color",
+         "desc": "Crosshair color"
+        }
+       ]
+      },
+      {
+       "name": "Crosshair Options",
+       "items": [
+        {
+         "id": "crosshairoutline",
+         "label": "Outline",
+         "desc": "Draw black outline for visibility"
+        },
+        {
+         "id": "crosshairmhideads",
+         "label": "Hide in ADS",
+         "desc": "Hide crosshair when aiming down sights"
+        },
+        {
+         "id": "crosshairdot",
+         "label": "Center Dot",
+         "desc": "Draw a center dot"
+        },
+        {
+         "id": "crosshairdotsize",
+         "label": "Dot Size",
+         "desc": "Center dot radius"
+        }
+       ]
+      },
+      {
+       "name": "Hitmarker",
+       "items": [
+        {
+         "id": "hitmarker",
+         "label": "Hitmarker",
+         "desc": "Show a hitmarker when you damage someone"
+        },
+        {
+         "id": "hitmarkershape",
+         "label": "Shape",
+         "desc": "Hitmarker shape on hit"
+        },
+        {
+         "id": "hitmarkersize",
+         "label": "Size",
+         "desc": "Hitmarker size in pixels"
+        },
+        {
+         "id": "hitmarkerthickness",
+         "label": "Thickness",
+         "desc": "Line thickness"
+        },
+        {
+         "id": "hitmarkerduration",
+         "label": "Duration",
+         "desc": "How long the hitmarker displays (seconds)"
+        },
+        {
+         "id": "hitmarkercolor",
+         "label": "Color",
+         "desc": "Hitmarker color"
+        }
+       ]
+      },
+      {
+       "name": "Hitmarker Effects",
+       "items": [
+        {
+         "id": "hitmarkerfade",
+         "label": "Fade Out",
+         "desc": "Fade out the hitmarker over its duration"
+        },
+        {
+         "id": "hitmarkerexpand",
+         "label": "Expand Effect",
+         "desc": "Hitmarker expands slightly on hit"
+        },
+        {
+         "id": "hitmarkerheadshot",
+         "label": "Headshot Indicator",
+         "desc": "Different color for headshots"
+        },
+        {
+         "id": "hitmarkerheadshotcolor",
+         "label": "Headshot Color",
+         "desc": "Color when hitting the head"
+        }
+       ]
+      },
+      {
+       "name": "Kill Indicator",
+       "items": [
+        {
+         "id": "hitmarkerkill",
+         "label": "Kill Indicator",
+         "desc": "Show a different marker on kills"
+        },
+        {
+         "id": "hitmarkerkillsize",
+         "label": "Kill Size",
+         "desc": "Kill marker size multiplier"
+        }
+       ]
+      }
+     ]
     }
    ]
   },
@@ -2649,27 +2414,27 @@
         {
          "id": "invis",
          "label": "Invisibility",
-         "desc": "Be invisible"
+         "desc": "Hide your player locally and from other players"
         },
         {
          "id": "offtheradar",
          "label": "Off The Radar",
-         "desc": "You won't show up on the maps of other players"
+         "desc": "Hide your blip from other players while in an online session"
         },
         {
          "id": "neverwanted",
          "label": "Never Wanted",
-         "desc": "Toggle Never Wanted mode"
+         "desc": "Continuously clears law attention and prevents a new wanted level"
         },
         {
          "id": "ghostmode",
          "label": "Ghost Mode",
-         "desc": "Become invisible to all AI - law and civilians ignore you"
+         "desc": "Law and civilians ignore you, including AI already fighting you"
         },
         {
          "id": "noenemies",
          "label": "No Enemies",
-         "desc": "Reassigns you to a neutral relationship group so peds stop being hostile"
+         "desc": "Neutralizes nearby NPC factions without permanently changing your player group"
         }
        ]
       },
@@ -2767,11 +2532,6 @@
          "desc": "Sets the player to be drunk"
         },
         {
-         "id": "superpunch",
-         "label": "Superpunch",
-         "desc": "Makes your punches 100x more powerful"
-        },
-        {
          "id": "noclothingdamage",
          "label": "No Clothing Damage",
          "desc": "Prevents clothing from getting damaged"
@@ -2789,18 +2549,8 @@
        ]
       },
       {
-       "name": "Movement",
+       "name": "Movement & Abilities",
        "items": [
-        {
-         "id": "superrun",
-         "label": "Super Run",
-         "desc": "Run faster than normal"
-        },
-        {
-         "id": "superjump",
-         "label": "Super Jump",
-         "desc": "Jump higher than normal"
-        },
         {
          "id": "fastwalk",
          "label": "Fast Walk",
@@ -2810,12 +2560,42 @@
          "id": "climbsteepslopes",
          "label": "Can Climb Steep Slopes",
          "desc": "You can climb up/down steep slopes without sliding"
-        }
-       ]
-      },
-      {
-       "name": "Water",
-       "items": [
+        },
+        {
+         "id": "superrun",
+         "label": "Super Run",
+         "desc": "Run faster than normal"
+        },
+        {
+         "id": "superjump",
+         "label": "Super Jump",
+         "desc": "Launch higher on each jump using the configured height"
+        },
+        {
+         "id": "superjumpheight",
+         "label": "Jump Height",
+         "desc": "Upward launch speed applied to each Super Jump"
+        },
+        {
+         "id": "combatdive",
+         "label": "Combat Dive",
+         "desc": "Directional dive with a brief aiming window before a controlled landing ragdoll"
+        },
+        {
+         "id": "combatdiveforce",
+         "label": "Dive Force",
+         "desc": "Forward force applied by combat dives"
+        },
+        {
+         "id": "combatdiverecovery",
+         "label": "Dive Recovery",
+         "desc": "Milliseconds before another dive can start"
+        },
+        {
+         "id": "superpunch",
+         "label": "Superpunch",
+         "desc": "Makes your punches 100x more powerful"
+        },
         {
          "id": "walkonwater",
          "label": "Walk On Water",
@@ -2825,22 +2605,7 @@
          "id": "swimfast",
          "label": "Swim Fast",
          "desc": "Swim faster in water"
-        }
-       ]
-      },
-      {
-       "name": "Flight",
-       "items": [
-        {
-         "id": "superman",
-         "label": "Superman",
-         "desc": "Fly through the air like a superhero"
-        }
-       ]
-      },
-      {
-       "name": "No Clip",
-       "items": [
+        },
         {
          "id": "noclip",
          "label": "No Clip",
@@ -2850,12 +2615,7 @@
          "id": "noclipspeed",
          "label": "Noclip Speed",
          "desc": "Features"
-        }
-       ]
-      },
-      {
-       "name": "Camera",
-       "items": [
+        },
         {
          "id": "freecam",
          "label": "Freecam",
@@ -2922,11 +2682,6 @@
          "desc": "Create a clone of yourself"
         },
         {
-         "id": "spawnbodyguard",
-         "label": "Spawn Bodyguard",
-         "desc": "Spawn armed bodyguards that follow and protect you"
-        },
-        {
          "id": "stopburning",
          "label": "Stop Burning",
          "desc": "Immediately puts out any fire on your character"
@@ -2940,56 +2695,16 @@
          "id": "autolootcorpses",
          "label": "Auto Loot Corpses",
          "desc": "Automatically loots dead peds within 5m"
-        }
-       ]
-      },
-      {
-       "name": "Companion Followers",
-       "items": [
-        {
-         "id": "companionfollowers",
-         "label": "Companion Followers",
-         "desc": "Spawn and manage local female companion followers"
         },
         {
-         "id": "companionfollowermodel",
-         "label": "Model",
-         "desc": "Female model used when spawning companion followers"
+         "id": "cleanself",
+         "label": "Clean Self",
+         "desc": "Removes blood, dirt, grime, and wetness from your character"
         },
         {
-         "id": "companionfollowercount",
-         "label": "Count",
-         "desc": "Number of companion followers to spawn"
-        },
-        {
-         "id": "companionfollowerinvincible",
-         "label": "Invincible",
-         "desc": "Keep companion followers protected from damage"
-        },
-        {
-         "id": "companionfollowerautoride",
-         "label": "Ride With You",
-         "desc": "Warp followers into free vehicle seats when you are in a vehicle"
-        },
-        {
-         "id": "companionfollowercatchup",
-         "label": "Auto Catch Up",
-         "desc": "Teleport followers back to you when they fall too far behind"
-        },
-        {
-         "id": "spawncompanionfollowers",
-         "label": "Spawn Followers",
-         "desc": "Spawn the selected female companion followers"
-        },
-        {
-         "id": "teleportcompanionfollowers",
-         "label": "Teleport Followers",
-         "desc": "Move existing followers back to you"
-        },
-        {
-         "id": "dismisscompanionfollowers",
-         "label": "Dismiss Followers",
-         "desc": "Delete spawned companion followers"
+         "id": "resetselfstate",
+         "label": "Reset Self State",
+         "desc": "Extinguishes fire, unfreezes you, and clears stuck tasks"
         }
        ]
       },
@@ -2999,7 +2714,7 @@
         {
          "id": "npcignore",
          "label": "NPC Ignore",
-         "desc": "Makes all peds ignore you"
+         "desc": "Makes NPCs ignore you and cancels combat already targeting you"
         }
        ]
       },
@@ -3031,7 +2746,7 @@
      ]
     },
     {
-     "name": "Horse",
+     "name": "Horse/Vehicle",
      "groups": [
       {
        "name": "Protection",
@@ -3063,8 +2778,43 @@
        "items": [
         {
          "id": "horsesuperrun",
-         "label": "Super Run",
-         "desc": "Your horse will faster than normal"
+         "label": "Super Speed",
+         "desc": "Accelerate your horse toward the configured speed while galloping"
+        },
+        {
+         "id": "horsesuperspeed",
+         "label": "Speed",
+         "desc": "Target gallop speed in metres per second"
+        },
+        {
+         "id": "horsesuperjump",
+         "label": "Super Jump",
+         "desc": "Press the mounted jump control to launch your horse with configurable height"
+        },
+        {
+         "id": "horsejumpheight",
+         "label": "Jump Height",
+         "desc": "Upward launch speed for horse jumps"
+        },
+        {
+         "id": "horseflight",
+         "label": "Flying Horse",
+         "desc": "Camera-relative horse flight: move to fly, jump to rise, stop to descend, sprint to boost"
+        },
+        {
+         "id": "horseflightspeed",
+         "label": "Flight Speed",
+         "desc": "Horizontal speed while flying"
+        },
+        {
+         "id": "horseflightverticalspeed",
+         "label": "Vertical Speed",
+         "desc": "Ascending and descending speed"
+        },
+        {
+         "id": "horseflightboost",
+         "label": "Sprint Boost",
+         "desc": "Flight speed multiplier while holding the horse sprint control"
         },
         {
          "id": "horseinfinitestamina",
@@ -3085,11 +2835,6 @@
          "id": "horsewalkonwater",
          "label": "Walk on Water",
          "desc": "Horse can walk on water"
-        },
-        {
-         "id": "horsesuperjump",
-         "label": "Super Jump",
-         "desc": "Hold jump while mounted to launch your horse skyward"
         }
        ]
       },
@@ -3180,14 +2925,59 @@
          "id": "horseclean",
          "label": "Clean Horse",
          "desc": "Cleans your active or most recent horse"
+        },
+        {
+         "id": "horsecalm",
+         "label": "Calm Horse",
+         "desc": "Immediately clears agitation from your active or recent horse"
+        },
+        {
+         "id": "horsefullcare",
+         "label": "Full Horse Care",
+         "desc": "Revives, heals, refills, cleans, and calms your horse"
+        },
+        {
+         "id": "repairvehicle",
+         "label": "Repair Vehicle",
+         "desc": "Fixes any damage to your current vehicle"
+        },
+        {
+         "id": "boostvehicle",
+         "label": "Boost Vehicle",
+         "desc": "Apply forward boost to vehicle"
+        },
+        {
+         "id": "boostvehicleforce",
+         "label": "Boost Force",
+         "desc": "Boost magnitude applied to the vehicle"
+        },
+        {
+         "id": "stopvehicle",
+         "label": "Stop Vehicle",
+         "desc": "Immediately stop the vehicle"
+        },
+        {
+         "id": "instantstop",
+         "label": "Instant Stop",
+         "desc": "Immediately zeroes out vehicle velocity"
+        },
+        {
+         "id": "tpinvehicle",
+         "label": "TP Into Nearest Vehicle",
+         "desc": "Teleports you into the nearest vehicle's driver seat"
+        },
+        {
+         "id": "flipvehicle",
+         "label": "Flip Vehicle Upright",
+         "desc": "Places your current vehicle upright on the ground"
+        },
+        {
+         "id": "recovervehicle",
+         "label": "Recover Vehicle",
+         "desc": "Repairs, stops, uprights, and restarts your current vehicle"
         }
        ]
-      }
-     ]
-    },
-    {
-     "name": "Vehicle",
-     "groups": [
+      },
       {
        "name": "Globals",
        "items": [
@@ -3284,37 +3074,77 @@
        ]
       },
       {
-       "name": "Tools",
+       "name": "Tank Mode",
        "items": [
         {
-         "id": "repairvehicle",
-         "label": "Repair Vehicle",
-         "desc": "Fixes any damage to your current vehicle"
+         "id": "tankmode",
+         "label": "Tank Mode",
+         "desc": "Turn the current horse or vehicle into a protected speed-based battering ram"
         },
         {
-         "id": "boostvehicle",
-         "label": "Boost Vehicle",
-         "desc": "Apply forward boost to vehicle"
+         "id": "tankradius",
+         "label": "Push Radius",
+         "desc": "Radius around the horse or vehicle that receives the impact force"
         },
         {
-         "id": "boostvehicleforce",
-         "label": "Boost Force",
-         "desc": "Boost magnitude applied to the vehicle"
+         "id": "tankforce",
+         "label": "Push Force",
+         "desc": "Speed-based force multiplier applied to impacted entities"
         },
         {
-         "id": "stopvehicle",
-         "label": "Stop Vehicle",
-         "desc": "Immediately stop the vehicle"
+         "id": "tankminspeed",
+         "label": "Minimum Speed",
+         "desc": "Minimum movement speed required before Tank Mode activates"
+        }
+       ]
+      },
+      {
+       "name": "Targets",
+       "items": [
+        {
+         "id": "tankpeds",
+         "label": "Affect NPCs & Animals",
+         "desc": "Push and optionally damage nearby non-player peds"
         },
         {
-         "id": "instantstop",
-         "label": "Instant Stop",
-         "desc": "Immediately zeroes out vehicle velocity"
+         "id": "tankvehicles",
+         "label": "Affect Vehicles",
+         "desc": "Push and optionally damage nearby vehicles"
         },
         {
-         "id": "tpinvehicle",
-         "label": "TP Into Nearest Vehicle",
-         "desc": "Teleports you into the nearest vehicle's driver seat"
+         "id": "tankobjects",
+         "label": "Affect Objects",
+         "desc": "Push nearby physical world objects"
+        },
+        {
+         "id": "tankdamage",
+         "label": "Apply Damage",
+         "desc": "Damage NPCs and vehicles in the close impact zone"
+        },
+        {
+         "id": "tankflip",
+         "label": "Flip Entities",
+         "desc": "Add lift and rotation force to close impacts"
+        }
+       ]
+      },
+      {
+       "name": "Protection & Feedback",
+       "items": [
+        {
+         "id": "tankprotection",
+         "label": "Protect Carrier",
+         "desc": "Protect the active horse or vehicle from impact damage and ragdoll"
+        },
+        {
+         "id": "tankcamerashake",
+         "label": "Camera Shake",
+         "desc": "Shake the camera on a close Tank Mode impact"
+        },
+        {
+         "id": "tankmissionentities",
+         "label": "Mission Entities",
+         "desc": "Allow Tank Mode to affect mission-owned entities"
         }
        ]
       }
@@ -3339,7 +3169,7 @@
         {
          "id": "tptomount",
          "label": "Teleport To Horse",
-         "desc": "Get on your horse from anywhere"
+         "desc": "Teleport to and mount your active horse"
         }
        ]
       },
@@ -3386,7 +3216,7 @@
      ]
     },
     {
-     "name": "self",
+     "name": "Self",
      "groups": [
       {
        "name": "More",
@@ -3402,39 +3232,14 @@
          "desc": "Keeps Eagle Eye full"
         },
         {
+         "id": "spawnbodyguard",
+         "label": "Spawn Bodyguard",
+         "desc": "Spawn armed bodyguards that follow and protect you"
+        },
+        {
          "id": "fastmoonshine",
          "label": "Fast Moonshine",
          "desc": "Speeds up moonshine production"
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "name": "Minigames",
-     "groups": [
-      {
-       "name": "More",
-       "items": [
-        {
-         "id": "zombiespecialtypes",
-         "label": "Special Types",
-         "desc": "Mix in Runner / Tank / Exploder zombies as rounds progress"
-        },
-        {
-         "id": "zombieautoarm",
-         "label": "Auto-Arm",
-         "desc": "Give the player a knife on enable if unarmed"
-        },
-        {
-         "id": "zombieroundheal",
-         "label": "Round Heal",
-         "desc": "Restore player health between rounds"
-        },
-        {
-         "id": "zombieoverlay",
-         "label": "ImGui Overlay",
-         "desc": "Polished foreground overlay panel with round / kills / boss info"
         }
        ]
       }
@@ -3446,7 +3251,7 @@
    "name": "Players",
    "categories": [
     {
-     "name": "Helpful",
+     "name": "Friendly",
      "groups": [
       {
        "name": "Restore",
@@ -3475,6 +3280,21 @@
          "id": "setmaxhealthplayer",
          "label": "Boost Max Health",
          "desc": "Raises the player's maximum health to 700 and refills it"
+        }
+       ]
+      },
+      {
+       "name": "Safety & Recovery",
+       "items": [
+        {
+         "id": "extinguishplayer",
+         "label": "Extinguish Player",
+         "desc": "Stops the selected player from burning"
+        },
+        {
+         "id": "unfreezeplayer",
+         "label": "Unfreeze Player",
+         "desc": "Releases the selected player from a frozen position"
         }
        ]
       },
@@ -3525,6 +3345,21 @@
          "id": "givehorseplayer",
          "label": "Give Arabian Horse",
          "desc": "Spawns a top-tier Arabian White horse next to the player"
+        },
+        {
+         "id": "restoreplayerhorse",
+         "label": "Restore Player Horse",
+         "desc": "Revives, heals, refills, and cleans the selected player's horse"
+        }
+       ]
+      },
+      {
+       "name": "Vehicle Support",
+       "items": [
+        {
+         "id": "repairplayervehicle",
+         "label": "Repair Player Vehicle",
+         "desc": "Repairs and restarts the selected player's current or recent vehicle"
         }
        ]
       },
@@ -3622,12 +3457,7 @@
          "desc": "Teleport the player to a random Saint Denis jail cell"
         }
        ]
-      }
-     ]
-    },
-    {
-     "name": "Kick",
-     "groups": [
+      },
       {
        "name": "Kicks",
        "items": [
@@ -3800,6 +3630,16 @@
          "id": "dirtyplayer",
          "label": "Dirty Player",
          "desc": "Soak the player in water"
+        },
+        {
+         "id": "launchplayer",
+         "label": "Launch Player",
+         "desc": "Ragdolls and launches the selected player into the air"
+        },
+        {
+         "id": "tripplayer",
+         "label": "Trip & Shove",
+         "desc": "Trips the player and shoves them backwards"
         }
        ]
       },
@@ -3810,6 +3650,16 @@
          "id": "ramwithwagon",
          "label": "Ram with Wagon",
          "desc": "Spawns a wagon behind the player and rams them with it"
+        },
+        {
+         "id": "launchplayervehicle",
+         "label": "Launch Player Vehicle",
+         "desc": "Launches the selected player's current or recent vehicle"
+        },
+        {
+         "id": "spinoutplayervehicle",
+         "label": "Wagon Spinout",
+         "desc": "Hits the player's wagon with a sideways spinning force"
         }
        ]
       },
@@ -3835,6 +3685,16 @@
          "id": "bookphtomountonplayer",
          "label": "Hostile Horse",
          "desc": "Spawns a hostile horse next to the player"
+        },
+        {
+         "id": "launchplayermount",
+         "label": "Launch Player Mount",
+         "desc": "Launches the selected player's current or recent horse"
+        },
+        {
+         "id": "buckplayermount",
+         "label": "Buck Wild",
+         "desc": "Makes the player's mount buck and throws the rider aside"
         }
        ]
       },
@@ -3850,6 +3710,16 @@
          "id": "dynamiteonplayer",
          "label": "Drop Dynamite",
          "desc": "Drops dynamite at the player's location"
+        },
+        {
+         "id": "firecrackerplayer",
+         "label": "Firecracker Barrage",
+         "desc": "Surrounds the player with a ring of explosive pops and tumbles them"
+        },
+        {
+         "id": "shockwaveplayer",
+         "label": "Shockwave",
+         "desc": "Launches the player and blasts nearby NPCs, wagons, and props away"
         }
        ]
       },
@@ -3950,6 +3820,16 @@
          "id": "lassoplayer",
          "label": "Lasso Player",
          "desc": "Lassos and hogties the target player"
+        },
+        {
+         "id": "humancannonplayer",
+         "label": "Human Cannon",
+         "desc": "Ragdolls the player and fires them forward through the air"
+        },
+        {
+         "id": "duststormplayer",
+         "label": "Dust Storm",
+         "desc": "Surrounds the player with a dust burst and knocks them off their feet"
         }
        ]
       },
@@ -4024,13 +3904,8 @@
      "name": "Spoofing",
      "groups": [
       {
-       "name": "Matchmaking Target",
+       "name": "Session Actions",
        "items": [
-        {
-         "id": "newsessionpos",
-         "label": "Matchmaking Position",
-         "desc": "Game position to matchmake around"
-        },
         {
          "id": "newsessionposse",
          "label": "Join Random Posse",
@@ -4051,6 +3926,16 @@
       {
        "name": "Teleport",
        "items": [
+        {
+         "id": "newsessionpos",
+         "label": "Custom Place",
+         "desc": "Custom world position used by session matchmaking and Teleport All"
+        },
+        {
+         "id": "tpalltocustomplace",
+         "label": "Teleport All To Custom Place",
+         "desc": "Teleport every other player to the configured Custom Place coordinates"
+        },
         {
          "id": "bringall",
          "label": "Bring",
@@ -4084,7 +3969,7 @@
        ]
       },
       {
-       "name": "Helpful",
+       "name": "Friendly",
        "items": [
         {
          "id": "healall",
@@ -4154,12 +4039,12 @@
        ]
       },
       {
-       "name": "Trolling - Damage",
+       "name": "Trolling Damage",
        "items": [
         {
          "id": "igniteall",
          "label": "Ignite All",
-         "desc": "Sets every other player on fire"
+         "desc": "Ignites every other player with a synchronized fire effect"
         },
         {
          "id": "firebombplayersall",
@@ -4169,17 +4054,22 @@
         {
          "id": "dynamiteplayersall",
          "label": "Dynamite All",
-         "desc": "Drop a dynamite bundle on every other player"
+         "desc": "Drops and detonates dynamite on every other player"
         },
         {
          "id": "lightningall",
          "label": "Lightning Strike All",
          "desc": "Strike every other player with lightning"
+        },
+        {
+         "id": "firecrackerplayerall",
+         "label": "Firecracker Barrage All",
+         "desc": "Surrounds every other player with explosive pops and tumbles them"
         }
        ]
       },
       {
-       "name": "Trolling - Status",
+       "name": "Trolling Status",
        "items": [
         {
          "id": "freezeall",
@@ -4209,7 +4099,7 @@
        ]
       },
       {
-       "name": "Trolling - Mount/Vehicle",
+       "name": "Trolling Mount/Vehicle",
        "items": [
         {
          "id": "kickhorseall",
@@ -4244,7 +4134,7 @@
        ]
       },
       {
-       "name": "Trolling - Spawn",
+       "name": "Trolling Spawn",
        "items": [
         {
          "id": "spawncougarsall",
@@ -4331,7 +4221,7 @@
      ]
     },
     {
-     "name": "network",
+     "name": "Network",
      "groups": [
       {
        "name": "More",
@@ -4523,23 +4413,93 @@
    ]
   },
   {
+   "name": "Particles",
+   "categories": [
+    {
+     "name": "General",
+     "groups": [
+      {
+       "name": "Effect & Target",
+       "items": [
+        {
+         "id": "particleeffect",
+         "label": "Effect",
+         "desc": "Select the particle effect to play."
+        },
+        {
+         "id": "particletarget",
+         "label": "Target",
+         "desc": "Play the effect on yourself, your horse, or your current vehicle."
+        }
+       ]
+      },
+      {
+       "name": "Playback",
+       "items": [
+        {
+         "id": "particlelooped",
+         "label": "Looped",
+         "desc": "Keep the particle running until its duration expires or it is stopped."
+        },
+        {
+         "id": "particleattached",
+         "label": "Attach to Target",
+         "desc": "Keep the particle attached to the selected entity."
+        },
+        {
+         "id": "particlenetworked",
+         "label": "Networked",
+         "desc": "Use the networked particle native when supported."
+        },
+        {
+         "id": "particleoverridescale",
+         "label": "Override Default Scale",
+         "desc": "Use a custom scale instead of the tested effect default."
+        },
+        {
+         "id": "particlescale",
+         "label": "Scale",
+         "desc": "Custom particle scale."
+        },
+        {
+         "id": "particleduration",
+         "label": "Duration (seconds)",
+         "desc": "How long a looped effect runs. Zero means until stopped."
+        }
+       ]
+      },
+      {
+       "name": "Actions",
+       "items": [
+        {
+         "id": "particleclearradius",
+         "label": "Clear Radius (m)",
+         "desc": "Radius used when clearing nearby particle effects."
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "name": "Aimbot",
    "categories": [
     {
-     "name": "aimbot",
+     "name": "Aimbot",
      "groups": [
       {
        "name": "More",
        "items": [
         {
          "id": "aimbotindicatorcolor",
-         "label": "Indicator Color",
-         "desc": "Color of the status indicator"
+         "label": "Lock Text Color",
+         "desc": "Color of the Aimbot lock text"
         },
         {
          "id": "magicbulletindicatorcolor",
-         "label": "Indicator Color",
-         "desc": "Color of the status indicator"
+         "label": "Lock Text Color",
+         "desc": "Color of the Magic Bullet lock text"
         },
         {
          "id": "triggerbotraycast",
@@ -4556,7 +4516,7 @@
    "name": "Mount",
    "categories": [
     {
-     "name": "mount",
+     "name": "Mount",
      "groups": [
       {
        "name": "More",
@@ -4594,10 +4554,10 @@
   }
  ],
  "stats": {
-  "features": 697,
-  "withDescription": 697,
-  "tabs": 9,
-  "categories": 25,
-  "groups": 187
+  "features": 739,
+  "withDescription": 739,
+  "tabs": 10,
+  "categories": 22,
+  "groups": 139
  }
 }

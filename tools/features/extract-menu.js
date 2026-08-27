@@ -17,7 +17,7 @@ const GAMES = {
   },
   rdr2: {
     name: 'RDR2', slug: 'rdr2',
-    root: 'C:/Users/whatw/OneDrive/Documents/GitHub/Scooby-Op/RDR2/Scooby-RDR2-working/src',
+    root: 'C:/Users/whatw/OneDrive/Documents/GitHub/Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/src',
     labels: null,
   },
 };
@@ -73,6 +73,7 @@ const TAB = {
   Settings: 'Settings', Night: 'Night Club', LuaContent: 'Lua', LuaEditor: 'Lua',
   OtherMenus: 'Other Menus', misc: 'Misc', Misc: 'Misc', Debug: 'Debug',
   ScriptHookV: 'Script Hook', SelfOutfits: 'Self', Weapons: 'Weapons',
+  SelfWeapons: 'Weapons', SelfParticles: 'Particles', SelfHorse: 'Mount',
   aimbot: 'Aimbot', esp: 'ESP', weapon: 'Weapons', weapons: 'Weapons',
   self: 'Self', vehicle: 'Vehicle', world: 'World', network: 'Network',
   players: 'Players', recovery: 'Recovery', teleport: 'Teleport',
@@ -82,7 +83,17 @@ const TAB = {
 const tabs = new Map();
 const seen = new Set();
 
+// The tree walk gives cased names ("World"); the directory fallback gives
+// lowercase ones ("world"). Normalise so the two do not split into sibling
+// categories that hold the same thing.
+function tidy(name) {
+  return String(name).split(/[\s_-]+/).filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
 function add(tab, cat, grp, id) {
+  cat = tidy(cat); grp = tidy(grp);
   const meta = labels.get(id);
   if (!meta || seen.has(id)) return;
   seen.add(id);
