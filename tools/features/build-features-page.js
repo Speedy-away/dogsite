@@ -17,11 +17,13 @@ const PAGES = [
   { manifest: 'features-gta5.json', out: 'features-list/gta-features/index.html',
     title: 'All GTA 5 Features - Scooby Mod Menu',
     heading: 'GTA 5 FEATURES', product: '/products/gta5/',
-    desc: 'Every feature in the Scooby GTA 5 mod menu, searchable: recovery, heist editor, vehicles, outfits, protections, world, players and more.' },
+    desc: 'Every feature in the Scooby GTA 5 mod menu, searchable: recovery, heist editor, vehicles, outfits, protections, world, players and more.',
+    keywords: 'GTA 5 mod menu features, Scooby GTA 5 features, GTA 5 feature list, GTA 5 heist editor, GTA 5 money recovery, GTA 5 unlock all, GTA 5 modded outfits, GTA 5 modded vehicles, GTA 5 protections, GTA 5 ESP, GTA 5 aimbot, GTA 5 lua executor, GTA 5 teleport, GTA 5 stat editor, GTA online mod menu features, full GTA 5 mod menu list, Scooby feature list' },
   { manifest: 'features-rdr2.json', out: 'features-list/rdr2-features/index.html',
     title: 'All RDR2 Features - Scooby Mod Menu',
     heading: 'RDR2 FEATURES', product: '/products/rdr2/',
-    desc: 'Every feature in the Scooby Red Dead Redemption 2 mod menu, searchable: self, weapons, world, players, network and more.' },
+    desc: 'Every feature in the Scooby Red Dead Redemption 2 mod menu, searchable: self, weapons, world, players, network and more.',
+    keywords: 'RDR2 mod menu features, Scooby RDR2 features, RDR2 feature list, Red Dead Online features, RDR2 recovery, RDR2 XP loop, RDR2 collectible loop, RDR2 ESP, RDR2 aimbot, RDR2 silent aim, RDR2 bodyguards, RDR2 spawner, RDR2 teleport, RDR2 horse spawner, RDR2 particle effects, RDR2 lua executor, RDR2 trolling, RDR2 spoofing, full RDR2 mod menu list' },
 ];
 
 // ---- shared chrome ----------------------------------------------------------
@@ -281,6 +283,8 @@ function render(page) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.desc)}">
+<meta name="keywords" content="${esc(page.keywords)}">
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${url}">
