@@ -33,9 +33,8 @@
             margin: 0;
             color: var(--text);
             background:
-                radial-gradient(circle at 50% -20%, rgba(79, 142, 245, .24), transparent 42rem),
-                linear-gradient(rgba(9, 9, 13, .88), rgba(9, 9, 13, .96)),
-                url('/background-home.jpg') center / cover fixed;
+                radial-gradient(circle at 50% -20%, rgba(79, 142, 245, .16), transparent 42rem),
+                var(--page);
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.6;
         }
@@ -52,7 +51,7 @@
             display: flex;
             min-height: 56px;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
             gap: 20px;
             margin-bottom: clamp(32px, 6vw, 64px);
         }
@@ -175,7 +174,11 @@
         .ad-panel {
             width: min(970px, 100%);
             min-height: 292px;
-            margin: 32px auto 0;
+            /* well below the call to action so it never competes with it */
+            margin: clamp(64px, 12vw, 128px) auto 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 12px;
             border: 1px solid var(--border);
             border-radius: 18px;
@@ -195,6 +198,7 @@
         }
 
         .ad-stage {
+            width: 100%;
             min-height: 230px;
             display: grid;
             place-items: center;
@@ -202,6 +206,21 @@
             border-radius: 12px;
             background: #08080b;
         }
+
+
+        .ad-warning {
+            width: min(970px, 100%);
+            margin: 26px auto 0;
+            padding: 13px 18px;
+            border: 1px solid rgba(234, 179, 8, .38);
+            border-radius: 12px;
+            background: rgba(234, 179, 8, .1);
+            color: #f4d47c;
+            font-size: .86rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        .ad-warning strong { color: #ffe9a8; }
 
         .sponsor-row { margin-top: 18px; text-align: center; }
 
@@ -247,10 +266,6 @@
 <body>
     <main class="shell">
         <header class="topbar">
-            <a class="brand" href="/" aria-label="ScoobyMenu.cc home">
-                <img src="/assets/images/logo.png" alt="">
-                <span><strong>ScoobyMenu.cc</strong><br>Free key access</span>
-            </a>
             <a class="home-link" href="/">Back to website</a>
         </header>
 
@@ -263,7 +278,6 @@
                 <li>GTA V</li>
                 <li>FiveM</li>
                 <li>RDR2</li>
-                <li>RedM</li>
                 <li>CS2</li>
                 <li>Garry's Mod</li>
                 <li>Spoofer</li>
@@ -271,6 +285,11 @@
 
             <a class="primary-button" id="freeKeyButton" href="https://whatwhatboy.com/scoobyontop.html">Go get free key</a>
             <p class="helper">Your selected product is carried into the key page automatically. Free keys are product-specific.</p>
+            <p class="ad-warning" data-i18n-skip>
+                <strong>DO NOT DOWNLOAD ANYTHING FROM ADS OR POPUPS.</strong><br>
+                Your key appears on the page itself &mdash; it is never an .exe or a download.
+                Close any popup and carry on.
+            </p>
         </section>
 
         <section class="ad-panel" aria-label="Advertisement" data-i18n-skip>

@@ -54,6 +54,7 @@ https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd
 
 | Page | Head | Footer | Native banner | Direct link |
 | --- | --- | --- | --- | --- |
+| `scoobyontop.html` | yes | yes | yes | yes |
 | `products/free/index.html` | yes | yes | yes | yes |
 | `products/cs2/index.html` | yes | yes | yes | no |
 | `products/gmod/index.html` | yes | yes | yes | no |
@@ -71,9 +72,10 @@ All other pages have no ads.
   translator's `MutationObserver` walks the DOM the ad network injects and
   rewrites its text nodes on non-English pages. Keep the attribute on any new ad
   container.
-- Redirect pages (`discord.html`, `scoobyontop.html`) fire a `meta refresh`
-  immediately, so an ad placed there never gets a chance to load. Do not add ads
-  to them.
+- Immediate redirect pages such as `discord.html` fire a `meta refresh`, so an
+  ad placed there never gets a chance to load. Do not add ads to those pages.
+  `scoobyontop.html` is now a real landing page and intentionally carries the
+  complete ad set.
 - The ad endpoints return `403` to anything that is not a real browser, so
   `curl`/`wget` cannot tell you whether a unit is alive. Verify in a browser on
   the live domain with the ad blocker off.
