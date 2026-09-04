@@ -1526,3 +1526,30 @@ body::before {
         font-size: 1.05rem;
     }
 }
+
+/* ---- Native banner slot -------------------------------------------------
+   The ad network injects into #container-…; it needs a real block with width
+   to render into. Previously the container sat bare after </footer>, where it
+   had no box to fill and was effectively invisible. */
+.scooby-ad-slot {
+    width: min(970px, calc(100% - 40px));
+    margin: 56px auto;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .02);
+}
+
+.scooby-ad-slot > span {
+    display: block;
+    margin-bottom: 10px;
+    color: #6c6c7c;
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Let the injected markup size itself - no centring shrink-wrap, no clipping. */
+.scooby-ad-slot > div { display: block; width: 100%; min-height: 90px; }

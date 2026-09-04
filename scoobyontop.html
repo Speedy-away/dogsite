@@ -198,14 +198,16 @@
         }
 
         .ad-stage {
+            /* block, not a centring grid - the injected banner must be free to
+               size itself, and nothing may clip it */
             width: 100%;
             min-height: 230px;
-            display: grid;
-            place-items: center;
-            overflow: hidden;
+            display: block;
             border-radius: 12px;
             background: #08080b;
         }
+
+        .ad-stage > div { width: 100%; min-height: 230px; }
 
 
         .ad-warning {
@@ -261,7 +263,7 @@
             *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
         }
     </style>
-    <script src="https://aloudalimonyexplosion.com/21/ba/c2/21bac2cf6146c6ff2689111563b5f00a.js"></script>
+<script src="https://aloudalimonyexplosion.com/21/ba/c2/21bac2cf6146c6ff2689111563b5f00a.js"></script>
 </head>
 <body>
     <main class="shell">
@@ -298,9 +300,6 @@
                 <script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/916d4be3288f94a3bc49ab6cdaef5ba9/invoke.js"></script>
                 <div id="container-916d4be3288f94a3bc49ab6cdaef5ba9" data-i18n-skip></div>
             </div>
-            <div class="sponsor-row">
-                <a class="sponsor-link" href="https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="nofollow noopener sponsored">Sponsored offer</a>
-            </div>
         </section>
     </main>
 
@@ -335,6 +334,6 @@
             button.href = destination.toString();
         }());
     </script>
-    <script src="https://aloudalimonyexplosion.com/17/9e/f8/179ef803d1a93ce7af0ad7b09a49ead9.js"></script>
+<script src="https://aloudalimonyexplosion.com/17/9e/f8/179ef803d1a93ce7af0ad7b09a49ead9.js"></script>
 </body>
 </html>
