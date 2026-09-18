@@ -180,7 +180,7 @@ svg {
 }
 .feature-hero {
     display:grid;
-    grid-template-columns:1.15fr 1fr;
+    grid-template-columns:minmax(0,1fr);
     gap:65px;
     align-items:center;
     padding:45px 0 48px;
@@ -664,7 +664,7 @@ mark {
         padding:7px 10px
     }
     .feature-hero {
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:minmax(0,1fr);
         gap:22px;
         padding:30px 0
     }
@@ -753,7 +753,7 @@ mark {
         margin-left:auto
     }
     .feature-hero {
-        grid-template-columns:1fr;
+        grid-template-columns:minmax(0,1fr);
         gap:24px;
         padding:30px 0 26px
     }

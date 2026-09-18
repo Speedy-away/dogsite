@@ -602,6 +602,32 @@ h2.section-title {
   *, *::before, *::after { animation-duration: .001s !important; transition-duration: .01s !important; }
   .marquee { animation: none; }
 }
+/* Homepage game catalogue */
+.catalog-grid { gap:24px; }
+.catalog-card { display:flex; flex-direction:column; overflow:hidden; background:#111318; border:1px solid #242830; border-radius:16px; transition:transform .2s,border-color .2s,box-shadow .2s; }
+.catalog-card:hover { transform:translateY(-5px); border-color:#536780; box-shadow:0 16px 36px #0005; }
+.catalog-card:focus-visible,.catalog-utility:focus-visible { outline:2px solid #9bbdff; outline-offset:5px; }
+.catalog-art { aspect-ratio:16/8; overflow:hidden; background:#191c23; border-bottom:1px solid #ffffff0d; }
+.catalog-art img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s; }
+.catalog-card:hover .catalog-art img { transform:scale(1.035); }
+.catalog-body { padding:23px 24px 0; display:flex; flex:1; flex-direction:column; }
+.catalog-kind { display:block; color:#98aac5; text-transform:uppercase; letter-spacing:.12em; font-size:.64rem; font-weight:700; margin-bottom:10px; }
+.catalog-kind.is-updating { color:#f1c879; }
+.catalog-body h3 { font-size:1.13rem; line-height:1.4; letter-spacing:-.025em; margin-bottom:9px; }
+.catalog-body p { font-size:.84rem; line-height:1.75; color:#a0aaba; margin-bottom:24px; }
+.catalog-cta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; border-top:1px solid #ffffff0d; padding:15px 0 17px; font-size:.75rem; color:#d8e3f4; font-weight:600; }
+.catalog-cta>span:last-child { font-size:1.15rem; color:#91b8f6; }
+.catalog-utility { margin-top:24px; display:flex; align-items:center; gap:22px; padding:25px 28px; border:1px solid #242830; border-radius:14px; background:#101216; transition:border-color .2s; }
+.catalog-utility:hover { border-color:#536780; }
+.utility-icon { width:54px; height:54px; flex-shrink:0; display:grid; place-items:center; background:#1c2636; border-radius:13px; color:#a6c6ff; }
+.utility-icon svg { width:27px; height:27px; }
+.catalog-utility .catalog-kind { margin-bottom:4px; }
+.catalog-utility h3 { font-size:1rem; margin-bottom:3px; }
+.catalog-utility p { font-size:.82rem; color:#a0aaba; }
+.utility-cta { margin-left:auto; white-space:nowrap; font-size:.78rem; color:#d8e3f4; }
+.utility-cta span { margin-left:18px; color:#91b8f6; }
+@media(max-width:640px) { .catalog-grid { gap:18px; } .catalog-body { padding:20px 20px 0; } .catalog-utility { padding:20px; gap:15px; flex-wrap:wrap; } .catalog-utility>div { flex:1; min-width:160px; } .utility-cta { margin-left:69px; } }
+@media(prefers-reduced-motion:reduce) { .catalog-card,.catalog-art img,.catalog-utility { transition:none; } .catalog-card:hover,.catalog-card:hover .catalog-art img { transform:none; } }
 </style>
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
@@ -697,44 +723,45 @@ h2.section-title {
 
     <!-- Free banner -->
     <a href="/products/free" class="product-card wide dark-card reveal" style="margin-bottom:16px">
-      <span class="product-status free"><span class="dot" style="background:var(--green)"></span>Free</span>
+      <span class="product-status free">Free</span>
       <div class="product-card-body">
         <h3>Free Version</h3>
         <p>GTA 5, RDR2, CS2, GMOD, FiveM &amp; Spoofer — all free, no payment needed.</p>
       </div>
     </a>
 
-    <p class="products-label reveal">Available now</p>
-    <div class="product-grid">
-      <a href="/products/gta5" class="product-card reveal" style="background-image:url('/products/images/gta5.webp')">
-
-        <div class="product-card-body"><h3>Grand Theft Auto V</h3><p>Heist editor, money recovery, modded vehicles, ESP, aimbot & Lua scripting</p></div>
+    <p class="products-label reveal">Explore our games</p>
+    <div class="product-grid catalog-grid">
+      <a href="/products/gta5/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/products/images/gta5.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-kind">Open world</span><h3>Grand Theft Auto V</h3><p>Heist editor, money recovery, modded vehicles, ESP, aimbot &amp; Lua scripting</p><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
       </a>
-      <a href="/products/rdr2" class="product-card reveal" style="background-image:url('/products/images/rdr2.webp')">
-
-        <div class="product-card-body"><h3>Red Dead Redemption 2</h3><p>God mode, teleports, money drops, unlock all & full player control</p></div>
+      <a href="/products/rdr2/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/products/images/rdr2.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-kind">Open world</span><h3>Red Dead Redemption 2</h3><p>God mode, teleports, money drops, unlock all &amp; full player control</p><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
       </a>
-      <a href="/products/fivem" class="product-card reveal" style="background-image:url('/products/images/fivem.webp')">
-
-        <div class="product-card-body"><h3>FiveM</h3><p>ESP, aimbot, server trolling, vehicle spawner & noclip</p></div>
+      <a href="/products/fivem/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/products/images/fivem.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-kind">Multiplayer</span><h3>FiveM</h3><p>ESP, aimbot, server trolling, vehicle spawner &amp; noclip</p><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
       </a>
-      <a href="/products/redm" class="product-card reveal" style="background-image:url('/products/images/REDM.jpg')">
-
-        <div class="product-card-body"><h3>RedM</h3><p>Resource triggers, player control, trolling & server manipulation</p></div>
+      <a href="/products/redm/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/products/images/REDM.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-kind">Multiplayer</span><h3>RedM</h3><p>Resource triggers, player control, trolling &amp; server manipulation</p><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
       </a>
-      <a href="/products/cs2" class="product-card reveal" style="background-image:url('/products/images/CS2.jpg')">
-
-        <div class="product-card-body"><h3>Counter-Strike 2</h3><p>Wallhack, aimbot, triggerbot, radar hack & skin changer</p></div>
+      <a href="/products/cs2/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/products/images/CS2.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-kind">Free access</span><h3>Counter-Strike 2</h3><p>Wallhack, aimbot, triggerbot, radar hack &amp; skin changer</p><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
       </a>
-      <a href="/products/gmod" class="product-card reveal" style="background-image:url('/products/images/GMOD.jpg')">
-
-        <div class="product-card-body"><h3>Garry's Mod</h3><p>Aimbot, ESP, speedhack, noclip & full server admin bypass</p></div>
-      </a>
-      <a href="/products/spoofer" class="product-card dark-card reveal">
-
-        <div class="product-card-body"><h3>Spoofer + Cleaner</h3><p>Spoof hardware IDs & wipe bans across all supported games</p></div>
+      <a href="/products/gmod/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/products/images/GMOD.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-kind is-updating">Updating</span><h3>Garry&#39;s Mod</h3><p>Aimbot, ESP, speedhack, noclip &amp; full server admin bypass</p><div class="catalog-cta"><span>View product status</span><span aria-hidden="true">↗</span></div></div>
       </a>
     </div>
+    <a href="/products/spoofer/" class="catalog-utility reveal">
+      <span class="utility-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg></span>
+      <div><span class="catalog-kind">Free utility</span><h3>Spoofer + Cleaner</h3><p>Spoof hardware IDs &amp; wipe bans across all supported games</p></div>
+      <span class="utility-cta">Explore utility <span aria-hidden="true">↗</span></span>
+    </a>
 
     <p class="products-label reveal">Coming soon</p>
     <div class="product-grid">
