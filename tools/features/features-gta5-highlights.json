@@ -1,0 +1,2977 @@
+{
+  "game": "GTA 5 highlights",
+  "slug": "gta5-highlights",
+  "tabs": [
+    {
+      "name": "Self Options",
+      "legacyId": "self",
+      "categories": [
+        {
+          "name": "Health & Protection",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Godmode",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "No Ragdoll",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Disable Critical Hits",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Anti-Headshot",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "No Fall Damage",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "No Fire Damage",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Health Regeneration",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Auto Heal",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "Auto Armor",
+                  "desc": ""
+                },
+                {
+                  "id": "9",
+                  "label": "Auto Kill Enemies",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Movement",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Superman Flight Speed, Boost",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Noclip Mode, Speed",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Super Run Speed Multiplier",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Super Jump",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Beast Jump",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Blink Teleport Distance, Effects",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Freecam Speed, Controls",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Stand on Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "Disable Action Mode",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Visibility",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Invisibility",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Local Invisibility",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Off The Radar",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Ghost Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Night Vision",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Thermal Vision",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Hide Radar",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Hide HUD",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wanted Level",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Never Wanted",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Freeze Wanted Level",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Set Wanted Level 0-5 Stars",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Infinite Special Ability",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "MP Special Ability",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tools & Utilities",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Skip Cutscene",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Skip Conversation",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Suicide",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Heal Instantly",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Clear All Damage",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Fill Inventory",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Open Wardrobe",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Clone Self",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "Format Money Display",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Effects & Misc",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Drunk Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Shrink Player",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Adrenaline Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Slow Motion",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "No Idle Kick",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Unlimited Oxygen",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Mobile Radio",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Keep Player Clean",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "Infinite Stamina",
+                  "desc": ""
+                },
+                {
+                  "id": "9",
+                  "label": "Speed Boost",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Special Powers",
+      "legacyId": "powers",
+      "categories": [
+        {
+          "name": "Force Powers",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Force Field Radius, Force",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Telekinesis Force, HUD",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Matrix Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Walk on Air Height",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Vehicle Magnet",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Combat Powers",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Flaming Fists Size, Force",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Electric Touch Range, Effect",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "God Slap Force, Explosive",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Explosive Punch",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "One-Punch Kill",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Launch Punch",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Aura & Effects",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Custom Aura Size, Type, Color",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Rainbow Aura",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Push Peds/Vehicles/Objects",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Shockwave Ball Speed, Radius",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Trail Effect",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Movement Powers",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Dash Mode, Force, Cooldown",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Wall Runner Speed, Duration",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Paraglider Speed, Auto",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Invincible Dash",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Options",
+      "legacyId": "vehicle",
+      "categories": [
+        {
+          "name": "Protection",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Vehicle Godmode",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Keep Vehicle Fixed",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Seatbelt",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "No Collision",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Speed & Boost",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Nitro Boost Speed, Camera Shake",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Horn Boost Max Speed, Accel",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Instant Boost",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Catapult Launch",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Wheelie Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Tornado Spin",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Handling",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Drive on Water",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Drift Mode Grip, Smoke",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Vehicle Jump",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Stick to Ground",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Hydraulics",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Instant Brake",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Flight & Movement",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Vehicle Fly Mode, Speed, Noclip",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Submarine Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Tank Mode Radius, Force",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Auto Stabilize",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Auto Level",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Auto Pilot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Drive to Waypoint",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Auto Pilot Wander",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Auto Drive",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Autopilot Speed Control",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Drive Style Selection",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Stop Vehicle",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Appearance & Tools",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Rainbow Paint",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Vehicle Invisible",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Lower Stance",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Keep Vehicle Clean",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Speedometer",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Vehicle Spawner",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Vehicle Editor",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Saved Vehicles",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weapon Options",
+      "legacyId": "weapon",
+      "categories": [
+        {
+          "name": "Ammo & Damage",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Infinite Ammo",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Infinite Clip",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "No Reload",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "One Shot Kill",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Damage Multiplier",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Range Multiplier",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Special Bullets",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Explosive Bullets",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Fire Bullets",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Electric Bullets",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Teleport Bullets",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Money Gun",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Delete Gun",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Repair Gun",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weapon Tools",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Give All Weapons",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Remove All Weapons",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Weapon Editor",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Custom Weapon Properties",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Rapid Fire",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "No Spread",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "No Recoil",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Network & Players",
+      "legacyId": "network",
+      "categories": [
+        {
+          "name": "Session Tools",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Join Session by Type",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Join by Username",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Join by Rockstar ID",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Fast Join",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Force Script Host",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Notify on Player Join",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Player Magnet",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Spoofing",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Spoof Matchmaking Region",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Spoof Language",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Spoof Player Count",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Session Multiplex",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Cheater Pool Detection",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Player Actions",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Spectate Player",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Teleport to Player",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Bring Player",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Host Kick",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Script Host Kick",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "CEO Kick",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Set Bounty",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Trolling",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Send Sext",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Send Phantom Car",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Delete Their Vehicle",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Give All Weapons",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Kill Player",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Explode Player",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Blackscreen",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "All Players",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Kill All",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Explode All",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "CEO Kick All",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Host Kick All",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Bounty All",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Bring All Players",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Delete All Vehicles",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World Options",
+      "legacyId": "world",
+      "categories": [
+        {
+          "name": "Weather & Time",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Set Weather All Types",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Force Weather",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Set Time Hour/Min/Sec",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Set Network Time",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Freeze Network Time",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Blackout Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Force Thunder",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chaos & Mayhem",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Chaos Mode Intensity",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Purge Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Mayhem Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Ped Riot Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Everyone Fights",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Everyone is Drunk",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Exploding Peds",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Disasters",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Nuke",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Tsunami",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Meteor Shower Rate, Damage",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Tornado Strength, Radius",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Earthquake Intensity",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Volcanic Eruption",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Lightning Strike",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Acid Rain",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "Sandstorm",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Zombie Mode",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Zombie Survival Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Wave System Wave Size",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Fast Runners",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Screamers",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Bloaters",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Crawlers",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Infection Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Spawn Zombie Wave",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Alien Invasion",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Alien Invasion Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Spawn Alien UFO",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Alien Mothership",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Abduction Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Alien Elites",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Alien Exploders",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Alien Teleporters",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fun & Party",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Rave Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Disco Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Fireworks",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Money Rain",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Pickups Rain",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Ped Dance",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Giant Peds",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Tiny Peds",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Physics Powers",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Gravity Gun Range, Force",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Blackhole Size, Strength",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Vortex Radius, Speed",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Force Dome",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Low Gravity",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Vehicle Magnet",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Ped Magnet",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Vehicle Pinball",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Entity Control",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Delete All Peds",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Delete All Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Delete All Objects",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Bring All Peds",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Bring All Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Freeze All Peds",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Freeze All Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Traffic Density Control",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP & Visuals",
+      "legacyId": "esp",
+      "categories": [
+        {
+          "name": "Player ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Player Name Color",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Player Distance Color",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Skeleton Rendering Color",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Box ESP Color, Style",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Tracelines Color",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Health Bar",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Draw Self Option",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Draw Dead Players",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ped & Vehicle ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Ped Name/Distance",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Ped Weapon Display",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Ped Skeleton",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Ped Box ESP",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Vehicle Name/Distance",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Vehicle Box ESP",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Vehicle Health",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Object ESP",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Crosshair",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Custom Crosshair Many Styles",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Size & Thickness Control",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Primary/Secondary Color",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Gradient Effect",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Outline Color, Thickness",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Center Dot",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Glow Effect",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Pulse Animation",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "Spinning Lines",
+                  "desc": ""
+                },
+                {
+                  "id": "9",
+                  "label": "Dynamic Expansion",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Trail Effects",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Bullet Trails Style, Color",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Throwable Trails",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Projectile Trails",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Rainbow Trails",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Fade Effect",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Glow Effect",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Trail Thickness",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Impact & Hitmarkers",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Impact Markers Style, Size",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Headshot Color",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Explosion Radius Display",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Custom Hitmarker Style",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Hitmarker Sounds Multiple",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Rainbow Hitmarker",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Kill Effect Skull Icon",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Muzzle Flash Effect",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "legacyId": "recovery",
+      "categories": [
+        {
+          "name": "Stats & Rank",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Set Rank 1-1000",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Set Crew Rank",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "LS Car Meet Tier",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Arena War AP",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Edit Kills/Deaths",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Apply K/D Ratio",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Max All Stats",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Override RP Multiplier",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Unlocks",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Unlock All",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "All Bunker Research",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "All Trade Prices",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "All Heist Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "All Doomsday Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "All Casino Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "All Cayo Perico Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "LS Car Meet Items",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Clothing & Customization",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "All Holiday Items",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "All Arena War Items",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "All Nightclub Items",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "All Collectible Rewards",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "All Hairstyles",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "All Tattoos",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "All Liveries",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Chrome & All Wheels",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weapon Unlocks",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "MK2 Weapon Tints",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "MK2 Attachments",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Special Ammo Types",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Parachute Bags",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Seasonal & DLC",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Christmas Content",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Halloween Content",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Valentine's Day Content",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Independence Day Content",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Bottom Dollar Bounties",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Agents of Sabotage",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Chop Shop Items",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "San Andreas Mercenaries",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tools",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Stat Editor",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Transactions Window",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Daily Activities",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Vehicle Editor",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Outfit Editor",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Free Appearance Change",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "No Cooldown",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Allow Gender Change",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Superhero Powers",
+      "legacyId": "superhero",
+      "categories": [
+        {
+          "name": "🤖 Iron Man",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Flight",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Repulsors",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Unibeam",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Missiles",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "JARVIS",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Shield",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🛡 Captain America",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Shield Throw",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Shield Block",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Ricochet",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Super Soldier",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "⚡ Thor",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Lightning",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Mjolnir",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Bifrost",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Flight",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "👊 Hulk",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Super Strength",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Thunder Clap",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Rage Mode",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Super Jump",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🐾 Black Panther",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Damage Absorb",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Stealth",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Vibranium Claws",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "✨ Scarlet Witch",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Chaos Magic",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Telekinesis",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Mind Control",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Reality Warp",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "😸 Wolverine",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Regeneration",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Adamantium Claws",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Berserker Rage",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🌪 Storm",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Weather Control",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Lightning",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Flight",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Tornado",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🧲 Magneto",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Metal Control",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Flight",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Shield",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Lift Objects",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🕷 Spider-Man",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Web Swing",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Wall Crawl",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Web Shooter",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Spider Sense",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "👾 Venom",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Tendrils",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Regeneration",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Web Swing",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Shapeshift",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "😎 Deadpool",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Regeneration",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Teleport",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Katanas",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🔥 Ghost Rider",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Hellfire",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Penance Stare",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Chain Whip",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🔮 Dr. Strange",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Portals",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Shield Spell",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Time Stone",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "💪 Superman",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Flight",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Heat Vision",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "X-Ray Vision",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Freeze Breath",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "⚡ The Flash",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Super Speed",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Phase Through",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Lightning",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "👑 Wonder Woman",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Super Strength",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Lasso of Truth",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Bracelets",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Flight",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "💚 Green Lantern",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Ring Constructs",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Flight",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Shield",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🤖 Cyborg",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Weapons",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Scanner",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Sonic Cannon",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Flight",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🦇 Batman",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Grapple",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Stealth",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Night Vision",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Gadgets",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "🐟 Aquaman",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Super Swimming",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Trident",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Water Control",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Teleport",
+      "legacyId": "teleport",
+      "categories": [
+        {
+          "name": "Quick Teleport",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Auto TP to Waypoint",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "TP to Objective",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "TP to Aim",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "TP to Mark",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Set Mark Location",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "TP to Vehicle",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "TP Into Vehicle",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "TP Forward",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "TP Up",
+                  "desc": ""
+                },
+                {
+                  "id": "9",
+                  "label": "Teleport Gun",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Daily Collectibles",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Hidden Cache",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Treasure Chest",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Shipwrecked",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Buried Stash",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "G's Cache",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Dead Drop",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "Stash House",
+                  "desc": ""
+                },
+                {
+                  "id": "7",
+                  "label": "Street Dealer",
+                  "desc": ""
+                },
+                {
+                  "id": "8",
+                  "label": "LS Tags",
+                  "desc": ""
+                },
+                {
+                  "id": "9",
+                  "label": "Products",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Activities & Missions",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Skydive Locations",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Time Trial",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Exotic Exports Vehicle",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Madrazzo Hit",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Madrazzo Hit Target",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Saved Locations",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Save Custom Locations",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Category Management",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Search & Filter",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Distance Calculator",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Interactive Map",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Additional Features",
+      "legacyId": "",
+      "categories": [
+        {
+          "name": "UI & Themes",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Multiple Theme Options",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Classic Theme",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Lumia Theme",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Modern Theme",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Modern Vertical",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Custom Color Schemes",
+                  "desc": ""
+                },
+                {
+                  "id": "6",
+                  "label": "UI Scale Options",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Technical Features",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Lua Script Support",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Profile Manager",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Hotkey System",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Multi-language Support",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Tunables Manager",
+                  "desc": ""
+                },
+                {
+                  "id": "5",
+                  "label": "Pattern Scanning",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Protection",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Undetected",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Anti-Cheat Bypass",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Memory Protection",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Crash Protection",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Kick Protection",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Management",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Save Vehicles",
+                  "desc": ""
+                },
+                {
+                  "id": "1",
+                  "label": "Save Locations",
+                  "desc": ""
+                },
+                {
+                  "id": "2",
+                  "label": "Save Players",
+                  "desc": ""
+                },
+                {
+                  "id": "3",
+                  "label": "Save Outfits",
+                  "desc": ""
+                },
+                {
+                  "id": "4",
+                  "label": "Import/Export Config",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

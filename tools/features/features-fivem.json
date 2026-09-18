@@ -1,0 +1,2239 @@
+{
+  "game": "FiveM",
+  "slug": "fivem",
+  "tabs": [
+    {
+      "name": "Visuals",
+      "legacyId": "tab-0",
+      "categories": [
+        {
+          "name": "ESP",
+          "legacyId": "subtab-0-0",
+          "groups": [
+            {
+              "name": "Players ESP",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Enabled",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Keybind (keybind)",
+                    "Target Filter (dropdown: All/Players/NPCs/Players+Self/Self Only)",
+                    "Show Self (toggle)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Box",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Keybind",
+                    "Style (dropdown: Full/Corners/3D Box)",
+                    "Color (color)",
+                    "Fill (toggle)",
+                    "Fill Color (color)",
+                    "Fill Gradient (toggle+color)",
+                    "Outline (toggle)",
+                    "Thickness (slider 0.5-4px)",
+                    "Rounding (slider 0-10)",
+                    "Width Ratio (slider)",
+                    "Height Multiplier (slider)",
+                    "Head Offset (slider)",
+                    "Gradient (toggle+color)",
+                    "Pulse (toggle+speed)",
+                    "Shadow (toggle)",
+                    "Glow Outline (toggle+color+radius)",
+                    "Glow Pulse (toggle+speed)",
+                    "Corner Length (slider)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Health Bar",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Position (dropdown: Left/Right/Top/Bottom)",
+                    "Color (color)",
+                    "Gradient (toggle+color)",
+                    "Outline (toggle+color)",
+                    "Width (slider)",
+                    "Smooth Animation (toggle+speed)",
+                    "Background Color (color)",
+                    "Show Text (toggle+color+size)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Armor Bar",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Position (dropdown)",
+                    "Color (color)"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Name",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Position (dropdown: Top/Bottom/Left/Right)",
+                    "Color (color)",
+                    "Font Size (slider 8-20)",
+                    "Show Server ID (toggle)",
+                    "Background (toggle+color+rounding)",
+                    "Shadow (toggle)"
+                  ]
+                },
+                {
+                  "id": "5",
+                  "label": "Weapon",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Show Icon (toggle)",
+                    "Show Name (toggle)",
+                    "Show Unarmed (toggle)",
+                    "Icon Size (slider)",
+                    "Name Size (slider)",
+                    "Position (dropdown)",
+                    "Color (color)",
+                    "Background (toggle+color)",
+                    "Shadow (toggle)"
+                  ]
+                },
+                {
+                  "id": "6",
+                  "label": "Skeleton",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Style (dropdown: Clean/Joints+HeadRing/Outline)",
+                    "Mode (dropdown: Full/Basic)",
+                    "Color (color)",
+                    "Thickness (slider)",
+                    "Joints (toggle+size)",
+                    "Head Circle (toggle)",
+                    "Dashed Lines (toggle)",
+                    "Gradient (toggle+color)"
+                  ]
+                },
+                {
+                  "id": "7",
+                  "label": "Distance",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Position (dropdown)",
+                    "Color (color)",
+                    "Font Size (slider)",
+                    "Background (toggle+color)",
+                    "Shadow (toggle)"
+                  ]
+                },
+                {
+                  "id": "8",
+                  "label": "Head",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Style (dropdown: Circle/Filled/Cross/Diamond/Skull/Triangle/Square/Ring)",
+                    "Color (color)",
+                    "Size (slider)",
+                    "Outline (toggle)",
+                    "Glow (toggle+color+radius)"
+                  ]
+                },
+                {
+                  "id": "9",
+                  "label": "Snaplines",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Origin (dropdown: Bottom/Center/Top)",
+                    "Thickness (slider)",
+                    "Dashed (toggle)",
+                    "Gradient (toggle)",
+                    "Glow (toggle+color+radius)"
+                  ]
+                },
+                {
+                  "id": "10",
+                  "label": "Visibility Check",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Visible Color (color)",
+                    "Hidden Color (color)",
+                    "Apply To (dropdown)"
+                  ]
+                },
+                {
+                  "id": "11",
+                  "label": "Line of Sight",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Length (slider)",
+                    "Thickness (slider)",
+                    "Gap (slider)",
+                    "Outline (toggle)",
+                    "Style (dropdown: Solid/Dashed/Dotted)",
+                    "Gradient (toggle+color)",
+                    "Endpoint (dropdown: Dot/Arrow/None)"
+                  ]
+                },
+                {
+                  "id": "12",
+                  "label": "Player Trail",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "New Color (color)",
+                    "Old Color (color)",
+                    "Thickness (slider)",
+                    "Duration (slider 1-30s)",
+                    "Sample Rate (slider)",
+                    "Style (dropdown: Line/Dotted/Dashed)",
+                    "Fade (toggle)",
+                    "Smooth Curves (toggle)",
+                    "Outline (toggle)",
+                    "Taper Width (toggle)",
+                    "Direction Arrows (toggle)",
+                    "Head Dot (toggle)",
+                    "Show Self (toggle)",
+                    "Max Points (slider)"
+                  ]
+                },
+                {
+                  "id": "13",
+                  "label": "Ring ESP",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Radius (slider 0.2-3m)",
+                    "Thickness (slider)",
+                    "Segments (slider 8-48)",
+                    "Height Offset (slider -1 to 2m)",
+                    "Ring Count (slider 1-20)",
+                    "Filled (toggle+color)",
+                    "Pulse Animation (toggle)"
+                  ]
+                },
+                {
+                  "id": "14",
+                  "label": "Footsteps",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Walking Color (color)",
+                    "Running Color (color)",
+                    "Size (slider 0.1-1m)",
+                    "Duration (slider 1-15s)",
+                    "Fade Out (toggle)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Range & Settings",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Max Distance",
+                  "desc": "",
+                  "type": "slider",
+                  "settings": [
+                    "Range 10-500m"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Vehicle ESP",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Enabled",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Max Distance",
+                  "desc": "",
+                  "type": "slider",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "3D Box",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Thickness (slider)",
+                    "Outline (toggle)",
+                    "Fill (toggle+color)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Name",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Font Size (slider)",
+                    "Show Category (toggle)"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Distance",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "5",
+                  "label": "Engine Health",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "6",
+                  "label": "Speed",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "7",
+                  "label": "Snaplines",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)"
+                  ]
+                },
+                {
+                  "id": "8",
+                  "label": "Empty Only",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Tracers",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Bullet Tracers",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Local Only (toggle)",
+                    "Max Range Filter (toggle+slider)",
+                    "Color Mode (dropdown: Solid/Gradient/Rainbow)",
+                    "Colors (color pickers)",
+                    "Rainbow Speed+Saturation (sliders)",
+                    "Thickness (slider 0.5-8)",
+                    "Duration (slider 0.1-5s)",
+                    "Fade Out (toggle)",
+                    "Taper Width (toggle)",
+                    "Dotted Line (toggle+spacing)",
+                    "Glow (toggle+radius)",
+                    "Impact Marker (toggle)",
+                    "Impact Style (dropdown: Circle/Cross/3D Box/Diamond)",
+                    "Marker Size (slider 1-20)",
+                    "Marker Duration (slider)",
+                    "Show Distance (toggle+size)",
+                    "Highlight Headshots (toggle+color)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Throwable Tracers",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color Mode (dropdown: Solid/Gradient/Rainbow)",
+                    "Colors (color pickers)",
+                    "Thickness (slider)",
+                    "Duration (slider 1-10s)",
+                    "Fade Out (toggle)",
+                    "Dashed (toggle)",
+                    "Glow (toggle+radius)",
+                    "Endpoint Marker (toggle+size)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Projectile Tracers",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color Mode (dropdown: Solid/Rainbow)",
+                    "Color (color)",
+                    "Rainbow Speed (slider)",
+                    "Thickness (slider)",
+                    "Duration (slider 1-15s)",
+                    "Fade Out (toggle)",
+                    "Taper Width (toggle)",
+                    "Glow (toggle+radius)",
+                    "Endpoint Marker (toggle+size)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "VFX",
+          "legacyId": "subtab-0-1",
+          "groups": [
+            {
+              "name": "Visual Effects",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Shadow Light",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Intensity (slider -100 to 100)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Reflection",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Intensity (slider)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Gamma",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Intensity (slider)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Blur",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Intensity (slider)"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Sky Intensity",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Intensity (slider)"
+                  ]
+                },
+                {
+                  "id": "5",
+                  "label": "Saturation",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Intensity (slider)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "World Effects",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Foot Steps VFX",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Impact Color",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Skid Marks",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Constant (toggle)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Tire Lights",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Range (slider)",
+                    "Falloff (slider)",
+                    "Min/Max Color (colors)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Light Glow",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Mode (dropdown: Rainbow/Static Rainbow/Static)",
+                    "Color (color)",
+                    "Hue/Saturation/Intensity/Frequency (sliders)"
+                  ]
+                },
+                {
+                  "id": "5",
+                  "label": "Light Cortana",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Same settings as Light Glow"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Sky & Weather",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Sky Color",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Preset (dropdown: 7 presets)",
+                    "Zenith Color (color)",
+                    "Intensity (slider)",
+                    "Blend (slider)",
+                    "Horizon Color (toggle+color)",
+                    "Rainbow Sky (toggle+speed)",
+                    "Enhanced Stars (toggle+brightness)",
+                    "Moon Glow (toggle+intensity)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Fog Override",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Ped Lighting",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Rainbow (toggle+speed)",
+                    "Intensity (slider)",
+                    "Dynamic Light (toggle+range)",
+                    "Pulse (toggle+speed)",
+                    "All Peds (toggle)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Ocean",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Transparent Ocean (toggle)",
+                    "Water Height (slider)",
+                    "Water Puddles (slider)"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Thunder",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Darkness (slider)",
+                    "Brightness (slider)"
+                  ]
+                },
+                {
+                  "id": "5",
+                  "label": "Particle FX Color",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Crosshair",
+          "legacyId": "subtab-0-2",
+          "groups": [
+            {
+              "name": "Custom Crosshair",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Enabled",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Shape (dropdown: Cross/Dot/Circle/Circle+Dot/T-Shape/Diamond/Square/Swastika)",
+                    "Size (slider 1-30)",
+                    "Thickness (slider 0.5-6)",
+                    "Gap (slider 0-20)",
+                    "Center Dot (toggle+size)",
+                    "Primary Color (color)",
+                    "Gradient (toggle+secondary color)",
+                    "Rainbow (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Effects",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Outline (toggle+width)",
+                    "Spin (toggle+speed)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combat",
+      "legacyId": "tab-1",
+      "categories": [
+        {
+          "name": "Lock On",
+          "legacyId": "subtab-1-0",
+          "groups": [
+            {
+              "name": "Lock On Aimbot",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Enabled",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Aim Key (keybind: LMB/RMB/MMB/X1/X2)",
+                    "Hitbox (multi: Head/Neck/Body/Hands/Feet/Nearest)",
+                    "Filter (dropdown: Both/Players/NPCs)",
+                    "FOV Radius (slider 10-500)",
+                    "Max Distance (slider 10-500m)",
+                    "Smoothing (slider 1-30)",
+                    "Mode (dropdown: Lock On/Aim Assist)",
+                    "Visibility Check (toggle)",
+                    "Sticky Target (toggle)",
+                    "Prediction (toggle)",
+                    "Recoil Comp (toggle)",
+                    "Skip Friends (toggle)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "FOV Circle",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Circle Color (color)",
+                    "Fill (toggle+alpha)",
+                    "Outer Ring Color (color)",
+                    "Ring Offset (slider)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Target Line",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Thickness (slider)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Target Marker",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Color (color)",
+                    "Size (slider)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Advanced",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Advanced Settings",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Priority (dropdown: Crosshair/Distance/Lowest HP)",
+                    "Auto Switch on Kill (toggle+delay)",
+                    "H/V Smoothing (sliders)",
+                    "Adaptive Smoothing (toggle)",
+                    "Accel Curve (slider)",
+                    "Max Speed (slider)",
+                    "Dead Zone (slider)",
+                    "Prediction Factor (slider)",
+                    "Scope Zoom Comp (toggle)",
+                    "Disable for Explosives (toggle)",
+                    "Scale by Distance (toggle+min)",
+                    "Distance Bone Auto Select (toggle+threshold)",
+                    "Jitter (toggle+offset)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Melee Bot",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Melee Bot",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Force (slider)",
+                    "FOV (slider 30-360)",
+                    "Range (slider 1-20m)",
+                    "Priority (dropdown)",
+                    "Show FOV Circle (toggle)",
+                    "Target Line (toggle+color)",
+                    "Auto Punch (toggle+range)",
+                    "Fast Punch (toggle+rate)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Silent Aim",
+          "legacyId": "subtab-1-1",
+          "groups": [
+            {
+              "name": "Silent Aim",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Coming Soon",
+                  "desc": "",
+                  "type": "info",
+                  "settings": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triggerbot",
+          "legacyId": "subtab-1-2",
+          "groups": [
+            {
+              "name": "Trigger Bot",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Enabled",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Hitbox (multi: Head/Neck/Body/Hands/Feet)",
+                    "Filter (dropdown)",
+                    "Trigger FOV (slider)",
+                    "Delay Min/Max (sliders 0-500ms)",
+                    "Only While ADS (toggle)",
+                    "Skip Friends (toggle)",
+                    "Visibility Check (toggle)",
+                    "Burst Fire: Shots Min/Max (sliders)",
+                    "Burst Pause (slider)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Magic Bullet",
+          "legacyId": "subtab-1-3",
+          "groups": [
+            {
+              "name": "Magic Bullet",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Coming Soon",
+                  "desc": "",
+                  "type": "info",
+                  "settings": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Misc",
+      "legacyId": "tab-2",
+      "categories": [
+        {
+          "name": "Overlays",
+          "legacyId": "subtab-2-0",
+          "groups": [
+            {
+              "name": "Overlays",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Radar",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Shape (dropdown: Square/Circle)",
+                    "Size (slider 100-500)",
+                    "Range (slider)",
+                    "Dot Size (slider)",
+                    "Opacity (slider)",
+                    "6 Color pickers (Player/NPC/Vehicle/BG/Border)",
+                    "Map Image (toggle+coords)",
+                    "Rotate with View (toggle)",
+                    "Show Names (toggle+size)",
+                    "Show Vehicles (toggle)",
+                    "Crosshair (toggle)",
+                    "Dot Outline (toggle)",
+                    "North Indicator (toggle)",
+                    "FOV Cone (toggle+angle+color)",
+                    "Compass (toggle)",
+                    "Health Dots (toggle)",
+                    "Edge Arrows (toggle)",
+                    "Range Rings (toggle+count+color)",
+                    "Grid Lines (toggle)",
+                    "Border Thickness (slider)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Watermark",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Show FPS (toggle+Graph)",
+                    "Show Date/Time (toggles)",
+                    "Draggable (toggle)",
+                    "Opacity/Font Size/Rounding (sliders)",
+                    "BG/Accent/Text Colors (colors)",
+                    "Border (toggle+color)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Bind List",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Style (dropdown: Default/Table)",
+                    "Opacity/Font Size/Rounding (sliders)",
+                    "Draggable (toggle)",
+                    "BG/Text/Pill Colors (colors)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "HUD Panels",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Performance Stats",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Frametime Graph (toggle)",
+                    "Min/Max/Avg (toggle)",
+                    "Opacity (slider)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Playerlist",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Health Bars (toggle)",
+                    "Operator Icons (toggle)",
+                    "Status Dots (toggle)",
+                    "Show Distance (toggle)",
+                    "Nearby Only (toggle+distance)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Spectator List",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Style (dropdown)",
+                    "Opacity/Font/Rounding (sliders)",
+                    "Draggable (toggle)",
+                    "BG/Text/Icon Colors (colors)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Combat HUD",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Hitmarkers",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Players (toggle)",
+                    "Vehicles (toggle)",
+                    "World Hitmarkers (toggle)",
+                    "Kill Effect (toggle)",
+                    "Size/Thickness/Duration (sliders)",
+                    "Hit Color (color)",
+                    "Kill Color (color)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Damage Log",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Show Dealt/Taken (toggles)",
+                    "Duration (slider)",
+                    "Font Size (slider)",
+                    "Opacity (slider)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Grapple Hook",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Enabled",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed (slider 5-50)",
+                    "Max Range (slider 20-300m)",
+                    "Line Color/Thickness (color+slider)",
+                    "Dot Color/Size (color+slider)",
+                    "Auto Release (toggle+distance)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Anti-Cheat",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Auto Detect",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Scans every 10 seconds",
+                    "25+ known AC signatures",
+                    "Custom AC heuristic scanning",
+                    "FiveM resource scanning"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "AC Overlay",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Alert Color (color)",
+                    "Draggable (toggle)",
+                    "Reset Position (button)",
+                    "Shows: AC name, status, heartbeat count"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Disable Anti-Cheat",
+                  "desc": "",
+                  "type": "button",
+                  "settings": [
+                    "ElectronAC deep bypass",
+                    "Honeypot event blocking",
+                    "Weapon damage restoration",
+                    "Screenshot/OCR blocking",
+                    "entityDamaged cancellation",
+                    "Heartbeat tracking with notifications",
+                    "Post-disable verification scan"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Local",
+      "legacyId": "tab-3",
+      "categories": [
+        {
+          "name": "Player",
+          "legacyId": "subtab-3-0",
+          "groups": [
+            {
+              "name": "God Mode",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "God Mode",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Bullet Proof (toggle)",
+                    "Fire Proof (toggle)",
+                    "Collision Proof (toggle)",
+                    "Melee Proof (toggle)",
+                    "Explosion Proof (toggle)",
+                    "Steam Proof (toggle)",
+                    "Water Proof (toggle)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Player",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "No Ragdoll",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Invisible",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Infinite Stamina",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Super Punch",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "4",
+                  "label": "Walk Through",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Players/Peds/Vehicles/Objects (toggles)"
+                  ]
+                },
+                {
+                  "id": "5",
+                  "label": "Graceful Landing",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "6",
+                  "label": "Fake Crouch",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Health / Armor",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Heal Self",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Max Armor",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Revive",
+                  "desc": "",
+                  "type": "button",
+                  "settings": [
+                    "Native resurrection",
+                    "Framework events (ESX/QBCore/vRP/ND/ox)",
+                    "Skin reload",
+                    "Screen effect clear"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Suicide",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Movement",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Fast Run",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed (slider 1-5)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "No Clip",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed (slider)",
+                    "Sprint Multiplier (slider)",
+                    "Use Camera Direction (toggle)",
+                    "Vertical Lock (toggle)",
+                    "Smooth Movement (toggle+accel+decel)",
+                    "Freeze When Stopped (toggle)",
+                    "Invisible (toggle)",
+                    "Ghost Mode (toggle+alpha)",
+                    "No Collision (toggle)",
+                    "Auto Godmode (toggle)",
+                    "Restore Position (toggle)",
+                    "Ped Follows Camera (toggle)",
+                    "Show Speed/Coordinates (toggles)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Freecam",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed/FOV/Sensitivity (sliders)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Movement Extras",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Fast Climb",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Peek",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Strafe Teleport",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Blink / Dash",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "4",
+                  "label": "High Ground",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "5",
+                  "label": "Anchor",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "6",
+                  "label": "Behind Player TP",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "7",
+                  "label": "Serpentine",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "8",
+                  "label": "Phase Shift",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "9",
+                  "label": "Ground Shrink",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "10",
+                  "label": "Speed Burst",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "11",
+                  "label": "Wall Bounce",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Superman",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Superman Flight",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed/Super Speed/Boost Speed (sliders)",
+                    "Eye Lasers (toggle+kill speed)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vehicle",
+          "legacyId": "subtab-3-1",
+          "groups": [
+            {
+              "name": "Vehicle",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "God Mode",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Seatbelt",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Force Engine On",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Infinite Fuel",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Decorator-based (LegacyFuel/ox_fuel/cdn-fuel/ps-fuel)",
+                    "State bag fuel",
+                    "Export-based fuel restoration"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Rainbow Car",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed (slider)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Maintenance",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Auto Repair",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Gradual repair to avoid detection"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Instant Brake",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Brake Force (slider 5-100)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Repair Vehicle",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Max Performance",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "NOS",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "NOS System",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Power (slider)",
+                    "Hold Mode (toggle)",
+                    "Flame Effect (toggle)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Abilities",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Vehicle Abilities",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Rocket Boost (toggle+power)",
+                    "Glide/Nitrous/Ramp/Jump (toggles)",
+                    "Vertical Boost/JATO/Parachute (toggles)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Boost",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Speed Boost",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed (slider)",
+                    "Use Horn Key (toggle)",
+                    "Ground Only (toggle)",
+                    "Sound/Screen Effect (toggles)",
+                    "Speed Overlay (toggle)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Flight Mode",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Deluxo Mode",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Oppressor MK2 Mode",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Auto Pilot",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Auto Pilot",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Mode (dropdown: Waypoint/Random/Wander/Follow/Ram)",
+                    "Speed (slider)",
+                    "Stop at Destination (toggle)",
+                    "Drive Style (dropdown: 5 styles)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Vehicle NoClip",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Vehicle NoClip",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Speed (slider)",
+                    "Boost Multiplier (slider)",
+                    "Sync Rotation (toggle)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weapon",
+          "legacyId": "subtab-3-2",
+          "groups": [
+            {
+              "name": "Ammo",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Infinite Ammo",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Infinite Clip",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "No Reload",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Accuracy",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "No Recoil",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "No Spread",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "No Spinup",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Damage",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "One Hit Kill",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Damage Override",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Damage (slider 1-1000)"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Range Override",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Range (slider)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Force on Ped",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Force (slider)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Special Ammo",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Explosive Ammo",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Explosion Type (dropdown: 5 types)"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Fire Ammo",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Special Guns",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Teleport Gun",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Delete Gun",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Gravity Gun",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Range/Force (sliders)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Cartoon Gun",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Effect (dropdown: Shrink/Enlarge/Launch/Ragdoll)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "World",
+          "legacyId": "subtab-3-3",
+          "groups": [
+            {
+              "name": "Time",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Override Time",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Hour/Minute (sliders)",
+                    "Freeze Time (toggle)",
+                    "Presets: Morning/Noon/Sunset/Night/Dawn/Dusk"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Weather",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Override Weather",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "14 weather types",
+                    "Quick Select buttons"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Blackout",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Teleport",
+          "legacyId": "subtab-3-4",
+          "groups": [
+            {
+              "name": "Quick Teleport",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "To Waypoint",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Forward",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "To Nearest Vehicle",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "To Crosshair",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "4",
+                  "label": "To Coords",
+                  "desc": "",
+                  "type": "button",
+                  "settings": [
+                    "X/Y/Z coordinate inputs"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Saved Locations",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "5 Save Slots",
+                  "desc": "",
+                  "type": "button",
+                  "settings": [
+                    "Go/Delete/Save Here per slot"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Options",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Forward Distance",
+                  "desc": "",
+                  "type": "slider",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Ground Check",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Vehicle Teleport",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Players",
+      "legacyId": "tab-4",
+      "categories": [
+        {
+          "name": "Players",
+          "legacyId": "subtab-4-0",
+          "groups": [
+            {
+              "name": "Teleport Actions",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "To Player",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Behind",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Into Vehicle",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Bring to Me",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "User Options",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Give Heal/Armour/Pistol",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Kill Player",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Silent Kill",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Steal Outfit",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "4",
+                  "label": "Cage Player",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "5",
+                  "label": "Clone Ped",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "6",
+                  "label": "Force Fall",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "7",
+                  "label": "Spectate",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "8",
+                  "label": "Punch Player",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                }
+              ]
+            },
+            {
+              "name": "Troll Actions",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Bomber",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Airdrop",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Magnet",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Catapult",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "4",
+                  "label": "Clone Army",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "5",
+                  "label": "Vehicle Drop",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "6",
+                  "label": "Blame Kill",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "7",
+                  "label": "Send Crash",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "8",
+                  "label": "RC Spawn",
+                  "desc": "",
+                  "type": "button",
+                  "settings": [
+                    "Type (dropdown: Bandito/Tank/Blazer/Faggio/BMX/Panto)"
+                  ]
+                },
+                {
+                  "id": "9",
+                  "label": "Loop Actions",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Interval (slider 0.5-10s)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Bulk Actions",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Explode All",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "1",
+                  "label": "Cage All",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "2",
+                  "label": "Launch All",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "3",
+                  "label": "Fire All",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "4",
+                  "label": "Freeze/Unfreeze All",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "5",
+                  "label": "Ragdoll All",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                },
+                {
+                  "id": "6",
+                  "label": "TP All to Me",
+                  "desc": "",
+                  "type": "button",
+                  "settings": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spawner",
+      "legacyId": "tab-5",
+      "categories": [
+        {
+          "name": "Weapons",
+          "legacyId": "subtab-5-0",
+          "groups": [
+            {
+              "name": "Weapon Spawner",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "109 Weapons",
+                  "desc": "",
+                  "type": "info",
+                  "settings": [
+                    "Search filter",
+                    "11 categories",
+                    "Force In Hand (toggle)",
+                    "Spoof Weapon (toggle)",
+                    "Right-click: Attachments popup",
+                    "Give with Selected/All attachments",
+                    "464 weapon components"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vehicles",
+          "legacyId": "subtab-5-1",
+          "groups": [
+            {
+              "name": "Vehicle Spawner",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Vehicle Grid",
+                  "desc": "",
+                  "type": "info",
+                  "settings": [
+                    "Search filter",
+                    "24 categories",
+                    "Spawn Inside (toggle)",
+                    "Behind (toggle)",
+                    "Max Upgrade (toggle)",
+                    "Spawn Safe (toggle)",
+                    "Delete Last (button)"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Peds",
+          "legacyId": "subtab-5-2",
+          "groups": [
+            {
+              "name": "Ped Spawner",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Ped Grid",
+                  "desc": "",
+                  "type": "info",
+                  "settings": [
+                    "Search filter",
+                    "13 categories",
+                    "Apply Model (toggle)",
+                    "Delete Last (button)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "legacyId": "tab-6",
+      "categories": [
+        {
+          "name": "Stream Proof",
+          "legacyId": "subtab-6-0",
+          "groups": [
+            {
+              "name": "Stream Proof Mode",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Stream Proof",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Hide ESP (toggle)",
+                    "Hide Crosshair/FOV (toggle)",
+                    "Hide Menu (toggle)",
+                    "Hide Overlays (toggle)",
+                    "Hide Tracers/Lines (toggle)",
+                    "Separate D3D11 overlay window",
+                    "WDA_EXCLUDEFROMCAPTURE",
+                    "Works with OBS/Discord/recordings"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Panic Mode",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Panic Mode",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "END key (rebindable)",
+                    "Instantly disables ALL visuals",
+                    "Menu, ESP, overlays — everything",
+                    "Press again to restore"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Appearance",
+          "legacyId": "subtab-6-1",
+          "groups": [
+            {
+              "name": "Theme & Colors",
+              "items": [
+                {
+                  "id": "0",
+                  "label": "Color Editor",
+                  "desc": "",
+                  "type": "info",
+                  "settings": [
+                    "Full theme color editor",
+                    "Color presets",
+                    "Per-element color pickers"
+                  ]
+                },
+                {
+                  "id": "1",
+                  "label": "Layout",
+                  "desc": "",
+                  "type": "info",
+                  "settings": [
+                    "Menu sizing",
+                    "Sidebar/Header/Groups styling",
+                    "Animation settings",
+                    "DPI scaling"
+                  ]
+                },
+                {
+                  "id": "2",
+                  "label": "Effects",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Window/Header/Nav/Group effects",
+                    "Types: Snow/Rain/Wireframe/Matrix",
+                    "Speed/Density/Opacity/Size (sliders)",
+                    "Color (color picker)"
+                  ]
+                },
+                {
+                  "id": "3",
+                  "label": "Border Style",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Thickness/Opacity (sliders)",
+                    "Color (color)",
+                    "Gradient (toggle+direction)",
+                    "Glow (toggle+radius+color)",
+                    "Pulse (toggle+speed)"
+                  ]
+                },
+                {
+                  "id": "4",
+                  "label": "Custom Cursor",
+                  "desc": "",
+                  "type": "toggle",
+                  "settings": [
+                    "Style (dropdown: Circle/Crosshair/Target)",
+                    "Size/Outline (sliders)",
+                    "Colors (color pickers)",
+                    "Trail (toggle+length)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

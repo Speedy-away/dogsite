@@ -1,380 +1,2407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scooby FiveM Features | Complete FiveM Mod Menu Feature List 2026</title>
-<meta name="description" content="Complete feature list for Scooby FiveM mod menu. ESP, aimbot, silent aim, magic bullet, Lua executor, resource manager, player trolling, anti-cheat bypass, HWID spoofer and more.">
-<link rel="canonical" href="https://scoobymenu.cc/fivem-features">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://scoobymenu.cc/fivem-features">
-<meta property="og:title" content="Scooby FiveM Features | Complete FiveM Mod Menu Feature List 2026">
-<meta property="og:description" content="Complete feature list for Scooby FiveM mod menu. ESP, aimbot, silent aim, magic bullet, Lua executor, resource manager, player trolling, anti-cheat bypass, HWID spoofer and more.">
-<meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
-<meta property="og:site_name" content="Scooby Menu">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Scooby FiveM Features | Complete FiveM Mod Menu Feature List 2026">
-<meta name="twitter:description" content="Complete feature list for Scooby FiveM mod menu. ESP, aimbot, silent aim, magic bullet, Lua executor, resource manager, player trolling, anti-cheat bypass, HWID spoofer and more.">
-<meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
-<meta name="keywords" content="Scooby FiveM features, FiveM mod menu features, FiveM ESP, FiveM aimbot, FiveM Lua executor, FiveM silent aim, FiveM magic bullet, FiveM resource manager, FiveM anti-cheat bypass, FiveM player trolling, FiveM mod menu feature list, FiveM cheats features, best FiveM mod menu features 2026">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FiveM Features — Scooby</title>
+<meta name="description" content="Explore combat, visuals, movement, and server tools, with the settings available for each feature.">
+<link rel="canonical" href="https://scoobymenu.cc/fivem-features/">
 <meta name="robots" content="index, follow">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--primary:#8b5cf6;--primary-dark:#7c3aed;--secondary:#06b6d4;--accent:#f59e0b;--bg-dark:#0f0f1a;--bg-card:#1a1a2e;--bg-card-hover:#252542;--text-primary:#fff;--text-secondary:#a1a1aa;--border:#2a2a4a;--gradient-1:linear-gradient(135deg,#667eea,#764ba2);--gradient-2:linear-gradient(135deg,#f093fb,#f5576c);--gradient-3:linear-gradient(135deg,#4facfe,#00f2fe);--gradient-4:linear-gradient(135deg,#43e97b,#38f9d7);--gradient-5:linear-gradient(135deg,#fa709a,#fee140)}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
-.bg-animation{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden}
-.bg-animation::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 20% 80%,rgba(139,92,246,.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(6,182,212,.15) 0%,transparent 50%),radial-gradient(circle at 40% 40%,rgba(245,158,11,.1) 0%,transparent 40%);animation:bgPulse 15s ease-in-out infinite}
-@keyframes bgPulse{0%,100%{transform:translate(0,0) rotate(0)}33%{transform:translate(-5%,-5%) rotate(5deg)}66%{transform:translate(5%,5%) rotate(-5deg)}}
-.header{text-align:center;padding:60px 20px 40px}
-.logo{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,#8b5cf6,#06b6d4,#f59e0b);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 5s ease infinite;letter-spacing:-2px}
-@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.tagline{font-size:1.2rem;color:var(--text-secondary);margin:10px 0 25px;font-weight:300}
-.stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.stat-number{font-size:2.2rem;font-weight:700;background:var(--gradient-3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.stat-label{font-size:.85rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:2px}
-.container{max-width:1400px;margin:0 auto;padding:0 20px}
-.search-bar{max-width:500px;margin:20px auto;position:relative}
-.search-bar input{width:100%;padding:12px 20px 12px 45px;border-radius:25px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);font-size:.95rem;outline:none;transition:all .3s}
-.search-bar input:focus{border-color:var(--primary);box-shadow:0 0 20px rgba(139,92,246,.2)}
-.search-bar::before{content:'🔍';position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1rem}
-.tab-nav{position:sticky;top:0;background:rgba(15,15,26,.95);backdrop-filter:blur(20px);padding:12px 0;z-index:100;border-bottom:1px solid var(--border);margin-bottom:30px}
-.tab-items{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:1400px;margin:0 auto;padding:0 20px}
-.tab-btn{padding:9px 18px;border-radius:20px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-size:.85rem;font-weight:500;cursor:pointer;transition:all .3s}
-.tab-btn:hover,.tab-btn.active{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px);box-shadow:0 8px 25px rgba(139,92,246,.3)}
-.tab-content{display:none}.tab-content.active{display:block}
-.subtab-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:25px}
-.subtab-pill{padding:6px 14px;border-radius:15px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);font-size:.8rem;cursor:pointer;transition:all .3s}
-.subtab-pill:hover,.subtab-pill.active{background:var(--secondary);border-color:var(--secondary);color:#fff}
-.subtab-content{display:none}.subtab-content.active{display:block}
-.group-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px;transition:all .3s}
-.group-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.3)}
-.group-title{font-size:1.1rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.group-icon{width:8px;height:8px;border-radius:50%;display:inline-block}
-.feature-item{padding:8px 12px;border-radius:8px;margin-bottom:4px;cursor:pointer;transition:all .2s;border:1px solid transparent}
-.feature-item:hover{background:var(--bg-card-hover);border-color:var(--border)}
-.feature-name{font-size:.9rem;font-weight:500;display:flex;align-items:center;justify-content:space-between}
-.feature-name .arrow{transition:transform .3s;color:var(--text-secondary);font-size:.7rem}
-.feature-item.open .arrow{transform:rotate(90deg)}
-.feature-settings{display:none;padding:8px 0 4px 16px;border-left:2px solid var(--border);margin:6px 0 6px 8px}
-.feature-item.open .feature-settings{display:block}
-.setting-tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:.72rem;margin:2px;font-weight:500}
-.tag-toggle{background:rgba(139,92,246,.15);color:#a78bfa}
-.tag-slider{background:rgba(6,182,212,.15);color:#22d3ee}
-.tag-dropdown{background:rgba(245,158,11,.15);color:#fbbf24}
-.tag-color{background:rgba(236,72,153,.15);color:#f472b6}
-.tag-button{background:rgba(52,211,153,.15);color:#34d399}
-.tag-keybind{background:rgba(251,146,60,.15);color:#fb923c}
-.setting-row{padding:3px 0;font-size:.82rem;color:var(--text-secondary)}
-.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:600;margin-left:6px}
-.badge-new{background:rgba(52,211,153,.2);color:#34d399}
-.badge-wip{background:rgba(251,146,60,.2);color:#fb923c}
-.columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:20px}
-.coming-soon{text-align:center;padding:40px;color:var(--text-secondary);font-style:italic}
-.footer{text-align:center;padding:40px;color:var(--text-secondary);font-size:.85rem;border-top:1px solid var(--border);margin-top:40px}
-@media(max-width:768px){.logo{font-size:2.5rem}.columns{grid-template-columns:1fr}.stats{gap:20px}}
-</style>
-  <script src="/languages/i18n.js"></script>
-  <link rel="stylesheet" href="/assets/css/mobile.css">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/fivem-features/">
+<meta property="og:title" content="FiveM Features — Scooby">
+<meta property="og:description" content="Explore combat, visuals, movement, and server tools, with the settings available for each feature.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/games/fivem.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/games/fivem.webp">
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/features.css">
+<script src="/assets/js/features.js" defer>
+</script>
+<script src="/languages/i18n.js" defer>
+</script>
+<noscript>
+<style>.search-controls,.result-actions,.category-nav a[data-section=all],.mobile-category{display:none!important}.feature-sidebar{display:block!important}.category-nav{display:flex!important}.sidebar-help{display:none}</style>
+</noscript>
 </head>
 <body>
-<div class="bg-animation"></div>
-<div class="header">
-<div class="logo">SCOOBY</div>
-<p class="tagline">FiveM Menu — Complete Feature List</p>
-<div class="stats">
-<div class="stat"><div class="stat-number">350+</div><div class="stat-label">Features</div></div>
-<div class="stat"><div class="stat-number">8</div><div class="stat-label">Categories</div></div>
-<div class="stat"><div class="stat-number">1500+</div><div class="stat-label">Settings</div></div>
+<a class="skip-link" href="#explorer">Skip to features</a>
+<header class="feature-header">
+<div class="header-inner">
+<a href="/" class="brand">scooby <span>/ features</span>
+</a>
+<nav aria-label="Main navigation">
+<a href="/guides/">Guides</a>
+<a href="/docs/">Docs</a>
+<a href="/store/">Store</a>
+</nav>
+<a class="button small" href="/products/fivem/">View product ↗</a>
+</div>
+</header>
+<main class="feature-shell">
+<nav class="game-nav" aria-label="Choose feature list">
+<a href="/features-list/gta-features/" >GTA 5</a>
+<a href="/features-list/rdr2-features/" >RDR2</a>
+<a href="/fivem-features/" aria-current="page">FiveM</a>
+<a href="/scooby-features/" >GTA 5 overview</a>
+</nav>
+<section class="feature-hero">
+<div class="hero-copy">
+<span class="eyebrow">THE FEATURE LIBRARY</span>
+<h1>FiveM<br>
+<span>Every detail, explored.</span>
+</h1>
+<p>Explore combat, visuals, movement, and server tools, with the settings available for each feature.</p>
+<div class="feature-stats">
+<div>
+<strong>181</strong>
+<span>listed features</span>
+</div>
+<div>
+<strong>7</strong>
+<span>sections</span>
+</div>
+<div>
+<strong>19</strong>
+<span>categories</span>
 </div>
 </div>
-<div class="search-bar"><input type="text" id="search" placeholder="Search features..."></div>
-<nav class="tab-nav"><div class="tab-items" id="tabNav"></div></nav>
-<div class="container" id="content"></div>
-<div class="footer">Scooby FiveM &copy; 2026 &mdash; The most advanced FiveM experience</div>
-<script>
-const TABS=[
-{name:"Visuals",icon:"👁",gradient:"--gradient-3",subtabs:[
-{name:"ESP",groups:[
-{name:"Players ESP",icon:"#4facfe",features:[
-{name:"Enabled",type:"toggle",settings:["Keybind (keybind)","Target Filter (dropdown: All/Players/NPCs/Players+Self/Self Only)","Show Self (toggle)"]},
-{name:"Box",type:"toggle",settings:["Keybind","Style (dropdown: Full/Corners/3D Box)","Color (color)","Fill (toggle)","Fill Color (color)","Fill Gradient (toggle+color)","Outline (toggle)","Thickness (slider 0.5-4px)","Rounding (slider 0-10)","Width Ratio (slider)","Height Multiplier (slider)","Head Offset (slider)","Gradient (toggle+color)","Pulse (toggle+speed)","Shadow (toggle)","Glow Outline (toggle+color+radius)","Glow Pulse (toggle+speed)","Corner Length (slider)"]},
-{name:"Health Bar",type:"toggle",settings:["Position (dropdown: Left/Right/Top/Bottom)","Color (color)","Gradient (toggle+color)","Outline (toggle+color)","Width (slider)","Smooth Animation (toggle+speed)","Background Color (color)","Show Text (toggle+color+size)"]},
-{name:"Armor Bar",type:"toggle",settings:["Position (dropdown)","Color (color)"]},
-{name:"Name",type:"toggle",settings:["Position (dropdown: Top/Bottom/Left/Right)","Color (color)","Font Size (slider 8-20)","Show Server ID (toggle)","Background (toggle+color+rounding)","Shadow (toggle)"]},
-{name:"Weapon",type:"toggle",settings:["Show Icon (toggle)","Show Name (toggle)","Show Unarmed (toggle)","Icon Size (slider)","Name Size (slider)","Position (dropdown)","Color (color)","Background (toggle+color)","Shadow (toggle)"]},
-{name:"Skeleton",type:"toggle",badge:"new",settings:["Style (dropdown: Clean/Joints+HeadRing/Outline)","Mode (dropdown: Full/Basic)","Color (color)","Thickness (slider)","Joints (toggle+size)","Head Circle (toggle)","Dashed Lines (toggle)","Gradient (toggle+color)"]},
-{name:"Distance",type:"toggle",settings:["Position (dropdown)","Color (color)","Font Size (slider)","Background (toggle+color)","Shadow (toggle)"]},
-{name:"Head",type:"toggle",settings:["Style (dropdown: Circle/Filled/Cross/Diamond/Skull/Triangle/Square/Ring)","Color (color)","Size (slider)","Outline (toggle)","Glow (toggle+color+radius)"]},
-{name:"Snaplines",type:"toggle",settings:["Color (color)","Origin (dropdown: Bottom/Center/Top)","Thickness (slider)","Dashed (toggle)","Gradient (toggle)","Glow (toggle+color+radius)"]},
-{name:"Visibility Check",type:"toggle",settings:["Visible Color (color)","Hidden Color (color)","Apply To (dropdown)"]},
-{name:"Line of Sight",type:"toggle",settings:["Color (color)","Length (slider)","Thickness (slider)","Gap (slider)","Outline (toggle)","Style (dropdown: Solid/Dashed/Dotted)","Gradient (toggle+color)","Endpoint (dropdown: Dot/Arrow/None)"]},
-{name:"Player Trail",type:"toggle",settings:["New Color (color)","Old Color (color)","Thickness (slider)","Duration (slider 1-30s)","Sample Rate (slider)","Style (dropdown: Line/Dotted/Dashed)","Fade (toggle)","Smooth Curves (toggle)","Outline (toggle)","Taper Width (toggle)","Direction Arrows (toggle)","Head Dot (toggle)","Show Self (toggle)","Max Points (slider)"]},
-{name:"Ring ESP",type:"toggle",badge:"new",settings:["Color (color)","Radius (slider 0.2-3m)","Thickness (slider)","Segments (slider 8-48)","Height Offset (slider -1 to 2m)","Ring Count (slider 1-20)","Filled (toggle+color)","Pulse Animation (toggle)"]},
-{name:"Footsteps",type:"toggle",badge:"new",settings:["Walking Color (color)","Running Color (color)","Size (slider 0.1-1m)","Duration (slider 1-15s)","Fade Out (toggle)"]}
-]},
-{name:"Range & Settings",icon:"#22d3ee",features:[{name:"Max Distance",type:"slider",settings:["Range 10-500m"]}]},
-{name:"Vehicle ESP",icon:"#f59e0b",features:[
-{name:"Enabled",type:"toggle"},{name:"Max Distance",type:"slider"},
-{name:"3D Box",type:"toggle",settings:["Color (color)","Thickness (slider)","Outline (toggle)","Fill (toggle+color)"]},
-{name:"Name",type:"toggle",settings:["Color (color)","Font Size (slider)","Show Category (toggle)"]},
-{name:"Distance",type:"toggle"},{name:"Engine Health",type:"toggle"},{name:"Speed",type:"toggle"},
-{name:"Snaplines",type:"toggle",settings:["Color (color)"]},{name:"Empty Only",type:"toggle"}
-]},
-{name:"Tracers",icon:"#f472b6",features:[
-{name:"Bullet Tracers",type:"toggle",settings:["Local Only (toggle)","Max Range Filter (toggle+slider)","Color Mode (dropdown: Solid/Gradient/Rainbow)","Colors (color pickers)","Rainbow Speed+Saturation (sliders)","Thickness (slider 0.5-8)","Duration (slider 0.1-5s)","Fade Out (toggle)","Taper Width (toggle)","Dotted Line (toggle+spacing)","Glow (toggle+radius)","Impact Marker (toggle)","Impact Style (dropdown: Circle/Cross/3D Box/Diamond)","Marker Size (slider 1-20)","Marker Duration (slider)","Show Distance (toggle+size)","Highlight Headshots (toggle+color)"]},
-{name:"Throwable Tracers",type:"toggle",settings:["Color Mode (dropdown: Solid/Gradient/Rainbow)","Colors (color pickers)","Thickness (slider)","Duration (slider 1-10s)","Fade Out (toggle)","Dashed (toggle)","Glow (toggle+radius)","Endpoint Marker (toggle+size)"]},
-{name:"Projectile Tracers",type:"toggle",settings:["Color Mode (dropdown: Solid/Rainbow)","Color (color)","Rainbow Speed (slider)","Thickness (slider)","Duration (slider 1-15s)","Fade Out (toggle)","Taper Width (toggle)","Glow (toggle+radius)","Endpoint Marker (toggle+size)"]}
-]}
-]},
-{name:"VFX",groups:[
-{name:"Visual Effects",icon:"#a78bfa",features:[
-{name:"Shadow Light",type:"toggle",settings:["Intensity (slider -100 to 100)"]},
-{name:"Reflection",type:"toggle",settings:["Intensity (slider)"]},
-{name:"Gamma",type:"toggle",settings:["Intensity (slider)"]},
-{name:"Blur",type:"toggle",settings:["Intensity (slider)"]},
-{name:"Sky Intensity",type:"toggle",settings:["Intensity (slider)"]},
-{name:"Saturation",type:"toggle",settings:["Intensity (slider)"]}
-]},
-{name:"World Effects",icon:"#22d3ee",features:[
-{name:"Foot Steps VFX",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]},
-{name:"Impact Color",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]},
-{name:"Skid Marks",type:"toggle",settings:["Color (color)","Constant (toggle)","Rainbow (toggle+speed)"]},
-{name:"Tire Lights",type:"toggle",settings:["Range (slider)","Falloff (slider)","Min/Max Color (colors)","Rainbow (toggle+speed)"]},
-{name:"Light Glow",type:"toggle",settings:["Mode (dropdown: Rainbow/Static Rainbow/Static)","Color (color)","Hue/Saturation/Intensity/Frequency (sliders)"]},
-{name:"Light Cortana",type:"toggle",settings:["Same settings as Light Glow"]}
-]},
-{name:"Sky & Weather",icon:"#fbbf24",features:[
-{name:"Sky Color",type:"toggle",settings:["Preset (dropdown: 7 presets)","Zenith Color (color)","Intensity (slider)","Blend (slider)","Horizon Color (toggle+color)","Rainbow Sky (toggle+speed)","Enhanced Stars (toggle+brightness)","Moon Glow (toggle+intensity)"]},
-{name:"Fog Override",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]},
-{name:"Ped Lighting",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)","Intensity (slider)","Dynamic Light (toggle+range)","Pulse (toggle+speed)","All Peds (toggle)"]},
-{name:"Ocean",type:"toggle",settings:["Transparent Ocean (toggle)","Water Height (slider)","Water Puddles (slider)"]},
-{name:"Thunder",type:"toggle",settings:["Darkness (slider)","Brightness (slider)"]},
-{name:"Particle FX Color",type:"toggle",settings:["Color (color)","Rainbow (toggle+speed)"]}
-]}
-]},
-{name:"Crosshair",groups:[
-{name:"Custom Crosshair",icon:"#f472b6",features:[
-{name:"Enabled",type:"toggle",settings:["Shape (dropdown: Cross/Dot/Circle/Circle+Dot/T-Shape/Diamond/Square/Swastika)","Size (slider 1-30)","Thickness (slider 0.5-6)","Gap (slider 0-20)","Center Dot (toggle+size)","Primary Color (color)","Gradient (toggle+secondary color)","Rainbow (toggle+speed)"]},
-{name:"Effects",type:"toggle",settings:["Outline (toggle+width)","Spin (toggle+speed)"]}
-]}
-]}
-]},
-{name:"Combat",icon:"⚔",gradient:"--gradient-2",subtabs:[
-{name:"Lock On",groups:[
-{name:"Lock On Aimbot",icon:"#f472b6",features:[
-{name:"Enabled",type:"toggle",settings:["Aim Key (keybind: LMB/RMB/MMB/X1/X2)","Hitbox (multi: Head/Neck/Body/Hands/Feet/Nearest)","Filter (dropdown: Both/Players/NPCs)","FOV Radius (slider 10-500)","Max Distance (slider 10-500m)","Smoothing (slider 1-30)","Mode (dropdown: Lock On/Aim Assist)","Visibility Check (toggle)","Sticky Target (toggle)","Prediction (toggle)","Recoil Comp (toggle)","Skip Friends (toggle)"]},
-{name:"FOV Circle",type:"toggle",settings:["Circle Color (color)","Fill (toggle+alpha)","Outer Ring Color (color)","Ring Offset (slider)"]},
-{name:"Target Line",type:"toggle",settings:["Color (color)","Thickness (slider)"]},
-{name:"Target Marker",type:"toggle",settings:["Color (color)","Size (slider)"]}
-]},
-{name:"Advanced",icon:"#a78bfa",features:[
-{name:"Advanced Settings",type:"toggle",settings:["Priority (dropdown: Crosshair/Distance/Lowest HP)","Auto Switch on Kill (toggle+delay)","H/V Smoothing (sliders)","Adaptive Smoothing (toggle)","Accel Curve (slider)","Max Speed (slider)","Dead Zone (slider)","Prediction Factor (slider)","Scope Zoom Comp (toggle)","Disable for Explosives (toggle)","Scale by Distance (toggle+min)","Distance Bone Auto Select (toggle+threshold)","Jitter (toggle+offset)"]}
-]},
-{name:"Melee Bot",icon:"#fb923c",features:[
-{name:"Melee Bot",type:"toggle",settings:["Force (slider)","FOV (slider 30-360)","Range (slider 1-20m)","Priority (dropdown)","Show FOV Circle (toggle)","Target Line (toggle+color)","Auto Punch (toggle+range)","Fast Punch (toggle+rate)"]}
-]}
-]},
-{name:"Silent Aim",groups:[{name:"Silent Aim",icon:"#f59e0b",features:[{name:"Coming Soon",type:"info"}]}]},
-{name:"Triggerbot",groups:[
-{name:"Trigger Bot",icon:"#22d3ee",features:[
-{name:"Enabled",type:"toggle",settings:["Hitbox (multi: Head/Neck/Body/Hands/Feet)","Filter (dropdown)","Trigger FOV (slider)","Delay Min/Max (sliders 0-500ms)","Only While ADS (toggle)","Skip Friends (toggle)","Visibility Check (toggle)","Burst Fire: Shots Min/Max (sliders)","Burst Pause (slider)"]}
-]}
-]},
-{name:"Magic Bullet",groups:[{name:"Magic Bullet",icon:"#f59e0b",features:[{name:"Coming Soon",type:"info"}]}]}
-]},
-{name:"Misc",icon:"🔧",gradient:"--gradient-4",subtabs:[
-{name:"Overlays",groups:[
-{name:"Overlays",icon:"#34d399",features:[
-{name:"Radar",type:"toggle",settings:["Shape (dropdown: Square/Circle)","Size (slider 100-500)","Range (slider)","Dot Size (slider)","Opacity (slider)","6 Color pickers (Player/NPC/Vehicle/BG/Border)","Map Image (toggle+coords)","Rotate with View (toggle)","Show Names (toggle+size)","Show Vehicles (toggle)","Crosshair (toggle)","Dot Outline (toggle)","North Indicator (toggle)","FOV Cone (toggle+angle+color)","Compass (toggle)","Health Dots (toggle)","Edge Arrows (toggle)","Range Rings (toggle+count+color)","Grid Lines (toggle)","Border Thickness (slider)"]},
-{name:"Watermark",type:"toggle",settings:["Show FPS (toggle+Graph)","Show Date/Time (toggles)","Draggable (toggle)","Opacity/Font Size/Rounding (sliders)","BG/Accent/Text Colors (colors)","Border (toggle+color)"]},
-{name:"Bind List",type:"toggle",settings:["Style (dropdown: Default/Table)","Opacity/Font Size/Rounding (sliders)","Draggable (toggle)","BG/Text/Pill Colors (colors)"]}
-]},
-{name:"HUD Panels",icon:"#22d3ee",features:[
-{name:"Performance Stats",type:"toggle",settings:["Frametime Graph (toggle)","Min/Max/Avg (toggle)","Opacity (slider)"]},
-{name:"Playerlist",type:"toggle",settings:["Health Bars (toggle)","Operator Icons (toggle)","Status Dots (toggle)","Show Distance (toggle)","Nearby Only (toggle+distance)"]},
-{name:"Spectator List",type:"toggle",settings:["Style (dropdown)","Opacity/Font/Rounding (sliders)","Draggable (toggle)","BG/Text/Icon Colors (colors)"]}
-]},
-{name:"Combat HUD",icon:"#f472b6",features:[
-{name:"Hitmarkers",type:"toggle",settings:["Players (toggle)","Vehicles (toggle)","World Hitmarkers (toggle)","Kill Effect (toggle)","Size/Thickness/Duration (sliders)","Hit Color (color)","Kill Color (color)"]},
-{name:"Damage Log",type:"toggle",settings:["Show Dealt/Taken (toggles)","Duration (slider)","Font Size (slider)","Opacity (slider)"]}
-]},
-{name:"Grapple Hook",icon:"#a78bfa",features:[
-{name:"Enabled",type:"toggle",settings:["Speed (slider 5-50)","Max Range (slider 20-300m)","Line Color/Thickness (color+slider)","Dot Color/Size (color+slider)","Auto Release (toggle+distance)"]}
-]},
-{name:"Anti-Cheat",icon:"#ef4444",features:[
-{name:"Auto Detect",type:"toggle",settings:["Scans every 10 seconds","25+ known AC signatures","Custom AC heuristic scanning","FiveM resource scanning"]},
-{name:"AC Overlay",type:"toggle",badge:"new",settings:["Alert Color (color)","Draggable (toggle)","Reset Position (button)","Shows: AC name, status, heartbeat count"]},
-{name:"Disable Anti-Cheat",type:"button",badge:"new",settings:["ElectronAC deep bypass","Honeypot event blocking","Weapon damage restoration","Screenshot/OCR blocking","entityDamaged cancellation","Heartbeat tracking with notifications","Post-disable verification scan"]}
-]}
-]}
-]},
-{name:"Local",icon:"🎮",gradient:"--gradient-1",subtabs:[
-{name:"Player",groups:[
-{name:"God Mode",icon:"#ef4444",features:[
-{name:"God Mode",type:"toggle",settings:["Bullet Proof (toggle)","Fire Proof (toggle)","Collision Proof (toggle)","Melee Proof (toggle)","Explosion Proof (toggle)","Steam Proof (toggle)","Water Proof (toggle)"]}
-]},
-{name:"Player",icon:"#8b5cf6",features:[
-{name:"No Ragdoll",type:"toggle"},{name:"Invisible",type:"toggle"},{name:"Infinite Stamina",type:"toggle"},
-{name:"Super Punch",type:"toggle"},{name:"Walk Through",type:"toggle",settings:["Players/Peds/Vehicles/Objects (toggles)"]},
-{name:"Graceful Landing",type:"toggle"},{name:"Fake Crouch",type:"toggle"}
-]},
-{name:"Health / Armor",icon:"#34d399",features:[
-{name:"Heal Self",type:"button"},{name:"Max Armor",type:"button"},
-{name:"Revive",type:"button",badge:"new",settings:["Native resurrection","Framework events (ESX/QBCore/vRP/ND/ox)","Skin reload","Screen effect clear"]},
-{name:"Suicide",type:"button"}
-]},
-{name:"Movement",icon:"#06b6d4",features:[
-{name:"Fast Run",type:"toggle",settings:["Speed (slider 1-5)"]},
-{name:"No Clip",type:"toggle",settings:["Speed (slider)","Sprint Multiplier (slider)","Use Camera Direction (toggle)","Vertical Lock (toggle)","Smooth Movement (toggle+accel+decel)","Freeze When Stopped (toggle)","Invisible (toggle)","Ghost Mode (toggle+alpha)","No Collision (toggle)","Auto Godmode (toggle)","Restore Position (toggle)","Ped Follows Camera (toggle)","Show Speed/Coordinates (toggles)"]},
-{name:"Freecam",type:"toggle",settings:["Speed/FOV/Sensitivity (sliders)"]}
-]},
-{name:"Movement Extras",icon:"#a78bfa",features:[
-{name:"Fast Climb",type:"toggle"},{name:"Peek",type:"toggle"},{name:"Strafe Teleport",type:"toggle"},
-{name:"Blink / Dash",type:"toggle"},{name:"High Ground",type:"toggle"},{name:"Anchor",type:"toggle"},
-{name:"Behind Player TP",type:"toggle"},{name:"Serpentine",type:"toggle"},{name:"Phase Shift",type:"toggle"},
-{name:"Ground Shrink",type:"toggle"},{name:"Speed Burst",type:"toggle"},{name:"Wall Bounce",type:"toggle"}
-]},
-{name:"Superman",icon:"#f59e0b",features:[
-{name:"Superman Flight",type:"toggle",settings:["Speed/Super Speed/Boost Speed (sliders)","Eye Lasers (toggle+kill speed)"]}
-]}
-]},
-{name:"Vehicle",groups:[
-{name:"Vehicle",icon:"#06b6d4",features:[
-{name:"God Mode",type:"toggle"},{name:"Seatbelt",type:"toggle"},
-{name:"Force Engine On",type:"toggle",badge:"new"},{name:"Infinite Fuel",type:"toggle",badge:"new",settings:["Decorator-based (LegacyFuel/ox_fuel/cdn-fuel/ps-fuel)","State bag fuel","Export-based fuel restoration"]},
-{name:"Rainbow Car",type:"toggle",settings:["Speed (slider)"]}
-]},
-{name:"Maintenance",icon:"#34d399",features:[
-{name:"Auto Repair",type:"toggle",badge:"new",settings:["Gradual repair to avoid detection"]},
-{name:"Instant Brake",type:"toggle",badge:"new",settings:["Brake Force (slider 5-100)"]},
-{name:"Repair Vehicle",type:"button",badge:"new"},{name:"Max Performance",type:"button",badge:"new"}
-]},
-{name:"NOS",icon:"#f59e0b",features:[{name:"NOS System",type:"toggle",settings:["Power (slider)","Hold Mode (toggle)","Flame Effect (toggle)"]}]},
-{name:"Abilities",icon:"#a78bfa",features:[
-{name:"Vehicle Abilities",type:"toggle",settings:["Rocket Boost (toggle+power)","Glide/Nitrous/Ramp/Jump (toggles)","Vertical Boost/JATO/Parachute (toggles)"]}
-]},
-{name:"Boost",icon:"#f472b6",features:[{name:"Speed Boost",type:"toggle",settings:["Speed (slider)","Use Horn Key (toggle)","Ground Only (toggle)","Sound/Screen Effect (toggles)","Speed Overlay (toggle)"]}]},
-{name:"Flight Mode",icon:"#22d3ee",features:[{name:"Deluxo Mode",type:"toggle"},{name:"Oppressor MK2 Mode",type:"toggle"}]},
-{name:"Auto Pilot",icon:"#fb923c",features:[{name:"Auto Pilot",type:"toggle",settings:["Mode (dropdown: Waypoint/Random/Wander/Follow/Ram)","Speed (slider)","Stop at Destination (toggle)","Drive Style (dropdown: 5 styles)"]}]},
-{name:"Vehicle NoClip",icon:"#8b5cf6",features:[{name:"Vehicle NoClip",type:"toggle",settings:["Speed (slider)","Boost Multiplier (slider)","Sync Rotation (toggle)"]}]}
-]},
-{name:"Weapon",groups:[
-{name:"Ammo",icon:"#f59e0b",features:[{name:"Infinite Ammo",type:"toggle"},{name:"Infinite Clip",type:"toggle"},{name:"No Reload",type:"toggle"}]},
-{name:"Accuracy",icon:"#22d3ee",features:[{name:"No Recoil",type:"toggle"},{name:"No Spread",type:"toggle"},{name:"No Spinup",type:"toggle"}]},
-{name:"Damage",icon:"#ef4444",features:[{name:"One Hit Kill",type:"toggle"},{name:"Damage Override",type:"toggle",settings:["Damage (slider 1-1000)"]},{name:"Range Override",type:"toggle",settings:["Range (slider)"]},{name:"Force on Ped",type:"toggle",settings:["Force (slider)"]}]},
-{name:"Special Ammo",icon:"#f472b6",features:[{name:"Explosive Ammo",type:"toggle",settings:["Explosion Type (dropdown: 5 types)"]},{name:"Fire Ammo",type:"toggle"}]},
-{name:"Special Guns",icon:"#a78bfa",features:[{name:"Teleport Gun",type:"toggle"},{name:"Delete Gun",type:"toggle"},{name:"Gravity Gun",type:"toggle",settings:["Range/Force (sliders)"]},{name:"Cartoon Gun",type:"toggle",settings:["Effect (dropdown: Shrink/Enlarge/Launch/Ragdoll)"]}]}
-]},
-{name:"World",groups:[
-{name:"Time",icon:"#fbbf24",features:[{name:"Override Time",type:"toggle",settings:["Hour/Minute (sliders)","Freeze Time (toggle)","Presets: Morning/Noon/Sunset/Night/Dawn/Dusk"]}]},
-{name:"Weather",icon:"#22d3ee",features:[{name:"Override Weather",type:"toggle",settings:["14 weather types","Quick Select buttons"]},{name:"Blackout",type:"toggle"}]}
-]},
-{name:"Teleport",groups:[
-{name:"Quick Teleport",icon:"#8b5cf6",features:[{name:"To Waypoint",type:"button"},{name:"Forward",type:"button"},{name:"To Nearest Vehicle",type:"button"},{name:"To Crosshair",type:"button"},{name:"To Coords",type:"button",settings:["X/Y/Z coordinate inputs"]}]},
-{name:"Saved Locations",icon:"#34d399",features:[{name:"5 Save Slots",type:"button",settings:["Go/Delete/Save Here per slot"]}]},
-{name:"Options",icon:"#06b6d4",features:[{name:"Forward Distance",type:"slider"},{name:"Ground Check",type:"toggle"},{name:"Vehicle Teleport",type:"toggle"}]}
-]}
-]},
-{name:"Players",icon:"👥",gradient:"--gradient-5",subtabs:[
-{name:"Players",groups:[
-{name:"Teleport Actions",icon:"#8b5cf6",features:[{name:"To Player",type:"button"},{name:"Behind",type:"button"},{name:"Into Vehicle",type:"button"},{name:"Bring to Me",type:"button"}]},
-{name:"User Options",icon:"#06b6d4",features:[{name:"Give Heal/Armour/Pistol",type:"button"},{name:"Kill Player",type:"button"},{name:"Silent Kill",type:"button"},{name:"Steal Outfit",type:"button"},{name:"Cage Player",type:"button"},{name:"Clone Ped",type:"button"},{name:"Force Fall",type:"button"},{name:"Spectate",type:"button"},{name:"Punch Player",type:"button"}]},
-{name:"Troll Actions",icon:"#f472b6",features:[{name:"Bomber",type:"button"},{name:"Airdrop",type:"button"},{name:"Magnet",type:"button"},{name:"Catapult",type:"button"},{name:"Clone Army",type:"button"},{name:"Vehicle Drop",type:"button",badge:"new"},{name:"Blame Kill",type:"button",badge:"new"},{name:"Send Crash",type:"button",badge:"new"},{name:"RC Spawn",type:"button",settings:["Type (dropdown: Bandito/Tank/Blazer/Faggio/BMX/Panto)"]},{name:"Loop Actions",type:"toggle",badge:"new",settings:["Interval (slider 0.5-10s)"]}]},
-{name:"Bulk Actions",icon:"#ef4444",features:[{name:"Explode All",type:"button"},{name:"Cage All",type:"button"},{name:"Launch All",type:"button"},{name:"Fire All",type:"button"},{name:"Freeze/Unfreeze All",type:"button"},{name:"Ragdoll All",type:"button"},{name:"TP All to Me",type:"button"}]}
-]}
-]},
-{name:"Spawner",icon:"📦",gradient:"--gradient-1",subtabs:[
-{name:"Weapons",groups:[{name:"Weapon Spawner",icon:"#f59e0b",features:[{name:"109 Weapons",type:"info",settings:["Search filter","11 categories","Force In Hand (toggle)","Spoof Weapon (toggle)","Right-click: Attachments popup","Give with Selected/All attachments","464 weapon components"]}]}]},
-{name:"Vehicles",groups:[{name:"Vehicle Spawner",icon:"#06b6d4",features:[{name:"Vehicle Grid",type:"info",settings:["Search filter","24 categories","Spawn Inside (toggle)","Behind (toggle)","Max Upgrade (toggle)","Spawn Safe (toggle)","Delete Last (button)"]}]}]},
-{name:"Peds",groups:[{name:"Ped Spawner",icon:"#a78bfa",features:[{name:"Ped Grid",type:"info",settings:["Search filter","13 categories","Apply Model (toggle)","Delete Last (button)"]}]}]}
-]},
-{name:"Settings",icon:"⚙",gradient:"--gradient-4",subtabs:[
-{name:"Stream Proof",groups:[
-{name:"Stream Proof Mode",icon:"#4facfe",features:[{name:"Stream Proof",type:"toggle",badge:"new",settings:["Hide ESP (toggle)","Hide Crosshair/FOV (toggle)","Hide Menu (toggle)","Hide Overlays (toggle)","Hide Tracers/Lines (toggle)","Separate D3D11 overlay window","WDA_EXCLUDEFROMCAPTURE","Works with OBS/Discord/recordings"]}]},
-{name:"Panic Mode",icon:"#ef4444",features:[{name:"Panic Mode",type:"toggle",badge:"new",settings:["END key (rebindable)","Instantly disables ALL visuals","Menu, ESP, overlays — everything","Press again to restore"]}]}
-]},
-{name:"Appearance",groups:[
-{name:"Theme & Colors",icon:"#a78bfa",features:[{name:"Color Editor",type:"info",settings:["Full theme color editor","Color presets","Per-element color pickers"]},{name:"Layout",type:"info",settings:["Menu sizing","Sidebar/Header/Groups styling","Animation settings","DPI scaling"]},{name:"Effects",type:"toggle",settings:["Window/Header/Nav/Group effects","Types: Snow/Rain/Wireframe/Matrix","Speed/Density/Opacity/Size (sliders)","Color (color picker)"]},{name:"Border Style",type:"toggle",settings:["Thickness/Opacity (sliders)","Color (color)","Gradient (toggle+direction)","Glow (toggle+radius+color)","Pulse (toggle+speed)"]},{name:"Custom Cursor",type:"toggle",settings:["Style (dropdown: Circle/Crosshair/Target)","Size/Outline (sliders)","Colors (color pickers)","Trail (toggle+length)"]}]}
-]}
-]}
-];
-function renderTabs(){
-const nav=document.getElementById('tabNav');
-const content=document.getElementById('content');
-TABS.forEach((tab,ti)=>{
-const btn=document.createElement('button');
-btn.className='tab-btn'+(ti===0?' active':'');
-btn.textContent=tab.icon+' '+tab.name;
-btn.onclick=()=>{
-document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-btn.classList.add('active');
-document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-document.getElementById('tab-'+ti).classList.add('active');
-};
-nav.appendChild(btn);
-const tabDiv=document.createElement('div');
-tabDiv.id='tab-'+ti;
-tabDiv.className='tab-content'+(ti===0?' active':'');
-let html='<div class="subtab-pills">';
-tab.subtabs.forEach((st,si)=>{
-html+=`<button class="subtab-pill${si===0?' active':''}" onclick="switchSubtab(${ti},${si})">${st.name}</button>`;
-});
-html+='</div>';
-tab.subtabs.forEach((st,si)=>{
-html+=`<div class="subtab-content${si===0?' active':''}" id="subtab-${ti}-${si}"><div class="columns">`;
-st.groups.forEach(g=>{
-html+=`<div class="group-card"><div class="group-title"><span class="group-icon" style="background:${g.icon}"></span>${g.name}</div>`;
-g.features.forEach(f=>{
-if(f.type==='info'){
-html+=`<div class="feature-item${f.settings?' has-settings':''}" onclick="this.classList.toggle('open')"><div class="feature-name">${f.name}${f.badge?` <span class="badge badge-${f.badge}">${f.badge.toUpperCase()}</span>`:''}${f.settings?'<span class="arrow">▶</span>':''}</div>`;
-if(f.settings){html+='<div class="feature-settings">';f.settings.forEach(s=>{let t=getTagClass(s);html+=`<div class="setting-row"><span class="setting-tag ${t}">${getTagLabel(s)}</span> ${s}</div>`;});html+='</div>';}
-html+='</div>';
-}else{
-const hasS=f.settings&&f.settings.length;
-html+=`<div class="feature-item${hasS?' has-settings':''}" onclick="this.classList.toggle('open')"><div class="feature-name"><span><span class="setting-tag tag-${f.type}">${f.type}</span> ${f.name}${f.badge?` <span class="badge badge-${f.badge}">${f.badge.toUpperCase()}</span>`:''}</span>${hasS?'<span class="arrow">▶</span>':''}</div>`;
-if(hasS){html+='<div class="feature-settings">';f.settings.forEach(s=>{let t=getTagClass(s);html+=`<div class="setting-row"><span class="setting-tag ${t}">${getTagLabel(s)}</span> ${s}</div>`;});html+='</div>';}
-html+='</div>';
-}
-});
-html+='</div>';
-});
-html+='</div></div>';
-});
-tabDiv.innerHTML=html;
-content.appendChild(tabDiv);
-});
-}
-function switchSubtab(ti,si){
-document.querySelectorAll(`#tab-${ti} .subtab-pill`).forEach((p,i)=>p.classList.toggle('active',i===si));
-document.querySelectorAll(`#tab-${ti} .subtab-content`).forEach((c,i)=>c.classList.toggle('active',i===si));
-}
-function getTagClass(s){
-const l=s.toLowerCase();
-if(l.includes('toggle'))return'tag-toggle';if(l.includes('slider'))return'tag-slider';
-if(l.includes('dropdown')||l.includes('type'))return'tag-dropdown';if(l.includes('color'))return'tag-color';
-if(l.includes('button'))return'tag-button';if(l.includes('keybind'))return'tag-keybind';return'tag-toggle';
-}
-function getTagLabel(s){
-const l=s.toLowerCase();
-if(l.includes('toggle'))return'toggle';if(l.includes('slider'))return'slider';
-if(l.includes('dropdown'))return'select';if(l.includes('color'))return'color';
-if(l.includes('button'))return'action';if(l.includes('keybind'))return'key';return'option';
-}
-document.getElementById('search').addEventListener('input',function(){
-const q=this.value.toLowerCase();
-document.querySelectorAll('.feature-item').forEach(el=>{
-const name=el.querySelector('.feature-name').textContent.toLowerCase();
-el.style.display=(!q||name.includes(q))?'':'none';
-});
-document.querySelectorAll('.group-card').forEach(card=>{
-const visible=card.querySelectorAll('.feature-item[style=""],.feature-item:not([style])');
-card.style.display=visible.length?'':'none';
-});
-});
-renderTabs();
-</script>
-<script>/* scooby-file-guard: only fires when opened as a file, never over http */
-(function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
+</div>
+<div class="hero-art">
+<img src="/assets/images/games/fivem.webp" width="1440" height="810" alt="" decoding="async" fetchpriority="high">
+</div>
+</section>
+
+<div class="explorer-layout" id="explorer">
+<aside class="feature-sidebar">
+<div class="sidebar-inner">
+<span class="eyebrow">BROWSE SECTIONS</span>
+<nav class="category-nav" aria-label="Feature sections">
+<a href="#explorer" data-section="all" aria-current="true">
+<span>All features</span>
+<span>181</span>
+</a>
+<a href="#tab-0" data-section="visuals">
+<span>Visuals</span>
+<span>48</span>
+</a>
+<a href="#tab-1" data-section="combat">
+<span>Combat</span>
+<span>9</span>
+</a>
+<a href="#tab-2" data-section="misc">
+<span>Misc</span>
+<span>12</span>
+</a>
+<a href="#tab-3" data-section="local">
+<span>Local</span>
+<span>72</span>
+</a>
+<a href="#tab-4" data-section="players">
+<span>Players</span>
+<span>30</span>
+</a>
+<a href="#tab-5" data-section="spawner">
+<span>Spawner</span>
+<span>3</span>
+</a>
+<a href="#tab-6" data-section="settings">
+<span>Settings</span>
+<span>7</span>
+</a>
+</nav>
+<div class="sidebar-help">
+<strong>Need help getting started?</strong>
+<p>Find setup instructions and common fixes in the wiki.</p>
+<a href="/guides/fivem/">Open guide ↗</a>
+</div>
+</div>
+</aside>
+<div class="feature-content" data-i18n-skip>
+<div class="explorer-controls">
+<div class="search-controls">
+<label for="feature-search" class="sr-only">Search all FiveM features</label>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5"/>
+<path d="m16 16 4 4"/>
+</svg>
+<input id="feature-search" type="search" placeholder="Search names, descriptions, or settings…" autocomplete="off">
+<button id="clear-search" aria-label="Clear search" hidden>×</button>
+<kbd>/</kbd>
+</div>
+<label class="mobile-category">
+<span class="sr-only">Filter by section</span>
+<select id="category-select">
+<option value="all">All features</option>
+<option value="visuals">Visuals</option>
+<option value="combat">Combat</option>
+<option value="misc">Misc</option>
+<option value="local">Local</option>
+<option value="players">Players</option>
+<option value="spawner">Spawner</option>
+<option value="settings">Settings</option>
+</select>
+</label>
+<div class="results-row">
+<p id="result-count" role="status">181 features across 7 sections</p>
+<div class="result-actions">
+<button id="expand-all">Expand all</button>
+<button id="collapse-all">Collapse all</button>
+</div>
+</div>
+</div>
+<div id="feature-results">
+<section class="feature-section" id="tab-0" data-section="visuals">
+<div class="section-heading">
+<h2>Visuals</h2>
+<span>48 features</span>
+</div>
+<details class="feature-category" id="subtab-0-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Esp</h3>
+<span class="category-count" data-total="28">28</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-0-0">Link to this section ↗</a>
+<section class="feature-group" data-group="Players ESP">
+<h4>Players ESP</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Enabled</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Keybind (keybind)</li>
+<li>Target Filter (dropdown: All/Players/NPCs/Players+Self/Self Only)</li>
+<li>Show Self (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Box</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Keybind</li>
+<li>Style (dropdown: Full/Corners/3D Box)</li>
+<li>Color (color)</li>
+<li>Fill (toggle)</li>
+<li>Fill Color (color)</li>
+<li>Fill Gradient (toggle+color)</li>
+<li>Outline (toggle)</li>
+<li>Thickness (slider 0.5-4px)</li>
+<li>Rounding (slider 0-10)</li>
+<li>Width Ratio (slider)</li>
+<li>Height Multiplier (slider)</li>
+<li>Head Offset (slider)</li>
+<li>Gradient (toggle+color)</li>
+<li>Pulse (toggle+speed)</li>
+<li>Shadow (toggle)</li>
+<li>Glow Outline (toggle+color+radius)</li>
+<li>Glow Pulse (toggle+speed)</li>
+<li>Corner Length (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Health Bar</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Position (dropdown: Left/Right/Top/Bottom)</li>
+<li>Color (color)</li>
+<li>Gradient (toggle+color)</li>
+<li>Outline (toggle+color)</li>
+<li>Width (slider)</li>
+<li>Smooth Animation (toggle+speed)</li>
+<li>Background Color (color)</li>
+<li>Show Text (toggle+color+size)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Armor Bar</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Position (dropdown)</li>
+<li>Color (color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Name</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Position (dropdown: Top/Bottom/Left/Right)</li>
+<li>Color (color)</li>
+<li>Font Size (slider 8-20)</li>
+<li>Show Server ID (toggle)</li>
+<li>Background (toggle+color+rounding)</li>
+<li>Shadow (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Weapon</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Show Icon (toggle)</li>
+<li>Show Name (toggle)</li>
+<li>Show Unarmed (toggle)</li>
+<li>Icon Size (slider)</li>
+<li>Name Size (slider)</li>
+<li>Position (dropdown)</li>
+<li>Color (color)</li>
+<li>Background (toggle+color)</li>
+<li>Shadow (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Skeleton</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Style (dropdown: Clean/Joints+HeadRing/Outline)</li>
+<li>Mode (dropdown: Full/Basic)</li>
+<li>Color (color)</li>
+<li>Thickness (slider)</li>
+<li>Joints (toggle+size)</li>
+<li>Head Circle (toggle)</li>
+<li>Dashed Lines (toggle)</li>
+<li>Gradient (toggle+color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Distance</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Position (dropdown)</li>
+<li>Color (color)</li>
+<li>Font Size (slider)</li>
+<li>Background (toggle+color)</li>
+<li>Shadow (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Head</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Style (dropdown: Circle/Filled/Cross/Diamond/Skull/Triangle/Square/Ring)</li>
+<li>Color (color)</li>
+<li>Size (slider)</li>
+<li>Outline (toggle)</li>
+<li>Glow (toggle+color+radius)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Snaplines</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Origin (dropdown: Bottom/Center/Top)</li>
+<li>Thickness (slider)</li>
+<li>Dashed (toggle)</li>
+<li>Gradient (toggle)</li>
+<li>Glow (toggle+color+radius)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Visibility Check</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Visible Color (color)</li>
+<li>Hidden Color (color)</li>
+<li>Apply To (dropdown)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Line of Sight</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Length (slider)</li>
+<li>Thickness (slider)</li>
+<li>Gap (slider)</li>
+<li>Outline (toggle)</li>
+<li>Style (dropdown: Solid/Dashed/Dotted)</li>
+<li>Gradient (toggle+color)</li>
+<li>Endpoint (dropdown: Dot/Arrow/None)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Player Trail</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>New Color (color)</li>
+<li>Old Color (color)</li>
+<li>Thickness (slider)</li>
+<li>Duration (slider 1-30s)</li>
+<li>Sample Rate (slider)</li>
+<li>Style (dropdown: Line/Dotted/Dashed)</li>
+<li>Fade (toggle)</li>
+<li>Smooth Curves (toggle)</li>
+<li>Outline (toggle)</li>
+<li>Taper Width (toggle)</li>
+<li>Direction Arrows (toggle)</li>
+<li>Head Dot (toggle)</li>
+<li>Show Self (toggle)</li>
+<li>Max Points (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ring ESP</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Radius (slider 0.2-3m)</li>
+<li>Thickness (slider)</li>
+<li>Segments (slider 8-48)</li>
+<li>Height Offset (slider -1 to 2m)</li>
+<li>Ring Count (slider 1-20)</li>
+<li>Filled (toggle+color)</li>
+<li>Pulse Animation (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Footsteps</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Walking Color (color)</li>
+<li>Running Color (color)</li>
+<li>Size (slider 0.1-1m)</li>
+<li>Duration (slider 1-15s)</li>
+<li>Fade Out (toggle)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Range &amp; Settings">
+<h4>Range &amp; Settings</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Max Distance</h5>
+<span class="feature-type">slider</span>
+</div>
+<ul class="feature-settings">
+<li>Range 10-500m</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Vehicle ESP">
+<h4>Vehicle ESP</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Enabled</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Max Distance</h5>
+<span class="feature-type">slider</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>3D Box</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Thickness (slider)</li>
+<li>Outline (toggle)</li>
+<li>Fill (toggle+color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Name</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Font Size (slider)</li>
+<li>Show Category (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Distance</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Engine Health</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Speed</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Snaplines</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Empty Only</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Tracers">
+<h4>Tracers</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Bullet Tracers</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Local Only (toggle)</li>
+<li>Max Range Filter (toggle+slider)</li>
+<li>Color Mode (dropdown: Solid/Gradient/Rainbow)</li>
+<li>Colors (color pickers)</li>
+<li>Rainbow Speed+Saturation (sliders)</li>
+<li>Thickness (slider 0.5-8)</li>
+<li>Duration (slider 0.1-5s)</li>
+<li>Fade Out (toggle)</li>
+<li>Taper Width (toggle)</li>
+<li>Dotted Line (toggle+spacing)</li>
+<li>Glow (toggle+radius)</li>
+<li>Impact Marker (toggle)</li>
+<li>Impact Style (dropdown: Circle/Cross/3D Box/Diamond)</li>
+<li>Marker Size (slider 1-20)</li>
+<li>Marker Duration (slider)</li>
+<li>Show Distance (toggle+size)</li>
+<li>Highlight Headshots (toggle+color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Throwable Tracers</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color Mode (dropdown: Solid/Gradient/Rainbow)</li>
+<li>Colors (color pickers)</li>
+<li>Thickness (slider)</li>
+<li>Duration (slider 1-10s)</li>
+<li>Fade Out (toggle)</li>
+<li>Dashed (toggle)</li>
+<li>Glow (toggle+radius)</li>
+<li>Endpoint Marker (toggle+size)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Projectile Tracers</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color Mode (dropdown: Solid/Rainbow)</li>
+<li>Color (color)</li>
+<li>Rainbow Speed (slider)</li>
+<li>Thickness (slider)</li>
+<li>Duration (slider 1-15s)</li>
+<li>Fade Out (toggle)</li>
+<li>Taper Width (toggle)</li>
+<li>Glow (toggle+radius)</li>
+<li>Endpoint Marker (toggle+size)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-0-1" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Vfx</h3>
+<span class="category-count" data-total="18">18</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-0-1">Link to this section ↗</a>
+<section class="feature-group" data-group="Visual Effects">
+<h4>Visual Effects</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Shadow Light</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Intensity (slider -100 to 100)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Reflection</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Intensity (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Gamma</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Intensity (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Blur</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Intensity (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Sky Intensity</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Intensity (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Saturation</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Intensity (slider)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="World Effects">
+<h4>World Effects</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Foot Steps VFX</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Impact Color</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Skid Marks</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Constant (toggle)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Tire Lights</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Range (slider)</li>
+<li>Falloff (slider)</li>
+<li>Min/Max Color (colors)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Light Glow</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Mode (dropdown: Rainbow/Static Rainbow/Static)</li>
+<li>Color (color)</li>
+<li>Hue/Saturation/Intensity/Frequency (sliders)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Light Cortana</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Same settings as Light Glow</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Sky &amp; Weather">
+<h4>Sky &amp; Weather</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Sky Color</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Preset (dropdown: 7 presets)</li>
+<li>Zenith Color (color)</li>
+<li>Intensity (slider)</li>
+<li>Blend (slider)</li>
+<li>Horizon Color (toggle+color)</li>
+<li>Rainbow Sky (toggle+speed)</li>
+<li>Enhanced Stars (toggle+brightness)</li>
+<li>Moon Glow (toggle+intensity)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Fog Override</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ped Lighting</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Rainbow (toggle+speed)</li>
+<li>Intensity (slider)</li>
+<li>Dynamic Light (toggle+range)</li>
+<li>Pulse (toggle+speed)</li>
+<li>All Peds (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ocean</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Transparent Ocean (toggle)</li>
+<li>Water Height (slider)</li>
+<li>Water Puddles (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Thunder</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Darkness (slider)</li>
+<li>Brightness (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Particle FX Color</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-0-2" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Crosshair</h3>
+<span class="category-count" data-total="2">2</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-0-2">Link to this section ↗</a>
+<section class="feature-group" data-group="Custom Crosshair">
+<h4>Custom Crosshair</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Enabled</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Shape (dropdown: Cross/Dot/Circle/Circle+Dot/T-Shape/Diamond/Square/Swastika)</li>
+<li>Size (slider 1-30)</li>
+<li>Thickness (slider 0.5-6)</li>
+<li>Gap (slider 0-20)</li>
+<li>Center Dot (toggle+size)</li>
+<li>Primary Color (color)</li>
+<li>Gradient (toggle+secondary color)</li>
+<li>Rainbow (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Effects</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Outline (toggle+width)</li>
+<li>Spin (toggle+speed)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+<section class="feature-section" id="tab-1" data-section="combat">
+<div class="section-heading">
+<h2>Combat</h2>
+<span>9 features</span>
+</div>
+<details class="feature-category" id="subtab-1-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Lock On</h3>
+<span class="category-count" data-total="6">6</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-1-0">Link to this section ↗</a>
+<section class="feature-group" data-group="Lock On Aimbot">
+<h4>Lock On Aimbot</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Enabled</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Aim Key (keybind: LMB/RMB/MMB/X1/X2)</li>
+<li>Hitbox (multi: Head/Neck/Body/Hands/Feet/Nearest)</li>
+<li>Filter (dropdown: Both/Players/NPCs)</li>
+<li>FOV Radius (slider 10-500)</li>
+<li>Max Distance (slider 10-500m)</li>
+<li>Smoothing (slider 1-30)</li>
+<li>Mode (dropdown: Lock On/Aim Assist)</li>
+<li>Visibility Check (toggle)</li>
+<li>Sticky Target (toggle)</li>
+<li>Prediction (toggle)</li>
+<li>Recoil Comp (toggle)</li>
+<li>Skip Friends (toggle)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>FOV Circle</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Circle Color (color)</li>
+<li>Fill (toggle+alpha)</li>
+<li>Outer Ring Color (color)</li>
+<li>Ring Offset (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Target Line</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Thickness (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Target Marker</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Color (color)</li>
+<li>Size (slider)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Advanced">
+<h4>Advanced</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Advanced Settings</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Priority (dropdown: Crosshair/Distance/Lowest HP)</li>
+<li>Auto Switch on Kill (toggle+delay)</li>
+<li>H/V Smoothing (sliders)</li>
+<li>Adaptive Smoothing (toggle)</li>
+<li>Accel Curve (slider)</li>
+<li>Max Speed (slider)</li>
+<li>Dead Zone (slider)</li>
+<li>Prediction Factor (slider)</li>
+<li>Scope Zoom Comp (toggle)</li>
+<li>Disable for Explosives (toggle)</li>
+<li>Scale by Distance (toggle+min)</li>
+<li>Distance Bone Auto Select (toggle+threshold)</li>
+<li>Jitter (toggle+offset)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Melee Bot">
+<h4>Melee Bot</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Melee Bot</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Force (slider)</li>
+<li>FOV (slider 30-360)</li>
+<li>Range (slider 1-20m)</li>
+<li>Priority (dropdown)</li>
+<li>Show FOV Circle (toggle)</li>
+<li>Target Line (toggle+color)</li>
+<li>Auto Punch (toggle+range)</li>
+<li>Fast Punch (toggle+rate)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-1-1" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Silent Aim</h3>
+<span class="category-count" data-total="1">1</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-1-1">Link to this section ↗</a>
+<section class="feature-group" data-group="Silent Aim">
+<h4>Silent Aim</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Coming Soon</h5>
+<span class="feature-type">info</span>
+</div>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-1-2" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Triggerbot</h3>
+<span class="category-count" data-total="1">1</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-1-2">Link to this section ↗</a>
+<section class="feature-group" data-group="Trigger Bot">
+<h4>Trigger Bot</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Enabled</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Hitbox (multi: Head/Neck/Body/Hands/Feet)</li>
+<li>Filter (dropdown)</li>
+<li>Trigger FOV (slider)</li>
+<li>Delay Min/Max (sliders 0-500ms)</li>
+<li>Only While ADS (toggle)</li>
+<li>Skip Friends (toggle)</li>
+<li>Visibility Check (toggle)</li>
+<li>Burst Fire: Shots Min/Max (sliders)</li>
+<li>Burst Pause (slider)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-1-3" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Magic Bullet</h3>
+<span class="category-count" data-total="1">1</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-1-3">Link to this section ↗</a>
+<section class="feature-group" data-group="Magic Bullet">
+<h4>Magic Bullet</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Coming Soon</h5>
+<span class="feature-type">info</span>
+</div>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+<section class="feature-section" id="tab-2" data-section="misc">
+<div class="section-heading">
+<h2>Misc</h2>
+<span>12 features</span>
+</div>
+<details class="feature-category" id="subtab-2-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Overlays</h3>
+<span class="category-count" data-total="12">12</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-2-0">Link to this section ↗</a>
+<section class="feature-group" data-group="Overlays">
+<h4>Overlays</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Radar</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Shape (dropdown: Square/Circle)</li>
+<li>Size (slider 100-500)</li>
+<li>Range (slider)</li>
+<li>Dot Size (slider)</li>
+<li>Opacity (slider)</li>
+<li>6 Color pickers (Player/NPC/Vehicle/BG/Border)</li>
+<li>Map Image (toggle+coords)</li>
+<li>Rotate with View (toggle)</li>
+<li>Show Names (toggle+size)</li>
+<li>Show Vehicles (toggle)</li>
+<li>Crosshair (toggle)</li>
+<li>Dot Outline (toggle)</li>
+<li>North Indicator (toggle)</li>
+<li>FOV Cone (toggle+angle+color)</li>
+<li>Compass (toggle)</li>
+<li>Health Dots (toggle)</li>
+<li>Edge Arrows (toggle)</li>
+<li>Range Rings (toggle+count+color)</li>
+<li>Grid Lines (toggle)</li>
+<li>Border Thickness (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Watermark</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Show FPS (toggle+Graph)</li>
+<li>Show Date/Time (toggles)</li>
+<li>Draggable (toggle)</li>
+<li>Opacity/Font Size/Rounding (sliders)</li>
+<li>BG/Accent/Text Colors (colors)</li>
+<li>Border (toggle+color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Bind List</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Style (dropdown: Default/Table)</li>
+<li>Opacity/Font Size/Rounding (sliders)</li>
+<li>Draggable (toggle)</li>
+<li>BG/Text/Pill Colors (colors)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="HUD Panels">
+<h4>HUD Panels</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Performance Stats</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Frametime Graph (toggle)</li>
+<li>Min/Max/Avg (toggle)</li>
+<li>Opacity (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Playerlist</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Health Bars (toggle)</li>
+<li>Operator Icons (toggle)</li>
+<li>Status Dots (toggle)</li>
+<li>Show Distance (toggle)</li>
+<li>Nearby Only (toggle+distance)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Spectator List</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Style (dropdown)</li>
+<li>Opacity/Font/Rounding (sliders)</li>
+<li>Draggable (toggle)</li>
+<li>BG/Text/Icon Colors (colors)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Combat HUD">
+<h4>Combat HUD</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Hitmarkers</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Players (toggle)</li>
+<li>Vehicles (toggle)</li>
+<li>World Hitmarkers (toggle)</li>
+<li>Kill Effect (toggle)</li>
+<li>Size/Thickness/Duration (sliders)</li>
+<li>Hit Color (color)</li>
+<li>Kill Color (color)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Damage Log</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Show Dealt/Taken (toggles)</li>
+<li>Duration (slider)</li>
+<li>Font Size (slider)</li>
+<li>Opacity (slider)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Grapple Hook">
+<h4>Grapple Hook</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Enabled</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed (slider 5-50)</li>
+<li>Max Range (slider 20-300m)</li>
+<li>Line Color/Thickness (color+slider)</li>
+<li>Dot Color/Size (color+slider)</li>
+<li>Auto Release (toggle+distance)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Anti-Cheat">
+<h4>Anti-Cheat</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Auto Detect</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Scans every 10 seconds</li>
+<li>25+ known AC signatures</li>
+<li>Custom AC heuristic scanning</li>
+<li>FiveM resource scanning</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>AC Overlay</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Alert Color (color)</li>
+<li>Draggable (toggle)</li>
+<li>Reset Position (button)</li>
+<li>Shows: AC name, status, heartbeat count</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Disable Anti-Cheat</h5>
+<span class="feature-type">button</span>
+</div>
+<ul class="feature-settings">
+<li>ElectronAC deep bypass</li>
+<li>Honeypot event blocking</li>
+<li>Weapon damage restoration</li>
+<li>Screenshot/OCR blocking</li>
+<li>entityDamaged cancellation</li>
+<li>Heartbeat tracking with notifications</li>
+<li>Post-disable verification scan</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+<section class="feature-section" id="tab-3" data-section="local">
+<div class="section-heading">
+<h2>Local</h2>
+<span>72 features</span>
+</div>
+<details class="feature-category" id="subtab-3-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Player</h3>
+<span class="category-count" data-total="28">28</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-3-0">Link to this section ↗</a>
+<section class="feature-group" data-group="God Mode">
+<h4>God Mode</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>God Mode</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Bullet Proof (toggle)</li>
+<li>Fire Proof (toggle)</li>
+<li>Collision Proof (toggle)</li>
+<li>Melee Proof (toggle)</li>
+<li>Explosion Proof (toggle)</li>
+<li>Steam Proof (toggle)</li>
+<li>Water Proof (toggle)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Player">
+<h4>Player</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>No Ragdoll</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Invisible</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Infinite Stamina</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Super Punch</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Walk Through</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Players/Peds/Vehicles/Objects (toggles)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Graceful Landing</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Fake Crouch</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Health / Armor">
+<h4>Health / Armor</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Heal Self</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Max Armor</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Revive</h5>
+<span class="feature-type">button</span>
+</div>
+<ul class="feature-settings">
+<li>Native resurrection</li>
+<li>Framework events (ESX/QBCore/vRP/ND/ox)</li>
+<li>Skin reload</li>
+<li>Screen effect clear</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Suicide</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Movement">
+<h4>Movement</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Fast Run</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed (slider 1-5)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>No Clip</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed (slider)</li>
+<li>Sprint Multiplier (slider)</li>
+<li>Use Camera Direction (toggle)</li>
+<li>Vertical Lock (toggle)</li>
+<li>Smooth Movement (toggle+accel+decel)</li>
+<li>Freeze When Stopped (toggle)</li>
+<li>Invisible (toggle)</li>
+<li>Ghost Mode (toggle+alpha)</li>
+<li>No Collision (toggle)</li>
+<li>Auto Godmode (toggle)</li>
+<li>Restore Position (toggle)</li>
+<li>Ped Follows Camera (toggle)</li>
+<li>Show Speed/Coordinates (toggles)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Freecam</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed/FOV/Sensitivity (sliders)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Movement Extras">
+<h4>Movement Extras</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Fast Climb</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Peek</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Strafe Teleport</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Blink / Dash</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>High Ground</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Anchor</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Behind Player TP</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Serpentine</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Phase Shift</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ground Shrink</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Speed Burst</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Wall Bounce</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Superman">
+<h4>Superman</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Superman Flight</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed/Super Speed/Boost Speed (sliders)</li>
+<li>Eye Lasers (toggle+kill speed)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-3-1" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Vehicle</h3>
+<span class="category-count" data-total="16">16</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-3-1">Link to this section ↗</a>
+<section class="feature-group" data-group="Vehicle">
+<h4>Vehicle</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>God Mode</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Seatbelt</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Force Engine On</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Infinite Fuel</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Decorator-based (LegacyFuel/ox_fuel/cdn-fuel/ps-fuel)</li>
+<li>State bag fuel</li>
+<li>Export-based fuel restoration</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Rainbow Car</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed (slider)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Maintenance">
+<h4>Maintenance</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Auto Repair</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Gradual repair to avoid detection</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Instant Brake</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Brake Force (slider 5-100)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Repair Vehicle</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Max Performance</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Nos">
+<h4>Nos</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>NOS System</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Power (slider)</li>
+<li>Hold Mode (toggle)</li>
+<li>Flame Effect (toggle)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Abilities">
+<h4>Abilities</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Vehicle Abilities</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Rocket Boost (toggle+power)</li>
+<li>Glide/Nitrous/Ramp/Jump (toggles)</li>
+<li>Vertical Boost/JATO/Parachute (toggles)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Boost">
+<h4>Boost</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Speed Boost</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed (slider)</li>
+<li>Use Horn Key (toggle)</li>
+<li>Ground Only (toggle)</li>
+<li>Sound/Screen Effect (toggles)</li>
+<li>Speed Overlay (toggle)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Flight Mode">
+<h4>Flight Mode</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Deluxo Mode</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Oppressor MK2 Mode</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Auto Pilot">
+<h4>Auto Pilot</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Auto Pilot</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Mode (dropdown: Waypoint/Random/Wander/Follow/Ram)</li>
+<li>Speed (slider)</li>
+<li>Stop at Destination (toggle)</li>
+<li>Drive Style (dropdown: 5 styles)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Vehicle NoClip">
+<h4>Vehicle NoClip</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Vehicle NoClip</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Speed (slider)</li>
+<li>Boost Multiplier (slider)</li>
+<li>Sync Rotation (toggle)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-3-2" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Weapon</h3>
+<span class="category-count" data-total="16">16</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-3-2">Link to this section ↗</a>
+<section class="feature-group" data-group="Ammo">
+<h4>Ammo</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Infinite Ammo</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Infinite Clip</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>No Reload</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Accuracy">
+<h4>Accuracy</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>No Recoil</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>No Spread</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>No Spinup</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Damage">
+<h4>Damage</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>One Hit Kill</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Damage Override</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Damage (slider 1-1000)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Range Override</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Range (slider)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Force on Ped</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Force (slider)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Special Ammo">
+<h4>Special Ammo</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Explosive Ammo</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Explosion Type (dropdown: 5 types)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Fire Ammo</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Special Guns">
+<h4>Special Guns</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Teleport Gun</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Delete Gun</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Gravity Gun</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Range/Force (sliders)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Cartoon Gun</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Effect (dropdown: Shrink/Enlarge/Launch/Ragdoll)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-3-3" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>World</h3>
+<span class="category-count" data-total="3">3</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-3-3">Link to this section ↗</a>
+<section class="feature-group" data-group="Time">
+<h4>Time</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Override Time</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Hour/Minute (sliders)</li>
+<li>Freeze Time (toggle)</li>
+<li>Presets: Morning/Noon/Sunset/Night/Dawn/Dusk</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Weather">
+<h4>Weather</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Override Weather</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>14 weather types</li>
+<li>Quick Select buttons</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Blackout</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-3-4" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Teleport</h3>
+<span class="category-count" data-total="9">9</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-3-4">Link to this section ↗</a>
+<section class="feature-group" data-group="Quick Teleport">
+<h4>Quick Teleport</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>To Waypoint</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Forward</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>To Nearest Vehicle</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>To Crosshair</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>To Coords</h5>
+<span class="feature-type">button</span>
+</div>
+<ul class="feature-settings">
+<li>X/Y/Z coordinate inputs</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Saved Locations">
+<h4>Saved Locations</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>5 Save Slots</h5>
+<span class="feature-type">button</span>
+</div>
+<ul class="feature-settings">
+<li>Go/Delete/Save Here per slot</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Options">
+<h4>Options</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Forward Distance</h5>
+<span class="feature-type">slider</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ground Check</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Vehicle Teleport</h5>
+<span class="feature-type">toggle</span>
+</div>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+<section class="feature-section" id="tab-4" data-section="players">
+<div class="section-heading">
+<h2>Players</h2>
+<span>30 features</span>
+</div>
+<details class="feature-category" id="subtab-4-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Players</h3>
+<span class="category-count" data-total="30">30</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-4-0">Link to this section ↗</a>
+<section class="feature-group" data-group="Teleport Actions">
+<h4>Teleport Actions</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>To Player</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Behind</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Into Vehicle</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Bring to Me</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="User Options">
+<h4>User Options</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Give Heal/Armour/Pistol</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Kill Player</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Silent Kill</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Steal Outfit</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Cage Player</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Clone Ped</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Force Fall</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Spectate</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Punch Player</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Troll Actions">
+<h4>Troll Actions</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Bomber</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Airdrop</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Magnet</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Catapult</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Clone Army</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Vehicle Drop</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Blame Kill</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Send Crash</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>RC Spawn</h5>
+<span class="feature-type">button</span>
+</div>
+<ul class="feature-settings">
+<li>Type (dropdown: Bandito/Tank/Blazer/Faggio/BMX/Panto)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Loop Actions</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Interval (slider 0.5-10s)</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Bulk Actions">
+<h4>Bulk Actions</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Explode All</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Cage All</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Launch All</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Fire All</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Freeze/Unfreeze All</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ragdoll All</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>TP All to Me</h5>
+<span class="feature-type">button</span>
+</div>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+<section class="feature-section" id="tab-5" data-section="spawner">
+<div class="section-heading">
+<h2>Spawner</h2>
+<span>3 features</span>
+</div>
+<details class="feature-category" id="subtab-5-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Weapons</h3>
+<span class="category-count" data-total="1">1</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-5-0">Link to this section ↗</a>
+<section class="feature-group" data-group="Weapon Spawner">
+<h4>Weapon Spawner</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>109 Weapons</h5>
+<span class="feature-type">info</span>
+</div>
+<ul class="feature-settings">
+<li>Search filter</li>
+<li>11 categories</li>
+<li>Force In Hand (toggle)</li>
+<li>Spoof Weapon (toggle)</li>
+<li>Right-click: Attachments popup</li>
+<li>Give with Selected/All attachments</li>
+<li>464 weapon components</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-5-1" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Vehicles</h3>
+<span class="category-count" data-total="1">1</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-5-1">Link to this section ↗</a>
+<section class="feature-group" data-group="Vehicle Spawner">
+<h4>Vehicle Spawner</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Vehicle Grid</h5>
+<span class="feature-type">info</span>
+</div>
+<ul class="feature-settings">
+<li>Search filter</li>
+<li>24 categories</li>
+<li>Spawn Inside (toggle)</li>
+<li>Behind (toggle)</li>
+<li>Max Upgrade (toggle)</li>
+<li>Spawn Safe (toggle)</li>
+<li>Delete Last (button)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-5-2" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Peds</h3>
+<span class="category-count" data-total="1">1</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-5-2">Link to this section ↗</a>
+<section class="feature-group" data-group="Ped Spawner">
+<h4>Ped Spawner</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Ped Grid</h5>
+<span class="feature-type">info</span>
+</div>
+<ul class="feature-settings">
+<li>Search filter</li>
+<li>13 categories</li>
+<li>Apply Model (toggle)</li>
+<li>Delete Last (button)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+<section class="feature-section" id="tab-6" data-section="settings">
+<div class="section-heading">
+<h2>Settings</h2>
+<span>7 features</span>
+</div>
+<details class="feature-category" id="subtab-6-0" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Stream Proof</h3>
+<span class="category-count" data-total="2">2</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-6-0">Link to this section ↗</a>
+<section class="feature-group" data-group="Stream Proof Mode">
+<h4>Stream Proof Mode</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Stream Proof</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Hide ESP (toggle)</li>
+<li>Hide Crosshair/FOV (toggle)</li>
+<li>Hide Menu (toggle)</li>
+<li>Hide Overlays (toggle)</li>
+<li>Hide Tracers/Lines (toggle)</li>
+<li>Separate D3D11 overlay window</li>
+<li>WDA_EXCLUDEFROMCAPTURE</li>
+<li>Works with OBS/Discord/recordings</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="feature-group" data-group="Panic Mode">
+<h4>Panic Mode</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Panic Mode</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>END key (rebindable)</li>
+<li>Instantly disables ALL visuals</li>
+<li>Menu, ESP, overlays — everything</li>
+<li>Press again to restore</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+<details class="feature-category" id="subtab-6-1" >
+<summary>
+<span class="category-chevron" aria-hidden="true">›</span>
+<h3>Appearance</h3>
+<span class="category-count" data-total="5">5</span>
+</summary>
+<div class="category-content">
+<a class="category-permalink" href="#subtab-6-1">Link to this section ↗</a>
+<section class="feature-group" data-group="Theme &amp; Colors">
+<h4>Theme &amp; Colors</h4>
+<div class="feature-items">
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Color Editor</h5>
+<span class="feature-type">info</span>
+</div>
+<ul class="feature-settings">
+<li>Full theme color editor</li>
+<li>Color presets</li>
+<li>Per-element color pickers</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Layout</h5>
+<span class="feature-type">info</span>
+</div>
+<ul class="feature-settings">
+<li>Menu sizing</li>
+<li>Sidebar/Header/Groups styling</li>
+<li>Animation settings</li>
+<li>DPI scaling</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Effects</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Window/Header/Nav/Group effects</li>
+<li>Types: Snow/Rain/Wireframe/Matrix</li>
+<li>Speed/Density/Opacity/Size (sliders)</li>
+<li>Color (color picker)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Border Style</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Thickness/Opacity (sliders)</li>
+<li>Color (color)</li>
+<li>Gradient (toggle+direction)</li>
+<li>Glow (toggle+radius+color)</li>
+<li>Pulse (toggle+speed)</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Custom Cursor</h5>
+<span class="feature-type">toggle</span>
+</div>
+<ul class="feature-settings">
+<li>Style (dropdown: Circle/Crosshair/Target)</li>
+<li>Size/Outline (sliders)</li>
+<li>Colors (color pickers)</li>
+<li>Trail (toggle+length)</li>
+</ul>
+</article>
+</div>
+</section>
+</div>
+</details>
+</section>
+</div>
+<div class="empty-state" id="feature-empty" hidden>
+<h2>No matching features.</h2>
+<p>Try a shorter search or look across all sections.</p>
+<button class="button" id="reset-search">Clear all filters</button>
+</div>
+<div class="feature-bottom">
+<div>
+<h2>Found what you're looking for?</h2>
+<p>Explore editions, pricing, and setup instructions.</p>
+</div>
+<a class="button" href="/products/fivem/">View FiveM product ↗</a>
+</div>
+</div>
+</div>
+</main>
+<footer class="feature-footer feature-shell">
+<a href="/" class="brand">scooby</a>
+<p>Explore more. Make it yours.</p>
+<nav aria-label="Footer navigation">
+<a href="/store/">Store</a>
+<a href="/guides/">Guides</a>
+<a href="/tos/">Terms</a>
+</nav>
+</footer>
 </body>
 </html>

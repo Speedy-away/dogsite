@@ -1,5 +1,10 @@
 # Ad Code Snippets
 
+Ads are allowed only on the dedicated free-version and free-key pages:
+`products/free/index.html`, `scoobyontop.html`, and `freekey.html`.
+Do not add ad scripts or banners to the store, other product pages, guides,
+feature lists, documentation, or account pages.
+
 Placement matters — each unit has its own required spot. Getting it wrong is the
 usual reason a unit silently stops paying.
 
@@ -56,9 +61,8 @@ https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd
 | --- | --- | --- | --- | --- |
 | `scoobyontop.html` | yes | yes | yes | yes |
 | `products/free/index.html` | yes | yes | yes | yes |
-| `products/cs2/index.html` | yes | yes | yes | no |
-| `products/gmod/index.html` | yes | yes | yes | no |
 
+`freekey.html` currently has no ad scripts; it is left unchanged.
 All other pages have no ads.
 
 ---

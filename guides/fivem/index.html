@@ -6,725 +6,147 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>FiveM Setup Guide - Scooby Mod Menu</title>
 <meta name="description" content="FiveM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.">
-<link rel="canonical" href="https://scoobymenu.cc/guides/fivem/">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/fivem/">
 <meta property="og:title" content="FiveM Setup Guide - Scooby Mod Menu">
 <meta property="og:description" content="FiveM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.">
-<meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/games/fivem.webp">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FiveM Setup Guide - Scooby Mod Menu">
 <meta name="twitter:description" content="FiveM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.">
-<meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/games/fivem.webp">
 <meta name="keywords" content="FiveM mod menu setup, FiveM mod menu guide, how to install FiveM mod menu, FiveM VC runtimes, FiveM injection guide, inject on main menu FiveM, FiveM server resources loading, FiveM mod menu not working, Scooby FiveM setup, Scooby, Scooby menu, Scooby mod menu, Scooby download, mod menu setup, mod menu guide">
-<link rel="shortcut icon" href="/assets/images/logo.png">
-<!-- DNS Prefetch for external resources -->
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --bg: #080808;
-        --surface: #0d0d0d;
-        --card: #111111;
-        --card-hover: #161616;
-        --border: rgba(255,255,255,.07);
-        --border-strong: rgba(255,255,255,.13);
-        --accent: #4f8ef5;
-        --accent-2: #2563eb;
-        --accent-soft: rgba(79,142,245,.13);
-        --accent-line: rgba(79,142,245,.3);
-        --text: #f4f4f7;
-        --text-dim: #9a9aaa;
-        --text-faint: #5c5c6c;
-        --green: #22c55e;
-        --amber: #eab308;
-        --radius: 14px;
-        --radius-pill: 50px;
-        --maxw: 1180px;
-        /* legacy aliases */
-        --bg-primary: #080808;
-        --bg-secondary: #0d0d0d;
-        --bg-card: #111111;
-        --bg-card-hover: #161616;
-        --accent-cyan: #4f8ef5;
-        --accent-purple: #2563eb;
-        --accent-pink: #4f8ef5;
-        --accent-gradient: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
-        --accent-glow: rgba(79,142,245,0.5);
-        --text-primary: #f4f4f7;
-        --text-secondary: #9a9aaa;
-        --border-color: rgba(255,255,255,.07);
-        --glass: rgba(17,17,17,0.8);
-        --green-accent: #22c55e;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    html {
-        scroll-behavior: smooth;
-    }
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: #080808;
-        color: var(--text-primary);
-        min-height: 100vh;
-        overflow-x: hidden;
-        position: relative;
-        line-height: 1.7;
-    }
-    /* Animated Background */
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:
-            radial-gradient(ellipse at 20% 20%, rgba(79,142,245,0.08) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 80%, rgba(37,99,235,0.06) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(79,142,245,0.04) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
-    }
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-primary); }
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
-        border-radius: 10px;
-    }
-    /* Navbar */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-      transition: all .3s ease;
-    }
-    .nav-inner {
-      max-width: 1180px; margin: 0 auto; padding: 20px 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      transition: all .3s ease;
-    }
-    .nav.scrolled .nav-inner {
-      max-width: 860px; margin: 12px auto 0;
-      padding: 10px 20px;
-      background: rgba(14,14,14,.85);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,.13); border-radius: 50px;
-    }
-    .brand { font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em; display: flex; align-items: center; }
-    .brand-name { color: #fff; }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a { color: #9a9aaa; font-size: .9rem; font-weight: 500; transition: color .2s; text-decoration: none; }
-    .nav-links a:hover { color: #fff; }
-    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .btn-nav-ghost {
-      padding: 8px 18px; border-radius: 50px;
-      font-size: .88rem; font-weight: 600; color: #9a9aaa;
-      background: transparent; border: 1px solid rgba(255,255,255,.13);
-      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
-      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
-    }
-    .btn-nav-ghost:hover { color: #fff; background: rgba(255,255,255,.06); }
-    .btn-nav-ghost svg { width: 15px; height: 15px; }
-    .btn-nav-primary {
-      padding: 8px 20px; border-radius: 50px;
-      font-size: .88rem; font-weight: 600; color: #fff;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.13);
-      cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
-      display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
-    }
-    .btn-nav-primary:hover { background: rgba(255,255,255,.16); }
-    .btn-nav-primary svg { width: 15px; height: 15px; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .hamburger span { width: 22px; height: 2px; background: #f4f4f7; border-radius: 2px; transition: .25s; }
-    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    @media(max-width:760px) {
-      .nav-links, .nav-actions .btn-nav-ghost { display: none; }
-      .hamburger { display: flex; }
-      .nav-links {
-        position: absolute; top: 100%; left: 0; right: 0;
-        flex-direction: column; align-items: flex-start; gap: 0;
-        background: rgba(8,8,8,.97); backdrop-filter: blur(18px);
-        border-bottom: 1px solid rgba(255,255,255,.07);
-        padding: 8px 24px 16px; transform: translateY(-10px);
-        opacity: 0; pointer-events: none; transition: .25s;
-      }
-      .nav-links.open { display: flex; transform: none; opacity: 1; pointer-events: auto; }
-      .nav-links a { width: 100%; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: .98rem; }
-      .nav.scrolled .nav-inner { border-radius: 16px; margin: 8px; max-width: none; }
-    }
-    /* Page Header */
-    .page-header {
-        padding: 160px 0 80px;
-        text-align: center;
-        position: relative;
-        background: linear-gradient(180deg, #0d0d0d 0%, #080808 100%);
-        z-index: 1;
-    }
-    .page-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 0%, rgba(79,142,245,0.15) 0%, transparent 50%);
-        pointer-events: none;
-    }
-    .page-title {
-        font-size: 3.5rem;
-        font-weight: 900;
-        color: #f4f4f7;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-    }
-    .page-subtitle {
-        color: var(--text-secondary);
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    .warning-banner {
-        background: linear-gradient(135deg, rgba(255, 200, 0, 0.15) 0%, rgba(255, 150, 0, 0.1) 100%);
-        border: 1px solid rgba(255, 200, 0, 0.3);
-        border-radius: 12px;
-        padding: 20px 30px;
-        max-width: 800px;
-        margin: 30px auto 0;
-        color: #ffcc00;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    /* Main Content */
-    .guide-section {
-        padding: 80px 0;
-        position: relative;
-        z-index: 1;
-    }
-    .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 30px;
-    }
-    /* Section Cards */
-    .guide-card {
-        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        padding: 40px;
-        margin-bottom: 40px;
-        position: relative;
-        overflow: hidden;
-    }
-    .guide-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(135deg, #4f8ef5 0%, #2563eb 100%);
-    }
-    .guide-card h2 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #22c55e;
-        margin-bottom: 25px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-    }
-    .guide-card h3 {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: #4f8ef5;
-        margin: 25px 0 15px;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-    }
-    .guide-card p {
-        color: var(--text-secondary);
-        font-size: 1rem;
-        margin-bottom: 15px;
-        line-height: 1.8;
-    }
-    .guide-card ul {
-        color: var(--text-secondary);
-        margin-left: 25px;
-        margin-bottom: 20px;
-    }
-    .guide-card li {
-        margin-bottom: 8px;
-    }
-    .guide-card code, .guide-card .path {
-        background: rgba(79,142,245,0.1);
-        border: 1px solid rgba(79,142,245,0.2);
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-family: 'Consolas', monospace;
-        color: #4f8ef5;
-        font-size: 0.9rem;
-    }
-    .guide-card a {
-        color: #4f8ef5;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    .guide-card a:hover {
-        text-decoration: underline;
-    }
-    /* Image Gallery */
-    .guide-image {
-        border: 3px solid var(--green-accent);
-        border-radius: 12px;
-        margin: 20px 0;
-        max-width: 100%;
-        display: block;
-    }
-    .image-row {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin: 20px 0;
-    }
-    .image-row img {
-        flex: 1;
-        min-width: 280px;
-        max-width: 100%;
-    }
-    /* Video Guides Section */
-    .video-guides-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 30px;
-        margin-top: 30px;
-    }
-    .video-card {
-        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-    }
-    .video-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(79,142,245,0.3);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    }
-    .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-    }
-    .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-    .video-info {
-        padding: 20px;
-    }
-    .video-info h4 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #4f8ef5;
-        margin-bottom: 8px;
-        letter-spacing: 0.5px;
-    }
-    .video-info p {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        margin: 0;
-    }
-    .video-badge {
-        display: inline-block;
-        background: rgba(79,142,245,0.15);
-        color: #4f8ef5;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-    /* Table of Contents */
-    .toc {
-        background: rgba(79,142,245,0.05);
-        border: 1px solid rgba(79,142,245,0.2);
-        border-radius: 16px;
-        padding: 30px;
-        margin-bottom: 40px;
-    }
-    .toc h3 {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #4f8ef5;
-        margin-bottom: 20px;
-        letter-spacing: 1px;
-    }
-    .toc ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .toc li {
-        margin-bottom: 12px;
-    }
-    .toc a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .toc a::before {
-        content: '';
-        width: 6px;
-        height: 6px;
-        background: #4f8ef5;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-    }
-    .toc a:hover {
-        color: #4f8ef5;
-        padding-left: 10px;
-    }
-    /* Requirements Box */
-    .requirements-box {
-        background: rgba(56, 118, 29, 0.1);
-        border: 1px solid rgba(56, 118, 29, 0.3);
-        border-radius: 12px;
-        padding: 25px;
-        margin: 20px 0;
-    }
-    .requirements-box h4 {
-        color: var(--green-accent);
-        margin-bottom: 15px;
-        font-size: 1.1rem;
-    }
-    .requirements-box a {
-        display: block;
-        margin-bottom: 10px;
-        word-break: break-all;
-    }
-    /* Error Solutions */
-    .error-card {
-        background: rgba(255, 50, 50, 0.05);
-        border: 1px solid rgba(255, 100, 100, 0.2);
-        border-radius: 12px;
-        padding: 25px;
-        margin: 20px 0;
-    }
-    .error-card h4 {
-        color: #ff6b6b;
-        margin-bottom: 15px;
-        font-size: 1.1rem;
-    }
-    .error-card p {
-        color: var(--text-secondary);
-        margin-bottom: 0;
-    }
-    /* Footer */
-    .footer { border-top: 1px solid rgba(255,255,255,.07); background: #0d0d0d; padding: 64px 0 30px; }
-    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-    .footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
-    .footer-tag { color: #9a9aaa; font-size: .9rem; max-width: 280px; margin-bottom: 20px; }
-    .footer-social { display: flex; gap: 8px; }
-    .footer-social a { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.07); color: #9a9aaa; transition: .2s; text-decoration: none; }
-    .footer-social a:hover { color: #4f8ef5; border-color: rgba(79,142,245,.3); background: rgba(79,142,245,.13); }
-    .footer-col h4 { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: #5c5c6c; margin-bottom: 14px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col a { color: #9a9aaa; font-size: .9rem; transition: color .2s; text-decoration: none; }
-    .footer-col a:hover { color: #4f8ef5; }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.07); flex-wrap: wrap; }
-    .footer-bottom p { color: #5c5c6c; font-size: .84rem; }
-    .footer-bottom-links { display: flex; gap: 20px; }
-    .footer-bottom-links a { color: #5c5c6c; font-size: .84rem; transition: color .2s; text-decoration: none; }
-    .footer-bottom-links a:hover { color: #4f8ef5; }
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-    @media(max-width:980px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-    @media(max-width:560px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; text-align: center; } }
-    /* Game Tabs */
-    .game-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-    }
-    .game-tab {
-        padding: 10px 28px;
-        border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--text-secondary);
-        font-family: 'Inter', sans-serif;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    .game-tab:hover {
-        background: rgba(79,142,245,0.08);
-        border-color: rgba(79,142,245,0.2);
-        color: var(--text-primary);
-    }
-    .game-tab.active {
-        background: rgba(79,142,245,0.12);
-        border-color: rgba(79,142,245,0.4);
-        color: #4f8ef5;
-    }
-    .tab-content {
-        display: none;
-    }
-    .tab-content.active {
-        display: block;
-    }
-    .coming-soon-card {
-        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 20px;
-        padding: 60px 40px;
-        text-align: center;
-    }
-    .coming-soon-card h2 {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #4f8ef5;
-        margin-bottom: 15px;
-    }
-    .coming-soon-card p {
-        color: var(--text-secondary);
-        font-size: 1rem;
-    }
-    .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        color: #4f8ef5;
-        text-decoration: none;
-        margin-top: 30px;
-        padding: 12px 24px;
-        border: 1px solid rgba(79,142,245,0.3);
-        border-radius: 30px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        background: rgba(79,142,245,0.05);
-    }
-    .back-link:hover {
-        background: rgba(79,142,245,0.15);
-        border-color: #4f8ef5;
-        transform: translateX(-5px);
-    }
-    /* Responsive */
-    @media (max-width: 768px) {
-        .navbar-inner {
-            padding: 0 20px;
-            flex-wrap: wrap;
-            height: auto;
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-        .navbar-nav {
-            width: 100%;
-            justify-content: center;
-            margin-top: 10px;
-            flex-wrap: wrap;
-            gap: 4px;
-            padding: 6px 10px;
-        }
-        .navbar-nav li a {
-            padding: 8px 14px;
-            font-size: 11px;
-        }
-        .page-title {
-            font-size: 2.5rem;
-            letter-spacing: 4px;
-        }
-        .guide-card {
-            padding: 25px;
-        }
-        .guide-card h2 {
-            font-size: 1.4rem;
-        }
-        .container {
-            padding: 0 15px;
-        }
-        .video-guides-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-    @media (max-width: 480px) {
-        .page-header {
-            padding: 130px 0 60px;
-        }
-        .page-title {
-            font-size: 2rem;
-        }
-        .guide-section {
-            padding: 50px 0;
-        }
-    }
-</style>
-  <script src="/languages/i18n.js"></script>
-  <link rel="stylesheet" href="/assets/css/mobile.css">
-<style>
-    /* Two-column guide layout with a sticky section nav */
-    .guide-layout {
-        display: grid;
-        grid-template-columns: 250px minmax(0, 1fr);
-        gap: 40px;
-        /* No align-items:start - the aside must stretch to the row height or
-           the sticky inner has no travel room and scrolls away immediately. */
-    }
-    .guide-sidebar-inner {
-        position: sticky;
-        top: 100px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px;
-        max-height: calc(100vh - 130px);
-        overflow-y: auto;
-    }
-    .guide-sidebar-inner h3 {
-        font-size: .72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--text-secondary);
-        margin: 0 0 14px;
-    }
-    .guide-nav { display: flex; flex-direction: column; gap: 2px; }
-    .guide-nav a {
-        display: block;
-        padding: 8px 12px;
-        border-radius: 8px;
-        border-left: 2px solid transparent;
-        color: var(--text-secondary);
-        font-size: .87rem;
-        line-height: 1.4;
-        text-decoration: none;
-        transition: all .2s ease;
-    }
-    .guide-nav a:hover {
-        background: rgba(255,255,255,.04);
-        color: var(--text-primary);
-    }
-    .guide-nav a.active {
-        background: var(--accent-soft);
-        border-left-color: var(--accent);
-        color: var(--accent);
-        font-weight: 600;
-    }
-    .guide-main { min-width: 0; }
-    @media (max-width: 900px) {
-        .guide-layout { grid-template-columns: 1fr; gap: 24px; }
-        .guide-sidebar-inner {
-            position: static;
-            max-height: none;
-            padding: 16px;
-        }
-        .guide-nav {
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .guide-nav a {
-            border-left: none;
-            border: 1px solid var(--border);
-            padding: 7px 13px;
-            font-size: .82rem;
-        }
-        .guide-nav a.active { border-color: var(--accent-line); }
-    }
-</style>
-<link rel="stylesheet" href="/assets/css/guide-sections.css">
-</head>
-<body>
-    <!--== Header ==-->
-    <nav class="nav" id="nav">
-      <div class="nav-inner">
-        <a href="/" class="brand">
-          <span class="brand-name">scooby</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="/#products">Products</a></li>
-          <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
-          <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
-          <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
-        </ul>
-        <div class="nav-actions">
-          <a href="/portal" target="_blank" rel="noopener" class="btn-nav-ghost">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            Login
-          </a>
-          <a href="#" onclick="openModal('downloadModal');return false;" class="btn-nav-primary">
-            Download
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </a>
-          <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </nav>
-    <!--== Page Header ==-->
-    <div class="page-header">
-        <div class="container">
-            <h1 class="page-title">FIVEM GUIDES</h1>
-            <p class="page-subtitle">Requirements and installation for FiveM</p>
-        </div>
-    </div>
-    <!--== Guide Content ==-->
-    <section class="guide-section">
-        <div class="container">
-            <div class="game-tabs">
-                <a class="game-tab" href="/guides/gta5/">GTA 5</a>
-                <a class="game-tab active" href="/guides/fivem/">FiveM</a>
-                <a class="game-tab" href="/guides/redm/">RedM</a>
-                <a class="game-tab" href="/guides/rdr2/">RDR2</a>
-                <a class="game-tab" href="/guides/cs2/">CS2</a>
-                <a class="game-tab" href="/guides/general/">General</a>
-            </div>
 
-            <div class="guide-layout">
-                <aside class="guide-sidebar">
-                    <div class="guide-sidebar-inner">
-                        <h3>On this page</h3>
-                        <nav class="guide-nav">
-                            <a href="#fivem-requirements">Requirements</a>
-                            <a href="#fivem-inject">How to Inject</a>
-                        </nav>
-                    </div>
-                </aside>
-                <div class="guide-main">
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer>
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/fivem/">
+<noscript><style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style></noscript>
+</head>
+<body class="wiki-article">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand" href="/guides/">Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5"/>
+<path d="m16 16 4 4"/>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home " href="/guides/" >Wiki overview</a>
+<details >
+<summary>GTA 5</summary>
+<a class="sidebar-overview " href="/guides/gta5/" >Overview</a>
+<a href="/guides/gta5/#introduction">Introduction</a>
+<a href="/guides/gta5/#first-time">First Time Setup</a>
+<a href="/guides/gta5/#free-setup">Free Version Setup (Legacy &amp; Enhanced)</a>
+<a href="/guides/gta5/#outfits">Modding Outfits</a>
+<a href="/guides/gta5/#vehicles">Modding Vehicles</a>
+<a href="/guides/gta5/#money">Money Making Methods</a>
+<a href="/guides/gta5/#host-public">How To Host Public Sessions with Scooby (BE Disabled)</a>
+<a href="/guides/gta5/#troubleshooting">Troubleshooting</a>
+</details>
+<details open>
+<summary>FiveM</summary>
+<a class="sidebar-overview current" href="/guides/fivem/" aria-current="page">Overview</a>
+<a href="/guides/fivem/#fivem-requirements">Requirements</a>
+<a href="/guides/fivem/#fivem-inject">How to Inject</a>
+</details>
+<details >
+<summary>RedM</summary>
+<a class="sidebar-overview " href="/guides/redm/" >Overview</a>
+<a href="/guides/redm/#redm-requirements">Requirements</a>
+<a href="/guides/redm/#redm-inject">How to Inject</a>
+</details>
+<details >
+<summary>Red Dead Redemption 2</summary>
+<a class="sidebar-overview " href="/guides/rdr2/" >Overview</a>
+<a href="/guides/rdr2/#rdr2-before">Before Launching Scooby</a>
+<a href="/guides/rdr2/#rdr2-launch">How to Launch Scooby</a>
+<a href="/guides/rdr2/#rdr2-crashing">Crashing? Switch to DX12</a>
+<a href="/guides/rdr2/#rdr2-more-help">Still Stuck?</a>
+</details>
+<details >
+<summary>Counter-Strike 2</summary>
+<a class="sidebar-overview " href="/guides/cs2/" >Overview</a>
+<a href="/guides/cs2/#cs2-requirements">Requirements</a>
+<a href="/guides/cs2/#cs2-inject">How to Inject</a>
+<a href="/guides/cs2/#cs2-updates">Features Not Working</a>
+</details>
+<details >
+<summary>General help</summary>
+<a class="sidebar-overview " href="/guides/general/" >Overview</a>
+<a href="/guides/general/#faq">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/#free-key">Getting a Free Key</a>
+<a href="/guides/general/#crashing">Crashing Solutions</a>
+<a href="/guides/general/#universal">Universal Troubleshooting</a>
+<a href="/guides/general/#connection">Connection or SSL Errors</a>
+<a href="/guides/general/#hwid">Resetting Your HWID</a>
+<a href="/guides/general/#linux-mac">Use Scooby on Linux &amp; Mac</a>
+</details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1">
+<div class="breadcrumbs">
+<a href="/guides/">Guides</a>
+<span aria-hidden="true">/</span>
+<span>FiveM</span>
+</div>
+<h1>FiveM guide</h1>
+<p class="article-intro">Requirements and installation for FiveM.</p>
+<div class="game-article-art"><img src="/assets/images/games/fivem.webp" srcset="/assets/images/games/fivem-small.webp 640w, /assets/images/games/fivem.webp 1440w" sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 900px) calc(100vw - 56px), 800px" width="1440" height="810" alt="A silver tuner car beneath neon lights in a rain-soaked city." fetchpriority="high" decoding="async"></div>
+<details class="mobile-toc">
+<summary>On this page</summary>
+<a href="#fivem-requirements">Requirements</a>
+<a href="#fivem-inject">How to Inject</a>
+</details>
+<div class="guide-main">
                 <div class="guide-card" id="fivem-requirements">
                     <h2>Requirements</h2>
                     <p>Before running Scooby on FiveM, make sure the <strong>VC Runtimes</strong> are installed:</p>
                     <div class="requirements-box">
                         <h4>Required Software:</h4>
-                        <p><strong>VC Runtimes (all-in-one package):</strong></p>
+                        <p>
+<strong>VC Runtimes (all-in-one package):</strong>
+</p>
                         <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener">https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/</a>
-                        <p style="margin-top: 15px;"><strong>Or install these two directly from Microsoft:</strong></p>
+                        <p>
+<strong>Or install these two directly from Microsoft:</strong>
+</p>
                         <a href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank" rel="noopener">https://aka.ms/vc14/vc_redist.x86.exe</a>
                         <a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">https://aka.ms/vc14/vc_redist.x64.exe</a>
                     </div>
@@ -737,20 +159,23 @@
 
                     <div class="requirements-box">
                         <h4>Best way to inject</h4>
-                        <p style="margin-bottom:12px;">Inject at the <strong>FiveM main menu</strong>, or while the server is <strong>loading its resources and assets</strong> (the loading screen you get after picking a server).</p>
-                        <p style="margin-bottom:0;">This is the most reliable point and the method we recommend.</p>
+                        <p>Inject at the <strong>FiveM main menu</strong>, or while the server is <strong>loading its resources and assets</strong> (the loading screen you get after picking a server).</p>
+                        <p>This is the most reliable point and the method we recommend.</p>
                     </div>
 
-                    <h3>Step by step</h3>
+                    <h3 id="topic-1">Step by step</h3>
                     <ul>
                         <li>Open the <strong>Scooby loader</strong> and sign in</li>
-                        <li>Select <strong>FiveM</strong></li>
-                        <li>Launch <strong>FiveM</strong></li>
-                        <li>Click <strong>Inject</strong> at the <strong>main menu</strong>, or once you have joined a server and it is <strong>loading resources/assets</strong></li>
+                        <li>Select <strong>FiveM</strong>
+</li>
+                        <li>Launch <strong>FiveM</strong>
+</li>
+                        <li>Click <strong>Inject</strong> at the <strong>main menu</strong>, or once you have joined a server and it is <strong>loading resources/assets</strong>
+</li>
                         <li>Wait for Scooby to finish loading, then open the menu</li>
                     </ul>
 
-                    <h3>Already in a server?</h3>
+                    <h3 id="topic-2">Already in a server?</h3>
                     <p>You <strong>can</strong> still inject while you are already in a server and in game - it is supported and it works. The main menu / resource loading screen is simply the more reliable moment, so use that when you can.</p>
 
                     <div class="error-card">
@@ -758,107 +183,53 @@
                         <p>Make sure your <strong>antivirus is fully disabled</strong> and the loader is <strong>excluded from Windows Defender</strong>, then try again from the main menu. If it still fails, work through <a href="/guides/general/#universal">Universal Troubleshooting</a> in the General tab.</p>
                     </div>
                 </div>
-                <div class="coming-soon-card">
-                    <h2>More FiveM Guides Coming Soon</h2>
-                    <p>Full FiveM setup guides and tutorials are on the way. Stay tuned!</p>
+
                 </div>
-                </div>
-            </div>
-                    </div>
-    </section>
-    <script src="/assets/js/guide-sections.js"></script>
+<div class="article-help">
+<h2>Need a hand?</h2>
+<p>Check <a href="/guides/general/">general troubleshooting</a> or <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">ask the community ↗</a>. Include your game, the error message, and what you have already tried.</p>
+</div>
+<nav class="article-pagination" aria-label="Next and previous guides">
+<a href="/guides/gta5/">
+<span>← Previous guide</span>
+<strong>GTA 5</strong>
+</a>
+<a href="/guides/redm/">
+<span>Next guide →</span>
+<strong>RedM</strong>
+</a>
+</nav>
+<footer class="wiki-footer">
+<span>Scooby Wiki · Guides &amp; support</span>
+<div>
+<a href="/">Main site</a>
+<a href="/docs/">Developer docs</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+</div>
+</footer>
+</main>
+<aside class="wiki-toc" aria-label="On this page">
+<strong>On this page</strong>
+<a href="#main-content">Overview</a>
+<a href="#fivem-requirements">Requirements</a>
+<a href="#fivem-inject">How to Inject</a>
+</aside>
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5"/>
+<path d="m16 16 4 4"/>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scoobymenu.cc/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://scoobymenu.cc/guides/"},{"@type":"ListItem","position":3,"name":"FiveM Guide","item":"https://scoobymenu.cc/guides/fivem/"}]}</script>
-    <!--== Footer ==-->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <div class="footer-brand"><span class="brand-name">scooby</span></div>
-            <p class="footer-tag">Premium gaming enhancement menus. The ultimate modding experience for GTA Online, RDR2, FiveM and more.</p>
-            <div class="footer-social">
-              <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
-              <a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
-              </div>
-          </div>
-          <div class="footer-col">
-            <h4>Products</h4>
-            <ul>
-              <li><a href="/products/gta5">GTA 5</a></li>
-              <li><a href="/products/rdr2">RDR2</a></li>
-              <li><a href="/products/fivem">FiveM</a></li>
-              <li><a href="/products/redm">RedM</a></li>
-              <li><a href="/products/cs2">CS2</a></li>
-              <li><a href="/products/gmod">GMOD</a></li>
-              <li><a href="/products/spoofer">Spoofer + Cleaner</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
-              <li><a href="/videos" rel="noopener">Videos</a></li>
-              <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
-              <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Discord Server</a></li>
-              <li><a href="https://t.me/ScoobyOnTop" target="_blank" rel="noopener">Telegram</a></li>
-              <li><a href="/portal" target="_blank" rel="noopener">Portal / Login</a></li>
-              <li><a href="/tos">Terms of Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2026 Scooby. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="/tos">Terms</a>
-            <a href="/portal" target="_blank" rel="noopener">Portal</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <div class="modal-overlay" id="downloadModal" style="position:fixed;inset:0;z-index:1000;background:rgba(4,4,4,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s;">
-      <div style="background:linear-gradient(180deg,#141414,#111);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:32px;width:100%;max-width:440px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.7);max-height:90vh;overflow-y:auto;">
-        <button onclick="closeModal('downloadModal')" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:none;color:#9a9aaa;cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-        <h3 style="font-size:1.25rem;font-weight:800;text-align:center;margin-bottom:8px;color:#fff;">Download Launcher</h3>
-        <p style="color:#9a9aaa;text-align:center;font-size:.92rem;margin-bottom:20px;">Click below to download the installer.</p>
-        <a href="https://limewire.com/d/tFZ3X#4SwzqE6Mco" target="_blank" rel="noopener" onclick="closeModal('downloadModal')" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:50px;font-size:.93rem;font-weight:600;background:#4f8ef5;color:#fff;border:none;cursor:pointer;text-decoration:none;font-family:inherit;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Scooby Launcher
-        </a>
-      </div>
-    </div>
-
-    <script>
-    // Navbar scroll
-    var nav = document.getElementById('nav');
-    if (nav) {
-      window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
-    }
-    // Mobile menu
-    function toggleMenu() {
-      var h = document.getElementById('hamburger'), n = document.getElementById('navLinks');
-      var open = n.classList.toggle('open');
-      h.classList.toggle('active');
-      h.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    }
-    document.querySelectorAll('#navLinks a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        document.getElementById('navLinks').classList.remove('open');
-        document.getElementById('hamburger').classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-    function openModal(id) { var el = document.getElementById(id); if(el){el.style.display='flex';el.style.opacity='1';document.body.style.overflow='hidden';} }
-    function closeModal(id) { var el = document.getElementById(id); if(el){el.style.display='none';document.body.style.overflow='';} }
-    document.querySelectorAll('.modal-overlay').forEach(function(o){ o.addEventListener('click',function(e){if(e.target===o)closeModal(o.id);}); });
-    </script>
-<script>/* scooby-file-guard: only fires when opened as a file, never over http */
-(function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
 </body>
 </html>
