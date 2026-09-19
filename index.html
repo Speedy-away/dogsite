@@ -604,7 +604,7 @@ h2.section-title {
 }
 /* Homepage game catalogue */
 .catalog-grid { gap:24px; }
-.catalog-card { display:flex; flex-direction:column; overflow:hidden; background:#111318; border:1px solid #242830; border-radius:16px; transition:transform .2s,border-color .2s,box-shadow .2s; }
+.catalog-card { position:relative; display:flex; flex-direction:column; overflow:hidden; background:#111318; border:1px solid #242830; border-radius:16px; transition:transform .2s,border-color .2s,box-shadow .2s; }
 .catalog-card:hover { transform:translateY(-5px); border-color:#536780; box-shadow:0 16px 36px #0005; }
 .catalog-card:focus-visible,.catalog-utility:focus-visible { outline:2px solid #9bbdff; outline-offset:5px; }
 .catalog-art { aspect-ratio:16/8; overflow:hidden; background:#191c23; border-bottom:1px solid #ffffff0d; }
@@ -629,13 +629,18 @@ h2.section-title {
 @media(max-width:640px) { .catalog-grid { gap:18px; } .catalog-body { padding:20px 20px 0; } .catalog-utility { padding:20px; gap:15px; flex-wrap:wrap; } .catalog-utility>div { flex:1; min-width:160px; } .utility-cta { margin-left:69px; } }
 @media(prefers-reduced-motion:reduce) { .catalog-card,.catalog-art img,.catalog-utility { transition:none; } .catalog-card:hover,.catalog-card:hover .catalog-art img { transform:none; } }
 .catalog-status { display:inline-flex; align-self:flex-start; width:fit-content; padding:4px 9px; border:1px solid; border-radius:6px; font-size:.65rem; font-weight:600; line-height:1.5; margin-bottom:12px; }
+.catalog-card .catalog-status { position:absolute; top:14px; right:14px; z-index:1; margin:0; box-shadow:0 2px 8px #0004; }
 .catalog-status.is-online { color:#8ce0b2; background:#153225; border-color:#28523b; }
 .catalog-status.is-updating { color:#edc778; background:#322918; border-color:#5d4926; }
 .catalog-utility .catalog-status { margin-bottom:7px; }
 /* Short artwork motion on hover or keyboard focus; no continuous looping. */
 .catalog-art { position:relative; aspect-ratio:16/9; }
-.catalog-logo-art { background:#101319; }
-.catalog-logo-art img { object-fit:contain; padding:24px; }
+.catalog-logo-art { background:#101319; isolation:isolate; }
+.catalog-logo-art::before { content:""; position:absolute; inset:-12px; z-index:-1; background-position:center; background-size:cover; filter:blur(5px) brightness(.6); }
+.catalog-logo-art--gta5::before { background-image:url('/assets/images/games/gta5.webp'); }
+.catalog-logo-art--rdr2::before { background-image:url('/assets/images/games/rdr2.webp'); }
+.catalog-logo-art img { object-fit:contain; padding:8% 18%; filter:drop-shadow(0 3px 8px #0008); }
+.catalog-logo-art--rdr2 img { padding:12% 10%; }
 @keyframes catalog-art-drift { 0% { transform:scale(1); } 65% { transform:scale(1.06) translateY(-1%); } 100% { transform:scale(1.035); } }
 @media(prefers-reduced-motion:no-preference) {
  .catalog-card:hover .catalog-art img,.catalog-card:focus-visible .catalog-art img { animation:catalog-art-drift 3.5s ease-out both; }
@@ -748,11 +753,11 @@ h2.section-title {
     <p class="products-label reveal">Explore our games</p>
     <div class="product-grid catalog-grid">
       <a href="/products/gta5/" class="catalog-card reveal">
-        <div class="catalog-art catalog-logo-art"><img src="/assets/images/store/gta5-logo.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-art catalog-logo-art catalog-logo-art--gta5"><img src="/assets/images/store/gta5-logo-transparent.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
         <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Grand Theft Auto V</h3><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/rdr2/" class="catalog-card reveal">
-        <div class="catalog-art catalog-logo-art"><img src="/assets/images/store/rdr2-logo.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-art catalog-logo-art catalog-logo-art--rdr2"><img src="/assets/images/store/rdr2-logo-transparent.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
         <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Red Dead Redemption 2</h3><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/fivem/" class="catalog-card reveal">
@@ -780,11 +785,11 @@ h2.section-title {
 
     <p class="products-label reveal">Coming soon</p>
     <div class="product-grid">
-      <a href="/products/pubg" class="product-card reveal" style="background-image:url('/products/images/pubg.webp')">
+      <a href="/products/pubg" class="product-card reveal" style="background-image:url('/assets/images/store/pubg.webp')">
         <span class="product-status dev">In Development</span>
         <div class="product-card-body"><h3>PUBG</h3><p>Coming soon</p></div>
       </a>
-      <a href="/products/r6" class="product-card reveal" style="background-image:url('/products/images/r6.webp')">
+      <a href="/products/r6" class="product-card reveal" style="background-image:url('/assets/images/store/r6.webp')">
         <span class="product-status dev">In Development</span>
         <div class="product-card-body"><h3>Rainbow Six Siege</h3><p>Coming soon</p></div>
       </a>

@@ -166,7 +166,7 @@ body::before {
 .navbar { all: unset; }
 
 /* Hero Section */
-.hero {
+.hero { isolation: isolate;
     position: relative;
     min-height: 45vh;
     display: flex;
@@ -182,30 +182,29 @@ body::before {
 
 .hero-bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(10,10,15,0.7) 0%, rgba(10,10,15,0.9) 100%);
-    z-index: 0;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,8,8,.5) 0%, rgba(8,8,8,.68) 55%, var(--bg-primary) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hero-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: -24px;
+    width: calc(100% + 48px);
+    height: calc(100% + 48px);
     object-fit: cover;
-    z-index: -1;
+    object-position: center;
+    filter: blur(8px);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 750px;
 }
-
 .product-badge {
     display: inline-block;
     padding: 8px 20px;
@@ -1285,7 +1284,7 @@ body::before {
     }
 
     /* Hero */
-    .hero {
+    .hero { isolation: isolate;
         min-height: 45vh;
         padding: 90px 16px 40px;
     }
