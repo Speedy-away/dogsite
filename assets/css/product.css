@@ -1553,3 +1553,27 @@ body::before {
 
 /* Let the injected markup size itself - no centring shrink-wrap, no clipping. */
 .scooby-ad-slot > div { display: block; width: 100%; min-height: 90px; }
+
+/* Compact payment chooser, scoped separately from the plan selector. */
+#paymentModal { padding:20px; background:#05070bbd; backdrop-filter:blur(7px); }
+#paymentModal .payment-modal-content { max-width:580px; padding:32px; border-radius:20px; background:#12151c; border:1px solid #2a303d; max-height:calc(100dvh - 40px); overflow-y:auto; box-shadow:0 24px 90px #0008; }
+#paymentModal .payment-modal-close { top:16px; right:16px; width:36px; height:36px; border-radius:10px; background:transparent; color:#abb5c5; font-size:25px; }
+#paymentModal .payment-eyebrow { margin:0 45px 12px 0; color:#8eaff0; font-size:.65rem; font-weight:700; letter-spacing:.15em; }
+#paymentModal .payment-modal-title { text-align:left; font-size:1.5rem; font-weight:650; letter-spacing:-.035em; line-height:1.25; margin:0 25px 8px 0; }
+#paymentModal .payment-intro { color:#9ba7ba; font-size:.85rem; margin:0 0 25px; line-height:1.6; }
+#paymentModal .payment-option { display:grid; grid-template-columns:minmax(0,1fr) 165px; align-items:center; gap:16px; padding:20px 18px; margin-bottom:12px; border-radius:12px; background:#191e28; border:1px solid #2b3342; }
+#paymentModal .payment-option:hover { background:#1d2430; border-color:#475975; }
+#paymentModal .payment-option-header { margin:0; }
+#paymentModal .payment-option-header h3 { display:flex; align-items:center; flex-wrap:wrap; gap:8px; color:#f0f3f9; font-size:.92rem; font-weight:600; margin:0 0 7px; line-height:1.4; }
+#paymentModal .payment-option-header p { color:#a2adc0; font-size:.74rem; line-height:1.6; margin:0; }
+#paymentModal .payment-option-tag { margin:0; padding:2px 7px; font-size:.57rem; letter-spacing:.02em; color:#92dfb3; background:#203d30; border:1px solid #315b44; border-radius:5px; white-space:nowrap; }
+#paymentModal .payment-btn { padding:12px 8px; min-height:44px; border-radius:8px; font-size:.76rem; gap:7px; line-height:1.4; }
+#paymentModal .payment-btn svg { width:17px; height:17px; }
+#paymentModal .card-btn { background:#5486ed; color:#fff; }
+#paymentModal .card-btn:hover { background:#6595fa; }
+#paymentModal .crypto-btn { color:#efbc78; background:#352b20; border-color:#635033; }
+#paymentModal .support-btn { background:#242c39; border-color:#3a475b; color:#d8e2f4; }
+#paymentModal .payment-footnote { color:#8e9bad; font-size:.7rem; line-height:1.65; margin:18px 2px 0; }
+#paymentModal a:focus-visible,#paymentModal button:focus-visible { outline:2px solid #a4c5ff; outline-offset:4px; }
+@media(max-width:560px) { #paymentModal { padding:12px; } #paymentModal .payment-modal-content { padding:26px 20px 22px; max-height:calc(100dvh - 24px); border-radius:16px; } #paymentModal .payment-modal-title { font-size:1.3rem; } #paymentModal .payment-option { grid-template-columns:1fr; gap:13px; padding:16px; } #paymentModal .payment-btn { font-size:.83rem; } #paymentModal .payment-intro { margin-bottom:20px; } }
+@media(prefers-reduced-motion:reduce) { #paymentModal .payment-modal-content { animation:none; } #paymentModal .payment-btn { transition:none; transform:none; } }

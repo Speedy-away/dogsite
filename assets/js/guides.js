@@ -48,18 +48,19 @@
     const input = document.getElementById('guide-search');
     const results = document.getElementById('guide-results');
     const status = document.getElementById('search-status');
+    const searchPrompt = dialog.dataset.searchPrompt || 'Search setup instructions, troubleshooting, and account help.';
     let topics = null;
     let pending = null;
     let failed = false;
     const render = () => {
         const query = input.value.trim().toLowerCase();
         results.replaceChildren();
-        if (!query) { status.textContent = 'Search setup instructions, troubleshooting, and account help.'; return; }
-        if (!topics) { status.textContent = failed ? 'Search could not load. Close this window to browse the guides, or reopen it to retry.' : 'Loading topics…'; return; }
+        if (!query) { status.textContent = searchPrompt; return; }
+        if (!topics) { status.textContent = failed ? 'Search could not load. Close this window to browse the pages, or reopen it to retry.' : 'Loading topics…'; return; }
         const words = query.split(/\s+/);
         const matches = topics.filter(topic => words.every(word => (topic.game + ' ' + topic.title + ' ' + topic.text).toLowerCase().includes(word)));
         matches.sort((a,b) => Number(b.title.toLowerCase().includes(query)) - Number(a.title.toLowerCase().includes(query)));
-        status.textContent = matches.length ? `${matches.length} matching topic${matches.length === 1 ? '' : 's'}` : 'No topics found. Try a game name, “crash”, or “key”.';
+        status.textContent = matches.length ? `${matches.length} matching topic${matches.length === 1 ? '' : 's'}` : 'No topics found. Try a game name or a different keyword.';
         matches.forEach(topic => {
             const a = document.createElement('a'); a.href = topic.href;
             const context = document.createElement('span'); context.textContent = topic.game;
@@ -70,7 +71,7 @@
     const load = () => {
         if (topics || pending) return;
         failed = false;
-        pending = fetch('/assets/data/guide-search.json').then(response => {
+        pending = fetch(dialog.dataset.searchIndex || '/assets/data/guide-search.json').then(response => {
             if (!response.ok) throw new Error('Search unavailable');
             return response.json();
         }).then(data => { topics = data; }).catch(() => { failed = true; }).finally(() => { pending = null; render(); });
