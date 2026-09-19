@@ -256,5 +256,5 @@ ${FOOT}`;
 
 console.log('latest:', latest.title, '|', latest.date);
 console.log('output:', Math.round(html.length / 1024) + ' KB (was ' + Math.round(src.length / 1024) + ' KB)');
-if (APPLY) { fs.writeFileSync(SRC, html, 'utf8'); console.log('WROTE'); }
+if (APPLY) { fs.writeFileSync(SRC, require('../seo-metadata').applyMetadata('changelog/index.html', html), 'utf8'); console.log('WROTE'); }
 else console.log('DRY RUN - re-run with --apply');

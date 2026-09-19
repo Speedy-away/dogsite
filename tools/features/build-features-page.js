@@ -57,5 +57,5 @@ ${page.slug==='gta5-highlights'?'<aside class="feature-notice">Looking for the c
 <div class="feature-bottom"><div><h2>Found what you're looking for?</h2><p>Explore editions, pricing, and setup instructions.</p></div><a class="button" href="/products/${page.product}/">View ${esc(page.short||page.name)} product ↗</a></div></div></div></main>
 <footer class="feature-footer feature-shell"><a href="/" class="brand">scooby</a><p>Explore more. Make it yours.</p><nav aria-label="Footer navigation"><a href="/store/">Store</a><a href="/guides/">Guides</a><a href="/tos/">Terms</a></nav></footer></body></html>`;
 }
-for(const page of pages){const html=render(page);console.log(`${page.out}: ${Math.round(Buffer.byteLength(html)/1024)} KB`);if(APPLY){const file=path.join(SITE,page.out);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html.replace(/></g,'>\n<')+'\n');}}
+for(const page of pages){const html=require('../seo-metadata').applyMetadata(page.out,render(page));console.log(`${page.out}: ${Math.round(Buffer.byteLength(html)/1024)} KB`);if(APPLY){const file=path.join(SITE,page.out);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html.replace(/></g,'>\n<')+'\n');}}
 console.log(APPLY?'WROTE 4 feature pages':'DRY RUN — use --apply to write');
