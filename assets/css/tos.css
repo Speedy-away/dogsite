@@ -1,0 +1,38 @@
+/* Document layout, matching the wiki's quiet surfaces and typography. */
+body { background:#101115; }
+body::before { display:none; }
+.page-header { padding:140px 24px 40px; background:none; border-bottom:1px solid #303440; text-align:left; }
+.page-header .container { max-width:1180px; padding:0; }
+.page-title { font-size:clamp(2rem,4vw,3.4rem); letter-spacing:-.04em; color:#f4f4f7; background:none; -webkit-text-fill-color:currentColor; text-transform:none; }
+.page-subtitle { max-width:720px; color:#aeb8c8; }
+.last-updated { display:inline-block; margin-top:18px; font-size:.8rem; color:#97a3b6; background:#191c24; border:1px solid #303440; border-radius:6px; padding:6px 10px; }
+.legal-layout { max-width:1220px; display:grid; grid-template-columns:240px minmax(0,1fr); gap:64px; padding:40px 24px 64px; }
+.legal-layout main { min-width:0; }
+.legal-toc nav { position:sticky; top:110px; border-right:1px solid #303440; padding-right:24px; }
+.legal-toc p { font-weight:600; margin-bottom:16px; font-size:.9rem; }
+.legal-toc a { display:block; padding:9px 0; color:#aeb8c8; font-size:.85rem; text-decoration:none; line-height:1.5; }
+.legal-toc a:hover,.legal-toc a:focus-visible { color:#adc7ff; }
+.legal-toc .legal-help { border-top:1px solid #303440; margin-top:20px; padding-top:20px; }
+.legal-layout main > .back-link { margin:0 0 28px; }
+.tos-section,.tos-section.warning { padding:0 0 32px; margin:0 0 32px; border:0; border-bottom:1px solid #303440; border-radius:0; background:none; box-shadow:none; scroll-margin-top:110px; }
+.tos-section::before { display:none; }
+.tos-section:hover { transform:none; box-shadow:none; border-color:#303440; }
+.tos-section h2 { font-size:1.45rem; letter-spacing:-.025em; }
+.tos-section h2 .icon { flex-shrink:0; }
+.tos-section p,.tos-section li { color:#bcc4d0; line-height:1.85; }
+.tos-section ul { list-style:disc; padding-left:22px; }
+.tos-section li,.tos-section li:hover { padding:0 0 0 4px; margin:12px 0; border:0; border-radius:0; background:none; transform:none; }
+.tos-section li::marker { color:#91afe3; }
+.acknowledgment { text-align:left; margin:32px 0; padding:22px; border-radius:8px; background:#191c24; border:1px solid #303440; }
+.acknowledgment p { font-size:.95rem; line-height:1.75; }
+.acknowledgment svg { flex-shrink:0; }
+a:focus-visible { outline:2px solid #adc7ff; outline-offset:4px; }
+@media(max-width:800px) { .legal-layout { grid-template-columns:1fr; gap:32px; padding:28px 20px; } .legal-toc nav { position:static; border:1px solid #303440; padding:20px; border-radius:8px; } .page-header { padding:120px 20px 32px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+.legal-summary { padding:24px; margin-bottom:40px; background:#191c24; border:1px solid #303440; border-radius:8px; }
+.legal-summary h2 { font-size:1.2rem; margin-bottom:14px; }
+.legal-summary ul { padding-left:20px; color:#bcc4d0; }
+.legal-summary li { margin:10px 0; line-height:1.7; }
+.legal-summary p { border-top:1px solid #303440; padding-top:16px; margin-top:18px; color:#aeb8c8; font-size:.88rem; }
+.legal-layout main a:not(.back-link) { color:#adc7ff; text-underline-offset:3px; }
