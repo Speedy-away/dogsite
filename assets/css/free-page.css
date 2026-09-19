@@ -1,0 +1,42 @@
+.free-page { background:#0d1016; }
+.free-page .nav { position:relative; background:#0d1016; }
+.free-safety-notice { background:#2b2117; border-top:1px solid #705127; border-bottom:1px solid #705127; color:#f3ce94; }
+.free-safety-notice>div { max-width:1160px; margin:auto; padding:15px 24px; display:flex; align-items:center; gap:16px; }
+.free-safety-notice svg { width:25px; height:25px; flex-shrink:0; }
+.free-safety-notice p { margin:0; display:flex; flex-wrap:wrap; gap:6px 22px; align-items:center; }
+.free-safety-notice strong { font-size:.77rem; letter-spacing:.055em; }
+.free-safety-notice span { color:#cebda5; font-size:.78rem; }
+.free-page .hero { min-height:0; padding:56px 24px 48px; background:#10151e; border-bottom:1px solid #262e3c; margin-bottom:38px; }
+.free-page .free-hero-bg,.free-page .hero-bg { display:none; }
+.free-page .hero-content { max-width:790px; }
+.free-page .hero h1 { font-size:clamp(2rem,4vw,3.25rem); letter-spacing:-.045em; line-height:1.15; margin:18px 0; }
+.free-page .hero p { color:#a8b4c7; font-size:1rem; line-height:1.75; }
+.free-page .product-badge { font-size:.7rem; padding:6px 12px; border-radius:6px; }
+.free-page .main-content { max-width:1200px; padding:0 24px 60px; }
+.free-page .content-grid { grid-template-columns:minmax(0,1fr) 310px; gap:30px; align-items:start; }
+.free-page .screenshots-section { padding:0; border:0; background:transparent; }
+.free-page .section-title { font-size:1.22rem; margin-bottom:22px; }
+.free-page .included-products { gap:22px; }
+.free-page .included-product-card { display:flex; flex-direction:column; background:#151a23; border:1px solid #2a3240; border-radius:13px; }
+.free-page .included-product-card:hover { border-color:#52657e; box-shadow:0 10px 25px #0003; transform:translateY(-3px); }
+.free-page .included-product-card .card-image { height:auto; aspect-ratio:16/9; object-fit:cover; }
+.free-page .included-product-card .card-body { display:flex; flex-direction:column; flex:1; padding:21px; }
+.free-page .included-product-card h3 { color:#eef3fc; font-size:1.08rem; letter-spacing:-.02em; }
+.free-page .included-product-card p { color:#a7b3c6; font-size:.83rem; line-height:1.7; }
+.free-page .included-product-card ul { margin-bottom:18px; }
+.free-page .included-product-card ul li { color:#b8c4d7; font-size:.77rem; padding:5px 0; }
+.free-page .included-product-card .card-link { margin-top:auto; padding-top:15px; border-top:1px solid #2a3240; color:#a7c7ff; font-size:.8rem; }
+.free-page .sidebar { position:sticky; top:24px; }
+.free-page .purchase-card { background:#151d29; border:1px solid #34445c; border-radius:14px; padding:25px; }
+.free-page .free-price-tag { color:#88e4b3; font-size:2.7rem; letter-spacing:-.05em; }
+.free-page .price-note { color:#acb8ca; line-height:1.7; font-size:.76rem; }
+.free-page .how-it-works,.free-page .important-notes { background:#141922; border:1px solid #2a3240; border-radius:14px; padding:28px; margin-top:30px; }
+.free-page .how-it-works h2,.free-page .important-notes h2 { color:#e6edf8; font-size:1.15rem; }
+.free-page .step-card { text-align:left; padding:18px; background:#1a2230; border-radius:10px; }
+.free-page .step-number { margin:0 0 15px; width:34px; height:34px; border-radius:8px; font-size:.9rem; background:#293e5c; color:#b7d3ff; }
+.free-page .step-card p { color:#a7b3c6; line-height:1.7; font-size:.81rem; }
+.free-updating { display:inline-block; font-size:.6rem; text-transform:uppercase; color:#f0cc8c; border:1px solid #665331; padding:3px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+.free-page a:focus-visible,.free-page button:focus-visible { outline:2px solid #a7c7ff; outline-offset:4px; }
+@media(max-width:960px) { .free-page .content-grid { grid-template-columns:1fr; } .free-page .sidebar { position:static; grid-row:1; } .free-page .purchase-card .features-list { display:none; } }
+@media(max-width:600px) { .free-page .main-content { padding:0 18px 40px; } .free-page .hero { padding:35px 20px; margin-bottom:26px; } .free-safety-notice>div { padding:13px 18px; align-items:flex-start; gap:12px; } .free-safety-notice p { display:block; } .free-safety-notice span { display:block; margin-top:5px; line-height:1.5; } .free-page .included-products { grid-template-columns:1fr; } .free-page .how-it-works,.free-page .important-notes { padding:20px; } }
+@media(prefers-reduced-motion:reduce) { .free-page .included-product-card { transition:none; transform:none; } }

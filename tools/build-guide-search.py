@@ -56,9 +56,12 @@ class GuideParser(HTMLParser):
 if __name__ == "__main__":
     topics = []
     for slug, name in GAMES.items():
-        parser = GuideParser(slug, name)
-        parser.feed((ROOT / "guides" / slug / "index.html").read_text(encoding="utf-8"))
-        topics.extend(parser.topics)
+        for article in sorted((ROOT / "guides" / slug).glob("*/index.html")):
+            parser = GuideParser(slug, name)
+            parser.feed(article.read_text(encoding="utf-8"))
+            for topic in parser.topics:
+                topic["href"] = f"/guides/{slug}/{article.parent.name}/"
+            topics.extend(parser.topics)
     target = ROOT / "assets" / "data" / "guide-search.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(topics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

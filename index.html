@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scooby — Best Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD</title>
+<title>Scooby — Mod Menus</title>
 <meta name="description" content="Scooby is the best multi-game mod menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD. Free version available plus premium with 1000+ features: heist editor, money recovery, ESP, aimbot, Lua executor & HWID spoofer. Safe, undetected and updated regularly.">
 <meta name="keywords" content="Scooby menu, Scooby mod menu, best mod menu, best mod menu 2026, best GTA 5 mod menu, GTA 5 mod menu, GTA 5 mod menu free, best RDR2 mod menu, RDR2 mod menu, best FiveM mod menu, FiveM mod menu, FiveM ESP, best RedM mod menu, RedM mod menu, best CS2 cheat, CS2 mod menu, best GMOD cheat, GMOD mod menu, free mod menu, best free mod menu, multi-game mod menu, heist editor, money recovery, ESP, aimbot, Lua executor, HWID spoofer, ban cleaner, undetected mod menu, GTA online mod menu">
 <meta name="author" content="Scooby">
@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#080808">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/">
-<meta property="og:title" content="Scooby — Best Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD">
+<meta property="og:title" content="Scooby — Mod Menus">
 <meta property="og:description" content="The best multi-game mod menu. ESP, aimbot, heist editor, Lua executor, HWID spoofer & more. Free version available plus premium with 1000+ features.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:image:width" content="1920">
@@ -20,7 +20,7 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://scoobymenu.cc/">
-<meta name="twitter:title" content="Scooby — Best Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 & GMOD">
+<meta name="twitter:title" content="Scooby — Mod Menus">
 <meta name="twitter:description" content="The best multi-game mod menu. Free version available plus premium with 1000+ features.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -271,7 +271,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid #5865F2;
 }
 .btn-hero-discord:hover { background: #6b78f5; transform: translateY(-2px); }
-.btn-hero-discord svg { width: 17px; height: 17px; }
+.btn-hero-discord svg { width: 20px; height: 20px; flex-shrink: 0; }
 .hero-games {
   margin-top: 52px; display: flex; gap: 8px 22px; flex-wrap: wrap;
   color: var(--text-faint); font-size: .78rem; font-weight: 600;
@@ -609,11 +609,11 @@ h2.section-title {
 .catalog-card:focus-visible,.catalog-utility:focus-visible { outline:2px solid #9bbdff; outline-offset:5px; }
 .catalog-art { aspect-ratio:16/8; overflow:hidden; background:#191c23; border-bottom:1px solid #ffffff0d; }
 .catalog-art img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s; }
-.catalog-card:hover .catalog-art img { transform:scale(1.035); }
+
 .catalog-body { padding:23px 24px 0; display:flex; flex:1; flex-direction:column; }
 .catalog-kind { display:block; color:#98aac5; text-transform:uppercase; letter-spacing:.12em; font-size:.64rem; font-weight:700; margin-bottom:10px; }
 .catalog-kind.is-updating { color:#f1c879; }
-.catalog-body h3 { font-size:1.13rem; line-height:1.4; letter-spacing:-.025em; margin-bottom:9px; }
+.catalog-body h3 { font-size:1.13rem; line-height:1.4; letter-spacing:-.025em; margin-bottom:22px; }
 .catalog-body p { font-size:.84rem; line-height:1.75; color:#a0aaba; margin-bottom:24px; }
 .catalog-cta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; border-top:1px solid #ffffff0d; padding:15px 0 17px; font-size:.75rem; color:#d8e3f4; font-weight:600; }
 .catalog-cta>span:last-child { font-size:1.15rem; color:#91b8f6; }
@@ -628,6 +628,21 @@ h2.section-title {
 .utility-cta span { margin-left:18px; color:#91b8f6; }
 @media(max-width:640px) { .catalog-grid { gap:18px; } .catalog-body { padding:20px 20px 0; } .catalog-utility { padding:20px; gap:15px; flex-wrap:wrap; } .catalog-utility>div { flex:1; min-width:160px; } .utility-cta { margin-left:69px; } }
 @media(prefers-reduced-motion:reduce) { .catalog-card,.catalog-art img,.catalog-utility { transition:none; } .catalog-card:hover,.catalog-card:hover .catalog-art img { transform:none; } }
+.catalog-status { display:inline-flex; align-self:flex-start; width:fit-content; padding:4px 9px; border:1px solid; border-radius:6px; font-size:.65rem; font-weight:600; line-height:1.5; margin-bottom:12px; }
+.catalog-status.is-online { color:#8ce0b2; background:#153225; border-color:#28523b; }
+.catalog-status.is-updating { color:#edc778; background:#322918; border-color:#5d4926; }
+.catalog-utility .catalog-status { margin-bottom:7px; }
+/* Short artwork motion on hover or keyboard focus; no continuous looping. */
+.catalog-art { position:relative; aspect-ratio:16/9; }
+.catalog-logo-art { background:#101319; }
+.catalog-logo-art img { object-fit:contain; padding:24px; }
+@keyframes catalog-art-drift { 0% { transform:scale(1); } 65% { transform:scale(1.06) translateY(-1%); } 100% { transform:scale(1.035); } }
+@media(prefers-reduced-motion:no-preference) {
+ .catalog-card:hover .catalog-art img,.catalog-card:focus-visible .catalog-art img { animation:catalog-art-drift 3.5s ease-out both; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .catalog-art img { animation:none!important; transform:none!important; }
+}
 </style>
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
@@ -683,7 +698,7 @@ h2.section-title {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener" class="btn-hero btn-hero-discord">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
           Join Discord
         </a>
       </div>
@@ -733,33 +748,33 @@ h2.section-title {
     <p class="products-label reveal">Explore our games</p>
     <div class="product-grid catalog-grid">
       <a href="/products/gta5/" class="catalog-card reveal">
-        <div class="catalog-art"><img src="/products/images/gta5.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-        <div class="catalog-body"><span class="catalog-kind">Open world</span><h3>Grand Theft Auto V</h3><p>Heist editor, money recovery, modded vehicles, ESP, aimbot &amp; Lua scripting</p><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
+        <div class="catalog-art catalog-logo-art"><img src="/assets/images/store/gta5-logo.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Grand Theft Auto V</h3><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/rdr2/" class="catalog-card reveal">
-        <div class="catalog-art"><img src="/products/images/rdr2.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-        <div class="catalog-body"><span class="catalog-kind">Open world</span><h3>Red Dead Redemption 2</h3><p>God mode, teleports, money drops, unlock all &amp; full player control</p><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
+        <div class="catalog-art catalog-logo-art"><img src="/assets/images/store/rdr2-logo.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Red Dead Redemption 2</h3><div class="catalog-cta"><span>Explore editions</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/fivem/" class="catalog-card reveal">
-        <div class="catalog-art"><img src="/products/images/fivem.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-        <div class="catalog-body"><span class="catalog-kind">Multiplayer</span><h3>FiveM</h3><p>ESP, aimbot, server trolling, vehicle spawner &amp; noclip</p><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
+        <div class="catalog-art"><img src="/assets/images/store/fivem.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>FiveM</h3><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/redm/" class="catalog-card reveal">
-        <div class="catalog-art"><img src="/products/images/REDM.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-        <div class="catalog-body"><span class="catalog-kind">Multiplayer</span><h3>RedM</h3><p>Resource triggers, player control, trolling &amp; server manipulation</p><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
+        <div class="catalog-art"><img src="/assets/images/store/redm.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>RedM</h3><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/cs2/" class="catalog-card reveal">
-        <div class="catalog-art"><img src="/products/images/CS2.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-        <div class="catalog-body"><span class="catalog-kind">Free access</span><h3>Counter-Strike 2</h3><p>Wallhack, aimbot, triggerbot, radar hack &amp; skin changer</p><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
+        <div class="catalog-art"><img src="/assets/images/store/cs2.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Counter-Strike 2</h3><div class="catalog-cta"><span>Explore features</span><span aria-hidden="true">↗</span></div></div>
       </a>
       <a href="/products/gmod/" class="catalog-card reveal">
-        <div class="catalog-art"><img src="/products/images/GMOD.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-        <div class="catalog-body"><span class="catalog-kind is-updating">Updating</span><h3>Garry&#39;s Mod</h3><p>Aimbot, ESP, speedhack, noclip &amp; full server admin bypass</p><div class="catalog-cta"><span>View product status</span><span aria-hidden="true">↗</span></div></div>
+        <div class="catalog-art"><img src="/assets/images/store/gmod.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-updating">Updating</span><h3>Garry&#39;s Mod</h3><div class="catalog-cta"><span>View product status</span><span aria-hidden="true">↗</span></div></div>
       </a>
     </div>
     <a href="/products/spoofer/" class="catalog-utility reveal">
       <span class="utility-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg></span>
-      <div><span class="catalog-kind">Free utility</span><h3>Spoofer + Cleaner</h3><p>Spoof hardware IDs &amp; wipe bans across all supported games</p></div>
+      <div><span class="catalog-status is-online">Online</span><h3>Spoofer + Cleaner</h3></div>
       <span class="utility-cta">Explore utility <span aria-hidden="true">↗</span></span>
     </a>
 
@@ -851,7 +866,7 @@ h2.section-title {
       </div>
       <div class="faq reveal">
         <div class="faq-q">Why is Scooby flagged as a virus?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a"><p>It's a false positive. Windows flags the loader because it doesn't recognise the file or its intentions — a side effect of how mod menus are built, not a sign that it's malicious. Disable Real-time Protection to download it, then add the loader as a Defender exclusion so it isn't removed later. Full steps are in the <a href="/guides/general/#faq" style="color:var(--accent)">Antivirus &amp; Download FAQ</a>.</p></div>
+        <div class="faq-a"><p>It's a false positive. Windows flags the loader because it doesn't recognise the file or its intentions — a side effect of how mod menus are built, not a sign that it's malicious. Disable Real-time Protection to download it, then add the loader as a Defender exclusion so it isn't removed later. Full steps are in the <a href="/guides/general/faq/" style="color:var(--accent)">Antivirus &amp; Download FAQ</a>.</p></div>
       </div>
       <div class="faq reveal">
         <div class="faq-q">What's the difference between Free and Premium?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>

@@ -427,8 +427,10 @@
   <script src="/languages/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
 <script src="https://aloudalimonyexplosion.com/21/ba/c2/21bac2cf6146c6ff2689111563b5f00a.js"></script>
+<link rel="stylesheet" href="/assets/css/free-page.css">
+<link rel="stylesheet" href="/assets/css/free-key-modal.css">
 </head>
-<body>
+<body class="free-page">
     <!-- Navbar -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
@@ -450,7 +452,7 @@
                 <span></span><span></span><span></span>
             </button>
         </div>
-    </nav>
+    </nav><aside class="free-safety-notice" aria-label="Ad download warning"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5m0 3v1"/></svg><p><strong>DO NOT DOWNLOAD ANY AD POPUP</strong><span>Close ad popups. Only use the official Scooby download links.</span></p></div></aside>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -462,7 +464,7 @@
                 <span class="product-badge" style="background: rgba(79, 142, 245, 0.15); color: #4f8ef5; border-color: rgba(79, 142, 245, 0.3);">6 Products Included</span>
             </div>
             <h1>Scooby Free Version</h1>
-            <p>Get free access to all Scooby mod menus - GTA 5, RDR2, CS2, GMOD, FiveM, and Spoofer/Cleaner. No payment required, just grab your free key and start playing.</p>
+            <p>Explore six products with a free key. Choose your game, follow the setup guide, and get started without a payment.</p>
         </div>
     </section>
 
@@ -533,7 +535,7 @@
                     <div class="included-product-card">
                         <img loading="lazy" decoding="async" src="../images/GMOD.jpg" alt="GMOD" class="card-image">
                         <div class="card-body">
-                            <h3>GMOD</h3>
+                            <h3>GMOD <span class="free-updating">Updating</span></h3>
                             <p>Garry's Mod enhancement with ragebot, legitbot, and server tools.</p>
                             <ul>
                                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP & Wallhacks</li>
@@ -563,7 +565,7 @@
 
                     <!-- Spoofer + Cleaner -->
                     <div class="included-product-card">
-                        <img loading="lazy" decoding="async" src="../images/spoofer.jpg" alt="Spoofer + Cleaner" class="card-image">
+                        <img loading="lazy" decoding="async" src="/assets/images/games/spoofer.webp" alt="Spoofer + Cleaner" class="card-image">
                         <div class="card-body">
                             <h3>Spoofer + Cleaner</h3>
                             <p>HWID spoofer and ban cleaner for FiveM, RedM, GTA Online and more.</p>
@@ -587,7 +589,7 @@
                     <div class="price-display">
                         <div class="price-label">Free Access</div>
                         <span class="free-price-tag">FREE</span>
-                        <div class="price-note">No Payment Required</div>
+                        <div class="price-note">No payment required · Keys reset every 4 hours</div>
                     </div>
 
                     <a href="#" onclick="openFreeKeyModal(); return false;" class="purchase-btn free-btn" style="background: linear-gradient(135deg, #22c55e, #16a34a); border-color: transparent;">
@@ -687,23 +689,16 @@
                 <strong>Max Injections:</strong> If you have used the max injections on your free key, simply get a new free key by completing the steps again.
             </div>
         </div>
-
-        <!-- Big Red Warning -->
-        <div class="warning-text">
-            DO NOT DOWNLOAD ANY AD POPUP
-        </div>
     </div>
 
     <!-- Free Key Modal -->
-    <div class="freekey-modal-overlay" id="freeKeyModal">
+    <div class="freekey-modal-overlay" id="freeKeyModal" role="dialog" aria-modal="true" aria-labelledby="free-key-title">
         <div class="freekey-modal">
-            <button class="freekey-modal-close" onclick="closeFreeKeyModal()">
+            <button class="freekey-modal-close" aria-label="Close free key instructions" onclick="closeFreeKeyModal()">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
 
-            <div class="freekey-countdown" id="freeKeyCountdown">3</div>
-
-            <h3>GETTING YOUR FREE KEY</h3>
+            <p class="free-key-eyebrow">SCOOBY FREE ACCESS</p><h3 id="free-key-title">Get your free key</h3><p class="free-key-intro">Follow these steps on the key page.</p><div class="free-key-timer"><span>Preparing your link</span><div class="freekey-countdown" id="freeKeyCountdown">3</div></div>
 
             <div class="freekey-steps">
                 <div class="freekey-step">
@@ -720,7 +715,7 @@
                 </div>
             </div>
 
-            <div class="freekey-warning" style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #f87171; font-size: 0.85rem; margin-bottom: 20px;">
+            <div class="freekey-warning">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 <span>Ads may popup - close them and press the button again</span>
             </div>
@@ -808,7 +803,7 @@
 
             countdown.textContent = '3';
             countdown.style.color = '#4f8ef5';
-            btn.disabled = true;
+            btn.disabled = true; btn.setAttribute('disabled', ''); btn.setAttribute('aria-disabled', 'true');
             btn.textContent = 'PLEASE WAIT...';
 
             let count = 3;
@@ -820,7 +815,7 @@
                     clearInterval(freeKeyCountdownInterval);
                     countdown.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
                     countdown.style.color = '#4f8ef5';
-                    btn.disabled = false;
+                    btn.disabled = false; btn.removeAttribute('disabled'); btn.setAttribute('aria-disabled', 'false');
                     btn.textContent = 'CONTINUE TO GET KEY';
                 }
             }, 1000);

@@ -1,0 +1,24 @@
+/* Match the compact product payment chooser. */
+#freeKeyModal { padding:20px; background:#05070bbd; backdrop-filter:blur(7px); }
+#freeKeyModal .freekey-modal { width:100%; max-width:580px; padding:32px; border-radius:20px; background:#12151c; border:1px solid #2a303d; max-height:calc(100dvh - 40px); overflow-y:auto; box-shadow:0 24px 90px #0008; text-align:left; }
+#freeKeyModal .freekey-modal-close { top:16px; right:16px; width:36px; height:36px; border-radius:10px; border:1px solid #303846; background:transparent; color:#abb5c5; }
+#freeKeyModal .free-key-eyebrow { margin:0 45px 12px 0; color:#8eaff0; font-size:.65rem; font-weight:700; letter-spacing:.15em; }
+#freeKeyModal h3 { color:#fff; font-size:1.5rem; font-weight:650; letter-spacing:-.035em; margin:0 30px 8px 0; line-height:1.25; text-transform:none; }
+#freeKeyModal .free-key-intro { color:#9ba7ba; font-size:.85rem; margin:0 0 22px; line-height:1.6; }
+#freeKeyModal .free-key-timer { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border:1px solid #2b3342; border-radius:10px; background:#191e28; color:#aab9d0; font-size:.78rem; margin-bottom:12px; }
+#freeKeyModal .freekey-countdown { display:flex; align-items:center; justify-content:center; flex-shrink:0; width:32px; height:32px; border:0; border-radius:7px; background:#273852; color:#a7c7ff; font-size:1rem; font-weight:600; margin:0; box-shadow:none; animation:none; }
+#freeKeyModal .freekey-countdown svg { width:20px; height:20px; }
+#freeKeyModal .freekey-steps { background:#191e28; border:1px solid #2b3342; border-radius:12px; padding:6px 17px; margin:0 0 16px; }
+#freeKeyModal .freekey-step { padding:13px 0; gap:12px; border-bottom:1px solid #2b3342; font-size:.82rem; line-height:1.65; color:#bac5d7; }
+#freeKeyModal .freekey-step:last-child { border-bottom:0; }
+#freeKeyModal .freekey-step-num { width:25px; height:25px; border-radius:6px; background:#2a3c59; color:#adcaff; font-size:.72rem; box-shadow:none; }
+#freeKeyModal .freekey-warning { display:flex; align-items:center; gap:10px; padding:12px 14px; background:#30261d; border:1px solid #5b4530; border-radius:8px; color:#e5bf8d; font-size:.75rem; line-height:1.6; margin-bottom:16px; }
+#freeKeyModal .freekey-warning svg { flex-shrink:0; }
+#freeKeyModal .freekey-btn { min-height:46px; width:100%; padding:13px 18px; border:1px solid transparent; border-radius:8px; background:#5486ed; color:#fff; box-shadow:none; font-size:.81rem; font-weight:600; letter-spacing:.02em; margin:0; }
+#freeKeyModal .freekey-btn:hover { background:#6595fa; transform:none; box-shadow:none; }
+#freeKeyModal .freekey-btn[disabled] { opacity:.5; cursor:wait; pointer-events:none; }
+#freeKeyModal .freekey-tip { justify-content:flex-start; padding:0; margin:17px 0 0; border:0; border-radius:0; background:transparent; color:#8e9bad; font-size:.7rem; line-height:1.65; text-align:left; }
+#freeKeyModal .freekey-tip svg { width:16px; height:16px; }
+#freeKeyModal a:focus-visible,#freeKeyModal button:focus-visible { outline:2px solid #a4c5ff; outline-offset:4px; }
+@media(max-width:560px) { #freeKeyModal { padding:12px; } #freeKeyModal .freekey-modal { padding:26px 20px 22px; max-height:calc(100dvh - 24px); border-radius:16px; } #freeKeyModal h3 { font-size:1.3rem; } }
+@media(prefers-reduced-motion:reduce) { #freeKeyModal .freekey-modal { animation:none; transition:none; } }

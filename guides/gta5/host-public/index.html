@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>How To Host Public Sessions with Scooby (BE Disabled) — Scooby Wiki</title>
+<meta name="description" content="How To Host Public Sessions with Scooby (BE Disabled) — instructions and help from the Scooby Wiki.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/gta5/host-public/">
+<meta property="og:title" content="How To Host Public Sessions with Scooby (BE Disabled) — Scooby Wiki">
+<meta property="og:description" content="How To Host Public Sessions with Scooby (BE Disabled) — instructions and help from the Scooby Wiki.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How To Host Public Sessions with Scooby (BE Disabled) — Scooby Wiki">
+<meta name="twitter:description" content="How To Host Public Sessions with Scooby (BE Disabled) — instructions and help from the Scooby Wiki.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta name="keywords" content="GTA 5 mod menu setup, GTA 5 mod menu guide, how to install GTA 5 mod menu, GTA 5 first time setup, GTA 5 free mod menu setup, modded outfits guide, modded vehicles guide, GTA 5 money methods, GTA 5 host public session, BattlEye disabled host, GTA 5 injection failed, GTA 5 mod menu crashing, GTA 5 Legacy Enhanced setup, Scooby, Scooby menu, Scooby mod menu, Scooby download, mod menu setup, mod menu guide">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/gta5/host-public/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand" href="/guides/">Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details open="">
+<summary>GTA 5</summary>
+<a class="sidebar-overview" href="/guides/gta5/">Overview</a>
+<a href="/guides/gta5/introduction/">Introduction</a>
+<a href="/guides/gta5/first-time/">First Time Setup</a>
+<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
+<a href="/guides/gta5/outfits/">Modding Outfits</a>
+<a href="/guides/gta5/vehicles/">Modding Vehicles</a>
+<a href="/guides/gta5/money/">Money Making Methods</a>
+<a href="/guides/gta5/host-public/" aria-current="page">How To Host Public Sessions with Scooby (BE Disabled)</a>
+<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>FiveM</summary>
+<a class="sidebar-overview" href="/guides/fivem/">Overview</a>
+<a href="/guides/fivem/fivem-requirements/">Requirements</a>
+<a href="/guides/fivem/fivem-inject/">How to Inject</a>
+<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>RedM</summary>
+<a class="sidebar-overview" href="/guides/redm/">Overview</a>
+<a href="/guides/redm/redm-requirements/">Requirements</a>
+<a href="/guides/redm/redm-inject/">How to Inject</a>
+<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>Red Dead Redemption 2</summary>
+<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
+<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
+<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
+<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
+<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+</details>
+<details>
+<summary>Counter-Strike 2</summary>
+<a class="sidebar-overview" href="/guides/cs2/">Overview</a>
+<a href="/guides/cs2/cs2-requirements/">Requirements</a>
+<a href="/guides/cs2/cs2-inject/">How to Inject</a>
+<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+</details>
+<details>
+<summary>General help</summary>
+<a class="sidebar-overview" href="/guides/general/">Overview</a>
+<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/free-key/">Getting a Free Key</a>
+<a href="/guides/general/crashing/">Crashing Solutions</a>
+<a href="/guides/general/universal/">Universal Troubleshooting</a>
+<a href="/guides/general/connection/">Connection or SSL Errors</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
+<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+</details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><span>Guide</span></div><h1>How To Host Public Sessions with Scooby (BE Disabled)</h1><p class="article-intro">GTA 5 · Scooby Wiki</p><div class="guide-card" id="host-public">
+                <h2 class="sr-only">How To Host Public Sessions with Scooby (BE Disabled)</h2>
+                <p>Getting a public lobby to fill up is not just luck - it comes down to a handful of factors you can actually control. This guide covers what makes players join your session and what to do when nobody shows up.</p>
+                <p>Everything here assumes you have launched GTA 5 with <strong>BattlEye disabled</strong> in the Rockstar Launcher settings, which is required for Scooby. If you have not done that yet, see <a href="/guides/gta5/first-time/">First Time Setup</a>.</p>
+
+                <p>There are <strong>four factors</strong> behind a lobby that actually fills: your NAT type, your aim type, the region and time you host in, and a fair amount of luck.</p>
+
+                <h3 id="topic-14">1. NAT Type</h3>
+                <p>Your NAT type affects how easily other players can connect to your lobby.</p>
+                <ul>
+                    <li>
+<strong>Open NAT</strong> - best results for hosting</li>
+                    <li>
+<strong>Moderate NAT</strong> - usually works fine</li>
+                    <li>
+<strong>Strict NAT</strong> - may reduce player joins and connectivity</li>
+                </ul>
+                <p>Important things to know:</p>
+                <ul>
+                    <li>NAT type is normally controlled by your <strong>router and your ISP</strong>, not by the game.</li>
+                    <li>Some tools and scripts offer NAT spoofing, which presents a different NAT type to GTA Online. Results vary a lot and it does not work the same for every player.</li>
+                    <li>If you consistently struggle to attract players, check your NAT type and confirm your ISP is not putting you behind CGNAT (see below).</li>
+                </ul>
+
+                <h3 id="topic-15">2. Aim Type</h3>
+                <p>Your aim setting decides which pool of players can even match with you.</p>
+                <ul>
+                    <li>
+<strong>Free Aim</strong> - largest player pool on PC, attracts the most players</li>
+                    <li>
+<strong>Partial Aim Assist</strong> - still a decent number of players</li>
+                    <li>
+<strong>Full Aim Assist</strong> - smallest player pool on PC, expect fewer joins</li>
+                </ul>
+                <p>For the highest chance of filling a lobby, <strong>start with Free Aim</strong>.</p>
+
+                <h3 id="topic-16">3. Region and Timing</h3>
+                <p>Timing matters as much as the region itself. Aim for hours when people are:</p>
+                <ul>
+                    <li>Getting home from work</li>
+                    <li>Finishing school</li>
+                    <li>Already gaming during the evening</li>
+                </ul>
+                <p>Good windows to try:</p>
+                <ul>
+                    <li>North America, evenings</li>
+                    <li>Europe, evenings</li>
+                    <li>Weekends beat weekday mornings by a wide margin</li>
+                </ul>
+                <p>If one region is quiet, switch to another and try again.</p>
+
+                <h3 id="topic-17">4. Luck</h3>
+                <p>Sometimes everything is set up perfectly and the lobby still will not fill. You can host a session that fills instantly, then host the exact same session 30 minutes later and get nobody. GTA Online matchmaking is unpredictable, so persistence is part of the process.</p>
+
+                <h3 id="topic-18">Bonus: Check for CGNAT</h3>
+                <p>Some ISPs place customers behind <strong>Carrier Grade NAT (CGNAT)</strong>, which shares one public IP between many customers. This can hurt your connectivity, your matchmaking and your hosting reliability.</p>
+                <ul>
+                    <li>Contact your ISP</li>
+                    <li>Ask whether your connection is behind CGNAT</li>
+                    <li>Request a public IPv4 address if they offer one</li>
+                </ul>
+
+                <h3 id="topic-19">Bonus: Use a VPN</h3>
+                <p>A VPN can sometimes improve how visible you are in matchmaking. Best practice:</p>
+                <ul>
+                    <li>Connect to a VPN server in a <strong>densely populated area</strong>
+</li>
+                    <li>Match your VPN region to the audience you are trying to attract</li>
+                </ul>
+                <p>Locations players commonly report good results with: <strong>New York, Chicago, Los Angeles, London, Frankfurt</strong>. Results vary, but busy metro areas generally give better lobby population.</p>
+
+                <div class="requirements-box">
+                    <h4>Checklist - you have done everything right if:</h4>
+                    <ul>
+                        <li>Session advertising is enabled</li>
+                        <li>You are on Open or Moderate NAT</li>
+                        <li>You picked the right Aim Type (Free Aim fills fastest)</li>
+                        <li>You chose an active region and a busy time of day</li>
+                        <li>You confirmed you are not behind CGNAT</li>
+                    </ul>
+                </div>
+
+                <h3 id="topic-20">Still Alone?</h3>
+                <p>
+<strong>Be patient.</strong> Try different combinations, restart the session, switch regions and keep experimenting. An empty lobby after one attempt does not mean your setup is wrong.</p>
+
+                <h3 id="topic-21">If All Else Fails - Get Friends to Join First</h3>
+                <p>A lobby that already has a few players inside attracts far more players than an empty one. Once the first few people arrive, GTA Online matchmaking tends to do the rest. You can also turn on <strong>Player Magnet</strong> in the Network tab to help pull players in.</p>
+
+                <p>In short: hosting is a combination of <strong>NAT type, aim type, region, ISP quality and a little bit of luck</strong>.</p>
+            </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/money/"><span>← Previous guide</span><strong>Money Making Methods</strong></a><a href="/guides/gta5/troubleshooting/"><span>Next guide →</span><strong>Troubleshooting</strong></a></nav><footer class="wiki-footer">
+<span>Scooby Wiki · Guides &amp; support</span>
+<div>
+<a href="/">Main site</a>
+<a href="/docs/">Developer docs</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+</div>
+</footer></main>
+
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+</body>
+</html>
