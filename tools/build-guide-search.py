@@ -10,6 +10,8 @@ GAMES = {
     "redm": "RedM",
     "rdr2": "Red Dead Redemption 2",
     "cs2": "Counter-Strike 2",
+    "sbox": "S&box (Sandbox)",
+    "gmod": "Garry's Mod (GMOD)",
     "general": "General help",
 }
 

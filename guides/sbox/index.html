@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>How to Reset Your Scooby HWID - Scooby Guide</title>
-<meta name="description" content="Reset your Scooby hardware ID from your portal profile after hardware changes or an HWID mismatch. Learn where to find the reset and how cooldowns work.">
+<title>S&amp;box (Sandbox) Setup &amp; Troubleshooting Guide - Scooby</title>
+<meta name="description" content="Set up Scooby for S&amp;box (Sandbox) with your existing account. Find loader launch steps, menu controls, saved configs and troubleshooting help.">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://scoobymenu.cc/guides/general/hwid/">
-<meta property="og:title" content="How to Reset Your Scooby HWID - Scooby Guide">
-<meta property="og:description" content="Reset your Scooby hardware ID from your portal profile after hardware changes or an HWID mismatch. Learn where to find the reset and how cooldowns work.">
-<meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
+<meta property="og:url" content="https://scoobymenu.cc/guides/sbox/">
+<meta property="og:title" content="S&amp;box (Sandbox) Setup &amp; Troubleshooting Guide - Scooby">
+<meta property="og:description" content="Set up Scooby for S&amp;box (Sandbox) with your existing account. Find loader launch steps, menu controls, saved configs and troubleshooting help.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Reset Your Scooby HWID - Scooby Guide">
-<meta name="twitter:description" content="Reset your Scooby hardware ID from your portal profile after hardware changes or an HWID mismatch. Learn where to find the reset and how cooldowns work.">
-<meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
-<meta name="keywords" content="Scooby Menu, Scooby HWID reset, Scooby hardware ID mismatch, Scooby portal profile">
+<meta name="twitter:title" content="S&amp;box (Sandbox) Setup &amp; Troubleshooting Guide - Scooby">
+<meta name="twitter:description" content="Set up Scooby for S&amp;box (Sandbox) with your existing account. Find loader launch steps, menu controls, saved configs and troubleshooting help.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta name="keywords" content="Scooby Menu, Scooby S&amp;box (Sandbox) setup, sbox guide, S&amp;box (Sandbox) loader, S&amp;box (Sandbox) troubleshooting">
 
 <!-- DNS Prefetch for external resources -->
 
@@ -29,12 +29,13 @@
 </script>
 <script src="/assets/js/guides.js" defer="">
 </script>
-<link rel="canonical" href="https://scoobymenu.cc/guides/general/hwid/">
+<link rel="canonical" href="https://scoobymenu.cc/guides/sbox/">
 <noscript>
 <style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
 </noscript>
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="twitter:url" content="https://scoobymenu.cc/guides/general/hwid/">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/sbox/">
+<script>/* Preserve previously shared topic links. */(function(){var routes={"requirements":"/guides/sbox/requirements/","getting-started":"/guides/sbox/getting-started/","menu-settings":"/guides/sbox/menu-settings/","troubleshooting":"/guides/sbox/troubleshooting/","vc-runtimes":"/guides/sbox/requirements/#vc-runtimes"};function redirectTopic(){var id;try{id=decodeURIComponent(location.hash.slice(1));}catch(_){return;}if(Object.prototype.hasOwnProperty.call(routes,id))location.replace(routes[id]);}window.addEventListener('hashchange',redirectTopic);redirectTopic();})();</script>
 </head>
 <body class="wiki-article wiki-topic-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -108,9 +109,9 @@
 <a href="/guides/cs2/cs2-inject/">How to Inject</a>
 <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
 </details>
-<details>
+<details open>
 <summary>S&amp;box (Sandbox)</summary>
-<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
+<a class="sidebar-overview" href="/guides/sbox/" aria-current="page">Overview</a>
 <a href="/guides/sbox/requirements/">Requirements</a>
 <a href="/guides/sbox/getting-started/">Getting started</a>
 <a href="/guides/sbox/menu-settings/">Menu settings</a>
@@ -124,7 +125,7 @@
 <a href="/guides/gmod/menu-settings/">Menu settings</a>
 <a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
 </details>
-<details open="">
+<details>
 <summary>General help</summary>
 <a class="sidebar-overview" href="/guides/general/">Overview</a>
 <a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
@@ -132,7 +133,7 @@
 <a href="/guides/general/crashing/">Crashing Solutions</a>
 <a href="/guides/general/universal/">Universal Troubleshooting</a>
 <a href="/guides/general/connection/">Connection or SSL Errors</a>
-<a href="/guides/general/hwid/" aria-current="page">Resetting Your HWID</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
 <a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
 </details>
 <div class="sidebar-resources">
@@ -144,34 +145,26 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/general/">General help</a><span>/</span><span>Guide</span></div><h1>Resetting Your HWID</h1><p class="article-intro">General help · Scooby Wiki</p><div class="guide-card" id="hwid">
-                    <h2 class="sr-only">Resetting Your HWID</h2>
-                    <p>If you have changed hardware or are getting an HWID mismatch, reset it from the portal:</p>
-                    <ul>
-                        <li>Go to <a href="https://scoobymenu.cc/portal" target="_blank" rel="noopener">scoobymenu.cc/portal</a> and log in</li>
-                        <li>Open the <strong>dropdown menu in the top right</strong>
-</li>
-                        <li>Click <strong>"My Profile"</strong>
-</li>
-                        <li>Scroll down to <strong>Hardware ID</strong>
-</li>
-                        <li>Click <strong>"Reset HWID"</strong>
-</li>
-                    </ul>
-                    <img loading="lazy" decoding="async" src="/assets/images/guides/portal-reset-hwid.png" alt="Scooby portal account dropdown open in the top right with My Profile highlighted" class="guide-image">
-                    <div class="error-card">
-                        <h4>On cooldown?</h4>
-                        <p>If you are on cooldown then you need to wait - the reset cannot be forced through early.</p>
-                    </div>
-                </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/general/connection/"><span>← Previous guide</span><strong>Connection or SSL Errors</strong></a><a href="/guides/general/linux-mac/"><span>Next guide →</span><strong>Use Scooby on Linux &amp; Mac</strong></a></nav><footer class="wiki-footer">
+<main id="main-content" tabindex="-1">
+<div class="breadcrumbs"><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span>S&amp;box (Sandbox)</span></div>
+<h1>S&amp;box (Sandbox) guide</h1>
+<p class="article-intro">Launch S&amp;box (Sandbox), configure your menu, and find help with common issues.</p>
+<p class="topic-index-intro">Choose a topic to open its guide.</p>
+<div class="topic-grid">
+<a class="topic-card" id="requirements" href="/guides/sbox/requirements/"><h3>Requirements <span aria-hidden="true">→</span></h3><p>Open guide</p></a>
+<a class="topic-card" id="getting-started" href="/guides/sbox/getting-started/"><h3>Getting started <span aria-hidden="true">→</span></h3><p>Open guide</p></a>
+<a class="topic-card" id="menu-settings" href="/guides/sbox/menu-settings/"><h3>Menu settings <span aria-hidden="true">→</span></h3><p>Open guide</p></a>
+<a class="topic-card" id="troubleshooting" href="/guides/sbox/troubleshooting/"><h3>Troubleshooting <span aria-hidden="true">→</span></h3><p>Open guide</p></a>
+</div>
+<footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>
 <a href="/docs/">Developer docs</a>
 <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
 </div>
-</footer></main>
-
+</footer>
+</main>
 </div>
 <dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
 <div class="search-dialog-top">
@@ -190,7 +183,6 @@
 </div>
 <div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
 </dialog>
-
 
 
 

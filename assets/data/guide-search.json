@@ -126,6 +126,54 @@
     "href": "/guides/cs2/cs2-updates/"
   },
   {
+    "game": "S&box (Sandbox)",
+    "title": "Getting started",
+    "text": "Getting started Scooby S&box (Sandbox) is included with authenticated free-key and paid accounts. No additional S&box (Sandbox) key is required. Download the Scooby Loader and sign in with your existing free key or paid account. New to free keys? Read Getting a Free Key . Close S&box (Sandbox), select its card in the loader, then choose Launch S&Box . Choose Locate game if the loader cannot find your Steam installation. The loader downloads and verifies the matching runtime files. Press F1 or Insert to open the menu.",
+    "href": "/guides/sbox/getting-started/"
+  },
+  {
+    "game": "S&box (Sandbox)",
+    "title": "Menu settings",
+    "text": "Menu settings Set your preferred menu key, adjust the interface scale, and save a named config to keep your settings. Search and favorites: find a feature and keep frequently used options together. Hotkeys: choose Hold, Toggle, or Always mode for feature activation and review the assigned-key list. Interface: adjust UI scaling and accent colors, and position the draggable overlays. Configs: create, save, and load named profiles, or open the config directory from the menu. See the S&box (Sandbox) product page for screenshots and the full feature overview.",
+    "href": "/guides/sbox/menu-settings/"
+  },
+  {
+    "game": "S&box (Sandbox)",
+    "title": "Requirements",
+    "text": "Requirements Download VC Runtimes Install the Visual C++ runtimes before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then restart your PC . VC Runtimes (all-in-one package): Download the all-in-one VC runtime package Or install both packages directly from Microsoft: Download VC Runtimes — x64 (64-bit) Download VC Runtimes — x86 (32-bit)",
+    "href": "/guides/sbox/requirements/"
+  },
+  {
+    "game": "S&box (Sandbox)",
+    "title": "Troubleshooting",
+    "text": "Troubleshooting The loader cannot find the game Use Locate game to select your Steam installation, then launch S&box (Sandbox) through its loader card. A feature behaves differently between game modes Available data and controls depend on the active game mode and scene. Custom weapons and third-person aiming may not support the same features as standard first-person weapons. Connection, account, or launch problems See Connection or SSL Errors for sign-in issues, or follow Universal Troubleshooting for launch problems. Still need help? Ask in the Scooby community ↗ . Include the game, any error message, and the steps you have already tried.",
+    "href": "/guides/sbox/troubleshooting/"
+  },
+  {
+    "game": "Garry's Mod (GMOD)",
+    "title": "Getting started",
+    "text": "Getting started Scooby GMOD uses a free key and requires Garry's Mod on Windows with Steam's x86-64 branch selected. Load Scooby while the game is at the main menu. Open the GMOD product page , choose Get Free Key , and follow the key steps. See Getting a Free Key for help. Download Scooby . In your Steam Library , right-click Garry's Mod and open Properties → Game Versions & Betas . Select x86-64 , then wait for Steam to finish updating the game. Launch Garry's Mod and wait at the main menu . Load Scooby from the loader while you are still at the main menu , before joining a server or loading a map. Once Scooby is loaded, press Insert or F2 to open the menu.",
+    "href": "/guides/gmod/getting-started/"
+  },
+  {
+    "game": "Garry's Mod (GMOD)",
+    "title": "Menu settings",
+    "text": "Menu settings Open Settings to change the menu key, interface scale, and language. Save your preferences in a profile. Search and favorites: find individual controls and keep frequently used features close at hand. Profiles: save your settings so you can return to a familiar setup. Overlays: adjust their scale independently from the menu. Lua editor: while loaded into a game, select a local script or write a draft, then use Run Lua or Ctrl+Enter to run client-side Lua. Browse the full GMOD feature library for individual controls, or see the product page for screenshots.",
+    "href": "/guides/gmod/menu-settings/"
+  },
+  {
+    "game": "Garry's Mod (GMOD)",
+    "title": "Requirements",
+    "text": "Requirements Download VC Runtimes Install the Visual C++ runtimes before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then restart your PC . VC Runtimes (all-in-one package): Download the all-in-one VC runtime package Or install both packages directly from Microsoft: Download VC Runtimes — x64 (64-bit) Download VC Runtimes — x86 (32-bit)",
+    "href": "/guides/gmod/requirements/"
+  },
+  {
+    "game": "Garry's Mod (GMOD)",
+    "title": "Troubleshooting",
+    "text": "Troubleshooting The menu does not open Check that Steam's x86-64 branch is selected and fully updated. Launch Garry's Mod and load Scooby at the main menu , before joining a server or loading a map. Try the default Insert or F2 key, or your custom menu key if you changed it in Settings. A feature is unavailable in a game mode Gamemode tools depend on the active mode and server. Available information can differ between TTT, Murder, DarkRP, Prop Hunt, and GRust. Problems after a game update Game updates can affect compatibility. Check the GMOD product status and use Crashing Solutions or Universal Troubleshooting for further help. Still need help? Ask in the Scooby community ↗ . Include the game, any error message, and the steps you have already tried.",
+    "href": "/guides/gmod/troubleshooting/"
+  },
+  {
     "game": "General help",
     "title": "Connection or SSL Errors",
     "text": "Connection or SSL Errors If you get connection errors trying to load the website or the loader, it is because your ISP is blocking the connection to the servers. USE A VPN Cloudflare is usually good for most users, or you can use Proton . If you are still getting errors while connected to a VPN, it probably means you need to use a better VPN.",
