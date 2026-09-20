@@ -1,0 +1,2315 @@
+{
+  "game": "Garry's Mod",
+  "slug": "gmod",
+  "source": "Current GMod feature registry and menu controls; gamemode-specific options depend on the active server.",
+  "tabs": [
+    {
+      "name": "Combat",
+      "categories": [
+        {
+          "name": "Rage",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aimbot.globals.enable",
+                  "label": "Rage"
+                },
+                {
+                  "id": "aimbot.globals.silent",
+                  "label": "Silent"
+                },
+                {
+                  "id": "aimbot.globals.psilent",
+                  "label": "Psilent"
+                },
+                {
+                  "id": "aimbot.globals.automatic_fire",
+                  "label": "Automatic Fire"
+                },
+                {
+                  "id": "aimbot.globals.penetrate_walls",
+                  "label": "Penetrate Walls"
+                },
+                {
+                  "id": "aimbot.globals.auto_stop",
+                  "label": "Auto Stop"
+                },
+                {
+                  "id": "aimbot.globals.auto_scope",
+                  "label": "Auto Scope"
+                },
+                {
+                  "id": "aimbot.globals.auto_crouch",
+                  "label": "Auto Crouch"
+                },
+                {
+                  "id": "aimbot.globals.target_lock",
+                  "label": "Target Lock"
+                },
+                {
+                  "id": "aimbot.rage.prefer_visible",
+                  "label": "Prefer Visible"
+                },
+                {
+                  "id": "aimbot.rage.auto_head",
+                  "label": "Auto Head"
+                },
+                {
+                  "id": "aimbot.rage.rapid_fire",
+                  "label": "Rapid Fire"
+                },
+                {
+                  "id": "aimbot.rage.damage_override",
+                  "label": "Damage Override"
+                },
+                {
+                  "id": "aimbot.rage.auto_body_on_miss",
+                  "label": "Auto Body On Miss"
+                },
+                {
+                  "id": "aimbot.rage.safe_point",
+                  "label": "Safe Point"
+                },
+                {
+                  "id": "aimbot.rage.auto_wall",
+                  "label": "Auto Wall"
+                },
+                {
+                  "id": "aimbot.rage.hitbox_conditions",
+                  "label": "Hitbox Conditions"
+                },
+                {
+                  "id": "aimbot.rage.resolver",
+                  "label": "Resolver"
+                },
+                {
+                  "id": "aimbot.rage.scan_all_records",
+                  "label": "Scan All Records"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "combat.rage.aim.fov",
+                  "label": "Aim FOV",
+                  "desc": "Set the angle in which targets can be selected."
+                },
+                {
+                  "id": "combat.rage.hitbox.selection",
+                  "label": "Hitbox Selection",
+                  "desc": "Choose the aim point or scan several hitboxes.",
+                  "settings": [
+                    "Head, Chest, Stomach, Pelvis, Nearest, Hitscan"
+                  ]
+                },
+                {
+                  "id": "combat.rage.target.priority",
+                  "label": "Target Priority",
+                  "desc": "Choose how eligible targets are ranked.",
+                  "settings": [
+                    "FOV, Distance, Health"
+                  ]
+                },
+                {
+                  "id": "combat.rage.shot.delay",
+                  "label": "Shot Delay",
+                  "desc": "Set a delay before firing."
+                },
+                {
+                  "id": "combat.rage.hit.chance",
+                  "label": "Hit Chance",
+                  "desc": "Set the required hit-chance threshold."
+                },
+                {
+                  "id": "combat.rage.minimum.damage",
+                  "label": "Minimum Damage",
+                  "desc": "Set the minimum damage threshold for a shot."
+                },
+                {
+                  "id": "combat.rage.damage.override.value",
+                  "label": "Damage Override Value",
+                  "desc": "Choose the damage threshold used while the override bind is active."
+                },
+                {
+                  "id": "combat.rage.target.lock.time",
+                  "label": "Target Lock Time",
+                  "desc": "Configure how long target lock persists."
+                },
+                {
+                  "id": "combat.rage.conditional.hitboxes",
+                  "label": "Conditional Hitboxes",
+                  "desc": "Choose separate hitboxes for standing, moving and airborne targets."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Legit",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aimbot.legitbot.enable",
+                  "label": "Legit"
+                },
+                {
+                  "id": "aimbot.legitbot.rcs",
+                  "label": "RCS"
+                },
+                {
+                  "id": "aimbot.legitbot.trigger_bot",
+                  "label": "Trigger Bot"
+                },
+                {
+                  "id": "aimbot.legitbot.visible_only",
+                  "label": "Visible Only"
+                },
+                {
+                  "id": "aimbot.legitbot.aim_at_backtrack",
+                  "label": "Aim At Backtrack"
+                },
+                {
+                  "id": "aimbot.legitbot.target_switch_delay",
+                  "label": "Target Switch Delay"
+                },
+                {
+                  "id": "aimbot.legitbot.auto_pistol",
+                  "label": "Auto Pistol"
+                },
+                {
+                  "id": "aimbot.legitbot.smoke_check",
+                  "label": "Smoke Check"
+                },
+                {
+                  "id": "aimbot.legitbot.flash_check",
+                  "label": "Flash Check"
+                },
+                {
+                  "id": "aimbot.legitbot.show_fov_circle",
+                  "label": "Show FOV Circle"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "combat.legit.aim.fov.hitbox",
+                  "label": "Aim FOV & Hitbox",
+                  "desc": "Set the aim radius and preferred hitbox.",
+                  "settings": [
+                    "Head, Chest, Nearest"
+                  ]
+                },
+                {
+                  "id": "combat.legit.smoothing.controls",
+                  "label": "Smoothing Controls",
+                  "desc": "Adjust smoothing strength, smooth-in and random smoothing."
+                },
+                {
+                  "id": "combat.legit.rcs.strength",
+                  "label": "RCS Strength",
+                  "desc": "Set horizontal and vertical recoil-control strength independently."
+                },
+                {
+                  "id": "combat.legit.switch.delay",
+                  "label": "Switch Delay",
+                  "desc": "Set the delay before switching to another target."
+                },
+                {
+                  "id": "combat.legit.triggerbot.settings",
+                  "label": "Triggerbot Settings",
+                  "desc": "Configure firing delay, hitbox filtering and burst time.",
+                  "settings": [
+                    "Any, Head Only, Body Only"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Accuracy",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aimbot.accuracy.predict_spread",
+                  "label": "Predict Spread"
+                },
+                {
+                  "id": "aimbot.accuracy.disable_recoil",
+                  "label": "Disable Recoil"
+                },
+                {
+                  "id": "aimbot.accuracy.disable_visual_recoil",
+                  "label": "Disable Visual Recoil"
+                },
+                {
+                  "id": "aimbot.accuracy.multipoint",
+                  "label": "Multipoint"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "combat.accuracy.multipoint.scale",
+                  "label": "Multipoint Scale",
+                  "desc": "Adjust how far sample points spread around a hitbox."
+                },
+                {
+                  "id": "combat.accuracy.backtrack.window",
+                  "label": "Backtrack Window",
+                  "desc": "Set the history window and record selection mode.",
+                  "settings": [
+                    "Latest or Best record"
+                  ]
+                },
+                {
+                  "id": "combat.accuracy.aim.smoothing",
+                  "label": "Aim Smoothing",
+                  "desc": "Adjust how quickly aim moves toward a target."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Target Filters",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aimbot.target_filter.ignore_team",
+                  "label": "Ignore Team"
+                },
+                {
+                  "id": "aimbot.target_filter.ignore_friends",
+                  "label": "Ignore Friends"
+                },
+                {
+                  "id": "aimbot.target_filter.ignore_bots",
+                  "label": "Ignore Bots"
+                },
+                {
+                  "id": "aimbot.target_filter.body_aim_if_lethal",
+                  "label": "Body Aim If Lethal"
+                },
+                {
+                  "id": "aimbot.target_filter.force_body_aim",
+                  "label": "Force Body Aim"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vis",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aimbot.visuals.fov",
+                  "label": "FOV"
+                },
+                {
+                  "id": "aimbot.visuals.snaplines",
+                  "label": "Snaplines"
+                },
+                {
+                  "id": "aimbot.visuals.backtrack.enable",
+                  "label": "Backtrack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Anti-Aim & Fake Lag",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "antihit.fake_lags.enable",
+                  "label": "Fake Lags"
+                },
+                {
+                  "id": "antihit.fake_lags.unchoke_on_shot",
+                  "label": "Unchoke On Shot"
+                },
+                {
+                  "id": "antihit.fake_lags.lag_on_land",
+                  "label": "Lag On Land"
+                },
+                {
+                  "id": "antihit.fake_lags.disable_on_low_hp",
+                  "label": "Disable On Low HP"
+                },
+                {
+                  "id": "antihit.fake_angles.enable",
+                  "label": "Anti-Aim"
+                },
+                {
+                  "id": "antihit.fake_angles.at_target",
+                  "label": "At Target"
+                },
+                {
+                  "id": "antihit.fake_angles.invert_yaw",
+                  "label": "Invert Yaw"
+                },
+                {
+                  "id": "antihit.fake_angles.fake_duck",
+                  "label": "Fake Duck"
+                },
+                {
+                  "id": "antihit.fake_angles.desync",
+                  "label": "Desync"
+                },
+                {
+                  "id": "antihit.fake_angles.slow_walk",
+                  "label": "Slow Walk"
+                },
+                {
+                  "id": "antihit.fake_angles.airstuck",
+                  "label": "Airstuck"
+                },
+                {
+                  "id": "antihit.fake_angles.lag_comp_exploit",
+                  "label": "Lag Comp Exploit"
+                },
+                {
+                  "id": "antihit.fake_angles.micro_move",
+                  "label": "Micro Move"
+                },
+                {
+                  "id": "antihit.fake_angles.extended_desync",
+                  "label": "Extended Desync"
+                },
+                {
+                  "id": "antihit.fake_angles.lby_breaker",
+                  "label": "LBY Breaker"
+                },
+                {
+                  "id": "antihit.fake_angles.anti_bruteforce",
+                  "label": "Anti Bruteforce"
+                },
+                {
+                  "id": "antihit.visuals.fake_model.enable",
+                  "label": "Fake Model"
+                },
+                {
+                  "id": "antihit.fake_angles.manual_left",
+                  "label": "Manual Left"
+                },
+                {
+                  "id": "antihit.fake_angles.manual_right",
+                  "label": "Manual Right"
+                },
+                {
+                  "id": "antihit.fake_angles.manual_back",
+                  "label": "Manual Back"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "combat.anti.aim.fake.lag.pitch.yaw",
+                  "label": "Pitch & Yaw",
+                  "desc": "Choose angle modes and tune custom pitch, yaw offset, jitter range and spin speed."
+                },
+                {
+                  "id": "combat.anti.aim.fake.lag.fake.lag.settings",
+                  "label": "Fake Lag Settings",
+                  "desc": "Configure tick count, activation method and fluctuation limits."
+                },
+                {
+                  "id": "combat.anti.aim.fake.lag.fake.model.material",
+                  "label": "Fake Model Material",
+                  "desc": "Customize the material and color of the fake model."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visuals",
+      "categories": [
+        {
+          "name": "Player ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.esp.players.enable",
+                  "label": "Player ESP"
+                },
+                {
+                  "id": "visuals.esp.players.box",
+                  "label": "Box"
+                },
+                {
+                  "id": "visuals.esp.players.box_outline",
+                  "label": "Box Outline"
+                },
+                {
+                  "id": "visuals.esp.players.box_fill",
+                  "label": "Box Fill"
+                },
+                {
+                  "id": "visuals.esp.players.name",
+                  "label": "Name"
+                },
+                {
+                  "id": "visuals.esp.players.health_bar",
+                  "label": "Health Bar"
+                },
+                {
+                  "id": "visuals.esp.players.health_text",
+                  "label": "Health Text"
+                },
+                {
+                  "id": "visuals.esp.players.skeleton",
+                  "label": "Skeleton"
+                },
+                {
+                  "id": "visuals.esp.players.ammo_bar",
+                  "label": "Ammo Bar"
+                },
+                {
+                  "id": "visuals.esp.players.rp_team",
+                  "label": "RP Team"
+                },
+                {
+                  "id": "visuals.esp.players.user_group",
+                  "label": "User Group"
+                },
+                {
+                  "id": "visuals.esp.players.weapon_name",
+                  "label": "Weapon Name"
+                },
+                {
+                  "id": "visuals.esp.players.distance",
+                  "label": "Distance"
+                },
+                {
+                  "id": "visuals.esp.players.snaplines",
+                  "label": "Snaplines"
+                },
+                {
+                  "id": "visuals.esp.players.head_dot",
+                  "label": "Head Dot"
+                },
+                {
+                  "id": "visuals.esp.players.head_outline",
+                  "label": "Head Outline"
+                },
+                {
+                  "id": "visuals.esp.players.armor_bar",
+                  "label": "Armor Bar"
+                },
+                {
+                  "id": "visuals.esp.players.flags",
+                  "label": "Flags"
+                },
+                {
+                  "id": "visuals.esp.players.health_color_box",
+                  "label": "Health Color Box"
+                },
+                {
+                  "id": "visuals.esp.players.box_glow",
+                  "label": "Box Glow"
+                },
+                {
+                  "id": "visuals.esp.players.text_background",
+                  "label": "Text Background"
+                },
+                {
+                  "id": "visuals.esp.players.health_bar_gradient",
+                  "label": "Health Bar Gradient"
+                },
+                {
+                  "id": "visuals.esp.players.health_bar_outline",
+                  "label": "Health Bar Outline"
+                },
+                {
+                  "id": "visuals.esp.players.skeleton_dots",
+                  "label": "Skeleton Dots"
+                },
+                {
+                  "id": "visuals.esp.players.health_color_skeleton",
+                  "label": "Health Color Skeleton"
+                },
+                {
+                  "id": "visuals.esp.players.skeleton_glow",
+                  "label": "Skeleton Glow"
+                },
+                {
+                  "id": "visuals.esp.players.box_pulse",
+                  "label": "Box Pulse"
+                },
+                {
+                  "id": "visuals.esp.players.weapon_type",
+                  "label": "Weapon Type"
+                },
+                {
+                  "id": "visuals.esp.players.distance_fade",
+                  "label": "Distance Fade"
+                },
+                {
+                  "id": "visuals.esp.players.friend_highlight",
+                  "label": "Friend Highlight"
+                },
+                {
+                  "id": "visuals.esp.players.friend_skip",
+                  "label": "Friend Skip"
+                },
+                {
+                  "id": "visuals.esp.players.show_ping",
+                  "label": "Show Ping"
+                },
+                {
+                  "id": "visuals.esp.players.scoped_indicator",
+                  "label": "Scoped Indicator"
+                },
+                {
+                  "id": "visuals.esp.players.health_number",
+                  "label": "Health Number"
+                },
+                {
+                  "id": "visuals.esp.players.health_number_color",
+                  "label": "Health Number Color"
+                },
+                {
+                  "id": "visuals.esp.players.ammo_text",
+                  "label": "Ammo Text"
+                },
+                {
+                  "id": "visuals.esp.players.line_of_sight",
+                  "label": "Line Of Sight"
+                },
+                {
+                  "id": "visuals.esp.players.line_of_sight_draw_line",
+                  "label": "Line Of Sight Draw Line"
+                },
+                {
+                  "id": "visuals.esp.players.rainbow.box",
+                  "label": "Rainbow / Box"
+                },
+                {
+                  "id": "visuals.esp.players.rainbow.skeleton",
+                  "label": "Rainbow / Skeleton"
+                },
+                {
+                  "id": "visuals.esp.players.rainbow.snaplines",
+                  "label": "Rainbow / Snaplines"
+                },
+                {
+                  "id": "visuals.esp.players.rainbow.head_dot",
+                  "label": "Rainbow / Head Dot"
+                },
+                {
+                  "id": "visuals.esp.players.rainbow.line_of_sight",
+                  "label": "Rainbow / Line Of Sight"
+                },
+                {
+                  "id": "visuals.esp.players.visible_check",
+                  "label": "Visible Check"
+                },
+                {
+                  "id": "visuals.esp.players.ammo_bar_text",
+                  "label": "Ammo Bar Text"
+                },
+                {
+                  "id": "visuals.esp.players.offscreen_indicator_show_distance",
+                  "label": "Offscreen Indicator Show Distance"
+                },
+                {
+                  "id": "visuals.esp.players.snapline_dynamic_width",
+                  "label": "Snapline Dynamic Width"
+                },
+                {
+                  "id": "visuals.esp.players.offscreen_indicators",
+                  "label": "Offscreen Indicators"
+                },
+                {
+                  "id": "visuals.esp.players.speed_text",
+                  "label": "Speed Text"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "visuals.player.esp.box.settings",
+                  "label": "Box Settings",
+                  "desc": "Configure box style, thickness, fill and outline."
+                },
+                {
+                  "id": "visuals.player.esp.bar.settings",
+                  "label": "Bar Settings",
+                  "desc": "Customize health, armor and ammo bars, including position and size."
+                },
+                {
+                  "id": "visuals.player.esp.text.settings",
+                  "label": "Text Settings",
+                  "desc": "Adjust text size, position and display style."
+                },
+                {
+                  "id": "visuals.player.esp.line.settings",
+                  "label": "Line Settings",
+                  "desc": "Tune skeleton, snapline and line-of-sight styles and thickness."
+                },
+                {
+                  "id": "visuals.player.esp.feature.colors",
+                  "label": "Feature Colors",
+                  "desc": "Set colors beside individual controls.",
+                  "settings": [
+                    "RGB, HEX, alpha"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Entity ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.esp.entity.enable",
+                  "label": "Entity ESP"
+                },
+                {
+                  "id": "visuals.esp.entity.dormant",
+                  "label": "Dormant"
+                },
+                {
+                  "id": "visuals.esp.entity.box",
+                  "label": "Box"
+                },
+                {
+                  "id": "visuals.esp.entity.box_outline",
+                  "label": "Box Outline"
+                },
+                {
+                  "id": "visuals.esp.entity.name",
+                  "label": "Name"
+                },
+                {
+                  "id": "visuals.esp.entity.distance",
+                  "label": "Distance"
+                },
+                {
+                  "id": "visuals.esp.entity.text_shadow",
+                  "label": "Text Shadow"
+                },
+                {
+                  "id": "visuals.esp.entity.snaplines",
+                  "label": "Snaplines"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "visuals.entity.esp.entity.selection",
+                  "label": "Entity Selection",
+                  "desc": "Select which entity classes appear in ESP."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NPC ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.esp.npc.enable",
+                  "label": "NPC ESP"
+                },
+                {
+                  "id": "visuals.esp.npc.box",
+                  "label": "Box"
+                },
+                {
+                  "id": "visuals.esp.npc.box_outline",
+                  "label": "Box Outline"
+                },
+                {
+                  "id": "visuals.esp.npc.name",
+                  "label": "Name"
+                },
+                {
+                  "id": "visuals.esp.npc.health_bar",
+                  "label": "Health Bar"
+                },
+                {
+                  "id": "visuals.esp.npc.distance",
+                  "label": "Distance"
+                },
+                {
+                  "id": "visuals.esp.npc.snaplines",
+                  "label": "Snaplines"
+                },
+                {
+                  "id": "visuals.esp.npc.skeleton",
+                  "label": "Skeleton"
+                },
+                {
+                  "id": "visuals.esp.npc.head_dot",
+                  "label": "Head Dot"
+                },
+                {
+                  "id": "visuals.esp.npc.offscreen_indicators",
+                  "label": "Offscreen Indicators"
+                },
+                {
+                  "id": "visuals.esp.npc.health_bar_gradient",
+                  "label": "Health Bar Gradient"
+                },
+                {
+                  "id": "visuals.esp.npc.health_bar_text",
+                  "label": "Health Bar Text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vehicle ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.esp.vehicle.enable",
+                  "label": "Vehicle ESP"
+                },
+                {
+                  "id": "visuals.esp.vehicle.box",
+                  "label": "Box"
+                },
+                {
+                  "id": "visuals.esp.vehicle.box_outline",
+                  "label": "Box Outline"
+                },
+                {
+                  "id": "visuals.esp.vehicle.name",
+                  "label": "Name"
+                },
+                {
+                  "id": "visuals.esp.vehicle.driver",
+                  "label": "Driver"
+                },
+                {
+                  "id": "visuals.esp.vehicle.distance",
+                  "label": "Distance"
+                },
+                {
+                  "id": "visuals.esp.vehicle.snaplines",
+                  "label": "Snaplines"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chams",
+          "groups": [
+            {
+              "name": "Players",
+              "items": [
+                {
+                  "id": "visuals.chams.players.enable",
+                  "label": "Players Chams"
+                },
+                {
+                  "id": "visuals.chams.players.ignore_walls",
+                  "label": "Ignore Walls"
+                },
+                {
+                  "id": "visuals.chams.players.draw_original_model",
+                  "label": "Draw Original Model"
+                },
+                {
+                  "id": "visuals.chams.players.overlay_enable",
+                  "label": "Overlay Enable"
+                },
+                {
+                  "id": "visuals.chams.players.health_color",
+                  "label": "Health Color"
+                },
+                {
+                  "id": "visuals.chams.players.rainbow",
+                  "label": "Rainbow"
+                }
+              ]
+            },
+            {
+              "name": "Local Player",
+              "items": [
+                {
+                  "id": "visuals.chams.local_player.enable",
+                  "label": "Local Player Chams"
+                },
+                {
+                  "id": "visuals.chams.local_player.draw_original_model",
+                  "label": "Draw Original Model"
+                },
+                {
+                  "id": "visuals.chams.local_player.overlay_enable",
+                  "label": "Overlay Enable"
+                },
+                {
+                  "id": "visuals.chams.local_player.rainbow",
+                  "label": "Rainbow"
+                }
+              ]
+            },
+            {
+              "name": "Entity",
+              "items": [
+                {
+                  "id": "visuals.chams.entity.enable",
+                  "label": "Entity Chams"
+                },
+                {
+                  "id": "visuals.chams.entity.ignore_walls",
+                  "label": "Ignore Walls"
+                },
+                {
+                  "id": "visuals.chams.entity.draw_original_model",
+                  "label": "Draw Original Model"
+                },
+                {
+                  "id": "visuals.chams.entity.overlay_enable",
+                  "label": "Overlay Enable"
+                }
+              ]
+            },
+            {
+              "name": "Hands",
+              "items": [
+                {
+                  "id": "visuals.chams.hands.enable",
+                  "label": "Hands Chams"
+                },
+                {
+                  "id": "visuals.chams.hands.draw_original_model",
+                  "label": "Draw Original Model"
+                },
+                {
+                  "id": "visuals.chams.hands.overlay_enable",
+                  "label": "Overlay Enable"
+                },
+                {
+                  "id": "visuals.chams.hands.rainbow",
+                  "label": "Rainbow"
+                }
+              ]
+            },
+            {
+              "name": "Weapons",
+              "items": [
+                {
+                  "id": "visuals.chams.weapons.enable",
+                  "label": "Weapons Chams"
+                },
+                {
+                  "id": "visuals.chams.weapons.draw_original_model",
+                  "label": "Draw Original Model"
+                },
+                {
+                  "id": "visuals.chams.weapons.overlay_enable",
+                  "label": "Overlay Enable"
+                },
+                {
+                  "id": "visuals.chams.weapons.rainbow",
+                  "label": "Rainbow"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "visuals.chams.materials.colors",
+                  "label": "Materials & Colors",
+                  "desc": "Choose materials, base colors and overlay materials for each chams group."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "World",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.world.nightmode.enable",
+                  "label": "Nightmode"
+                },
+                {
+                  "id": "visuals.world.no_hands.enable",
+                  "label": "No Hands"
+                },
+                {
+                  "id": "visuals.world.bullet_tracers.enable",
+                  "label": "Bullet Tracers"
+                },
+                {
+                  "id": "visuals.world.bullet_tracers.rainbow",
+                  "label": "Bullet Tracers / Rainbow"
+                },
+                {
+                  "id": "visuals.world.bullet_tracers.impact_circle",
+                  "label": "Bullet Tracers / Impact Circle"
+                },
+                {
+                  "id": "visuals.world.removals.no_smoke",
+                  "label": "Removals / No Smoke"
+                },
+                {
+                  "id": "visuals.world.removals.no_flash",
+                  "label": "Removals / No Flash"
+                },
+                {
+                  "id": "visuals.world.removals.no_scope_overlay",
+                  "label": "Removals / No Scope Overlay"
+                },
+                {
+                  "id": "visuals.world.removals.no_sky",
+                  "label": "Removals / No Sky"
+                },
+                {
+                  "id": "visuals.world.removals.fullbright",
+                  "label": "Removals / Fullbright"
+                },
+                {
+                  "id": "visuals.world.removals.no_fog",
+                  "label": "Removals / No Fog"
+                },
+                {
+                  "id": "visuals.world.removals.no_post_processing",
+                  "label": "Removals / No Post Processing"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "visuals.world.nightmode.brightness.tint",
+                  "label": "Nightmode Brightness & Tint",
+                  "desc": "Adjust world brightness and red, green and blue tint."
+                },
+                {
+                  "id": "visuals.world.bullet.tracer.settings",
+                  "label": "Bullet Tracer Settings",
+                  "desc": "Set tracer style, duration, thickness and impact size.",
+                  "settings": [
+                    "Line, Beam (Glow), Dashed"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weapon Drops",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.weapon_drops.enable",
+                  "label": "Weapon Drops"
+                },
+                {
+                  "id": "visuals.weapon_drops.box",
+                  "label": "Box"
+                },
+                {
+                  "id": "visuals.weapon_drops.name",
+                  "label": "Name"
+                },
+                {
+                  "id": "visuals.weapon_drops.distance",
+                  "label": "Distance"
+                },
+                {
+                  "id": "visuals.weapon_drops.snaplines",
+                  "label": "Snaplines"
+                },
+                {
+                  "id": "visuals.weapon_drops.box_outline",
+                  "label": "Box Outline"
+                },
+                {
+                  "id": "visuals.weapon_drops.box_fill",
+                  "label": "Box Fill"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "View",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.view.fov_changer.enable",
+                  "label": "FOV Changer"
+                },
+                {
+                  "id": "visuals.view.model_fov_changer.enable",
+                  "label": "Model FOV Changer"
+                },
+                {
+                  "id": "visuals.view.viewmodel_offset.enable",
+                  "label": "Viewmodel Offset"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "visuals.view.camera.fov.value",
+                  "label": "Camera FOV Value",
+                  "desc": "Adjust the camera field of view."
+                },
+                {
+                  "id": "visuals.view.viewmodel.fov.value",
+                  "label": "Viewmodel FOV Value",
+                  "desc": "Adjust the field of view used for the weapon model."
+                },
+                {
+                  "id": "visuals.view.viewmodel.position",
+                  "label": "Viewmodel Position",
+                  "desc": "Offset the weapon along the X, Y and Z axes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Other",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.other.anti_screengrab",
+                  "label": "Anti Screengrab"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Overlays",
+      "categories": [
+        {
+          "name": "Radar",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "visuals.radar.enable",
+                  "label": "Radar"
+                },
+                {
+                  "id": "visuals.radar.rotate",
+                  "label": "Rotate"
+                },
+                {
+                  "id": "visuals.radar.show_names",
+                  "label": "Show Names"
+                },
+                {
+                  "id": "visuals.radar.crosshair",
+                  "label": "Crosshair"
+                },
+                {
+                  "id": "visuals.radar.dot_outline",
+                  "label": "Dot Outline"
+                },
+                {
+                  "id": "visuals.radar.draggable",
+                  "label": "Draggable"
+                },
+                {
+                  "id": "visuals.radar.range_rings",
+                  "label": "Range Rings"
+                }
+              ]
+            },
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "overlays.radar.radar.layout",
+                  "label": "Radar Layout",
+                  "desc": "Choose a square or circular radar and adjust its size."
+                },
+                {
+                  "id": "overlays.radar.range.markers",
+                  "label": "Range & Markers",
+                  "desc": "Set radar range, marker size, name size and the number of range rings."
+                },
+                {
+                  "id": "overlays.radar.radar.colors",
+                  "label": "Radar Colors",
+                  "desc": "Customize the radar background and player marker colors."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Spectator List",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.spectator_list.enable",
+                  "label": "Spectator List"
+                },
+                {
+                  "id": "miscellaneous.globals.spectator_list.only_spectating_you",
+                  "label": "Only Spectating You"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Watermark",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.watermark.enable",
+                  "label": "Watermark"
+                },
+                {
+                  "id": "miscellaneous.globals.watermark.show_fps",
+                  "label": "Show FPS"
+                },
+                {
+                  "id": "miscellaneous.globals.watermark.show_fps_graph",
+                  "label": "FPS Graph"
+                },
+                {
+                  "id": "miscellaneous.globals.watermark.show_ping",
+                  "label": "Show Ping"
+                },
+                {
+                  "id": "miscellaneous.globals.watermark.show_time",
+                  "label": "Show Time"
+                },
+                {
+                  "id": "miscellaneous.globals.watermark.show_server",
+                  "label": "Show Server"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Binds Overlay",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.bind_list.enable",
+                  "label": "Binds Overlay"
+                },
+                {
+                  "id": "miscellaneous.globals.bind_list.show_inactive",
+                  "label": "Show Inactive"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Admin List",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.admin_list.enable",
+                  "label": "Admin List"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Session Stats",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.session_stats.enable",
+                  "label": "Session Stats"
+                },
+                {
+                  "id": "miscellaneous.globals.session_stats.show_kd",
+                  "label": "Show K/D"
+                },
+                {
+                  "id": "miscellaneous.globals.session_stats.show_time",
+                  "label": "Show Time"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement",
+      "categories": [
+        {
+          "name": "Movement",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.movement.bhop",
+                  "label": "Bunny Hop"
+                },
+                {
+                  "id": "miscellaneous.movement.air_strafe",
+                  "label": "Air Strafe"
+                },
+                {
+                  "id": "miscellaneous.movement.edge_jump",
+                  "label": "Edge Jump"
+                },
+                {
+                  "id": "miscellaneous.movement.auto_pistol",
+                  "label": "Auto Pistol"
+                },
+                {
+                  "id": "miscellaneous.movement.crouch_jump",
+                  "label": "Crouch Jump"
+                },
+                {
+                  "id": "miscellaneous.movement.slide_hop",
+                  "label": "Slide Hop"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Movement Extras",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.movement.fast_stop.enable",
+                  "label": "Fast Stop"
+                },
+                {
+                  "id": "miscellaneous.movement.infinite_duck.enable",
+                  "label": "Infinite Duck"
+                },
+                {
+                  "id": "miscellaneous.movement.auto_reload.enable",
+                  "label": "Auto Reload"
+                },
+                {
+                  "id": "miscellaneous.movement.long_jump.enable",
+                  "label": "Long Jump"
+                },
+                {
+                  "id": "miscellaneous.movement.auto_unstuck.enable",
+                  "label": "Auto Unstuck"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Indicators & Anti-AFK",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.movement.speed_indicator.enable",
+                  "label": "Speed Indicator"
+                },
+                {
+                  "id": "miscellaneous.movement.anti_afk.enable",
+                  "label": "Anti AFK"
+                },
+                {
+                  "id": "miscellaneous.movement.anti_afk.jitter",
+                  "label": "Anti AFK / Jitter"
+                },
+                {
+                  "id": "miscellaneous.movement.anti_afk.only_when_idle",
+                  "label": "Anti AFK / Only When Idle"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "categories": [
+        {
+          "name": "Third Person",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.third_person.enable",
+                  "label": "Third Person"
+                },
+                {
+                  "id": "miscellaneous.globals.third_person.smooth",
+                  "label": "Smooth"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hit Marker",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.hit_marker.enable",
+                  "label": "Hit Marker"
+                },
+                {
+                  "id": "miscellaneous.globals.hit_marker.damage_numbers",
+                  "label": "Damage Numbers"
+                },
+                {
+                  "id": "miscellaneous.globals.hit_marker.screen_shake",
+                  "label": "Screen Shake"
+                },
+                {
+                  "id": "miscellaneous.globals.hit_marker.grow_on_hit",
+                  "label": "Grow On Hit"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Crosshair",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.crosshair.enable",
+                  "label": "Crosshair"
+                },
+                {
+                  "id": "miscellaneous.globals.crosshair.outline",
+                  "label": "Outline"
+                },
+                {
+                  "id": "miscellaneous.globals.crosshair.disable_game_crosshair",
+                  "label": "Disable Game Crosshair"
+                },
+                {
+                  "id": "miscellaneous.globals.crosshair.spin",
+                  "label": "Spin"
+                },
+                {
+                  "id": "miscellaneous.globals.crosshair.dynamic",
+                  "label": "Dynamic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Damage Log",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.damage_log.enable",
+                  "label": "Damage Log"
+                },
+                {
+                  "id": "miscellaneous.globals.damage_log.show_dealt",
+                  "label": "Show Dealt"
+                },
+                {
+                  "id": "miscellaneous.globals.damage_log.show_received",
+                  "label": "Show Received"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Kill Say",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.kill_say.enable",
+                  "label": "Kill Say"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chat Spam",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.chat_spam.enable",
+                  "label": "Chat Spam"
+                },
+                {
+                  "id": "miscellaneous.globals.chat_spam.team_chat",
+                  "label": "Team Chat"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hit Sound",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.hit_sound.enable",
+                  "label": "Hit Sound"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name Changer",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.name_changer.enable",
+                  "label": "Name Changer"
+                },
+                {
+                  "id": "miscellaneous.globals.name_changer.add_invisible_char",
+                  "label": "Add Invisible Char"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Auto Accept",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.auto_accept.enable",
+                  "label": "Auto Accept"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Clan Tag",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.clan_tag.enable",
+                  "label": "Clan Tag"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Flashlight Spam",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.flashlight_spam.enable",
+                  "label": "Flashlight Spam"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Radio Spam",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.radio_spam.enable",
+                  "label": "Radio Spam"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vote Revealer",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.vote_revealer.enable",
+                  "label": "Vote Revealer"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Thirdperson Crosshair",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.thirdperson_crosshair.enable",
+                  "label": "Thirdperson Crosshair"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sound ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.sound_esp.enable",
+                  "label": "Sound ESP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Velocity Graph",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.velocity_graph.enable",
+                  "label": "Velocity Graph"
+                },
+                {
+                  "id": "miscellaneous.globals.velocity_graph.fill",
+                  "label": "Fill"
+                },
+                {
+                  "id": "miscellaneous.globals.velocity_graph.show_max",
+                  "label": "Show Max"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fakelag Indicator",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.globals.fakelag_indicator.enable",
+                  "label": "Fakelag Indicator"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Protection",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "miscellaneous.protection.anti_screenshot.enable",
+                  "label": "Anti Screenshot"
+                },
+                {
+                  "id": "miscellaneous.protection.fake_ping.enable",
+                  "label": "Fake Ping"
+                },
+                {
+                  "id": "miscellaneous.protection.server_protection.anti_kick",
+                  "label": "Server Protection / Anti Kick"
+                },
+                {
+                  "id": "miscellaneous.protection.server_protection.anti_freeze",
+                  "label": "Server Protection / Anti Freeze"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Players",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "miscellaneous.players.player.list",
+                  "label": "Player List",
+                  "desc": "Browse players and manage player-specific preferences."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gamemodes",
+      "categories": [
+        {
+          "name": "TTT",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "gamemode.ttt.reveal_roles",
+                  "label": "Reveal Roles"
+                },
+                {
+                  "id": "gamemode.ttt.role_colors",
+                  "label": "Role Colors"
+                },
+                {
+                  "id": "gamemode.ttt.traitor_warning",
+                  "label": "Traitor Warning"
+                },
+                {
+                  "id": "gamemode.ttt.highlight_detectives",
+                  "label": "Highlight Detectives"
+                },
+                {
+                  "id": "gamemode.ttt.show_karma",
+                  "label": "Show Karma"
+                },
+                {
+                  "id": "gamemode.ttt.show_credits",
+                  "label": "Show Credits"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Murder",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "gamemode.murder.reveal_murderer",
+                  "label": "Reveal Murderer"
+                },
+                {
+                  "id": "gamemode.murder.highlight_gun_holder",
+                  "label": "Highlight Gun Holder"
+                },
+                {
+                  "id": "gamemode.murder.show_loot",
+                  "label": "Show Loot"
+                },
+                {
+                  "id": "gamemode.murder.role_colors",
+                  "label": "Role Colors"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "DarkRP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "gamemode.darkrp.rp_team",
+                  "label": "RP Team"
+                },
+                {
+                  "id": "gamemode.darkrp.show_money",
+                  "label": "Show Money"
+                },
+                {
+                  "id": "gamemode.darkrp.show_wanted",
+                  "label": "Show Wanted"
+                },
+                {
+                  "id": "gamemode.darkrp.show_door_owner",
+                  "label": "Show Door Owner"
+                },
+                {
+                  "id": "gamemode.darkrp.lockpick_detection",
+                  "label": "Lockpick Detection"
+                },
+                {
+                  "id": "gamemode.darkrp.show_job_above_head",
+                  "label": "Show Job Above Head"
+                },
+                {
+                  "id": "gamemode.darkrp.show_salary",
+                  "label": "Show Salary"
+                },
+                {
+                  "id": "gamemode.darkrp.show_wanted_reason",
+                  "label": "Show Wanted Reason"
+                },
+                {
+                  "id": "gamemode.darkrp.show_government",
+                  "label": "Show Government"
+                },
+                {
+                  "id": "gamemode.darkrp.show_warrant",
+                  "label": "Show Warrant"
+                },
+                {
+                  "id": "gamemode.darkrp.show_entity_owner",
+                  "label": "Show Entity Owner"
+                },
+                {
+                  "id": "gamemode.darkrp.show_hitman_target",
+                  "label": "Show Hitman Target"
+                },
+                {
+                  "id": "gamemode.darkrp.show_lockpick_progress",
+                  "label": "Show Lockpick Progress"
+                },
+                {
+                  "id": "gamemode.darkrp.auto_demote_alert",
+                  "label": "Auto Demote Alert"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Prop Hunt",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "gamemode.prophunt.highlight_props",
+                  "label": "Highlight Props"
+                },
+                {
+                  "id": "gamemode.prophunt.show_prop_health",
+                  "label": "Show Prop Health"
+                },
+                {
+                  "id": "gamemode.prophunt.highlight_hunters",
+                  "label": "Highlight Hunters"
+                },
+                {
+                  "id": "gamemode.prophunt.last_prop_alert",
+                  "label": "Last Prop Alert"
+                },
+                {
+                  "id": "gamemode.prophunt.show_prop_name",
+                  "label": "Show Prop Name"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GRust",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "gamemode.grust.no_recoil",
+                  "label": "No Recoil"
+                },
+                {
+                  "id": "gamemode.grust.no_spread",
+                  "label": "No Spread"
+                },
+                {
+                  "id": "gamemode.grust.rapid_fire",
+                  "label": "Rapid Fire"
+                },
+                {
+                  "id": "gamemode.grust.no_sway",
+                  "label": "No Sway"
+                },
+                {
+                  "id": "gamemode.grust.instant_reload",
+                  "label": "Instant Reload"
+                },
+                {
+                  "id": "gamemode.grust.auto_shoot",
+                  "label": "Auto Shoot"
+                },
+                {
+                  "id": "gamemode.grust.esp.enable",
+                  "label": "ESP"
+                }
+              ]
+            },
+            {
+              "name": "ESP",
+              "items": [
+                {
+                  "id": "gamemode.grust.esp.resources",
+                  "label": "Resources"
+                },
+                {
+                  "id": "gamemode.grust.esp.resource_name",
+                  "label": "Resource Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.resource_distance",
+                  "label": "Resource Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.loot",
+                  "label": "Loot"
+                },
+                {
+                  "id": "gamemode.grust.esp.loot_name",
+                  "label": "Loot Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.loot_distance",
+                  "label": "Loot Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.collectibles",
+                  "label": "Collectibles"
+                },
+                {
+                  "id": "gamemode.grust.esp.collectible_name",
+                  "label": "Collectible Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.collectible_distance",
+                  "label": "Collectible Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.animals",
+                  "label": "Animals"
+                },
+                {
+                  "id": "gamemode.grust.esp.animal_name",
+                  "label": "Animal Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.animal_distance",
+                  "label": "Animal Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.deployables",
+                  "label": "Deployables"
+                },
+                {
+                  "id": "gamemode.grust.esp.deployable_name",
+                  "label": "Deployable Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.deployable_distance",
+                  "label": "Deployable Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.stashes",
+                  "label": "Stashes"
+                },
+                {
+                  "id": "gamemode.grust.esp.stash_name",
+                  "label": "Stash Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.stash_distance",
+                  "label": "Stash Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.supply_drops",
+                  "label": "Supply Drops"
+                },
+                {
+                  "id": "gamemode.grust.esp.supply_name",
+                  "label": "Supply Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.supply_distance",
+                  "label": "Supply Distance"
+                },
+                {
+                  "id": "gamemode.grust.esp.corpses",
+                  "label": "Corpses"
+                },
+                {
+                  "id": "gamemode.grust.esp.corpse_name",
+                  "label": "Corpse Name"
+                },
+                {
+                  "id": "gamemode.grust.esp.corpse_distance",
+                  "label": "Corpse Distance"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lua",
+      "categories": [
+        {
+          "name": "Scripts",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "lua.scripts.script.library",
+                  "label": "Script Library",
+                  "desc": "Browse local Lua files and select a script."
+                },
+                {
+                  "id": "lua.scripts.create.script",
+                  "label": "Create Script",
+                  "desc": "Create a named Lua file from the menu."
+                },
+                {
+                  "id": "lua.scripts.load.script",
+                  "label": "Load Script",
+                  "desc": "Run a selected local script in the client Lua environment."
+                },
+                {
+                  "id": "lua.scripts.edit.script",
+                  "label": "Edit Script",
+                  "desc": "Open a selected script in an external editor."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lua Executor",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "lua.lua.executor.full.page.editor",
+                  "label": "Full-page Editor",
+                  "desc": "Edit client-side Lua with syntax highlighting and a script dropdown."
+                },
+                {
+                  "id": "lua.lua.executor.per.file.drafts",
+                  "label": "Per-file Drafts",
+                  "desc": "Keep editor drafts when switching scripts or tabs."
+                },
+                {
+                  "id": "lua.lua.executor.undo.redo",
+                  "label": "Undo & Redo",
+                  "desc": "Undo or restore edits; clear the editor from the toolbar."
+                },
+                {
+                  "id": "lua.lua.executor.run.lua",
+                  "label": "Run Lua",
+                  "desc": "Run the editor contents as client-side Lua while loaded into a game.",
+                  "settings": [
+                    "Ctrl+Enter shortcut"
+                  ]
+                },
+                {
+                  "id": "lua.lua.executor.run.console",
+                  "label": "Run Console",
+                  "desc": "Send the editor contents as a game console command."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Utilities",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "lua.utilities.lua.dumper",
+                  "label": "Lua Dumper",
+                  "desc": "Configure Lua dumping and inspect dump statistics."
+                },
+                {
+                  "id": "lua.utilities.net.logger",
+                  "label": "Net Logger",
+                  "desc": "Inspect logged network messages and clear the log."
+                },
+                {
+                  "id": "lua.utilities.server.information",
+                  "label": "Server Information",
+                  "desc": "View server information and copy the server IP."
+                },
+                {
+                  "id": "lua.utilities.entity.dump",
+                  "label": "Entity Dump",
+                  "desc": "Save entity information to a local file."
+                },
+                {
+                  "id": "lua.utilities.folder.shortcuts",
+                  "label": "Folder Shortcuts",
+                  "desc": "Open scripts, dumps, configs and the Scooby folder."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "categories": [
+        {
+          "name": "Interface",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "settings.interface.automatic.ui.scale",
+                  "label": "Automatic UI Scale",
+                  "desc": "Size the menu for the current game resolution."
+                },
+                {
+                  "id": "settings.interface.manual.ui.scale",
+                  "label": "Manual UI Scale",
+                  "desc": "Choose a preset or adjust the menu scale from 25% to 200%."
+                },
+                {
+                  "id": "settings.interface.overlay.scale",
+                  "label": "Overlay Scale",
+                  "desc": "Scale HUD overlays independently with automatic or manual sizing."
+                },
+                {
+                  "id": "settings.interface.resizable.menu",
+                  "label": "Resizable Menu",
+                  "desc": "Resize the interface to fit your layout."
+                },
+                {
+                  "id": "settings.interface.menu.open.keys",
+                  "label": "Menu Open Keys",
+                  "desc": "Change the keys used to open the menu.",
+                  "settings": [
+                    "F2 and Insert by default"
+                  ]
+                },
+                {
+                  "id": "settings.interface.color.picker",
+                  "label": "Color Picker",
+                  "desc": "Edit feature colors using RGB, HEX and an alpha slider."
+                },
+                {
+                  "id": "settings.interface.language.packs",
+                  "label": "Language Packs",
+                  "desc": "Choose from 23 JSON language packs. Partial translations fall back to English."
+                },
+                {
+                  "id": "settings.interface.reload.languages",
+                  "label": "Reload Languages",
+                  "desc": "Reload locally edited language files."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Search & Favorites",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "settings.search.favorites.feature.search",
+                  "label": "Feature Search",
+                  "desc": "Find features from the search icon at the top of the menu."
+                },
+                {
+                  "id": "settings.search.favorites.favorites",
+                  "label": "Favorites",
+                  "desc": "Keep frequently used controls in the favorites view.",
+                  "settings": [
+                    "Hover a feature and press F to add or remove it"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hotkeys",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "settings.hotkeys.keyboard.mouse.binds",
+                  "label": "Keyboard & Mouse Binds",
+                  "desc": "Assign a key or mouse button to a feature.",
+                  "settings": [
+                    "Mouse 1 through Mouse 5"
+                  ]
+                },
+                {
+                  "id": "settings.hotkeys.activation.modes",
+                  "label": "Activation Modes",
+                  "desc": "Choose how a feature responds to its hotkey.",
+                  "settings": [
+                    "Always, Toggle, Hold, Hold to Disable"
+                  ]
+                },
+                {
+                  "id": "settings.hotkeys.hotkey.browser",
+                  "label": "Hotkey Browser",
+                  "desc": "Search bindings, filter by category and show only assigned controls."
+                },
+                {
+                  "id": "settings.hotkeys.clear.bind",
+                  "label": "Clear Bind",
+                  "desc": "Remove a key assignment from a feature."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Configs",
+          "groups": [
+            {
+              "name": "Settings & Tools",
+              "items": [
+                {
+                  "id": "settings.configs.config.browser",
+                  "label": "Config Browser",
+                  "desc": "Browse saved profiles and create or rename a config."
+                },
+                {
+                  "id": "settings.configs.load.save",
+                  "label": "Load & Save",
+                  "desc": "Load a selected profile or save the current settings."
+                },
+                {
+                  "id": "settings.configs.auto.save",
+                  "label": "Auto Save",
+                  "desc": "Automatically save changes to the active config when enabled."
+                },
+                {
+                  "id": "settings.configs.default.config",
+                  "label": "Default Config",
+                  "desc": "Choose the profile loaded on startup."
+                },
+                {
+                  "id": "settings.configs.clipboard.import.export",
+                  "label": "Clipboard Import & Export",
+                  "desc": "Import a config from the clipboard or copy a profile for sharing."
+                },
+                {
+                  "id": "settings.configs.reset.delete",
+                  "label": "Reset & Delete",
+                  "desc": "Reset settings to defaults or remove a selected config."
+                },
+                {
+                  "id": "settings.configs.refresh.config.list",
+                  "label": "Refresh Config List",
+                  "desc": "Reload the list of saved profiles."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

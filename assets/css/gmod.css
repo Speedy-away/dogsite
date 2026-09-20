@@ -1,0 +1,44 @@
+/* GMOD content uses the shared product palette and spacing. */
+.gmod-page .screenshots-section { align-self:start; }
+.gmod-page .screenshot-item { display:block; width:100%; padding:0; aspect-ratio:auto; background:#101315; color:var(--text-primary); font:inherit; text-align:left; }
+.gmod-page .screenshot-item img { display:block; width:100%; height:auto; }
+.gmod-page .preview-caption { display:block; padding:12px 14px; font-size:.85rem; line-height:1.5; }
+.gmod-page .gmod-preview-note { margin:18px 0 0; color:var(--text-secondary); font-size:.85rem; line-height:1.65; }
+.gmod-feature-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 40px; margin-top:32px; }
+.gmod-feature-grid section { min-width:0; }
+.gmod-page .gmod-feature-grid h3 { margin:0 0 10px; }
+.gmod-setup, .gmod-faq { margin-top:32px; padding-top:24px; border-top:1px solid var(--border-color); }
+.gmod-page .gmod-setup h3, .gmod-page .gmod-faq h3 { margin-top:0; }
+.gmod-setup ol { padding-left:22px; }
+.gmod-page .description-content a { color:#9bbdff; text-decoration:underline; text-underline-offset:3px; }
+.gmod-faq details { border-top:1px solid var(--border-color); }
+.gmod-faq summary { padding:16px 0; color:var(--text-primary); font-weight:600; cursor:pointer; }
+.gmod-faq details p { padding:0 0 18px; }
+.gmod-page button:focus-visible, .gmod-page a:focus-visible, .gmod-page summary:focus-visible { outline:2px solid #9bbdff; outline-offset:4px; }
+@media (max-width:760px) { .gmod-feature-grid { grid-template-columns:1fr; gap:24px; } }
+@media (max-width:480px) { .gmod-page .screenshot-gallery { grid-template-columns:1fr; } .gmod-page .screenshot-item.main { grid-column:auto; } }
+@media (prefers-reduced-motion:reduce) { .gmod-page .screenshot-item { transition:none; } .gmod-page .screenshot-item:hover { transform:none; } }
+
+/* Keep navigation reachable on smaller screens. */
+.gmod-page #nav { padding-left:16px; padding-right:16px; }
+.gmod-page .nav-inner { position:relative; }
+.gmod-mobile-download { display:none; }
+@media (max-width:980px) {
+    .gmod-page .nav-inner { flex-wrap:nowrap; gap:12px; padding:10px 16px; }
+    .gmod-page .nav-actions { margin-left:auto; }
+    .gmod-page .hamburger { display:flex; min-width:44px; min-height:44px; align-items:center; justify-content:center; }
+    .gmod-page #navLinks { display:none; position:absolute; inset:calc(100% + 10px) 0 auto; flex-direction:column; flex-wrap:nowrap; align-items:stretch; gap:4px; padding:12px; max-height:calc(100dvh - 116px); overflow-y:auto; background:rgba(10,10,15,.98); border:1px solid var(--border-color); border-radius:18px; box-shadow:0 16px 36px #0006; }
+    .gmod-page #navLinks.mobile-open { display:flex; }
+    .gmod-page #navLinks a { display:block; padding:14px 20px; }
+    .gmod-page .hero { padding-top:120px; }
+}
+@media (max-width:600px) {
+    .gmod-page .nav-actions { display:none; }
+    .gmod-page .hamburger { margin-left:auto; }
+    .gmod-page .gmod-mobile-download { display:list-item; }
+    .gmod-page .nav-inner { gap:6px; padding:8px 12px; }
+    .gmod-page .btn-nav-primary { padding:10px 12px; }
+}
+
+.gmod-page .gmod-online { color:#8ce0b2; background:#153225; border:1px solid #28523b; }
+.gmod-page .gmod-online span { margin-right:7px; font-size:.65em; }
