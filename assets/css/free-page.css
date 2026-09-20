@@ -35,7 +35,7 @@
 .free-page .step-card { text-align:left; padding:18px; background:#1a2230; border-radius:10px; }
 .free-page .step-number { margin:0 0 15px; width:34px; height:34px; border-radius:8px; font-size:.9rem; background:#293e5c; color:#b7d3ff; }
 .free-page .step-card p { color:#a7b3c6; line-height:1.7; font-size:.81rem; }
-.free-updating { display:inline-block; font-size:.6rem; text-transform:uppercase; color:#f0cc8c; border:1px solid #665331; padding:3px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+.free-online { display:inline-block; font-size:.6rem; text-transform:uppercase; color:#8ce0b2; border:1px solid #28523b; padding:3px 6px; border-radius:4px; margin-left:6px; vertical-align:middle; }
 .free-page a:focus-visible,.free-page button:focus-visible { outline:2px solid #a7c7ff; outline-offset:4px; }
 @media(max-width:960px) { .free-page .content-grid { grid-template-columns:1fr; } .free-page .sidebar { position:static; grid-row:1; } .free-page .purchase-card .features-list { display:none; } }
 @media(max-width:600px) { .free-page .main-content { padding:0 18px 40px; } .free-page .hero { padding:35px 20px; margin-bottom:26px; } .free-safety-notice>div { padding:13px 18px; align-items:flex-start; gap:12px; } .free-safety-notice p { display:block; } .free-safety-notice span { display:block; margin-top:5px; line-height:1.5; } .free-page .included-products { grid-template-columns:1fr; } .free-page .how-it-works,.free-page .important-notes { padding:20px; } }

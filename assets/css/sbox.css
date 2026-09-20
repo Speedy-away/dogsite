@@ -20,3 +20,19 @@
 @media (prefers-reduced-motion:reduce) {
     #sbox-nav, #sbox-nav .nav-inner, #sbox-nav .hamburger span { transition:none; }
 }
+
+/* Product-specific content follows the existing product layout. */
+.sbox-feature-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px 40px; margin-top:32px; }
+.sbox-feature-grid section { min-width:0; }
+.sbox-feature-grid h3 { color:#fff; }
+.sbox-feature-grid li { margin-bottom:12px; }
+.sbox-feature-grid ol { padding-left:20px; }
+.sbox-feature-grid a { color:#9bbdff; text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:760px) { .sbox-feature-grid { grid-template-columns:1fr; gap:24px; } }
+
+.screenshots-section { align-self:start; }
+
+/* Preserve the full gameplay screenshot, including its menu and overlays. */
+.screenshot-gallery .screenshot-item { display:block; aspect-ratio:auto; }
+.screenshot-gallery .screenshot-item img { display:block; height:auto; }
+.screenshot-gallery .screenshot-item:focus-visible { outline:2px solid #9bbdff; outline-offset:4px; }

@@ -30,7 +30,7 @@ const RULES = [
   { re: /^$/,                       priority: '1.0', freq: 'weekly'  },  // homepage
   { re: /^best-mod-menu\//,         priority: '0.9', freq: 'weekly'  },
   { re: /^products\/(free|gta5)\//, priority: '0.9', freq: 'weekly'  },
-  { re: /^products\/(pubg|r6|sbox)\//, priority: '0.5', freq: 'monthly' },
+  { re: /^products\/(pubg|r6)\//, priority: '0.5', freq: 'monthly' },
   { re: /^products\//,              priority: '0.8', freq: 'weekly'  },
   { re: /^store\//,                 priority: '0.7', freq: 'weekly'  },
   { re: /-features\//,              priority: '0.7', freq: 'monthly' },
