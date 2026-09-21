@@ -1,0 +1,1273 @@
+{
+  "game": "Counter-Strike 2",
+  "slug": "cs2",
+  "source": "Reviewed against the current CS2/base menu registry and feature UI on 2026-09-22. This catalogue documents exposed controls; it is not an in-game validation or a guarantee of compatibility after game updates.",
+  "sourceRoot": "C:/Users/whatw/OneDrive/Documents/GitHub/Scooby-Op/CS2/base",
+  "sourceFiles": [
+    "src/GUI/feature_registry.cpp",
+    "src/GUI/feature_registry_listui.generated.inc",
+    "src/GUI/ClickUI/menu.cpp",
+    "src/GUI/features/skins/skins_content.cpp",
+    "src/GUI/features/skins/inventory/inventory_content.cpp",
+    "src/GUI/features/skins/inventory/item_settings.cpp",
+    "src/GUI/features/skins/inventory/case_opening_ui.cpp",
+    "src/cs2/features/skins/inventory/inventory_types.hpp",
+    "src/GUI/features/misc/misc_tab.cpp",
+    "src/GUI/features/settings/config.cpp",
+    "src/GUI/features/settings/rendering.cpp"
+  ],
+  "tabs": [
+    {
+      "name": "Combat",
+      "categories": [
+        {
+          "name": "Aimbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Aim assistance",
+                  "desc": "Adjust aim toward a selected target.",
+                  "settings": [
+                    "Activation key and mode",
+                    "Field of view (FOV)",
+                    "Smoothing and deadzone",
+                    "Head, neck, chest or nearest hitbox"
+                  ]
+                },
+                {
+                  "label": "Weapon-specific aim settings",
+                  "desc": "Choose the weapon category and weapon to configure."
+                },
+                {
+                  "label": "Target selection",
+                  "desc": "Tune which target the aim system selects.",
+                  "settings": [
+                    "Target priority",
+                    "Sticky target",
+                    "Teammate targeting",
+                    "Velocity prediction"
+                  ]
+                },
+                {
+                  "label": "Aim checks",
+                  "desc": "Control when aim assistance can activate.",
+                  "settings": [
+                    "Visibility check",
+                    "Smoke check",
+                    "Flash check"
+                  ]
+                },
+                {
+                  "label": "Aim response",
+                  "desc": "Tune the movement and timing of aim assistance.",
+                  "settings": [
+                    "Reaction delay",
+                    "Jitter and acceleration curve",
+                    "Overshoot and micro-corrections",
+                    "Distance scaling"
+                  ]
+                },
+                {
+                  "label": "Hitbox adjustments",
+                  "desc": "Adjust where within a target the aim is directed.",
+                  "settings": [
+                    "Hitbox selection",
+                    "Random head and body offsets",
+                    "Multipoint scale"
+                  ]
+                },
+                {
+                  "label": "Auto stop",
+                  "desc": "Reduce movement before an assisted shot."
+                },
+                {
+                  "label": "Accuracy gate",
+                  "desc": "Wait for the configured accuracy condition before firing."
+                },
+                {
+                  "label": "Auto fire",
+                  "desc": "Fire automatically when a target meets the aim conditions.",
+                  "settings": [
+                    "Auto-fire FOV"
+                  ]
+                },
+                {
+                  "label": "Backtrack",
+                  "desc": "Use recent target positions for aim selection.",
+                  "settings": [
+                    "History ticks",
+                    "Backtrack-position display"
+                  ]
+                },
+                {
+                  "label": "Spray targeting",
+                  "desc": "Keep aim behavior consistent during a spray.",
+                  "settings": [
+                    "Spray lock",
+                    "Spray smoothing",
+                    "Body switch"
+                  ]
+                },
+                {
+                  "label": "Aim indicators",
+                  "desc": "Customize the aim field-of-view circle and target line.",
+                  "settings": [
+                    "Circle color, thickness, fill and gradient",
+                    "Follow recoil",
+                    "Target-line color, thickness, dashes and glow"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Recoil control",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Aim recoil compensation",
+                  "desc": "Tune recoil compensation while using aim assistance.",
+                  "settings": [
+                    "Overall, vertical and horizontal strength",
+                    "Start shot and ramp",
+                    "Automatic weapon scaling",
+                    "Spray-phase adaptation"
+                  ]
+                },
+                {
+                  "label": "Movement-aware recoil control",
+                  "desc": "Adjust compensation for movement and weapon stance.",
+                  "settings": [
+                    "Movement awareness",
+                    "Crouch boost",
+                    "Scope awareness"
+                  ]
+                },
+                {
+                  "label": "Standalone recoil control",
+                  "desc": "Use recoil compensation independently of the aimbot.",
+                  "settings": [
+                    "Pitch and yaw strength",
+                    "Start shot and ramp",
+                    "Response smoothing",
+                    "Automatic scaling and adaptive control"
+                  ]
+                },
+                {
+                  "label": "Spray control",
+                  "desc": "Enable the menu's spray-control option."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triggerbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Triggerbot",
+                  "desc": "Fire when a valid target is under the crosshair.",
+                  "settings": [
+                    "Activation key and mode",
+                    "Weapon-specific settings",
+                    "Hitbox selection",
+                    "Teammate targeting"
+                  ]
+                },
+                {
+                  "label": "Trigger delay and bursts",
+                  "desc": "Configure firing delays and burst behavior.",
+                  "settings": [
+                    "Base and random delay",
+                    "Delay between shots",
+                    "Burst count"
+                  ]
+                },
+                {
+                  "label": "Trigger checks",
+                  "desc": "Set the conditions required before firing.",
+                  "settings": [
+                    "Visibility, smoke and flash checks",
+                    "Scope-only mode",
+                    "Recoil check and maximum recoil"
+                  ]
+                },
+                {
+                  "label": "Flick-fire",
+                  "desc": "Detect targets during a flick across the crosshair."
+                },
+                {
+                  "label": "Trigger prediction",
+                  "desc": "Adjust trigger behavior for moving targets.",
+                  "settings": [
+                    "Movement prediction",
+                    "Aim-punch compensation"
+                  ]
+                },
+                {
+                  "label": "Trigger assistance",
+                  "desc": "Tune supporting trigger controls.",
+                  "settings": [
+                    "Auto stop",
+                    "FOV tolerance",
+                    "Magnet strength and FOV"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Player visuals",
+      "categories": [
+        {
+          "name": "Player ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "ESP filters",
+                  "desc": "Choose which players to draw and how far away to show them.",
+                  "settings": [
+                    "Master enable",
+                    "Teammates",
+                    "Maximum distance",
+                    "Enemy and teammate colors"
+                  ]
+                },
+                {
+                  "label": "Box ESP",
+                  "desc": "Frame players with a full or corner box.",
+                  "settings": [
+                    "Outline, thickness and rounding",
+                    "Color and gradient",
+                    "Fill and fill gradient",
+                    "Health-based coloring"
+                  ]
+                },
+                {
+                  "label": "Health and armor",
+                  "desc": "Show health and armor bars beside players.",
+                  "settings": [
+                    "Position and width",
+                    "Background and outline",
+                    "Low-health and full-health colors",
+                    "Health text"
+                  ]
+                },
+                {
+                  "label": "Player names",
+                  "desc": "Display names with configurable placement and text styling.",
+                  "settings": [
+                    "Position, font size and color",
+                    "Gradient"
+                  ]
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Display player distance.",
+                  "settings": [
+                    "Position, font size, color and gradient"
+                  ]
+                },
+                {
+                  "label": "Weapon information",
+                  "desc": "Show the weapon a player is carrying.",
+                  "settings": [
+                    "Label placement",
+                    "Text and icon styling"
+                  ]
+                },
+                {
+                  "label": "Skeleton",
+                  "desc": "Draw player bones and optional joint markers.",
+                  "settings": [
+                    "Thickness and colors",
+                    "Gradient",
+                    "Joint size and color"
+                  ]
+                },
+                {
+                  "label": "Head ESP",
+                  "desc": "Mark player heads with selectable styles.",
+                  "settings": [
+                    "Icon style",
+                    "Size, thickness and outline",
+                    "Position offsets"
+                  ]
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Connect players to a chosen screen origin.",
+                  "settings": [
+                    "Bottom, center or top origin",
+                    "Color, thickness, dashes and gradient"
+                  ]
+                },
+                {
+                  "label": "Status flags",
+                  "desc": "Display configurable player-state flags.",
+                  "settings": [
+                    "Position, font size and color"
+                  ]
+                },
+                {
+                  "label": "Money",
+                  "desc": "Show player money alongside the ESP."
+                },
+                {
+                  "label": "Ammo count",
+                  "desc": "Show player ammunition information."
+                },
+                {
+                  "label": "Equipment",
+                  "desc": "Display equipment icons.",
+                  "settings": [
+                    "Position, icon size and spacing",
+                    "Type colors",
+                    "Background, shadow and outline"
+                  ]
+                },
+                {
+                  "label": "Off-screen arrows",
+                  "desc": "Indicate players outside the camera view.",
+                  "settings": [
+                    "Size and screen-edge offset",
+                    "Color",
+                    "Weapon icon"
+                  ]
+                },
+                {
+                  "label": "Line of sight",
+                  "desc": "Draw the direction a player is facing.",
+                  "settings": [
+                    "Length, thickness and color"
+                  ]
+                },
+                {
+                  "label": "Sound ESP",
+                  "desc": "Visualize player sound activity.",
+                  "settings": [
+                    "Sound-marker appearance and timing"
+                  ]
+                },
+                {
+                  "label": "Player trails",
+                  "desc": "Draw movement trails behind players.",
+                  "settings": [
+                    "Trail appearance and timing"
+                  ]
+                },
+                {
+                  "label": "Player velocity",
+                  "desc": "Display player velocity information."
+                },
+                {
+                  "label": "Hat ESP",
+                  "desc": "Draw a decorative hat effect above a player.",
+                  "settings": [
+                    "Cone, circle, crown or halo",
+                    "Size, height and offset",
+                    "Color, gradient and fill"
+                  ]
+                },
+                {
+                  "label": "Visibility colors",
+                  "desc": "Use different colors for visible and hidden players.",
+                  "settings": [
+                    "Box, skeleton, name, snapline and glow colors"
+                  ]
+                },
+                {
+                  "label": "Player glow",
+                  "desc": "Adjust player glow styling.",
+                  "settings": [
+                    "Visible and hidden colors",
+                    "Radius, intensity and layers",
+                    "Breathing animation"
+                  ]
+                },
+                {
+                  "label": "ESP preview",
+                  "desc": "Preview and arrange player visuals in the menu.",
+                  "settings": [
+                    "Preview mode and scale",
+                    "Box dimensions",
+                    "Background, border and grid",
+                    "Live player mirror",
+                    "Animated poses and name tag"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chams",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Enemy chams",
+                  "desc": "Apply configurable materials to enemy player models.",
+                  "settings": [
+                    "Material and color",
+                    "Animation and speed",
+                    "Health-based color",
+                    "Through-walls pass",
+                    "Overlay material"
+                  ]
+                },
+                {
+                  "label": "Teammate chams",
+                  "desc": "Set a separate material style for teammates.",
+                  "settings": [
+                    "Material, color and animation",
+                    "Through-walls pass",
+                    "Overlay material"
+                  ]
+                },
+                {
+                  "label": "Own-model chams",
+                  "desc": "Style your own player model.",
+                  "settings": [
+                    "Material, color, animation and overlay"
+                  ]
+                },
+                {
+                  "label": "Arms chams",
+                  "desc": "Apply a material style to first-person arms.",
+                  "settings": [
+                    "Material, color, animation and overlay"
+                  ]
+                },
+                {
+                  "label": "Weapon chams",
+                  "desc": "Style the first-person weapon model.",
+                  "settings": [
+                    "Material, color, animation and overlay"
+                  ]
+                },
+                {
+                  "label": "Chams visibility",
+                  "desc": "Adjust wall-pass appearance and distance behavior.",
+                  "settings": [
+                    "Wall material and color",
+                    "Wall brightness and animation",
+                    "Distance fade"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World & effects",
+      "categories": [
+        {
+          "name": "Items and objectives",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Dropped weapon ESP",
+                  "desc": "Mark dropped weapons in the world.",
+                  "settings": [
+                    "Boxes, names and distance",
+                    "Weapon icons and background",
+                    "Ammo bars",
+                    "Type colors and maximum distance"
+                  ]
+                },
+                {
+                  "label": "Dropped weapon chams",
+                  "desc": "Apply materials to dropped weapons.",
+                  "settings": [
+                    "Material, color and animation",
+                    "Through-walls and overlay passes"
+                  ]
+                },
+                {
+                  "label": "Grenade ESP",
+                  "desc": "Show dropped grenades and thrown projectiles.",
+                  "settings": [
+                    "Boxes, names, icons and distance",
+                    "Timer bar and glow ring",
+                    "Type colors and maximum distance"
+                  ]
+                },
+                {
+                  "label": "Grenade timers",
+                  "desc": "Display active grenade and smoke timing.",
+                  "settings": [
+                    "Text, ring or bar style",
+                    "Radius, label and icon",
+                    "Smoke progress ring",
+                    "HE damage radius"
+                  ]
+                },
+                {
+                  "label": "Grenade trails",
+                  "desc": "Trace grenade movement and bounces.",
+                  "settings": [
+                    "Trail color and thickness",
+                    "Type colors",
+                    "Bounce markers and glow"
+                  ]
+                },
+                {
+                  "label": "Projectile trajectory",
+                  "desc": "Preview grenade paths and landing information.",
+                  "settings": [
+                    "Preview while holding",
+                    "Live input, full throw, lob, underhand or compare all",
+                    "Damage radius, label and bounce markers"
+                  ]
+                },
+                {
+                  "label": "Fire area",
+                  "desc": "Show the area affected by fire or a Molotov.",
+                  "settings": [
+                    "Color and rainbow styling"
+                  ]
+                },
+                {
+                  "label": "Bomb and C4 ESP",
+                  "desc": "Locate the bomb and show planted-bomb information."
+                },
+                {
+                  "label": "Bomb HUD",
+                  "desc": "Display the bomb countdown and predicted health damage."
+                },
+                {
+                  "label": "Bomb sites",
+                  "desc": "Mark bomb-site locations."
+                },
+                {
+                  "label": "Defuse kits",
+                  "desc": "Locate defuse kits."
+                },
+                {
+                  "label": "Hostage ESP",
+                  "desc": "Show hostages and optional hostage skeletons."
+                },
+                {
+                  "label": "Map callouts",
+                  "desc": "Display map-location callouts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Combat feedback",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Hitmarkers",
+                  "desc": "Show crosshair and world hit feedback.",
+                  "settings": [
+                    "Style, colors and animation"
+                  ]
+                },
+                {
+                  "label": "Damage numbers",
+                  "desc": "Display damage feedback.",
+                  "settings": [
+                    "Text styling, positioning and animation"
+                  ]
+                },
+                {
+                  "label": "Hitsounds",
+                  "desc": "Play configurable hit-feedback sounds."
+                },
+                {
+                  "label": "Kill feed",
+                  "desc": "Display a configurable kill-feed overlay."
+                },
+                {
+                  "label": "Kill effect",
+                  "desc": "Show a screen effect after a kill."
+                },
+                {
+                  "label": "Flashbang indicator",
+                  "desc": "Display flashbang status."
+                },
+                {
+                  "label": "Bullet tracers",
+                  "desc": "Visualize bullet paths and impacts.",
+                  "settings": [
+                    "Line, beam or dashed style",
+                    "Color, thickness, duration and fading",
+                    "Outline, glow and rainbow",
+                    "Local, enemy and teammate tracers",
+                    "Impact marker and maximum range"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Environment and VFX",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "VFX controls",
+                  "desc": "Enable world and particle effects with an adjustable update budget."
+                },
+                {
+                  "label": "Skybox",
+                  "desc": "Choose a skybox material.",
+                  "settings": [
+                    "Sky tint, color and brightness"
+                  ]
+                },
+                {
+                  "label": "World and prop tint",
+                  "desc": "Recolor map surfaces and props.",
+                  "settings": [
+                    "Separate colors and blend strength"
+                  ]
+                },
+                {
+                  "label": "Water tint",
+                  "desc": "Adjust the color of water."
+                },
+                {
+                  "label": "Lighting",
+                  "desc": "Adjust scene-lighting color and brightness."
+                },
+                {
+                  "label": "Bloom and gamma",
+                  "desc": "Configure bloom and gamma overrides."
+                },
+                {
+                  "label": "Fog",
+                  "desc": "Override fog appearance.",
+                  "settings": [
+                    "Color, start and end distance",
+                    "Density"
+                  ]
+                },
+                {
+                  "label": "Weather",
+                  "desc": "Choose a weather effect.",
+                  "settings": [
+                    "Off, rain, snow, storm, ash, embers, dust or leaves",
+                    "Weather color and intensity",
+                    "Emitter height"
+                  ]
+                },
+                {
+                  "label": "Map effects",
+                  "desc": "Adjust environmental effects.",
+                  "settings": [
+                    "Native weather boost",
+                    "Surface wetness",
+                    "Authored particles and color"
+                  ]
+                },
+                {
+                  "label": "Particle colors",
+                  "desc": "Recolor selected combat effects.",
+                  "settings": [
+                    "Smoke and fire / Molotov",
+                    "Bullet impacts and muzzle flashes",
+                    "Blood, explosions, energy and sparks"
+                  ]
+                },
+                {
+                  "label": "Particle animation",
+                  "desc": "Animate effect colors.",
+                  "settings": [
+                    "Static, rainbow or pulse",
+                    "Animation speed"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Skins & inventory",
+      "categories": [
+        {
+          "name": "Skins and loadouts",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Skin changer",
+                  "desc": "Enable cosmetic changes with shared or separate team loadouts.",
+                  "settings": [
+                    "CT and T loadouts",
+                    "Apply / refresh"
+                  ]
+                },
+                {
+                  "label": "Weapon finishes",
+                  "desc": "Choose weapon paint kits and configure their appearance.",
+                  "settings": [
+                    "Pattern seed and wear",
+                    "StatTrak counter",
+                    "Custom name tag"
+                  ]
+                },
+                {
+                  "label": "Knife changer",
+                  "desc": "Choose a knife model and finish.",
+                  "settings": [
+                    "Pattern seed and wear",
+                    "StatTrak counter",
+                    "Custom name tag"
+                  ]
+                },
+                {
+                  "label": "Glove changer",
+                  "desc": "Choose a glove model and finish.",
+                  "settings": [
+                    "Pattern seed and wear"
+                  ]
+                },
+                {
+                  "label": "Agent changer",
+                  "desc": "Choose an agent for the selected team."
+                },
+                {
+                  "label": "Agent patches",
+                  "desc": "Select patches for supported agent slots."
+                },
+                {
+                  "label": "Stickers",
+                  "desc": "Browse weapon stickers and edit individual slots.",
+                  "settings": [
+                    "Sticker selection and removal",
+                    "Scrape / wear"
+                  ]
+                },
+                {
+                  "label": "Charms",
+                  "desc": "Choose a weapon charm and its placement.",
+                  "settings": [
+                    "Charm pattern",
+                    "X, Y and Z position",
+                    "Remove charm"
+                  ]
+                },
+                {
+                  "label": "Custom cosmetic colors",
+                  "desc": "Recolor weapon, knife and glove finishes.",
+                  "settings": [
+                    "Base, detail, accent and metal colors",
+                    "Color strength"
+                  ]
+                },
+                {
+                  "label": "Skin library and preview",
+                  "desc": "Browse finishes and agents using list or image-based views.",
+                  "settings": [
+                    "Search",
+                    "Show all game skins",
+                    "Quick apply"
+                  ]
+                },
+                {
+                  "label": "Randomize loadout",
+                  "desc": "Generate cosmetic combinations from the available selections.",
+                  "settings": [
+                    "Wear",
+                    "Name tags",
+                    "Stickers and sticker count",
+                    "Charms"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Local inventory",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Inventory library",
+                  "desc": "Browse the local item catalogue by category or search."
+                },
+                {
+                  "label": "Local inventory items",
+                  "desc": "Add, edit and remove entries in your local inventory.",
+                  "settings": [
+                    "Choose finish",
+                    "Save changes",
+                    "Item preview"
+                  ]
+                },
+                {
+                  "label": "Team equip",
+                  "desc": "Apply local inventory selections to the chosen team.",
+                  "settings": [
+                    "Auto equip",
+                    "Force apply across respawns",
+                    "Team-compatible agents"
+                  ]
+                },
+                {
+                  "label": "Inventory finish editor",
+                  "desc": "Edit cosmetic attributes appropriate to each item type.",
+                  "settings": [
+                    "Wear and pattern seed",
+                    "StatTrak and name tags for supported weapons and knives"
+                  ]
+                },
+                {
+                  "label": "Inventory sticker editor",
+                  "desc": "Choose and edit four weapon sticker slots.",
+                  "settings": [
+                    "Live catalogue search",
+                    "Scrape / wear",
+                    "Remove sticker"
+                  ]
+                },
+                {
+                  "label": "Inventory charm editor",
+                  "desc": "Choose a charm and adjust its pattern and position."
+                },
+                {
+                  "label": "Music kits and collectibles",
+                  "desc": "Browse music kits, medals and collectibles in the local catalogue."
+                },
+                {
+                  "label": "Additional item categories",
+                  "desc": "Browse stickers, charms, patches, graffiti, cases, keys, capsules and tools."
+                },
+                {
+                  "label": "Local case opening",
+                  "desc": "Open cases within the local inventory system.",
+                  "settings": [
+                    "Local key selection",
+                    "Reward selection",
+                    "Custom odds",
+                    "Normalize odds or reset official-style odds"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Custom models",
+      "categories": [
+        {
+          "name": "Player and weapon models",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Custom model changer",
+                  "desc": "Enable installed custom player and weapon models."
+                },
+                {
+                  "label": "Player models",
+                  "desc": "Select a player model from the installed model library."
+                },
+                {
+                  "label": "Weapon models",
+                  "desc": "Choose a custom model for the active weapon."
+                },
+                {
+                  "label": "First-person models",
+                  "desc": "Configure the weapon's first-person model."
+                },
+                {
+                  "label": "Model library",
+                  "desc": "Refresh the available model packs and open the player or weapon library folders."
+                },
+                {
+                  "label": "Apply and reset models",
+                  "desc": "Apply selected models or restore the defaults."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement & camera",
+      "categories": [
+        {
+          "name": "Movement",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Bunny hop",
+                  "desc": "Repeat jumps while the jump key is held.",
+                  "settings": [
+                    "Hops before a forced miss"
+                  ]
+                },
+                {
+                  "label": "Edge jump",
+                  "desc": "Jump when walking off an edge."
+                },
+                {
+                  "label": "Edge bug",
+                  "desc": "Use the menu's timed landing-crouch assistance."
+                },
+                {
+                  "label": "Auto strafe",
+                  "desc": "Assist airborne left/right steering.",
+                  "settings": [
+                    "Turn response"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Camera and removals",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Third person",
+                  "desc": "Switch to the third-person camera.",
+                  "settings": [
+                    "Camera field of view"
+                  ]
+                },
+                {
+                  "label": "Viewmodel editor",
+                  "desc": "Adjust the camera and first-person weapon view.",
+                  "settings": [
+                    "View FOV and viewmodel FOV",
+                    "X, Y and Z offsets",
+                    "Pitch, yaw and roll"
+                  ]
+                },
+                {
+                  "label": "Anti-flash",
+                  "desc": "Reduce flashbang screen effects.",
+                  "settings": [
+                    "Residual flash alpha"
+                  ]
+                },
+                {
+                  "label": "Remove smoke",
+                  "desc": "Hide smoke visuals."
+                },
+                {
+                  "label": "Remove overhead",
+                  "desc": "Hide overhead player information."
+                },
+                {
+                  "label": "Remove skybox fog",
+                  "desc": "Disable the skybox fog layer."
+                },
+                {
+                  "label": "Remove 3D skybox",
+                  "desc": "Hide the map's 3D skybox."
+                },
+                {
+                  "label": "Remove legs",
+                  "desc": "Hide the local first-person body."
+                },
+                {
+                  "label": "Remove decals",
+                  "desc": "Hide decal effects."
+                },
+                {
+                  "label": "Scope overlay",
+                  "desc": "Remove the scope overlay and show the scope-sensitivity indicator."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Overlays",
+      "categories": [
+        {
+          "name": "Information panels",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Radar",
+                  "desc": "Show nearby players and world markers.",
+                  "settings": [
+                    "Size, range, shape and rotation",
+                    "Names and view cones",
+                    "Enemy and teammate markers",
+                    "Bomb, blast radius, throwables, pickups and hostages"
+                  ]
+                },
+                {
+                  "label": "Quick map",
+                  "desc": "Open a full-map overlay using the radar's marker settings.",
+                  "settings": [
+                    "Zoom"
+                  ]
+                },
+                {
+                  "label": "Watermark",
+                  "desc": "Customize the menu watermark.",
+                  "settings": [
+                    "FPS, time and date",
+                    "FPS graph"
+                  ]
+                },
+                {
+                  "label": "Keybind list",
+                  "desc": "Show the active feature keybinds."
+                },
+                {
+                  "label": "Performance stats",
+                  "desc": "Display performance information.",
+                  "settings": [
+                    "Frametime graph",
+                    "Panel styling"
+                  ]
+                },
+                {
+                  "label": "Player list",
+                  "desc": "Show the player-information panel."
+                },
+                {
+                  "label": "Spectator list",
+                  "desc": "Display spectators."
+                },
+                {
+                  "label": "Velocity overlay",
+                  "desc": "Show player velocity."
+                },
+                {
+                  "label": "Economy advisor",
+                  "desc": "Display the economy-advisor overlay."
+                },
+                {
+                  "label": "Damage log",
+                  "desc": "Keep recent damage events visible.",
+                  "settings": [
+                    "Maximum entries and duration"
+                  ]
+                },
+                {
+                  "label": "Notifications",
+                  "desc": "Configure notification presentation.",
+                  "settings": [
+                    "Maximum visible count",
+                    "Position and text size",
+                    "Icons, shadows and border"
+                  ]
+                },
+                {
+                  "label": "Overlay appearance",
+                  "desc": "Style information panels.",
+                  "settings": [
+                    "Colors and opacity",
+                    "Fonts, rounding and padding",
+                    "Panel position and borders",
+                    "Color synchronization"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Crosshair",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Custom crosshair",
+                  "desc": "Replace the on-screen crosshair with a configurable overlay.",
+                  "settings": [
+                    "Style, size, gap and thickness",
+                    "Center dot and outline",
+                    "Color and gradient",
+                    "Rainbow and spin"
+                  ]
+                },
+                {
+                  "label": "Hide game crosshair",
+                  "desc": "Hide the game's crosshair while using the custom overlay."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "categories": [
+        {
+          "name": "Interface",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Dual UI",
+                  "desc": "Switch between Click UI and List UI."
+                },
+                {
+                  "label": "Menu keybinds",
+                  "desc": "Configure the keys used to open each menu style."
+                },
+                {
+                  "label": "Feature keybinds",
+                  "desc": "Configure feature activation keys and modes."
+                },
+                {
+                  "label": "Block game input",
+                  "desc": "Block game input while the menu is open."
+                },
+                {
+                  "label": "Window layout",
+                  "desc": "Adjust menu dimensions and appearance.",
+                  "settings": [
+                    "Width, height, rounding and opacity",
+                    "Sidebar position",
+                    "Header, navigation and group layout"
+                  ]
+                },
+                {
+                  "label": "Colors and themes",
+                  "desc": "Customize interface colors and styling."
+                },
+                {
+                  "label": "Control styling",
+                  "desc": "Adjust how menu controls look.",
+                  "settings": [
+                    "Toggles, sliders and dropdowns",
+                    "Popups and group headers"
+                  ]
+                },
+                {
+                  "label": "Fonts",
+                  "desc": "Select fonts and sizes for interface elements.",
+                  "settings": [
+                    "System fonts"
+                  ]
+                },
+                {
+                  "label": "Custom images",
+                  "desc": "Use images and animated GIFs in the interface.",
+                  "settings": [
+                    "Fit, opacity and darkening",
+                    "GIF speed",
+                    "Logo size",
+                    "Image and GIF limits"
+                  ]
+                },
+                {
+                  "label": "Menu effects",
+                  "desc": "Add animated effects to interface regions.",
+                  "settings": [
+                    "Window, header, navigation and group headers",
+                    "Snow, rain, wireframe or matrix styling"
+                  ]
+                },
+                {
+                  "label": "Custom cursor",
+                  "desc": "Style the menu cursor.",
+                  "settings": [
+                    "Style, size and colors",
+                    "Outline and trail"
+                  ]
+                },
+                {
+                  "label": "Interface animation",
+                  "desc": "Adjust menu animation and fine-tuning options."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Profiles and rendering",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Saved profiles",
+                  "desc": "Create, save and load named configuration profiles."
+                },
+                {
+                  "label": "Profile management",
+                  "desc": "Delete saved profiles, open the config folder or reset to defaults."
+                },
+                {
+                  "label": "Active configuration",
+                  "desc": "Save or reload the current feature and interface settings."
+                },
+                {
+                  "label": "Panic key",
+                  "desc": "Use a bound key to hide or restore the menu, ESP and overlays."
+                },
+                {
+                  "label": "Capture controls",
+                  "desc": "Configure overlay handling for selected recording and sharing tools.",
+                  "settings": [
+                    "OBS, Discord and streaming tools",
+                    "GPU recording tools",
+                    "Windows Game Bar and screenshot tools"
+                  ]
+                },
+                {
+                  "label": "Rendering controls",
+                  "desc": "Adjust the menu's rendering preferences.",
+                  "settings": [
+                    "VSync",
+                    "Target FPS",
+                    "Triple buffering"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

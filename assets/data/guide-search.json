@@ -1,218 +1,394 @@
 [
   {
+    "game": "The Last of Us Part I",
+    "title": "Getting started",
+    "text": "Getting started Download the Scooby Loader and sign in with your existing free-key or paid account. Select The Last of Us in the game library, then choose Part I in the game dropdown. Choose Start Game . In the popup, select The Last of Us Part I to launch through Steam. Part II is disabled as coming soon. Load a save. The dashboard detects the tlou-i.exe process and shows Part I: Running . Select Load . The loader downloads the native DLL and checks it against the module manifest before loading it. Press F1 or Insert to open the menu. Configure features and save a profile. If you started Part I yourself, the dashboard detects it automatically; you do not need to launch it again.",
+    "href": "/guides/last-of-us/getting-started/",
+    "tags": [
+      "last-of-us",
+      "The Last of Us",
+      "TLOU",
+      "TLOU1",
+      "Part I",
+      "Part 1"
+    ]
+  },
+  {
+    "game": "The Last of Us Part I",
+    "title": "Menu settings",
+    "text": "Menu settings Interface Open Settings → Interface to choose a language and adjust the separate UI scale and Overlay scale sliders from 50% to 200%. Hotkeys Open Settings → Hotkeys . Search for a feature, click its key button and press a key or mouse button. Escape cancels a binding and Delete clears it. Hold activates while pressed; Toggle switches state on each press; Always uses the feature checkbox. Configs Use Settings → Configs to create, save, load, rename or delete named profiles, set a default, or import and export via the clipboard. Configurations are stored in C:\\scooby\\Last Of Us\\configs . The dashboard’s Open Folder link opens this product’s data folder. Visuals and movement Select NPC, Self or Items in ESP. Use the settings icon beside a feature for colors, outlines, gradients and supported positions. Box settings include corner boxes and fill. The control indicator explains active noclip and freecam controls. Browse all feature settings →",
+    "href": "/guides/last-of-us/menu-settings/",
+    "tags": [
+      "last-of-us",
+      "The Last of Us",
+      "TLOU",
+      "TLOU1",
+      "Part I",
+      "Part 1"
+    ]
+  },
+  {
+    "game": "The Last of Us Part I",
+    "title": "Requirements",
+    "text": "Requirements Download VC Runtimes Install the Visual C++ runtimes before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then restart your PC . VC Runtimes (all-in-one package): Download the all-in-one VC runtime package Or install both packages directly from Microsoft: Download VC Runtimes — x64 (64-bit) Download VC Runtimes — x86 (32-bit)",
+    "href": "/guides/last-of-us/requirements/",
+    "tags": [
+      "last-of-us",
+      "The Last of Us",
+      "TLOU",
+      "TLOU1",
+      "Part I",
+      "Part 1"
+    ]
+  },
+  {
+    "game": "The Last of Us Part I",
+    "title": "Troubleshooting",
+    "text": "Troubleshooting The loader says Part I is not running Make sure the game itself has opened, not just Steam or a launcher. The loader detects tlou-i.exe . Wait for startup to finish and check the selected edition is Part I. The menu does not appear Wait for a rendered game scene and press F1 or Insert. If an older DLL is already loaded, close the game normally, reopen it and load the current version. Do not repeatedly load different builds into the same process. A download could not be verified Retry after checking the connection. If the release is being updated, wait for the DLL and matching manifests to finish publishing. The loader rejects a mismatched or incomplete module. ESP, weapon or self controls are unavailable Load a save and enter gameplay. Some features require a loaded player, camera, weapon or nearby entities. Read the disabled control’s explanation. If the game has updated, a matching module may be needed; a visible checkbox alone does not prove that a binding is available. Spawning an NPC or infected is unavailable Characters require resources from the current level. The catalog does not guarantee that every archetype can be spawned in every scene. Reset settings Close Part I before using Reset Settings in the dashboard. This prevents the running game from saving an old config over your reset. Back up profiles you want to keep.",
+    "href": "/guides/last-of-us/troubleshooting/",
+    "tags": [
+      "last-of-us",
+      "The Last of Us",
+      "TLOU",
+      "TLOU1",
+      "Part I",
+      "Part 1"
+    ]
+  },
+  {
     "game": "GTA 5",
     "title": "First Time Setup",
     "text": "First Time Setup When installing Scooby for the first time, follow these steps: Step 1: Download Head over to scoobymenu.cc and click the download button to get the Scooby Installer. Make sure your anti-virus is turned off. Step 2: Extract & Run Extract the files into any folder. After that, run the .exe as an administrator. This ensures the launcher will run successfully. Step 3: Install Requirements Required Software: VC Runtimes: https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/ DirectX: https://www.microsoft.com/en-gb/download/details.aspx?id=6812 Make sure you have your graphics drivers up to date. Step 4: Inject Load up GTA and wait for it to be on the main menu or in story mode. Then go back to the launcher, get a free license, and follow the steps. When you have acquired your free license, click Inject . This should inject the menu into the game. Then press Insert to open the menu - congratulations, you're done!",
-    "href": "/guides/gta5/first-time/"
+    "href": "/guides/gta5/first-time/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "Free Version Setup (Legacy & Enhanced)",
     "text": "Free Version Setup (Legacy & Enhanced) Need a key first? See Getting a Free Key in the General tab. FREE VERSION = SOLO ONLY - you can only play solo or with other Scooby users. You cannot play public lobbies with BattlEye disabled. If you have used Scooby before, delete the C:\\scooby folder first - the folder, not the loader . Otherwise it will probably crash due to old settings. For both versions: make sure your antivirus is disabled or you will likely have issues, and use a Cloudflare or Proton VPN if you have connection issues. The free version runs with BattlEye off . GTA 5 Legacy Make sure your antivirus is disabled Launch GTA 5 Inject Scooby when you reach the main menu / landing page Wait for Scooby to load Enter STORY MODE Use the in-game pause menu to join an INVITE ONLY SESSION GTA 5 Enhanced Launch GTA 5 Enhanced Inject Scooby when you reach the main menu / landing page Wait for Scooby to load Enter STORY MODE Use the in-game pause menu or the Scooby menu to join an INVITE ONLY SESSION You cannot play public lobbies on the free version With BattlEye disabled you can play solo , or in a session with other Scooby users . You cannot join a public lobby and you cannot play with non-modders - joining public on the free version will crash. Public lobbies with friends require Premium Plus.",
-    "href": "/guides/gta5/free-setup/"
+    "href": "/guides/gta5/free-setup/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "How To Host Public Sessions with Scooby (BE Disabled)",
     "text": "How To Host Public Sessions with Scooby (BE Disabled) Getting a public lobby to fill up is not just luck - it comes down to a handful of factors you can actually control. This guide covers what makes players join your session and what to do when nobody shows up. Everything here assumes you have launched GTA 5 with BattlEye disabled in the Rockstar Launcher settings, which is required for Scooby. If you have not done that yet, see First Time Setup . There are four factors behind a lobby that actually fills: your NAT type, your aim type, the region and time you host in, and a fair amount of luck. 1. NAT Type Your NAT type affects how easily other players can connect to your lobby. Open NAT - best results for hosting Moderate NAT - usually works fine Strict NAT - may reduce player joins and connectivity Important things to know: NAT type is normally controlled by your router and your ISP , not by the game. Some tools and scripts offer NAT spoofing, which presents a different NAT type to GTA Online. Results vary a lot and it does not work the same for every player. If you consistently struggle to attract players, check your NAT type and confirm your ISP is not putting you behind CGNAT (see below). 2. Aim Type Your aim setting decides which pool of players can even match with you. Free Aim - largest player pool on PC, attracts the most players Partial Aim Assist - still a decent number of players Full Aim Assist - smallest player pool on PC, expect fewer joins For the highest chance of filling a lobby, start with Free Aim . 3. Region and Timing Timing matters as much as the region itself. Aim for hours when people are: Getting home from work Finishing school Already gaming during the evening Good windows to try: North America, evenings Europe, evenings Weekends beat weekday mornings by a wide margin If one region is quiet, switch to another and try again. 4. Luck Sometimes everything is set up perfectly and the lobby still will not fill. You can host a session that fills instantly, then host the exact same session 30 minutes later and get nobody. GTA Online matchmaking is unpredictable, so persistence is part of the process. Bonus: Check for CGNAT Some ISPs place customers behind Carrier Grade NAT (CGNAT) , which shares one public IP between many customers. This can hurt your connectivity, your matchmaking and your hosting reliability. Contact your ISP Ask whether your connection is behind CGNAT Request a public IPv4 address if they offer one Bonus: Use a VPN A VPN can sometimes improve how visible you are in matchmaking. Best practice: Connect to a VPN server in a densely populated area Match your VPN region to the audience you are trying to attract Locations players commonly report good results with: New York, Chicago, Los Angeles, London, Frankfurt . Results vary, but busy metro areas generally give better lobby population. Checklist - you have done everything right if: Session advertising is enabled You are on Open or Moderate NAT You picked the right Aim Type (Free Aim fills fastest) You chose an active region and a busy time of day You confirmed you are not behind CGNAT Still Alone? Be patient. Try different combinations, restart the session, switch regions and keep experimenting. An empty lobby after one attempt does not mean your setup is wrong. If All Else Fails - Get Friends to Join First A lobby that already has a few players inside attracts far more players than an empty one. Once the first few people arrive, GTA Online matchmaking tends to do the rest. You can also turn on Player Magnet in the Network tab to help pull players in. In short: hosting is a combination of NAT type, aim type, region, ISP quality and a little bit of luck .",
-    "href": "/guides/gta5/host-public/"
+    "href": "/guides/gta5/host-public/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "Introduction",
     "text": "Introduction Welcome to the Scooby Mod Menu Guide! This guide covers everything you need to know: Modded Outfits Modded Vehicles Playing in public lobbies Troubleshooting common issues Please make sure to follow this guide step by step. We are not responsible for any bans, so please use at your own caution.",
-    "href": "/guides/gta5/introduction/"
+    "href": "/guides/gta5/introduction/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "Money Making Methods",
     "text": "Money Making Methods Within the Scooby menu there are many ways to make money if you don't want to do it legitimately. Heist Method Make sure to enable Solo Hosting in the Recovery tab. This lets you do heists that require more than 1 person. Head to the Heists tab, set up your heist accordingly, and start it. When the heist starts, click Insta Finish to end it immediately - you'll receive 100% of the cut! Casino Method Head to the casino and enable Manipulate Slot Machines in the Recovery > Casino option. Go to the slots, bet the max, and you'll hit the jackpot! Disable the option, force yourself to fail a slot, then turn it back on and repeat. Business Method Head to the Business tab on the menu and find the Fill Supplies button. Your supplies will be maxed out, ready for you to sell!",
-    "href": "/guides/gta5/money/"
+    "href": "/guides/gta5/money/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "Modding Outfits",
     "text": "Modding Outfits Modding outfits with Scooby is very simple! The menu includes a saved outfits section. Using Shared Outfits To use other people's saved outfits, find the file they share (many outfits can be found in the Scooby Discord) and save it to: C:\\scooby\\GTA5\\outfits When you load in-game, use the menu to navigate to the outfits section and you will find the modded outfits there! Creating Your Own Outfits You can also mod outfits yourself! Head to the Outfit Editor in the Scooby menu. You can change the numbers on your character's clothing, and when you've found your perfect outfit, save it!",
-    "href": "/guides/gta5/outfits/"
+    "href": "/guides/gta5/outfits/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "Troubleshooting",
     "text": "Troubleshooting Here are solutions to common issues you may encounter: Failed to allocate memory in target process Head to your Rockstar Launcher, click on Settings, and disable BattlEye . This will fix the issue. Please return to Grand Theft Auto V (Black Screen) You must inject the menu during the loading screen. This message means the game is signifying you're going back to story mode. BattlEye is required to play GTA V Online Same solution - inject the menu during the loading screen, not when you're already in the game. Black screen with an error message Restart your game without opening Scooby and go to story mode before injecting. Frame Generator is now supported , so you no longer need to turn it off. Failed to write process memory Turn off BattlEye in the Rockstar Launcher settings. Launcher, free key & injection troubleshooting Follow this guide if the launcher closes after opening, the free key website is unreachable, injection fails, or injection succeeds but the menu does not work in game. Check your connection. Try a VPN, then retry the website or launcher. Your network or ISP may be blocking the connection. Clear the cache if the launcher still closes or injection fails. Close Scooby, delete the C:\\scooby folder, then restart Scooby and try again. If injection still fails, check whether antivirus is blocking the loader. Follow the Antivirus & Download FAQ for the next steps. If only the free key website is affected, you do not need to reset the launcher cache. If the issue continues, contact support with the error message and the steps you have tried. Not listed here? See Universal Troubleshooting in the General tab - it covers \"Failed to inject module\", Auth Failed, crashing on inject, BattlEye kicks and the Scooby folder going missing. If Windows is flagging or deleting the loader, start with the Antivirus & Download FAQ .",
-    "href": "/guides/gta5/troubleshooting/"
+    "href": "/guides/gta5/troubleshooting/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "GTA 5",
     "title": "Modding Vehicles",
     "text": "Modding Vehicles Modding vehicles with Scooby is also very simple! Creating Modded Vehicles Open the menu and head to the Vehicles icon, then click Vehicle Editor at the bottom. This will allow you to mod your vehicle. To save it, head to Saved Vehicles, click Save Vehicle, name it, and save! Using Shared Vehicles Similar to outfits, you can use others' saved vehicles. Head to the Discord, find the vehicles thread, and download a file you want. Then drop it into: C:\\scooby\\GTA5\\vehicles",
-    "href": "/guides/gta5/vehicles/"
+    "href": "/guides/gta5/vehicles/",
+    "tags": [
+      "gta5"
+    ]
   },
   {
     "game": "FiveM",
     "title": "How to Inject",
     "text": "How to Inject Timing is the single biggest factor in whether the injection works. Do it at the right moment and it is reliable every time. Best way to inject Inject at the FiveM main menu , or while the server is loading its resources and assets (the loading screen you get after picking a server). This is the most reliable point and the method we recommend. Step by step Open the Scooby loader and sign in Select FiveM Launch FiveM Click Inject at the main menu , or once you have joined a server and it is loading resources/assets Wait for Scooby to finish loading, then open the menu Already in a server? You can still inject while you are already in a server and in game - it is supported and it works. The main menu / resource loading screen is simply the more reliable moment, so use that when you can. Injection not working? Make sure your antivirus is fully disabled and the loader is excluded from Windows Defender , then try again from the main menu. If it still fails, work through Universal Troubleshooting in the General tab.",
-    "href": "/guides/fivem/fivem-inject/"
+    "href": "/guides/fivem/fivem-inject/",
+    "tags": [
+      "fivem"
+    ]
   },
   {
     "game": "FiveM",
     "title": "Requirements",
     "text": "Requirements Before running Scooby on FiveM, make sure the VC Runtimes are installed: Required Software: VC Runtimes (all-in-one package): https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/ Or install these two directly from Microsoft: https://aka.ms/vc14/vc_redist.x86.exe https://aka.ms/vc14/vc_redist.x64.exe Install those and restart your PC . Still having problems? See Universal Troubleshooting , Crashing Solutions and Connection or SSL Errors in the General tab.",
-    "href": "/guides/fivem/fivem-requirements/"
+    "href": "/guides/fivem/fivem-requirements/",
+    "tags": [
+      "fivem"
+    ]
   },
   {
     "game": "FiveM",
     "title": "Money, items & weapons",
     "text": "Money, items & weapons Money, items, weapons, and rewards depend on the server you are playing on. There is no universal trigger that works on every server. Reviewing server events Load into the server and wait for its resources to finish loading. Use the server dump feature, then review the dumped resources for events related to inventories, weapons, jobs, or rewards. Read the surrounding code to understand an event’s purpose and requirements. An event name alone does not tell you whether it will work. Why an event may not work Servers may validate these events on the server side. A request can be rejected if you do not meet the required conditions, such as being in the correct location, having the right job or permissions, or completing a task before claiming its reward. A server dump does not guarantee access to the server-side logic or reveal every validation check. Risk of a kick or ban Attempting to use a protected event may result in an immediate kick or ban, or may have no effect. Finding an event in a dump does not mean it is unprotected or safe to use. Server-specific support You are responsible for finding and understanding events for the server you use. Scooby does not provide server-specific money, item, weapon, or reward triggers, and support cannot help you find working triggers or bypass a server’s protections.",
-    "href": "/guides/fivem/money-items-weapons/"
+    "href": "/guides/fivem/money-items-weapons/",
+    "tags": [
+      "fivem"
+    ]
   },
   {
     "game": "RedM",
     "title": "Money, items & weapons",
     "text": "Money, items & weapons Money, items, weapons, and rewards depend on the server you are playing on. There is no universal trigger that works on every server. Reviewing server events Load into the server and wait for its resources to finish loading. Use the server dump feature, then review the dumped resources for events related to inventories, weapons, jobs, or rewards. Read the surrounding code to understand an event’s purpose and requirements. An event name alone does not tell you whether it will work. Why an event may not work Servers may validate these events on the server side. A request can be rejected if you do not meet the required conditions, such as being in the correct location, having the right job or permissions, or completing a task before claiming its reward. A server dump does not guarantee access to the server-side logic or reveal every validation check. Risk of a kick or ban Attempting to use a protected event may result in an immediate kick or ban, or may have no effect. Finding an event in a dump does not mean it is unprotected or safe to use. Server-specific support You are responsible for finding and understanding events for the server you use. Scooby does not provide server-specific money, item, weapon, or reward triggers, and support cannot help you find working triggers or bypass a server’s protections.",
-    "href": "/guides/redm/money-items-weapons/"
+    "href": "/guides/redm/money-items-weapons/",
+    "tags": [
+      "redm"
+    ]
   },
   {
     "game": "RedM",
     "title": "How to Inject",
     "text": "How to Inject Timing is the single biggest factor in whether the injection works. Do it at the right moment and it is reliable every time. Best way to inject Inject at the RedM main menu , or while the server is loading its resources and assets (the loading screen you get after picking a server). This is the most reliable point and the method we recommend. Step by step Open the Scooby loader and sign in Select RedM Launch RedM Click Inject at the main menu , or once you have joined a server and it is loading resources/assets Wait for Scooby to finish loading, then open the menu Already in a server? You can still inject while you are already in a server and in game - it is supported and it works. The main menu / resource loading screen is simply the more reliable moment, so use that when you can. Injection not working? Make sure your antivirus is fully disabled and the loader is excluded from Windows Defender , then try again from the main menu. If it still fails, work through Universal Troubleshooting in the General tab.",
-    "href": "/guides/redm/redm-inject/"
+    "href": "/guides/redm/redm-inject/",
+    "tags": [
+      "redm"
+    ]
   },
   {
     "game": "RedM",
     "title": "Requirements",
     "text": "Requirements Before running Scooby on RedM, make sure the VC Runtimes are installed: Required Software: VC Runtimes (all-in-one package): https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/ Or install these two directly from Microsoft: https://aka.ms/vc14/vc_redist.x86.exe https://aka.ms/vc14/vc_redist.x64.exe Install those and restart your PC . Still having problems? See Universal Troubleshooting , Crashing Solutions and Connection or SSL Errors in the General tab.",
-    "href": "/guides/redm/redm-requirements/"
+    "href": "/guides/redm/redm-requirements/",
+    "tags": [
+      "redm"
+    ]
   },
   {
     "game": "Red Dead Redemption 2",
     "title": "Before Launching Scooby",
     "text": "Before Launching Scooby Red Dead Redemption 2 does not use BattlEye , so it does not matter whether you leave it on or off. Get these sorted before you launch anything: Make sure your graphics drivers are up to date Install all runtimes and DirectX runtimes - just choose to install them when running the Scooby Installer, then restart your PC afterwards Disable Windows Defender. Turn it off normally - do not use Sordum / Defender Control , it causes issues for some people and turning Defender off manually removes that possibility of errors If you have any third-party antivirus installed (Norton, Avast, Malwarebytes, etc.) you need to uninstall it. These still cause issues even when they are \"off\"",
-    "href": "/guides/rdr2/rdr2-before/"
+    "href": "/guides/rdr2/rdr2-before/",
+    "tags": [
+      "rdr2"
+    ]
   },
   {
     "game": "Red Dead Redemption 2",
     "title": "Crashing? Switch to DX12",
     "text": "Crashing? Switch to DX12 IF YOU ARE CRASHING THEN YOU NEED TO SWITCH FROM VULKAN TO DX12 In Red Dead Redemption 2, open Settings → Graphics and scroll down to Advanced Graphics . Change Graphics API from Vulkan to DX12 , then apply the change and restart the game.",
-    "href": "/guides/rdr2/rdr2-crashing/"
+    "href": "/guides/rdr2/rdr2-crashing/",
+    "tags": [
+      "rdr2"
+    ]
   },
   {
     "game": "Red Dead Redemption 2",
     "title": "How to Launch Scooby",
     "text": "How to Launch Scooby Follow these steps in order: Sign into your Scooby account Select RDR2 Launch Red Dead Redemption 2 and wait for it to load Once you are at the main menu , click \"▶️ LOAD\" on the Scooby loader You can enter story mode or online after the CMD console appears on screen Menu doesn't appear in-game You may need to change your graphics settings / resolution . Alternatively you may need to use a VPN .",
-    "href": "/guides/rdr2/rdr2-launch/"
+    "href": "/guides/rdr2/rdr2-launch/",
+    "tags": [
+      "rdr2"
+    ]
   },
   {
     "game": "Red Dead Redemption 2",
     "title": "Still Stuck?",
     "text": "Still Stuck? These apply to every game, not just RDR2: Antivirus & Download FAQ - why Scooby is flagged as a virus, how to download the loader and how to stop Defender deleting it Universal Troubleshooting - \"Failed to inject module\", Auth Failed, crashing on inject and more Connection or SSL Errors - the loader or site will not connect Resetting Your HWID",
-    "href": "/guides/rdr2/rdr2-more-help/"
+    "href": "/guides/rdr2/rdr2-more-help/",
+    "tags": [
+      "rdr2"
+    ]
   },
   {
     "game": "Counter-Strike 2",
     "title": "How to Inject",
     "text": "How to Inject There are two ways to get Scooby into CS2. Pick whichever suits where you are. Load button (easiest) Pressing Load will close CS2, reopen it and inject automatically . You do not need to do anything else - just let it restart the game. Manual inject If CS2 is already loaded and you do not want it restarted, use manual inject instead. You must be sitting on the main menu when you do it. Have CS2 open and sitting on the main menu - not in a match Choose manual inject in the loader Wait for Scooby to load, then open the menu in game Injection failing? Make sure your antivirus is fully disabled and the loader is excluded from Windows Defender . If it still will not inject, work through Universal Troubleshooting in the General tab.",
-    "href": "/guides/cs2/cs2-inject/"
+    "href": "/guides/cs2/cs2-inject/",
+    "tags": [
+      "cs2"
+    ]
   },
   {
     "game": "Counter-Strike 2",
     "title": "Requirements",
     "text": "Requirements Before running Scooby on CS2, make sure the VC Runtimes are installed: Required Software: VC Runtimes (all-in-one package): https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/ Or install these two directly from Microsoft: https://aka.ms/vc14/vc_redist.x86.exe https://aka.ms/vc14/vc_redist.x64.exe Install those and restart your PC . Still having problems? See Universal Troubleshooting , Crashing Solutions and Connection or SSL Errors in the General tab.",
-    "href": "/guides/cs2/cs2-requirements/"
+    "href": "/guides/cs2/cs2-requirements/",
+    "tags": [
+      "cs2"
+    ]
   },
   {
     "game": "Counter-Strike 2",
     "title": "Features Not Working",
     "text": "Features Not Working If Scooby loads but none of the features do anything , that almost always means one thing: CS2 HAS BEEN UPDATED AND SCOOBY NEEDS UPDATING TO MATCH Valve patches CS2 regularly, and every patch moves things around internally. Until Scooby is rebuilt against the new version, the menu will open but the features will not work. How long does an update take? It varies. Sometimes it is within an hour of the CS2 update, sometimes a day , sometimes up to about five days - realistically, whenever we have time to get to it. The CS2 menu is completely free , so it sits behind the paid products in the queue. We would rather be straight with you about that than promise a turnaround we cannot always hit. What to do in the meantime There is nothing to fix on your end - reinstalling will not help. Check the Discord for the current status, and update the loader once the new build is announced.",
-    "href": "/guides/cs2/cs2-updates/"
+    "href": "/guides/cs2/cs2-updates/",
+    "tags": [
+      "cs2"
+    ]
   },
   {
     "game": "S&box (Sandbox)",
     "title": "Getting started",
     "text": "Getting started Scooby S&box (Sandbox) is included with authenticated free-key and paid accounts. No additional S&box (Sandbox) key is required. Download the Scooby Loader and sign in with your existing free key or paid account. New to free keys? Read Getting a Free Key . Close S&box (Sandbox), select its card in the loader, then choose Launch S&Box . Choose Locate game if the loader cannot find your Steam installation. The loader downloads and verifies the matching runtime files. Press F1 or Insert to open the menu.",
-    "href": "/guides/sbox/getting-started/"
+    "href": "/guides/sbox/getting-started/",
+    "tags": [
+      "sbox",
+      "S&box",
+      "Sbox",
+      "Sandbox"
+    ]
   },
   {
     "game": "S&box (Sandbox)",
     "title": "Menu settings",
     "text": "Menu settings Set your preferred menu key, adjust the interface scale, and save a named config to keep your settings. Search and favorites: find a feature and keep frequently used options together. Hotkeys: choose Hold, Toggle, or Always mode for feature activation and review the assigned-key list. Interface: adjust UI scaling and accent colors, and position the draggable overlays. Configs: create, save, and load named profiles, or open the config directory from the menu. See the S&box (Sandbox) product page for screenshots and the full feature overview.",
-    "href": "/guides/sbox/menu-settings/"
+    "href": "/guides/sbox/menu-settings/",
+    "tags": [
+      "sbox",
+      "S&box",
+      "Sbox",
+      "Sandbox"
+    ]
   },
   {
     "game": "S&box (Sandbox)",
     "title": "Requirements",
     "text": "Requirements Download VC Runtimes Install the Visual C++ runtimes before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then restart your PC . VC Runtimes (all-in-one package): Download the all-in-one VC runtime package Or install both packages directly from Microsoft: Download VC Runtimes — x64 (64-bit) Download VC Runtimes — x86 (32-bit)",
-    "href": "/guides/sbox/requirements/"
+    "href": "/guides/sbox/requirements/",
+    "tags": [
+      "sbox",
+      "S&box",
+      "Sbox",
+      "Sandbox"
+    ]
   },
   {
     "game": "S&box (Sandbox)",
     "title": "Troubleshooting",
     "text": "Troubleshooting The loader cannot find the game Use Locate game to select your Steam installation, then launch S&box (Sandbox) through its loader card. A feature behaves differently between game modes Available data and controls depend on the active game mode and scene. Custom weapons and third-person aiming may not support the same features as standard first-person weapons. Connection, account, or launch problems See Connection or SSL Errors for sign-in issues, or follow Universal Troubleshooting for launch problems. Still need help? Ask in the Scooby community ↗ . Include the game, any error message, and the steps you have already tried.",
-    "href": "/guides/sbox/troubleshooting/"
+    "href": "/guides/sbox/troubleshooting/",
+    "tags": [
+      "sbox",
+      "S&box",
+      "Sbox",
+      "Sandbox"
+    ]
   },
   {
     "game": "Garry's Mod (GMOD)",
     "title": "Getting started",
     "text": "Getting started Scooby GMOD uses a free key and requires Garry's Mod on Windows with Steam's x86-64 branch selected. Load Scooby while the game is at the main menu. Open the GMOD product page , choose Get Free Key , and follow the key steps. See Getting a Free Key for help. Download Scooby . In your Steam Library , right-click Garry's Mod and open Properties → Game Versions & Betas . Select x86-64 , then wait for Steam to finish updating the game. Launch Garry's Mod and wait at the main menu . Load Scooby from the loader while you are still at the main menu , before joining a server or loading a map. Once Scooby is loaded, press Insert or F2 to open the menu.",
-    "href": "/guides/gmod/getting-started/"
+    "href": "/guides/gmod/getting-started/",
+    "tags": [
+      "gmod"
+    ]
   },
   {
     "game": "Garry's Mod (GMOD)",
     "title": "Menu settings",
     "text": "Menu settings Open Settings to change the menu key, interface scale, and language. Save your preferences in a profile. Search and favorites: find individual controls and keep frequently used features close at hand. Profiles: save your settings so you can return to a familiar setup. Overlays: adjust their scale independently from the menu. Lua editor: while loaded into a game, select a local script or write a draft, then use Run Lua or Ctrl+Enter to run client-side Lua. Browse the full GMOD feature library for individual controls, or see the product page for screenshots.",
-    "href": "/guides/gmod/menu-settings/"
+    "href": "/guides/gmod/menu-settings/",
+    "tags": [
+      "gmod"
+    ]
   },
   {
     "game": "Garry's Mod (GMOD)",
     "title": "Requirements",
     "text": "Requirements Download VC Runtimes Install the Visual C++ runtimes before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then restart your PC . VC Runtimes (all-in-one package): Download the all-in-one VC runtime package Or install both packages directly from Microsoft: Download VC Runtimes — x64 (64-bit) Download VC Runtimes — x86 (32-bit)",
-    "href": "/guides/gmod/requirements/"
+    "href": "/guides/gmod/requirements/",
+    "tags": [
+      "gmod"
+    ]
   },
   {
     "game": "Garry's Mod (GMOD)",
     "title": "Troubleshooting",
     "text": "Troubleshooting The menu does not open Check that Steam's x86-64 branch is selected and fully updated. Launch Garry's Mod and load Scooby at the main menu , before joining a server or loading a map. Try the default Insert or F2 key, or your custom menu key if you changed it in Settings. A feature is unavailable in a game mode Gamemode tools depend on the active mode and server. Available information can differ between TTT, Murder, DarkRP, Prop Hunt, and GRust. Problems after a game update Game updates can affect compatibility. Check the GMOD product status and use Crashing Solutions or Universal Troubleshooting for further help. Still need help? Ask in the Scooby community ↗ . Include the game, any error message, and the steps you have already tried.",
-    "href": "/guides/gmod/troubleshooting/"
+    "href": "/guides/gmod/troubleshooting/",
+    "tags": [
+      "gmod"
+    ]
   },
   {
     "game": "General help",
     "title": "Connection or SSL Errors",
     "text": "Connection or SSL Errors If you get connection errors trying to load the website or the loader, it is because your ISP is blocking the connection to the servers. USE A VPN Cloudflare is usually good for most users, or you can use Proton . If you are still getting errors while connected to a VPN, it probably means you need to use a better VPN.",
-    "href": "/guides/general/connection/"
+    "href": "/guides/general/connection/",
+    "tags": [
+      "general"
+    ]
   },
   {
     "game": "General help",
     "title": "Crashing Solutions",
     "text": "Crashing Solutions Work through these in order - they resolve the overwhelming majority of crashes: Delete C:\\scooby . Do this after every Scooby update to avoid conflicts with your old settings Do not use third-party antivirus software (Norton, Avast, Malwarebytes, etc.) Turn off Windows Defender. Avoid Defender Control - just turn it off normally and avoid any issues DC may cause Make sure DirectX runtimes and C++ runtimes are installed Make sure your graphics drivers are up to date Try using a VPN , and make sure it has no built-in antivirus or anti-malware settings. Cloudflare works for most users Make sure Date & Time is synced in Windows settings If all of the above fails and you are still crashing, it is probably your user permissions - create a new Windows user with admin rights Free users Make sure you are following the injection instructions properly . Almost every issue comes from skipping steps. The guides exist for a reason - if you want to play without the restrictions, the Premium Plus version gives you access to everything. Otherwise, use the limited free version as documented.",
-    "href": "/guides/general/crashing/"
+    "href": "/guides/general/crashing/",
+    "tags": [
+      "general"
+    ]
   },
   {
     "game": "General help",
     "title": "Antivirus & Download FAQ",
     "text": "Antivirus & Download FAQ The most common questions people ask before they even get the loader running. Read these first if Windows is blocking or removing your download. Why is Scooby flagged as a virus? It is most commonly known as a false positive , which means your PC may automatically flag the mod menu as malware because it doesn't recognise the file or its intentions. This happens due to the way mod menus are developed, not necessarily because they are malicious. How can I download the loader? Simply disable Real-time Protection in Windows Security. You may also need to temporarily disable your browser's Safe Browsing or Safe Search feature if it prevents the download. Recommended browsers are Chrome and Firefox . Why does the Scooby loader delete itself after some time? This usually happens because the loader hasn't been added as an exclusion in Windows Defender. When Real-time Protection is re-enabled, Windows Defender may automatically remove the loader. To prevent this, open Windows Security and go to: Virus & threat protection → Manage settings → Add or remove exclusions → Add an exclusion Select the Scooby loader. Once it has been added as an exclusion, Windows Defender should no longer remove it automatically.",
-    "href": "/guides/general/faq/"
+    "href": "/guides/general/faq/",
+    "tags": [
+      "general"
+    ]
   },
   {
     "game": "General help",
     "title": "Getting a Free Key",
     "text": "Getting a Free Key Follow these steps to get your Scooby free key: Click the official link: https://bstlar.com/F/ScoobyKEY Complete the steps on the page and follow the instructions. Can't complete the steps? Switch to Microsoft Edge or another browser Once done, your key will appear on the page - copy the key shown Open the loader, press \"Free\" , then paste your key The free key auto-resets every 4 hours - you must redo the steps to get a new one Important Only use the official link above to avoid scams Close any ad pop-ups. The key will always show on the page itself - it is never an .exe Do not share your key with anyone After you get a key, download the loader from scoobymenu.cc - do not download from bstlar Free Version Limitations Free version is invite-only / solo The free version is limited to invite only sessions or sessions with other modders in GTA Online. Joining a public lobby on the free version will crash. If you have used Scooby before, delete the C:\\scooby folder - the folder, not the loader . If you don't, it will probably crash due to old settings.",
-    "href": "/guides/general/free-key/"
+    "href": "/guides/general/free-key/",
+    "tags": [
+      "general"
+    ]
   },
   {
     "game": "General help",
     "title": "Resetting Your HWID",
     "text": "Resetting Your HWID If you have changed hardware or are getting an HWID mismatch, reset it from the portal: Go to scoobymenu.cc/portal and log in Open the dropdown menu in the top right Click \"My Profile\" Scroll down to Hardware ID Click \"Reset HWID\" On cooldown? If you are on cooldown then you need to wait - the reset cannot be forced through early.",
-    "href": "/guides/general/hwid/"
+    "href": "/guides/general/hwid/",
+    "tags": [
+      "general"
+    ]
   },
   {
     "game": "General help",
     "title": "Use Scooby on Linux & Mac",
     "text": "Use Scooby on Linux & Mac Scooby is a Windows application, but it runs on Linux and Mac through a Windows compatibility layer. The trick is making sure the loader and the game live in the same prefix - otherwise the loader cannot see the game to inject into. Linux Install Lutris Install the Rockstar Games Launcher through Lutris and let it update to the latest version Install GTA V through the Rockstar Games Launcher, inside Lutris Add ScoobyLoader.exe to Lutris as a pre-installed game , and set its WINE prefix to the same prefix the Rockstar Games Launcher uses Copy segoeui.ttf into that prefix's Windows\\Fonts folder Launch ScoobyLoader.exe through Lutris and play as normal Why the font matters Segoe UI is a Windows font that WINE does not ship. Without it the menu can render with missing or broken text, so copy segoeui.ttf into the prefix before you launch. Performance Scooby itself does not really affect performance. If the game runs badly, that is the compatibility layer rather than the menu. Try different WINE or Proton versions - performance varies a lot between builds, and switching runner version is usually the single biggest win. Mac The same approach works on Mac through CrossOver , and other tools for running Windows apps on Mac will work the same way. Set it up exactly as above: game and loader in the same bottle/prefix, with the Segoe UI font added. Heads-up on Mac performance GTA 5 itself runs poorly on Mac in our testing, including on M4 Pro and M4 Pro Max . It does run - it is just not a great experience. That is the game under translation, not a Scooby issue , and there is nothing on our side that changes it.",
-    "href": "/guides/general/linux-mac/"
+    "href": "/guides/general/linux-mac/",
+    "tags": [
+      "general"
+    ]
   },
   {
     "game": "General help",
     "title": "Universal Troubleshooting",
     "text": "Universal Troubleshooting Fixes for the specific errors people hit most often. This list is updated regularly - check back after an update before opening a ticket. Not injecting Make sure you have disabled BattlEye in the Rockstar Launcher. If you launch through Steam or Epic , disable it there too with the launch argument -nobattleye Exclude the Scooby application and its folder in Documents from Windows Defender. Third-party antivirus can still cause issues even when fully disabled Run Scooby as Administrator Delete the Scooby folder in your C:\\ drive Remove OneDrive - it can cause permission issues in the Documents folder Verify your system files: open CMD as Administrator and run sfc /scannow Make sure your C: drive and Scooby folder have Full Control in their Properties → Security settings \"Failed to inject module. Try disabling your Anti-Virus.\" A few different things cause this error. Follow these steps correctly and it should stop appearing: Make sure you are using the correct Windows user profile with Administrator privileges , and always run the Scooby loader as Administrator Move the Scooby loader to your Desktop , then add both the loader and your C: drive folder to your antivirus exclusions If you have OneDrive enabled, fully unlink and uninstall it You can tell OneDrive is getting in the way if you can't find the Scooby folder in your normal Documents folder , or if the path shown in your antivirus exclusions contains \"OneDrive\" . Crashing on inject Exclude the Scooby application and its folder in Documents from Windows Defender. Third-party antivirus can still cause issues even when fully disabled Check the log to see if you are getting Failed to Find Patterns - if so, follow the Failed to Find Patterns guide in our Discord Make sure HDR is disabled in Windows Display Settings Verify your GTA game files Delete the Scooby folder in your C:\\ drive Verify your system files: open CMD as Administrator and run sfc /scannow Loader not opening, or \"Auth Failed\" error Use a VPN - https://one.one.one.one/ Disable or remove any third-party antivirus \"GTA detected a fatal error\" Most of the time this is not caused by Scooby , but by faulty game files or something else on your system. Look up the specific error code shown (for example ERR_GFX_STATE ) - it will point you to the actual cause. Subscribed scripts not showing up Use a VPN - https://one.one.one.one/ Why am I getting desync-kicked by BattlEye while using Scooby? The reason for the desync-kick is that you are joining public sessions as a non-host , which causes BattlEye to remove you from the session. This happens because you are playing GTA Online with BattlEye disabled while other players have it enabled . To prevent it, start your own sessions as the host. You will then be able to play normally with non-modders who have BattlEye enabled. In the menu, go to: Session Tab → Session Starter → Invite-Only Session or New Public Session If you want other players to join, enable the Advertise Session function in the host toolkit, or simply invite your friends. See How To Host Public Sessions with Scooby for the full walkthrough. We also have a BattlEye bypass that lets you join anyone, including random public sessions - all the information on that is on the GTA 5 product page . Getting BattlEye kicked even without Scooby running You most likely joined a public lobby where you were not the host and got kicked by BattlEye while using Scooby. You will need to wait 12-24 hours for the kick to go away. Until then, stick to lobbies where you are the host , or where another BattlEye-disabled player is the host. Scooby folder not in Documents Check your C:\\ drive for it. It falls back there if permissions fail in Documents - usually because of OneDrive.",
-    "href": "/guides/general/universal/"
+    "href": "/guides/general/universal/",
+    "tags": [
+      "general"
+    ]
   }
 ]

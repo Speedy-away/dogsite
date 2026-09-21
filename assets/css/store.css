@@ -340,6 +340,41 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible {
     font-size:.74rem;
     color:#8490a4
 }
+/* Use the same transparent logos and blurred backgrounds as the homepage cards. */
+.game-art {
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    background:#101319
+}
+.game-art::before {
+    content:'';
+    position:absolute;
+    inset:-12px;
+    z-index:-1;
+    background:var(--game-art-background) center / cover no-repeat;
+    filter:blur(5px) brightness(.6);
+    pointer-events:none
+}
+.game-art-gta5 {
+    --game-art-background:url('/assets/images/games/gta5.webp')
+}
+.game-art-rdr2 {
+    --game-art-background:url('/assets/images/games/rdr2.webp')
+}
+.game-art>.game-logo {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:8% 18%;
+    filter:drop-shadow(0 3px 8px #0008)
+}
+.game-art-rdr2>.game-logo {
+    padding:12% 10%
+}
+.game-art>.product-badge {
+    z-index:1
+}
 /* GTA 5 featured edition selector */
 .featured-product {
     display:grid;
@@ -350,29 +385,18 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible {
     background:var(--panel)
 }
 .featured-art {
-    position:relative;
+    display:flex;
+    flex-direction:column;
     min-width:0;
     min-height:485px;
-    background:#241b18
+    background:#101319
 }
-.featured-art>img {
-    width:100%;
-    height:100%;
-    position:absolute;
-    inset:0;
-    object-fit:cover;
-    object-position:38% center
-}
-.featured-art::after {
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(0deg,rgba(7,10,16,.93),rgba(7,10,16,.16) 85%)
+.featured-banner {
+    height:250px;
+    flex-shrink:0
 }
 .featured-copy {
-    position:absolute;
-    inset:auto 36px 34px;
-    z-index:1
+    padding:24px 32px 30px
 }
 .featured-label {
     display:inline-block;
@@ -382,7 +406,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible {
     margin-bottom:18px
 }
 .featured-copy h2 {
-    font-size:3.5rem;
+    font-size:2.4rem;
     font-weight:650;
     letter-spacing:-.06em;
     line-height:1.02
@@ -994,7 +1018,7 @@ body:has(dialog[open]) {
         padding:26px
     }
     .featured-copy {
-        inset:auto 28px 30px
+        padding:24px 28px 30px
     }
     .featured-copy h2 {
         font-size:3rem
@@ -1056,7 +1080,7 @@ body:has(dialog[open]) {
         font-size:2.6rem
     }
     .featured-copy {
-        inset:auto 23px 28px
+        padding:24px 23px 28px
     }
     .featured-label {
         font-size:.56rem
@@ -1171,7 +1195,7 @@ body:has(dialog[open]) {
         min-height:330px
     }
     .featured-copy {
-        inset:auto 26px 27px
+        padding:24px 26px 27px
     }
     .featured-copy h2 {
         font-size:3rem
@@ -1298,10 +1322,3 @@ body:has(dialog[open]) {
         transition:none!important
     }
 }
-/* Keep supplied fallback logos fully visible until their banner edits are available. */
-.featured-art:has(.store-logo-source) { display:flex; flex-direction:column; background:#101319; }
-.featured-art>.store-logo-source { position:static; width:100%; height:250px; object-fit:contain; object-position:center; padding:24px; background:#111; }
-.featured-art:has(.store-logo-source)::after { display:none; }
-.featured-art:has(.store-logo-source) .featured-copy { position:static; padding:24px 32px 30px; }
-.featured-art:has(.store-logo-source) .featured-copy h2 { font-size:2.4rem; }
-img.store-logo-source:not(.featured-art>img) { object-fit:contain; padding:24px; background:#111; }

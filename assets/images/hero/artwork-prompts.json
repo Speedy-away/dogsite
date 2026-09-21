@@ -1,0 +1,195 @@
+{
+  "tool": "Built-in image_gen",
+  "nativeDimensions": "1672x941",
+  "sourceFolder": "C:/Users/whatw/OneDrive/Desktop/f",
+  "scenes": [
+    {
+      "name": "gta-desert",
+      "refs": [
+        "GTA5/backgrounds/1.jpg",
+        "GTA5/characters/7f129e09571ab04d5d8e138319262d6d-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Create one premium game loading-screen illustration for a website hero, wide 16:9 landscape, requested 3840x2160 resolution with sharp high-resolution detail. Use input 1 as the scene reference and input 2 as the character reference. Repaint and enhance both into a unified polished Rockstar loading-screen-style artwork: realistic anatomy, crisp illustrative edges, detailed materials, cinematic depth, cohesive color grading. Preserve the referenced character identity, outfit, accessories and pose as closely as possible. Place the main character(s) in the rightmost 35% of the image, head near upper-right but with 12% safe margin at the top; character framed from head to mid-thigh. Keep the left half free of foreground characters, only atmospheric landscape and shadowed detail with room for large website title. No text, no logos, no lettering, no interface, no watermark, no collage panels. Do not just stretch the low-resolution input; reconstruct facial features, clothing, edges and background detail cleanly. GTA V scene: orange sunset in Sandy Shores, dusty desert road, utility poles and distant mountains from reference. Feature the denim-jacket man with white hoodie, green cap, tinted glasses and chain; his companion just behind him as in reference, both grouped on the far right. Warm light outlines their clothing.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-d3240b4d-f619-4577-9def-6ebdf5c333f1.png",
+      "currentFile": "gta-desert-v2.webp",
+      "revision": {
+        "prompt": "Use case: compositing. EDIT THE FIRST PROVIDED IMAGE ONLY; any other images are not part of this scene. The user says the foreground characters are much too big for the website hero. Keep this scene, the same character identity, clothing, colors and background style. Recompose the foreground people to be approximately 35% SMALLER in linear scale (65% of their current size), with their heads at about 32% of the canvas height and bodies extending down to the bottom, showing them through the knees. Keep them grouped in the right third, centered around 78% canvas width, with a safe margin on the right. Fill the space freed up by the smaller characters with a continuous, detailed extension of the SAME scenery, not a blank area. Full-bleed 16:9 artwork; don't shrink the entire picture, no inset frame, no borders or letterboxing. The landscape should dominate and be visible above and beside the people. Preserve crisp illustration quality and detailed materials. No text or interface. The top 25% should be scenery only. The left 60% should be scenery only. Target scene: gta-desert.",
+        "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-98f4b274-ca8d-4c76-b8ee-14ce22e595c3.png"
+      },
+      "active": true
+    },
+    {
+      "name": "rdr-overlook",
+      "refs": [
+        "rdr2/backgrounds/1.jpg",
+        "rdr2/45fd555d2fb5220a827500f77f473e0b-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Create a detailed cinematic Western game loading-screen artwork, 16:9 landscape, high resolution. Image 1 is the supporting landscape reference: golden mist over a forested river canyon at sunrise, a distant rider. Image 2 is the supporting adult cowboy character reference: a rugged middle-aged man with long hair, black hat, ornate burgundy waistcoat, rolled-sleeve white shirt, leather gloves and decorative belt. Repaint these into one coherent sharp illustration with the cowboy occupying the far right third, framed from hat to mid-thigh, left half only landscape for website copy. Preserve his face and clothing, change his pose to stand peacefully with hands at his waist, no smoking and no visible weapons. Rich detailed embroidery, realistic face, warm rim light, golden haze, clean edges. Atmospheric Red Dead Redemption 2 inspired loading-screen composition. No words, no logo, no watermark, no interface.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-01421391-9099-4ae5-982b-b8a9c0b3cd52.png",
+      "currentFile": "rdr-overlook-v2.webp",
+      "revision": {
+        "prompt": "Use case: compositing. EDIT THE FIRST PROVIDED IMAGE ONLY; any other images are not part of this scene. The user says the foreground characters are much too big for the website hero. Keep this scene, the same character identity, clothing, colors and background style. Recompose the foreground people to be approximately 35% SMALLER in linear scale (65% of their current size), with their heads at about 32% of the canvas height and bodies extending down to the bottom, showing them through the knees. Keep them grouped in the right third, centered around 78% canvas width, with a safe margin on the right. Fill the space freed up by the smaller characters with a continuous, detailed extension of the SAME scenery, not a blank area. Full-bleed 16:9 artwork; don't shrink the entire picture, no inset frame, no borders or letterboxing. The landscape should dominate and be visible above and beside the people. Preserve crisp illustration quality and detailed materials. No text or interface. The top 25% should be scenery only. The left 60% should be scenery only. Target scene: rdr-overlook.",
+        "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-b3097ee7-16a3-4ad1-868a-b231ea608f48.png"
+      },
+      "active": true
+    },
+    {
+      "name": "gta-night",
+      "refs": [
+        "GTA5/backgrounds/2.jpg",
+        "GTA5/characters/f16e39f42ad2cb73bdb78145c30b76b7-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Create one premium game loading-screen illustration for a website hero, wide 16:9 landscape, requested 3840x2160 resolution with sharp high-resolution detail. Use input 1 as the scene reference and input 2 as the character reference. Repaint and enhance both into a unified polished Rockstar loading-screen-style artwork: realistic anatomy, crisp illustrative edges, detailed materials, cinematic depth, cohesive color grading. Preserve the referenced character identity, outfit, accessories and pose as closely as possible. Place the main character(s) in the rightmost 35% of the image, head near upper-right but with 12% safe margin at the top; character framed from head to mid-thigh. Keep the left half free of foreground characters, only atmospheric landscape and shadowed detail with room for large website title. No text, no logos, no lettering, no interface, no watermark, no collage panels. Do not just stretch the low-resolution input; reconstruct facial features, clothing, edges and background detail cleanly. GTA V scene: downtown Los Santos at night, glowing office towers, broad empty streets and amber street lamps as in reference. Feature the woman at far right wearing black baseball cap, black respirator, black skeleton ribcage hoodie, tactical harness, black gloves and slashed charcoal jeans. Cool city light with amber rim lighting, highly detailed cloth and sharp skyline.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-8a373792-3439-4844-95ee-e3f8c1557f43.png",
+      "currentFile": "gta-night-v2.webp",
+      "revision": {
+        "prompt": "Use case: compositing. EDIT THE FIRST PROVIDED IMAGE ONLY; any other images are not part of this scene. The user says the foreground characters are much too big for the website hero. Keep this scene, the same character identity, clothing, colors and background style. Recompose the foreground people to be approximately 35% SMALLER in linear scale (65% of their current size), with their heads at about 32% of the canvas height and bodies extending down to the bottom, showing them through the knees. Keep them grouped in the right third, centered around 78% canvas width, with a safe margin on the right. Fill the space freed up by the smaller characters with a continuous, detailed extension of the SAME scenery, not a blank area. Full-bleed 16:9 artwork; don't shrink the entire picture, no inset frame, no borders or letterboxing. The landscape should dominate and be visible above and beside the people. Preserve crisp illustration quality and detailed materials. No text or interface. The top 25% should be scenery only. The left 60% should be scenery only. Target scene: gta-night.",
+        "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-e5f9f6c3-ff23-4743-bc17-854da6ee40e6.png"
+      },
+      "active": false
+    },
+    {
+      "name": "rdr-heartlands",
+      "refs": [
+        "rdr2/backgrounds/3.jpg",
+        "rdr2/9aea753506e4e9a3feb5fcf63007275d-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Create one premium game loading-screen illustration for a website hero, wide 16:9 landscape, requested 3840x2160 resolution with sharp high-resolution detail. Use input 1 as the scene reference and input 2 as the character reference. Repaint and enhance both into a unified polished Rockstar loading-screen-style artwork: realistic anatomy, crisp illustrative edges, detailed materials, cinematic depth, cohesive color grading. Preserve the referenced character identity, outfit, accessories and pose as closely as possible. Place the main character(s) in the rightmost 35% of the image, head near upper-right but with 12% safe margin at the top; character framed from head to mid-thigh. Keep the left half free of foreground characters, only atmospheric landscape and shadowed detail with room for large website title. No text, no logos, no lettering, no interface, no watermark, no collage panels. Do not just stretch the low-resolution input; reconstruct facial features, clothing, edges and background detail cleanly. RDR2 scene: rolling Heartlands grasslands, winding trail, horses and soft sunset haze from reference. Feature the black-haired female gunslinger in a wide black cowboy hat, red waistcoat and red scarf, detailed black leather coat, gloves, dark trousers and ornate gun belt. Strong silhouette on far right, warm sunset highlights, rich leather texture.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-51a8299d-7e2f-4b3d-ae03-40c4027e8244.png",
+      "currentFile": "rdr-heartlands-v2.webp",
+      "revision": {
+        "prompt": "Use case: compositing. EDIT THE FIRST PROVIDED IMAGE ONLY; any other images are not part of this scene. The user says the foreground characters are much too big for the website hero. Keep this scene, the same character identity, clothing, colors and background style. Recompose the foreground people to be approximately 35% SMALLER in linear scale (65% of their current size), with their heads at about 32% of the canvas height and bodies extending down to the bottom, showing them through the knees. Keep them grouped in the right third, centered around 78% canvas width, with a safe margin on the right. Fill the space freed up by the smaller characters with a continuous, detailed extension of the SAME scenery, not a blank area. Full-bleed 16:9 artwork; don't shrink the entire picture, no inset frame, no borders or letterboxing. The landscape should dominate and be visible above and beside the people. Preserve crisp illustration quality and detailed materials. No text or interface. The top 25% should be scenery only. The left 60% should be scenery only. Target scene: rdr-heartlands. Shrink any foreground horse along with its person to keep the same grouping.",
+        "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-6227d4cc-163d-4deb-894c-968d2b62eb78.png"
+      },
+      "active": true
+    },
+    {
+      "name": "gta-hills",
+      "refs": [
+        "GTA5/backgrounds/3.jpg",
+        "GTA5/characters/images-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Create one premium game loading-screen illustration for a website hero, wide 16:9 landscape, requested 3840x2160 resolution with sharp high-resolution detail. Use input 1 as the scene reference and input 2 as the character reference. Repaint and enhance both into a unified polished Rockstar loading-screen-style artwork: realistic anatomy, crisp illustrative edges, detailed materials, cinematic depth, cohesive color grading. Preserve the referenced character identity, outfit, accessories and pose as closely as possible. Place the main character(s) in the rightmost 35% of the image, head near upper-right but with 12% safe margin at the top; character framed from head to mid-thigh. Keep the left half free of foreground characters, only atmospheric landscape and shadowed detail with room for large website title. No text, no logos, no lettering, no interface, no watermark, no collage panels. Do not just stretch the low-resolution input; reconstruct facial features, clothing, edges and background detail cleanly. GTA V scene: Vinewood hillside road overlooking the Los Santos skyline under a pink and blue sunset as in reference. Place both referenced characters together at far right, preserve their matching black multicolor leaf-print clothes, bucket hats, tinted glasses and tattoos; woman has crossed arms and man stands beside her. Vivid polished loading-screen illustration with intricate clothing and clear faces.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-591e5bde-24bb-47a3-8eff-655fbc1073b7.png",
+      "currentFile": "gta-hills-v2.webp",
+      "revision": {
+        "prompt": "Use case: compositing. EDIT THE FIRST PROVIDED IMAGE ONLY; any other images are not part of this scene. The user says the foreground characters are much too big for the website hero. Keep this scene, the same character identity, clothing, colors and background style. Recompose the foreground people to be approximately 35% SMALLER in linear scale (65% of their current size), with their heads at about 32% of the canvas height and bodies extending down to the bottom, showing them through the knees. Keep them grouped in the right third, centered around 78% canvas width, with a safe margin on the right. Fill the space freed up by the smaller characters with a continuous, detailed extension of the SAME scenery, not a blank area. Full-bleed 16:9 artwork; don't shrink the entire picture, no inset frame, no borders or letterboxing. The landscape should dominate and be visible above and beside the people. Preserve crisp illustration quality and detailed materials. No text or interface. The top 25% should be scenery only. The left 60% should be scenery only. Target scene: gta-hills. Shrink any foreground horse along with its person to keep the same grouping.",
+        "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-dcfdb40f-cb04-4c22-88cb-317f98b774f5.png"
+      },
+      "active": true
+    },
+    {
+      "name": "rdr-forest",
+      "refs": [
+        "rdr2/backgrounds/2.jpg",
+        "rdr2/d27c188fa4481b5b3847b9dff1f47951-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Create one premium game loading-screen illustration for a website hero, wide 16:9 landscape, requested 3840x2160 resolution with sharp high-resolution detail. Use input 1 as the scene reference and input 2 as the character reference. Repaint and enhance both into a unified polished Rockstar loading-screen-style artwork: realistic anatomy, crisp illustrative edges, detailed materials, cinematic depth, cohesive color grading. Preserve the referenced character identity, outfit, accessories and pose as closely as possible. Place the main character(s) in the rightmost 35% of the image, head near upper-right but with 12% safe margin at the top; character framed from head to mid-thigh. Keep the left half free of foreground characters, only atmospheric landscape and shadowed detail with room for large website title. No text, no logos, no lettering, no interface, no watermark, no collage panels. Do not just stretch the low-resolution input; reconstruct facial features, clothing, edges and background detail cleanly. RDR2 scene: towering pine forest in soft morning light, golden rays through mist and a distant elk among the trees, using reference layout and atmosphere. Feature the long-haired frontier woman at right wearing brown fur cap, glasses, dark knitted blouse, tan leather fringed chaps and holster belt, holding her small drink. Reconstruct crisp clothing textures and natural features; emerald shadows and warm sunlight.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-c34b55c8-a737-4245-ae3f-b7387949e42a.png",
+      "currentFile": "rdr-forest-v2.webp",
+      "revision": {
+        "prompt": "Use case: compositing. EDIT THE FIRST PROVIDED IMAGE ONLY; any other images are not part of this scene. The user says the foreground characters are much too big for the website hero. Keep this scene, the same character identity, clothing, colors and background style. Recompose the foreground people to be approximately 35% SMALLER in linear scale (65% of their current size), with their heads at about 32% of the canvas height and bodies extending down to the bottom, showing them through the knees. Keep them grouped in the right third, centered around 78% canvas width, with a safe margin on the right. Fill the space freed up by the smaller characters with a continuous, detailed extension of the SAME scenery, not a blank area. Full-bleed 16:9 artwork; don't shrink the entire picture, no inset frame, no borders or letterboxing. The landscape should dominate and be visible above and beside the people. Preserve crisp illustration quality and detailed materials. No text or interface. The top 25% should be scenery only. The left 60% should be scenery only. Target scene: rdr-forest. Shrink any foreground horse along with its person to keep the same grouping.",
+        "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-32edf8ac-3994-4cbe-81ca-749a4340678e.png"
+      },
+      "active": true
+    },
+    {
+      "name": "cs2-ancient",
+      "game": "Counter-Strike 2",
+      "label": "Ancient",
+      "refs": [
+        "cs2/background/54reffgv.jpg",
+        "cs2/characters/images-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Use ONLY reference images 1 and 2; ignore images 3 and 4. Image 1 is the environment and image 2 the character. Create a premium full-bleed wide 16:9 game loading-screen illustration for a website hero. Render with crisp reconstructed details, clean illustrative edges, cinematic atmospheric depth, coherent lighting, richly textured surfaces; sharpen and repaint the low-resolution references rather than merely upscaling. CRITICAL COMPOSITION: the landscape dominates. Foreground character heads at 35% from the top of the canvas, their feet near the bottom, characters entirely within the rightmost 35% of the composition, with a safe margin on the right. Top 30% is scenery only. Left 60% is scenery only, with atmospheric detail that can sit behind a website title. Do not make enormous characters, do not crop heads or feet. No text, lettering, logos, watermarks, UI or borders. Counter-Strike 2 Ancient scene: mossy carved stone temple courtyard in a misty blue-green jungle, steps to a small amber-lit doorway, towering trees and subtle vines. Preserve the environment's recognizable stone structures and perspective while creating a wider scene. Feature the single crouching tactical operator from image 2 on the far right: dark camouflage, olive plate carrier and pouches, protective knee pads, full gas mask with orange lenses, radio aerial and rifle resting upright. Keep the character modestly sized with the crouched figure taking only about 48% of image height, head at 44% canvas height; fit the entire figure and grounded boots. Cool temple haze, restrained warm highlights on mask lenses, detailed game key-art illustration.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-6e273335-575e-4f3f-9c3f-400b48d824f5.png",
+      "currentFile": "cs2-ancient-v2.webp",
+      "responsiveFile": "cs2-ancient-v2-960.webp",
+      "active": true
+    },
+    {
+      "name": "gmod-sandbox",
+      "game": "Garry's Mod",
+      "label": "Sandbox stories",
+      "refs": [
+        "gmod/backgroud/54tfgfh.jpg",
+        "gmod/characters/hi-i-am-new-to-garrys-mod-what-are-the-best-mods-to-playing-v0-ou5ji4ia7u8a1-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Use the two provided references: image 1 environment, image 2 characters. Create a premium full-bleed wide 16:9 game loading-screen illustration for a website hero. Render with crisp reconstructed details, clean illustrative edges, cinematic atmospheric depth, coherent lighting, richly textured surfaces; sharpen and repaint the low-resolution references rather than merely upscaling. CRITICAL COMPOSITION: the landscape dominates. Foreground character heads at 35% from the top of the canvas, their feet near the bottom, characters entirely within the rightmost 35% of the composition, with a safe margin on the right. Top 30% is scenery only. Left 60% is scenery only, with atmospheric detail that can sit behind a website title. Do not make enormous characters, do not crop heads or feet. No text, lettering, logos, watermarks, UI or borders. Garry's Mod scene: a surreal sandy sandbox desert valley, teal sky, weathered red scrapyard vehicle contraption on the right hillside, scattered physics props and a floating fabric rig in the far background. Include all THREE blue-jumpsuit characters from reference 2 as a compact group in the right third, bodies shown through boots, preserving their distinct faces, clothes and energetic poses. The left man holds a glowing cyan physics gun, the center man holds a small tool gun, the right man carries the glowing orange gravity gun. Character group should be NO MORE THAN 57% of canvas height, leaving plenty of sky and sandy landscape around and above them. Characters should be coherent illustrations, detailed expressive faces, sharp folds, realistic anatomy, playful in-game sandbox mood. Sunset gold on the sand against cyan sky, no extra foreground people.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-77293e95-dc13-4b4c-b712-957798b867a6.png",
+      "currentFile": "gmod-sandbox-v2.webp",
+      "responsiveFile": "gmod-sandbox-v2-960.webp",
+      "active": true
+    },
+    {
+      "name": "gta-casino",
+      "game": "Grand Theft Auto V",
+      "label": "Casino after dark",
+      "refs": [
+        "GTA5/backgrounds/gta-5-screenshot-4k-gta-online-wallpaper-preview.jpg",
+        "GTA5/characters/997b1f67e33d1641469c180abeedba9f-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Use ONLY images 1 and 2 as references: image 1 setting and image 2 character. Ignore images 3 and 4. Create one premium full-bleed 16:9 landscape illustration in the polished GTA V loading-screen style, with detailed cinematic lighting, sharp illustrated edges and clean reconstructed textures. Build a coherent high-quality image from the supplied low-resolution references, not a stretched screenshot. The environment is the dominant subject. CRITICAL: the person must be modestly sized, standing on the right centered at 79% canvas width, head at 36% canvas height, feet visible at 95% canvas height, full body only 59% of canvas height. Left 62% and top 30% are ONLY environment. Do not enlarge the person to fill the frame. Leave open scenery around them, especially above their head. Preserve recognizable character appearance and outfit. No overlay text, words, lettering, logos, watermarks, borders or UI. Rainy Los Santos casino street at night: the curved illuminated modern casino building from reference 1 on the right of a palm-lined road, glowing golden marquee, red and white light strips, rich wet asphalt reflections, light falling rain and purple blue ambient light. Replace the casino lettering with luminous unlettered architectural panels. On the far right sidewalk stands the reference 2 character: white motorcycle helmet, dark face cover with glowing violet-blue grid and two blue eyes, matching black-and-blue glowing grid bodysuit panel, white sleeves, white trousers, white shoes, white diagonal shoulder strap, black belt, blue grid gloves. Preserve the white and blue futuristic costume but omit printed words and branding. Reflected blue and amber highlights on the character; richly detailed rain and palms, moody cinematic environment.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-0a4b0437-5dd4-4d9d-bd65-d7ccce8bd572.png",
+      "currentFile": "gta-casino-v2.webp",
+      "responsiveFile": "gta-casino-v2-960.webp",
+      "active": true
+    },
+    {
+      "name": "gta-coast",
+      "game": "Grand Theft Auto V",
+      "label": "Coastal sunset",
+      "refs": [
+        "GTA5/backgrounds/some-screenshots-i-took-in-gta-v-online-1920-x-1080-taken-v0-oyvvdwm1r0v91.webp",
+        "GTA5/characters/ea44528c198a5c66e2f7b58e23be1187-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Use the two provided images: image 1 setting and image 2 character. Create one premium full-bleed 16:9 landscape illustration in the polished GTA V loading-screen style, with detailed cinematic lighting, sharp illustrated edges and clean reconstructed textures. Build a coherent high-quality image from the supplied low-resolution references, not a stretched screenshot. The environment is the dominant subject. CRITICAL: the person must be modestly sized, standing on the right centered at 79% canvas width, head at 36% canvas height, feet visible at 95% canvas height, full body only 59% of canvas height. Left 62% and top 30% are ONLY environment. Do not enlarge the person to fill the frame. Leave open scenery around them, especially above their head. Preserve recognizable character appearance and outfit. No overlay text, words, lettering, logos, watermarks, borders or UI. An orange sunset along the GTA V coast, the glowing low sun behind distant mountain silhouettes, copper light rippling across a broad bay, wooded mountains rising on the right and a quiet rocky beach foreground. The single adult female GTA Online character from image 2 stands on the right shore: silver-white bob haircut, backwards white cap, white T-shirt, white tactical shoulder harness with gray buckles, white cargo trousers and gloves, tattooed left arm. Keep her face and outfit recognizable, in a relaxed pose with both hands comfortably lowered; no object near her mouth. Warm sunset light gives subtle orange highlights to the white fabric, realistic embroidery and tattoo detail, atmospheric mountainous coastline, calm water and sharp shoreline stones.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-dd7c559e-92e6-466a-b16f-908b4e6a4285.png",
+      "currentFile": "gta-coast-v2.webp",
+      "responsiveFile": "gta-coast-v2-960.webp",
+      "active": true
+    },
+    {
+      "name": "gta-mountain",
+      "game": "Grand Theft Auto V",
+      "label": "Mountain escape",
+      "refs": [
+        "GTA5/backgrounds/thumb-1920-564931.jpg",
+        "GTA5/characters/erfxc.png"
+      ],
+      "prompt": "Use case: stylized-concept. Use ONLY reference images 1 and 2; image 1 environment, image 2 person. Ignore images 3 and 4. Create a premium game loading-screen illustration, full-bleed wide 16:9, crisp painted detail, cinematic lighting, realistic anatomy, sophisticated color grading. Reconstruct sharp details from the input references rather than simply enlarging pixels. CRITICAL COMPOSITION: prioritize the landscape, with ONE SMALL full-body character placed on the far right at 80% canvas width. The top of the character's head should be at 36% canvas height, feet at 95%, so the entire figure is only 59% of image height. Keep foreground figure within rightmost 30% and leave a safe right margin. Top 30% and left 62% are only atmospheric scenery. No oversized foreground figure, no cropped head or feet. No text, UI, lettering, logos, watermark, frames or borders. GTA V loading-screen style, a mountain coastal overlook from image 1: sculptural leafless tree over rugged rock outcrop at left, winding road climbing evergreen foothills on the right, lake below, distant peaks, birds soaring in softly glowing dawn sky. Adult female GTA Online character from image 2 stands far right on a rocky path: short pale-pink hair, charcoal double-breasted peacoat, soft beige checked scarf, black top and dark brown trousers, dark ankle boots. Preserve her face, outfit and playful two-finger peace sign, other hand resting on her hip. Soft gold rim light, detailed rock, moss, trees and tailored fabric. Wide open landscape with generous space above and beside her.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-939c6a7f-7419-4a35-9f13-9e99449ec0c9.png",
+      "currentFile": "gta-mountain-v2.webp",
+      "responsiveFile": "gta-mountain-v2-960.webp",
+      "active": false
+    },
+    {
+      "name": "rdr-drifter",
+      "game": "Red Dead Redemption 2",
+      "label": "The wandering gentleman",
+      "refs": [
+        "rdr2/backgrounds/3.jpg",
+        "rdr2/a9f011771afaa6332e0a88fa842d2d41-removebg-preview.png"
+      ],
+      "prompt": "Use case: stylized-concept. Use the two provided images: image 1 is the prairie landscape, image 2 is the adult male character. Create a premium game loading-screen illustration, full-bleed wide 16:9, crisp painted detail, cinematic lighting, realistic anatomy, sophisticated color grading. Reconstruct sharp details from the input references rather than simply enlarging pixels. CRITICAL COMPOSITION: prioritize the landscape, with ONE SMALL full-body character placed on the far right at 80% canvas width. The top of the character's head should be at 36% canvas height, feet at 95%, so the entire figure is only 59% of image height. Keep foreground figure within rightmost 30% and leave a safe right margin. Top 30% and left 62% are only atmospheric scenery. No oversized foreground figure, no cropped head or feet. No text, UI, lettering, logos, watermark, frames or borders. A cinematic Red Dead Redemption 2 Western loading-screen painting of an immense rolling grassland at dusk, winding white trail through long grass, scattered trees, distant wooded hills, layered lilac clouds and the last warm gold of the sunset. Use image 1 geography and prairie atmosphere, with deeper dusk-blue shadows to complement the character. On the far right stands the bearded gentleman from reference 2 in the exact recognizable dark bowler-style hat, long black frock coat, ornate midnight-blue embroidered waistcoat, white shirt, navy cravat, dark trousers, black leather gloves and diagonal brown shoulder strap. His hands rest near his belt in a calm stance, black boots visible in the grass. Preserve his rugged face, beard, outfit and decorative waistcoat, richly detailed embroidery and cloth, subtle warm edge lighting. A small distant horse silhouette may stand well behind him. Peaceful panoramic Western scenery dominates the artwork.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-12717b0d-a7aa-4829-95fb-67ffe9dd9228.png",
+      "currentFile": "rdr-drifter-v2.webp",
+      "responsiveFile": "rdr-drifter-v2-960.webp",
+      "active": true
+    },
+    {
+      "name": "l4d-railyard",
+      "game": "Left 4 Dead",
+      "label": "The rail yard",
+      "refs": [
+        "l4d/screenshot_9.jpg",
+        "l4d/L4D-ZoeyRenderFullTrans.webp"
+      ],
+      "prompt": "Use case: stylized-concept.\nAsset type: Full-bleed website hero artwork for a rotating game loading-screen slideshow, wide 16:9 landscape.\nPrimary request: Create one polished Left 4 Dead loading-screen illustration using these two references.\nInput images: Image 1 is the ENVIRONMENT reference, the misty abandoned railway; image 2 is the CHARACTER reference, Zoey. Reconstruct crisp detail and coherent lighting from the references; do not merely upscale their pixels.\nScene/backdrop: The rail yard from image 1, parallel rusted tracks leading into fog, an elevated wooden railway structure running across the upper scene, two old red semaphore signal lamps, faint white utility lights on a cable, bare winter trees and distant freight cars. Preserve the recognizable structures and moody blue-gray dusk atmosphere. Remove the first-person player weapon from the source scenery; the final scene is a wide landscape with Zoey as the only foreground person.\nSubject: Zoey from image 2, preserve her recognizable face, brown ponytail, red zip-up track jacket over a light undershirt, dark fitted jeans with rolled cuffs, belt and worn dark sneakers. She stands at the right in the same three-quarter pose, glancing toward the viewer with her shotgun held lowered toward the ground as in the reference. Anatomically correct hands, detailed facial features, sharp fabric seams and natural cloth texture.\nStyle/medium: Premium cinematic illustrated game key art, realistic anatomy with clean painted edges and richly detailed materials, consistent with polished GTA-style loading-screen illustrations. Landscape must dominate.\nComposition/framing: IMPORTANT: ONE SMALL FULL-BODY character, center at 79% of the canvas width. Top of head at 36% canvas height and feet at 94% canvas height, total character height only 58% of the canvas. Keep her entirely within the rightmost 27% with a safe margin around head and feet. Top 30% and left 62% are scenery only. Show plenty of rail-yard environment above and beside her. No large close-up character, no cropped head or feet.\nLighting/mood: Cool moonlit mist with gentle warm rim light from distant signal lights, subtle red signals echo the red jacket. The scene should remain detailed and readable, with atmospheric depth and clear separation between Zoey and the rail yard.\nConstraints: No overlay text, no lettering, no logo, no watermark, no UI, no borders, no collage. No added foreground characters. No gore.",
+      "generatedFile": "C:\\Users\\whatw\\.codex\\generated_images\\01a0c511-5acc-7bf0-9048-49b90aed20e3\\exec-498b5349-668c-4502-b438-7eb48861c6ff.png",
+      "currentFile": "l4d-railyard-v2.webp",
+      "responsiveFile": "l4d-railyard-v2-960.webp",
+      "active": true
+    }
+  ]
+}

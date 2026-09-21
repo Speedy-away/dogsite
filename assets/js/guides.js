@@ -58,7 +58,7 @@
         if (!query) { status.textContent = searchPrompt; return; }
         if (!topics) { status.textContent = failed ? 'Search could not load. Close this window to browse the pages, or reopen it to retry.' : 'Loading topics…'; return; }
         const words = query.split(/\s+/);
-        const matches = topics.filter(topic => words.every(word => (topic.game + ' ' + topic.title + ' ' + topic.text).toLowerCase().includes(word)));
+        const matches = topics.filter(topic => words.every(word => (topic.game + ' ' + topic.title + ' ' + topic.text + ' ' + (topic.tags || []).join(' ')).toLowerCase().includes(word)));
         matches.sort((a,b) => Number(b.title.toLowerCase().includes(query)) - Number(a.title.toLowerCase().includes(query)));
         status.textContent = matches.length ? `${matches.length} matching topic${matches.length === 1 ? '' : 's'}` : 'No topics found. Try a game name or a different keyword.';
         matches.forEach(topic => {

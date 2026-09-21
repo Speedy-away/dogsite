@@ -1,0 +1,17 @@
+/* Original transparent game logo over the shared, sharp card artwork. */
+.tlou-logo-art {
+    position: relative;
+    isolation: isolate;
+}
+.tlou-logo-art::after {
+    content: "";
+    position: absolute;
+    inset: 12% 25%;
+    z-index: 1;
+    background: url('/assets/images/store/last-of-us-logo.png') center / contain no-repeat;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 6px #000b);
+    pointer-events: none;
+}
+.tlou-logo-art > .product-badge {
+    z-index: 2;
+}

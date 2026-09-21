@@ -1,0 +1,522 @@
+{
+  "game": "The Last of Us Part I",
+  "slug": "last-of-us",
+  "source": "Part I src/menu.cpp and settings registry. Controls depend on verified game bindings and the loaded scene. Part II coming soon.",
+  "tabs": [
+    {
+      "name": "Combat",
+      "categories": [
+        {
+          "name": "Aimbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Lock-on",
+                  "desc": "Adjusts aim toward the selected target.",
+                  "settings": [
+                    "Aim key: Hold, Toggle or Always",
+                    "Auto target",
+                    "Smoothness"
+                  ]
+                },
+                {
+                  "label": "Silent aim",
+                  "desc": "Separate aim mode using the supported internal firing path. Availability depends on the active game build.",
+                  "settings": [
+                    "Field of view and target range",
+                    "Head or body aim point",
+                    "Crosshair-hit requirement"
+                  ]
+                },
+                {
+                  "label": "Auto target",
+                  "desc": "Acquire a native target while aiming your weapon in Lock-on mode."
+                },
+                {
+                  "label": "Aim overlays",
+                  "desc": "Configure the aim field-of-view circle and target indicator."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triggerbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Triggerbot",
+                  "desc": "Fire when a valid target is under the crosshair.",
+                  "settings": [
+                    "Activation key and mode",
+                    "Delay",
+                    "Fire input binding"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visuals",
+      "categories": [
+        {
+          "name": "NPC and self ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Box",
+                  "desc": "Frame characters with a full or corner box.",
+                  "settings": [
+                    "Corner boxes inside the Box settings",
+                    "Gradient colors",
+                    "Fill and opacity",
+                    "Outline"
+                  ]
+                },
+                {
+                  "label": "Name",
+                  "desc": "Display the character name.",
+                  "settings": [
+                    "Color and gradient",
+                    "Outline",
+                    "Top, bottom, left or right"
+                  ]
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Show distance from your character.",
+                  "settings": [
+                    "Color",
+                    "Outline",
+                    "Top, bottom, left or right"
+                  ]
+                },
+                {
+                  "label": "Health bar",
+                  "desc": "Display available character health.",
+                  "settings": [
+                    "Gradient and colors",
+                    "Outline",
+                    "Top, bottom, left or right"
+                  ]
+                },
+                {
+                  "label": "Health text",
+                  "desc": "Show the numeric health value where health data is available."
+                },
+                {
+                  "label": "Skeleton",
+                  "desc": "Draw live character bones when verified bone data is available.",
+                  "settings": [
+                    "Color and gradient",
+                    "Outline"
+                  ]
+                },
+                {
+                  "label": "Head marker",
+                  "desc": "Mark the character head."
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Draw a line from the screen to characters.",
+                  "settings": [
+                    "Top, bottom or center origin",
+                    "Color and outline"
+                  ]
+                },
+                {
+                  "label": "Independent styles",
+                  "desc": "NPC and self appearance are configured separately."
+                },
+                {
+                  "label": "NPC filters",
+                  "desc": "Filter humans, friendlies, runners, stalkers, clickers, bloaters and other NPCs."
+                },
+                {
+                  "label": "Drawing distance",
+                  "desc": "Limit the range of displayed entities."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Items and weapons",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Item ESP",
+                  "desc": "Display names, distance labels and markers for supported loaded pickups."
+                },
+                {
+                  "label": "Weapon ESP",
+                  "desc": "Configure weapon pickups independently, with colors and distance limits."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "World",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Sky color",
+                  "desc": "Set sky tint and intensity."
+                },
+                {
+                  "label": "Remove fog",
+                  "desc": "Reduce fog through the supported world binding."
+                },
+                {
+                  "label": "Full bright",
+                  "desc": "Adjust scene lighting where supported."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Self",
+      "categories": [
+        {
+          "name": "Survival and stealth",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Godmode",
+                  "desc": "Prevent player damage through the supported game binding."
+                },
+                {
+                  "label": "Infinite sprint",
+                  "desc": "Remove the supported sprint limitation."
+                },
+                {
+                  "label": "Ignore me",
+                  "desc": "Block AI sight and hearing together; existing alerts and scripted encounters may still react."
+                },
+                {
+                  "label": "Invisible to AI",
+                  "desc": "Disable supported AI sight checks."
+                },
+                {
+                  "label": "Inaudible to AI",
+                  "desc": "Disable supported AI hearing checks."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Movement and camera",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Noclip",
+                  "desc": "Move through the scene using flight controls.",
+                  "settings": [
+                    "Flight speed",
+                    "On-screen control indicator"
+                  ]
+                },
+                {
+                  "label": "Super run",
+                  "desc": "Adjust the movement multiplier from 1x to 5x."
+                },
+                {
+                  "label": "Freecam",
+                  "desc": "Move the camera independently.",
+                  "settings": [
+                    "Camera speed",
+                    "Mouse sensitivity",
+                    "On-screen control indicator"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Teleport",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Teleport NPCs to me",
+                  "desc": "Bring loaded human NPCs into rows ahead of you."
+                },
+                {
+                  "label": "Teleport infected to me",
+                  "desc": "Bring loaded infected into rows ahead of you."
+                },
+                {
+                  "label": "Teleport to checkpoint",
+                  "desc": "Move to an available checkpoint position."
+                },
+                {
+                  "label": "Save my position",
+                  "desc": "Store your current position for a later return."
+                },
+                {
+                  "label": "Return to saved position",
+                  "desc": "Return to the saved position."
+                },
+                {
+                  "label": "Cancel teleport",
+                  "desc": "Cancel a pending teleport request."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weapon",
+      "categories": [
+        {
+          "name": "Ammunition",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Infinite ammo",
+                  "desc": "Preserve ammunition through the internal ammo hooks."
+                },
+                {
+                  "label": "No reload",
+                  "desc": "Preserve loaded ammunition so supported weapons do not need to reload."
+                },
+                {
+                  "label": "Faster reload",
+                  "desc": "Adjust reload speed from 1x to 5x."
+                },
+                {
+                  "label": "Rapid fire",
+                  "desc": "Use the native 3x firing cadence. Semi-automatic weapons still need separate trigger presses."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Handling",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "No recoil",
+                  "desc": "Reduce supported recoil behavior."
+                },
+                {
+                  "label": "No spread",
+                  "desc": "Remove the player shot cone through the internal firing hook."
+                },
+                {
+                  "label": "Best accuracy",
+                  "desc": "Reduce movement accuracy penalties."
+                },
+                {
+                  "label": "No weapon sway",
+                  "desc": "Reduce weapon sway."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Inventory and durability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Infinite throwables",
+                  "desc": "Use the game’s Infinite Craftables behavior; it does not grant missing items."
+                },
+                {
+                  "label": "Infinite crafting",
+                  "desc": "Preserve supported crafting resources."
+                },
+                {
+                  "label": "Infinite melee durability",
+                  "desc": "Preserve melee weapon durability."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spawner",
+      "categories": [
+        {
+          "name": "Pickups and weapons",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Items and ammo",
+                  "desc": "Browse and search pickup definitions, including ammunition."
+                },
+                {
+                  "label": "Guns",
+                  "desc": "Browse firearm pickups in the Weapons sub-tab."
+                },
+                {
+                  "label": "Melee weapons",
+                  "desc": "Browse melee weapon pickups."
+                },
+                {
+                  "label": "Selected pickup",
+                  "desc": "Review the selected definition and request a spawn near the player."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Characters",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Human NPCs",
+                  "desc": "Browse available character archetypes."
+                },
+                {
+                  "label": "Infected",
+                  "desc": "Choose infected archetypes, including runners, stalkers, clickers and bloaters when available."
+                },
+                {
+                  "label": "Character loadout",
+                  "desc": "Choose supported spawn and equipment options."
+                },
+                {
+                  "label": "Catalog availability",
+                  "desc": "Character resources depend on the loaded level. Missing resources remain unavailable rather than spawning an invalid actor."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "categories": [
+        {
+          "name": "Interface",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "UI scale",
+                  "desc": "Scale the menu from 50% to 200%, with automatic fitting to the viewport."
+                },
+                {
+                  "label": "Overlay scale",
+                  "desc": "Scale HUD elements independently from the menu."
+                },
+                {
+                  "label": "Languages",
+                  "desc": "English, Spanish, French, German and Brazilian Portuguese."
+                },
+                {
+                  "label": "Color pickers",
+                  "desc": "Inline color controls with an alpha strip."
+                },
+                {
+                  "label": "Menu controls",
+                  "desc": "F1 or Insert opens the menu by default."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hotkeys",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Feature bindings",
+                  "desc": "Search features and assign keyboard or mouse bindings."
+                },
+                {
+                  "label": "Activation modes",
+                  "desc": "Choose Hold, Toggle or Always for supported features."
+                },
+                {
+                  "label": "Hotkey overlay",
+                  "desc": "Show assigned keys and activation information."
+                },
+                {
+                  "label": "Control indicator",
+                  "desc": "Plain-text movement controls for active features such as noclip and freecam."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Configs and overlays",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Named profiles",
+                  "desc": "Create, rename, save, load, reset and delete configurations."
+                },
+                {
+                  "label": "Default config",
+                  "desc": "Choose a profile to use by default."
+                },
+                {
+                  "label": "Clipboard configs",
+                  "desc": "Import and export configuration text."
+                },
+                {
+                  "label": "Watermark",
+                  "desc": "Display product and frame-rate information."
+                },
+                {
+                  "label": "Crosshair",
+                  "desc": "Customize crosshair size and appearance."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

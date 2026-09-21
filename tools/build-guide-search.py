@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GAMES = {
+    "last-of-us": "The Last of Us Part I",
     "gta5": "GTA 5",
     "fivem": "FiveM",
     "redm": "RedM",
@@ -13,6 +14,12 @@ GAMES = {
     "sbox": "S&box (Sandbox)",
     "gmod": "Garry's Mod (GMOD)",
     "general": "General help",
+}
+
+
+SEARCH_ALIASES = {
+    "sbox": ["S&box", "Sbox", "Sandbox"],
+    "last-of-us": ["The Last of Us", "TLOU", "TLOU1", "Part I", "Part 1"],
 }
 
 
@@ -63,6 +70,7 @@ if __name__ == "__main__":
             parser.feed(article.read_text(encoding="utf-8"))
             for topic in parser.topics:
                 topic["href"] = f"/guides/{slug}/{article.parent.name}/"
+                topic["tags"] = [slug] + SEARCH_ALIASES.get(slug, [])
             topics.extend(parser.topics)
     target = ROOT / "assets" / "data" / "guide-search.json"
     target.parent.mkdir(parents=True, exist_ok=True)
