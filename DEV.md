@@ -21,3 +21,14 @@ is why the live site is fine. Always preview through `serve.bat`.
 
 ## Adding New Pages
 Always create `newpage/index.html`, never `newpage.html`.
+
+
+## Left 4 Dead pages
+
+- Product: `/products/l4d/`; features: `/features-list/l4d-features/`.
+- Wiki: `/guides/l4d/`; Lua API and examples: `/docs/l4d/`.
+- Feature registry data: `tools/features/features-l4d.json`. Regenerate with `node tools/features/build-features-page.js --apply`.
+- Lua reference sources: `docs/l4d/game-api.md`, `snippets.md`, and `ui-api.md`. Sync them from L4D-Debug after API changes, then run `node tools/build-l4d-docs.js` with the `marked` Node package available.
+- Run `python tools/build-guide-search.py` after wiki edits. SEO entries are in `tools/seo-metadata.js`; regenerate metadata and sitemap with their `--apply` options.
+- Browser validation: serve this repo on `127.0.0.1:8184`, then run `node tools/validate-l4d.js <screenshot-output-directory>` with Playwright and Microsoft Edge available. It covers desktop/mobile layouts, the screenshot lightbox, free-key modal, feature search, Lua copy buttons, and navigation.
+- Gameplay images are user-supplied development captures, not synthetic screenshots. The city banner is original generated artwork. These pages use the existing general free-key flow; no separate L4D key policy is needed.

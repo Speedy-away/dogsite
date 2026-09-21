@@ -1,5 +1,73 @@
 [
   {
+    "game": "Left 4 Dead 1 & 2",
+    "title": "Getting started",
+    "text": "Getting started Get a free key or use your existing paid account, then download the loader and sign in. Select Left 4 Dead . Every valid free-key and paid session includes this product. Click Start Game , then choose Left 4 Dead 1 or Left 4 Dead 2 . Steam starts the game with -insecure . If launching manually, add -insecure to that game's Steam launch options. Wait for the game's menu. The dashboard marks each running game and selects the newly detected game. If both are open, use the dropdown to choose the target. Press Load . The loader downloads verified runtime files and languages, then loads the x86 DLL into the selected game. Start a local single-player map and press Insert . Remote server features stay suspended. The menu key is configurable in Settings; Insert remains available. See troubleshooting if the menu does not appear.",
+    "href": "/guides/l4d/getting-started/",
+    "tags": [
+      "l4d",
+      "L4D",
+      "L4D1",
+      "L4D2",
+      "Left 4 Dead",
+      "Left 4 Dead 2",
+      "infected",
+      "offline",
+      "Lua"
+    ]
+  },
+  {
+    "game": "Left 4 Dead 1 & 2",
+    "title": "Menu settings",
+    "text": "Menu settings Press Insert to open the menu. Combat contains separate Rage and Legit profiles; Visuals contains ESP, infected colors, chams and pickups; World contains materials and view settings. Movement, Lua and Settings are under Misc. Set feature hotkeys through the gear controls; aim and trigger keys use the delayed key capture. Scale text, the menu and overlays independently, and choose from 23 language catalogs. Save profiles in Settings > Configs. The two games have separate user data. Use Lua > Scripts or Editor to run examples. API docs opens a selectable snippet guide. Folders Runtime assets are installed directly into C:\\scooby\\L4D\\L4D1 and C:\\scooby\\L4D\\L4D2 , with fonts, languages, scripts and docs directly inside each. There is no extra assets folder. User profiles and edited scripts live under %LOCALAPPDATA%\\Scooby\\L4DDebug\\l4d1 or l4d2 . Downloaded DLL/helper versions are cached separately. L4D Lua API and examples →",
+    "href": "/guides/l4d/menu-settings/",
+    "tags": [
+      "l4d",
+      "L4D",
+      "L4D1",
+      "L4D2",
+      "Left 4 Dead",
+      "Left 4 Dead 2",
+      "infected",
+      "offline",
+      "Lua"
+    ]
+  },
+  {
+    "game": "Left 4 Dead 1 & 2",
+    "title": "Requirements",
+    "text": "Requirements A Windows installation of Left 4 Dead 1 or Left 4 Dead 2 on Steam, using the supported 32-bit game build. The current Scooby Loader, with a valid free-key session or paid sign-in. Microsoft Visual C++ runtimes: x64 for the loader and x86 for the game module/helper . A local offline map started with -insecure . Rendering Direct3D 9 is the verified Windows path. Vulkan/DXVK depends on the game installation. The OpenGL UI preview is supported separately; stock Windows L4D does not provide a native OpenGL game renderer. Adapters check the installed game binaries before enabling hooks. A game update may require a matching Scooby update.",
+    "href": "/guides/l4d/requirements/",
+    "tags": [
+      "l4d",
+      "L4D",
+      "L4D1",
+      "L4D2",
+      "Left 4 Dead",
+      "Left 4 Dead 2",
+      "infected",
+      "offline",
+      "Lua"
+    ]
+  },
+  {
+    "game": "Left 4 Dead 1 & 2",
+    "title": "Troubleshooting",
+    "text": "Troubleshooting The wrong game is selected Choose Left 4 Dead 1 or 2 in the dashboard dropdown. Detection checks left4dead.exe and left4dead2.exe once per second. When both are running, your selection is preserved. The menu does not appear Confirm the game was started with -insecure , wait for the main menu, and press Insert after loading. Restart the game before loading the DLL again. Unsupported game binary versions leave hooks disabled. Features are inactive Use a local single-player map. Remote servers, demo playback, missing player data and loading screens suspend gameplay features. Enable the feature and check its hotkey mode. Download or runtime error Check your network connection, disk space and folder permissions. Install both x64 and x86 VC++ runtimes. Retry Load to re-check hashes and replace missing runtime assets. A failed verification does not start the helper. Text or scripts are missing Check the selected game's flat asset folder for languages , fonts , docs and l4d_pages.lua . Keep the current module and asset package together.",
+    "href": "/guides/l4d/troubleshooting/",
+    "tags": [
+      "l4d",
+      "L4D",
+      "L4D1",
+      "L4D2",
+      "Left 4 Dead",
+      "Left 4 Dead 2",
+      "infected",
+      "offline",
+      "Lua"
+    ]
+  },
+  {
     "game": "The Last of Us Part I",
     "title": "Getting started",
     "text": "Getting started Download the Scooby Loader and sign in with your existing free-key or paid account. Select The Last of Us in the game library, then choose Part I in the game dropdown. Choose Start Game . In the popup, select The Last of Us Part I to launch through Steam. Part II is disabled as coming soon. Load a save. The dashboard detects the tlou-i.exe process and shows Part I: Running . Select Load . The loader downloads the native DLL and checks it against the module manifest before loading it. Press F1 or Insert to open the menu. Configure features and save a profile. If you started Part I yourself, the dashboard detects it automatically; you do not need to launch it again.",

@@ -1,0 +1,1382 @@
+{
+  "game": "Left 4 Dead 1 & 2",
+  "slug": "l4d",
+  "source": "Scooby L4D runtime feature registry. Features require a local -insecure session; hidden diagnostics and synthetic preview controls excluded.",
+  "tabs": [
+    {
+      "name": "Visuals",
+      "categories": [
+        {
+          "name": "ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "esp.enabled",
+                  "label": "Enable ESP",
+                  "desc": "Show visuals for entities supplied by the host."
+                },
+                {
+                  "id": "esp.box",
+                  "label": "Box",
+                  "desc": "Draw full or corner boxes around entity bounds."
+                },
+                {
+                  "id": "esp.skeleton",
+                  "label": "Skeleton",
+                  "desc": "Connect the bone pairs supplied by the host."
+                },
+                {
+                  "id": "esp.name",
+                  "label": "Name",
+                  "desc": "Display the entity name above its bounds."
+                },
+                {
+                  "id": "esp.health",
+                  "label": "Health Bar",
+                  "desc": "Display health as a bar next to the entity."
+                },
+                {
+                  "id": "esp.distance",
+                  "label": "Distance",
+                  "desc": "Show distance in the host's world units."
+                },
+                {
+                  "id": "esp.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Draw lines from the top, bottom or center of the screen to entity feet."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Radar",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "overlay.radar",
+                  "label": "Radar",
+                  "desc": "Top-down positions from the shared entity data."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Entities",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "l4d.survivors",
+                  "label": "Survivors",
+                  "desc": "Show survivors in the entity snapshot."
+                },
+                {
+                  "id": "l4d.infected",
+                  "label": "Infected",
+                  "desc": "Show infected and special infected."
+                },
+                {
+                  "id": "actor.fit",
+                  "label": "Fit to model",
+                  "desc": "Fit actor boxes to animated body hitboxes. Independent of the Skeleton switch."
+                },
+                {
+                  "id": "actor.box_padding",
+                  "label": "Box padding (%)",
+                  "desc": "Extra space around the fitted body box."
+                },
+                {
+                  "id": "actor.box_width",
+                  "label": "Box width (%)",
+                  "desc": "Adjust actor ESP bounds; pickups keep their original size."
+                },
+                {
+                  "id": "actor.box_height",
+                  "label": "Box height (%)",
+                  "desc": "Adjust actor ESP bounds; pickups keep their original size."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Infected",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "infected.specials",
+                  "label": "Special infected",
+                  "desc": "Show the seven special infected types, including Tanks."
+                },
+                {
+                  "id": "infected.colors",
+                  "label": "Use type colors",
+                  "desc": "Use per-type ESP colors; disable to use the global ESP appearance."
+                },
+                {
+                  "id": "infected.selector",
+                  "label": "Selected infected type",
+                  "desc": "Type selected in the Infected page dropdown."
+                },
+                {
+                  "id": "infected.unknown",
+                  "label": "Special infected (unknown)",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.unknown.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.unknown.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.unknown.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.unknown.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.unknown.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.common",
+                  "label": "Common infected",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.common.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.common.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.common.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.common.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.common.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.uncommon",
+                  "label": "Uncommon infected",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.uncommon.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.uncommon.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.uncommon.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.uncommon.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.uncommon.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.witch",
+                  "label": "Witch",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.witch.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.witch.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.witch.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.witch.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.witch.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.smoker",
+                  "label": "Smoker",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.smoker.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.smoker.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.smoker.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.smoker.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.smoker.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.boomer",
+                  "label": "Boomer",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.boomer.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.boomer.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.boomer.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.boomer.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.boomer.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.hunter",
+                  "label": "Hunter",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.hunter.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.hunter.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.hunter.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.hunter.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.hunter.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.spitter",
+                  "label": "Spitter",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.spitter.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.spitter.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.spitter.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.spitter.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.spitter.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.jockey",
+                  "label": "Jockey",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.jockey.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.jockey.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.jockey.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.jockey.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.jockey.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.charger",
+                  "label": "Charger",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.charger.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.charger.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.charger.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.charger.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.charger.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.tank",
+                  "label": "Tank",
+                  "desc": "Show this infected type in ESP and radar."
+                },
+                {
+                  "id": "infected.tank.box",
+                  "label": "Box color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.tank.skeleton",
+                  "label": "Skeleton color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.tank.name",
+                  "label": "Name color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.tank.distance",
+                  "label": "Distance color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                },
+                {
+                  "id": "infected.tank.snaplines",
+                  "label": "Snapline color",
+                  "desc": "Override this element's global ESP color for the selected infected type. Untick to inherit the global color."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Pickups",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "l4d.items",
+                  "label": "Pickup ESP",
+                  "desc": "Show unowned world pickups independently of player ESP."
+                },
+                {
+                  "id": "items.weapons",
+                  "label": "Weapons",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.melee",
+                  "label": "Melee / chainsaw",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.throwables",
+                  "label": "Throwables",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.medical",
+                  "label": "Medical supplies",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.ammo",
+                  "label": "Ammo piles",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.upgrades",
+                  "label": "Ammo / laser upgrades",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.carryables",
+                  "label": "Carryable items",
+                  "desc": "Unowned pickups only; change this category's color here."
+                },
+                {
+                  "id": "items.box",
+                  "label": "Pickup boxes",
+                  "desc": "Bounding boxes for world pickups."
+                },
+                {
+                  "id": "items.name",
+                  "label": "Pickup names",
+                  "desc": "Readable weapon and item names."
+                },
+                {
+                  "id": "items.distance",
+                  "label": "Pickup distance",
+                  "desc": "Distance from your view in metres."
+                },
+                {
+                  "id": "items.snaplines",
+                  "label": "Pickup snaplines",
+                  "desc": "Lines from screen bottom to pickups."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chams",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "chams.enabled",
+                  "label": "Chams",
+                  "desc": "Enable materials for the selected player, infected and equipment targets."
+                },
+                {
+                  "id": "chams.hidden",
+                  "label": "Invisible",
+                  "desc": "Additional colored pass to inspect model placement through map geometry."
+                },
+                {
+                  "id": "chams.wire",
+                  "label": "Wireframe",
+                  "desc": "Render the debug model material as a wireframe."
+                },
+                {
+                  "id": "chams.survivors",
+                  "label": "Players",
+                  "desc": "Apply chams to other survivors."
+                },
+                {
+                  "id": "chams.special",
+                  "label": "Special infected",
+                  "desc": "Enable the individual special-infected targets."
+                },
+                {
+                  "id": "chams.common",
+                  "label": "Common infected",
+                  "desc": "Uses individual model draws; can cost FPS in large hordes."
+                },
+                {
+                  "id": "chams.weapons",
+                  "label": "Dropped weapons",
+                  "desc": "Apply chams to unowned firearms and melee weapons."
+                },
+                {
+                  "id": "chams.pickups",
+                  "label": "Items",
+                  "desc": "Apply chams to unowned supplies and carryable items."
+                },
+                {
+                  "id": "chams.arms",
+                  "label": "Arms",
+                  "desc": "Apply chams to your hands and arms."
+                },
+                {
+                  "id": "chams.held",
+                  "label": "Weapon",
+                  "desc": "Apply chams to your first-person weapon or held item."
+                },
+                {
+                  "id": "chams.selector",
+                  "label": "Chams category",
+                  "desc": "Category selected in the Chams page."
+                },
+                {
+                  "id": "chams.arms.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.arms.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.held.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.held.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.weapons.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.weapons.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.pickups.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.pickups.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.visible",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.self",
+                  "label": "Self",
+                  "desc": "Apply chams to your own player model in third person."
+                },
+                {
+                  "id": "chams.self.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.self.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.common.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.common.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.uncommon",
+                  "label": "Uncommon infected",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.uncommon.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.uncommon.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.witch",
+                  "label": "Witch",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.witch.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.witch.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.smoker",
+                  "label": "Smoker",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.smoker.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.smoker.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.boomer",
+                  "label": "Boomer",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.boomer.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.boomer.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.hunter",
+                  "label": "Hunter",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.hunter.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.hunter.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.spitter",
+                  "label": "Spitter",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.spitter.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.spitter.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.jockey",
+                  "label": "Jockey",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.jockey.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.jockey.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.charger",
+                  "label": "Charger",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.charger.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.charger.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.tank",
+                  "label": "Tank",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.tank.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.tank.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.unknown",
+                  "label": "Unknown special",
+                  "desc": "Enable chams for this target."
+                },
+                {
+                  "id": "chams.unknown.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.unknown.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.overlay",
+                  "label": "Keep original model",
+                  "desc": "Draw the original model beneath the material; costs one extra draw."
+                },
+                {
+                  "id": "chams.pulse",
+                  "label": "Pulse opacity",
+                  "desc": "Animate the material opacity."
+                },
+                {
+                  "id": "chams.rainbow",
+                  "label": "Rainbow colors",
+                  "desc": "Cycle visible and occluded colors; preserves configured opacity."
+                },
+                {
+                  "id": "chams.copy_pass",
+                  "label": "Copy visible to invisible",
+                  "desc": "Copy this target's visible color and material to its invisible pass."
+                },
+                {
+                  "id": "chams.swap_passes",
+                  "label": "Swap pass appearance",
+                  "desc": "Swap this target's visible and invisible colors and materials."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "categories": [
+        {
+          "name": "Overlays",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "overlay.watermark",
+                  "label": "Watermark",
+                  "desc": "Show the project name, frame rate and renderer."
+                },
+                {
+                  "id": "overlay.binds",
+                  "label": "Hotkeys",
+                  "desc": "Show assigned keys; enabled features light up and actions flash."
+                },
+                {
+                  "id": "overlay.active_features",
+                  "label": "Active Features",
+                  "desc": "Show currently active features as compact labels. Drag them while the menu is open."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Combat",
+      "categories": [
+        {
+          "name": "Aim",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aim.enabled",
+                  "label": "Legitbot",
+                  "desc": "Assist aiming at selected targets in your local session."
+                },
+                {
+                  "id": "aim.lock",
+                  "label": "Lock on",
+                  "desc": "Keep the selected target while it remains valid and inside the FOV."
+                },
+                {
+                  "id": "aim.attack",
+                  "label": "Only while firing",
+                  "desc": "Activate aim assistance while holding primary fire."
+                },
+                {
+                  "id": "aim.visible",
+                  "label": "Visible only",
+                  "desc": "Require a clear shot to the target."
+                },
+                {
+                  "id": "aim.common",
+                  "label": "Common infected",
+                  "desc": "Aim at common and uncommon infected."
+                },
+                {
+                  "id": "aim.special",
+                  "label": "Special infected",
+                  "desc": "Aim at special infected including Tank."
+                },
+                {
+                  "id": "aim.witch",
+                  "label": "Witch",
+                  "desc": "Include witches in target selection."
+                },
+                {
+                  "id": "aim.survivors",
+                  "label": "Survivors",
+                  "desc": "Include survivors for local mod testing."
+                },
+                {
+                  "id": "aim.profile",
+                  "label": "aim.profile",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.mode",
+                  "label": "aim.mode",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.point",
+                  "label": "aim.point",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.legit",
+                  "label": "aim.legit",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.rage",
+                  "label": "aim.rage",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.range",
+                  "label": "aim.range",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.smoothing",
+                  "label": "aim.smoothing",
+                  "desc": "Aim settings"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "General",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aim.rage.circle",
+                  "label": "FOV circle",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.rage.snapline",
+                  "label": "Aim snapline",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.rage.dot",
+                  "label": "Target dot",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.legit.circle",
+                  "label": "FOV circle",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.legit.snapline",
+                  "label": "Aim snapline",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.legit.dot",
+                  "label": "Target dot",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.key",
+                  "label": "Aim key",
+                  "desc": ""
+                },
+                {
+                  "id": "trigger.key",
+                  "label": "Trigger key",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weapon controls",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "weapon.no_recoil",
+                  "label": "No recoil",
+                  "desc": "Remove local camera recoil and compensate weapon punch in your firing commands."
+                },
+                {
+                  "id": "weapon.no_spread",
+                  "label": "No spread",
+                  "desc": "Remove bullet dispersion for your predicted player in the local client and server, including shotgun pellets. Other shooters are excluded."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triggerbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "trigger.enabled",
+                  "label": "Triggerbot",
+                  "desc": "Fire at the enabled target under your crosshair. Supports hold and toggle hotkeys."
+                },
+                {
+                  "id": "trigger.head",
+                  "label": "Head only",
+                  "desc": "Require a trace hit on the head hitgroup."
+                },
+                {
+                  "id": "trigger.common",
+                  "label": "Common infected",
+                  "desc": "Include common and uncommon infected."
+                },
+                {
+                  "id": "trigger.special",
+                  "label": "Special infected",
+                  "desc": "Include special infected and Tank."
+                },
+                {
+                  "id": "trigger.witch",
+                  "label": "Witch",
+                  "desc": "Include witches."
+                },
+                {
+                  "id": "trigger.survivors",
+                  "label": "Survivors",
+                  "desc": "Include survivors for local mod testing."
+                },
+                {
+                  "id": "trigger.delay",
+                  "label": "trigger.delay",
+                  "desc": "Trigger response settings"
+                },
+                {
+                  "id": "trigger.range",
+                  "label": "trigger.range",
+                  "desc": "Trigger response settings"
+                },
+                {
+                  "id": "trigger.hitbox",
+                  "label": "Hitboxes",
+                  "desc": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rage",
+      "categories": [
+        {
+          "name": "General",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "trigger.rage.enabled",
+                  "label": "Triggerbot",
+                  "desc": "Fire at the enabled target under your crosshair. Supports hold and toggle hotkeys."
+                },
+                {
+                  "id": "trigger.rage.key",
+                  "label": "Trigger key",
+                  "desc": ""
+                },
+                {
+                  "id": "trigger.rage.head",
+                  "label": "Head only",
+                  "desc": "Require a trace hit on the head hitgroup."
+                },
+                {
+                  "id": "trigger.rage.common",
+                  "label": "Common infected",
+                  "desc": "Include common and uncommon infected."
+                },
+                {
+                  "id": "trigger.rage.special",
+                  "label": "Special infected",
+                  "desc": "Include special infected and Tank."
+                },
+                {
+                  "id": "trigger.rage.witch",
+                  "label": "Witch",
+                  "desc": "Include witches."
+                },
+                {
+                  "id": "trigger.rage.survivors",
+                  "label": "Survivors",
+                  "desc": "Include survivors for local mod testing."
+                },
+                {
+                  "id": "trigger.rage.delay",
+                  "label": "trigger.delay",
+                  "desc": "Trigger response settings"
+                },
+                {
+                  "id": "trigger.rage.range",
+                  "label": "trigger.range",
+                  "desc": "Trigger response settings"
+                },
+                {
+                  "id": "trigger.rage.hitbox",
+                  "label": "Hitboxes",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.rage.enabled",
+                  "label": "Ragebot",
+                  "desc": "Assist aiming at selected targets in your local session."
+                },
+                {
+                  "id": "aim.rage.key",
+                  "label": "Aim key",
+                  "desc": ""
+                },
+                {
+                  "id": "aim.rage.lock",
+                  "label": "Lock on",
+                  "desc": "Keep the selected target while it remains valid and inside the FOV."
+                },
+                {
+                  "id": "aim.rage.attack",
+                  "label": "Only while firing",
+                  "desc": "Activate aim assistance while holding primary fire."
+                },
+                {
+                  "id": "aim.rage.visible",
+                  "label": "Visible only",
+                  "desc": "Require a clear shot to the target."
+                },
+                {
+                  "id": "aim.rage.common",
+                  "label": "Common infected",
+                  "desc": "Aim at common and uncommon infected."
+                },
+                {
+                  "id": "aim.rage.special",
+                  "label": "Special infected",
+                  "desc": "Aim at special infected including Tank."
+                },
+                {
+                  "id": "aim.rage.witch",
+                  "label": "Witch",
+                  "desc": "Include witches in target selection."
+                },
+                {
+                  "id": "aim.rage.survivors",
+                  "label": "Survivors",
+                  "desc": "Include survivors for local mod testing."
+                },
+                {
+                  "id": "aim.rage.mode",
+                  "label": "aim.mode",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.rage.point",
+                  "label": "aim.point",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.rage.range",
+                  "label": "aim.range",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "aim.rage.smoothing",
+                  "label": "aim.smoothing",
+                  "desc": "Aim settings"
+                },
+                {
+                  "id": "weapon.rage.no_recoil",
+                  "label": "No recoil",
+                  "desc": "Remove local camera recoil and compensate weapon punch in your firing commands."
+                },
+                {
+                  "id": "weapon.rage.no_spread",
+                  "label": "No spread",
+                  "desc": "Remove bullet dispersion for your predicted player in the local client and server, including shotgun pellets. Other shooters are excluded."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement",
+      "categories": [
+        {
+          "name": "Assistance",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "movement.bhop",
+                  "label": "Bunnyhop",
+                  "desc": "Hold jump to jump on landing. Disabled while swimming or climbing."
+                },
+                {
+                  "id": "movement.strafe",
+                  "label": "Auto strafe",
+                  "desc": "Air movement assistance while holding jump; preserves view angles."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World",
+      "categories": [
+        {
+          "name": "Materials",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "world.tint",
+                  "label": "World tint",
+                  "desc": "Tint map surface materials; restores their original colors when disabled."
+                },
+                {
+                  "id": "world.sky",
+                  "label": "Sky tint",
+                  "desc": "Tint skybox materials; restores their original colors when disabled."
+                },
+                {
+                  "id": "world.props",
+                  "label": "Static prop tint",
+                  "desc": "Tint static prop materials independently of map surfaces and sky."
+                },
+                {
+                  "id": "world.night",
+                  "label": "Night preset",
+                  "desc": "Apply coordinated colors to the world, props and sky."
+                },
+                {
+                  "id": "world.warm",
+                  "label": "Warm preset",
+                  "desc": "Apply coordinated colors to the world, props and sky."
+                },
+                {
+                  "id": "world.cool",
+                  "label": "Cool preset",
+                  "desc": "Apply coordinated colors to the world, props and sky."
+                },
+                {
+                  "id": "world.reset",
+                  "label": "Restore world",
+                  "desc": "Disable world, prop and sky tint and restore the game materials."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "View",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "view.thirdperson",
+                  "label": "Third person",
+                  "desc": "Use the native shoulder camera with world collision. Returns to your previous view when disabled."
+                },
+                {
+                  "id": "view.thirdperson_distance",
+                  "label": "Camera distance",
+                  "desc": "Native third-person camera position in Source units."
+                },
+                {
+                  "id": "view.thirdperson_side",
+                  "label": "Shoulder offset",
+                  "desc": "Native third-person camera position in Source units."
+                },
+                {
+                  "id": "view.thirdperson_height",
+                  "label": "Camera height",
+                  "desc": "Native third-person camera position in Source units."
+                },
+                {
+                  "id": "view.camera_fov",
+                  "label": "Override FOV",
+                  "desc": "Override your local camera field of view."
+                },
+                {
+                  "id": "view.model_fov",
+                  "label": "Override model FOV",
+                  "desc": "Adjust the field of view used for your held weapon and hands."
+                },
+                {
+                  "id": "view.offsets",
+                  "label": "Model position",
+                  "desc": "Move your held weapon relative to the camera."
+                },
+                {
+                  "id": "view.keep_zoom",
+                  "label": "Keep scope zoom",
+                  "desc": "Keep the game's camera FOV while using a weapon scope."
+                },
+                {
+                  "id": "view.offset_x",
+                  "label": "Model X offset",
+                  "desc": "Camera-relative offset in Source units."
+                },
+                {
+                  "id": "view.offset_y",
+                  "label": "Model Y offset",
+                  "desc": "Camera-relative offset in Source units."
+                },
+                {
+                  "id": "view.offset_z",
+                  "label": "Model Z offset",
+                  "desc": "Camera-relative offset in Source units."
+                },
+                {
+                  "id": "view.swap_shoulder",
+                  "label": "Swap shoulder",
+                  "desc": "Move the third-person camera to the opposite shoulder."
+                },
+                {
+                  "id": "view.center_camera",
+                  "label": "Center camera",
+                  "desc": "Center the third-person camera behind your character."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

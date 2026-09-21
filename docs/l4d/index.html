@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left 4 Dead Lua API — Scooby Docs</title>
+    <meta name="description" content="L4D1 and L4D2 snapshots, entities, projection, rendering, UI controls and working Lua snippets.">
+    <meta name="keywords" content="Scooby Menu, Left 4 Dead, Left 4 Dead 1, Left 4 Dead 2, L4D1, L4D2, Scooby, free mod menu, offline modding, infected ESP, chams, Lua API">
+    <link rel="canonical" href="https://scoobymenu.cc/docs/l4d/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scoobymenu.cc/docs/l4d/">
+    <meta property="og:title" content="Left 4 Dead Lua API — Scooby Docs">
+    <meta property="og:description" content="L4D1 and L4D2 snapshots, entities, projection, rendering, UI controls and working Lua snippets.">
+    <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
+    <meta property="og:site_name" content="Scooby Menu">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Left 4 Dead Lua API — Scooby Docs">
+    <meta name="twitter:description" content="L4D1 and L4D2 snapshots, entities, projection, rendering, UI controls and working Lua snippets.">
+    <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="/assets/css/guides.css">
+<link rel="stylesheet" href="/docs/docs.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer>
+</script>
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px}.article-layout{margin-left:0;margin-top:0}</style>
+</noscript>
+<meta name="twitter:url" content="https://scoobymenu.cc/docs/l4d/">
+<link rel="stylesheet" href="/assets/css/l4d-docs.css"><script defer src="/assets/js/l4d-docs.js"></script></head>
+<body class="wiki-article docs-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand" href="/guides/">Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search documentation" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search documentation</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Documentation navigation">
+<nav>
+<a class="sidebar-home" href="/docs/">Documentation overview</a>
+<details open>
+<summary>Native references</summary>
+<a href="/docs/fivem/">FiveM</a>
+<a href="/docs/redm/">RedM</a>
+</details>
+<details open>
+<summary>Scooby Lua API</summary>
+<a href="/gta5_api_reference.html">GTA 5</a>
+<a href="/fivem_api_reference.html">FiveM</a>
+<a href="/redm_api_reference.html">RedM</a>
+<a href="/docs/l4d/" aria-current="page">Left 4 Dead 1 &amp; 2</a>
+</details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/guides/">Guides &amp; setup</a>
+<a href="/guides/general/">Troubleshooting</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1">
+<div class="breadcrumbs"><a href="/docs/">Documentation</a> / Left 4 Dead</div><h1>Left 4 Dead Lua API</h1><p class="article-intro">L4D1 &amp; L4D2 · Host API 1.0 · UI API 1.0</p><div class="wiki-note"><p>Use these APIs from the Scooby Lua editor. Each snippet runs independently. Game data is available in an allowed local <code>-insecure</code> session; nil and empty results are expected while loading. <a href="/guides/l4d/getting-started/">Setup guide →</a></p></div><nav class="lua-section-links" aria-label="API sections"><a href="#snippets">Code snippets</a><a href="#game-api">L4D host API</a><a href="#ui-api">UI, features and rendering</a></nav><section class="guide-card lua-reference" id="snippets" data-i18n-skip><h2>Code snippets</h2><p><a href="/docs/l4d/snippets.md" download>Download Markdown reference</a></p><h2 id="snippets-1">L4D1 &amp; L4D2 snippets</h2>
+<p>Select code and press Ctrl+C. Click a snippet and press Ctrl+A to select it all. Paste into Lua &gt; Editor and run each example separately.</p>
+<h2 id="snippets-2">Game and player HUD</h2>
+<p>Show the current game, health and movement speed. Player data can be absent while loading.</p>
+<pre><code class="language-lua">ui.overlay(&quot;player_hud&quot;, function()
+  local game = l4d.info()
+  render.text(20, 40, game.game, {1,1,1,1})
+  local p = l4d.local_player()
+  if not p then return end
+  local label = string.format(
+    &quot;HP %d | Speed %.0f&quot;, p.health, p.speed)
+  render.text(20, 60, label, {0.4,0.8,1,1})
+end)
+</code></pre>
+<h2 id="snippets-3">Custom feature and hotkey</h2>
+<p>Add a configurable toggle to your own page. Registered features keep their state and hotkey in configs.</p>
+<pre><code class="language-lua">local toggle = features.add {
+  id = &quot;example&quot;, label = &quot;My feature&quot;,
+  category = &quot;My tools&quot;, default = false,
+  key = &quot;F8&quot;
+}
+local tab = ui.tab(&quot;tools&quot;, &quot;My tools&quot;)
+ui.subtab(tab, &quot;main&quot;, &quot;General&quot;, function()
+  ui.group(&quot;Options&quot;, function()
+    ui.feature(toggle)
+  end)
+end)
+ui.overlay(&quot;status&quot;, function()
+  if features.active(toggle) then
+    render.text(20, 90, &quot;Enabled&quot;, {0,1,0,1})
+  end
+end)
+</code></pre>
+<h2 id="snippets-4">Special infected names</h2>
+<p>Subscribe only to the data you need. Subscriptions are released when the script stops. Witch is separate from special infected.</p>
+<pre><code class="language-lua">l4d.watch {
+  infected = true, survivors = false,
+  pickups = false, range = 60
+}
+ui.overlay(&quot;specials&quot;, function()
+  local targets = l4d.entities {special=true}
+  for _, e in ipairs(targets) do
+    local p = l4d.world_to_screen(e.position)
+    if p and p.on_screen then
+      render.text(p.x, p.y, e.name,
+        {1,0.4,0.3,1})
+    end
+  end
+end)
+</code></pre>
+<h2 id="snippets-5">Dropped weapons and items</h2>
+<p>Draw native projected boxes for unowned pickups. Change type to &quot;medical&quot;, &quot;ammo&quot; or &quot;melee&quot; to filter the query.</p>
+<pre><code class="language-lua">l4d.watch {
+  infected = false, survivors = false,
+  pickups = true, range = 40
+}
+ui.overlay(&quot;pickups&quot;, function()
+  local items = l4d.entities {type=&quot;weapons&quot;}
+  for _, e in ipairs(items) do
+    local b = l4d.screen_box(e.index)
+    if b then
+      render.rect(b.left, b.top,
+        b.width, b.height, {0.3,0.8,1,1})
+    end
+  end
+end)
+</code></pre>
+<h2 id="snippets-6">Skeleton lines</h2>
+<p>Bone capture costs more than basic entity data. Enable it only in scripts that draw bones.</p>
+<pre><code class="language-lua">l4d.watch {
+  infected = true, survivors = false,
+  pickups = false, bones = true, range = 30
+}
+ui.overlay(&quot;bones&quot;, function()
+  for _, e in ipairs(l4d.entities()) do
+    for _, bone in ipairs(l4d.bones(e.index)) do
+      local a = l4d.world_to_screen(bone.from)
+      local b = l4d.world_to_screen(bone.to)
+      if a and b and a.on_screen and b.on_screen then
+        render.line(a.x, a.y, b.x, b.y,
+          {1,1,1,1})
+      end
+    end
+  end
+end)
+</code></pre>
+<h2 id="snippets-7">Camera FOV controls</h2>
+<p>Use the existing feature toggle and a custom Scooby slider. Edits to built-in settings remain after the script stops.</p>
+<pre><code class="language-lua">local tab = ui.tab(&quot;camera&quot;, &quot;My camera&quot;)
+ui.subtab(tab, &quot;view&quot;, &quot;View&quot;, function()
+  ui.group(&quot;Camera&quot;, function()
+    ui.feature(&quot;view.camera_fov&quot;)
+    local id = &quot;view.camera_fov&quot;
+    local fov = l4d.setting(id, &quot;distance&quot;)
+    local changed, value = ui.slider(
+      &quot;FOV&quot;, fov, 60, 140)
+    if changed then
+      l4d.setting(id, &quot;distance&quot;, value)
+    end
+  end)
+end)
+</code></pre>
+<h2 id="snippets-8">Localized text</h2>
+<p>Translate inside the callback to follow language changes. Add the same key to each languages/<code>.json catalog; missing keys use English.</p>
+<pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;my_info&quot;, &quot;Info&quot;,
+  function()
+    local p = l4d.local_player()
+    if not p then return end
+    local format = ui.tr(&quot;Speed: %.0f units/s&quot;)
+    imgui.text(string.format(format, p.speed))
+  end)
+</code></pre>
+<h2 id="snippets-9">Full reference</h2>
+<p>The complete function signatures, fields and lifecycle rules are in docs/LUA_API.md beside your assets. Longer working examples are available in Lua > Scripts.</p>
+</section>
+<section class="guide-card lua-reference" id="game-api" data-i18n-skip><h2>L4D host API</h2><p><a href="/docs/l4d/game-api.md" download>Download Markdown reference</a></p><h2 id="game-api-1">Scooby Left 4 Dead Lua API 1.0</h2>
+<h2 id="game-api-2">L4D quick start</h2>
+<p><strong>Lua &gt; API docs</strong> opens a scrollable L4D1/L4D2 snippet guide without toolbar controls. Select code and press Ctrl+C, then paste it into <strong>Lua &gt; Editor</strong>. Each example runs independently. The guide ships as <code>docs/LUA_SNIPPETS.md</code>; this full reference remains in <code>docs/LUA_API.md</code>.</p>
+<p>The <code>l4d</code> host API works with the L4D1 and L4D2 game adapters. It supplements the portable UI, rendering, events, hotkeys and feature/config APIs. <code>L4D_API_VERSION == &quot;1.0&quot;</code> identifies this host extension; <code>UI_API_VERSION</code> identifies the portable UI API separately.</p>
+<p>Open <strong>Lua &gt; Scripts</strong>, select an example and run it. Bundled scripts are copied into the active profile&#39;s script library on startup without overwriting your edited copies. They do not auto-run. New native APIs require a host built from this source; copying Lua files alone cannot add native functions to an older DLL.</p>
+<p>Included examples:</p>
+<ul>
+<li><strong>L4D Entity Overlay.lua</strong>: separate actor/pickup ESP, optional skeletons, range and category controls using the custom Scooby widgets.</li>
+<li><strong>L4D Player HUD.lua</strong>: health, movement state, speed, active weapon and reload/clip information.</li>
+<li><strong>L4D Nearby Threats.lua</strong>: distance warnings for specials and witches.</li>
+</ul>
+<pre><code class="language-lua">assert(L4D_API_VERSION == &quot;1.0&quot;, &quot;Update the Scooby L4D host&quot;)
+l4d.watch {survivors=false, infected=true, pickups=false, range=60}
+ui.overlay(&quot;specials&quot;, function()
+    for _, e in ipairs(l4d.entities {special=true}) do
+        local p = l4d.world_to_screen(e.position)
+        if p and p.on_screen then
+            render.text(p.x, p.y, e.name, {1,.4,.3,1})
+        end
+    end
+end)
+</code></pre>
+<h2 id="game-api-3">L4D snapshots and lifetime</h2>
+<p>The engine thread captures copied data; Lua never dereferences an entity or calls engine interfaces. All callbacks within a UI frame read one pinned snapshot. <code>sequence</code> identifies that capture, not an entity&#39;s lifetime. A rendered frame can reuse a previous engine capture. Entity indices may be recycled: reacquire entities each callback and do not assume an index identifies the same actor across frames or maps.</p>
+<p>Game data follows the host&#39;s existing session gate (an allowed local <code>-insecure</code> session). On disconnection, map change or a stopped host, <code>local_player()</code> and <code>camera()</code> return nil, entity queries return empty/nil and projection returns nil after the next capture. <code>session().allowed</code> is false in the standalone preview; <code>data_available</code> may be true there for explicitly synthetic data. The preview is not live-game validation.</p>
+<p>Returned tables are independent copies. Editing them does not change the game or later queries. Read functions work at top level or inside callbacks, but game data may not exist during script loading. Perform ongoing logic in <code>events.on(&quot;update&quot;, ...)</code>; draw only in UI/overlay callbacks.</p>
+<h2 id="game-api-4">L4D session and player</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>l4d.info()</code></td>
+<td><code>{api_version, game_id, game, map, preview, sequence, engine_time, max_entities}</code>. <code>game_id</code> is <code>l4d1</code>, <code>l4d2</code>, <code>preview</code>, or empty before attachment. Time is engine time in seconds, not wall-clock time.</td>
+</tr>
+<tr>
+<td><code>l4d.session()</code></td>
+<td><code>{allowed, data_available, preview, stopped, insecure, in_game, connected, loopback, demo, local_player, menu_open, reason}</code>. <code>local_player</code> here is a boolean.</td>
+</tr>
+<tr>
+<td><code>l4d.local_player()</code></td>
+<td>Player table below, or nil. No entity subscription required.</td>
+</tr>
+<tr>
+<td><code>l4d.camera()</code></td>
+<td><code>{position, angles, width, height, sequence}</code> or nil. Position is the captured local eye position; angles are engine view angles. Projection uses the captured engine world-to-screen matrix, which can differ from the eye in spectator/third-person views.</td>
+</tr>
+<tr>
+<td><code>l4d.status()</code></td>
+<td>Human-readable host/session status (existing API).</td>
+</tr>
+<tr>
+<td><code>l4d.metrics()</code></td>
+<td>Three values: horizontal speed in Source units/s, built-in scene entity count, receive-property count (existing API). This entity count is independent of Lua subscriptions.</td>
+</tr>
+</tbody></table>
+<p>Player fields: <code>index</code>, <code>sequence</code>, <code>team</code>, <code>health</code>, <code>flags</code>, <code>water_level</code>, <code>move_type</code>, <code>alive</code>, <code>on_ground</code>, <code>incapacitated</code>, <code>hanging</code>, <code>position</code>, <code>eye_position</code>, <code>velocity</code>, <code>view_angles</code>, <code>speed</code>, and optional <code>weapon</code>. <code>speed</code> is horizontal Source units per second; velocity is Source units per second on each axis. Team numbers are raw engine team IDs (2 survivors, 3 infected).</p>
+<p><code>weapon</code> is <code>{index, class_name, clip?, reloading?}</code>. It is absent when there is no active weapon. Clip/reload fields are absent if the receive table does not expose them; clip may be -1 for weapons without a magazine. No reserve-ammo value is invented.</p>
+<h2 id="game-api-5">L4D entity subscriptions</h2>
+<p><code>l4d.watch(options)</code> replaces this script&#39;s subscription and returns its normalized options. Options: <code>survivors=true</code>, <code>infected=true</code>, <code>pickups=true</code>, <code>bones=false</code>, <code>range=150</code>. Range is metres and clamps to 1-300. Unknown keys, non-boolean flags, non-finite values and wrong types produce Lua errors. <code>l4d.watch(false)</code> releases the subscription immediately on the UI side.</p>
+<p>Subscriptions take effect on the next engine capture, so queries directly after a change may still show the previous capture. They are removed on stop, reload and failed script loading. Requests from running scripts are merged into one native scan; each script&#39;s queries still obey its own categories/range/bone flag. The merged scan may collect more data than one script requested. A disabled feature should release its subscription, as shown by the examples.</p>
+<p>Collection is independent of built-in ESP, radar and infected/category toggles. It includes at most 512 recognized, non-dormant, non-local survivors/infected/unowned pickups, in engine-index order within the requested range. Known dead actors and held/owned pickups are excluded. It is not an enumeration of all Source classes. Actors without networked health remain available with nil health. Bone capture also enables animated hitbox fitting and costs more than basic snapshots.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>l4d.capture()</code></td>
+<td><code>{requested, captured, truncated, sequence, entity_count}</code>. Requested is this script&#39;s options; captured is the merged options used for this snapshot. Count/truncation describe the merged snapshot, not a filtered query.</td>
+</tr>
+<tr>
+<td><code>l4d.entities([filter])</code></td>
+<td>Dense array of entity tables. No subscription means an empty array.</td>
+</tr>
+<tr>
+<td><code>l4d.entity(index)</code></td>
+<td>One currently subscribed entity or nil.</td>
+</tr>
+<tr>
+<td><code>l4d.bones(index)</code></td>
+<td>Array of <code>{bone, parent, from, to}</code> segments. Empty if absent, unsubscribed, or bones were not requested/available. Bone and parent are zero-based engine bone indices; the array uses Lua&#39;s one-based indexing.</td>
+</tr>
+<tr>
+<td><code>l4d.screen_box(index)</code></td>
+<td><code>{left, top, right, bottom, width, height, fitted}</code> in pixels, or nil. <code>fitted</code> means animated body hitboxes were used; otherwise actor collision hull or pickup world bounds are used. Near-plane clipping and viewport clamping are applied to native snapshot boxes.</td>
+</tr>
+</tbody></table>
+<p><code>entities</code> filter fields are optional and intersect the subscription: <code>category=&quot;all&quot;|&quot;survivor&quot;|&quot;infected&quot;|&quot;pickup&quot;</code>, <code>type=&quot;tank&quot;</code> (exact stable type string), <code>range=300</code> (metres, clamps 0-300), <code>special=true|false</code>. An unknown type returns an empty result. <code>special=false</code> includes non-special actors and pickups; combine it with <code>category=&quot;infected&quot;</code> to get common/uncommon/witch only. Projection and boxes indicate where an entity projects, not whether a wall occludes it; there is no line-of-sight trace API.</p>
+<p>Entity fields: <code>index</code>, <code>sequence</code>, <code>team</code>, <code>category</code>, <code>type</code>, <code>name</code>, <code>class_name</code>, <code>model</code>, <code>position</code>, <code>bounds_min</code>, <code>bounds_max</code>, <code>distance_m</code>, <code>health?</code>, <code>max_health?</code>, <code>alive</code>, <code>incapacitated</code>, <code>hanging</code>, <code>special</code>, <code>bones_available</code>. Bounds are absolute world AABB corners, not offsets. <code>name</code> is a classified display label, not a Steam/player nickname. Survivor max health falls back to 100 when unavailable; infected maximum health is absent when not networked. For pickups, <code>alive</code> is a generic active-entity flag, not an actor life state.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th><code>type</code> values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>survivor</td>
+<td><code>survivor</code></td>
+</tr>
+<tr>
+<td>infected</td>
+<td><code>unknown</code>, <code>common</code>, <code>uncommon</code>, <code>witch</code>, <code>smoker</code>, <code>boomer</code>, <code>hunter</code>, <code>spitter</code>, <code>jockey</code>, <code>charger</code>, <code>tank</code></td>
+</tr>
+<tr>
+<td>pickup</td>
+<td><code>weapons</code>, <code>melee</code>, <code>throwables</code>, <code>medical</code>, <code>ammo</code>, <code>upgrades</code>, <code>carryables</code></td>
+</tr>
+</tbody></table>
+<p><code>special</code> includes unknown special infected and smoker/boomer/hunter/spitter/jockey/charger/tank. Witches are separate. Games only return types present in that game/map; L4D2-only types do not appear in stock L4D1. Classification uses the existing class/model classifier and can return <code>unknown</code> for custom mods.</p>
+<h2 id="game-api-6">L4D projection and math</h2>
+<p>Vectors are Lua tables <code>{x=..., y=..., z=...}</code> in <strong>Source coordinates and units</strong>, with Z up. Angles use the same table shape: X pitch, Y yaw, Z roll, in degrees. Internal portable renderer coordinate conversion is handled by the host. Distances explicitly named <code>_m</code> and subscription/filter ranges are metres. Inputs must be finite numbers of magnitude at most 1e9.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>l4d.world_to_screen(position)</code></td>
+<td><code>{x, y, on_screen}</code> in physical pixels, or nil behind/outside the camera depth range or without game data. An offscreen point can return a table with <code>on_screen=false</code>.</td>
+</tr>
+<tr>
+<td><code>l4d.vec.add(a,b)</code>, <code>sub(a,b)</code></td>
+<td>Component sum/difference vector.</td>
+</tr>
+<tr>
+<td><code>l4d.vec.scale(v,n)</code></td>
+<td>Scaled vector.</td>
+</tr>
+<tr>
+<td><code>l4d.vec.dot(a,b)</code></td>
+<td>Scalar dot product.</td>
+</tr>
+<tr>
+<td><code>l4d.vec.length(v)</code>, <code>distance(a,b)</code></td>
+<td>Length/distance in the input&#39;s units.</td>
+</tr>
+<tr>
+<td><code>l4d.vec.normalize(v)</code></td>
+<td>Unit vector or nil for near-zero length.</td>
+</tr>
+<tr>
+<td><code>l4d.angle_to(eye,point)</code></td>
+<td>Source pitch/yaw/roll vector pointing toward a position.</td>
+</tr>
+<tr>
+<td><code>l4d.angle_fov(from,to)</code></td>
+<td>Angular distance between view-angle vectors in degrees.</td>
+</tr>
+<tr>
+<td><code>l4d.to_metres(units)</code>, <code>l4d.to_units(metres)</code></td>
+<td>Unit conversion; one Source unit is treated as .0254 metres by this project.</td>
+</tr>
+</tbody></table>
+<p>DirectX and OpenGL use the same snapshot and projection APIs. Rendering still uses <code>render.*</code> from an overlay/UI callback.</p>
+<h2 id="game-api-7">L4D feature integration</h2>
+<p>Use <code>features.add</code> to register your toggle/hotkey and <code>features.active</code> to gate behavior. Registered feature enabled state/hotkeys participate in the existing config system. Plain Lua locals such as the example sliders are per-run and are not automatically persisted. Use <code>features.list()</code> to discover actual IDs; <code>features.set</code>, <code>features.bind</code>, <code>features.color</code> and <code>ui.feature</code> also work with built-in IDs.</p>
+<p><code>l4d.setting(id, field [, value])</code> reads or updates the following numeric built-in properties. It returns the clamped value, truncating style indices to integers. Unknown ID/field pairs error. Non-finite values reset to that property&#39;s lower bound, preserving the existing setting API behavior. Changing a numeric property does not automatically enable its feature.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Field and values</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>chams.visible</code>, <code>chams.hidden</code></td>
+<td><code>style</code>: 0 Lit, 1 Flat, 2 Chrome, 3 Ghost, 4 Additive, 5 Wireframe, 6 Glass, 7 Glow, 8 Fullbright, 9 Chrome wireframe, 10 Ghost wireframe, 11 Neon wireframe</td>
+</tr>
+<tr>
+<td><code>chams.&lt;target&gt;.custom</code>, <code>chams.&lt;target&gt;.hidden</code></td>
+<td><code>style</code>: same material indices; target IDs and pass switches below</td>
+</tr>
+<tr>
+<td><code>chams.enabled</code></td>
+<td><code>style</code>: legacy alias for <code>chams.visible</code> (Players visible material)</td>
+</tr>
+<tr>
+<td><code>chams.selector</code>, <code>infected.selector</code>, <code>items.box</code></td>
+<td><code>style</code>: selected category/type/box-style index; clamped to that feature&#39;s choices</td>
+</tr>
+<tr>
+<td><code>l4d.items</code>, <code>chams.enabled</code>, <code>infected.&lt;type&gt;</code></td>
+<td><code>distance</code>: 1-300 metres</td>
+</tr>
+<tr>
+<td><code>l4d.items</code></td>
+<td><code>textSize</code>: 10-24 pixels</td>
+</tr>
+<tr>
+<td><code>chams.pulse</code></td>
+<td><code>thickness</code>: pulse frequency .5-5 Hz</td>
+</tr>
+<tr>
+<td><code>actor.box_padding</code></td>
+<td><code>distance</code>: 0-10 percent</td>
+</tr>
+<tr>
+<td><code>actor.box_width</code>, <code>actor.box_height</code></td>
+<td><code>distance</code>: legacy scale 25-100 / 50-100 percent</td>
+</tr>
+<tr>
+<td><code>aim.profile</code>, <code>aim.mode</code>, <code>aim.point</code></td>
+<td><code>style</code>: profile 0 Legit/1 Rage; mode 0 Camera/1 Silent/2 Packet silent; hitboxes 0 Upper body / 1 Chest / 2 Head / 3 Stomach / 4 Arms / 5 Legs / 6 All</td>
+</tr>
+<tr>
+<td><code>aim.legit</code>, <code>aim.rage</code>, <code>aim.range</code></td>
+<td><code>distance</code>: FOV 1-180 degrees / FOV 1-180 degrees / range 1-300 metres</td>
+</tr>
+<tr>
+<td><code>aim.smoothing</code></td>
+<td><code>distance</code>: 1-30</td>
+</tr>
+<tr>
+<td><code>trigger.hitbox</code>, <code>trigger.rage.hitbox</code></td>
+<td><code>style</code>: the same 0-6 hitbox choices as <code>aim.point</code>; default 6 All</td>
+</tr>
+<tr>
+<td><code>trigger.delay</code>, <code>trigger.range</code>, <code>trigger.rage.delay</code>, <code>trigger.rage.range</code></td>
+<td><code>distance</code>: 0-500 ms / 1-300 metres</td>
+</tr>
+<tr>
+<td><code>view.thirdperson_distance</code>, <code>view.thirdperson_side</code>, <code>view.thirdperson_height</code></td>
+<td><code>distance</code>: 40-200 / -40 to +40 / -30 to +30 Source units; enable with <code>features.set(&quot;view.thirdperson&quot;, true)</code>, no preset shortcut</td>
+</tr>
+<tr>
+<td><code>view.camera_fov</code>, <code>view.model_fov</code>, <code>view.offset_x</code>, <code>view.offset_y</code>, <code>view.offset_z</code></td>
+<td><code>distance</code>: camera/model FOV in degrees or viewmodel offset in Source units, clamped to the feature&#39;s menu bounds</td>
+</tr>
+</tbody></table>
+<h3 id="game-api-8">Visual utility actions</h3>
+<p>Use <code>features.trigger(id)</code> to run an action once, or <code>ui.feature(id)</code> to draw its button and optional shortcut control. These actions have no assigned hotkeys and do not appear in the active-features list. They edit the existing saved feature settings.</p>
+<table>
+<thead>
+<tr>
+<th>Action ID</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>view.swap_shoulder</code></td>
+<td>Negates the current shoulder offset; a centered/invalid offset selects +20. Does not enable third person.</td>
+</tr>
+<tr>
+<td><code>view.center_camera</code></td>
+<td>Sets the shoulder offset to zero.</td>
+</tr>
+<tr>
+<td><code>world.night</code>, <code>world.warm</code>, <code>world.cool</code></td>
+<td>Enables coordinated world/prop/sky tint colors.</td>
+</tr>
+<tr>
+<td><code>world.reset</code></td>
+<td>Disables all three tint overrides so the material controller restores original colors.</td>
+</tr>
+<tr>
+<td><code>chams.copy_pass</code></td>
+<td>Copies the selected target&#39;s Visible color/alpha/material to Invisible.</td>
+</tr>
+<tr>
+<td><code>chams.swap_passes</code></td>
+<td>Exchanges the selected target&#39;s Visible and Invisible color/alpha/material.</td>
+</tr>
+</tbody></table>
+<p>Chams actions preserve target enable state, both pass switches and hotkeys. Set <code>chams.selector</code> first when invoking them from a script. Other targets remain unchanged.</p>
+<p>The shared <code>ui.tr</code> API also works in L4D scripts. Format its logical string before passing it to <code>imgui.text</code> or <code>render.text</code> so live language selection and right-to-left text work correctly; see the bundled portable localization reference.</p>
+<h3 id="game-api-9">Chams targets and passes</h3>
+<p>Enable <code>chams.enabled</code>, then enable each desired target. Target enable IDs are <code>chams.survivors</code> (other survivor players), <code>chams.self</code> (your world player model), <code>chams.arms</code>, <code>chams.held</code> (first-person weapon/held supplies), <code>chams.weapons</code> (dropped firearms/melee), <code>chams.pickups</code> (dropped items), and <code>chams.common</code>, <code>chams.uncommon</code>, <code>chams.witch</code>, <code>chams.smoker</code>, <code>chams.boomer</code>, <code>chams.hunter</code>, <code>chams.spitter</code>, <code>chams.jockey</code>, <code>chams.charger</code>, <code>chams.tank</code>, <code>chams.unknown</code>. <code>chams.special</code> is an additional master switch for Smoker through Unknown special; Witch has its own independent toggle. Self requires the game to draw the local world model, for example with <code>view.thirdperson</code>.</p>
+<p>Players use <code>chams.visible</code> / <code>chams.hidden</code> for Visible / Invisible. Every other target uses <code>&lt;target ID&gt;.custom</code> / <code>&lt;target ID&gt;.hidden</code>. Each pass has an independent enabled state, color (including alpha), hotkey and material. Use <code>features.set</code>, <code>features.color</code>, <code>features.bind</code>, and <code>l4d.setting(pass_id, &quot;style&quot;, material_index)</code> respectively. Invisible is the ignore-depth pass: hidden surfaces show through geometry. With Visible off, the original model covers unoccluded surfaces. Both passes off leaves the original model. Arms/Weapon use the game&#39;s separate first-person projection, so Invisible may look the same as Visible there.</p>
+<p>The old <code>.custom</code> IDs now represent the <strong>Visible switch</strong>, not a global-appearance inheritance option. Loading an old profile automatically copies inherited global colors/materials into each target, preserves explicit equipment appearances, and turns Visible on where the old Custom appearance switch was off. Old first-person hidden passes remain off. After migration, targets are independent; new profiles retain explicit Visible/Invisible choices. Scripts that used <code>.custom</code> to switch inheritance should use the new pass semantics instead. <code>chams.enabled</code> remains the overall on/off switch; its old color property is unused. The <code>style</code> compatibility alias is provided through <code>l4d.setting</code>, not direct access to the feature&#39;s legacy style property.</p>
+<p><code>chams.selector</code> indices are 0 Players, 1 Arms, 2 Weapon, 3 Dropped weapons, 4 Items, 5 Self, 6 Common, 7 Uncommon, 8 Witch, 9 Smoker, 10 Boomer, 11 Hunter, 12 Spitter, 13 Jockey, 14 Charger, 15 Tank, 16 Unknown special. Selection only changes which settings the menu edits; it does not enable or disable targets.</p>
+<pre><code class="language-lua">features.set(&quot;chams.enabled&quot;, true)
+features.set(&quot;chams.tank&quot;, true)
+features.set(&quot;chams.special&quot;, true)
+features.set(&quot;chams.tank.custom&quot;, true) -- Visible
+features.set(&quot;chams.tank.hidden&quot;, true) -- Invisible
+features.color(&quot;chams.tank.custom&quot;, 0.3, 0.8, 1, 1)
+features.color(&quot;chams.tank.hidden&quot;, 1, 0.25, 0.3, 0.6)
+l4d.setting(&quot;chams.tank.custom&quot;, &quot;style&quot;, 8) -- Fullbright
+l4d.setting(&quot;chams.tank.hidden&quot;, &quot;style&quot;, 11) -- Neon wireframe
+</code></pre>
+<pre><code class="language-lua">-- Explicit user action: integrate a built-in view setting into a custom page.
+ui.subtab(&quot;settings&quot;, &quot;my_view&quot;, &quot;My view&quot;, function()
+    ui.feature(&quot;view.camera_fov&quot;)
+    local fov = l4d.setting(&quot;view.camera_fov&quot;, &quot;distance&quot;)
+    local changed, value = ui.slider(&quot;Camera FOV&quot;, fov, 60, 140)
+    if changed then l4d.setting(&quot;view.camera_fov&quot;, &quot;distance&quot;, value) end
+end)
+</code></pre>
+<p>Built-in changes remain after a script stops, as with the portable feature API. If temporarily controlling a feature, save the previous value and restore it in a shutdown callback (avoid overwriting subsequent user/other-script edits). This extension provides snapshots and built-in feature controls; it does not expose raw memory, arbitrary engine commands, game-event subscriptions, entity spawning, command/packet callbacks or arbitrary weapon changes. <code>update</code> and <code>shutdown</code> remain the supported portable events.</p>
+<h2 id="game-api-10">L4D performance and troubleshooting</h2>
+<p>Keep ranges modest, request only relevant categories, and leave bones off unless needed. Query once per callback and reuse the result; querying returns new tables. A script has the existing 16 MiB Lua allocator limit, frame callback budget and render-call limit. The examples cap drawn actors/segments to stay within the draw budget.</p>
+<p>Empty entities: check <code>l4d.session()</code>, register <code>l4d.watch</code>, allow an engine capture, check filters/range, and inspect <code>l4d.capture().truncated</code>. Bones may be unavailable while a pose is being initialized. Nil health means unavailable, not zero. A missing <code>l4d</code>/<code>L4D_API_VERSION</code> means the wrong/older host is running. Reload after updating the native host; copying docs or examples only does not update a loaded DLL.</p>
+<h2 id="game-api-11">Aim activation and indicators</h2>
+<p><code>l4d.keybind(id [, action [, mode]])</code> manages <code>aim.key</code> (Legit), <code>aim.rage.key</code> (Rage), <code>trigger.key</code> (Legit), or <code>trigger.rage.key</code> (Rage). It returns <code>key, mode, capturing, waiting</code>. Actions are <code>&quot;capture&quot;</code> (wait 500 ms, release all keys, then accept a fresh press), <code>&quot;clear&quot;</code>, or <code>&quot;mode&quot;</code> with 0 Always, 1 Toggle, 2 Hold, 3 Hold to disable. Escape cancels, Delete clears, and losing focus cancels capture. The built-in pages use native <code>ui.button</code> and <code>ui.combo</code> controls. Bindings persist through the regular config system; scripts can also assign them using <code>features.bind</code>.</p>
+<p>Aim and trigger keys start unassigned with Hold mode selected. An unassigned key preserves the existing master switch behavior. A bound key is an additional activation condition: it cannot enable a disabled master switch. Aim&#39;s Only while firing and Silent/pSilent firing requirements still apply. The 500 ms delay applies to assigning a key, not to firing or aiming.</p>
+<p><code>aim.rage.circle</code>, <code>aim.rage.snapline</code>, <code>aim.rage.dot</code> and the corresponding <code>aim.legit.*</code> features have independent switches and RGBA colors. They start off. Enable the main aim switch and select that profile to render its indicators. The FOV circle uses the current camera projection, including zoom and aspect ratio. Its radius represents the configured angular targeting limit; wide cones can extend beyond the viewport, and at 90 degrees or more the boundary is behind the camera. Snapline and dot follow the actual selected aim point only while aim is active; stale, invalid or mismatched-profile targets disappear. They do not depend on ESP being enabled. pSilent retains the most recent shot point during its following packet-flush command without extending the 250 ms expiry.</p>
+<h3 id="game-api-12">Independent combat profiles</h3>
+<p>Ragebot and Legitbot retain separate enable switches, keys, target filters, modes, aim points, ranges and weapon controls. Viewing a tab does not change the active profile; use its explicit profile button. <code>aim.profile</code> remains 0 Legit / 1 Rage. Legacy <code>aim.enabled</code>, <code>aim.mode</code>, <code>aim.key</code>, <code>aim.point</code>, <code>aim.range</code>, <code>aim.lock</code>, <code>aim.attack</code>, <code>aim.visible</code>, <code>aim.common</code>, <code>aim.special</code>, <code>aim.witch</code>, <code>aim.survivors</code> and <code>weapon.no_recoil</code> / <code>weapon.no_spread</code> now address Legit. The Rage equivalents insert <code>rage.</code> after <code>aim.</code> or <code>weapon.</code>. Angular limits retain <code>aim.legit</code> / <code>aim.rage</code> for compatibility. Triggerbot has separate <code>trigger.*</code> (Legit) and <code>trigger.rage.*</code> (Rage) settings, including enable, activation key, delay, range, target filters and hitboxes. Both use the active <code>aim.profile</code>; viewing either page does not change it. Each page edits its own profile’s weapon controls. Schema-3 migration copies older shared trigger settings into both profiles and converts Head only into the Head selector.</p>
+<p>Old shared configurations are copied into Rage once when loaded; new profiles persist each side independently. Silent and pSilent use exact head/chest hitbox shot angles. Smoothing applies only to Legit Camera mode. Animated aim points do not depend on ESP/skeleton being enabled. Trigger eligibility rejects known-dead entities but does not treat missing common-infected health properties as zero.</p>
+<h3 id="game-api-13">Combat target dropdowns</h3>
+<p>Ragebot, Legitbot and both Triggerbot pages use a multi-select Targets dropdown. Click Common infected, Special infected, Witch or Survivors to toggle its highlight; the popup stays open for further selections. Clicking outside or pressing Escape closes it. The dropdown edits the existing <code>common</code>, <code>special</code>, <code>witch</code> and <code>survivors</code> booleans under <code>aim.</code>, <code>aim.rage.</code>, <code>trigger.</code> or <code>trigger.rage.</code>. Existing configs and script-set values carry over, and each profile retains independent selections. The generic Lua control is <code>ui.multi_combo(label, booleanArray, labels)</code>.</p>
+<h3 id="game-api-14">Combat hitbox selectors</h3>
+<p><code>l4d.setting(id, &quot;style&quot;, selection)</code> supports <code>aim.point</code>, <code>aim.rage.point</code>, <code>trigger.hitbox</code> and <code>trigger.rage.hitbox</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Selection</th>
+<th>Model hitgroups</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Upper body</td>
+<td>Head, chest and stomach</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Chest</td>
+<td>Chest only</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Head</td>
+<td>Head only</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Stomach</td>
+<td>Stomach only</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Arms</td>
+<td>Left and right arms</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Legs</td>
+<td>Left and right legs</td>
+</tr>
+<tr>
+<td>6</td>
+<td>All</td>
+<td>All available hitboxes</td>
+</tr>
+</tbody></table>
+<p>Aim resolves centers from the entity’s current hitbox set and animated bone matrices, then chooses the closest eligible point inside the FOV and range. With Visible only enabled it tries another selected point when the closer point is obstructed. It never substitutes another region when a strict selection is missing. One bone setup is shared by all candidate points for that entity; no limb-specific bone indices are assumed between L4D1/L4D2 models. Lock on keeps the entity while rechecking its selected hitboxes each command.</p>
+<p>Triggerbot filters the actual shot trace hitgroup, without moving the crosshair. Changing profile or hitbox selection restarts its reaction delay. The legacy <code>trigger.head</code> and <code>trigger.rage.head</code> script toggles still override the selector while enabled; explicitly writing the corresponding hitbox selector clears that override.</p>
+<pre><code class="language-lua">l4d.setting(&quot;aim.point&quot;, &quot;style&quot;, 2)             -- Legit: head
+l4d.setting(&quot;aim.rage.point&quot;, &quot;style&quot;, 6)        -- Rage: all available hitboxes
+l4d.setting(&quot;trigger.hitbox&quot;, &quot;style&quot;, 1)       -- Legit Triggerbot: chest
+l4d.setting(&quot;trigger.rage.hitbox&quot;, &quot;style&quot;, 0)  -- Rage Triggerbot: upper body
+</code></pre>
+</section>
+<section class="guide-card lua-reference" id="ui-api" data-i18n-skip><h2>UI, features and rendering</h2><p><a href="/docs/l4d/ui-api.md" download>Download Markdown reference</a></p><h2 id="ui-api-1">Lua UI API</h2>
+<p>Version <strong>1.0</strong>. <code>UI_API_VERSION</code> is <code>&quot;1.0&quot;</code>.</p>
+<p>This is the portable UI API for Scooby Simple Base. It provides persistent scripts, custom features, tabs, sub-tabs, independent menus, overlays, page replacements, theming, and a curated set of ImGui controls. Game-specific functions are supplied by the project that embeds the UI.</p>
+<p>Open <strong>Lua &gt; API docs</strong> for a continuous scrollable reader beside the main GUI. Code blocks preserve indentation, use Lua syntax colors, and are read-only: select code and press Ctrl+C, or click a block and press Ctrl+A to select the whole example. Long lines scroll horizontally. There are no toolbar dropdowns or script-management buttons. The host can supply <code>docs/LUA_SNIPPETS.md</code> for a concise example guide; otherwise the reader shows this reference. It follows the menu&#39;s position and height. The preview also supports <code>--page api --no-welcome</code>.</p>
+<p>The source reference is <code>docs/LUA_API.md</code>; preview builds copy it to <code>assets/docs/LUA_API.md</code> beside the executable.</p>
+<h2 id="ui-api-2">Getting started</h2>
+<ol>
+<li>Open <strong>Lua &gt; Scripts</strong>, select <strong>Custom UI.lua</strong>, and click Run.</li>
+<li>A <strong>My Tools</strong> tab appears in the sidebar. Its controls edit real registered features.</li>
+<li>F8 toggles its feature and the example overlay.</li>
+<li>Run <strong>Standalone Menu.lua</strong> to try an independent menu; F9 toggles its visibility.</li>
+<li>Use <strong>Stop</strong> next to the editor&#39;s script selector to unload that script.</li>
+</ol>
+<p>The independent menus are ImGui windows rendered inside the host&#39;s viewport. They can run while the main GUI is closed. This API does not create a separate operating-system process or desktop window.</p>
+<p>Minimal custom tab:</p>
+<pre><code class="language-lua">local enabled = features.add {
+    id = &quot;enabled&quot;, label = &quot;My feature&quot;, default = false,
+    category = &quot;My Tools&quot;, description = &quot;My custom feature&quot;, key = &quot;F8&quot;
+}
+local tab = ui.tab(&quot;tools&quot;, &quot;My Tools&quot;)
+ui.subtab(tab, &quot;general&quot;, &quot;General&quot;, function()
+    ui.group(&quot;Options&quot;, function()
+        ui.feature(enabled)
+    end)
+end)
+</code></pre>
+<h2 id="ui-api-3">Localization</h2>
+<p><code>ui.tr(english_key)</code> returns the selected catalog&#39;s <strong>logical UTF-8 text</strong>, or the original key when absent. It is available during loading and callbacks. Call it inside a callback when text must follow live language changes.</p>
+<p>Built-in Lua text, buttons, groups, sliders, dropdowns, tooltips, input/color labels, window titles and <code>render.text</code> translate their visible captions automatically. Widget IDs continue to use the original labels. Keep labels stable; add an entry with that English key to each <code>languages/&lt;code&gt;.json</code> catalog to localize a custom script. Player names and arbitrary values are not translation keys.</p>
+<p>Format translated templates before drawing; Arabic/Hebrew display shaping happens afterwards:</p>
+<pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;localized_stats&quot;, &quot;Info&quot;, function()
+    imgui.text(string.format(ui.tr(&quot;Speed: %.0f units/s&quot;), 250))
+end)
+</code></pre>
+<p>Do not cache <code>ui.tr</code> results at script load if the text should change with the selected language. Keep <code>%s</code>, <code>%d</code>, and other format specifiers unchanged in translated templates. Missing keys intentionally fall back to English. The API guide and console/game diagnostics remain developer text.</p>
+<h2 id="ui-api-4">Script lifetime and ownership</h2>
+<p>Each named script has its own Lua state. Top-level code runs once. Local variables captured by callbacks survive between frames. Different scripts have separate global variables.</p>
+<p>Running the same script name again stops its previous instance before loading the replacement. Syntax or startup errors leave the replacement stopped. The old instance is not restored. Running another name leaves existing scripts running.</p>
+<p>Stopping removes the script&#39;s tabs, sub-tabs, windows, overlays, page replacements, themes, visibility overrides and registered features, including their reset defaults. It closes its state after calling shutdown callbacks. Values explicitly written to existing host features with <code>features.set</code>, <code>features.bind</code>, <code>features.color</code> or <code>base.set</code> remain changed.</p>
+<p>Register features, pages, windows, overlays and event callbacks at the top level. Registration from a frame callback is rejected, preventing callbacks from invalidating UI/feature iteration.</p>
+<p>A drawing callback that errors is logged and disabled. A failed event or action callback is disabled too. Other scripts continue. Reload the script after correcting the error.</p>
+<p>The script name determines its namespace. The editor uses the selected filename without <code>.lua</code>; an unsaved editor uses <code>Untitled</code>. The C++ runtime&#39;s default name is <code>editor</code>. Renaming a file changes its namespace on its next run; stop the old instance if it is still running.</p>
+<h2 id="ui-api-5">Features</h2>
+<p>A registered feature joins the same registry as built-in features. It participates in search, favorites, hotkeys, config values, and the Active Features overlay. A Lua feature supplies state and optional action callbacks; gameplay behavior belongs in a project API or an update callback.</p>
+<h3 id="ui-api-6">Register a feature</h3>
+<pre><code class="language-lua">local id = features.add {
+    id = &quot;example&quot;,                 -- required local ID, 1-80 characters
+    label = &quot;Example&quot;,              -- defaults to local ID
+    category = &quot;My Tools / General&quot;, -- defaults to &quot;Scripts&quot;
+    description = &quot;What this does&quot;,
+    default = false,                -- initial enabled state
+    key = &quot;F8&quot;,                     -- optional key, Toggle mode
+    active_list = true,             -- include effective toggles in Active Features
+    kind = &quot;toggle&quot;                 -- &quot;toggle&quot; or &quot;action&quot;
+}
+</code></pre>
+<p>The returned ID is <code>lua.&lt;script name&gt;.&lt;local id&gt;</code>. Keep and use the returned ID rather than constructing it. Duplicate IDs are rejected.</p>
+<p>An action runs once per button/hotkey activation:</p>
+<pre><code class="language-lua">local action = features.add {
+    id = &quot;refresh&quot;, label = &quot;Refresh&quot;, kind = &quot;action&quot;,
+    on_trigger = function() print(&quot;Refresh requested&quot;) end
+}
+</code></pre>
+<h3 id="ui-api-7">Read and change features</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>features.get(id)</code></td>
+<td>Returns the saved enabled boolean, or nil for an unknown ID.</td>
+</tr>
+<tr>
+<td><code>features.set(id, boolean)</code></td>
+<td>Changes enabled state; rejects unknown IDs.</td>
+</tr>
+<tr>
+<td><code>features.active(id)</code></td>
+<td>Returns effective hotkey state, including Hold/Hold Off.</td>
+</tr>
+<tr>
+<td><code>features.trigger(id)</code></td>
+<td>Activates an action, including its callback and overlay flash.</td>
+</tr>
+<tr>
+<td><code>features.bind(id, key, mode)</code></td>
+<td>Sets a key and mode. Empty key clears the key.</td>
+</tr>
+<tr>
+<td><code>features.color(id, r, g, b, a)</code></td>
+<td>Sets RGBA color; components must be 0-1. Alpha defaults to 1.</td>
+</tr>
+<tr>
+<td><code>features.list()</code></td>
+<td>Returns an array of tables with id, label, category, description, kind, enabled.</td>
+</tr>
+<tr>
+<td><code>ui.feature(id)</code></td>
+<td>Draws the standard feature row, including applicable gear/color/hotkey controls.</td>
+</tr>
+</tbody></table>
+<p>Binding modes are <code>&quot;always&quot;</code>, <code>&quot;toggle&quot;</code>, <code>&quot;hold&quot;</code>, and <code>&quot;hold_off&quot;</code>. Key names match the menu&#39;s binding names, for example <code>F8</code>, <code>G</code>, <code>Mouse 1</code> and <code>Insert</code>. Hotkeys follow the host&#39;s focus and text-input rules.</p>
+<p><code>features.active</code> should gate behavior. <code>features.get</code> intentionally returns saved state and does not resolve Hold modes.</p>
+<p>Legacy compatibility: <code>base.get(id)</code>, <code>base.set(id, boolean)</code>, <code>base.log(...)</code> and <code>print(...)</code> remain available.</p>
+<h2 id="ui-api-8">Tabs and sub-tabs</h2>
+<pre><code class="language-lua">local tab = ui.tab(&quot;tools&quot;, &quot;My Tools&quot;)
+local subtab = ui.subtab(tab, &quot;display&quot;, &quot;Display&quot;, function()
+    imgui.text(&quot;My page&quot;)
+end)
+</code></pre>
+<p><code>ui.tab(id, label [, draw])</code> creates a sidebar entry and returns its opaque ID. An optional draw callback becomes its Overview page. A tab without a draw callback selects its first sub-tab.</p>
+<p><code>ui.subtab(parent, id, label, draw)</code> creates a sub-tab and returns its ID. Parent can be a tab ID returned by <code>ui.tab</code>, or one of the built-in IDs: <code>&quot;visuals&quot;</code>, <code>&quot;lua&quot;</code>, <code>&quot;settings&quot;</code>.</p>
+<pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;my_settings&quot;, &quot;My Script&quot;, function()
+    imgui.text(&quot;An extra page beside the built-in settings.&quot;)
+end)
+</code></pre>
+<p>IDs must be nonempty and unique across a script&#39;s UI registrations. Labels can be changed independently. Custom sidebar entries scroll when they exceed the available height.</p>
+<h2 id="ui-api-9">Groups and columns</h2>
+<p>Scoped helpers always close their native ImGui/group state, including when a nested Lua callback fails. There are no manual Begin/End or Push/Pop pairs to balance.</p>
+<pre><code class="language-lua">ui.columns(3, function()
+    ui.group(&quot;First&quot;, function() imgui.text(&quot;First column&quot;) end)
+    ui.next_column()
+    ui.group(&quot;Second&quot;, function() imgui.text(&quot;Second column&quot;) end)
+    ui.next_column()
+    ui.group(&quot;Third&quot;, function() imgui.text(&quot;Third column&quot;) end)
+end)
+</code></pre>
+<p><code>ui.group(label, draw)</code> creates a collapsible Scooby card. <code>ui.columns(count, draw)</code> supports 1-5 columns and reflows on narrow windows. <code>ui.next_column()</code> advances inside that scope. Nested column layouts are rejected. Use unique group labels or <code>##suffix</code> IDs for repeated controls within a callback.</p>
+<h2 id="ui-api-10">Independent menus and attached windows</h2>
+<pre><code class="language-lua">local window = ui.window(&quot;inspector&quot;, &quot;My Inspector&quot;, {
+    width = 360, height = 280,
+    menu_only = false,
+    attach = &quot;none&quot;
+}, function()
+    imgui.text(&quot;Independent menu&quot;)
+    if imgui.button(&quot;Show main menu&quot;) then ui.menu_visible(true) end
+end)
+</code></pre>
+<p><code>ui.window(id, title, options, draw)</code> registers a persistent window. Width/height are initial physical-pixel dimensions. A free window can be dragged, resized and closed. <code>menu_only=true</code> hides it when the main GUI closes.</p>
+<p><code>attach</code> accepts <code>&quot;none&quot;</code>, <code>&quot;left&quot;</code> or <code>&quot;right&quot;</code>. Attached windows follow the main menu and match its height; their position is clamped to the viewport, so they may overlap the main menu when the requested side has insufficient room. The built-in API reader additionally reserves space beside the menu on normal-sized viewports.</p>
+<p><code>ui.window_visible(windowId [, boolean])</code> gets/sets the visibility of a window owned by the calling script. This can reopen a window after its close button is used.</p>
+<p><code>ui.menu_visible([boolean])</code> gets/sets the main GUI&#39;s visibility. Independent windows continue drawing when the main GUI is hidden unless <code>menu_only</code> is set.</p>
+<p>To toggle a standalone window with a hotkey, register a toggle feature and call <code>ui.window_visible(windowId, features.active(featureId))</code> from an update callback. See <code>Standalone Menu.lua</code>.</p>
+<p>For windows constructed dynamically inside a UI/overlay callback, use <code>imgui.window(title, options, draw)</code>. Its options are width and height. It is drawn whenever that scope is called; visibility is controlled by the Lua code surrounding the call.</p>
+<h2 id="ui-api-11">ImGui controls</h2>
+<p><code>imgui</code> is a curated immediate-mode binding to the bundled ImGui renderer, not a claim to expose every upstream ImGui function. Call these functions from tab, sub-tab, window, overlay, or page replacement callbacks. Calling drawing functions while loading or from an update event returns a Lua error.</p>
+<p>Controls keep values in Lua and return the edited value:</p>
+<pre><code class="language-lua">local amount, enabled, text = 50, false, &quot;Hello&quot;
+ui.window(&quot;example&quot;, &quot;Controls&quot;, {}, function()
+    local changed
+    changed, enabled = imgui.checkbox(&quot;Enabled&quot;, enabled)
+    changed, amount = imgui.slider_float(&quot;Amount&quot;, amount, 0, 100)
+    changed, text = imgui.input_text(&quot;Text&quot;, text)
+end)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return / behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>imgui.text(text)</code></td>
+<td>Wrapped text; treats the string as text, not a printf format.</td>
+</tr>
+<tr>
+<td><code>imgui.text_colored(text, rgba)</code></td>
+<td>Colored text.</td>
+</tr>
+<tr>
+<td><code>imgui.button(label [, width, height])</code></td>
+<td>Returns true on activation; dimensions default to automatic.</td>
+</tr>
+<tr>
+<td><code>imgui.checkbox(label, value)</code></td>
+<td>Returns changed, boolean.</td>
+</tr>
+<tr>
+<td><code>imgui.slider_float(label, value, min, max)</code></td>
+<td>Returns changed, number.</td>
+</tr>
+<tr>
+<td><code>imgui.slider_int(label, value, min, max)</code></td>
+<td>Returns changed, integer-valued number.</td>
+</tr>
+<tr>
+<td><code>imgui.input_text(label, text)</code></td>
+<td>Returns changed, string; maximum 4095 bytes.</td>
+</tr>
+<tr>
+<td><code>imgui.combo(label, index, items)</code></td>
+<td>Returns changed, selected index. Indices start at 1; 1-128 items.</td>
+</tr>
+<tr>
+<td><code>imgui.color_edit(label, rgba)</code></td>
+<td>Returns changed, RGBA table.</td>
+</tr>
+<tr>
+<td><code>imgui.same_line([spacing])</code></td>
+<td>Places the next item on the same line; default style spacing.</td>
+</tr>
+<tr>
+<td><code>imgui.separator()</code></td>
+<td>Separator line.</td>
+</tr>
+<tr>
+<td><code>imgui.spacing([height])</code></td>
+<td>Vertical space; default 4 physical pixels.</td>
+</tr>
+<tr>
+<td><code>imgui.tooltip(text)</code></td>
+<td>Tooltip when the preceding item is hovered.</td>
+</tr>
+<tr>
+<td><code>imgui.progress(fraction)</code></td>
+<td>Progress bar; fraction is clamped to 0-1.</td>
+</tr>
+<tr>
+<td><code>imgui.available()</code></td>
+<td>Returns available content width, height.</td>
+</tr>
+<tr>
+<td><code>imgui.cursor()</code></td>
+<td>Returns cursor x, y in screen coordinates.</td>
+</tr>
+<tr>
+<td><code>imgui.set_cursor(x, y)</code></td>
+<td>Sets the next cursor position in window-local coordinates.</td>
+</tr>
+<tr>
+<td><code>imgui.is_item_hovered()</code></td>
+<td>Returns whether the preceding item is hovered.</td>
+</tr>
+<tr>
+<td><code>imgui.child(id, width, height, draw)</code></td>
+<td>Scoped scrollable child; 0 uses remaining size.</td>
+</tr>
+<tr>
+<td><code>imgui.disabled(boolean, draw)</code></td>
+<td>Scoped disabled controls.</td>
+</tr>
+<tr>
+<td><code>imgui.with_style(colors, draw)</code></td>
+<td>Scoped color overrides, restored even after callback errors.</td>
+</tr>
+<tr>
+<td><code>imgui.window(title, options, draw)</code></td>
+<td>Scoped independent ImGui window.</td>
+</tr>
+</tbody></table>
+<p>RGBA values use <code>{r, g, b, a}</code> with components between 0 and 1. Alpha defaults to 1 when omitted. Use stable <code>##suffix</code> labels when controls have duplicate visible names.</p>
+<p>Lua local variables are live session state; they are not automatically written to profiles. Registered feature values participate in the existing profile system. Register the scripts before loading a profile containing their feature IDs.</p>
+<h2 id="ui-api-12">Overlays and drawing</h2>
+<pre><code class="language-lua">ui.overlay(&quot;status&quot;, function()
+    local width, height = engine.viewport()
+    render.rect(20, height - 60, 240, 36, {0.05, 0.07, 0.09, 0.9}, true, 4)
+    render.text(30, height - 51, &quot;Lua overlay&quot;, {0.4, 0.8, 1, 1}, 14)
+end)
+</code></pre>
+<p><code>ui.overlay(id, draw)</code> invokes draw every frame, including when the main GUI is closed. Render primitives use the foreground draw list in the current host viewport. Coordinates and sizes are physical pixels; text size is rounded to a whole pixel. A script can derive responsive positions from <code>engine.viewport()</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Arguments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>render.text(x, y, text, rgba [, size])</code></td>
+<td>Text; size defaults to 13 and is limited to 8-80.</td>
+</tr>
+<tr>
+<td><code>render.line(x1, y1, x2, y2, rgba [, thickness])</code></td>
+<td>Line; default thickness 1.</td>
+</tr>
+<tr>
+<td><code>render.rect(x, y, width, height, rgba [, filled, rounding])</code></td>
+<td>Filled or outlined rectangle; default outline, rounding 0.</td>
+</tr>
+<tr>
+<td><code>render.circle(x, y, radius, rgba [, filled, thickness])</code></td>
+<td>Filled or outlined circle; default outline, thickness 1.</td>
+</tr>
+</tbody></table>
+<p>Custom draw-list overlays do not acquire a built-in drag handle. Use <code>ui.window</code> for an interactive draggable overlay, or implement interaction in the project-specific host API.</p>
+<h2 id="ui-api-13">Themes and UI overrides</h2>
+<pre><code class="language-lua">ui.theme {
+    rounding = 5,
+    colors = {
+        WindowBg = {0.06, 0.07, 0.1, 1},
+        Text = {0.9, 0.92, 1, 1},
+        CheckMark = {0.75, 0.4, 1, 1},
+        SliderGrab = {0.75, 0.4, 1, 1},
+        Button = {0.22, 0.15, 0.32, 1},
+        ButtonHovered = {0.32, 0.22, 0.45, 1}
+    }
+}
+</code></pre>
+<p><code>ui.theme(options)</code> installs or replaces this script&#39;s theme overrides. Color names match ImGui names without <code>ImGuiCol_</code>, such as WindowBg, PopupBg, Text, TextDisabled, CheckMark, SliderGrab, FrameBg, FrameBgHovered, Button, Header and Border. Unknown names are rejected. Rounding sets WindowRounding and FrameRounding, from 0 to 24 pixels.</p>
+<p>Overrides apply on the next frame after the user&#39;s baseline theme. The most recently applied script theme wins for overlapping fields. <code>ui.reset_theme()</code> or stopping the script restores the underlying theme. Scoped <code>imgui.with_style({Text={1,0,0,1}}, draw)</code> affects only the callback&#39;s controls. Some custom card/overlay surfaces have their own drawing colors; this API edits the ImGui palette rather than every game-specific renderer constant.</p>
+<p><code>ui.feature_visible(featureId, boolean)</code> hides/shows the standard row and its search results for that script&#39;s lifetime. It does not enable/disable the feature&#39;s behavior. If multiple scripts hide a feature, all must release the override before it becomes visible.</p>
+<p>Replace the contents of a built-in page:</p>
+<pre><code class="language-lua">ui.override(&quot;settings/interface&quot;, function()
+    imgui.text(&quot;My replacement settings page&quot;)
+    if imgui.button(&quot;Log&quot;) then print(&quot;Replacement works&quot;) end
+end)
+</code></pre>
+<p>Supported targets:</p>
+<ul>
+<li><code>visuals/esp</code>, <code>visuals/radar</code></li>
+<li><code>lua/scripts</code>, <code>lua/editor</code>, <code>lua/console</code></li>
+<li><code>settings/interface</code>, <code>settings/config</code>, <code>settings/hotkeys</code>, <code>settings/overlays</code>, <code>settings/links</code></li>
+</ul>
+<p>The shell, search and navigation remain available. The latest registered replacement wins. Stopping its script reveals the previous replacement or original page. A failed replacement is disabled so the original page can recover on the next frame.</p>
+<h2 id="ui-api-14">Events and host information</h2>
+<pre><code class="language-lua">events.on(&quot;update&quot;, function()
+    -- Read feature state and call a project-provided API here.
+end)
+events.on(&quot;shutdown&quot;, function()
+    print(&quot;Cleaning up my script&quot;)
+end)
+</code></pre>
+<p><code>update</code> runs once per rendered application frame. <code>shutdown</code> runs when the script is stopped or replaced and during application shutdown. Both use protected Lua calls. They cannot draw ImGui widgets; register a UI callback for drawing.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>engine.time()</code></td>
+<td>ImGui elapsed time in seconds.</td>
+</tr>
+<tr>
+<td><code>engine.delta_time()</code></td>
+<td>Frame delta in seconds.</td>
+</tr>
+<tr>
+<td><code>engine.fps()</code></td>
+<td>ImGui&#39;s smoothed frame rate.</td>
+</tr>
+<tr>
+<td><code>engine.viewport()</code></td>
+<td>Host viewport width, height.</td>
+</tr>
+<tr>
+<td><code>print(...)</code>, <code>base.log(...)</code></td>
+<td>Write to the shared console.</td>
+</tr>
+</tbody></table>
+<p>Frame updates run before the current frame&#39;s hotkey update, so <code>features.active</code> inside update sees the last processed hotkey state. Draw callbacks run after hotkeys and see the current state.</p>
+<h2 id="ui-api-15">Porting and game-specific APIs</h2>
+<p>The default API deliberately contains UI and feature-registry behavior. It does not invent game/entity/memory/network APIs. Add the functions appropriate to each project through <code>Application::scripts().registerHostApi</code> before running scripts. The UI layer installs its own API separately, so the host hook does not replace it. A host that owns per-script resources can install <code>removeHostApi(lua_State*)</code> to release them when a state closes, including stop, reload and failed initial execution. The owner of these hooks must outlive the Application.</p>
+<p>A minimal host extension:</p>
+<pre><code class="language-cpp">extern &quot;C&quot; {
+#include &quot;lua.h&quot;
+#include &quot;lauxlib.h&quot;
+}
+
+app.scripts().registerHostApi = [](lua_State* L) {
+    lua_newtable(L);
+    lua_pushcfunction(L, [](lua_State* state) -&gt; int {
+        lua_pushstring(state, &quot;My Game&quot;);
+        return 1;
+    });
+    lua_setfield(L, -2, &quot;name&quot;);
+    lua_setglobal(L, &quot;game&quot;);
+};
+</code></pre>
+<p>Lua can then call <code>game.name()</code> from its loading code or callbacks. For real game features, expose validated functions such as entity snapshots, local-player state, permitted actions or typed settings through the same hook. Connect live behavior in an <code>update</code> callback or the host feature dispatcher, using <code>features.active(id)</code> to honor hold/toggle bindings.</p>
+<p>Thread and lifetime rules:</p>
+<ul>
+<li>Construct, run, stop and draw scripts on the application&#39;s UI/render thread.</li>
+<li>Do not call ImGui or the Lua state from background threads. Marshal host results to the render thread.</li>
+<li>Register host features before loading profiles. Run scripts before loading profiles containing script-owned IDs.</li>
+<li>A state remains alive until its named script is stopped/replaced or application shutdown. Do not retain it beyond that point.</li>
+<li>Call <code>app.shutdown()</code> before destroying ImGui or host objects referenced by callbacks.</li>
+<li>The bundled Lua target is compiled in C++ exception mode with a C-compatible public ABI, so protected errors unwind C++ bindings safely. Preserve that build mode when porting. On MSVC, bindings require <code>/EHs</code> with <code>/EHc-</code> so C ABI calls may unwind; the CMake target propagates these options.</li>
+<li>Native host calls must validate arguments and manage their own cancellation; Lua&#39;s instruction hook cannot preempt a blocking native function.</li>
+</ul>
+<p>C++ lifecycle controls:</p>
+<pre><code class="language-cpp">app.scripts().run(source, app.features(), logCallback, &quot;My Script&quot;);
+auto names = app.scripts().running();
+app.scripts().stop(&quot;My Script&quot;);
+app.scripts().stopAll();
+app.navigateScript(&quot;lua:My Script:tools&quot;, &quot;lua:My Script:general&quot;);
+app.setApiDocsVisible(true, false); // true = attach left, false = attach right
+</code></pre>
+<p><code>Application</code> supplies frame dispatch automatically. A core-only host using <code>ScriptRuntime</code> directly calls <code>beginFrame()</code> and <code>dispatch(&quot;update&quot;)</code> itself. Such a host gets features/events/base APIs; ImGui/UI/render/engine APIs are installed by the UI layer.</p>
+<h2 id="ui-api-16">Limits and troubleshooting</h2>
+<p>The runtime enables Lua base, string, table, math and UTF-8 libraries. OS, file, package, debug, dynamic loading and coroutine libraries are not provided by default.</p>
+<p>Limits: 1 MB source per run; 16 MB Lua allocator per state; 16 running scripts; 128 features per script; 128 total UI registrations; 32 callbacks per event per script; 512 drawing API calls per drawing callback. Loading has a 200 ms instruction-hook deadline; callbacks share an 8 ms per-script frame budget. These are responsiveness guards for scripts, not a security boundary for native extensions.</p>
+<p>If a script fails, read Lua &gt; Console. Error messages include the script name. Correct the code and rerun it. A drawing function called from top-level loading or <code>update</code> is rejected; move it into a registered draw callback. A stopped script&#39;s IDs are no longer valid. API registrations must use unique local IDs and happen during loading.</p>
+<p>Profiles do not automatically start scripts. Save a script in the browser and run it explicitly. Register it again before loading profiles with its feature values. Arbitrary Lua locals are not persisted across reloads.</p>
+<p>Host tabs may specify navigation metadata: <code>ui.tab(&quot;world&quot;, &quot;World&quot;, {section=&quot;Visuals&quot;, icon=0xe231})</code>. With a page callback, pass metadata as argument 4. Default groups are <code>Visuals</code> and <code>Tools</code>; other group names appear between them. Hosts can arrange sections and built-in/script tab IDs with <code>Application::setSidebarLayout</code>. Unlisted script tabs are appended to their declared section, so user pages remain reachable. The L4D host uses Combat, Visuals and Misc. Icons use the bundled Lucide private-use codepoints. Set <code>hidden=true</code> in tab metadata to hide its sidebar entry; the host can still open the registered page with <code>Application::navigateScript</code>.</p>
+<h2 id="ui-api-17">Custom product controls</h2>
+<p><code>ui.slider(label,value,min,max)</code> and <code>ui.slider_int(label,value,min,max)</code> return <code>changed,value</code> and use the Lumia track, handle and click-to-edit value control. Signed/zero ranges are supported. <code>ui.toggle(label,value)</code> returns <code>changed,value</code>; <code>ui.combo(label,index,items)</code> returns <code>changed,index</code> with a one-based index. <code>ui.button(label[,width,height])</code> returns a boolean. These controls follow the active template scale, colors and disabled scope.</p>
+<p>The copied L4D UI also routes legacy <code>imgui.slider_float</code>, <code>imgui.slider_int</code>, <code>imgui.checkbox</code>, <code>imgui.combo</code> and <code>imgui.button</code> through these custom controls for script compatibility. Product pages use the <code>ui</code> names. Text/editing/layout still uses the regular Lua API. <code>AppOptions.footer</code> lets a host replace the portable-template footer without changing another application&#39;s branding.</p>
+<p><code>ui.multi_combo(label, selected, items)</code> returns <code>changed, selected</code> for 1-128 items. Pass a dense boolean array with one entry per item; the returned array is new and the input is unchanged. Selected rows are highlighted without checkboxes. Clicking an entry toggles only that entry and keeps the dropdown open; click outside or press Escape to close it. Labels and the None/All summary follow the active language. Save selections through feature/config values when persistence is needed.</p>
+<pre><code class="language-lua">local values = {features.get(&quot;aim.common&quot;), features.get(&quot;aim.special&quot;)}
+local changed, selected = ui.multi_combo(&quot;Targets&quot;, values, {&quot;Common infected&quot;, &quot;Special infected&quot;})
+if changed then
+    features.set(&quot;aim.common&quot;, selected[1])
+    features.set(&quot;aim.special&quot;, selected[2])
+end
+</code></pre>
+<p>Shared settings and hotkey popups use the same custom buttons and dropdowns. Native hosts can use <code>ui::beginCombo</code>, <code>ui::comboItem</code> and <code>ui::endCombo</code> for dynamic lists. Negative button widths fill the remaining row, matching the existing layout convention.</p>
+<p><code>ui.columns(count, draw [, compact])</code> accepts an optional boolean for tighter columns. The default is unchanged; <code>true</code> uses a smaller readable minimum width before reflowing on narrow windows.</p>
+</section><footer class="wiki-footer">
+<span>Scooby Wiki · Developer documentation</span>
+<div>
+<a href="/">Main site</a>
+<a href="/guides/">Guides</a>
+<a href="/store/">Store</a>
+</div>
+</footer>
+</main>
+<aside class="wiki-toc" aria-label="On this page"><strong>On this page</strong><a href="#snippets">Code snippets</a><a href="#game-api">L4D host API</a><a href="#ui-api">UI, features and rendering</a><a href="/guides/l4d/">Setup &amp; troubleshooting</a></aside>
+</div>
+<dialog class="search-dialog" id="search-dialog" data-search-index="/assets/data/docs-search.json" data-search-prompt="Search native references, games, or Lua APIs." aria-label="Search documentation">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search documentation</label>
+<input id="guide-search" type="search" placeholder="Search documentation, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search native references, games, or Lua APIs.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+</body>
+</html>

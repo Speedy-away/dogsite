@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GAMES = {
+    "l4d": "Left 4 Dead 1 & 2",
     "last-of-us": "The Last of Us Part I",
     "gta5": "GTA 5",
     "fivem": "FiveM",
@@ -18,6 +19,7 @@ GAMES = {
 
 
 SEARCH_ALIASES = {
+    "l4d": ["L4D", "L4D1", "L4D2", "Left 4 Dead", "Left 4 Dead 2", "infected", "offline", "Lua"],
     "sbox": ["S&box", "Sbox", "Sandbox"],
     "last-of-us": ["The Last of Us", "TLOU", "TLOU1", "Part I", "Part 1"],
 }
