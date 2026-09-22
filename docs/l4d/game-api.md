@@ -31,7 +31,7 @@ end)
 
 The engine thread captures copied data; Lua never dereferences an entity or calls engine interfaces. All callbacks within a UI frame read one pinned snapshot. `sequence` identifies that capture, not an entity's lifetime. A rendered frame can reuse a previous engine capture. Entity indices may be recycled: reacquire entities each callback and do not assume an index identifies the same actor across frames or maps.
 
-Game data follows the host's existing session gate (an allowed local `-insecure` session). On disconnection, map change or a stopped host, `local_player()` and `camera()` return nil, entity queries return empty/nil and projection returns nil after the next capture. `session().allowed` is false in the standalone preview; `data_available` may be true there for explicitly synthetic data. The preview is not live-game validation.
+Game data follows the host's existing session checks. On disconnection, map change or a stopped host, `local_player()` and `camera()` return nil, entity queries return empty/nil and projection returns nil after the next capture. `session().allowed` is false in the standalone preview; `data_available` may be true there for explicitly synthetic data. The preview is not live-game validation.
 
 Returned tables are independent copies. Editing them does not change the game or later queries. Read functions work at top level or inside callbacks, but game data may not exist during script loading. Perform ongoing logic in `events.on("update", ...)`; draw only in UI/overlay callbacks.
 

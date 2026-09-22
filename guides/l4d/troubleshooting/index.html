@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Troubleshooting — L4D Scooby Wiki</title>
-<meta name="description" content="Troubleshooting for Scooby Left 4 Dead 1 and 2. Free and paid accounts, offline setup, game selection and Lua tools.">
+<meta name="description" content="Troubleshooting for Scooby Left 4 Dead 1 and 2. Free and paid accounts, setup, game selection and Lua tools.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/l4d/troubleshooting/">
 <meta property="og:title" content="Troubleshooting — L4D Scooby Wiki">
-<meta property="og:description" content="Troubleshooting for Scooby Left 4 Dead 1 and 2. Free and paid accounts, offline setup, game selection and Lua tools.">
+<meta property="og:description" content="Troubleshooting for Scooby Left 4 Dead 1 and 2. Free and paid accounts, setup, game selection and Lua tools.">
 <meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Troubleshooting — L4D Scooby Wiki">
-<meta name="twitter:description" content="Troubleshooting for Scooby Left 4 Dead 1 and 2. Free and paid accounts, offline setup, game selection and Lua tools.">
+<meta name="twitter:description" content="Troubleshooting for Scooby Left 4 Dead 1 and 2. Free and paid accounts, setup, game selection and Lua tools.">
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
-<meta name="keywords" content="Scooby Menu, Left 4 Dead, Left 4 Dead 1, Left 4 Dead 2, L4D1, L4D2, Scooby, free mod menu, offline modding, infected ESP, chams, Lua API">
+<meta name="keywords" content="Scooby Menu, Left 4 Dead, Left 4 Dead 1, Left 4 Dead 2, L4D1, L4D2, Scooby, free mod menu, modding, infected ESP, chams, Lua API">
 
 <!-- DNS Prefetch for external resources -->
 
@@ -154,7 +154,7 @@
 </aside>
 <div class="article-layout">
 <main id="main-content" tabindex="-1">
-<div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/l4d/">Left 4 Dead</a></div><h1>Troubleshooting</h1><p class="article-intro">Game detection, missing menus, language files and failed downloads.</p><div class="guide-card" id="troubleshooting"><h2 class="sr-only">Troubleshooting</h2><h3>The wrong game is selected</h3><p>Choose Left 4 Dead 1 or 2 in the dashboard dropdown. Detection checks <code>left4dead.exe</code> and <code>left4dead2.exe</code> once per second. When both are running, your selection is preserved.</p><h3>The menu does not appear</h3><p>Confirm the game was started with <code>-insecure</code>, wait for the main menu, and press Insert after loading. Restart the game before loading the DLL again. Unsupported game binary versions leave hooks disabled.</p><h3>Features are inactive</h3><p>Use a local single-player map. Remote servers, demo playback, missing player data and loading screens suspend gameplay features. Enable the feature and check its hotkey mode.</p><h3>Download or runtime error</h3><p>Check your network connection, disk space and folder permissions. Install both x64 and x86 VC++ runtimes. Retry Load to re-check hashes and replace missing runtime assets. A failed verification does not start the helper.</p><h3>Text or scripts are missing</h3><p>Check the selected game's flat asset folder for <code>languages</code>, <code>fonts</code>, <code>docs</code> and <code>l4d_pages.lua</code>. Keep the current module and asset package together.</p></div><footer class="wiki-footer">
+<div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/l4d/">Left 4 Dead</a></div><h1>Troubleshooting</h1><p class="article-intro">Game detection, missing menus, language files and failed downloads.</p><div class="guide-card" id="troubleshooting"><h2 class="sr-only">Troubleshooting</h2><h3>The wrong game is selected</h3><p>Choose Left 4 Dead 1 or 2 in the dashboard dropdown. Detection checks <code>left4dead.exe</code> and <code>left4dead2.exe</code> once per second. When both are running, your selection is preserved.</p><h3>The menu does not appear</h3><p>Start the game from the loader, wait for the main menu, and press Insert after loading. Restart the game before loading the DLL again. Unsupported game binary versions leave hooks disabled.</p><h3>Features are inactive</h3><p>Use a local single-player map. Remote servers, demo playback, missing player data and loading screens suspend gameplay features. Enable the feature and check its hotkey mode.</p><h3>Download or runtime error</h3><p>Check your network connection, disk space and folder permissions. Install both x64 and x86 VC++ runtimes. Retry Load to re-check hashes and replace missing runtime assets. A failed verification does not start the helper.</p><h3>Text or scripts are missing</h3><p>Check the selected game's flat asset folder for <code>languages</code>, <code>fonts</code>, <code>docs</code> and <code>l4d_pages.lua</code>. Keep the current module and asset package together.</p></div><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>

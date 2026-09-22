@@ -19,7 +19,7 @@ GAMES = {
 
 
 SEARCH_ALIASES = {
-    "l4d": ["L4D", "L4D1", "L4D2", "Left 4 Dead", "Left 4 Dead 2", "infected", "offline", "Lua"],
+    "l4d": ["L4D", "L4D1", "L4D2", "Left 4 Dead", "Left 4 Dead 2", "infected", "Lua"],
     "sbox": ["S&box", "Sbox", "Sandbox"],
     "last-of-us": ["The Last of Us", "TLOU", "TLOU1", "Part I", "Part 1"],
 }

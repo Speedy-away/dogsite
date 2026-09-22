@@ -1,7 +1,7 @@
 {
   "game": "Left 4 Dead 1 & 2",
   "slug": "l4d",
-  "source": "Scooby L4D runtime feature registry. Features require a local -insecure session; hidden diagnostics and synthetic preview controls excluded.",
+  "source": "Scooby L4D runtime feature registry. Hidden diagnostics and synthetic preview controls excluded.",
   "tabs": [
     {
       "name": "Visuals",
