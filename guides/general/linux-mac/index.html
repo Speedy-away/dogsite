@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Scooby on Linux &amp; Mac: Compatibility Setup - Scooby Guide</title>
-<meta name="description" content="Set up the Scooby compatibility preview on Linux, Steam Deck and Mac. Follow Wine, Lutris and Proton launch steps, usage tips and troubleshooting.">
+<meta name="description" content="Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/general/linux-mac/">
 <meta property="og:title" content="Scooby on Linux &amp; Mac: Compatibility Setup - Scooby Guide">
-<meta property="og:description" content="Set up the Scooby compatibility preview on Linux, Steam Deck and Mac. Follow Wine, Lutris and Proton launch steps, usage tips and troubleshooting.">
+<meta property="og:description" content="Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Scooby on Linux &amp; Mac: Compatibility Setup - Scooby Guide">
-<meta name="twitter:description" content="Set up the Scooby compatibility preview on Linux, Steam Deck and Mac. Follow Wine, Lutris and Proton launch steps, usage tips and troubleshooting.">
+<meta name="twitter:description" content="Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.">
 <meta name="twitter:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta name="keywords" content="Scooby Menu, Scooby Linux, Scooby Steam Deck, Scooby Proton, Scooby Mac, Scooby Wine, Scooby Lutris, Scooby CrossOver">
 
@@ -25,6 +25,8 @@
 
 <link rel="icon" href="/assets/images/logo.png">
 <link rel="stylesheet" href="/assets/css/guides.css">
+<link rel="stylesheet" href="/assets/css/linux-guide.css">
+<script src="/assets/js/linux-guide.js" defer></script>
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer="">
@@ -153,104 +155,129 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/general/">General help</a><span>/</span><span>Guide</span></div><h1>Use Scooby on Linux &amp; Mac</h1><p class="article-intro">Setup, launch commands and troubleshooting for Linux, Steam Deck and Mac.</p><div class="guide-card" id="linux-mac">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/general/">General help</a><span>/</span><span>Guide</span></div><h1>Use Scooby on Linux &amp; Mac</h1><p class="article-intro">Get set up, open Scooby and find help. Follow the steps for the way you play.</p><div class="guide-card linux-guide" id="linux-mac">
                     <h2 class="sr-only">Use Scooby on Linux &amp; Mac</h2>
-                    <p>Use the Scooby compatibility preview to launch the Windows loader through <strong>Wine or Proton</strong>. The loader and your Windows game must use the <strong>same prefix and the same runner</strong>. A prefix is the folder that holds a game's Windows files, settings and installed components; the runner is the Wine or Proton version that opens it.</p>
+                    <p class="guide-preview-note"><strong>Compatibility preview.</strong> Game support is still being tested. <a href="#compatibility-limits">What works and what to expect</a>.</p>
+                    <nav class="setup-nav" aria-label="On this page"><a href="#before-you-start">1. Get ready</a><a href="#choose-setup">2. Choose your setup</a><a href="#using-scooby">3. Start playing</a><a href="#troubleshooting">Get help</a></nav>
 
-                    <div class="requirements-box">
-                        <h4>Compatibility preview</h4>
-                        <p>This is the Windows x64 loader with Linux, Steam Deck and Mac launch scripts. Real-host login, graphics and in-game loading still need validation; no game is certified by this package yet. Opening the loader does not confirm that a game's menu will work.</p>
-                        <p>Windows-only cleaner, identifier and kernel-driver tools are unavailable. Native Linux or Mac games cannot load the Windows game DLLs.</p>
-                    </div>
-
-                    <p>Jump to: <a href="#before-you-start">Before you start</a> · <a href="#topic-3">Steam / Proton</a> · <a href="#steam-deck">Steam Deck</a> · <a href="#wine-lutris">Wine / Lutris</a> · <a href="#using-scooby">Using Scooby</a> · <a href="#troubleshooting">Troubleshooting</a> · <a href="#topic-5">Mac</a></p>
-
-                    <h3 id="before-you-start">Before you start</h3>
-                    <ol>
-                        <li><strong>Get the compatibility package.</strong> Check the <a href="/#download">official Scooby downloads</a> for <code>Scooby-compatibility.zip</code>. If only the standard Windows installer is available, ask <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby support</a> for the compatibility preview before following the commands below.</li>
-                        <li><strong>Extract the whole ZIP.</strong> Keep <code>linux/launch.sh</code>, the Python launcher files and <code>linux/bin/ScoobyLoader.exe</code> together. Leave all bundled runtime DLLs beside the EXE; copying the EXE alone is not enough.</li>
-                        <li><strong>Check Python.</strong> Run <code>python3 --version</code> in a terminal. The launch scripts need Python 3.10 or newer. If needed, install it using your system's supported package manager.</li>
-                        <li><strong>Run the Windows version of your game once</strong> with the Wine or Proton setup you intend to use. Confirm the game opens on its own before adding Scooby. The loader requires a prefix capable of running 64-bit Windows applications.</li>
-                        <li><strong>Open a terminal in the extracted folder that contains the <code>linux</code> folder.</strong> All commands below start there. Run them as your normal desktop user, without <code>sudo</code>.</li>
+                    <h3 id="before-you-start">1. Get ready</h3>
+                    <ol class="setup-steps">
+                        <li><strong>Download and extract Scooby.</strong> Get <code>Scooby-compatibility.zip</code> from <a href="/#download">Scooby downloads</a> and extract the whole ZIP. Keep all the files together. If you only see the Windows installer, <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">ask support for the compatibility preview</a>.</li>
+                        <li><strong>Check your game works first.</strong> Open the Windows version of your game through its usual launcher at least once. It needs to work on its own before you add Scooby.</li>
+                        <li><strong>Open a terminal in the extracted folder.</strong> Open the folder containing <code>linux</code>, right-click an empty area and choose <strong>Open in Terminal</strong>, if your file manager offers it.</li>
                     </ol>
+                    <details class="guide-extra"><summary>New to the terminal? Start here</summary><div>
+                        <p>A terminal lets you run the short commands in this guide. On Steam Deck, use <strong>Desktop Mode</strong> and open <strong>Konsole</strong>. Paste a command with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>, then press <kbd>Enter</kbd>.</p>
+                        <p>Keep the terminal in the extracted folder that contains <code>linux</code>. If you opened it elsewhere, type <code>cd </code> followed by that folder's full path in quotes, then press Enter. Run Scooby as your normal user, without <code>sudo</code>.</p>
+                    </div></details>
+                    <p>The launch scripts need <strong>Python 3.10 or newer</strong>. Check with this command:</p>
+                    <pre><code data-command-label="Check Python version">python3 --version</code></pre>
+                    <p class="guide-hint">A result such as <code>Python 3.12.3</code> is fine. If Python is missing or older than 3.10, install it using your system's supported package manager.</p>
 
-                    <h3 id="topic-3">Linux: Steam / Proton</h3>
-                    <ol>
-                        <li>Install Steam and <a href="https://github.com/Matoking/protontricks#installation" target="_blank" rel="noopener">Protontricks</a> using the supported instructions for your distribution. If you installed Protontricks as a Flatpak, use the <a href="#steam-deck">Flatpak commands below</a>.</li>
-                        <li>In the game's Steam <strong>Properties → Compatibility</strong>, select the Proton version you use for the Windows game. Start the game once so Steam creates its prefix.</li>
-                        <li>Find the game's numeric App ID by running:</li>
+                    <h3 id="choose-setup">2. Choose your setup</h3>
+                    <p>Open the option that matches how you start your game. You only need to follow one.</p>
+                    <details class="setup-path" id="topic-3" data-steam-setup>
+                        <summary><span><strong>Linux with Steam</strong><small>I launch my game from my Steam library.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <ol class="setup-steps">
+                                <li><strong>Install Protontricks.</strong> Follow the <a href="https://github.com/Matoking/protontricks#installation" target="_blank" rel="noopener">official installation instructions</a>. Installed it through Discover or as a Flatpak? Use the <a href="#steam-deck">Steam Deck / Flatpak steps</a> instead.</li>
+                                <li><strong>Start your game once with Proton.</strong> In Steam, open the game's <strong>Properties → Compatibility</strong>, select the Proton version you use for the Windows game, then launch it.</li>
+                                <li><strong>Find your game number.</strong> Run this command. Look for your game in the list; the number next to it is its <strong>App ID</strong>.
+                                    <pre><code data-command-label="List Steam games">protontricks -l</code></pre>
+                                    <div class="appid-field" data-appid-field hidden>
+                            <label for="steam-appid">Your game's App ID</label>
+                            <input id="steam-appid" type="text" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="Enter the number" aria-describedby="steam-appid-help">
+                            <p id="steam-appid-help" class="guide-hint" data-appid-help aria-live="polite">Paste the number next to your game. Your launch command will update below.</p>
+                        </div>
+                        <p data-appid-fallback>Replace <code>APPID</code> in the command below with the number next to your game.</p>
+                                </li>
+                                <li><strong>Open Scooby.</strong> Copy the command below into your terminal and press Enter.
+                                    <pre><code data-command-label="Launch Scooby with Steam" data-appid-command>sh linux/launch.sh --runner proton --appid APPID</code></pre>
+                                    <p class="guide-hint">The Scooby sign-in window should open. Then continue to <a href="#using-scooby">Start playing</a>.</p>
+                                </li>
+                            </ol>
+                            <p class="setup-tip"><strong>Keep using your game's usual Steam entry.</strong> Adding Scooby as a separate non-Steam game can put it in the wrong Windows environment.</p>
+                            <details class="guide-extra"><summary>Advanced: I use a custom Steam data folder</summary><div>
+                                <p>Only use this if you changed the game's Steam compatdata location. Replace the path with the folder containing <code>pfx</code>, not <code>pfx</code> itself.</p>
+                                <pre><code data-command-label="Launch with a custom Steam folder" data-appid-command>sh linux/launch.sh --runner proton --appid APPID --compat-data "/path/to/compatdata/APPID"</code></pre>
+                                <p class="guide-hint">The App ID field fills in the game number. You still need to replace the example folder path.</p>
+                            </div></details>
+                        </div>
+                    </details>
+                    <details class="setup-path" id="steam-deck" data-steam-setup>
+                        <summary><span><strong>Steam Deck / Flatpak</strong><small>I use a Steam Deck, or installed Protontricks through Flatpak.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <ol class="setup-steps">
+                                <li><strong>Use Desktop Mode.</strong> On Steam Deck, open <strong>Discover</strong>, search for <strong>Protontricks</strong> and install it. Leave SteamOS in its normal read-only state.</li>
+                                <li><strong>Start the Windows game once through Steam.</strong> Use its usual Proton version. Keep the extracted Scooby folder open in your terminal.</li>
+                                <li><strong>Find your game's App ID.</strong> Run this command and find the number next to your game.
+                                    <pre><code data-command-label="List Steam games with Flatpak">flatpak run com.github.Matoking.protontricks -l</code></pre>
+                                    <div class="appid-field" data-appid-field hidden>
+                            <label for="deck-appid">Your game's App ID</label>
+                            <input id="deck-appid" type="text" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="Enter the number" aria-describedby="deck-appid-help">
+                            <p id="deck-appid-help" class="guide-hint" data-appid-help aria-live="polite">Paste the number next to your game. Your launch command will update below.</p>
+                        </div>
+                        <p data-appid-fallback>Replace <code>APPID</code> in the command below with the number next to your game.</p>
+                                </li>
+                                <li><strong>Open Scooby.</strong> Copy this command into the terminal and press Enter.
+                                    <pre><code data-command-label="Launch Scooby with Flatpak" data-appid-command>sh linux/launch.sh --runner proton --flatpak --appid APPID</code></pre>
+                                    <p class="guide-hint">When the sign-in window appears, continue to <a href="#using-scooby">Start playing</a>.</p>
+                                </li>
+                            </ol>
+                            <p class="setup-tip">Use Desktop Mode with a mouse or trackpad for now. Game Mode, controller navigation and suspend/resume are not yet verified.</p>
+                            <details class="guide-extra"><summary>My game is on an SD card or another drive</summary><div><p>Protontricks may need permission to access that Steam library. Follow its <a href="https://github.com/Matoking/protontricks#flatpak-recommended" target="_blank" rel="noopener">Flatpak access instructions</a>. The Scooby launcher already grants access to its own <code>bin</code> folder for each run.</p></div></details>
+                        </div>
+                    </details>
+                    <details class="setup-path" id="wine-lutris">
+                        <summary><span><strong>Linux with Lutris / Wine</strong><small>I use Lutris, Rockstar Games Launcher or another Wine setup.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <p><strong>Using Lutris? You can set up a shortcut.</strong> Scooby needs the same Windows folder and Wine version as your game.</p>
+                            <ol class="setup-steps">
+                                <li><strong>Open your game's configuration in Lutris.</strong> Note the <strong>Wine prefix</strong> and <strong>Wine version</strong>. The prefix is the folder containing the game's Windows files.</li>
+                                <li><strong>Add a locally installed game.</strong> Name it Scooby, choose the Wine runner, and select <code>linux/bin/ScoobyLoader.exe</code> from your extracted package.</li>
+                                <li><strong>Match the two settings.</strong> Use the exact same Wine prefix and Wine version as your game. Leave the bundled DLL files beside <code>ScoobyLoader.exe</code>.</li>
+                                <li><strong>Save and launch Scooby.</strong> Once the sign-in window opens, continue to <a href="#using-scooby">Start playing</a>.</li>
+                            </ol>
+                            <details class="guide-extra"><summary>I use Wine directly, without Lutris</summary><div>
+                                <p>Replace both paths with your game's Wine executable and existing prefix folder. Keep the quotes around the paths.</p>
+                                <pre><code data-command-label="Launch Scooby with Wine">sh linux/launch.sh --runner wine --wine "/path/to/wine" --prefix "/path/to/game-prefix"</code></pre>
+                                <p>The prefix is the folder containing <code>drive_c</code>. It must already be set up and support 64-bit Windows apps. The launcher does not create or repair it. Do not use plain Wine on a Steam Proton prefix.</p>
+                            </div></details>
+                        </div>
+                    </details>
+                    <details class="setup-path" id="topic-5">
+                        <summary><span><strong>Mac</strong><small>I have a Mac-compatible Wine setup for my Windows game.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <p>Mac support is <strong>unverified</strong>. You need Python 3.10+ and a Mac-compatible Wine version that runs Windows x64 apps. On Apple silicon, that Wine distribution must also provide the required translation and graphics support.</p>
+                            <ol class="setup-steps">
+                                <li><strong>Confirm your Windows game works first.</strong> Find the Wine executable and prefix used by that game.</li>
+                                <li><strong>Open Terminal in the extracted Scooby folder.</strong> Replace both example paths, then run:
+                                    <pre><code data-command-label="Launch Scooby on Mac">sh linux/mac/launch.command --wine "/absolute/path/to/wine" --prefix "/absolute/path/to/game-prefix"</code></pre>
+                                </li>
+                                <li><strong>Continue to <a href="#using-scooby">Start playing</a></strong> if the sign-in window opens.</li>
+                            </ol>
+                            <p class="setup-tip">Using CrossOver? Follow its instructions to run Scooby in the same bottle as your game. This script does not configure CrossOver bottles automatically. Double-clicking the script without the paths above will not set it up. Proton is Linux-only.</p>
+                        </div>
+                    </details>
+
+                    <h3 id="using-scooby">3. Start playing</h3>
+                    <ol class="setup-steps">
+                        <li><strong>Sign in to Scooby.</strong> Use your account or follow the <a href="/guides/general/free-key/">free-key guide</a>.</li>
+                        <li><strong>Open your game as usual.</strong> Use the Steam or Lutris entry you set up above.</li>
+                        <li><strong>Follow your game's loading steps.</strong> Open its <a href="/guides/">Scooby guide</a> to check when to load the menu. Timing and game support vary.</li>
                     </ol>
-                    <pre><code>protontricks -l</code></pre>
-                    <p>Replace <code>APPID</code> below with the number shown for your installed game. First check the local setup, then launch:</p>
-                    <pre><code>sh linux/launch.sh --runner proton --appid APPID --diagnose
-sh linux/launch.sh --runner proton --appid APPID</code></pre>
-                    <p>Protontricks selects the game's prefix and Proton runtime from its App ID. Always launch the game through its existing Steam entry. A separate non-Steam shortcut for Scooby can create a different prefix, leaving the loader unable to see the game.</p>
-                    <p>If you configured a custom Steam compatdata location, add <code>--compat-data</code> with the directory <strong>containing <code>pfx</code></strong>, not the <code>pfx</code> folder itself:</p>
-                    <pre><code>sh linux/launch.sh --runner proton --appid APPID --compat-data "/path/to/compatdata/APPID"</code></pre>
-                    <p>Replace every example path with your actual path and keep the quotes when it contains spaces. Proton mode uses <code>--appid</code>; do not combine it with the Wine-only <code>--wine</code> or <code>--prefix</code> options.</p>
+                    <p><strong>Next time:</strong> use the same launch command or Lutris shortcut. Close both the game and Scooby before changing Wine or Proton versions.</p>
 
-                    <h3 id="steam-deck">Steam Deck / Flatpak Protontricks</h3>
-                    <ol>
-                        <li>On Steam Deck, switch to <strong>Desktop Mode</strong> and install <strong>Protontricks</strong> through Discover. Keep SteamOS in its normal read-only state.</li>
-                        <li>Check that <code>python3 --version</code> reports 3.10 or newer, extract the compatibility package, and start the Windows game through Steam once.</li>
-                        <li>Open a terminal in the folder containing <code>linux</code> and list your games:</li>
-                    </ol>
-                    <pre><code>flatpak run com.github.Matoking.protontricks -l</code></pre>
-                    <p>Use your game's numeric App ID in both commands:</p>
-                    <pre><code>sh linux/launch.sh --runner proton --flatpak --appid APPID --diagnose
-sh linux/launch.sh --runner proton --flatpak --appid APPID</code></pre>
-                    <p>These commands also apply to desktop Linux when Protontricks is installed as a Flatpak. The launcher grants access to its <code>bin</code> folder for that run. A Steam library on an SD card or another drive may need additional access in <a href="https://github.com/Matoking/protontricks#flatpak-recommended" target="_blank" rel="noopener">Protontricks' Flatpak settings</a>.</p>
-                    <p>Start with Desktop Mode and a mouse or trackpad. Game Mode switching, controller navigation and suspend/resume are not yet verified.</p>
-
-                    <h3 id="wine-lutris">Linux: Wine / Lutris for non-Steam games</h3>
-                    <p>Use the <strong>existing prefix and exact Wine runner used by the game</strong>. For example, if GTA V is installed through Rockstar Games Launcher in <a href="https://lutris.net/downloads/" target="_blank" rel="noopener">Lutris</a>, use that Rockstar/GTA V prefix.</p>
-                    <ol>
-                        <li>Start the game through its existing Wine or Lutris entry once and confirm it works.</li>
-                        <li>In Lutris, open the game's configuration and note its <strong>Wine prefix</strong> and selected <strong>Wine version</strong>. Use the executable belonging to that runner, not an unrelated system Wine installation.</li>
-                        <li>Replace the paths below with the runner's Wine executable and the game's prefix folder, then check and launch:</li>
-                    </ol>
-                    <pre><code>sh linux/launch.sh --runner wine --wine "/path/to/wine" --prefix "/path/to/game-prefix" --diagnose
-sh linux/launch.sh --runner wine --wine "/path/to/wine" --prefix "/path/to/game-prefix"</code></pre>
-                    <p>The prefix path is the folder containing <code>drive_c</code>, not <code>drive_c</code> itself. Omit <code>--wine</code> only if the <code>wine</code> command on your PATH is the same runner used by the game.</p>
-                    <p>For a Lutris shortcut, add a locally installed game using the Wine runner, choose the extracted <code>linux/bin/ScoobyLoader.exe</code>, and set the same Wine prefix and Wine version as the game. Keep the runtime DLLs beside the EXE. Do not use plain Wine on a Steam Proton prefix.</p>
-                    <p>The launcher uses an existing prefix; it does not create, convert or repair one. A 32-bit-only prefix cannot run this loader.</p>
-
-                    <h3 id="using-scooby">Using Scooby after setup</h3>
-                    <ol>
-                        <li>Launch Scooby with the same command or configured Lutris entry each time.</li>
-                        <li>Sign in with your Scooby account or use the <a href="/guides/general/free-key/">free-key instructions</a>. Existing account and product access rules still apply.</li>
-                        <li>Start the Windows game through the Steam, Wine or Lutris setup you selected above. Follow your <a href="/guides/">game's Scooby guide</a> for when to load its menu; the required timing differs by game.</li>
-                        <li>If the game is not found, check the App ID, prefix and runner before trying again. Sharing a prefix is necessary, but it does not guarantee game or DLL compatibility.</li>
-                        <li>Close both Scooby and the game before changing their Wine or Proton version.</li>
-                    </ol>
-                    <p><strong>Settings and files:</strong> Windows paths such as <code>C:\scooby</code> live inside the selected prefix at <code>drive_c/scooby</code>. Each prefix has separate data. If you receive an HWID mismatch after moving from Windows or changing prefixes, follow the <a href="/guides/general/hwid/">HWID reset guide</a>.</p>
-                    <p><strong>Updating:</strong> close the loader and replace the compatibility package with the latest compatibility build from Scooby. Keep its files together. This build does not automatically replace itself with the standard Windows loader, and a required minimum version can block an outdated package.</p>
-
-                    <h3 id="troubleshooting">Troubleshooting</h3>
-                    <h4>The launch script or EXE cannot be found</h4>
-                    <p>Make sure the ZIP is fully extracted and your terminal is in the folder containing <code>linux</code>. Check that <code>linux/bin/ScoobyLoader.exe</code> and its bundled DLLs are present. A standard Windows download alone does not include these launch scripts.</p>
-                    <h4>Python or the runner is missing</h4>
-                    <p>Check <code>python3 --version</code>. For Proton, install Protontricks; if it came from Discover or Flatpak, include <code>--flatpak</code>. For Wine, correct the <code>--wine</code> path to the game's installed runner.</p>
-                    <h4>The game is missing or the prefix is rejected</h4>
-                    <p>Start the Windows game once with its selected runner. Check the Steam App ID or Wine prefix path. A prefix must be initialized and support 64-bit applications. For custom Steam locations, <code>--compat-data</code> points to the parent of <code>pfx</code>. Check Flatpak access if your library is on another drive.</p>
-                    <h4>Missing text, a blank window or a graphics error</h4>
-                    <p>Keep the packaged runtime DLLs next to the loader and check the selected runner's graphics support. If Segoe UI text is missing, install a copy of <code>segoeui.ttf</code> that you are licensed to use into that same prefix's <code>drive_c/windows/Fonts</code> folder, then restart the loader. Proton supplies its own graphics components; this launcher does not install DXVK or set graphics DLL overrides.</p>
-                    <h4>The loader opens, but the menu does not load</h4>
-                    <p>Confirm you are running a Windows game, using its correct Scooby build and following that game's loading instructions. Game, DLL and graphics-backend compatibility still need testing under the selected runtime. Some games or anti-cheat systems do not support Wine/Proton; this package does not change those restrictions.</p>
-                    <h4>Check the setup before reporting a problem</h4>
-                    <p>Add <code>--diagnose</code> to your launch command to print a report without starting Scooby. It checks local files, options and the runner executable, plus an explicitly supplied prefix. It does <strong>not</strong> test login, graphics, game loading, Steam's automatically selected prefix or Flatpak permissions.</p>
-                    <p>When contacting <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby support</a>, include your Linux distribution or SteamOS version, GPU, Wine/Proton version, game edition/App ID and the exact error. Remove private paths or account details before sharing reports; never include passwords or license keys.</p>
-
-                    <h3 id="topic-4">Performance</h3>
-                    <p>Check how the game runs without Scooby first, then compare with the same settings and runner. Performance can vary with the game, graphics backend, drivers, Wine/Proton version and enabled menu features.</p>
-                    <p>If you test another runner, close the game and loader first. Select Proton through Steam or Wine through your game manager, and make sure Scooby uses the same selection when you reopen it.</p>
-
-                    <h3 id="topic-5">Mac</h3>
-                    <p>The package includes a macOS Wine entry point. You need Python 3.10+ and a Mac-compatible Wine distribution that can run Windows x64 applications. On Apple silicon, x64 execution and graphics translation depend on that distribution. Actual Mac compatibility remains unverified.</p>
-                    <p>Use the game's existing prefix and its Wine executable. From the extracted folder containing <code>linux</code>, replace both paths and run:</p>
-                    <pre><code>sh linux/mac/launch.command --wine "/absolute/path/to/wine" --prefix "/absolute/path/to/game-prefix" --diagnose
-sh linux/mac/launch.command --wine "/absolute/path/to/wine" --prefix "/absolute/path/to/game-prefix"</code></pre>
-                    <p>The script needs those arguments; double-clicking it does not configure a bottle. If your runner requires CrossOver-specific bottle or environment settings, use that vendor's setup for the same game bottle. The script does not automatically configure arbitrary CrossOver bottles. Proton mode is Linux-only.</p>
+                    <h3 id="troubleshooting">Something not working?</h3>
+                    <p>Pick the problem you see.</p>
+                    <details class="guide-extra"><summary>“File not found” or the launch script will not open</summary><div><p>Open the extracted folder that contains <code>linux</code>, then open a terminal there. Check that <code>linux/bin/ScoobyLoader.exe</code> exists. Extract the whole compatibility ZIP again if files are missing; the standard Windows installer does not include these scripts.</p></div></details>
+                    <details class="guide-extra"><summary>“Python not found” or “Runner not found”</summary><div><p>Check <code>python3 --version</code>; you need 3.10 or newer. For Steam, install Protontricks. If you installed it through Discover or Flatpak, follow the <a href="#steam-deck">Flatpak steps</a>. For Wine, check the Wine executable path.</p></div></details>
+                    <details class="guide-extra"><summary>Scooby cannot find my game</summary><div><p>Run the Windows version of the game and check your App ID. In Lutris, Scooby and the game must share the exact same <strong>Wine prefix</strong> and <strong>Wine version</strong>. A native Linux game cannot load the Windows menu. If these match, the game may still be incompatible with this preview.</p></div></details>
+                    <details class="guide-extra"><summary>The window is blank, or text is missing</summary><div><p>Keep all the runtime DLLs beside the loader and check that your game works with the selected runner. For missing Segoe UI text, add a licensed copy of <code>segoeui.ttf</code> to the same prefix's <code>drive_c/windows/Fonts</code> folder, then restart Scooby. A graphics error may need help with your Wine/Proton setup.</p></div></details>
+                    <details class="guide-extra"><summary>I need to update Scooby or find my settings</summary><div><p>Close Scooby, then download and extract the latest compatibility package. Updates are manual; an old package can be blocked by a required minimum version.</p><p>Your settings are inside the game's prefix at <code>drive_c/scooby</code> (the Windows path <code>C:\scooby</code>). Each prefix has separate data. If changing prefixes causes an HWID mismatch, follow the <a href="/guides/general/hwid/">HWID reset guide</a>.</p></div></details>
+                    <details class="guide-extra" id="topic-4"><summary>The game is running slowly</summary><div><p>Compare the game with and without Scooby using the same settings. Performance depends on your graphics drivers, Wine/Proton version and enabled menu features. Close both apps before testing a different runner, and keep the game and loader on the same version.</p></div></details>
+                    <details class="guide-extra" id="diagnostics"><summary>I need more help / want to check my setup</summary><div><p>Add <code>--diagnose</code> to the end of your launch command. It prints a setup report without opening Scooby. This checks local files and launch options; it does not prove that login, graphics, Steam/Flatpak access or game loading will work.</p><p>Send <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby support</a> your OS, game, Wine/Proton version and exact error. Remove private details from reports and never share passwords or license keys.</p></div></details>
+                    <details class="guide-extra" id="compatibility-limits"><summary>What works and what to expect</summary><div><p>This package runs the Windows x64 loader through Wine or Proton. Login, graphics and in-game loading still need testing on real Linux, Steam Deck and Mac systems. No game is certified yet; the loader opening does not guarantee that its menu will work.</p><p>Windows-only cleaner, identifier and kernel-driver tools are unavailable. Native Linux/Mac games cannot load Windows DLLs. Game and anti-cheat restrictions still apply.</p></div></details>
                 </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/general/hwid/"><span>← Previous guide</span><strong>Resetting Your HWID</strong></a><a href="/guides/general/"><span>Browse topics →</span><strong>All General help guides</strong></a></nav><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
