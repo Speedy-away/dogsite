@@ -40,7 +40,7 @@
 .session-card { min-height:350px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
 .session-card h1 { font-size:24px; }
 .session-card p { color:#a1a1af; font-size:13px; }
-.dashboard-product-art { width:66px; height:66px; flex-shrink:0; object-fit:cover; border-radius:8px; border:1px solid #ffffff15; }
+.dashboard-product-art { width:88px; height:66px; flex-shrink:0; object-fit:cover; border-radius:8px; border:1px solid #ffffff15; }
 .dashboard-product { padding:12px; }
 .dashboard-products { max-height:390px; }
 .forum-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:32px; }
@@ -102,18 +102,16 @@
  .portal-modern .forum-sidebar { grid-template-columns:1fr; }
  .portal-modern .node-item { padding:18px 14px; gap:12px; }
  .portal-modern .node-icon { width:46px; height:46px; }
- .dashboard-product-art { width:48px; height:48px; }
+ .dashboard-product-art { width:68px; height:56px; }
  .dashboard-product { gap:10px; flex-wrap:wrap; }
- .dashboard-product-info { flex-basis:calc(100% - 60px); }
- .dashboard-product > .dashboard-status { margin-left:58px; margin-top:-5px; }
+ .dashboard-product-info { flex-basis:calc(100% - 78px); }
+ .dashboard-product > .dashboard-status { margin-left:78px; margin-top:-5px; }
 }
 @media (prefers-reduced-motion:reduce) {
  .portal-modern *, .portal-modern *::before, .portal-modern *::after { animation:none !important; transition:none !important; }
 }
-/* More prominent dashboard help and download information. */
+/* Dashboard help links. */
 .portal-modern #page-members { display:none !important; }
-.dashboard-download-note { min-height:92px; gap:12px; color:#c2c2ce; font-size:15px; line-height:1.65; }
-.dashboard-download-note i { font-size:24px; flex-shrink:0; }
 .dashboard-footer { align-items:center; flex-wrap:wrap; gap:14px 24px; padding:18px 22px; margin-top:24px; border:1px solid #2b2b33; border-radius:10px; background:#101014; color:#c4c4d0; font-size:16px; line-height:1.6; }
 .dashboard-help { display:flex; flex-wrap:wrap; align-items:center; gap:4px 9px; }
 .dashboard-footer a { color:#eee9f8; font-weight:600; }
@@ -125,5 +123,69 @@
  .dashboard-footer { padding:16px 18px; gap:10px; }
  .dashboard-help { align-items:flex-start; flex-direction:column; gap:0; }
  .dashboard-footer > a { width:100%; }
- .dashboard-download-note { min-height:88px; }
+}
+/* Supplied product logos retain their original proportions and colors. */
+.dashboard-product-art.dashboard-product-logo { object-fit:contain; padding:7px; background:#08080a; border-color:#ffffff1f; }
+.dashboard-product-art.dashboard-product-logo--gta-v { background:#fff; padding:5px; border-color:#fff; }
+.dashboard-product-art.dashboard-product-logo--redm { background:#f80008; padding:0; border-color:#ff3e461f; }
+.dashboard-product-art.dashboard-product-logo--rdr2 { padding:6px; background:#080808; }
+
+.dashboard-download > .dashboard-button { margin-top:22px; }
+.portal-download-dialog { position:fixed; inset:0; margin:auto; width:min(540px,calc(100vw - 32px)); max-height:calc(100dvh - 40px); padding:0; overflow:auto; color:#eeeef3; background:#101012; border:1px solid #ffffff24; border-radius:20px; box-shadow:0 32px 110px #000b,inset 0 1px #ffffff05; }
+.portal-download-dialog::backdrop { background:#050507c9; backdrop-filter:blur(8px); }
+.portal-download-content { padding:32px; }
+.portal-download-close { position:absolute; top:16px; right:16px; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border:1px solid transparent; border-radius:10px; background:transparent; color:#82828f; cursor:pointer; transition:background .15s,color .15s; }
+.portal-download-close:hover { color:#ededf4; background:#ffffff07; border-color:#ffffff0d; }
+.portal-download-eyebrow { display:flex; align-items:center; gap:8px; padding-right:36px; margin-bottom:15px; color:#a3a3af; font-size:9px; font-weight:600; letter-spacing:1.7px; }
+.portal-download-eyebrow > span { width:5px; height:5px; border-radius:50%; background:#ccccdb; }
+.portal-download-dialog h2 { margin:0; color:#f3f3f6; font-size:29px; font-weight:650; line-height:1.25; letter-spacing:-.9px; }
+.portal-download-content > p { margin:10px 0 26px; color:#9797a4; font-size:13px; line-height:1.7; }
+.portal-loader-card { padding:20px; border:1px solid #ffffff1d; border-radius:13px; background:linear-gradient(120deg,#232329,#17171b 80%); }
+.portal-loader-product { display:flex; align-items:center; gap:14px; margin-bottom:22px; }
+.portal-loader-logo { display:flex; align-items:center; justify-content:center; width:62px; height:62px; flex-shrink:0; background:#0f0f13; border:1px solid #ffffff1b; border-radius:14px; box-shadow:0 4px 12px #0002; }
+.portal-loader-logo img { width:42px; height:42px; object-fit:contain; }
+.portal-loader-info { min-width:0; flex:1; }
+.portal-loader-info h3 { color:#eeeeF4; font-size:16px; font-weight:600; letter-spacing:-.3px; line-height:1.4; }
+.portal-loader-info > span { display:flex; align-items:center; gap:7px; margin-top:6px; color:#9898a7; font-size:11px; }
+.portal-loader-info i { color:#b1b1bd; font-size:11px; }
+.portal-loader-mark { align-self:flex-start; color:#656571; padding-top:4px; font-size:14px; }
+.portal-download-dialog .portal-loader-link { display:flex; justify-content:center; gap:10px; min-height:46px; padding:12px 14px; border-radius:8px; background:#ededf2; border:1px solid #ededf2; color:#19191f; font-size:12px; font-weight:600; }
+.portal-download-dialog .portal-loader-link:hover { background:#fff; border-color:#fff; }
+.portal-loader-link i:last-child { margin-left:auto; font-size:10px; opacity:.65; }
+.portal-loader-link i:first-child { margin-right:auto; }
+.portal-download-extras { margin-top:26px; }
+.portal-download-extras > h3 { margin:0 0 12px; color:#8c8c99; font-size:10px; font-weight:500; letter-spacing:.2px; }
+.portal-download-tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.portal-download-tool { display:flex; flex-direction:column; padding:15px; border:1px solid #ffffff10; border-radius:11px; background:#141416; color:#d4d4de; transition:background .15s,border-color .15s; }
+.portal-download-tool:hover { background:#1c1c21; border-color:#ffffff2a; color:#f3f3f7; }
+.portal-tool-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:17px; }
+.portal-tool-icon { display:flex; align-items:center; justify-content:center; width:29px; height:29px; border:1px solid #ffffff0b; border-radius:8px; background:#232329; color:#bdbdc9; font-size:12px; }
+.portal-tool-top > i { color:#666673; font-size:9px; padding-top:3px; }
+.portal-download-tool:hover .portal-tool-top > i { color:#bdbdcb; }
+.portal-download-tool strong { color:inherit; font-size:12px; font-weight:500; line-height:1.5; }
+.portal-tool-description { margin-top:5px; color:#858592; font-size:10px; line-height:1.6; }
+.portal-download-footer { display:flex; align-items:center; justify-content:center; gap:8px; padding:15px 20px; background:#0c0c0e; border-top:1px solid #ffffff0b; color:#7f7f8c; font-size:10px; line-height:1.6; }
+.portal-download-footer i { font-size:9px; }
+.portal-modern .portal-download-dialog :is(a,button):focus-visible { outline:2px solid #bebec8; outline-offset:3px; }
+@media(max-width:480px) {
+ .portal-download-dialog { width:calc(100vw - 28px); border-radius:16px; }
+ .portal-download-content { padding:25px 22px; }
+ .portal-download-dialog h2 { font-size:26px; }
+ .portal-download-eyebrow { font-size:8px; letter-spacing:1.4px; }
+ .portal-loader-card { padding:16px; }
+ .portal-loader-product { gap:11px; margin-bottom:18px; }
+ .portal-loader-logo { width:50px; height:50px; border-radius:12px; }
+ .portal-loader-logo img { width:35px; height:35px; }
+ .portal-loader-info h3 { font-size:14px; }
+ .portal-loader-mark { display:none; }
+ .portal-download-tools { gap:9px; }
+ .portal-download-tool { padding:13px 11px; }
+}
+@media(max-width:350px) {
+ .portal-download-content { padding:25px 18px; }
+ .portal-download-tools { grid-template-columns:1fr; }
+ .portal-download-tool { display:grid; grid-template-columns:29px minmax(0,1fr); column-gap:12px; }
+ .portal-tool-top { grid-row:span 2; margin:0; align-self:center; }
+ .portal-tool-top > i { display:none; }
+ .portal-tool-description { margin-top:3px; }
 }

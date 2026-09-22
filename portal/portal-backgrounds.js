@@ -3,7 +3,7 @@
     const stage = document.getElementById('portalBackgrounds');
     if (!stage) return;
 
-    const scenes = ['gta-boulevard', 'cs2-ancient-v2', 'l4d2-parish', 'gmod-construct', 'rdr-overlook'];
+    const scenes = ['gta-boulevard', 'l4d2-parish', 'gmod-construct', 'rdr-overlook'];
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const cache = new Map();
     let current = 0;
@@ -14,7 +14,7 @@
     function editing() {
         return document.activeElement?.matches('input:not([type=hidden]),textarea,select,[contenteditable="true"]');
     }
-    function canRun() { return !motion.matches && !document.hidden && !editing(); }
+    function canRun() { return !document.body.classList.contains('dashboard-active') && !motion.matches && !document.hidden && !editing(); }
     function schedule() {
         clearTimeout(timer);
         stage.classList.toggle('is-paused', !canRun());
@@ -78,6 +78,8 @@
             schedule();
         }
     }
+    // Stop hidden scenery on the dashboard and resume when another route opens.
+    new MutationObserver(() => { schedule(); preloadNext(); }).observe(document.body, { attributes:true, attributeFilter:['class'] });
     document.addEventListener('visibilitychange', () => { schedule(); preloadNext(); });
     document.addEventListener('focusin', schedule);
     document.addEventListener('focusout', () => setTimeout(schedule, 0));

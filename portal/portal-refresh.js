@@ -1,4 +1,16 @@
 // Shared artwork and presentation helpers. Account data still comes from portal.js.
+function portalProductLogo(...values) {
+    const names = values.filter(Boolean).map(value => String(value).toLowerCase().replace(/[^a-z0-9]/g, ''));
+    if (names.some(name => /fivem/.test(name))) return null;
+    const logos = [
+        { pattern:/redm/, id:'redm', source:'redm.webp' },
+        { pattern:/grandtheft|gtalegacy|gtaenhanced|gtabe|gta5|gtav|^gta$/, id:'gta-v', source:'gta-v.jpg' },
+        { pattern:/reddead|rdr/, id:'rdr2', source:'rdr2.png' }
+    ];
+    const logo = logos.find(item => names.some(name => item.pattern.test(name)));
+    return logo ? { id:logo.id, src:`images/reference-logos/${logo.source}` } : null;
+}
+
 function portalProductArtwork(...values) {
     const name = values.filter(Boolean).join(' ').toLowerCase().replace(/[^a-z0-9]/g, '');
     const artwork = [
@@ -75,4 +87,41 @@ function portalProductArtwork(...values) {
     document.querySelectorAll('.nav-tab').forEach(tab => {
         if (tab.dataset.page) tab.setAttribute('href', '#' + tab.dataset.page);
     });
+})();
+(() => {
+    const trigger = document.getElementById('dashboardDownloadButton');
+    const dialog = document.getElementById('dashboardDownloadDialog');
+    const close = document.getElementById('dashboardDownloadClose');
+    let previousOverflow = '';
+    trigger.addEventListener('click', () => {
+        if (dialog.open) return;
+        previousOverflow = document.body.style.overflow;
+        dialog.showModal();
+        document.body.style.overflow = 'hidden';
+        dialog.querySelector('.portal-loader-link').focus();
+    });
+    close.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', event => {
+        if (event.key !== 'Tab') return;
+        const controls = [...dialog.querySelectorAll('button:not([disabled]), a[href]')];
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
+    dialog.addEventListener('click', event => {
+        if (event.target !== dialog) return;
+        const bounds = dialog.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+        document.body.style.overflow = previousOverflow;
+        if (trigger.getClientRects().length) trigger.focus();
+    });
+    window.addEventListener('hashchange', () => { if (dialog.open) dialog.close(); });
 })();

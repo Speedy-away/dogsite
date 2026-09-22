@@ -228,6 +228,14 @@ async function fetchSubscriptionsConfig() {
 
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', async () => {
+    document.getElementById('conversationSearch').addEventListener('input', renderConversations);
+    document.getElementById('inboxRefresh').addEventListener('click', loadConversations);
+    document.querySelectorAll('[data-inbox-filter]').forEach(button => {
+        button.addEventListener('click', () => {
+            inboxFilter = button.dataset.inboxFilter;
+            renderConversations();
+        });
+    });
     // Handle OAuth callback first (before other initialization)
     // This handles oauth_session, oauth_error, oauth_link_required query params
     const oauthHandled = await handleOAuthCallback();
@@ -274,7 +282,7 @@ async function loadPortalInfo() {
         // Update portal name
         if (portal.name) {
             document.getElementById('portalName').textContent = portal.name;
-            document.title = portal.name + ' - Community Portal';
+            document.title = 'Scooby Dashboard';
         }
 
         // Show banner if configured
@@ -319,13 +327,13 @@ async function loadPortalInfo() {
         const socialLinks = [];
 
         if (portal.settings?.discord_link) {
-            socialLinks.push(`<a href="${escapeHtml(portal.settings.discord_link)}" target="_blank" rel="noopener" class="social-link" title="Discord"><i class="fab fa-discord"></i></a>`);
+            socialLinks.push(`<a href="${escapeHtml(portal.settings.discord_link)}" target="_blank" rel="noopener" class="social-link" title="Discord" aria-label="Discord"><i class="fab fa-discord"></i></a>`);
         }
         if (portal.settings?.twitter_link) {
-            socialLinks.push(`<a href="${escapeHtml(portal.settings.twitter_link)}" target="_blank" rel="noopener" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>`);
+            socialLinks.push(`<a href="${escapeHtml(portal.settings.twitter_link)}" target="_blank" rel="noopener" class="social-link" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>`);
         }
         if (portal.settings?.youtube_link) {
-            socialLinks.push(`<a href="${escapeHtml(portal.settings.youtube_link)}" target="_blank" rel="noopener" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>`);
+            socialLinks.push(`<a href="${escapeHtml(portal.settings.youtube_link)}" target="_blank" rel="noopener" class="social-link" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>`);
         }
 
         if (socialLinks.length > 0) {
@@ -872,6 +880,7 @@ function updateUIForUser() {
 
     // Update header
     document.getElementById('headerUsername').textContent = currentUser.display_name || currentUser.username;
+    document.getElementById('accountMenuName').textContent = currentUser.display_name || currentUser.username;
     const avatarEl = document.getElementById('headerAvatar');
     if (currentUser.profile_picture) {
         avatarEl.innerHTML = `<img src="${escapeHtml(currentUser.profile_picture)}" alt="Avatar">`;
@@ -2868,59 +2877,130 @@ async function sendChatMessage() {
 }
 
 // ==================== DIRECT MESSAGES ====================
-async function loadConversations() {
+let inboxConversations = [];
+let inboxFilter = 'all';
+let inboxReady = false;
+let inboxRequest = 0;
+
+function inboxUnreadCount(conversation) {
+    return Math.max(0, Math.floor(Number(conversation.unread_count) || 0));
+}
+
+function showInboxNotice(icon, title, description, action, onAction) {
     const container = document.getElementById('conversationList');
+    container.innerHTML = `<div class="messages-empty"><span class="messages-empty-icon"><i class="fas ${icon}" aria-hidden="true"></i></span><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p>${action ? '<button type="button" class="messages-notice-action"></button>' : ''}</div>`;
+    if (action) {
+        const button = container.querySelector('button');
+        button.textContent = action;
+        button.addEventListener('click', onAction);
+    }
+}
+
+function renderConversations() {
+    if (!inboxReady) return;
+    const query = document.getElementById('conversationSearch').value.trim().toLowerCase();
+    const unread = inboxConversations.filter(conv => inboxUnreadCount(conv) > 0).length;
+    const conversations = inboxConversations.filter(conv => {
+        const p = conv.participant || {};
+        const searchable = [p.display_name, p.username, conv.last_message?.content].filter(Boolean).join(' ').toLowerCase();
+        return (inboxFilter !== 'unread' || inboxUnreadCount(conv) > 0) && searchable.includes(query);
+    });
+    document.getElementById('inboxAllCount').textContent = inboxConversations.length;
+    document.getElementById('inboxUnreadCount').textContent = unread;
+    document.getElementById('inboxSummary').textContent = query || inboxFilter === 'unread'
+        ? `${conversations.length} of ${inboxConversations.length} conversations`
+        : `${inboxConversations.length} conversation${inboxConversations.length === 1 ? '' : 's'} · ${unread} unread`;
+    document.querySelectorAll('[data-inbox-filter]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.inboxFilter === inboxFilter));
+    });
+    if (!conversations.length) {
+        if (!inboxConversations.length) {
+            showInboxNotice('fa-comments', 'A conversation starts here', 'Messages you send and receive will appear in your inbox.');
+        } else {
+            showInboxNotice(query ? 'fa-search' : 'fa-envelope-open', query ? 'No conversations found' : "You’re all caught up", query ? 'Try a different name or a word from the latest message.' : 'You have no unread conversations.', 'Show all messages', () => {
+                document.getElementById('conversationSearch').value = '';
+                inboxFilter = 'all';
+                renderConversations();
+                document.querySelector('[data-inbox-filter="all"]').focus();
+            });
+        }
+        return;
+    }
+    const list = document.createElement('ul');
+    list.className = 'messages-rows';
+    for (const conv of conversations) {
+        const participant = conv.participant || {};
+        const name = participant.display_name || participant.username || 'Unknown';
+        const convId = conv.conversation_id || conv.id;
+        const unreadCount = inboxUnreadCount(conv);
+        const lastMsg = conv.last_message;
+        const preview = lastMsg ? (lastMsg.sender_id == currentUser?.id ? 'You: ' : '') + (lastMsg.content || '') : 'No messages yet';
+        const row = document.createElement('li');
+        row.className = `conversation-item${unreadCount ? ' unread' : ''}`;
+        row.innerHTML = `
+            <button type="button" class="conversation-avatar"></button>
+            <button type="button" class="conversation-open">
+                <span class="conversation-main"><span class="conversation-name">${escapeHtml(name)}</span><span class="conversation-preview">${escapeHtml(preview)}</span></span>
+                <span class="conversation-meta"><span class="conversation-date">${lastMsg ? escapeHtml(formatDate(lastMsg.created_at)) : ''}</span>${unreadCount ? `<span class="conversation-unread-badge" aria-label="${unreadCount} unread messages">${unreadCount > 99 ? '99+' : unreadCount}</span>` : ''}</span>
+                <i class="fas fa-chevron-right conversation-arrow" aria-hidden="true"></i>
+            </button>`;
+        const avatar = row.querySelector('.conversation-avatar');
+        avatar.textContent = getInitials(name);
+        avatar.setAttribute('aria-label', `View ${name}’s profile`);
+        const avatarSource = participant.avatar || participant.profile_picture;
+        if (avatarSource) {
+            const image = document.createElement('img');
+            image.src = avatarSource;
+            image.alt = '';
+            image.loading = 'lazy';
+            image.addEventListener('error', () => { avatar.textContent = getInitials(name); });
+            avatar.replaceChildren(image);
+        }
+        avatar.disabled = !participant.id;
+        avatar.addEventListener('click', () => showUserCardById(participant.id));
+        const open = row.querySelector('.conversation-open');
+        open.setAttribute('aria-label', `Open conversation with ${name}${unreadCount ? `, ${unreadCount} unread messages` : ''}`);
+        open.addEventListener('click', () => openConversation(convId, participant));
+        list.appendChild(row);
+    }
+    document.getElementById('conversationList').replaceChildren(list);
+}
+
+async function loadConversations() {
+    const request = ++inboxRequest;
+    const container = document.getElementById('conversationList');
+    const controls = document.querySelectorAll('#conversationSearch, #inboxRefresh, [data-inbox-filter]');
+    inboxReady = false;
+    inboxConversations = [];
+    controls.forEach(control => { control.disabled = true; });
+    container.setAttribute('aria-busy', 'true');
+    document.getElementById('inboxSummary').textContent = 'Loading conversations...';
+    document.getElementById('inboxAllCount').textContent = '0';
+    document.getElementById('inboxUnreadCount').textContent = '0';
     container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading conversations...</div>';
-
-    const result = await api('GET', '/messages/conversations');
-
-    if (result.ok && result.data.conversations) {
-        if (result.data.conversations.length === 0) {
-            container.innerHTML = '<div class="empty-state"><i class="fas fa-envelope"></i><h3>No Messages</h3><p>You have no conversations yet.</p></div>';
-            return;
+    try {
+        const result = await api('GET', '/messages/conversations');
+        if (request !== inboxRequest) return;
+        if (result.ok && Array.isArray(result.data?.conversations)) {
+            inboxConversations = [...result.data.conversations].sort((a, b) =>
+                (Date.parse(b.last_message?.created_at) || 0) - (Date.parse(a.last_message?.created_at) || 0));
+            inboxReady = true;
+            renderConversations();
+        } else {
+            document.getElementById('inboxSummary').textContent = 'Inbox unavailable';
+            showInboxNotice('fa-envelope', 'Couldn’t load your inbox', result.data?.message || 'Please try again in a moment.', 'Try again', loadConversations);
+            if (result.data?.error_code === 'LOGIN_REQUIRED') showPage('login');
+            else if (result.data?.error_code === 'MEMBERSHIP_REQUIRED') showRedeemKeyModal();
         }
-
-        let html = '';
-        for (const conv of result.data.conversations) {
-            const participant = conv.participant || {};
-            const convId = conv.conversation_id || conv.id;
-            const avatar = participant.avatar || participant.profile_picture
-                ? `<img src="${escapeHtml(participant.avatar || participant.profile_picture)}" alt="Avatar">`
-                : getInitials(participant.display_name || participant.username || 'U');
-
-            const lastMsg = conv.last_message;
-            const preview = lastMsg
-                ? (lastMsg.sender_id == currentUser.id ? 'You: ' : '') + (lastMsg.content || '')
-                : 'No messages yet';
-
-            html += `
-                <div class="conversation-item ${conv.unread_count > 0 ? 'unread' : ''}" onclick="openConversation('${escapeHtml(convId)}', ${JSON.stringify(participant).replace(/"/g, '&quot;')})">
-                    <div class="conversation-avatar" onclick="event.stopPropagation(); showUserCardById(${participant.id})" style="cursor: pointer;" title="View Profile">
-                        ${typeof avatar === 'string' && avatar.startsWith('<img') ? avatar : avatar}
-                    </div>
-                    <div class="conversation-main">
-                        <div class="conversation-name">${escapeHtml(participant.display_name || participant.username || 'Unknown')}</div>
-                        <div class="conversation-preview">${escapeHtml(preview.substring(0, 50))}</div>
-                    </div>
-                    <div class="conversation-meta">
-                        ${lastMsg ? formatDate(lastMsg.created_at) : ''}
-                        ${conv.unread_count > 0 ? `<div class="conversation-unread-badge">${conv.unread_count}</div>` : ''}
-                    </div>
-                </div>
-            `;
+    } catch (_) {
+        if (request !== inboxRequest) return;
+        document.getElementById('inboxSummary').textContent = 'Inbox unavailable';
+        showInboxNotice('fa-envelope', 'Couldn’t load your inbox', 'Check your connection and try again.', 'Try again', loadConversations);
+    } finally {
+        if (request === inboxRequest) {
+            container.setAttribute('aria-busy', 'false');
+            controls.forEach(control => { control.disabled = control.id !== 'inboxRefresh' && !inboxReady; });
         }
-        container.innerHTML = html;
-    } else {
-        // Check for login/membership required errors
-        const errorCode = result.data?.error_code;
-        if (errorCode === 'LOGIN_REQUIRED') {
-            showPage('login');
-            return;
-        } else if (errorCode === 'MEMBERSHIP_REQUIRED') {
-            showRedeemKeyModal();
-            return;
-        }
-        container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><h3>Error</h3><p>' + escapeHtml(result.data?.message || 'Failed to load conversations.') + '</p></div>';
     }
 }
 

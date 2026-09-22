@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scooby - Community Portal</title>
+    <title>Scooby Dashboard</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" href="/assets/images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,8 @@
         .dashboard-heading h1 { font-size: clamp(24px, 4vw, 30px); line-height: 1.3; font-weight: 650; letter-spacing: -.9px; overflow-wrap: anywhere; }
         .dashboard-heading p { color: #94949e; font-size: 13px; margin-top: 8px; }
         .dashboard-account-tag { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #2b2b31; border-radius: 6px; padding: 7px 10px; color: #b9b9c2; font-size: 11px; white-space: nowrap; }
-        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 20px; }
+        .dashboard-column { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
         .dashboard-card { min-width: 0; background: #0e0e11; border: 1px solid #26262c; border-radius: 12px; padding: 25px; }
         .dashboard-card h2 { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: -.15px; line-height: 1.5; }
         .dashboard-card h2 i { color: #babac4; width: 17px; font-size: 15px; text-align: center; }
@@ -73,8 +74,6 @@
         .dashboard-hwid-details span { font-size: 11px; color: #9a9aa5; }
         .dashboard-hwid-details strong { font-size: 11px; color: #d4d4dc; font-weight: 500; text-align: right; }
         .dashboard-download { display: flex; flex-direction: column; }
-        .dashboard-download-note { display: flex; align-items: center; gap: 9px; flex: 1; min-height: 78px; color: #a6a6b0; font-size: 12px; }
-        .dashboard-download-note i { font-size: 19px; color: #b6b6c0; }
         .dashboard-footer { display: flex; justify-content: space-between; gap: 15px; margin-top: 25px; color: #93939f; font-size: 11px; }
         .dashboard-footer a { color: #b4b4c0; }
         .dashboard-footer a:hover { color: #fff; }
@@ -101,13 +100,20 @@
             .portal-modern .nav-tab i { display: none; }
             .dashboard-heading { align-items: flex-start; margin-bottom: 23px; }
             .dashboard-account-tag { display: none; }
-            .dashboard-grid { grid-template-columns: 1fr; gap: 14px; }
+            .dashboard-grid { grid-template-columns: 1fr; grid-template-areas: "redeem" "products" "hwid" "download"; gap: 14px; }
+            .dashboard-column { display: contents; }
+            .dashboard-card[aria-labelledby="dashboardRedeemHeading"] { grid-area: redeem; }
+            .dashboard-card[aria-labelledby="dashboardProductsHeading"] { grid-area: products; }
+            .dashboard-card[aria-labelledby="dashboardHwidHeading"] { grid-area: hwid; }
+            .dashboard-card[aria-labelledby="dashboardDownloadHeading"] { grid-area: download; }
             .dashboard-card { padding: 21px; }
             .dashboard-footer { flex-wrap: wrap; }
         }
     </style>
-    <link rel="stylesheet" href="portal-refresh.css">
-    <link rel="stylesheet" href="portal-backgrounds.css">
+    <link rel="stylesheet" href="portal-refresh.css?v=20260923-download-look">
+    <link rel="stylesheet" href="portal-backgrounds.css?v=20260923-dashboard">
+    <link rel="stylesheet" href="portal-messages.css?v=1">
+    <link rel="stylesheet" href="portal-navigation.css?v=1">
     <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
 <body class="portal-modern auth-mode">
@@ -122,14 +128,14 @@
     <input type="hidden" id="apiUrl" value="https://proudlyauthentication.com/">
     <input type="hidden" id="portalKey" value="pk_gri2butNfQ28AWQqNTD5xLtQKwer2MNv">
     <!-- Header (matching index.html style) -->
-    <header class="portal-header">
+    <header class="portal-header" aria-label="Scooby portal header">
         <div class="header-top">
             <a href="/" class="portal-logo">
                 <img src="../assets/images/logo.png" alt="Scooby Logo">
                 <span id="portalName">Scooby</span>
             </a>
             <div class="header-actions">
-                <a href="/" class="nav-link-home"><i class="fas fa-home"></i> Home</a>
+                <a href="/" class="nav-link-home"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Home</span></a>
                 <div class="social-links" id="socialLinks" style="display: none;"></div>
                 <!-- Guest Actions -->
                 <div id="guestActions">
@@ -143,12 +149,12 @@
                     </button>
                 </div>
                 <!-- Notifications Bell -->
-                <div class="notification-bell" id="notificationBell" style="display: none;" onclick="toggleNotificationsPanel()">
+                <button type="button" class="notification-bell" id="notificationBell" style="display: none;" onclick="toggleNotificationsPanel()" aria-label="Notifications" aria-expanded="false" aria-controls="notificationsPanel">
                     <i class="fas fa-bell"></i>
                     <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
-                </div>
+                </button>
                 <!-- Notifications Panel -->
-                <div class="notifications-panel" id="notificationsPanel" style="display: none;">
+                <div class="notifications-panel" id="notificationsPanel" style="display: none;" role="region" aria-label="Notifications">
                     <div class="notifications-header">
                         <span>Notifications</span>
                         <button class="mark-all-read-btn" onclick="markAllNotificationsRead()">Mark all read</button>
@@ -157,31 +163,26 @@
                         <div class="notifications-empty">No notifications</div>
                     </div>
                 </div>
-                <!-- User Dropdown -->
+                <!-- Account menu -->
                 <div class="user-dropdown" id="userDropdown" style="display: none;">
-                    <div class="user-avatar" id="headerAvatar">U</div>
-                    <span id="headerUsername">Username</span>
-                    <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-item" onclick="showPage('profile')">
-                            <i class="fas fa-user"></i> My Profile
-                        </div>
-                        <div class="dropdown-item" onclick="showPage('messages')">
-                            <i class="fas fa-envelope"></i> Messages
-                        </div>
-                        <div class="dropdown-item" onclick="showRedeemKeyModal()">
-                            <i class="fas fa-key"></i> Redeem Key
-                        </div>
+                    <button type="button" class="account-menu-toggle" id="accountMenuToggle" aria-label="Account options" aria-expanded="false" aria-controls="accountMenu">
+                        <span class="user-avatar" id="headerAvatar" aria-hidden="true">U</span>
+                        <span class="account-toggle-copy"><span class="account-toggle-label">My account</span><span id="headerUsername">Username</span></span>
+                        <i class="fas fa-chevron-down account-chevron" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu" id="accountMenu" role="group" aria-label="Account options" hidden>
+                        <div class="account-menu-heading"><span>SIGNED IN AS</span><strong id="accountMenuName">Username</strong></div>
+                        <button type="button" class="dropdown-item" onclick="showPage('profile')"><i class="far fa-user" aria-hidden="true"></i><span>My profile</span></button>
+                        <button type="button" class="dropdown-item" onclick="showPage('messages')"><i class="far fa-envelope" aria-hidden="true"></i><span>Messages</span></button>
+                        <button type="button" class="dropdown-item" onclick="showRedeemKeyModal()"><i class="fas fa-key" aria-hidden="true"></i><span>Redeem key</span></button>
                         <div class="dropdown-divider"></div>
-                        <div class="dropdown-item" onclick="logout()">
-                            <i class="fas fa-sign-out-alt"></i> Logout
-                        </div>
+                        <button type="button" class="dropdown-item account-logout" onclick="logout()"><i class="fas fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Log out</span></button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Navigation Tabs -->
-        <nav class="nav-bar">
+        <nav class="nav-bar" aria-label="Portal navigation">
             <div class="nav-container">
                 <div class="nav-tabs">
                     <a class="nav-tab" data-page="dashboard" href="#dashboard"><i class="fas fa-table-columns" aria-hidden="true"></i><span>Dashboard</span></a>
@@ -206,8 +207,8 @@
                 <div class="nav-search">
                     <div class="search-input-wrapper">
                         <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="search-input" id="globalSearchInput" placeholder="Search..." oninput="onSearchInput()" onkeypress="if(event.key==='Enter')performSearch()">
-                        <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" style="display: none;">
+                        <input type="text" class="search-input" id="globalSearchInput" aria-label="Search community" placeholder="Search community" oninput="onSearchInput()" onkeypress="if(event.key==='Enter')performSearch()">
+                        <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" onclick="clearSearch()" style="display: none;">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -245,36 +246,39 @@
                 <a class="dashboard-button" href="#login">Sign in <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
             <div class="dashboard-grid">
-                <section class="dashboard-card" aria-labelledby="dashboardRedeemHeading">
-                    <h2 id="dashboardRedeemHeading"><i class="fas fa-key" aria-hidden="true"></i> Redeem license key</h2>
-                    <p class="dashboard-description">Activate a product with the key from your purchase.</p>
-                    <form class="dashboard-form" id="dashboardRedeemForm">
-                        <label for="dashboardLicenseKey">License key</label>
-                        <input class="dashboard-input" id="dashboardLicenseKey" name="license-key" placeholder="Enter your license key" autocomplete="off" autocapitalize="off" spellcheck="false" required disabled aria-describedby="dashboardRedeemMessage">
-                        <button class="dashboard-button" id="dashboardRedeemButton" type="submit" disabled><i class="fas fa-plus" aria-hidden="true"></i> Redeem key</button>
-                        <p class="dashboard-message" id="dashboardRedeemMessage" role="status"></p>
-                    </form>
-                </section>
-                <section class="dashboard-card" aria-labelledby="dashboardProductsHeading">
-                    <h2 id="dashboardProductsHeading"><i class="fas fa-cube" aria-hidden="true"></i> My products <span class="dashboard-status" id="dashboardProductCount" hidden></span></h2>
-                    <p class="dashboard-description">Subscriptions linked to your account.</p>
-                    <div class="dashboard-products" id="dashboardProducts" aria-live="polite">
-                        <div class="dashboard-empty"><i class="fas fa-cube" aria-hidden="true"></i><strong>Your library lives here</strong>Sign in to see your products.</div>
-                    </div>
-                </section>
-                <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
-                    <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
-                    <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
-                    <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
-                    <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
-                    <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
-                </section>
-                <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
-                    <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
-                    <p class="dashboard-description">Get the latest loader and jump back in.</p>
-                    <div class="dashboard-download-note"><i class="fab fa-windows" aria-hidden="true"></i><span>Setup instructions and available downloads.</span></div>
-                    <a class="dashboard-button" href="/#download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Go to downloads</a>
-                </section>
+                <div class="dashboard-column">
+                    <section class="dashboard-card" aria-labelledby="dashboardRedeemHeading">
+                        <h2 id="dashboardRedeemHeading"><i class="fas fa-key" aria-hidden="true"></i> Redeem license key</h2>
+                        <p class="dashboard-description">Activate a product with the key from your purchase.</p>
+                        <form class="dashboard-form" id="dashboardRedeemForm">
+                            <label for="dashboardLicenseKey">License key</label>
+                            <input class="dashboard-input" id="dashboardLicenseKey" name="license-key" placeholder="Enter your license key" autocomplete="off" autocapitalize="off" spellcheck="false" required disabled aria-describedby="dashboardRedeemMessage">
+                            <button class="dashboard-button" id="dashboardRedeemButton" type="submit" disabled><i class="fas fa-plus" aria-hidden="true"></i> Redeem key</button>
+                            <p class="dashboard-message" id="dashboardRedeemMessage" role="status"></p>
+                        </form>
+                    </section>
+                    <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
+                        <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
+                        <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
+                        <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
+                        <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
+                        <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
+                    </section>
+                </div>
+                <div class="dashboard-column">
+                    <section class="dashboard-card" aria-labelledby="dashboardProductsHeading">
+                        <h2 id="dashboardProductsHeading"><i class="fas fa-cube" aria-hidden="true"></i> My products <span class="dashboard-status" id="dashboardProductCount" hidden></span></h2>
+                        <p class="dashboard-description">Subscriptions linked to your account.</p>
+                        <div class="dashboard-products" id="dashboardProducts" aria-live="polite">
+                            <div class="dashboard-empty"><i class="fas fa-cube" aria-hidden="true"></i><strong>Your library lives here</strong>Sign in to see your products.</div>
+                        </div>
+                    </section>
+                    <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
+                        <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
+                        <p class="dashboard-description">Get the latest loader and jump back in.</p>
+                        <button class="dashboard-button" id="dashboardDownloadButton" type="button" aria-haspopup="dialog" aria-controls="dashboardDownloadDialog"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader</button>
+                    </section>
+                </div>
             </div>
             <div class="dashboard-footer"><span class="dashboard-help">Need a hand? <a href="/guides/">Explore the guides <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></span><a href="#support" id="dashboardSupportLink">Contact support <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
@@ -638,21 +642,38 @@
         </div>
         <!-- MESSAGES PAGE -->
         <div class="page-view" id="page-messages">
-            <div class="page-title">
-                <h1>Messages</h1>
-                <p>Your private conversations</p>
-            </div>
-            <div class="content-card">
-                <div class="card-header">
-                    <h2><i class="fas fa-inbox"></i> Inbox</h2>
+            <div class="page-title messages-heading">
+                <div>
+                    <div class="dashboard-eyebrow">YOUR COMMUNITY</div>
+                    <h1>Messages</h1>
+                    <p>Your private conversations, all in one place.</p>
                 </div>
-                <div id="conversationList" class="conversations-list">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Loading conversations...
+                <button type="button" class="messages-refresh" id="inboxRefresh">
+                    <i class="fas fa-rotate-right" aria-hidden="true"></i> Refresh
+                </button>
+            </div>
+            <section class="content-card messages-card" aria-labelledby="inboxTitle">
+                <div class="messages-toolbar">
+                    <div class="messages-inbox-title">
+                        <span class="messages-inbox-icon"><i class="fas fa-inbox" aria-hidden="true"></i></span>
+                        <div>
+                            <h2 id="inboxTitle">Inbox</h2>
+                            <p id="inboxSummary" role="status" aria-live="polite">Loading conversations...</p>
+                        </div>
                     </div>
+                    <label class="messages-search">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="search" id="conversationSearch" placeholder="Search conversations" aria-label="Search conversations" autocomplete="off" disabled>
+                    </label>
                 </div>
-            </div>
+                <div class="messages-filters" role="group" aria-label="Filter conversations">
+                    <button type="button" data-inbox-filter="all" aria-pressed="true" disabled>All messages <span id="inboxAllCount">0</span></button>
+                    <button type="button" data-inbox-filter="unread" aria-pressed="false" disabled>Unread <span id="inboxUnreadCount">0</span></button>
+                </div>
+                <div id="conversationList" class="conversations-list" aria-busy="true">
+                    <div class="loading"><div class="spinner"></div>Loading conversations...</div>
+                </div>
+            </section>
         </div>
         <!-- CONVERSATION PAGE -->
         <div class="page-view" id="page-conversation">
@@ -1622,9 +1643,41 @@
             </div>
         </div>
     </div>
-    <script src="portal.js?v=20260922-register"></script>
-    <script src="portal-refresh.js"></script>
-    <script src="portal-backgrounds.js"></script>
+    <!-- Dashboard downloads stay on the current portal page. -->
+    <dialog class="portal-download-dialog" id="dashboardDownloadDialog" aria-labelledby="dashboardDownloadTitle" aria-describedby="dashboardDownloadDescription">
+        <button type="button" class="portal-download-close" id="dashboardDownloadClose" aria-label="Close downloads"><i class="fas fa-times" aria-hidden="true"></i></button>
+        <div class="portal-download-content">
+            <div class="portal-download-eyebrow"><span></span> SCOOBY DOWNLOADS</div>
+            <h2 id="dashboardDownloadTitle">Download loader</h2>
+            <p id="dashboardDownloadDescription">Get the latest Scooby installer.</p>
+            <div class="portal-loader-card">
+                <div class="portal-loader-product">
+                    <div class="portal-loader-logo"><img src="/assets/images/logo.png" width="42" height="42" alt=""></div>
+                    <div class="portal-loader-info"><h3>Scooby loader</h3><span><i class="fab fa-windows" aria-hidden="true"></i> For Windows</span></div>
+                    <span class="portal-loader-mark" aria-hidden="true"><i class="fas fa-download"></i></span>
+                </div>
+                <a class="dashboard-button portal-loader-link" href="https://filego.at/bucket/f4d3b84b-e21e-4ab4-8d2e-1ae988086b8b" target="_blank" rel="noopener"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+            <div class="portal-download-extras">
+                <h3>Additional tools</h3>
+                <div class="portal-download-tools">
+                    <a href="https://limewire.com/d/ZwlaV#DYLfIZGWea" target="_blank" rel="noopener" class="portal-download-tool">
+                        <span class="portal-tool-top"><span class="portal-tool-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                        <strong>Defender Control</strong><span class="portal-tool-description">Windows security controls</span>
+                    </a>
+                    <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener" class="portal-download-tool">
+                        <span class="portal-tool-top"><span class="portal-tool-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                        <strong>VC Runtimes</strong><span class="portal-tool-description">Visual C++ runtime libraries</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="portal-download-footer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Downloads open in a new tab.</div>
+    </dialog>
+    <script src="portal.js?v=20260923-dashboard-title"></script>
+    <script src="portal-refresh.js?v=20260923-download"></script>
+    <script src="portal-navigation.js?v=1"></script>
+    <script src="portal-backgrounds.js?v=20260923-dashboard"></script>
     <script>
     // Account dashboard integration. All other routes still use portal.js.
     (() => {
@@ -1736,14 +1789,18 @@
                 badge.className = 'dashboard-status' + (status === 'active' ? '' : ' inactive');
                 badge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
                 info.append(title, meta);
+                const logo = portalProductLogo(entry.product?.name, name, key);
                 const artwork = document.createElement('img');
-                artwork.className = 'dashboard-product-art';
-                artwork.src = portalProductArtwork(entry.product?.name, name, key);
+                artwork.className = 'dashboard-product-art' + (logo ? ` dashboard-product-logo dashboard-product-logo--${logo.id}` : '');
+                artwork.src = logo?.src || portalProductArtwork(entry.product?.name, name, key);
                 artwork.alt = '';
-                artwork.width = 66;
+                artwork.width = 88;
                 artwork.height = 66;
                 artwork.loading = 'lazy';
-                artwork.addEventListener('error', () => { artwork.src = '../assets/images/logo.png'; }, { once: true });
+                artwork.addEventListener('error', () => {
+                    artwork.className = 'dashboard-product-art dashboard-product-logo';
+                    artwork.src = '../assets/images/logo.png';
+                }, { once: true });
                 row.append(artwork, info, badge);
                 fragment.append(row);
             }

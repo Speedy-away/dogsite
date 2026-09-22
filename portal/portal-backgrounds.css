@@ -1,12 +1,13 @@
-/* Original game-inspired loading-screen scenery, shared by all portal routes. */
+/* Original game-inspired scenery; the account dashboard uses a plain background. */
 body.portal-modern { isolation:isolate; }
+.portal-modern.dashboard-active .portal-backgrounds { display:none; }
 .portal-backgrounds { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; background:#11151b; }
 .portal-background-scene { position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease-in-out; }
 .portal-background-scene.is-active { opacity:1; }
 .portal-background-scene img { width:100%; height:100%; max-width:none; object-fit:cover; object-position:center; }
 .portal-background-scene.is-active img, .portal-background-scene.is-leaving img { animation:portal-background-drift 14s linear both; }
 .portal-background-scene[data-scene="rdr-overlook"] img { object-position:75% center; animation-direction:reverse; }
-.portal-background-scene[data-scene="cs2-ancient-v2"] img, .portal-background-scene[data-scene="l4d2-parish"] img, .portal-background-scene[data-scene="gmod-construct"] img { object-position:85% center; }
+.portal-background-scene[data-scene="l4d2-parish"] img, .portal-background-scene[data-scene="gmod-construct"] img { object-position:85% center; }
 .portal-backgrounds.is-paused img { animation-play-state:paused; }
 .portal-backgrounds::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,#09090b75 0%,#09090b80 30%,#09090bc9 100%),linear-gradient(90deg,#09090b30,#09090b80 50%,#09090b30); transition:background .3s; }
 .auth-mode .portal-backgrounds::after { background:linear-gradient(180deg,#09090b55 0%,#09090b26 35%,#09090b9c 100%),linear-gradient(90deg,#09090b12,#09090b33 50%,#09090b12); }
