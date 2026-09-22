@@ -63,7 +63,6 @@
     "Frequently asked questions": "常见问题",
     "Loved by the community": "深受社区喜爱",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "数千名玩家每天都在使用 Scooby，以下是部分玩家的评价。",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "关于 Scooby 你需要知道的一切。还有问题？我们的 Discord 团队 24/7 在线。",
     "Easy to Use": "简单易用",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "我们的作弊工具设计为即装即用、操作直观。几分钟内你就能进入游戏并领先对手。",
     "Quality and Security": "品质与安全",

@@ -63,7 +63,6 @@
     "Frequently asked questions": "よくある質問",
     "Loved by the community": "コミュニティに支持されています",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "何千人ものプレイヤーが日々 Scooby を利用しています。その一部の声をご紹介します。",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Scooby について知っておくべきことのすべて。それでも解決しない場合は、24時間体制の Discord チームにご相談ください。",
     "Easy to Use": "かんたん操作",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "すぐに導入でき、直感的に操作できる設計です。数分でゲームに入り、相手より優位に立てます。",
     "Quality and Security": "品質と安全性",

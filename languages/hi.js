@@ -63,7 +63,6 @@
     "Frequently asked questions": "अक्सर पूछे जाने वाले सवाल",
     "Loved by the community": "कम्युनिटी का पसंदीदा",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "हजारों खिलाड़ी रोज़ाना Scooby पर भरोसा करते हैं। उनमें से कुछ की राय यहाँ है।",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Scooby के बारे में जानने योग्य सब कुछ। फिर भी दिक्कत है? हमारी डिस्कॉर्ड टीम 24/7 मौजूद है।",
     "Easy to Use": "उपयोग में आसान",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "हमारे चीट तुरंत सेटअप और आसान कंट्रोल के लिए बनाए गए हैं। कुछ ही मिनटों में आप गेम में होंगे और बाकियों से आगे।",
     "Quality and Security": "गुणवत्ता और सुरक्षा",

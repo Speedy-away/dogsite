@@ -63,7 +63,6 @@
     "Frequently asked questions": "자주 묻는 질문",
     "Loved by the community": "커뮤니티가 사랑하는 메뉴",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "수천 명의 플레이어가 매일 Scooby를 사용합니다. 그중 일부의 후기를 확인하세요.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Scooby에 대해 알아야 할 모든 것. 그래도 해결되지 않으면 24시간 운영되는 디스코드 팀에 문의하세요.",
     "Easy to Use": "간편한 사용",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "즉시 설치하고 직관적으로 조작할 수 있도록 설계되었습니다. 몇 분이면 게임에 접속해 상대보다 앞설 수 있습니다.",
     "Quality and Security": "품질과 보안",

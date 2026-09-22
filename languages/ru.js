@@ -63,7 +63,6 @@
     "Frequently asked questions": "Частые вопросы",
     "Loved by the community": "Любимо сообществом",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "Тысячи игроков ежедневно доверяют Scooby. Вот что говорят некоторые из них.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Всё, что нужно знать о Scooby. Остались вопросы? Наша команда в Discord на связи круглосуточно.",
     "Easy to Use": "Просто в использовании",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "Наши читы созданы для мгновенной настройки и интуитивного управления. Через пару минут ты уже в игре и впереди соперников.",
     "Quality and Security": "Качество и безопасность",

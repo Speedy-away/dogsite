@@ -63,7 +63,6 @@
     "Frequently asked questions": "Câu hỏi thường gặp",
     "Loved by the community": "Được cộng đồng yêu thích",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "Hàng nghìn người chơi tin dùng Scooby mỗi ngày. Đây là chia sẻ của một số người trong số họ.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Mọi điều bạn cần biết về Scooby. Vẫn gặp vướng mắc? Đội ngũ Discord của chúng tôi trực 24/7.",
     "Easy to Use": "Dễ sử dụng",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "Cheat của chúng tôi được thiết kế để cài đặt tức thì và điều khiển trực quan. Chỉ vài phút là bạn đã vào game và vượt lên trên đối thủ.",
     "Quality and Security": "Chất lượng và bảo mật",

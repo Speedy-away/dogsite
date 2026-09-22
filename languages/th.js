@@ -63,7 +63,6 @@
     "Frequently asked questions": "คำถามที่พบบ่อย",
     "Loved by the community": "ได้รับความนิยมจากคอมมูนิตี้",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "ผู้เล่นหลายพันคนไว้วางใจ Scooby ในการเล่นทุกวัน นี่คือความเห็นบางส่วนจากพวกเขา",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "ทุกสิ่งที่คุณควรรู้เกี่ยวกับ Scooby ยังติดปัญหาอยู่ใช่ไหม ทีมงานใน Discord พร้อมช่วยตลอด 24 ชั่วโมง",
     "Easy to Use": "ใช้งานง่าย",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "โปรของเราออกแบบมาให้ติดตั้งได้ทันทีและควบคุมง่าย เพียงไม่กี่นาทีคุณก็เข้าเกมและนำหน้าคู่แข่งได้",
     "Quality and Security": "คุณภาพและความปลอดภัย",

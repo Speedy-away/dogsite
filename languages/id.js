@@ -63,7 +63,6 @@
     "Frequently asked questions": "Pertanyaan yang sering diajukan",
     "Loved by the community": "Disukai komunitas",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "Ribuan pemain memercayai Scooby setiap hari. Berikut komentar dari sebagian mereka.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Semua yang perlu kamu ketahui tentang Scooby. Masih bingung? Tim Discord kami siap 24/7.",
     "Easy to Use": "Mudah digunakan",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "Cheat kami dirancang untuk pemasangan instan dan kontrol yang intuitif. Dalam hitungan menit kamu sudah masuk game dan unggul dari lawan.",
     "Quality and Security": "Kualitas dan keamanan",

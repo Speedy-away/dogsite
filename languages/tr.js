@@ -63,7 +63,6 @@
     "Frequently asked questions": "Sıkça sorulan sorular",
     "Loved by the community": "Topluluk tarafından seviliyor",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "Binlerce oyuncu günlük modlama için Scooby'ye güveniyor. İşte bazılarının söyledikleri.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "Scooby hakkında bilmen gereken her şey. Hâlâ takıldın mı? Discord ekibimiz 7/24 burada.",
     "Easy to Use": "Kullanımı kolay",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "Hilelerimiz anında kurulum ve sezgisel kontrol için tasarlandı. Dakikalar içinde oyunda ve rakiplerinin önünde olacaksın.",
     "Quality and Security": "Kalite ve güvenlik",

@@ -63,7 +63,6 @@
     "Frequently asked questions": "ხშირად დასმული კითხვები",
     "Loved by the community": "საზოგადოების რჩეული",
     "Thousands of players trust Scooby for their daily modding. Here's what a few of them say.": "ათასობით მოთამაშე ყოველდღიურად ენდობა Scooby-ს. აი, რას ამბობენ ზოგიერთი მათგანი.",
-    "Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.": "ყველაფერი, რაც Scooby-ზე უნდა იცოდე. კვლავ გიჭირს? ჩვენი Discord გუნდი 24/7 ხელმისაწვდომია.",
     "Easy to Use": "მარტივი გამოსაყენებელი",
     "Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.": "ჩვენი ჩიტები შექმნილია მყისიერი დაყენებისა და ინტუიციური მართვისთვის. რამდენიმე წუთში უკვე თამაშში იქნები და მოწინააღმდეგეებს გაუსწრებ.",
     "Quality and Security": "ხარისხი და უსაფრთხოება",

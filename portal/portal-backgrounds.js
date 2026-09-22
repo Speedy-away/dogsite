@@ -14,7 +14,7 @@
     function editing() {
         return document.activeElement?.matches('input:not([type=hidden]),textarea,select,[contenteditable="true"]');
     }
-    function canRun() { return !document.body.classList.contains('dashboard-active') && !motion.matches && !document.hidden && !editing(); }
+    function canRun() { return !document.body.matches('.dashboard-active, .auth-mode') && !motion.matches && !document.hidden && !editing(); }
     function schedule() {
         clearTimeout(timer);
         stage.classList.toggle('is-paused', !canRun());
@@ -78,7 +78,7 @@
             schedule();
         }
     }
-    // Stop hidden scenery on the dashboard and resume when another route opens.
+    // Pause hidden scenery on account/authentication routes; resume on community pages.
     new MutationObserver(() => { schedule(); preloadNext(); }).observe(document.body, { attributes:true, attributeFilter:['class'] });
     document.addEventListener('visibilitychange', () => { schedule(); preloadNext(); });
     document.addEventListener('focusin', schedule);
