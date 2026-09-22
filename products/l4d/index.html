@@ -200,76 +200,48 @@
 <link rel="stylesheet" href="/assets/css/gmod.css">
 <meta name="twitter:url" content="https://scoobymenu.cc/products/l4d/">
 <link rel="stylesheet" href="/assets/css/l4d.css">
+    <link rel="stylesheet" href="/assets/css/product-layout.css">
+    <script src="/assets/js/product-layout.js" defer></script>
 </head>
-<body class="gmod-page l4d-page">
+<body class="gmod-page l4d-page product-detail">
+<a class="product-skip-link" href="#main-content">Skip to content</a>
     <!-- Navbar -->
-    <nav class="nav" id="nav">
+    <nav class="nav" id="product-nav" aria-label="Main navigation">
         <div class="nav-inner">
-            <a href="/" class="brand">
-                <span class="brand-name">SCOOBY</span>
-            </a>
+            <a href="/" class="brand"><span class="brand-name">SCOOBY</span></a>
+            <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/">Home</a></li>
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#products">Pricing</a></li>
-                <li><a href="/videos">Videos</a></li>
-                <li><a href="https://discord.gg/tGtvzChYQq" target="_blank">Discord</a></li>
-                <li class="gmod-mobile-download"><a href="/#download">Download</a></li>
+                <li><a href="#product-details">Features</a></li>
+                <li><a href="/guides/l4d/">Guide</a></li>
+                <li><a href="/videos/">Videos</a></li>
+                <li><a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li class="nav-download"><a href="/#download" class="btn-nav-primary">Download</a></li>
             </ul>
-            <div class="nav-actions">
-                <a href="https://discord.gg/tGtvzChYQq" class="btn-nav-ghost" target="_blank">Discord</a>
-                <a href="/#download" class="btn-nav-primary">Download</a>
-            </div>
-            <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu" aria-controls="navLinks" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="/assets/images/l4d/background.webp" alt="Empty city artwork for Left 4 Dead" class="hero-image">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="badge-group">
-                <span class="product-badge free">Free Product</span>
-                <span class="product-badge gmod-online"><span aria-hidden="true">●</span> Online</span>
-                            </div>
-            <h1>LEFT <span class="l4d-four">4</span> DEAD</h1>
-            <p>One menu. Both outbreaks. Customize Left 4 Dead 1 &amp; 2 with infected ESP, independent chams, movement tools, world visuals and Lua. Free for every valid free-key or paid account.</p>
-            <div class="l4d-tags"><span>L4D1 &amp; L4D2</span><span>Windows · 32-bit games</span></div>
-        </div>
-    </section>
     <!-- Main Content -->
-    <div class="main-content">
+    <main class="main-content" id="main-content">
+        <header class="product-heading"><h1>LEFT <span class="l4d-four">4</span> DEAD</h1><div class="product-heading-badges"><span class="product-status">Free Product</span><span class="product-status">Online</span></div></header>
+        <p class="product-intro">One menu. Both outbreaks. Customize Left 4 Dead 1 &amp; 2 with infected ESP, independent chams, movement tools, world visuals and Lua. Free for every valid free-key or paid account.</p>
         <div class="content-grid">
             <!-- Screenshots Section -->
-            <div class="screenshots-section">
-                <h2 class="section-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                    </svg>
-                    Menu &amp; Gameplay Previews
-                </h2>
+            <div class="screenshots-section" aria-label="Screenshots" role="region">
+
 <div class="screenshot-gallery">
     <button type="button" class="screenshot-item main" onclick="openLightbox(0)" aria-label="Enlarge L4D2: chams menu and material controls">
         <img loading="lazy" decoding="async" src="/assets/images/previews/l4d/l4d2-chams-menu-20260922.webp" alt="L4D2: chams menu and material controls, captured in-game on 22 September 2026" width="1920" height="1080">
-        <span class="preview-caption">L4D2: chams menu and material controls</span>
     </button>
-    <button type="button" class="screenshot-item main" onclick="openLightbox(1)" aria-label="Enlarge L4D2: arms, weapon and pickup chams">
+    <button type="button" class="screenshot-item" onclick="openLightbox(1)" aria-label="Enlarge L4D2: arms, weapon and pickup chams">
         <img loading="lazy" decoding="async" src="/assets/images/previews/l4d/l4d2-equipment-chams-20260922.webp" alt="L4D2: arms, weapon and pickup chams, captured in-game on 22 September 2026" width="1920" height="1080">
-        <span class="preview-caption">L4D2: arms, weapon and pickup chams</span>
     </button>
-    <button type="button" class="screenshot-item main" onclick="openLightbox(2)" aria-label="Enlarge L4D1: entity ESP and box settings">
+    <button type="button" class="screenshot-item" onclick="openLightbox(2)" aria-label="Enlarge L4D1: entity ESP and box settings">
         <img loading="lazy" decoding="async" src="/assets/images/previews/l4d/l4d1-esp-menu-20260922.webp" alt="L4D1: entity ESP and box settings, captured in-game on 22 September 2026" width="1920" height="1080">
-        <span class="preview-caption">L4D1: entity ESP and box settings</span>
     </button>
-    <button type="button" class="screenshot-item main" onclick="openLightbox(3)" aria-label="Enlarge L4D1: survivor and infected ESP">
+    <button type="button" class="screenshot-item" onclick="openLightbox(3)" aria-label="Enlarge L4D1: survivor and infected ESP">
         <img loading="lazy" decoding="async" src="/assets/images/previews/l4d/l4d1-survivor-esp-20260922.webp" alt="L4D1: survivor and infected ESP, captured in-game on 22 September 2026" width="1920" height="1080">
-        <span class="preview-caption">L4D1: survivor and infected ESP</span>
     </button>
-</div><p class="gmod-preview-note">Fresh 1920 × 1080 screenshots captured in Left 4 Dead 1 and 2 on 22 September 2026. Select a preview to view it at full size.</p>
+</div>
             </div>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -326,20 +298,12 @@
             </div>
         </div>
         <!-- Description Section -->
-        <div class="description-section">
-            <h2 class="section-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-                Product Description
-            </h2>
-<div class="description-content"><p>Scooby brings one organized modding interface to the 32-bit Windows versions of <strong>Left 4 Dead 1 and Left 4 Dead 2</strong>. It is included with every authenticated free or paid account; there is no separate L4D purchase.</p><p>Use the loader's <strong>Start Game</strong> popup to choose either game. The dashboard detects running games and lets you choose explicitly when both are open.</p><div class="gmod-feature-grid"><section><h3>Infected &amp; pickup ESP</h3><p>Identify common and uncommon infected, witches, tanks and special infected. Set type-specific colors, boxes, skeletons, names, health and distance. Give dropped weapons, medical supplies, ammo and items their own visuals.</p></section><section><h3>Independent chams</h3><p>Customize players, self, arms, held weapons, dropped weapons, items and infected types. Visible and invisible passes have independent toggles, colors and materials, with wireframe, pulse and rainbow effects.</p></section><section><h3>Rage &amp; Legit</h3><p>Separate aim and triggerbot profiles with target filters, hitbox selection, aim keys, FOV circles, snaplines and target dots. Explore lock-on, silent modes, smoothing, recoil and spread controls during local testing.</p></section><section><h3>World &amp; View</h3><p>Tint world materials, props and sky. Adjust camera FOV, viewmodel FOV and X/Y/Z offsets, or use third person with camera distance and shoulder controls.</p></section><section><h3>Movement &amp; overlays</h3><p>Bunnyhop and auto-strafe controls pair with radar, movement telemetry, hotkey displays and an FPS watermark. Give features their own keys and colors.</p></section><section><h3>Lua, configs &amp; languages</h3><p>Build custom pages, overlays and tools with the Lua editor and L4D host API. Save profiles, select from 23 language catalogs, and adjust menu text, UI and overlay scale independently.</p></section></div>
+        <div class="description-section" id="product-details">
+            <div class="product-section-heading"><div><span class="product-eyebrow">MAKE IT YOURS</span><h2 class="section-title">More control over every scene.</h2></div></div>
+<div class="description-content"><p>Scooby brings one organized modding interface to the 32-bit Windows versions of <strong>Left 4 Dead 1 and Left 4 Dead 2</strong>. It is included with every authenticated free or paid account; there is no separate L4D purchase.</p><p>Use the loader's <strong>Start Game</strong> popup to choose either game. The dashboard detects running games and lets you choose explicitly when both are open.</p><div class="gmod-feature-grid product-feature-grid"><section><h3>Infected &amp; pickup ESP</h3><p>Identify common and uncommon infected, witches, tanks and special infected. Set type-specific colors, boxes, skeletons, names, health and distance. Give dropped weapons, medical supplies, ammo and items their own visuals.</p></section><section><h3>Independent chams</h3><p>Customize players, self, arms, held weapons, dropped weapons, items and infected types. Visible and invisible passes have independent toggles, colors and materials, with wireframe, pulse and rainbow effects.</p></section><section><h3>Rage &amp; Legit</h3><p>Separate aim and triggerbot profiles with target filters, hitbox selection, aim keys, FOV circles, snaplines and target dots. Explore lock-on, silent modes, smoothing, recoil and spread controls during local testing.</p></section><section><h3>World &amp; View</h3><p>Tint world materials, props and sky. Adjust camera FOV, viewmodel FOV and X/Y/Z offsets, or use third person with camera distance and shoulder controls.</p></section><section><h3>Movement &amp; overlays</h3><p>Bunnyhop and auto-strafe controls pair with radar, movement telemetry, hotkey displays and an FPS watermark. Give features their own keys and colors.</p></section><section><h3>Lua, configs &amp; languages</h3><p>Build custom pages, overlays and tools with the Lua editor and L4D host API. Save profiles, select from 23 language catalogs, and adjust menu text, UI and overlay scale independently.</p></section></div>
 <p><a href="/features-list/l4d-features/">View all features</a> · <a href="/docs/l4d/">Read the L4D Lua API</a></p>
 <section class="gmod-setup"><h3>Getting started</h3><ol><li>Sign into the Scooby Loader with an existing paid account or a valid free key. New users can choose <strong>Get Free Key</strong> above.</li><li>Open <strong>Left 4 Dead</strong> in the loader, then choose <strong>Start Game → Left 4 Dead 1</strong> or <strong>Left 4 Dead 2</strong>.</li><li>Wait for the selected game to reach its menu and appear in the dashboard.</li><li>Choose <strong>Load</strong>, start a local single-player map, and press <strong>Insert</strong>.</li></ol><p><a href="/guides/l4d/getting-started/">Full setup guide →</a></p></section>
-<section class="gmod-faq"><h3>Common questions</h3><details><summary>Do I need an L4D subscription?</summary><p>No. L4D is included with any authenticated paid account or valid free-key session. Existing free keys retain their normal expiration.</p></details><details><summary>Does it support both games?</summary><p>Yes, through separate verified adapters in one 32-bit module. Choose the desired game in the loader; it automatically selects a newly detected single running game.</p></details><details><summary>Which renderers are available?</summary><p>The Windows game integration uses Direct3D 9. Vulkan/DXVK can be used when the installed game provides that renderer. The OpenGL UI backend and preview are available for verified compatible ports; stock Windows L4D installations do not provide a native OpenGL game renderer.</p></details><details><summary>Can I write custom Lua features?</summary><p>Yes. The <a href="/docs/l4d/">API reference</a> covers snapshots, infected and pickup queries, projected boxes, bones, rendering, hotkeys and custom controls. Lua reads copied game data; scripts do not run as the game's VScript engine.</p></details></section></div></div></div>
+<section class="gmod-faq"><h3>Common questions</h3><details><summary>Do I need an L4D subscription?</summary><p>No. L4D is included with any authenticated paid account or valid free-key session. Existing free keys retain their normal expiration.</p></details><details><summary>Does it support both games?</summary><p>Yes, through separate verified adapters in one 32-bit module. Choose the desired game in the loader; it automatically selects a newly detected single running game.</p></details><details><summary>Which renderers are available?</summary><p>The Windows game integration uses Direct3D 9. Vulkan/DXVK can be used when the installed game provides that renderer. The OpenGL UI backend and preview are available for verified compatible ports; stock Windows L4D installations do not provide a native OpenGL game renderer.</p></details><details><summary>Can I write custom Lua features?</summary><p>Yes. The <a href="/docs/l4d/">API reference</a> covers snapshots, infected and pickup queries, projected boxes, bones, rendering, hotkeys and custom controls. Lua reads copied game data; scripts do not run as the game's VScript engine.</p></details></section></div></div></main>
     <!-- Free Key Modal -->
     <div class="freekey-modal-overlay" id="freeKeyModal" role="dialog" aria-modal="true" aria-labelledby="free-key-title">
         <div class="freekey-modal">
@@ -525,17 +489,7 @@
             }
         });
     </script>
-    <script>
-    (function(){var n=document.getElementById('nav');window.addEventListener('scroll',function(){n.classList.toggle('scrolled',window.scrollY>60);},{passive:true});})();
-    function setMenuOpen(open) {
-        document.getElementById('navLinks').classList.toggle('mobile-open', open);
-        document.getElementById('hamburgerBtn').setAttribute('aria-expanded', String(open));
-    }
-    function toggleMenu() { setMenuOpen(!document.getElementById('navLinks').classList.contains('mobile-open')); }
-    document.querySelectorAll('#navLinks a').forEach(function(a) { a.addEventListener('click', function() { setMenuOpen(false); }); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') setMenuOpen(false); });
-    window.matchMedia('(max-width: 980px)').addEventListener('change', function(e) { if (!e.matches) setMenuOpen(false); });
-    </script>
+
 <script>/* scooby-file-guard: only fires when opened as a file, never over http */
 (function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
 </body>

@@ -1,3 +1,12 @@
 .l4d-page .hero-image{object-position:center;opacity:1;filter:none}.l4d-page .hero h1{letter-spacing:.03em}.l4d-four{color:#c33536}.l4d-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}.l4d-tags span{padding:7px 13px;border:1px solid #ffffff30;border-radius:99px;font-size:.8rem;background:#111b}.l4d-page code{color:#b8d8cb}.l4d-page .hero{min-height:450px}.l4d-art{position:relative}.l4d-art:after{content:"";position:absolute;inset:28% 8% 18%;background:url("/assets/images/l4d/logo.png") center/contain no-repeat;filter:invert(1) hue-rotate(180deg) saturate(6) drop-shadow(0 2px 8px #000);pointer-events:none}.l4d-art img{filter:brightness(.8)}
 
 .l4d-page .hero-bg{background:linear-gradient(180deg,rgba(8,8,8,.25),rgba(8,8,8,.55) 60%,var(--bg-primary))}
+
+/* Match the shared GTA 5 gallery proportions while retaining accessible buttons. */
+.l4d-page .screenshot-item {
+    aspect-ratio:16/9;
+}
+.l4d-page .screenshot-item img {
+    height:100%;
+    object-fit:cover;
+}

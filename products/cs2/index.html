@@ -203,55 +203,34 @@
   <link rel="stylesheet" href="/assets/css/mobile.css">
 <link rel="stylesheet" href="/assets/css/free-key-modal.css">
 <meta name="twitter:url" content="https://scoobymenu.cc/products/cs2/">
+    <link rel="stylesheet" href="/assets/css/product-layout.css">
+    <script src="/assets/js/product-layout.js" defer></script>
 </head>
-<body>
+<body class="product-detail">
+<a class="product-skip-link" href="#main-content">Skip to content</a>
     <!-- Navbar -->
-    <nav class="nav" id="nav">
+    <nav class="nav" id="product-nav" aria-label="Main navigation">
         <div class="nav-inner">
-            <a href="/" class="brand">
-                <span class="brand-name">SCOOBY</span>
-            </a>
+            <a href="/" class="brand"><span class="brand-name">SCOOBY</span></a>
+            <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="/">Home</a></li>
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#products">Pricing</a></li>
-                <li><a href="/videos">Videos</a></li>
-                <li><a href="https://discord.gg/tGtvzChYQq" target="_blank">Discord</a></li>
+                <li><a href="/features-list/cs2-features/">Features</a></li>
+                <li><a href="/guides/cs2/">Guide</a></li>
+                <li><a href="/videos/">Videos</a></li>
+                <li><a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li class="nav-download"><a href="/#download" class="btn-nav-primary">Download</a></li>
             </ul>
-            <div class="nav-actions">
-                <a href="https://discord.gg/tGtvzChYQq" class="btn-nav-ghost" target="_blank">Discord</a>
-                <a href="/#download" class="btn-nav-primary">Download</a>
-            </div>
-            <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="/products/images/backgrounds/cs2background.webp" alt="Counter-Strike 2" class="hero-image">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="badge-group">
-                <span class="product-badge free">Free Product</span>
-                            </div>
-            <h1>CS2 Mod Menu</h1>
-            <p>A free Counter-Strike 2 menu with configurable aim and recoil controls, ESP and chams, weapon skins and local inventory, custom models, world effects, and Click UI or List UI.</p>
-        </div>
-    </section>
     <!-- Main Content -->
-    <div class="main-content">
+    <main class="main-content" id="main-content">
+        <header class="product-heading"><h1>CS2 Mod Menu</h1><div class="product-heading-badges"><span class="product-status">Free Product</span></div></header>
+        <p class="product-intro">A free Counter-Strike 2 menu with configurable aim and recoil controls, ESP and chams, weapon skins and local inventory, custom models, world effects, and Click UI or List UI.</p>
         <div class="content-grid">
             <!-- Screenshots Section -->
-            <div class="screenshots-section">
-                <h2 class="section-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                    </svg>
-                    Screenshots
-                </h2>
+            <div class="screenshots-section" aria-label="Screenshots" role="region">
+
                 <div class="screenshot-gallery">
                     <div class="screenshot-item main" onclick="openLightbox(0)">
                         <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-skin-editor.webp" alt="Scooby CS2 skin changer editing an AK-47 with wear, seed, custom name and Katowice 2014 stickers">
@@ -306,49 +285,28 @@
             </div>
         </div>
         <!-- Video Section -->
-        <div class="video-section">
-            <h2 class="section-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-                Showcase Video
-            </h2>
+        <div class="video-section" role="region" aria-label="Showcase video">
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/YyzFFmWRIxM" title="Scooby CS2 Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
         <!-- Description Section -->
-        <div class="description-section">
-            <h2 class="section-title">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-                Product Description
-            </h2>
-            <div class="description-content">
-                <h3>Overview</h3>
-                <p>Scooby CS2 is a free menu for Counter-Strike 2 on Windows. Choose Click UI or List UI, configure your visuals and controls, and save your setup in a profile. The menu brings together aim assistance, cosmetic customization, local inventory tools, movement options and world effects.</p>
-                <p>Browse the <a href="/features-list/cs2-features/">full CS2 feature library</a> to search individual features and their settings.</p>
-                <h3>What you can customize</h3>
-                <ul>
-                    <li><strong>Aim and recoil controls</strong> — Configure aim FOV, smoothing, hitboxes, target checks and weapon-specific settings. Recoil compensation has separate vertical and horizontal controls, including a standalone mode.</li>
-                    <li><strong>Triggerbot</strong> — Set activation keys, delays, bursts and visibility checks, with flick-fire, prediction and auto-stop options.</li>
-                    <li><strong>ESP and chams</strong> — Customize player boxes, health and armor, skeletons, equipment and off-screen arrows. Set separate material styles for enemies, teammates, your own model, arms and weapons.</li>
-                    <li><strong>Skins and loadouts</strong> — Choose weapon finishes, knives, gloves and agents. Edit supported wear, pattern seeds, StatTrak counters, name tags, stickers, charms and agent patches.</li>
-                    <li><strong>Local inventory</strong> — Browse item categories, manage local items, apply team loadouts and use local case-opening tools.</li>
-                    <li><strong>Custom models</strong> — Select installed player and weapon models, configure the first-person view, and restore defaults when needed.</li>
-                    <li><strong>World visuals</strong> — View dropped items, grenade paths, timers, bomb information and hit feedback. Customize the skybox, fog, lighting, weather and particle colors.</li>
-                    <li><strong>Movement and camera</strong> — Configure bunny hop, edge jump, edge bug, auto strafe, third person and viewmodel adjustments.</li>
-                    <li><strong>Overlays and interface</strong> — Set up radar, a quick map, spectator and player lists, performance stats, keybinds and a custom crosshair. Customize themes, fonts, images and saved profiles.</li>
-                </ul>
-                <h3>Setup and updates</h3>
-                <p>Start with the <a href="/guides/cs2/">CS2 setup guide</a>. Custom models require installed model packs, and some features depend on the current game build. If a game update changes feature availability, check the <a href="/guides/cs2/cs2-updates/">CS2 update guide</a>.</p>
-            </div>
+        <div class="description-section" id="product-details">
+            <div class="product-section-heading"><div><span class="product-eyebrow">MAKE IT YOURS</span><h2 class="section-title">More control over every scene.</h2></div></div>
+            <div class="description-content"><p>Scooby CS2 is a free menu for Counter-Strike 2 on Windows. Choose Click UI or List UI, configure your visuals and controls, and save your setup in a profile. The menu brings together aim assistance, cosmetic customization, local inventory tools, movement options and world effects.</p><p>Browse the <a href="/features-list/cs2-features/">full CS2 feature library</a> to search individual features and their settings.</p><div class="product-feature-grid">
+                    <section><h3>Aim and recoil controls</h3><p>Configure aim FOV, smoothing, hitboxes, target checks and weapon-specific settings. Recoil compensation has separate vertical and horizontal controls, including a standalone mode.</p></section>
+                    <section><h3>Triggerbot</h3><p>Set activation keys, delays, bursts and visibility checks, with flick-fire, prediction and auto-stop options.</p></section>
+                    <section><h3>ESP and chams</h3><p>Customize player boxes, health and armor, skeletons, equipment and off-screen arrows. Set separate material styles for enemies, teammates, your own model, arms and weapons.</p></section>
+                    <section><h3>Skins and loadouts</h3><p>Choose weapon finishes, knives, gloves and agents. Edit supported wear, pattern seeds, StatTrak counters, name tags, stickers, charms and agent patches.</p></section>
+                    <section><h3>Local inventory</h3><p>Browse item categories, manage local items, apply team loadouts and use local case-opening tools.</p></section>
+                    <section><h3>Custom models</h3><p>Select installed player and weapon models, configure the first-person view, and restore defaults when needed.</p></section>
+                    <section><h3>World visuals</h3><p>View dropped items, grenade paths, timers, bomb information and hit feedback. Customize the skybox, fog, lighting, weather and particle colors.</p></section>
+                    <section><h3>Movement and camera</h3><p>Configure bunny hop, edge jump, edge bug, auto strafe, third person and viewmodel adjustments.</p></section>
+                    <section><h3>Overlays and interface</h3><p>Set up radar, a quick map, spectator and player lists, performance stats, keybinds and a custom crosshair. Customize themes, fonts, images and saved profiles.</p></section>
+                    <section><h3>Setup and updates</h3><p>Start with the <a href="/guides/cs2/">CS2 setup guide</a>. Custom models require installed model packs, and some features depend on the current game build. If a game update changes feature availability, check the <a href="/guides/cs2/cs2-updates/">CS2 update guide</a>.</p></section>
+                </div></div>
         </div>
-    </div>
+    </main>
     <!-- Free Key Modal -->
     <div class="freekey-modal-overlay" id="freeKeyModal" role="dialog" aria-modal="true" aria-labelledby="free-key-title">
         <div class="freekey-modal">
@@ -521,11 +479,7 @@
             }
         });
     </script>
-    <script>
-    (function(){var n=document.getElementById('nav');window.addEventListener('scroll',function(){n.classList.toggle('scrolled',window.scrollY>60);},{passive:true});})();
-    function toggleMenu(){var l=document.getElementById('navLinks');l.classList.toggle('mobile-open');document.body.style.overflow=l.classList.contains('mobile-open')?'hidden':'';}
-    document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
-    </script>
+
 <script>/* scooby-file-guard: only fires when opened as a file, never over http */
 (function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
 </body>

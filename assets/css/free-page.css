@@ -40,3 +40,8 @@
 @media(max-width:960px) { .free-page .content-grid { grid-template-columns:1fr; } .free-page .sidebar { position:static; grid-row:1; } .free-page .purchase-card .features-list { display:none; } }
 @media(max-width:600px) { .free-page .main-content { padding:0 18px 40px; } .free-page .hero { padding:35px 20px; margin-bottom:26px; } .free-safety-notice>div { padding:13px 18px; align-items:flex-start; gap:12px; } .free-safety-notice p { display:block; } .free-safety-notice span { display:block; margin-top:5px; line-height:1.5; } .free-page .included-products { grid-template-columns:1fr; } .free-page .how-it-works,.free-page .important-notes { padding:20px; } }
 @media(prefers-reduced-motion:reduce) { .free-page .included-product-card { transition:none; transform:none; } }
+
+/* Game logos over the existing catalog artwork. */
+.free-game-art { position:relative; overflow:hidden; }
+.free-game-art .free-game-logo { position:absolute; inset:15% 22%; width:56%; height:70%; object-fit:contain; filter:brightness(0) invert(1) drop-shadow(0 2px 7px #000b); pointer-events:none; }
+.free-game-art .free-game-logo.is-l4d { inset:23% 10%; width:80%; height:54%; filter:invert(1) hue-rotate(180deg) saturate(6) drop-shadow(0 2px 8px #000); }
