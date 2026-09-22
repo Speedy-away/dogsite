@@ -1,141 +1,57 @@
-# SEO — getting scoobymenu.cc into search results
+# Bing search identity for Scooby Mod Menu
 
-## The honest summary
+The official domain configured in `CNAME`, canonical tags and the sitemap is **https://scoobymenu.cc/**. The homepage identifies that domain in its title, description, visible badge, heading, download guidance and footer. Open Graph, Twitter and application description metadata use the same wording through `tools/seo-metadata.js`.
 
-The site was **not blocked** from being indexed — `robots.txt` allows everything, there is no `noindex` on content pages, and every page ships real HTML that crawlers can read without running JavaScript. So nothing here was stopping you appearing.
+These are local changes until published. Bing chooses its own search titles and snippets, and a recrawl does not guarantee a ranking change or removal of another domain.
 
-What was missing was the technical groundwork that makes crawling reliable, plus **the submission step, which nobody can do for you from the codebase**. See *What you still have to do* at the bottom — that part matters more than everything else on this page.
+## What the site already provides
 
----
+- `robots.txt` allows crawling and links to `https://scoobymenu.cc/sitemap.xml`.
+- The homepage serves its content as HTML, has an indexable robots tag and uses a self-referencing canonical URL.
+- `Organization` and `WebSite` structured data describe the brand. `sameAs` references the official Discord and Telegram accounts.
 
-## How DuckDuckGo actually works
+Structured data is a description, not ownership verification. Anyone can copy markup or profile links. Keep those links accurate and make sure the official profiles link back to `scoobymenu.cc`; do not add unverified profiles or other domains to `sameAs`.
 
-DuckDuckGo does **not** run its own web crawl of any real size. Its results come mostly from **Bing's index**, topped up with its own crawler (DuckDuckBot) and other sources.
+## After publishing
 
-That means:
+1. Open [Bing Webmaster Tools](https://www.bing.com/webmasters) and select or verify `https://scoobymenu.cc/`. Use a real verification tag, file or DNS value supplied by Bing; the repository alone cannot establish account ownership.
+2. Submit `https://scoobymenu.cc/sitemap.xml` in Sitemaps.
+3. Inspect `https://scoobymenu.cc/` with URL Inspection. Check the live response, crawl errors, index status and selected canonical URL; request indexing if available.
+4. Check Search Performance for `scooby mod menu` and related branded queries. Use account reports to diagnose indexing; an empty `site:` search is not conclusive.
+5. Link to the official domain from the official Discord, Telegram and reseller profiles you control. Those account edits are separate from this repository change.
 
-> **To appear on DuckDuckGo, you need to be in Bing.**
-> Submitting to Bing Webmaster Tools is the single highest-impact action available.
+IndexNow is optional: it notifies participating engines about changed URLs. It requires a publicly hosted key file and does not guarantee crawling, indexing or ranking. There is no IndexNow submission implemented by this change.
 
-The same applies to Yahoo and Ecosia, which are also Bing-backed. Google is a separate index and needs its own submission.
+## Report the two domains in the screenshot
 
----
+The owner identified `scoobymenu.net` and `scoobymenu.live` as fake sites in Bing results for `scooby mod menu`. The supplied screenshot shows both using Scooby branding. A read-only inspection of `.net` also showed homepage sections and text matching Scooby's site. These observations do not establish what the downloaded software does.
 
-## What was fixed
+Use Microsoft's [Report a Concern](https://www.microsoft.com/digitalsafety/report-a-concern), linked from [Bing's reporting instructions](https://support.microsoft.com/en-us/bing/how-to-report-a-concern-or-contact-bing). Select the category that matches the evidence. Include the exact result URLs, search query, screenshot, date observed and proof that you control the official site. Bing decides whether action is appropriate; reporting does not guarantee removal.
 
-| Problem | Fix |
-| --- | --- |
-| 10 pages missing from `sitemap.xml` | Sitemap regenerated from the filesystem — **22 → 29 URLs** |
-| `lastmod` dates were hand-written and stale (all `2026-06-12`) | Now taken from each file's **last git commit date** |
-| Login-gated `/portal/` was indexable | `noindex, nofollow` added, and excluded from the sitemap |
-| `freekey.html` had no canonical and no meta description | Both added |
-| `/store/` had **no `<h1>`** at all | Page header added (the CSS for it already existed, unused) |
-| `/docs/` had **two `<h1>`s** | Second demoted to `<h2>` |
-| No 404 page — GitHub Pages served a generic one | [404.html](404.html) added, `noindex, follow` so link equity still flows |
+### Report draft for the owner
 
-Verified in a real browser across 15 pages: **every indexable page has a title, meta description, canonical URL and exactly one `<h1>`**, and 0 pages have problems.
+> Bing results for "scooby mod menu" show https://scoobymenu.net/ and https://scoobymenu.live/ using our Scooby name and branding. Our official website is https://scoobymenu.cc/. The two reported domains are unaffiliated with us and can mislead people seeking our downloads and support. Please review the results for impersonation and misleading content. We can provide proof of control of the official domain, the attached search-results screenshot and examples of matching content.
 
-### One thing worth knowing
+Attach the screenshot and ownership evidence when submitting. This draft has not been submitted. Requests concerning another site's downloads need evidence specific to those files; a copied page alone does not prove malware.
 
-The language system hides the page body for a moment while a translation loads, to avoid a flash of English. That cloak only ever activates when a **stored language preference** exists — which a crawler never has. This was checked explicitly: `visibility: visible` on every page, no cloak class. **Crawlers see the full English content.**
+## Maintenance
 
----
+Edit homepage search copy in `tools/seo-metadata.js`; keep visible homepage copy consistent with it.
 
-## Keeping the sitemap current
-
-```bash
-node tools/seo-sitemap.js           # show what it would write, exit 1 if stale
-node tools/seo-sitemap.js --apply   # write sitemap.xml
+```sh
+node tools/seo-metadata.js           # audit all public page metadata
+node tools/seo-metadata.js --apply   # regenerate all covered pages; review the diff
+node tools/seo-sitemap.js            # audit the sitemap
+node tools/seo-sitemap.js --apply    # regenerate after page changes
 ```
 
-It walks the site, skips anything with a `noindex` tag or a meta-refresh redirect, pulls `lastmod` from git, and assigns priority/changefreq per section. Add a page, run it, done — no hand-editing.
+The sitemap generator uses each page's last Git commit date for `lastmod`. Regenerate after committing page changes when preparing a release. Excluded, redirect and account pages should stay excluded. The metadata audit may surface stale pages unrelated to an individual edit; review those separately.
 
-Because the no-argument form exits non-zero when the file is out of date, it works as a CI or pre-commit check.
+## Sources
 
----
-
-## What you still have to do
-
-None of this can be done from the repository — it needs access to your accounts. **This is the part that actually gets you indexed.**
-
-### 1. Bing Webmaster Tools — this is the one that matters for DuckDuckGo
-
-1. Go to <https://www.bing.com/webmasters>
-2. Add `https://scoobymenu.cc`
-3. Verify ownership. Easiest for GitHub Pages: choose the **HTML meta tag** method and paste the tag into `<head>` of [index.html](index.html) — I can wire it in for you.
-4. Submit `https://scoobymenu.cc/sitemap.xml`
-5. Use **URL Inspection → Request Indexing** on the homepage
-
-Bing also supports **IndexNow**, which pushes updates instantly instead of waiting for a crawl. If you want it, generate a key in Webmaster Tools and I'll add the key file and a submit script.
-
-### 2. Google Search Console
-
-1. <https://search.google.com/search-console>
-2. Add the property, verify (same HTML-tag method works)
-3. Submit the sitemap, then **Request Indexing** on the homepage
-
-### 3. Expect it to take time
-
-Indexing is not instant. A new domain typically takes **days to a few weeks** to appear, and ranking for competitive terms takes longer. If nothing shows after ~2 weeks, check Bing/Google Search Console for crawl errors rather than assuming it's broken.
-
-### 4. Check whether you are already indexed
-
-```
-site:scoobymenu.cc
-```
-
-Run that on DuckDuckGo, Bing and Google. Nothing returned means not indexed yet — go do step 1.
-
----
-
-## Fake sites outranking you
-
-This is a brand-authority problem, not a technical one, and it is worth being clear about what does and doesn't move it.
-
-### What was added
-
-The homepage now carries `Organization` and `WebSite` structured data whose `sameAs` field points at your official Discord and Telegram. That is the main mechanism search engines use to decide **which domain is the real Scooby**. Impersonators can copy your text and design, but they cannot claim accounts they do not control — so the entity link is the one thing they can't fake.
-
-Only two profiles are listed because those are the only official accounts. If a YouTube channel is ever created, add it to `sameAs` in [index.html](index.html) and to the footer — more verified profiles means a stronger entity signal.
-
-`alternateName` also declares the search variants people actually type — "Scooby Menu", "Scooby Mod Menu", "scoobymenu", "ScoobyOnTop" — so those queries resolve to this domain rather than to whoever happens to have the phrase in their title tag.
-
-**Keep `sameAs` in sync with the footer.** If the Discord invite changes, update it in both places, or the signal weakens.
-
-### What actually beats impersonators
-
-Ranked by real-world impact:
-
-1. **Own the entity.** Every official channel should link back to `scoobymenu.cc` — the Discord server description and channel topic, and the Telegram bio. Search engines cross-check those links against `sameAs`. A reciprocal link is far stronger than a one-way declaration.
-2. **Be the source people link to.** Post the guides URL in your Discord instead of pasting instructions. Fakes rarely accumulate genuine inbound links.
-3. **Report them.** They usually violate somebody's terms:
-   - Google: [Search spam report](https://search.google.com/search-console/report-spam) and [phishing report](https://safebrowsing.google.com/safebrowsing/report_phish/)
-   - Bing / DuckDuckGo: report via [Bing Webmaster Tools](https://www.bing.com/webmasters) once verified
-   - The host or registrar: nearly all have an abuse contact, and copied branding is a straightforward trademark/DMCA complaint
-   - Cloudflare, if they sit behind it: <https://abuse.cloudflare.com>
-4. **Make "official" obvious to humans.** Your [resellers page](resellers/index.html) already does this. Linking it prominently and stating the official domain plainly gives users a way to check, which reduces the damage even while a fake still ranks.
-
-### What will not work
-
-Nothing you do on your own site removes a competitor from the index — only the search engine or the fake's host can. Anyone promising otherwise is selling something. Similarly, attacking or overloading those sites is both illegal and counter-productive; the reporting routes above are the effective path.
-
-Expect this to be ongoing rather than a one-time fix: scam clones in this niche reappear under new domains. The durable defence is that your entity signals and community links stay stronger than theirs.
-
----
-
-## Realistic expectations for this niche
-
-Worth saying plainly: game-cheat and mod-menu sites have a harder time in search than most. Search engines apply extra scrutiny to the category, some sites in it get filtered or demoted regardless of technical quality, and ad networks and hosts can be twitchy about it. Clean markup and a valid sitemap remove every *technical* reason not to index you — they cannot override an editorial or policy decision.
-
-The things that move the needle after submission are ordinary: inbound links from places that already rank (your Discord, YouTube descriptions, community posts), genuinely useful pages (the guides are your strongest asset here), and consistent uptime.
-
----
-
-## Files
-
-| File | Purpose |
-| --- | --- |
-| [robots.txt](robots.txt) | Allows all crawlers, points to the sitemap |
-| [sitemap.xml](sitemap.xml) | 29 indexable URLs — generated, don't hand-edit |
-| [404.html](404.html) | Branded not-found page |
-| [tools/seo-sitemap.js](tools/seo-sitemap.js) | Regenerates the sitemap |
+- [Bing Webmaster Guidelines](https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a)
+- [Bing: Add and verify a site](https://www2.bing.com/webmasters/help/add-and-verify-site-12184f8b)
+- [Bing: Sitemaps](https://www2.bing.com/webmasters/help/sitemaps-3b5cf6ed)
+- [Bing: Structured data](https://www.bing.com/webmasters/help/marking-up-your-site-with-structured-data-3a93e731)
+- [Microsoft: Report a concern about Bing](https://support.microsoft.com/en-us/bing/how-to-report-a-concern-or-contact-bing)
+- [IndexNow FAQ](https://www.indexnow.org/faq)
