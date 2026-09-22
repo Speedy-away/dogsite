@@ -1,0 +1,29 @@
+{
+  "mode": "built-in imagegen",
+  "assets": [
+    {
+      "asset": "source-collection-hero-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: wide cinematic website hero, approximately 16:9. Create original detailed promotional artwork for a Source Games collection, combining Half-Life, Portal and Left 4 Dead environments. Gordon Freeman from Half-Life is the prominent character on the RIGHT third, waist-up, clearly recognizable glasses, goatee, orange-and-charcoal HEV suit with lambda chest emblem, holding a crowbar low at his side. Behind him a Black Mesa industrial complex transitions into a white Portal test chamber with a cyan oval portal and distant rain-soaked abandoned city streets with green lights. Sophisticated smoky charcoal, amber, ice blue and muted green lighting. Left 45 percent must be dark, quiet negative space for HTML heading and buttons; subject must not occupy left half. Rich concept illustration, cinematic environmental depth, crisp character, restrained atmosphere. No typography, no game title, no interface, no watermark, no gore. This is a website background, not a poster with text."
+    },
+    {
+      "asset": "portal-card-v1.png",
+      "prompt": "Use case: ads-marketing. Asset type: 16:9 website game card. Create an original polished Portal 1 & 2 promotional image. A luminous blue and orange portal pair facing across a white Aperture-style laboratory, a small companion cube on the floor, distant robotic test equipment, glossy panels, cinematic cyan and amber illumination on dark graphite architecture. Center a large sharp white PORTAL wordmark in the iconic wide-spaced geometric style with its O formed by a cyan oval portal; below add small clean text \"1 & 2\". Spell text exactly. Logo occupies central 60 percent of image width; keep outer 10 percent safe from text. High contrast readable at 350 pixel card width, sophisticated artwork, no white margins, no checkered background, no extra words, no watermark. Both games share one card."
+    },
+    {
+      "asset": "css-card-v1.png",
+      "prompt": "Create a wide 16:9 Counter-Strike: Source website card image. Original detailed game-environment artwork of a dusty sandstone alley with a stone archway and wooden crates. Warm ochre, olive and charcoal palette, classic Source game atmosphere. Prominent ivory Counter-Strike soldier silhouette emblem beside crisp centered title \"COUNTER-STRIKE\" with smaller \"SOURCE\" below. Fit the logo and all lettering inside 12 percent safe margins. Readable at thumbnail size, no extra text, no UI, no watermarks."
+    },
+    {
+      "asset": "dods-card-v1.png",
+      "prompt": "Create a wide 16:9 Day of Defeat: Source website card image. Original detailed environment artwork of a deserted 1940s European village street with a cobblestone road, stone arch, rubble, muted olive-gray fog, warm light through the clouds. Prominent centered cream military-stencil title \"DAY OF DEFEAT\" with smaller \"SOURCE\" below. Keep the lettering crisp, fully inside 12 percent safe margins and readable at thumbnail size. No characters, no symbols, no other text, no UI or watermark."
+    },
+    {
+      "asset": "tfc-background-v1.png",
+      "prompt": "Create a wide 16:9 website game card BACKGROUND. Original Team Fortress Classic-inspired courtyard: opposing red and blue concrete bases, covered wooden bridge over a water canal, late-1990s industrial game architecture reimagined as detailed environmental concept art. Warm light left, cool light right, dark charcoal center for a separate logo. No characters, no text, no logos, no watermarks. Strong architectural forms, atmospheric but readable at thumbnail size."
+    }
+  ],
+  "notes": [
+    "TF2 uses official Steam artwork after image generation did not produce a usable result.",
+    "Other cards combine supplied logos, existing site artwork and official Steam headers."
+  ]
+}

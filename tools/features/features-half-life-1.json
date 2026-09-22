@@ -1,0 +1,212 @@
+{
+  "game": "Half-Life 1",
+  "slug": "half-life-1",
+  "source": "Original Half-Life owner handoff, 2026-09-22. Visual acceptance and campaign validation are identified separately. No support claimed for other editions.",
+  "tabs": [
+    {
+      "name": "Visuals",
+      "categories": [
+        {
+          "name": "Visuals",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "halflife.ESP",
+                  "label": "Entity ESP",
+                  "desc": "Display supported received entities in the original Half-Life local game."
+                },
+                {
+                  "id": "halflife.boxes",
+                  "label": "Boxes",
+                  "desc": "Full or corner boxes with configurable appearance."
+                },
+                {
+                  "id": "halflife.names",
+                  "label": "Entity names",
+                  "desc": "Labels for supported stock models; NPC health and faction are not inferred."
+                },
+                {
+                  "id": "halflife.distance",
+                  "label": "Distance",
+                  "desc": "Distances displayed in metres."
+                },
+                {
+                  "id": "halflife.bones",
+                  "label": "Skeletons",
+                  "desc": "Animated bones for supported rendered studio models."
+                },
+                {
+                  "id": "halflife.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Connect supported entities to the selected screen anchor."
+                },
+                {
+                  "id": "halflife.radar",
+                  "label": "Radar",
+                  "desc": "A configurable overview of supported entity positions."
+                },
+                {
+                  "id": "halflife.categories",
+                  "label": "Entity categories",
+                  "desc": "Filter players, NPCs, weapons, items and projectiles."
+                },
+                {
+                  "id": "halflife.interactables",
+                  "label": "Interactables",
+                  "desc": "Optional doors, buttons, chargers, breakables and lifts from supported BSP data."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Materials",
+      "categories": [
+        {
+          "name": "Materials",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "halflife.styles",
+                  "label": "Material styles",
+                  "desc": "Tinted, Flat, Wireframe and Additive OpenGL passes."
+                },
+                {
+                  "id": "halflife.colors",
+                  "label": "Visible and occluded colors",
+                  "desc": "Independent model colors for visible and hidden passes."
+                },
+                {
+                  "id": "halflife.animation",
+                  "label": "Animated chams",
+                  "desc": "Pulse, Color fade and Rainbow, with speed and strength controls."
+                },
+                {
+                  "id": "halflife.viewmodel",
+                  "label": "First-person weapon",
+                  "desc": "Optional material treatment for the first-person weapon."
+                },
+                {
+                  "id": "halflife.grading",
+                  "label": "Color grading",
+                  "desc": "A configurable whole-frame tint, including the stock HUD."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interface & Lua",
+      "categories": [
+        {
+          "name": "Interface & Lua",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "halflife.profiles",
+                  "label": "Saved profiles",
+                  "desc": "Save and restore menu preferences in scoped profiles."
+                },
+                {
+                  "id": "halflife.hotkeys",
+                  "label": "Feature hotkeys",
+                  "desc": "Bind frequently used controls through the shared menu."
+                },
+                {
+                  "id": "halflife.appearance",
+                  "label": "Appearance",
+                  "desc": "Customize menu colors, fonts and scale."
+                },
+                {
+                  "id": "halflife.languages",
+                  "label": "Language packs",
+                  "desc": "Shared UI translations with English fallback; product-specific translations are incomplete."
+                },
+                {
+                  "id": "halflife.lua",
+                  "label": "Lua pages",
+                  "desc": "Local sandboxed UI and configuration scripting."
+                },
+                {
+                  "id": "halflife.session",
+                  "label": "Session and entity API",
+                  "desc": "Read copied supported Half-Life session and entity information without engine pointers."
+                },
+                {
+                  "id": "halflife.stop",
+                  "label": "Stop",
+                  "desc": "Stop active features and restore owned input routing; restart the game to replace the DLL."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Campaign",
+      "categories": [
+        {
+          "name": "Campaign",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "halflife.godmode",
+                  "label": "Godmode",
+                  "desc": "Verified for the original Windows local campaign. Prevent player damage and restore normal behavior on disable."
+                },
+                {
+                  "id": "halflife.noclip",
+                  "label": "Noclip",
+                  "desc": "Verified for the original Windows local campaign. Local campaign movement with state restoration."
+                },
+                {
+                  "id": "halflife.ammo",
+                  "label": "Infinite ammo",
+                  "desc": "Verified for the original Windows local campaign. Reserve ammunition controls for supported weapons."
+                },
+                {
+                  "id": "halflife.reload",
+                  "label": "No reload",
+                  "desc": "Verified for the original Windows local campaign. Magazine refill; melee and clipless weapons are handled separately."
+                },
+                {
+                  "id": "halflife.run",
+                  "label": "Super run",
+                  "desc": "Verified for the original Windows local campaign. Adjustable local campaign movement speed."
+                },
+                {
+                  "id": "halflife.jump",
+                  "label": "Jump controls",
+                  "desc": "Verified for the original Windows local campaign. Campaign jump multiplier."
+                },
+                {
+                  "id": "halflife.vitals",
+                  "label": "Health and armor",
+                  "desc": "Verified for the original Windows local campaign. Restore the local campaign playerâ€™s health and armor."
+                },
+                {
+                  "id": "halflife.spawn",
+                  "label": "Spawners",
+                  "desc": "Verified for the original Windows local campaign. Supported items, weapons and NPCs with bounded placement and cleanup."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

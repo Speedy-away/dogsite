@@ -1,0 +1,20 @@
+.source-placeholder{--source-accent:#f8a14b;--product-accent:#f8a14b;background:radial-gradient(ellipse at 15% 20%,#c47a1d12,transparent 55%),#0a0c11}
+.source-placeholder .main-content{max-width:1240px;min-height:calc(100vh - 110px);padding:125px 28px 64px}
+.source-placeholder .source-breadcrumb{font-size:13px;margin-bottom:34px;line-height:1.6}
+.source-placeholder .source-kicker{font-size:11px;letter-spacing:.13em;line-height:1.6}
+.source-placeholder .product-heading{margin-top:14px;gap:18px}
+.source-placeholder .product-heading h1{font-size:clamp(28px,4vw,43px)}
+.source-placeholder .product-intro{font-size:15px;color:#aeb8c4;max-width:790px;margin-bottom:32px}
+.placeholder-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);gap:26px;align-items:stretch}
+.placeholder-art{margin:0;position:relative;isolation:isolate;aspect-ratio:16/9;min-width:0;overflow:hidden;border-radius:16px;border:1px solid #ffffff1b;background:#11171e;display:flex;align-items:center;justify-content:center}
+.placeholder-art::before{content:"";position:absolute;inset:-12px;z-index:-1;background-image:var(--placeholder-scene);background-size:cover;background-position:center;filter:blur(7px) brightness(.5)}
+.placeholder-art img{display:block;width:100%;height:100%;object-fit:contain}
+.placeholder-art.logo img{width:70%;height:68%;filter:drop-shadow(0 4px 12px #0009)}
+.placeholder-details{padding:32px;border:1px solid #ffffff1b;border-radius:16px;background:linear-gradient(140deg,#f8a14b08,transparent),#12161e;display:flex;flex-direction:column;align-items:flex-start}
+.placeholder-details h2{font-size:clamp(27px,3vw,36px);line-height:1.12;letter-spacing:-.04em;margin:16px 0 18px}
+.placeholder-details p{font-size:14px;line-height:1.8;color:#aeb8c4;margin:0 0 24px}
+.placeholder-details p.placeholder-editions{font-size:13px;color:#d4dce6;margin-top:0}
+.source-placeholder .placeholder-details .purchase-btn{margin: auto 0 0;min-height:48px;padding:14px 18px;display:flex;gap:16px;text-transform:none;letter-spacing:0;font-size:13px;width:100%;justify-content:space-between}
+@media(max-width:900px){.placeholder-layout{grid-template-columns:1fr}.placeholder-details{padding:28px}.placeholder-details h2 br{display:none}.placeholder-details .purchase-btn{max-width:310px}.placeholder-art{max-height:520px}}
+@media(max-width:580px){.source-placeholder .main-content{padding:105px 20px 40px}.source-placeholder .source-breadcrumb{margin-bottom:26px}.source-placeholder .product-heading{gap:12px}.source-placeholder .product-heading h1{font-size:29px;overflow-wrap:anywhere}.source-placeholder .product-intro{font-size:14px}.placeholder-layout{gap:20px}.placeholder-details{padding:26px 22px}.placeholder-details h2{font-size:28px}.source-placeholder .source-footer{font-size:12px;gap:20px}}
+@media(prefers-reduced-motion:reduce){html.source-placeholder-document{scroll-behavior:auto}}

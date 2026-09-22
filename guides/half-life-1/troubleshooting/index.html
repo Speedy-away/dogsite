@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Troubleshooting · Half-Life 1 - Scooby Wiki</title>
+<meta name="description" content="Resolve edition mismatches, unavailable controls and missing assets.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/half-life-1/troubleshooting/">
+<meta property="og:title" content="Troubleshooting · Half-Life 1 - Scooby Wiki">
+<meta property="og:description" content="Resolve edition mismatches, unavailable controls and missing assets.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Troubleshooting · Half-Life 1 - Scooby Wiki">
+<meta name="twitter:description" content="Resolve edition mismatches, unavailable controls and missing assets.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta name="keywords" content="Scooby Menu, Half-Life 1, HL1, GoldSrc, Source Games, Half Life mod menu, Half-Life ESP, animated chams, Lua, campaign, godmode, noclip, Half-Life guide, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, Half-Life screenshots">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/half-life-1/troubleshooting/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/half-life-1/troubleshooting/">
+
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand" href="/guides/">Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details>
+<summary>GTA 5</summary>
+<a class="sidebar-overview" href="/guides/gta5/">Overview</a>
+<a href="/guides/gta5/introduction/">Introduction</a>
+<a href="/guides/gta5/first-time/">First Time Setup</a>
+<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
+<a href="/guides/gta5/outfits/">Modding Outfits</a>
+<a href="/guides/gta5/vehicles/">Modding Vehicles</a>
+<a href="/guides/gta5/money/">Money Making Methods</a>
+<a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
+<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>FiveM</summary>
+<a class="sidebar-overview" href="/guides/fivem/">Overview</a>
+<a href="/guides/fivem/fivem-requirements/">Requirements</a>
+<a href="/guides/fivem/fivem-inject/">How to Inject</a>
+<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>RedM</summary>
+<a class="sidebar-overview" href="/guides/redm/">Overview</a>
+<a href="/guides/redm/redm-requirements/">Requirements</a>
+<a href="/guides/redm/redm-inject/">How to Inject</a>
+<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>Red Dead Redemption 2</summary>
+<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
+<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
+<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
+<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
+<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+</details>
+<details>
+<summary>Counter-Strike 2</summary>
+<a class="sidebar-overview" href="/guides/cs2/">Overview</a>
+<a href="/guides/cs2/cs2-requirements/">Requirements</a>
+<a href="/guides/cs2/cs2-inject/">How to Inject</a>
+<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+</details>
+<details>
+<summary>S&amp;box (Sandbox)</summary>
+<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
+<a href="/guides/sbox/requirements/">Requirements</a>
+<a href="/guides/sbox/getting-started/">Getting started</a>
+<a href="/guides/sbox/menu-settings/">Menu settings</a>
+<a href="/guides/sbox/troubleshooting/">Troubleshooting</a>
+</details>
+<details open>
+<summary>Garry's Mod (GMOD)</summary>
+<a class="sidebar-overview" href="/guides/gmod/">Overview</a>
+<a href="/guides/gmod/requirements/">Requirements</a>
+<a href="/guides/gmod/getting-started/">Getting started</a>
+<a href="/guides/gmod/menu-settings/">Menu settings</a>
+<a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>General help</summary>
+<a class="sidebar-overview" href="/guides/general/">Overview</a>
+<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/free-key/">Getting a Free Key</a>
+<a href="/guides/general/crashing/">Crashing Solutions</a>
+<a href="/guides/general/universal/">Universal Troubleshooting</a>
+<a href="/guides/general/connection/">Connection or SSL Errors</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
+<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+</details>
+<details>
+<summary>The Last of Us</summary>
+<a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
+<a href="/guides/last-of-us/requirements/">Requirements</a>
+<a href="/guides/last-of-us/getting-started/">Getting started</a>
+<a href="/guides/last-of-us/menu-settings/">Menu settings</a>
+<a href="/guides/last-of-us/troubleshooting/">Troubleshooting</a>
+</details>
+<details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
+<details data-source-games-nav open><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a></details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/source-games/">Source Games</a></div><h1>Troubleshooting · Half-Life 1</h1><p class="article-intro">Resolve edition mismatches, unavailable controls and missing assets.</p><div class="guide-card" id="troubleshooting"><h2 class="sr-only">Troubleshooting</h2><h2>Which games share this guide?</h2><p>Half-Life 1, Half-Life: Blue Shift, Half-Life: Opposing Force and Half-Life: Source belong to the same Half-Life 1 collection in Scooby. Use the version dropdown to match your installed edition.</p><h2>Which files should I use?</h2><p>Half-Life 1, Blue Shift, Opposing Force and Half-Life: Source are supported editions. Select your installed game and use its matching files. Sharing the product page does not make edition-specific game files interchangeable.</p><h2>The Load action is unavailable</h2><p>The original Windows campaign package has passed its runtime checks. Authenticated loader package integration is still pending. A DLL in the distribution folder is not a released loading option.</p><h2>Missing text, fonts or Lua pages</h2><p>Keep the matching module, fonts, languages and Lua assets together. Keep your writable profiles separate from the package and preserve them when updating.</p><h2>Features stop after leaving a map</h2><p>Session-bound visuals clear when their supported local game session ends. Load a supported local map and check the status before enabling features again.</p><h2>Need more help?</h2><p>Include the selected edition, Steam build, renderer and loader status when contacting support. Never include passwords or access keys.</p></div><p><a href="/guides/half-life-1/">← All Half-Life 1 topics</a></p><footer class="wiki-footer"><span>Scooby Wiki</span><div><a href="/products/half-life-1/">Half-Life 1 product</a><a href="/features-list/half-life-1-features/">View all features</a></div></footer></main>
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+</body>
+</html>

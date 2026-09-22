@@ -20,16 +20,12 @@
             card.hidden = !(category === 'all' || card.dataset.category.split(' ').includes(category)) || !words.every(word => text.includes(word));
         });
         const count = cards.filter(card => !card.hidden).length;
-        document.getElementById('catalog-count').textContent = `${count} product${count === 1 ? '' : 's'}${category === 'all' && !search.value ? ' · Find your fit' : ' found'}`;
+        document.getElementById('catalog-count').textContent = `${count} option${count === 1 ? '' : 's'}${category === 'all' && !search.value ? ' · Free and premium' : ' found'}`;
         document.getElementById('empty-state').hidden = count !== 0;
-        document.getElementById('available-heading').hidden = !cards.some(card => !card.hidden && card.dataset.product !== 'gta5' && !card.dataset.category.includes('upcoming'));
-        document.getElementById('upcoming-heading').hidden = !cards.some(card => !card.hidden && card.dataset.category.includes('upcoming'));
+        document.querySelectorAll('[data-catalog-section]').forEach(section => {
+            section.hidden = ![...section.querySelectorAll('[data-product]')].some(card => !card.hidden);
+        });
         document.querySelectorAll('.product-grid').forEach(grid => { grid.hidden = ![...grid.children].some(card => !card.hidden); });
-        // The free category links directly to the free option instead of foregrounding a paid checkout.
-        document.getElementById('gta-checkout').hidden = category === 'free';
-        document.querySelector('.plan-options').hidden = category === 'free';
-        document.querySelector('.plan-heading h3').textContent = category === 'free' ? 'Try GTA 5 for free' : 'Choose your edition';
-        document.querySelector('.plan-heading p').textContent = category === 'free' ? 'A free key is required. See the guide for limitations.' : 'A lifetime license. One payment.';
     };
     filters.forEach(button => button.addEventListener('click', () => {
         category = button.dataset.filter;
@@ -37,6 +33,7 @@
         updateCatalogue();
     }));
     search.addEventListener('input', updateCatalogue);
+    updateCatalogue();
     document.getElementById('reset-filters').addEventListener('click', () => { search.value = ''; filters[0].click(); search.focus(); });
 
     const gtaCheckout = document.getElementById('gta-checkout');

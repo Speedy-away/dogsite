@@ -1,0 +1,25 @@
+/* Original game-inspired loading-screen scenery, shared by all portal routes. */
+body.portal-modern { isolation:isolate; }
+.portal-backgrounds { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; background:#11151b; }
+.portal-background-scene { position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease-in-out; }
+.portal-background-scene.is-active { opacity:1; }
+.portal-background-scene img { width:100%; height:100%; max-width:none; object-fit:cover; object-position:center; }
+.portal-background-scene.is-active img, .portal-background-scene.is-leaving img { animation:portal-background-drift 14s linear both; }
+.portal-background-scene[data-scene="rdr-overlook"] img { object-position:75% center; animation-direction:reverse; }
+.portal-background-scene[data-scene="cs2-ancient-v2"] img, .portal-background-scene[data-scene="l4d2-parish"] img, .portal-background-scene[data-scene="gmod-construct"] img { object-position:85% center; }
+.portal-backgrounds.is-paused img { animation-play-state:paused; }
+.portal-backgrounds::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,#09090b75 0%,#09090b80 30%,#09090bc9 100%),linear-gradient(90deg,#09090b30,#09090b80 50%,#09090b30); transition:background .3s; }
+.auth-mode .portal-backgrounds::after { background:linear-gradient(180deg,#09090b55 0%,#09090b26 35%,#09090b9c 100%),linear-gradient(90deg,#09090b12,#09090b33 50%,#09090b12); }
+.portal-modern .portal-header { background:#0c0c0edb; backdrop-filter:blur(16px); }
+.portal-modern.auth-mode .portal-header { background:linear-gradient(#09090b85,#09090b30); border-bottom-color:#ffffff0d; backdrop-filter:blur(8px); }
+.portal-modern.auth-mode .auth-card { background:#101014ed; border-color:#ffffff26; box-shadow:0 24px 90px #0007; backdrop-filter:blur(20px); }
+.portal-modern .dashboard-eyebrow { color:#b8b5c0; }
+.portal-modern :is(.dashboard-heading p,.forum-heading p) { color:#c3c0cb; }
+.portal-modern :is(.dashboard-heading,.forum-heading) { text-shadow:0 2px 18px #000b; }
+@keyframes portal-background-drift { from { transform:scale(1.005) translate3d(.2%,0,0); } to { transform:scale(1.035) translate3d(-.5%,-.2%,0); } }
+@media(max-width:760px) {
+ .portal-background-scene img { object-position:65% center; }
+ .portal-background-scene[data-scene="rdr-overlook"] img { object-position:80% center; }
+ .auth-mode .portal-backgrounds::after { background:linear-gradient(180deg,#09090b40,#09090b66 50%,#09090bbb); }
+}
+@media(prefers-reduced-motion:reduce) { .portal-background-scene { transition:none; } .portal-background-scene img { animation:none !important; transform:none; } }

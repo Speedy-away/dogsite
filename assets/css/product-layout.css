@@ -27,7 +27,6 @@
 .product-detail .purchase-btn:not(.secondary):hover { background:var(--product-accent-hover); color:#192114; transform:translateY(-2px); }
 .product-detail .purchase-btn.secondary { background:transparent; border:1px solid var(--border-color); color:var(--text-primary); }
 .product-detail .purchase-btn.secondary:hover { border-color:var(--product-accent); background:#cadba00a; }
-.product-detail .features-list li { border-color:#ffffff12; }
 .product-detail .features-list svg { color:var(--product-accent); }
 .product-detail .description-section, .product-detail .video-section { padding:30px; background:var(--bg-card); border:1px solid var(--border-color); border-radius:16px; }
 .product-detail .description-content { color:#b5bdb1; }

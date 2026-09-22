@@ -1,5 +1,69 @@
 [
   {
+    "game": "Half-Life 1",
+    "title": "Getting started",
+    "text": "Getting started Download Scooby and sign in with your existing account. In the game selector, open Source Games → Half-Life 1 . All four games share the Half-Life 1 dashboard and this guide. Use Game version to choose Half-Life 1, Half-Life: Blue Shift, Half-Life: Opposing Force or Half-Life: Source. Match the installed edition. Use Start game to open the selected Steam title normally. Select OpenGL in the original game's video settings. Read the dashboard status. Half-Life and Opposing Force have verified native Windows builds. Blue Shift and Half-Life: Source are also supported editions in this collection. Module loading remains unavailable until the loader’s product access and package integration are connected. The dashboard also links to this guide, the full feature library and your selected edition's Scooby folder.",
+    "href": "/guides/half-life-1/getting-started/",
+    "tags": [
+      "half-life-1",
+      "HL1",
+      "Half Life",
+      "Half-Life",
+      "GoldSrc",
+      "Source Games",
+      "Opposing Force",
+      "Blue Shift"
+    ]
+  },
+  {
+    "game": "Half-Life 1",
+    "title": "Menu settings Visuals Materials Profiles, language and Lua",
+    "text": "Menu settings Visuals Choose supported entity categories, then adjust boxes, names, distance, skeletons, snaplines and radar. NPC labels describe the model; they do not report server-only health or faction information. Materials Open Visuals → Materials . Choose Tinted, Flat, Wireframe or Additive, then adjust visible and occluded colors. Animated chams offer Pulse, Color fade and Rainbow. Profiles, language and Lua Save your settings in a profile and assign hotkeys to controls you use often. The shared interface includes language packs with English fallback. Product-specific strings may remain in English. Use the bundled Half-Life Lua examples for supported local UI and session APIs.",
+    "href": "/guides/half-life-1/menu-settings/",
+    "tags": [
+      "half-life-1",
+      "HL1",
+      "Half Life",
+      "Half-Life",
+      "GoldSrc",
+      "Source Games",
+      "Opposing Force",
+      "Blue Shift"
+    ]
+  },
+  {
+    "game": "Half-Life 1",
+    "title": "Requirements",
+    "text": "Requirements Original Half-Life on Steam , using the Windows 32-bit game and OpenGL renderer. The current original-game reference is Steam AppID 70, build 15961492. Compatibility is checked against the exact game files. The Half-Life 1 collection includes Half-Life: Blue Shift, Half-Life: Opposing Force and Half-Life: Source. Select the edition you have installed; its game files and support status remain specific to that edition. Half-Life and Opposing Force have passed their native Windows runtime checks. Blue Shift and Half-Life: Source are also supported editions in this collection. Follow the status shown in the loader before loading a module. Linux through Proton/Wine is being tested separately. Native Linux game binaries and software rendering are not covered by the current Windows OpenGL adapter.",
+    "href": "/guides/half-life-1/requirements/",
+    "tags": [
+      "half-life-1",
+      "HL1",
+      "Half Life",
+      "Half-Life",
+      "GoldSrc",
+      "Source Games",
+      "Opposing Force",
+      "Blue Shift"
+    ]
+  },
+  {
+    "game": "Half-Life 1",
+    "title": "Troubleshooting Which games share this guide? Which files should I use? The Load action is unavailable Missing text, fonts or Lua pages Features stop after leaving a map Need more help?",
+    "text": "Troubleshooting Which games share this guide? Half-Life 1, Half-Life: Blue Shift, Half-Life: Opposing Force and Half-Life: Source belong to the same Half-Life 1 collection in Scooby. Use the version dropdown to match your installed edition. Which files should I use? Half-Life 1, Blue Shift, Opposing Force and Half-Life: Source are supported editions. Select your installed game and use its matching files. Sharing the product page does not make edition-specific game files interchangeable. The Load action is unavailable The original Windows campaign package has passed its runtime checks. Authenticated loader package integration is still pending. A DLL in the distribution folder is not a released loading option. Missing text, fonts or Lua pages Keep the matching module, fonts, languages and Lua assets together. Keep your writable profiles separate from the package and preserve them when updating. Features stop after leaving a map Session-bound visuals clear when their supported local game session ends. Load a supported local map and check the status before enabling features again. Need more help? Include the selected edition, Steam build, renderer and loader status when contacting support. Never include passwords or access keys.",
+    "href": "/guides/half-life-1/troubleshooting/",
+    "tags": [
+      "half-life-1",
+      "HL1",
+      "Half Life",
+      "Half-Life",
+      "GoldSrc",
+      "Source Games",
+      "Opposing Force",
+      "Blue Shift"
+    ]
+  },
+  {
     "game": "Left 4 Dead 1 & 2",
     "title": "Getting started",
     "text": "Getting started Get a free key or use your existing paid account, then download the loader and sign in. Select Left 4 Dead . Every valid free-key and paid session includes this product. Click Start Game , then choose Left 4 Dead 1 or Left 4 Dead 2 . Wait for the game's menu. The dashboard marks each running game and selects the newly detected game. If both are open, use the dropdown to choose the target. Press Load . The loader downloads verified runtime files and languages, then loads the x86 DLL into the selected game. Start a local single-player map and press Insert . Remote server features stay suspended. The menu key is configurable in Settings; Insert remains available. See troubleshooting if the menu does not appear.",

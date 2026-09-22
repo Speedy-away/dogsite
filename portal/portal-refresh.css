@@ -1,0 +1,129 @@
+/* Shared portal presentation: auth, account, and community. */
+.portal-modern { --bg-primary:#09090b; --bg-secondary:#101014; --bg-tertiary:#18181e; --card-bg:#101014; --border-color:#292930; --muted-text:#a2a2ae; --primary-light:#d3cbec; --border-radius:12px; }
+.portal-modern h1, .portal-modern h2, .portal-modern h3 { font-family:'Inter',sans-serif; }
+.portal-modern .content-card, .portal-modern .sidebar-card { background:#101014; border:1px solid #292930; border-radius:12px; box-shadow:none; backdrop-filter:none; }
+.portal-modern .content-card::before, .portal-modern .content-card::after { display:none; }
+.portal-modern .content-card:hover { transform:none; box-shadow:none; }
+.portal-modern .page-title { text-align:left; margin-bottom:28px; }
+.portal-modern .page-title h1 { background:none; color:#efeff3; font-size:28px; letter-spacing:-.8px; }
+.portal-modern .page-title p { margin:8px 0 0; font-size:13px; }
+.portal-modern .btn { border-radius:7px; font-size:12px; box-shadow:none; }
+.portal-modern .btn-primary { background:#eeeef2; border-color:#eeeef2; color:#18181c; }
+.portal-modern .btn-primary:hover { background:#fff; color:#18181c; transform:none; box-shadow:none; }
+.portal-modern .btn-secondary { background:#1a1a20; border-color:#34343e; color:#dedee8; }
+.portal-modern .form-input { border-radius:7px; background:#0b0b0e; border:1px solid #34343e; color:#efeff3; box-shadow:none; }
+.portal-modern .form-input:focus { border-color:#b7a8df; box-shadow:0 0 0 3px #aa8edf14; }
+.portal-modern :is(a,button,input,[tabindex]):focus-visible { outline:2px solid #c4b5fd; outline-offset:3px; }
+.portal-modern #page-badges, .portal-modern #page-chat, .portal-modern #profileBadgesSection, .portal-modern #userCardBadges, .portal-modern .user-badges, .portal-modern .badge-mini, .portal-modern .toast-badge { display:none !important; }
+.portal-modern.auth-mode .nav-bar, .portal-modern.auth-mode #guestActions, .portal-modern.auth-mode .social-links { display:none !important; }
+.portal-modern.auth-mode .header-top { height:78px; }
+.portal-modern.auth-mode .main-wrapper { max-width:520px; padding:112px 24px 48px; display:flex; flex-direction:column; justify-content:center; min-height:100vh; }
+.auth-mode .page-view { width:100%; }
+.portal-modern .auth-container { max-width:none; width:100%; margin:0; padding:0; }
+.portal-modern .auth-card { width:100%; background:#101014; border:1px solid #2a2a32; border-radius:15px; box-shadow:0 18px 80px #0003; overflow:hidden; backdrop-filter:none; }
+.portal-modern .auth-card::before, .portal-modern .auth-card::after { display:none; }
+.auth-switch { display:flex; margin:24px 28px 0; padding:4px; border:1px solid #28282f; border-radius:8px; background:#09090c; gap:4px; }
+.auth-switch a { flex:1; padding:8px 10px; text-align:center; border-radius:5px; color:#9595a5; font-size:12px; font-weight:500; }
+.auth-switch a[aria-current="page"] { background:#292830; color:#f4f1fc; box-shadow:0 1px 3px #0004; }
+.portal-modern .auth-header { text-align:left; padding:28px 28px 8px; background:none; border:0; }
+.portal-modern .auth-header h1 { font-family:'Inter',sans-serif; font-size:25px; color:#efeff4; background:none; letter-spacing:-.7px; font-weight:600; margin-bottom:7px; }
+.portal-modern .auth-header p { color:#9393a1; font-size:12px; }
+.portal-modern .auth-body { padding:18px 28px 24px; }
+.portal-modern .auth-body .form-row { margin-bottom:17px; }
+.portal-modern .auth-body label { font-size:11px; font-weight:500; color:#c4c4ce; margin-bottom:7px; }
+.portal-modern .auth-body input { min-height:42px; padding:11px 12px; font-size:12px; }
+.portal-modern .auth-body .btn-block { min-height:41px; }
+.portal-modern .auth-footer { padding:18px 28px; border-top:1px solid #292930; background:#0d0d11; color:#9595a4; font-size:11px; text-align:center; }
+.portal-modern .auth-footer a { color:#d9cdee; font-weight:500; }
+.portal-modern .auth-divider { margin:16px 0; font-size:11px; }
+.portal-modern .btn-oauth { border-radius:7px; min-height:40px; font-size:12px; }
+.session-card { min-height:350px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
+.session-card h1 { font-size:24px; }
+.session-card p { color:#a1a1af; font-size:13px; }
+.dashboard-product-art { width:66px; height:66px; flex-shrink:0; object-fit:cover; border-radius:8px; border:1px solid #ffffff15; }
+.dashboard-product { padding:12px; }
+.dashboard-products { max-height:390px; }
+.forum-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:32px; }
+.forum-heading h1 { font-size:34px; font-weight:600; letter-spacing:-1.1px; color:#f0f0f6; }
+.forum-heading p { margin-top:9px; font-size:13px; color:#9696a5; }
+.forum-heading .dashboard-button { width:auto; white-space:nowrap; }
+.forum-toolbar { display:flex; justify-content:space-between; gap:18px; align-items:center; margin-bottom:18px; }
+.forum-toolbar h2 { font-size:14px; font-weight:600; }
+.forum-toolbar span { display:block; color:#9595a3; font-size:11px; margin-top:4px; }
+.forum-filter { display:flex; gap:10px; align-items:center; width:245px; padding:10px 12px; border:1px solid #303039; border-radius:7px; background:#101014; color:#9494a3; }
+.forum-filter input { min-width:0; width:100%; border:0; outline:0; background:transparent; color:#ededf5; font:12px 'Inter',sans-serif; }
+.forum-filter:focus-within { border-color:#b7a8df; }
+.forum-filter input:focus-visible { outline:0; }
+#forumFilterEmpty[hidden], .node-item[hidden] { display:none !important; }
+.portal-modern .forum-layout { display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:22px; align-items:start; }
+.portal-modern .forum-main, .portal-modern .forum-sidebar { width:auto; min-width:0; }
+.portal-modern .node-item { padding:22px 20px; gap:16px; border-color:#28282f; }
+.portal-modern .node-item:hover { background:#18181f; }
+.portal-modern .node-icon { width:56px; height:56px; flex-shrink:0; margin:0; border-radius:9px; background:#24202f; color:#b9a4dd; box-shadow:none; overflow:hidden; }
+.portal-modern .node-icon img { width:100%; height:100%; object-fit:cover; }
+.portal-modern .node-main { min-width:0; }
+.portal-modern .node-title { font-size:13px; font-weight:600; color:#e7e7ef; }
+.portal-modern .node-description { color:#9393a2; font-size:11px; line-height:1.6; margin-top:5px; }
+.portal-modern .node-stats { gap:20px; font-size:10px; color:#888897; }
+.portal-modern .node-stat-value { color:#c5c5d0; font-size:15px; font-weight:500; }
+.portal-modern .sidebar-header { padding:17px 18px; background:transparent; border-bottom:1px solid #292930; }
+.portal-modern .sidebar-header h3 { font-size:12px; color:#cdcdD8; }
+.portal-modern .sidebar-header i { color:#9891ab; }
+.portal-modern .sidebar-body { padding:8px 12px; }
+.portal-modern .activity-item { padding:13px 6px; }
+.portal-modern .activity-title { font-size:11px; }
+.portal-modern .activity-meta { font-size:10px; }
+.forum-help-card { background:linear-gradient(125deg,#201b2b,#14131c); border:1px solid #37303f; border-radius:12px; padding:22px; margin-bottom:18px; }
+.forum-help-icon { display:flex; align-items:center; justify-content:center; width:32px; height:32px; color:#c8b5e4; background:#33293f; border-radius:8px; margin-bottom:15px; }
+.forum-help-card h2 { font-size:13px; font-weight:600; }
+.forum-help-card p { color:#a39baa; font-size:11px; line-height:1.8; margin:7px 0 16px; }
+.forum-help-card a { color:#d5c5ec; font-size:11px; display:flex; justify-content:space-between; align-items:center; }
+@media (max-width:950px) {
+ .portal-modern .forum-layout { grid-template-columns:minmax(0,1fr) 225px; gap:16px; }
+ .portal-modern .node-stats { display:none; }
+}
+@media (max-width:760px) {
+ .portal-modern.auth-mode .main-wrapper { display:block; max-width:500px; padding:112px 22px 36px; min-height:100vh; }
+ .portal-modern .forum-layout { grid-template-columns:1fr; }
+ .portal-modern .forum-sidebar { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+ .forum-help-card { margin:0; }
+ .forum-heading { align-items:flex-start; }
+ .forum-heading h1 { font-size:28px; }
+ .forum-heading .dashboard-button { display:none; }
+ .forum-toolbar { align-items:flex-start; flex-direction:column; }
+ .forum-filter { width:100%; }
+}
+@media (max-width:480px) {
+ .portal-modern.auth-mode .main-wrapper { padding:99px 16px 28px; }
+ .auth-switch { margin:20px 22px 0; }
+ .portal-modern .auth-header { padding:24px 22px 8px; }
+ .portal-modern .auth-body { padding:16px 22px 23px; }
+ .portal-modern .auth-footer { padding:17px 22px; }
+ .portal-modern .forum-sidebar { grid-template-columns:1fr; }
+ .portal-modern .node-item { padding:18px 14px; gap:12px; }
+ .portal-modern .node-icon { width:46px; height:46px; }
+ .dashboard-product-art { width:48px; height:48px; }
+ .dashboard-product { gap:10px; flex-wrap:wrap; }
+ .dashboard-product-info { flex-basis:calc(100% - 60px); }
+ .dashboard-product > .dashboard-status { margin-left:58px; margin-top:-5px; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .portal-modern *, .portal-modern *::before, .portal-modern *::after { animation:none !important; transition:none !important; }
+}
+/* More prominent dashboard help and download information. */
+.portal-modern #page-members { display:none !important; }
+.dashboard-download-note { min-height:92px; gap:12px; color:#c2c2ce; font-size:15px; line-height:1.65; }
+.dashboard-download-note i { font-size:24px; flex-shrink:0; }
+.dashboard-footer { align-items:center; flex-wrap:wrap; gap:14px 24px; padding:18px 22px; margin-top:24px; border:1px solid #2b2b33; border-radius:10px; background:#101014; color:#c4c4d0; font-size:16px; line-height:1.6; }
+.dashboard-help { display:flex; flex-wrap:wrap; align-items:center; gap:4px 9px; }
+.dashboard-footer a { color:#eee9f8; font-weight:600; }
+.dashboard-help a { display:inline-flex; align-items:center; gap:8px; min-height:44px; }
+.dashboard-help a i { font-size:13px; }
+.dashboard-footer > a { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding:9px 14px; border:1px solid #39343f; border-radius:7px; background:#1a1720; font-size:14px; }
+.dashboard-footer > a[hidden] { display:none; }
+@media (max-width:600px) {
+ .dashboard-footer { padding:16px 18px; gap:10px; }
+ .dashboard-help { align-items:flex-start; flex-direction:column; gap:0; }
+ .dashboard-footer > a { width:100%; }
+ .dashboard-download-note { min-height:88px; }
+}

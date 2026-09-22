@@ -166,7 +166,7 @@ img { max-width: 100%; display: block; }
 ::-webkit-scrollbar-thumb:hover { background: #2e2e2e; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-.section { padding: clamp(72px,9vw,120px) 0; position: relative; }
+.section { padding: clamp(72px,9vw,120px) 0; position: relative; border: 0; }
 
 /* ---- NAV ---- */
 .nav {
@@ -320,9 +320,9 @@ img { max-width: 100%; display: block; }
 
 /* ---- STATS STRIP ---- */
 .stats-strip {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  border: 0;
+  background: var(--bg);
+  scroll-margin-top: 100px;
 }
 .stats-strip-inner {
   display: flex; align-items: stretch;
@@ -330,9 +330,8 @@ img { max-width: 100%; display: block; }
 }
 .stat-item {
   flex: 1; text-align: center; padding: 36px 20px;
-  border-right: 1px solid var(--border);
+  border: 0;
 }
-.stat-item:last-child { border-right: none; }
 .stat-num {
   font-size: clamp(1.8rem,3.5vw,2.4rem); font-weight: 800;
   color: #fff; letter-spacing: -.02em; margin-bottom: 4px;
@@ -401,27 +400,7 @@ h2.section-title {
   text-transform: uppercase; color: var(--text-faint);
   margin: 36px 0 16px; display: flex; align-items: center; gap: 14px;
 }
-.products-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 .product-card.wide { grid-column: 1 / -1; }
-
-/* ---- WHY CHOOSE US ---- */
-.features-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-.feature-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 32px 28px;
-  transition: .25s ease;
-}
-.feature-card:hover { border-color: var(--accent-line); background: var(--card-hover); transform: translateY(-3px); }
-.feature-icon {
-  width: 52px; height: 52px; border-radius: 14px; margin-bottom: 20px;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent));
-  box-shadow: 0 8px 24px rgba(79,142,245,.25);
-}
-.feature-icon svg { width: 24px; height: 24px; color: #fff; }
-.feature-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
-.feature-card p { color: var(--text-dim); font-size: .91rem; }
 
 /* ---- FAQ ---- */
 .faq-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
@@ -438,39 +417,6 @@ h2.section-title {
 .faq.open .faq-q svg { transform: rotate(180deg); }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
 .faq-a p { padding: 0 24px 20px; color: var(--text-dim); font-size: .93rem; }
-
-/* ---- REVIEWS ---- */
-.reviews-section { overflow: hidden; }
-.marquee { display: flex; gap: 16px; width: max-content; animation: scroll 200s linear infinite; }
-.reviews-section:hover .marquee { animation-play-state: paused; }
-@keyframes scroll { to { transform: translateX(-50%); } }
-.review-card {
-  width: 320px; flex-shrink: 0; background: var(--card);
-  border: 1px solid var(--border); border-radius: var(--radius); padding: 22px;
-}
-.review-top { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
-.review-av { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid var(--border-strong); flex-shrink: 0; }
-.review-name { font-weight: 600; font-size: .93rem; }
-.review-role { color: var(--text-faint); font-size: .78rem; }
-.review-stars { display: flex; gap: 2px; margin-bottom: 10px; }
-.review-stars svg { width: 13px; height: 13px; color: var(--accent); }
-.review-text { color: var(--text-dim); font-size: .9rem; margin-bottom: 12px; }
-.review-badge {
-  font-size: .72rem; font-weight: 600; color: var(--accent);
-  padding: 3px 10px; border: 1px solid var(--accent-line);
-  border-radius: var(--radius-pill); background: var(--accent-soft);
-}
-.review-card { display: flex; flex-direction: column; }
-.review-text { flex: 1; }
-.review-foot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.review-game {
-  font-size: .72rem; font-weight: 700; letter-spacing: .04em; color: var(--text-dim);
-  padding: 3px 10px; border: 1px solid var(--border-strong);
-  border-radius: var(--radius-pill); background: rgba(255,255,255,.04);
-}
-.marquee-fade { position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
-.marquee-fade.l { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
-.marquee-fade.r { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
 
 /* ---- CTA BAND ---- */
 .cta-band {
@@ -499,7 +445,7 @@ h2.section-title {
 .btn-cta-ghost:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
 
 /* ---- FOOTER ---- */
-.footer { border-top: 1px solid var(--border); background: var(--surface); padding: 64px 0 30px; }
+.footer { border: 0; background: var(--bg); padding: 64px 0 30px; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
 .footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
 .footer-brand .brand-name { color: #fff; }
@@ -519,7 +465,7 @@ h2.section-title {
 .footer-col a:hover { color: var(--accent); }
 .footer-bottom {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap;
+  gap: 16px; padding-top: 24px; border: 0; flex-wrap: wrap;
 }
 .footer-bottom p { color: var(--text-faint); font-size: .84rem; }
 .footer-bottom-links { display: flex; gap: 20px; }
@@ -602,7 +548,7 @@ h2.section-title {
 
 /* ---- RESPONSIVE ---- */
 @media(max-width: 980px) {
-  .feature-grid, .product-grid { grid-template-columns: repeat(2,1fr); }
+  .product-grid { grid-template-columns: repeat(2,1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-strip-inner { flex-wrap: wrap; }
   .stat-item { min-width: 33%; }
@@ -625,17 +571,15 @@ h2.section-title {
   .hero h1 { font-size: clamp(3.5rem,14vw,5rem); }
 }
 @media(max-width: 560px) {
-  .feature-grid, .product-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: 1fr; }
   .stats-strip-inner { flex-direction: column; }
-  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-  .stat-item:last-child { border-bottom: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-cta .btn-hero { flex: 1 1 auto; justify-content: center; }
 }
 @media(prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001s !important; transition-duration: .01s !important; }
-  .marquee { animation: none; }
+
 }
 /* Homepage game catalogue */
 .catalog-grid { gap:24px; }
@@ -672,6 +616,7 @@ h2.section-title {
 .catalog-logo-art::before { content:""; position:absolute; inset:-12px; z-index:-1; background-position:center; background-size:cover; filter:blur(5px) brightness(.6); }
 .catalog-logo-art--gta5::before { background-image:url('/assets/images/games/gta5.webp'); }
 .catalog-logo-art--rdr2::before { background-image:url('/assets/images/games/rdr2.webp'); }
+.catalog-logo-art--source-games::before { background-image:url('/assets/images/source-games/source-games-background-v1.png'); inset:-6px; filter:blur(1px) brightness(.8); }
 .catalog-logo-art img { object-fit:contain; padding:8% 18%; filter:drop-shadow(0 3px 8px #0008); }
 .catalog-logo-art--rdr2 img { padding:12% 10%; }
 @keyframes catalog-art-drift { 0% { transform:scale(1); } 65% { transform:scale(1.06) translateY(-1%); } 100% { transform:scale(1.035); } }
@@ -688,6 +633,10 @@ h2.section-title {
   <script src="/assets/js/hero-slideshow.js" defer></script>
 <link rel="stylesheet" href="/assets/css/last-of-us-card.css">
 <link rel="stylesheet" href="/assets/css/l4d.css">
+<link rel="stylesheet" href="/assets/css/home-features.css?v=5">
+<link rel="stylesheet" href="/assets/css/home-community.css?v=4">
+<script src="/assets/js/home-reviews.js" defer></script>
+<script src="/assets/js/home-features.js?v=5" defer></script>
 </head>
 <body>
 
@@ -701,7 +650,8 @@ h2.section-title {
       <li><a href="#products">Products</a></li>
       <li><a href="/guides" target="_blank" rel="noopener">Guides</a></li>
       <li><a href="/docs" target="_blank" rel="noopener">Docs</a></li>
-      <li><a href="/store" target="_blank" rel="noopener">Store</a></li>
+      <li><a href="/store" target="_blank" rel="noopener">Store</a>
+</li>
     </ul>
     <div class="nav-actions">
       <a href="/portal" target="_blank" rel="noopener" class="btn-nav-ghost">
@@ -770,7 +720,7 @@ h2.section-title {
 </header>
 
 <!-- ===== Stats Strip ===== -->
-<div class="stats-strip">
+<div class="stats-strip" id="stats">
   <div class="stats-strip-inner">
     <div class="stat-item">
       <div class="stat-num"><em>1000+</em></div>
@@ -800,11 +750,11 @@ h2.section-title {
     </div>
 
     <!-- Free banner -->
-    <a href="/products/free" class="product-card wide dark-card reveal" style="margin-bottom:16px">
+    <a href="/store/#free-version" class="product-card wide dark-card reveal" style="margin-bottom:16px">
       <span class="product-status free">Free</span>
       <div class="product-card-body">
         <h3>Free Version</h3>
-        <p>GTA 5, RDR2, CS2, GMOD, FiveM, S&amp;box &amp; Spoofer — all free, no payment needed.</p>
+        <p>Explore all free games and editions, including Half-Life 1, GMod, Left 4 Dead and more.</p>
       </div>
     </a>
 
@@ -831,6 +781,7 @@ h2.section-title {
         <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Counter-Strike 2</h3></div>
       </a>
       <a href="/products/l4d/" class="catalog-card reveal"><div class="catalog-art l4d-art"><img src="/assets/images/l4d/background.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Left 4 Dead 1 &amp; 2</h3></div></a>
+      <a href="/source-games/" class="catalog-card reveal"><div class="catalog-art catalog-logo-art catalog-logo-art--source-games"><img src="/assets/images/source-games/source-games-logo-v1.png" alt="Source Games logo combining Half-Life, Portal, Counter-Strike and Left 4 Dead" width="1254" height="1254" style="object-fit:contain;padding:18px" loading="lazy" decoding="async"></div><div class="catalog-body"><span class="catalog-status">Browse games</span><h3>Source Games</h3></div></a>
       <a href="/products/gmod/" class="catalog-card reveal">
         <div class="catalog-art"><img src="/assets/images/store/gmod.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
         <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Garry&#39;s Mod</h3></div>
@@ -841,11 +792,13 @@ h2.section-title {
         <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>S&amp;box</h3></div>
       </a>
     </div>
-    <a href="/products/spoofer/" class="catalog-utility reveal">
-      <span class="utility-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg></span>
-      <div><span class="catalog-status is-online">Online</span><h3>Spoofer + Cleaner</h3></div>
-      <span class="utility-cta">Explore utility <span aria-hidden="true">↗</span></span>
-    </a>
+    <h3 class="products-label reveal" id="tools">Explore our Tools</h3>
+    <div class="product-grid catalog-grid catalog-tools" aria-labelledby="tools">
+      <a href="/products/spoofer/" class="catalog-card reveal">
+        <div class="catalog-art"><img src="/assets/images/games/spoofer.webp" alt="" width="1440" height="810" loading="lazy" decoding="async"></div>
+        <div class="catalog-body"><span class="catalog-status is-online">Online</span><h3>Spoofer + Cleaner</h3></div>
+      </a>
+    </div>
 
     <p class="products-label reveal">Coming soon</p>
     <div class="product-grid catalog-grid">
@@ -856,67 +809,83 @@ h2.section-title {
 </section>
 
 <!-- ===== Why Choose Us ===== -->
-<section class="section features-section" id="features">
+<section class="section features-section" id="features" aria-labelledby="whyHeading">
   <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Why Choose Us</p>
-      <h2 class="section-title">Everything you need, in one menu</h2>
-      <p class="section-sub">Built to go above and beyond — play in public lobbies with friends, no isolation, no restrictions.</p>
+    <div class="why-heading reveal">
+      <div>
+        <p class="why-eyebrow">Why choose Scooby</p>
+        <h2 id="whyHeading">More control.<span>More possibilities.</span></h2>
+      </div>
+      <div class="why-intro">
+        <p>From city streets to the frontier. Make every session your own, with tools, guides, and support across your favorite games.</p>
+        <a href="/features-list/gta-features/" class="why-link" id="whyAllFeatures"><span>Explore GTA V features</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      </div>
     </div>
-    <div class="feature-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Quality and Security</h3>
-        <p>Expect nothing less than the best quality and safety. Once injected, you'll instantly feel the difference as comfort and a premium experience.</p>
+
+    <div class="why-benefits reveal">
+      <article class="why-benefit">
+        <div class="why-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></div>
+        <div><h3>Quality &amp; Security</h3><p>A focus on quality, safety, and a smooth in-game experience.</p></div>
+      </article>
+      <article class="why-benefit">
+        <div class="why-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></div>
+        <div><h3>Easy to Use</h3><p>Clear setup guides and intuitive controls. Less setup, more play.</p></div>
+      </article>
+    </div>
+
+    <div class="why-toolkit-bar reveal">
+      <div class="why-toolkit-label" id="whyProductLabel">Inside the GTA V menu</div>
+      <div class="why-product-picker" id="whyProductPicker" role="group" aria-label="Choose a product; selecting one pauses automatic rotation" hidden>
+        <button type="button" data-product="gta5" aria-pressed="true" aria-controls="whyCards">GTA V</button>
+        <button type="button" data-product="rdr2" aria-pressed="false" aria-controls="whyCards">RDR2</button>
+        <button type="button" data-product="fivem" aria-pressed="false" aria-controls="whyCards">FiveM</button>
+        <button type="button" data-product="redm" aria-pressed="false" aria-controls="whyCards">RedM</button>
       </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="why-cards" id="whyCards" data-product="gta5" aria-labelledby="whyProductLabel">
+      <article class="why-card why-heist reveal">
+        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/hero/gta-casino-v2-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="why-card-copy">
+          <div class="why-card-kicker">Plan your next big score</div>
+          <h3>Heist Editor</h3>
+          <p>Set your cuts and take control of Cayo Perico, Casino, Doomsday, and apartment heists.</p>
+          <a href="/guides/gta5/money/#topic-11" class="why-link"><span>Explore heist tools</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
         </div>
-        <h3>Easy to Use</h3>
-        <p>Our cheats are designed for instant setup and intuitive control. You'll be in-game and ahead of the competition in minutes.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </article>
+      <article class="why-card why-fun reveal">
+        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/hero/gta-hills-v2-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="why-card-copy">
+          <div class="why-card-kicker">Change the way you play</div>
+          <h3>Fun &amp; Chaos</h3>
+          <p>Vehicle spawns, world effects, player options, and unexpected ways to make every session your own.</p>
+          <a href="/features-list/gta-features/#section-world" class="why-link"><span>Explore fun features</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
         </div>
-        <h3>24/7 Support</h3>
-        <p>Questions or need a hand? Our dedicated 24/7 live chat support is ready to assist, ensuring your experience is seamless and fast.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+      </article>
+      <article class="why-card why-recovery reveal">
+        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/hero/gta-desert-v2-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="why-card-copy">
+          <div class="why-card-kicker">Build your progression</div>
+          <h3>Money Recovery</h3>
+          <p>Business Manager, money tools, RP, rank, stats, and unlocks. Manage your progression in one place.</p>
+          <a href="/features-list/gta-features/#section-recovery" class="why-link"><span>See recovery features</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
         </div>
-        <h3>Heist Editor</h3>
-        <p>Full control over Cayo Perico, Casino, Doomsday and apartment heists — custom cuts, skip steps, instant finish.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Lua Executor</h3>
-        <p>Extend the menu with custom Lua scripts and community-made content — endless possibilities for your crew.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3>Money Recovery</h3>
-        <p>Reliable money loops and recovery tools to rebuild your account fast — plus rank, stats and unlock editors.</p>
-      </div>
+      </article>
+    </div>
+    <p id="whyProductStatus" class="why-product-status" role="status"></p>
+    <div class="why-footer reveal">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h7l2 2 2-2h7v15h-7l-2 2-2-2H3zm9 2v15"/></svg>New to Scooby? Start with the setup guides.</span>
+      <a href="/guides/" class="why-link">Find your guide <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="section" id="faq" style="border-top:1px solid var(--border)">
+<section class="section" id="faq">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">FAQ</p>
       <h2 class="section-title">Frequently asked questions</h2>
-      <p class="section-sub">Everything you need to know about Scooby. Still stuck? Our Discord team is around 24/7.</p>
+      <p class="section-sub">Everything you need to know about Scooby. Find answers to common questions below.</p>
     </div>
     <div class="faq-wrap">
       <div class="faq reveal">
@@ -952,21 +921,51 @@ h2.section-title {
 </section>
 
 <!-- ===== Reviews ===== -->
-<section class="section reviews-section" id="reviews" style="border-top:1px solid var(--border)">
+<section class="section reviews-section" id="reviews" aria-labelledby="reviewsHeading">
   <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Reviews</p>
-      <h2 class="section-title">Loved by the community</h2>
-      <p class="section-sub">Thousands of players trust Scooby for their daily modding. Here's what a few of them say.</p>
+    <div class="community-heading reveal">
+      <div><p class="eyebrow">Player reviews</p><h2 id="reviewsHeading">The community,<span>in their own words.</span></h2></div>
+      <div class="community-intro"><p>Different games. Different setups. Explore the experiences shared by Scooby players.</p><a class="community-link" href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Join the community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+    </div>
+    <div class="review-filters" id="reviewFilters" role="group" aria-label="Filter reviews by game" hidden></div>
+    <div class="community-grid" id="communityReviews">
+      <article class="community-card" tabindex="-1">
+        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">XN</span><div class="community-person"><h3 class="community-author">xNightRider</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">Best menu I&#x27;ve ever used. The heist editor alone is worth it, and the amount of features for the price is insane. Support team is super helpful too.</blockquote>
+        <a class="community-game" href="/products/gta5/"><img src="/assets/images/games/gta5-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>GTA V</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </article>
+      <article class="community-card" tabindex="-1">
+        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">CI</span><div class="community-person"><h3 class="community-author">Cirrus</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">Easily the most complete RedM menu around. ESP and aimbot are dialled in, and it holds up on the big RP servers.</blockquote>
+        <a class="community-game" href="/products/redm/"><img src="/assets/images/games/redm-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>RedM</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </article>
+      <article class="community-card" tabindex="-1">
+        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">VA</span><div class="community-person"><h3 class="community-author">Vantablack</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">Aimbot and ESP are the cleanest I have used on FiveM. The Lua executor is a massive bonus, I run my own scripts on it constantly.</blockquote>
+        <a class="community-game" href="/products/fivem/"><img src="/assets/images/games/fivem-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>FiveM</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </article>
+      <article class="community-card" tabindex="-1">
+        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">RE</span><div class="community-person"><h3 class="community-author">Redgrave</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">Swapping to DX12 like the guide said fixed my crashing instantly. Since then it has been completely stable in story and online.</blockquote>
+        <a class="community-game" href="/products/rdr2/"><img src="/assets/images/games/rdr2-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>RDR2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </article>
+      <article class="community-card" tabindex="-1">
+        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">GI</span><div class="community-person"><h3 class="community-author">Gizmax</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">The skin changer is the best part. Knives, gloves and agents all swap instantly and everything looks exactly right in game.</blockquote>
+        <a class="community-game" href="/products/cs2/"><img src="/assets/images/games/cs2-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>CS2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </article>
+      <article class="community-card" tabindex="-1">
+        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">KE</span><div class="community-person"><h3 class="community-author">Kenzo</h3><p class="community-role">Premium Plus User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">The heist editor is a game changer. Set up Cayo solo and made millions in a day. Easy to follow even if you have never touched a menu before.</blockquote>
+        <a class="community-game" href="/products/gta5/"><img src="/assets/images/games/gta5-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>GTA V</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+      </article>
+    </div>
+    <div class="community-footer">
+      <p class="community-count" id="reviewCount" role="status">Showing 6 of 27 reviews</p>
+      <button class="review-more" id="reviewMore" type="button" aria-controls="communityReviews" hidden>Show more reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></button>
     </div>
   </div>
-  <div style="position:relative">
-    <div class="marquee-fade l"></div>
-    <div class="marquee-fade r"></div>
-    <div class="marquee" id="marquee"></div>
-  </div>
 </section>
-
 
 <!-- ===== Footer ===== -->
 <footer class="footer">
@@ -1194,61 +1193,6 @@ var revObserver = new IntersectionObserver(function(entries) {
 }, { threshold: .1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(function(el) { revObserver.observe(el); });
 
-// Reviews marquee
-(function() {
-  // Weighted by product focus: GTA 5 leads, RedM second, then FiveM / RDR2 / CS2.
-  var reviews = [
-    { n: 'xNightRider', r: 'Premium User',      g: 'GTA 5', t: "Best menu I've ever used. The heist editor alone is worth it, and the amount of features for the price is insane. Support team is super helpful too.", b: 'Verified Purchase', bg: '0d1117', c: '4f8ef5' },
-    { n: 'Kenzo',       r: 'Premium Plus User', g: 'GTA 5', t: 'The heist editor is a game changer. Set up Cayo solo and made millions in a day. Easy to follow even if you have never touched a menu before.', b: 'Verified Purchase', bg: '0d1b2a', c: '4f8ef5' },
-    { n: 'Drizzle',     r: 'Premium User',      g: 'GTA 5', t: 'Switched from another menu and never looked back. Updates are frequent, stability is amazing, and the UI is so clean. Lifetime is a steal.', b: 'Verified Purchase', bg: '1a1a2e', c: '4f8ef5' },
-    { n: 'Frosty',      r: 'Premium User',      g: 'GTA 5', t: 'Been on Enhanced for months and never had an issue. Legacy and Enhanced both work flawlessly. Best money I have spent on anything gaming related.', b: 'Verified Purchase', bg: '0e1628', c: '4f8ef5' },
-    { n: 'Valko',       r: 'Premium Plus User', g: 'GTA 5', t: 'Premium Plus with BattlEye on is the real deal. I run public lobbies with friends who do not mod at all and nobody gets kicked.', b: 'Verified Purchase', bg: '101a2b', c: '4f8ef5' },
-    { n: 'Zynx',        r: 'Premium User',      g: 'GTA 5', t: 'Hands down the smoothest menu out there. No crashes, no lag, just works every time. The vehicle spawner and modded outfits are my favourite.', b: 'Verified Purchase', bg: '0a0a1a', c: '4f8ef5' },
-    { n: 'Marlow',      r: 'Premium User',      g: 'GTA 5', t: 'The stat editor and unlock all saved me hundreds of hours of grinding. Recovery worked exactly like the guide said it would.', b: 'Verified Purchase', bg: '141c2c', c: '4f8ef5' },
-    { n: 'RazorX',      r: 'Free User',         g: 'GTA 5', t: "Can't believe this is free. The free version has more in it than most paid menus. Teleports and the vehicle spawner work perfectly.", b: 'Free Version', bg: '1a0a2e', c: '4f8ef5' },
-    { n: 'ToxicVibez',  r: 'Premium User',      g: 'GTA 5', t: "The Lua scripting support is insane. I've made custom scripts for my crew and everyone loves it. The dev team actually listens to feedback.", b: 'Verified Purchase', bg: '121220', c: '4f8ef5' },
-    { n: 'Prynce',      r: 'Premium User',      g: 'GTA 5', t: 'Menu was updated and working the same week the Kortz Center heist dropped. That turnaround is why I keep recommending it.', b: 'Verified Purchase', bg: '0c1524', c: '4f8ef5' },
-    { n: 'SkullzFN',    r: 'Free User',         g: 'GTA 5', t: 'Started on the free version and was impressed by how much is included. The Discord community is super active and helpful. Upgrading soon.', b: 'Free Version', bg: '16213e', c: '4f8ef5' },
-
-    { n: 'Cirrus',      r: 'Premium User',      g: 'RedM',  t: 'Easily the most complete RedM menu around. ESP and aimbot are dialled in, and it holds up on the big RP servers.', b: 'Verified Purchase', bg: '1d1410', c: '4f8ef5' },
-    { n: 'Hollowpoint', r: 'Premium User',      g: 'RedM',  t: 'The Lua executor is what sold me. I load my own scripts on RedM and it has not failed once. Nothing else on the market comes close.', b: 'Verified Purchase', bg: '221610', c: '4f8ef5' },
-    { n: 'Ashen',       r: 'Premium User',      g: 'RedM',  t: 'Trolling options are unmatched and the server tools actually work. Support answered me in Discord within minutes when I had a question.', b: 'Verified Purchase', bg: '1a1512', c: '4f8ef5' },
-    { n: 'Dustin_R',    r: 'Premium User',      g: 'RedM',  t: 'Runs clean on every server I have tried it on. Updates land fast after RedM patches, which is more than I can say for what I used before.', b: 'Verified Purchase', bg: '1c1712', c: '4f8ef5' },
-    { n: 'Wraithe',     r: 'Premium User',      g: 'RedM',  t: 'Been using it daily for RP and it has never once given me trouble. Setup took about five minutes following the guide on the site.', b: 'Verified Purchase', bg: '181310', c: '4f8ef5' },
-    { n: 'Coalfire',    r: 'Free User',         g: 'RedM',  t: 'Tried the free version expecting very little and got way more than I bargained for. Ended up buying premium the same night.', b: 'Free Version', bg: '20180f', c: '4f8ef5' },
-
-    { n: 'Vantablack',  r: 'Premium User',      g: 'FiveM', t: 'Aimbot and ESP are the cleanest I have used on FiveM. The Lua executor is a massive bonus, I run my own scripts on it constantly.', b: 'Verified Purchase', bg: '0f1a1a', c: '4f8ef5' },
-    { n: 'Jettson',     r: 'Premium User',      g: 'FiveM', t: 'Works on every server I have thrown at it. Menu never stutters even on the heavy RP servers with hundreds of players.', b: 'Verified Purchase', bg: '111c1c', c: '4f8ef5' },
-    { n: 'Neko_88',     r: 'Premium User',      g: 'FiveM', t: 'PVP features are genuinely good, not the half broken stuff you get elsewhere. Setup guide on the site had me running in minutes.', b: 'Verified Purchase', bg: '0d1818', c: '4f8ef5' },
-    { n: 'Brambles',    r: 'Free User',         g: 'FiveM', t: 'Free version is more than enough to see what it can do. Installed the VC runtimes like the guide says and had zero problems.', b: 'Free Version', bg: '131e1e', c: '4f8ef5' },
-
-    { n: 'Redgrave',    r: 'Premium User',      g: 'RDR2',  t: 'Swapping to DX12 like the guide said fixed my crashing instantly. Since then it has been completely stable in story and online.', b: 'Verified Purchase', bg: '221010', c: '4f8ef5' },
-    { n: 'Silas_M',     r: 'Premium User',      g: 'RDR2',  t: 'Godmode, money and gold all work exactly as advertised. RDR2 menus are usually an afterthought, this one clearly is not.', b: 'Verified Purchase', bg: '1d0f0f', c: '4f8ef5' },
-    { n: 'Copperhead',  r: 'Premium User',      g: 'RDR2',  t: 'No BattlEye to deal with on RDR2 so it was the easiest setup of any menu I own. Loaded first try and has not missed since.', b: 'Verified Purchase', bg: '241212', c: '4f8ef5' },
-
-    { n: 'Gizmax',      r: 'Premium User',      g: 'CS2',   t: 'The skin changer is the best part. Knives, gloves and agents all swap instantly and everything looks exactly right in game.', b: 'Verified Purchase', bg: '141026', c: '4f8ef5' },
-    { n: 'Sable',       r: 'Free User',         g: 'CS2',   t: 'Dual UI is a nice touch, I use ListUI and my friend prefers ClickUI. ESP and triggerbot are sharp and it has stayed undetected for me.', b: 'Free Version', bg: '17122b', c: '4f8ef5' },
-    { n: 'Portia_K',    r: 'Free User',         g: 'CS2',   t: 'Free and better than cheats people are charging for. Bhop and no recoil feel natural rather than obviously robotic.', b: 'Free Version', bg: '120e22', c: '4f8ef5' }
-  ];
-  var star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
-  function card(rv) {
-    return '<div class="review-card">' +
-      '<div class="review-top">' +
-        '<div class="review-av"><img src="https://ui-avatars.com/api/?name=' + encodeURIComponent(rv.n) + '&background=' + rv.bg + '&color=' + rv.c + '&bold=true&size=84" alt="' + rv.n + '" loading="lazy"></div>' +
-        '<div><div class="review-name">' + rv.n + '</div><div class="review-role">' + rv.r + '</div></div>' +
-      '</div>' +
-      '<div class="review-stars">' + star + star + star + star + star + '</div>' +
-      '<p class="review-text">' + rv.t + '</p>' +
-      '<div class="review-foot">' +
-        '<span class="review-game">' + rv.g + '</span>' +
-        '<span class="review-badge">' + rv.b + '</span>' +
-      '</div>' +
-    '</div>';
-  }
-  var html = reviews.map(card).join('');
-  var m = document.getElementById('marquee');
-  if (m) m.innerHTML = html + html;
-})();
 </script>
 <script>/* scooby-file-guard: only fires when opened as a file, never over http */
 (function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>

@@ -1,0 +1,82 @@
+/* Home page benefits and rotating product features. */
+.features-section { padding:clamp(72px,8vw,104px) 0; background:var(--bg); border:0; scroll-margin-top:88px; }
+.why-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:48px; margin-bottom:38px; }
+.why-eyebrow { color:#aaaeb7; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:2px; margin-bottom:18px; }
+.why-heading h2 { font-size:clamp(36px,4.5vw,54px); font-weight:650; line-height:1.08; letter-spacing:-2px; color:#f6f7fa; }
+.why-heading h2 span { display:block; color:inherit; }
+.why-intro { max-width:332px; padding-bottom:4px; }
+.why-intro p { color:#a4a6ae; font-size:14px; line-height:1.85; margin-bottom:18px; }
+.why-link { display:inline-flex; align-items:center; gap:9px; color:#e3e4e9; font-size:13px; font-weight:600; min-height:36px; }
+.why-link svg { width:15px; height:15px; flex:none; transition:transform .2s; }
+.why-link:hover { color:#fff; }
+.why-link:hover svg { transform:translateX(3px); }
+.features-section :is(a,button):focus-visible { outline:2px solid #bfcbe2; outline-offset:5px; border-radius:4px; }
+.why-benefits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px; margin-bottom:40px; padding:22px 0; }
+.why-benefit { display:flex; align-items:flex-start; gap:15px; min-width:0; }
+.why-benefit-icon { flex:none; width:39px; height:39px; display:grid; place-items:center; background:#151515; border:1px solid #2c2c2f; border-radius:10px; color:#cbced5; }
+.why-benefit-icon svg { width:19px; height:19px; }
+.why-benefit h3 { font-size:15px; font-weight:600; letter-spacing:-.2px; margin:0 0 6px; color:#e9eaee; }
+.why-benefit p { font-size:13px; line-height:1.85; color:#989ba3; }
+.why-toolkit-bar { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:19px; }
+.why-toolkit-label { color:#adafb7; font-size:10px; letter-spacing:1.7px; text-transform:uppercase; font-weight:600; }
+.why-product-picker { display:flex; flex-wrap:wrap; gap:5px; }
+.why-product-picker[hidden] { display:none; }
+.why-product-picker button { padding:7px 12px; min-height:36px; border:1px solid transparent; border-radius:7px; font:500 11px 'Inter',sans-serif; color:#9699a3; background:transparent; cursor:pointer; }
+.why-product-picker button:hover { background:#171717; color:#fff; }
+.why-product-picker button[aria-pressed="true"] { color:#fff; border-color:#343437; background:#222224; }
+.why-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.why-card { min-width:0; min-height:445px; position:relative; isolation:isolate; display:flex; justify-content:flex-end; flex-direction:column; padding:26px; border:1px solid #ffffff1c; border-radius:16px; overflow:hidden; background:#101010; transition:border-color .25s,transform .25s; }
+.why-card:hover { border-color:#ffffff55; transform:translateY(-3px); }
+.why-card:focus-within { border-color:#a3adbd; }
+.why-card-art { position:absolute; inset:0; z-index:-2; }
+.why-card-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:73% center; opacity:0; transition:opacity 1.2s ease-in-out; }
+.why-card-art img.is-active { opacity:1; }
+.why-card::after { content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,#08080810 0%,#08080835 22%,#080808bd 42%,#080808f0 67%,#080808 100%); }
+.why-card-copy { display:flex; flex-direction:column; min-height:218px; padding-top:90px; box-sizing:content-box; }
+.why-card-kicker { color:#d0d1d6; font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:11px; }
+.why-card h3 { color:#f7f7fa; font-size:25px; font-weight:600; line-height:1.2; letter-spacing:-.8px; margin:0 0 13px; }
+.why-card p { color:#b3b4bc; font-size:14px; line-height:1.8; margin:0 0 22px; }
+.why-card .why-link { margin-top:auto; width:fit-content; }
+.why-product-status { font-size:12px; color:#d8b6a3; margin-top:14px; }
+.why-product-status:empty { display:none; }
+.why-footer { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:25px; color:#9799a1; font-size:13px; }
+.why-footer > span { display:flex; align-items:center; gap:9px; }
+.why-footer > span svg { width:15px; height:15px; flex:none; color:#a5a7af; }
+.why-footer .why-link { color:#c1c3cb; }
+@media(max-width:1000px) {
+ .why-heading { gap:30px; }
+ .why-heading h2 { font-size:43px; }
+ .why-intro { max-width:290px; }
+ .why-benefits { gap:22px; }
+ .why-benefit { gap:11px; }
+ .why-card { padding:22px; min-height:440px; }
+ .why-card h3 { font-size:23px; }
+ .why-card p { font-size:13px; }
+}
+@media(max-width:760px) {
+ .why-heading { flex-direction:column; align-items:flex-start; gap:24px; margin-bottom:28px; }
+ .why-heading h2 { font-size:clamp(34px,8vw,44px); letter-spacing:-1.4px; }
+ .why-intro { max-width:440px; padding:0; }
+ .why-intro p { font-size:13px; margin-bottom:10px; }
+ .why-benefits { grid-template-columns:1fr; gap:21px; padding:15px 0; margin-bottom:26px; }
+ .why-benefit { gap:15px; }
+ .why-benefit p { max-width:380px; }
+ .why-toolkit-bar { align-items:flex-start; flex-direction:column; gap:14px; }
+ .why-cards { grid-template-columns:1fr; }
+ .why-card { min-height:360px; padding:25px; }
+ .why-card-art img { object-position:center 45%; }
+ .why-card::after { background:linear-gradient(90deg,#080808dc,#0808088a 65%,#08080835),linear-gradient(0deg,#080808f0,transparent 90%); }
+ .why-card-copy { min-height:195px; padding-top:60px; max-width:380px; }
+ .why-card h3 { font-size:26px; }
+ .why-card p { font-size:14px; }
+ .why-footer { align-items:flex-start; flex-direction:column; gap:7px; margin-top:20px; }
+}
+@media(max-width:480px) {
+ .why-card { min-height:430px; }
+ .why-card-art img { object-position:70% center; }
+ .why-card::after { background:linear-gradient(180deg,#08080815,#08080866 30%,#080808eb 61%,#080808); }
+ .why-card-copy { min-height:220px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .why-card, .why-card-art img, .why-link svg { transition:none; transform:none !important; }
+}

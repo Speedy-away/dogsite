@@ -23,7 +23,7 @@ let subscriptionsCache = null; // Cache for subscriptions fetched from API
 let cachedCategories = []; // Cache for forum categories (for reordering)
 let oauthProviders = []; // OAuth providers enabled for this portal
 let threadWatcherInterval = null; // Interval for thread watcher heartbeat
-let badgeSystemEnabled = true; // Whether the badge system is enabled for this portal
+let badgeSystemEnabled = false; // Whether the badge system is enabled for this portal
 const WATCHER_HEARTBEAT_MS = 30000; // Send heartbeat every 30 seconds
 
 // ==================== CUSTOM DIALOG SYSTEM ====================
@@ -626,7 +626,7 @@ async function login() {
     const password = document.getElementById('loginPassword').value;
 
     if (!username || !password) {
-        showAlert('loginAlert', 'Please enter username and password', 'danger');
+        showAlert('loginAlert', 'Please enter your username or email and password', 'danger');
         return;
     }
 
@@ -688,7 +688,7 @@ async function register() {
 
     const result = await api('POST', '/auth/register', { username, email, password });
 
-    setButtonLoading(btn, false, '<i class="fas fa-user-plus"></i> Create Account');
+    setButtonLoading(btn, false, '<i class="fas fa-user-plus"></i> Register');
 
     if (result.ok) {
         pendingVerificationEmail = email;
@@ -909,7 +909,7 @@ function renderOAuthButtons(containerId, dividerId, action) {
     }
 
     const buttons = oauthProviders.map(provider => {
-        const actionText = action === 'login' ? 'Sign in' : action === 'register' ? 'Sign up' : 'Link';
+        const actionText = action === 'login' ? 'Sign in' : action === 'register' ? 'Register' : 'Link';
         return `
             <button class="btn-oauth" onclick="startOAuth('${escapeHtml(provider.name)}', '${action}')" style="--provider-color: ${escapeHtml(provider.color)}">
                 <i class="${escapeHtml(provider.icon)}"></i>
@@ -1368,7 +1368,7 @@ async function loadRecentActivity() {
     const result = await api('GET', '/forum/recent-activity?limit=10');
 
     if (result.ok && result.data.activities) {
-        const activities = result.data.activities;
+        const activities = result.data.activities.filter(activity => activity.type !== 'badge_awarded');
 
         if (activities.length === 0) {
             container.innerHTML = '<div class="activity-empty">No recent activity</div>';
@@ -3388,7 +3388,7 @@ async function loadProfile() {
 
         // Update badge system enabled state from profile response
         if (result.data.profile.badge_system_enabled !== undefined) {
-            badgeSystemEnabled = result.data.profile.badge_system_enabled;
+            badgeSystemEnabled = false;
             updateBadgeVisibility();
         }
     }
@@ -3586,6 +3586,7 @@ async function loadAllBadges() {
  * Update visibility of badge-related UI elements based on badge system state
  */
 function updateBadgeVisibility() {
+    badgeSystemEnabled = false; // Badges are disabled in this portal.
     // Hide/show badges nav tab
     const badgesNavTab = document.querySelector('.nav-tab[data-page="badges"]');
     if (badgesNavTab) {
@@ -3609,11 +3610,8 @@ function updateBadgeVisibility() {
  * Check if badge system is enabled for this portal and update UI accordingly
  */
 async function checkBadgeSystemStatus() {
-    const result = await api('GET', '/badges');
-    if (result.ok) {
-        badgeSystemEnabled = result.data.badge_system_enabled !== false;
-        updateBadgeVisibility();
-    }
+    badgeSystemEnabled = false;
+    updateBadgeVisibility();
 }
 
 // ==================== GLOBAL SEARCH ====================

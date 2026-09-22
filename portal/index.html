@@ -11,11 +11,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="portal.css">
+    <style>
+        /* Dashboard styles live here to preserve the existing community pages. */
+        body.portal-modern { background: #09090b; }
+        .portal-modern .animated-bg, .portal-modern #portalBanner { display: none; }
+        .portal-modern .portal-header, .portal-modern .nav-bar { background: #0c0c0f; backdrop-filter: none; }
+        .portal-modern .header-top, .portal-modern .nav-container { max-width: 1160px; }
+        .portal-modern .portal-logo img { width: 34px; height: 34px; box-shadow: none; }
+        .portal-modern .portal-logo span { color: #f4f4f5; background: none; font: 700 21px 'Inter', sans-serif; letter-spacing: -.7px; }
+        .portal-modern .header-actions { gap: 12px; }
+        .portal-modern .header-btn { border-radius: 7px; box-shadow: none; padding: 9px 15px; }
+        .portal-modern .header-btn-register { background: #ededf0; color: #18181b; border-color: #ededf0; }
+        .portal-modern .nav-container { padding-top: 8px; padding-bottom: 8px; gap: 16px; }
+        .portal-modern .nav-tabs { gap: 3px; }
+        .portal-modern .nav-tab { padding: 9px 12px; font-size: 12px; }
+        .portal-modern .nav-tab.active { background: #252529; box-shadow: none; border-color: #333338; }
+        .portal-modern .nav-tab::before { display: none; }
+        .portal-modern .nav-tab:hover { transform: none; background: #1b1b20; }
+        .portal-modern .nav-search { min-width: 160px; }
+        .portal-modern .search-input { width: 180px; background: #141417; border-color: #29292f; border-radius: 7px; }
+        .portal-modern .main-wrapper { max-width: 1060px; padding: 176px 28px 48px; }
+        #page-dashboard { color: #ededf0; }
+        #page-dashboard h1, #page-dashboard h2 { font-family: 'Inter', sans-serif; }
+        .dashboard-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 30px; }
+        .dashboard-eyebrow { color: #85858f; font-size: 10px; font-weight: 600; letter-spacing: 1.7px; text-transform: uppercase; margin-bottom: 8px; }
+        .dashboard-heading h1 { font-size: clamp(24px, 4vw, 30px); line-height: 1.3; font-weight: 650; letter-spacing: -.9px; overflow-wrap: anywhere; }
+        .dashboard-heading p { color: #94949e; font-size: 13px; margin-top: 8px; }
+        .dashboard-account-tag { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #2b2b31; border-radius: 6px; padding: 7px 10px; color: #b9b9c2; font-size: 11px; white-space: nowrap; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .dashboard-card { min-width: 0; background: #0e0e11; border: 1px solid #26262c; border-radius: 12px; padding: 25px; }
+        .dashboard-card h2 { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: -.15px; line-height: 1.5; }
+        .dashboard-card h2 i { color: #babac4; width: 17px; font-size: 15px; text-align: center; }
+        .dashboard-description { margin-top: 6px; color: #92929c; font-size: 12px; line-height: 1.7; }
+        .dashboard-form { margin-top: 23px; }
+        .dashboard-form label { display: block; font-size: 11px; font-weight: 500; color: #c5c5cc; margin-bottom: 7px; }
+        .dashboard-input { display: block; width: 100%; height: 42px; border: 1px solid #34343b; border-radius: 7px; background: #09090b; padding: 0 12px; color: #f4f4f5; font: 12px 'JetBrains Mono', monospace; }
+        .dashboard-input::placeholder { color: #777783; }
+        .dashboard-button { width: 100%; min-height: 39px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #ececf0; border-radius: 7px; background: #ececf0; color: #18181b; font: 600 12px 'Inter', sans-serif; padding: 10px 15px; cursor: pointer; transition: background .15s, border-color .15s; text-decoration: none; }
+        .dashboard-button:hover { background: #fff; color: #18181b; }
+        .dashboard-button.secondary { background: #151519; color: #dedee4; border-color: #34343b; }
+        .dashboard-button.secondary:hover { background: #222228; color: #fff; border-color: #555560; }
+        .dashboard-button:disabled { opacity: .45; cursor: not-allowed; }
+        .dashboard-button:focus-visible, .dashboard-input:focus-visible, .dashboard-footer a:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 3px; }
+        .dashboard-form .dashboard-button { margin-top: 12px; }
+        .dashboard-message { font-size: 12px; color: #a6a6b0; line-height: 1.6; margin-top: 12px; overflow-wrap: anywhere; }
+        .dashboard-message:empty { display: none; }
+        .dashboard-message[data-tone="error"] { color: #fca5a5; }
+        .dashboard-message[data-tone="success"] { color: #86efac; }
+        .dashboard-products { display: grid; gap: 10px; margin-top: 23px; max-height: 330px; overflow-y: auto; }
+        .dashboard-product { display: flex; align-items: center; gap: 12px; padding: 15px; border: 1px solid #27272d; border-radius: 8px; background: #0a0a0d; }
+        .dashboard-product-info { flex: 1; min-width: 0; }
+        .dashboard-product-name { font-size: 12px; font-weight: 600; overflow-wrap: anywhere; }
+        .dashboard-product-meta { margin-top: 5px; font-size: 11px; color: #93939e; }
+        .dashboard-status { padding: 3px 7px; border-radius: 5px; font-size: 10px; font-weight: 600; background: #10271b; color: #7dd9a4; white-space: nowrap; }
+        .dashboard-status.inactive { background: #2a2115; color: #dec08c; }
+        .dashboard-empty { border: 1px dashed #2c2c33; border-radius: 8px; padding: 24px 16px; text-align: center; color: #9696a1; font-size: 12px; }
+        .dashboard-empty i { display: block; font-size: 22px; color: #777783; margin-bottom: 10px; }
+        .dashboard-empty strong { display: block; color: #cacad2; font-weight: 500; margin-bottom: 4px; }
+        .dashboard-empty .dashboard-button { width: auto; margin-top: 12px; }
+        .dashboard-hwid-details { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #0a0a0d; border: 1px solid #27272d; border-radius: 8px; padding: 13px; margin: 20px 0 14px; }
+        .dashboard-hwid-details span { font-size: 11px; color: #9a9aa5; }
+        .dashboard-hwid-details strong { font-size: 11px; color: #d4d4dc; font-weight: 500; text-align: right; }
+        .dashboard-download { display: flex; flex-direction: column; }
+        .dashboard-download-note { display: flex; align-items: center; gap: 9px; flex: 1; min-height: 78px; color: #a6a6b0; font-size: 12px; }
+        .dashboard-download-note i { font-size: 19px; color: #b6b6c0; }
+        .dashboard-footer { display: flex; justify-content: space-between; gap: 15px; margin-top: 25px; color: #93939f; font-size: 11px; }
+        .dashboard-footer a { color: #b4b4c0; }
+        .dashboard-footer a:hover { color: #fff; }
+        .dashboard-signin { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid #33333c; background: #15151a; border-radius: 9px; padding: 15px 18px; margin-bottom: 20px; color: #b4b4c0; font-size: 12px; }
+        .dashboard-signin[hidden] { display: none; }
+        .dashboard-signin .dashboard-button { width: auto; min-height: 33px; padding: 7px 13px; }
+        @media (max-width: 900px) {
+            .portal-modern .nav-search { display: none; }
+            .portal-modern .nav-container { overflow-x: auto; }
+            .portal-modern .header-actions .nav-link-home { display: none; }
+        }
+        @media (max-width: 600px) {
+            .portal-modern .main-wrapper { padding: 157px 18px 30px; }
+            .portal-modern .header-top { padding: 12px 18px; }
+            .portal-modern .header-actions { gap: 6px; }
+            .portal-modern .header-btn { padding: 8px 10px; font-size: 11px; }
+            .portal-modern .header-btn i { display: none; }
+            .portal-modern .portal-logo { gap: 8px; }
+            .portal-modern .portal-logo span { font-size: 19px; }
+            .portal-modern .social-links { display: none !important; }
+            .portal-modern .nav-container { padding: 8px 12px; }
+            .portal-modern .nav-tab span { display: inline; }
+            .portal-modern .nav-tab { padding: 8px 10px; font-size: 11px; }
+            .portal-modern .nav-tab i { display: none; }
+            .dashboard-heading { align-items: flex-start; margin-bottom: 23px; }
+            .dashboard-account-tag { display: none; }
+            .dashboard-grid { grid-template-columns: 1fr; gap: 14px; }
+            .dashboard-card { padding: 21px; }
+            .dashboard-footer { flex-wrap: wrap; }
+        }
+    </style>
+    <link rel="stylesheet" href="portal-refresh.css">
+    <link rel="stylesheet" href="portal-backgrounds.css">
+    <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
-<body>
+<body class="portal-modern auth-mode">
 <script src="/languages/i18n.js"></script>
-    <!-- Animated Background (matching index.html) -->
-    <div class="animated-bg"></div>
+    <!-- Original loading-screen artwork; decorative and independent of authentication. -->
+    <div id="portalBackgrounds" class="portal-backgrounds" aria-hidden="true">
+        <div class="portal-background-scene is-active" data-scene="gta-boulevard">
+            <img src="images/backgrounds/gta-boulevard.png" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
+        </div>
+    </div>
     <!-- API Configuration -->
     <input type="hidden" id="apiUrl" value="https://proudlyauthentication.com/">
     <input type="hidden" id="portalKey" value="pk_gri2butNfQ28AWQqNTD5xLtQKwer2MNv">
@@ -23,7 +125,7 @@
     <header class="portal-header">
         <div class="header-top">
             <a href="/" class="portal-logo">
-                <img src="https://scoobymenu.cc/assets/images/logo.png" alt="Scooby Logo">
+                <img src="../assets/images/logo.png" alt="Scooby Logo">
                 <span id="portalName">Scooby</span>
             </a>
             <div class="header-actions">
@@ -82,13 +184,10 @@
         <nav class="nav-bar">
             <div class="nav-container">
                 <div class="nav-tabs">
-                    <a class="nav-tab active" data-page="forum">
+                    <a class="nav-tab" data-page="dashboard" href="#dashboard"><i class="fas fa-table-columns" aria-hidden="true"></i><span>Dashboard</span></a>
+                    <a class="nav-tab" data-page="forum">
                         <i class="fas fa-comments"></i>
                         <span>Forums</span>
-                    </a>
-                    <a class="nav-tab" data-page="chat">
-                        <i class="fas fa-message"></i>
-                        <span>Chat</span>
                     </a>
                     <a class="nav-tab" data-page="messages" id="navMessages" style="display: none;">
                         <i class="fas fa-envelope"></i>
@@ -97,14 +196,6 @@
                     <a class="nav-tab" data-page="support" id="navSupport" style="display: none;">
                         <i class="fas fa-life-ring"></i>
                         <span>Support</span>
-                    </a>
-                    <a class="nav-tab" data-page="members">
-                        <i class="fas fa-users"></i>
-                        <span>Members</span>
-                    </a>
-                    <a class="nav-tab" data-page="badges">
-                        <i class="fas fa-award"></i>
-                        <span>Badges</span>
                     </a>
                     <a class="nav-tab" data-page="reports" id="navReports" style="display: none;">
                         <i class="fas fa-flag"></i>
@@ -135,34 +226,89 @@
     </div>
     <!-- Main Content -->
     <main class="main-wrapper">
+        <section class="page-view" id="page-session" aria-live="polite">
+            <div class="auth-card session-card"><div class="spinner"></div><h1>Welcome back.</h1><p>Checking your session...</p></div>
+        </section>
+
+        <!-- ACCOUNT DASHBOARD -->
+        <section class="page-view" id="page-dashboard" aria-labelledby="dashboardTitle">
+            <div class="dashboard-heading">
+                <div>
+                    <div class="dashboard-eyebrow">Your account</div>
+                    <h1 id="dashboardTitle">Welcome to Scooby.</h1>
+                    <p>Your products, your keys. Everything in one place.</p>
+                </div>
+                <span class="dashboard-account-tag"><i class="fas fa-user-circle" aria-hidden="true"></i><span id="dashboardAccountLabel">Member portal</span></span>
+            </div>
+            <div class="dashboard-signin" id="dashboardSignIn">
+                <span>Sign in to view your products and manage your account.</span>
+                <a class="dashboard-button" href="#login">Sign in <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="dashboard-grid">
+                <section class="dashboard-card" aria-labelledby="dashboardRedeemHeading">
+                    <h2 id="dashboardRedeemHeading"><i class="fas fa-key" aria-hidden="true"></i> Redeem license key</h2>
+                    <p class="dashboard-description">Activate a product with the key from your purchase.</p>
+                    <form class="dashboard-form" id="dashboardRedeemForm">
+                        <label for="dashboardLicenseKey">License key</label>
+                        <input class="dashboard-input" id="dashboardLicenseKey" name="license-key" placeholder="Enter your license key" autocomplete="off" autocapitalize="off" spellcheck="false" required disabled aria-describedby="dashboardRedeemMessage">
+                        <button class="dashboard-button" id="dashboardRedeemButton" type="submit" disabled><i class="fas fa-plus" aria-hidden="true"></i> Redeem key</button>
+                        <p class="dashboard-message" id="dashboardRedeemMessage" role="status"></p>
+                    </form>
+                </section>
+                <section class="dashboard-card" aria-labelledby="dashboardProductsHeading">
+                    <h2 id="dashboardProductsHeading"><i class="fas fa-cube" aria-hidden="true"></i> My products <span class="dashboard-status" id="dashboardProductCount" hidden></span></h2>
+                    <p class="dashboard-description">Subscriptions linked to your account.</p>
+                    <div class="dashboard-products" id="dashboardProducts" aria-live="polite">
+                        <div class="dashboard-empty"><i class="fas fa-cube" aria-hidden="true"></i><strong>Your library lives here</strong>Sign in to see your products.</div>
+                    </div>
+                </section>
+                <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
+                    <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
+                    <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
+                    <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
+                    <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
+                    <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
+                </section>
+                <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
+                    <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
+                    <p class="dashboard-description">Get the latest loader and jump back in.</p>
+                    <div class="dashboard-download-note"><i class="fab fa-windows" aria-hidden="true"></i><span>Setup instructions and available downloads.</span></div>
+                    <a class="dashboard-button" href="/#download"><i class="fas fa-arrow-down" aria-hidden="true"></i> Go to downloads</a>
+                </section>
+            </div>
+            <div class="dashboard-footer"><span class="dashboard-help">Need a hand? <a href="/guides/">Explore the guides <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></span><a href="#support" id="dashboardSupportLink">Contact support <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+        </section>
         <!-- LOGIN PAGE -->
-        <div class="page-view" id="page-login">
+        <div class="page-view active" id="page-login">
             <div class="auth-container">
                 <div class="auth-card">
+                    <div class="auth-switch" aria-label="Account access"><a href="#login" onclick="showPage('login'); return false;" aria-current="page">Sign in</a><a href="#register" onclick="showPage('register'); return false;">Register</a></div>
                     <div class="auth-header">
-                        <h1>Welcome Back</h1>
-                        <p>Sign in to access the community</p>
+                        <h1>Sign in</h1>
+                        <p>Sign in to your Scooby account.</p>
                     </div>
                     <div class="auth-body">
                         <div id="loginAlert"></div>
-                        <div id="loginOAuthButtons" class="oauth-buttons" style="display: none;"></div>
-                        <div id="loginOAuthDivider" class="auth-divider" style="display: none;">
-                            <span>or sign in with email</span>
+                        <form id="loginForm">
+                        <div class="form-row">
+                            <label for="loginEmail">Username or email</label>
+                            <input type="text" class="form-input" id="loginEmail" name="loginEmail" autocomplete="username" required autocapitalize="none" spellcheck="false" placeholder="Enter your username or email">
                         </div>
                         <div class="form-row">
-                            <label>Username</label>
-                            <input type="text" class="form-input" id="loginEmail" placeholder="Enter your username">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-input" id="loginPassword" name="loginPassword" autocomplete="current-password" required placeholder="Enter your password">
                         </div>
-                        <div class="form-row">
-                            <label>Password</label>
-                            <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" onkeypress="if(event.key==='Enter')login()">
-                        </div>
-                        <button class="btn btn-primary btn-block" onclick="login()">
+                        <button class="btn btn-primary btn-block" type="submit">
                             <i class="fas fa-sign-in-alt"></i> Sign In
                         </button>
+                        </form>
+                        <div id="loginOAuthDivider" class="auth-divider" style="display: none;">
+                            <span>or</span>
+                        </div>
+                        <div id="loginOAuthButtons" class="oauth-buttons" style="display: none;"></div>
                     </div>
                     <div class="auth-footer">
-                        Don't have an account? <a href="#" onclick="showPage('register'); return false;">Create one</a>
+                        Don't have an account? <a href="#" onclick="showPage('register'); return false;">Register</a>
                         <br>
                         <a href="#" onclick="showPage('forgot-password'); return false;" style="font-size: 0.875rem; margin-top: 8px; display: inline-block;">Forgot Password?</a>
                     </div>
@@ -225,35 +371,38 @@
         <div class="page-view" id="page-register">
             <div class="auth-container">
                 <div class="auth-card">
+                    <div class="auth-switch" aria-label="Account access"><a href="#login" onclick="showPage('login'); return false;">Sign in</a><a href="#register" onclick="showPage('register'); return false;" aria-current="page">Register</a></div>
                     <div class="auth-header">
-                        <h1>Create Account</h1>
-                        <p>Join the community</p>
+                        <h1>Register</h1>
+                        <p>Create a Scooby account.</p>
                     </div>
                     <div class="auth-body">
                         <div id="registerAlert"></div>
-                        <div id="registerOAuthButtons" class="oauth-buttons" style="display: none;"></div>
-                        <div id="registerOAuthDivider" class="auth-divider" style="display: none;">
-                            <span>or register with email</span>
+                        <form id="registerForm">
+                        <div class="form-row">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" class="form-input" id="registerUsername" name="registerUsername" autocomplete="username" required placeholder="Choose a username">
                         </div>
                         <div class="form-row">
-                            <label>Username</label>
-                            <input type="text" class="form-input" id="registerUsername" placeholder="Choose a username">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" class="form-input" id="registerEmail" name="registerEmail" autocomplete="email" required placeholder="Enter your email">
                         </div>
                         <div class="form-row">
-                            <label>Email</label>
-                            <input type="email" class="form-input" id="registerEmail" placeholder="Enter your email">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" class="form-input" minlength="8" id="registerPassword" name="registerPassword" autocomplete="new-password" required placeholder="Create a password">
                         </div>
                         <div class="form-row">
-                            <label>Password</label>
-                            <input type="password" class="form-input" id="registerPassword" placeholder="Create a password">
+                            <label for="registerPasswordConfirm">Confirm Password</label>
+                            <input type="password" class="form-input" minlength="8" id="registerPasswordConfirm" name="registerPasswordConfirm" autocomplete="new-password" required placeholder="Confirm your password">
                         </div>
-                        <div class="form-row">
-                            <label>Confirm Password</label>
-                            <input type="password" class="form-input" id="registerPasswordConfirm" placeholder="Confirm your password" onkeypress="if(event.key==='Enter')register()">
-                        </div>
-                        <button class="btn btn-primary btn-block" onclick="register()">
-                            <i class="fas fa-user-plus"></i> Create Account
+                        <button class="btn btn-primary btn-block" type="submit">
+                            <i class="fas fa-user-plus"></i> Register
                         </button>
+                        </form>
+                        <div id="registerOAuthDivider" class="auth-divider" style="display: none;">
+                            <span>or</span>
+                        </div>
+                        <div id="registerOAuthButtons" class="oauth-buttons" style="display: none;"></div>
                     </div>
                     <div class="auth-footer">
                         Already have an account? <a href="#" onclick="showPage('login'); return false;">Sign in</a>
@@ -313,11 +462,16 @@
             </div>
         </div>
         <!-- FORUM PAGE (Categories) -->
-        <div class="page-view active" id="page-forum">
-            <div class="page-title">
-                <h1>Community Forums</h1>
-                <p>Discuss, share, and connect with other members</p>
+        <div class="page-view" id="page-forum">
+            <header class="forum-heading">
+                <div><div class="dashboard-eyebrow">Scooby community</div><h1>Better together.</h1><p>Ask questions, share what you know, and find your people.</p></div>
+                <a class="dashboard-button secondary" href="/guides/"><i class="fas fa-book-open" aria-hidden="true"></i> Browse guides</a>
+            </header>
+            <div class="forum-toolbar">
+                <div><h2>Discussions</h2><span id="forumSummary" aria-live="polite">Choose a forum to get started.</span></div>
+                <label class="forum-filter"><i class="fas fa-search" aria-hidden="true"></i><input type="search" id="forumFilter" placeholder="Find a forum..." aria-label="Find a forum"></label>
             </div>
+            <p id="forumFilterEmpty" class="dashboard-empty" hidden>No forums match your search.</p>
             <div class="forum-layout">
                 <div class="forum-main">
                     <div class="content-card">
@@ -330,6 +484,7 @@
                     </div>
                 </div>
                 <div class="forum-sidebar">
+                    <div class="forum-help-card"><span class="forum-help-icon"><i class="fas fa-compass" aria-hidden="true"></i></span><h2>New around here?</h2><p>Find setup guides and answers to common questions.</p><a href="/guides/">Start with the guides <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                     <div class="sidebar-card">
                         <div class="sidebar-header">
                             <h3><i class="fas fa-clock"></i> Recent Activity</h3>
@@ -1467,7 +1622,318 @@
             </div>
         </div>
     </div>
-    <script src="portal.js"></script>
+    <script src="portal.js?v=20260922-register"></script>
+    <script src="portal-refresh.js"></script>
+    <script src="portal-backgrounds.js"></script>
+    <script>
+    // Account dashboard integration. All other routes still use portal.js.
+    (() => {
+        const byId = id => document.getElementById(id);
+        let loadVersion = 0;
+        let redeemBusy = false;
+        let resetBusy = false;
+        let resetAllowed = false;
+        let resetReadyAt = 0;
+        let cooldownTimer = null;
+
+        function message(id, text, tone = '') {
+            byId(id).textContent = text;
+            byId(id).dataset.tone = tone;
+        }
+
+        function emptyProducts(title, detail, retry = false) {
+            const box = document.createElement('div');
+            box.className = 'dashboard-empty';
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-cube';
+            icon.setAttribute('aria-hidden', 'true');
+            const heading = document.createElement('strong');
+            heading.textContent = title;
+            box.append(icon, heading, document.createTextNode(detail));
+            if (retry) {
+                const button = document.createElement('button');
+                button.className = 'dashboard-button secondary';
+                button.type = 'button';
+                button.textContent = 'Try again';
+                button.addEventListener('click', loadDashboard);
+                box.append(document.createElement('br'), button);
+            }
+            byId('dashboardProducts').replaceChildren(box);
+            byId('dashboardProductCount').hidden = true;
+        }
+
+        // Bound read requests so an unavailable service leaves a useful retry state.
+        async function dashboardRead(endpoint) {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 12000);
+            try {
+                const response = await fetch(getApiUrl(endpoint), { headers: getHeaders(), signal: controller.signal });
+                return { ok: response.ok, status: response.status, data: await response.json() };
+            } catch (_) {
+                return { ok: false, status: 0, data: {} };
+            } finally {
+                clearTimeout(timeout);
+            }
+        }
+
+        function renderAccount() {
+            const signedIn = !!currentUser;
+            byId('dashboardTitle').textContent = signedIn
+                ? `Welcome, ${currentUser.display_name || currentUser.username || 'member'}!`
+                : 'Welcome to Scooby.';
+            byId('dashboardAccountLabel').textContent = signedIn ? 'My account' : 'Member portal';
+            byId('dashboardSignIn').hidden = signedIn;
+            byId('dashboardLicenseKey').disabled = !signedIn || redeemBusy;
+            byId('dashboardRedeemButton').disabled = !signedIn || redeemBusy;
+            byId('dashboardSupportLink').hidden = window.portalSettings?.tickets_enabled === false;
+        }
+
+        function renderProducts(customer, catalog) {
+            const types = customer.subscription_types || customer.subscriptions || [];
+            const grants = Array.isArray(customer.subscription_grants) ? customer.subscription_grants : [];
+            const keyOf = item => String(typeof item === 'object' && item !== null
+                ? item.public_id ?? item.key ?? item.name ?? '' : item ?? '').toLowerCase();
+            const findProduct = item => catalog.find(product =>
+                [product.public_id, product.name, product.display_name].some(value => value != null && String(value).toLowerCase() === keyOf(item)));
+            const owned = new Map();
+            for (const item of [...(Array.isArray(types) ? types : []), ...grants]) {
+                const product = findProduct(item);
+                const key = keyOf(product?.public_id ?? item);
+                if (!key) continue;
+                const previous = owned.get(key);
+                const grant = grants.includes(item) ? item : null;
+                // A current grant takes precedence over historical grants for the same product.
+                const isCurrent = value => value?.status === 'active' && (!value.expires_at || Date.parse(value.expires_at) > Date.now());
+                const selectedGrant = isCurrent(grant) ? grant : isCurrent(previous?.grant) ? previous.grant : grant || previous?.grant;
+                owned.set(key, { product: product || previous?.product, item: previous?.item || item, grant: selectedGrant });
+            }
+            if (!owned.size) {
+                emptyProducts('No products yet', 'Redeem a license key to add your first product.');
+                return;
+            }
+            const fragment = document.createDocumentFragment();
+            for (const [key, entry] of owned) {
+                const details = typeof entry.item === 'object' ? entry.item : {};
+                const name = entry.product?.display_name || entry.product?.name || entry.grant?.display_name || entry.grant?.name || details.display_name || details.name || `Product ${key}`;
+                const expiry = entry.grant?.expires_at || details.expires_at;
+                const date = expiry ? new Date(expiry) : null;
+                const validDate = date && Number.isFinite(date.getTime());
+                let status = entry.grant?.status || details.status || 'active';
+                if (validDate && date.getTime() <= Date.now()) status = 'expired';
+                const row = document.createElement('div');
+                row.className = 'dashboard-product';
+                const info = document.createElement('div');
+                info.className = 'dashboard-product-info';
+                const title = document.createElement('div');
+                title.className = 'dashboard-product-name';
+                title.textContent = name;
+                const meta = document.createElement('div');
+                meta.className = 'dashboard-product-meta';
+                meta.textContent = validDate
+                    ? `${status === 'expired' ? 'Expired' : 'Expires'}: ${date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}`
+                    : 'Linked to your account';
+                const badge = document.createElement('span');
+                badge.className = 'dashboard-status' + (status === 'active' ? '' : ' inactive');
+                badge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+                info.append(title, meta);
+                const artwork = document.createElement('img');
+                artwork.className = 'dashboard-product-art';
+                artwork.src = portalProductArtwork(entry.product?.name, name, key);
+                artwork.alt = '';
+                artwork.width = 66;
+                artwork.height = 66;
+                artwork.loading = 'lazy';
+                artwork.addEventListener('error', () => { artwork.src = '../assets/images/logo.png'; }, { once: true });
+                row.append(artwork, info, badge);
+                fragment.append(row);
+            }
+            byId('dashboardProducts').replaceChildren(fragment);
+            byId('dashboardProductCount').textContent = String(owned.size);
+            byId('dashboardProductCount').hidden = false;
+        }
+
+        function renderHwid(customer) {
+            const state = customer.hwid_state;
+            const policy = customer.hwid_policy;
+            resetAllowed = !!(policy?.enabled && state?.can_reset);
+            byId('dashboardResetButton').disabled = !resetAllowed || resetBusy;
+            if (!policy?.enabled) {
+                byId('dashboardHwidStatus').textContent = 'Not available';
+                message('dashboardHwidMessage', 'HWID resets are not enabled for this account.');
+            } else if (state?.status === 'cooldown') {
+                resetAllowed = false;
+                byId('dashboardResetButton').disabled = true;
+                resetReadyAt = Date.now() + Math.max(0, Number(state.cooldown_remaining_seconds) || 0) * 1000;
+                const updateCooldown = () => {
+                    const remaining = Math.max(0, Math.ceil((resetReadyAt - Date.now()) / 1000));
+                    byId('dashboardHwidStatus').textContent = remaining ? `Available in ${formatDuration(remaining)}` : 'Refresh to check availability';
+                    if (!remaining) {
+                        clearInterval(cooldownTimer);
+                        if (resetReadyAt > 0 && Number(state.cooldown_remaining_seconds) > 0) loadDashboard();
+                    }
+                };
+                updateCooldown();
+                if (resetReadyAt > Date.now()) cooldownTimer = setInterval(updateCooldown, 1000);
+                message('dashboardHwidMessage', 'Your account has a cooldown between hardware resets.');
+            } else {
+                byId('dashboardHwidStatus').textContent = resetAllowed ? 'Ready to reset' : 'Currently unavailable';
+                message('dashboardHwidMessage', state?.manual_reset_count != null ? `Resets used: ${state.manual_reset_count}` : '');
+            }
+        }
+
+        async function loadDashboard() {
+            const version = ++loadVersion;
+            clearInterval(cooldownTimer);
+            renderAccount();
+            resetAllowed = false;
+            byId('dashboardResetButton').disabled = true;
+            message('dashboardHwidMessage', '');
+            if (!currentUser) {
+                emptyProducts('Your library lives here', 'Sign in to see your products.');
+                byId('dashboardHwidStatus').textContent = 'Sign in to check';
+                return;
+            }
+            const token = sessionToken;
+            emptyProducts('Loading your products', 'Checking your account...');
+            byId('dashboardHwidStatus').textContent = 'Checking availability...';
+            const [session, subscriptions] = await Promise.all([dashboardRead('/auth/session'), dashboardRead('/subscriptions')]);
+            if (version !== loadVersion || token !== sessionToken || !currentUser) return;
+            if (!session.ok || !session.data.valid || !session.data.customer) {
+                const expired = session.status === 401 || session.status === 403 || (session.ok && session.data.valid === false);
+                if (expired) {
+                    currentUser = null;
+                    sessionToken = '';
+                    localStorage.removeItem('portalSessionToken');
+                    updateUIForGuest();
+                    renderAccount();
+                    showPage('login');
+                    showAlert('loginAlert', 'Your session has expired. Please sign in again.', 'info');
+                    return;
+                }
+                emptyProducts(expired ? 'Please sign in again' : 'Account unavailable', expired ? 'Your session has expired.' : 'We could not load your account. Please try again.', !expired);
+                byId('dashboardHwidStatus').textContent = expired ? 'Sign in to check' : 'Could not check';
+                return;
+            }
+            currentUser = { ...currentUser, ...session.data.customer };
+            renderAccount();
+            renderProducts(currentUser, subscriptions.ok && Array.isArray(subscriptions.data.subscriptions) ? subscriptions.data.subscriptions : []);
+            renderHwid(currentUser);
+        }
+
+        // Gate every route before its data loaders can run.
+        const authPages = new Set(['login', 'register', 'verify', 'forgot-password', 'reset-password', 'session']);
+        let returnRoute = '';
+        const originalShowPage = showPage;
+        showPage = function(page, updateUrl = true) {
+            if (page === 'chat' || page === 'badges' || page === 'members') page = 'dashboard';
+            if (!currentUser && !authPages.has(page)) page = 'login';
+            if (currentUser && (page === 'register' || page === 'login')) page = 'dashboard';
+            // Password and OAuth sign-in previously opened the forum by default.
+            if (currentUser && document.body.classList.contains('auth-mode') && page === 'forum') page = 'dashboard';
+            originalShowPage(page, updateUrl);
+            const activePage = document.querySelector('.page-view.active');
+            const dashboardVisible = activePage?.id === 'page-dashboard';
+            const authVisible = authPages.has(activePage?.id.replace('page-', ''));
+            document.body.classList.toggle('auth-mode', authVisible);
+            document.body.classList.toggle('dashboard-active', dashboardVisible);
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                if (tab.classList.contains('active')) tab.setAttribute('aria-current', 'page');
+                else tab.removeAttribute('aria-current');
+            });
+            if (dashboardVisible) loadDashboard();
+            else { ++loadVersion; clearInterval(cooldownTimer); }
+        };
+        const originalHashRoute = handleHashRoute;
+        handleHashRoute = function() {
+            const route = location.hash.slice(1).split('/')[0];
+            if (!currentUser && !authPages.has(route)) {
+                if (route && !['chat', 'badges', 'members', 'dashboard'].includes(route)) returnRoute = location.hash;
+                showPage('login', false);
+                return;
+            }
+            if (!route || ['dashboard', 'chat', 'badges', 'members'].includes(route)) showPage('dashboard', false);
+            else originalHashRoute();
+        };
+        const originalLogin = login;
+        login = async function(...args) {
+            await originalLogin(...args);
+            if (currentUser) {
+                if (returnRoute) {
+                    history.replaceState(null, '', returnRoute);
+                    returnRoute = '';
+                    handleHashRoute();
+                } else showPage('dashboard');
+            }
+        };
+        const originalLogout = logout;
+        logout = async function(...args) {
+            returnRoute = '';
+            await originalLogout(...args);
+            byId('dashboardLicenseKey').value = '';
+            showPage('login');
+        };
+
+        byId('dashboardRedeemForm').addEventListener('submit', async event => {
+            event.preventDefault();
+            if (!currentUser || redeemBusy) return;
+            const key = byId('dashboardLicenseKey').value.trim();
+            if (!key) { message('dashboardRedeemMessage', 'Please enter a license key.', 'error'); return; }
+            redeemBusy = true;
+            renderAccount();
+            byId('dashboardRedeemButton').textContent = 'Redeeming...';
+            message('dashboardRedeemMessage', '');
+            try {
+                const result = await api('POST', '/auth/redeem-key', { key });
+                if (!result.ok) { message('dashboardRedeemMessage', result.data.message || 'Could not redeem this key. Please try again.', 'error'); return; }
+                byId('dashboardLicenseKey').value = '';
+                subscriptionsCache = null;
+                message('dashboardRedeemMessage', 'License redeemed successfully.', 'success');
+                await loadDashboard();
+            } finally {
+                redeemBusy = false;
+                byId('dashboardRedeemButton').innerHTML = '<i class="fas fa-plus" aria-hidden="true"></i> Redeem key';
+                renderAccount();
+            }
+        });
+
+        byId('dashboardResetButton').addEventListener('click', async () => {
+            if (!currentUser || !resetAllowed || resetBusy) return;
+            resetBusy = true;
+            byId('dashboardResetButton').disabled = true;
+            try {
+                const confirmed = await showConfirm('This will reset your hardware ID, allowing you to log in from a different device.', {
+                    title: 'Reset HWID', icon: 'fa-desktop', confirmText: 'Reset HWID', confirmIcon: 'fa-sync'
+                });
+                if (!confirmed || !currentUser) return;
+                byId('dashboardResetButton').textContent = 'Resetting...';
+                const result = await api('POST', '/auth/hwid/reset');
+                if (result.ok) {
+                    await loadDashboard();
+                    message('dashboardHwidMessage', 'Hardware ID reset successfully. You can now use your new device.', 'success');
+                } else {
+                    // Recheck eligibility after a rejected reset (for example, a new cooldown).
+                    await loadDashboard();
+                    message('dashboardHwidMessage', result.data.message || 'Could not reset your hardware ID. Please try again.', 'error');
+                }
+            } finally {
+                resetBusy = false;
+                byId('dashboardResetButton').disabled = !resetAllowed;
+                byId('dashboardResetButton').innerHTML = '<i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID';
+            }
+        });
+
+        // Existing navigation anchors become keyboard accessible as well.
+        document.querySelectorAll('.nav-tab[data-page]').forEach(tab => {
+            tab.setAttribute('href', '#' + tab.dataset.page);
+        });
+        if (sessionToken) {
+            showPage('session', false);
+        } else {
+            const initialRoute = location.hash.slice(1).split('/')[0];
+            if (authPages.has(initialRoute) && initialRoute !== 'session') showPage(initialRoute, false);
+        }
+    })();
+    </script>
 <script>/* scooby-file-guard: only fires when opened as a file, never over http */
 (function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
 </body>

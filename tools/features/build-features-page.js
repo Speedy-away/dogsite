@@ -7,6 +7,7 @@ const path = require('path');
 const SITE = path.resolve(__dirname, '../..');
 const APPLY = process.argv.includes('--apply');
 const pages = [
+  {slug:'half-life-1',name:'Half-Life 1',short:'Half-Life 1',file:'features-half-life-1.json',out:'features-list/half-life-1-features/index.html',product:'half-life-1',guide:'/guides/half-life-1/',image:'/assets/images/source-games/half-life-logo.webp',description:'Explore Half-Life 1 ESP, animated chams, radar, Lua, profiles and campaign controls. Search features and check their current availability.',notice:'Original Steam Half-Life / Windows x86 / OpenGL. Original Windows campaign features are verified; other editions and Linux have separate support.'},
   {slug:'l4d',name:'Left 4 Dead 1 & 2',short:'L4D',file:'features-l4d.json',out:'features-list/l4d-features/index.html',product:'l4d',image:'/assets/images/l4d/background.webp',description:'Explore infected and pickup ESP, chams, Rage and Legit, triggerbot, movement, world visuals, Lua and settings. Free for free-key and paid accounts.',notice:'Both games use verified 32-bit adapters.'},
   {slug:'cs2',name:'Counter-Strike 2',short:'CS2',file:'features-cs2.json',out:'features-list/cs2-features/index.html',product:'cs2',image:'/assets/images/store/cs2.webp',description:'Explore aim and recoil controls, player visuals, skins, local inventory, custom models, world effects and interface settings. Search the CS2 feature library.',notice:'Inventory additions and case-opening tools manage local items. Feature availability can change after CS2 updates.'},
   {slug:'last-of-us',name:'The Last of Us Part I',short:'The Last of Us',file:'features-last-of-us.json',out:'features-list/last-of-us-features/index.html',product:'last-of-us',description:'Browse Part I combat, NPC and self ESP, movement, weapon controls, spawners and interface settings. Free for free and paid accounts; Part II is coming soon.'},
@@ -63,5 +64,8 @@ ${page.slug==='gta5-highlights'?'<aside class="feature-notice">Looking for the c
 <div class="feature-bottom"><div><h2>Found what you're looking for?</h2><p>Explore editions, pricing, and setup instructions.</p></div><a class="button" href="/products/${page.product}/">View ${esc(page.short||page.name)} product ↗</a></div></div></div></main>
 <footer class="feature-footer feature-shell"><a href="/" class="brand">scooby</a><p>Explore more. Make it yours.</p><nav aria-label="Footer navigation"><a href="/store/">Store</a><a href="/guides/">Guides</a><a href="/tos/">Terms</a></nav></footer></body></html>`;
 }
-for(const page of pages){const html=require('../seo-metadata').applyMetadata(page.out,render(page));console.log(`${page.out}: ${Math.round(Buffer.byteLength(html)/1024)} KB`);if(APPLY){const file=path.join(SITE,page.out);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html.replace(/></g,'>\n<')+'\n');}}
-console.log(APPLY?`WROTE ${pages.length} feature pages`:'DRY RUN — use --apply to write');
+const onlyIndex = process.argv.indexOf("--only");
+const selectedPages = onlyIndex < 0 ? pages : pages.filter(page => page.slug === process.argv[onlyIndex + 1]);
+if (!selectedPages.length) throw new Error("Unknown feature page requested");
+for(const page of selectedPages){const html=require('../seo-metadata').applyMetadata(page.out,render(page));console.log(`${page.out}: ${Math.round(Buffer.byteLength(html)/1024)} KB`);if(APPLY){const file=path.join(SITE,page.out);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html.replace(/></g,'>\n<')+'\n');}}
+console.log(APPLY?`WROTE ${selectedPages.length} feature pages`:'DRY RUN — use --apply to write');
