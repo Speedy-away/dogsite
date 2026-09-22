@@ -1,33 +1,158 @@
 {
   "screenshots": [
     {
-      "file": "/assets/images/previews/half-life-1/half-life-esp.jpg",
-      "source": "Scooby-Op/source/ports/research/runtime/final-c3a1a/smoke-1.jpg",
+      "file": "/assets/images/previews/half-life-1/current/spawner.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/spawner.png",
+      "sha256": "5486254a663e47e79a3bbebbb64b426d54bda86e960498a8f63c1445f1ecea55",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
       "game": "Original Half-Life",
-      "kind": "Unmodified in-game runtime capture",
-      "sha256": "412c55b8f404d7091483104f3bd473eefee153cb326e17f5341edc9f65323547"
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Weapons, items & NPC spawner",
+      "alt": "Scooby Spawner open in original Half-Life, with Crossbow selected in the catalog and separate quantity, distance, Spawn item and cleanup controls."
     },
     {
-      "file": "/assets/images/previews/half-life-1/half-life-chams.jpg",
-      "source": "Scooby-Op/source/ports/research/trainer/runtime/final-animation/animation-2-1.jpg",
+      "file": "/assets/images/previews/half-life-1/current/aimbot.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/aimbot.png",
+      "sha256": "58b6bdc75246280464529737d5c22bbf8dd0527825c97329c55ac408800ac3ed",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
       "game": "Original Half-Life",
-      "kind": "Unmodified in-game runtime capture",
-      "sha256": "d18512fc98a0e6b7c27c0b02f63333000ba629c96dc51fdeaefce4c2f1bc3f5c"
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Aimbot & targeting",
+      "alt": "Scooby Aimbot page in original Half-Life showing aim key, Hold activation, Lock-on mode, smoothing, target filters, hitbox, FOV and range controls."
     },
     {
-      "file": "/assets/images/previews/half-life-1/half-life-player.jpg",
-      "source": "Scooby-Op/source/ports/research/trainer/runtime/candidate2/campaign-player.jpg",
+      "file": "/assets/images/previews/half-life-1/current/triggerbot.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/triggerbot.png",
+      "sha256": "f5d333be7d9f400ef53b7e395303dabb8e7f0cfbd691ed8ff57b90b83d30b477",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
       "game": "Original Half-Life",
-      "kind": "Unmodified in-game runtime capture",
-      "sha256": "4c24f290c799c2d28d7286d11db992b3ca18b56b3eeb5a4cd5881e33db0d2702"
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Triggerbot settings",
+      "alt": "Scooby Triggerbot page in original Half-Life showing its separate trigger key, activation mode, target filters, range, hitgroup and delay."
     },
     {
-      "file": "/assets/images/previews/half-life-1/half-life-spawner.jpg",
-      "source": "Scooby-Op/source/ports/research/trainer/runtime/candidate2/campaign-spawner.jpg",
+      "file": "/assets/images/previews/half-life-1/current/self-view.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/view.png",
+      "sha256": "9966a51c43399b39bb5380c78c7bc5592eda338478ade23e93d564780cb8d144",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
       "game": "Original Half-Life",
-      "kind": "Unmodified in-game runtime capture",
-      "sha256": "334e37a04c9ceef0b86d78f690975a7d97a2c0002151d46e244818048a629e12"
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Camera & viewmodel",
+      "alt": "Scooby Self View page in original Half-Life with third-person camera distance, camera FOV, model FOV and X, Y and Z viewmodel offsets."
+    },
+    {
+      "file": "/assets/images/previews/half-life-1/current/movement.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/movement.png",
+      "sha256": "ed3efd04ec86e7a6d066a1f437143ad5e7fe447c41decd0393ea54edadac1b89",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
+      "game": "Original Half-Life",
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Movement controls",
+      "alt": "Scooby Movement page in original Half-Life showing Bunny Hop, Auto Strafe, Noclip, Super run and Jump height controls."
+    },
+    {
+      "file": "/assets/images/previews/half-life-1/current/self.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/player.png",
+      "sha256": "ef172d11db4acf8fa1b3ad6b5e43ccca86a32bb33c186a33ee7801aa6359d7ae",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
+      "game": "Original Half-Life",
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Player controls",
+      "alt": "Scooby Self Player page in original Half-Life showing Godmode, Refill health, Refill armor, Infinite reserve ammo and No reload."
+    },
+    {
+      "file": "/assets/images/previews/half-life-1/current/world.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/runtime/halflife-candidate3/ui/world.png",
+      "sha256": "66bc778fecea3e9ef645c80089d339ad0baf740d038b8874feea29a38b1d0cfd",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Safe c1a0 entrance beside the reception lobby",
+      "game": "Original Half-Life",
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Materials & animated chams",
+      "alt": "Scooby World page in original Half-Life showing model materials, occluded pass, first-person weapon materials, animated chams and color grading settings."
+    },
+    {
+      "file": "/assets/images/previews/half-life-1/current/gameplay-esp.png",
+      "source": "Scooby-Op/source/ports/research/goldsrc-final/site-screenshots/halflife-candidate3/gameplay-esp.png",
+      "sha256": "4da48972270a128a5afdbf77aef12496582b0cd53c1a3c40697c87e16461d581",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "scene": "Black Mesa reception lobby",
+      "game": "Original Half-Life",
+      "kind": "Unmodified in-game framebuffer capture",
+      "caption": "Entity ESP & radar",
+      "alt": "Original Half-Life gameplay at Black Mesa reception showing two scientists and a security guard with ESP boxes, names, distances and radar."
     }
   ],
-  "note": "Original Half-Life Windows captures. Do not label these as Blue Shift, Opposing Force or Half-Life: Source screenshots."
+  "galleries": {
+    "product": [
+      "/assets/images/previews/half-life-1/current/spawner.png",
+      "/assets/images/previews/half-life-1/current/aimbot.png",
+      "/assets/images/previews/half-life-1/current/triggerbot.png",
+      "/assets/images/previews/half-life-1/current/self-view.png",
+      "/assets/images/previews/half-life-1/current/movement.png",
+      "/assets/images/previews/half-life-1/current/self.png",
+      "/assets/images/previews/half-life-1/current/world.png",
+      "/assets/images/previews/half-life-1/current/gameplay-esp.png"
+    ],
+    "guide": [
+      "/assets/images/previews/half-life-1/current/spawner.png",
+      "/assets/images/previews/half-life-1/current/self.png",
+      "/assets/images/previews/half-life-1/current/self-view.png",
+      "/assets/images/previews/half-life-1/current/movement.png"
+    ]
+  },
+  "capture": {
+    "title": "Half-Life",
+    "game_directory": "valve",
+    "steam_app_id": 70,
+    "installed_build": 15961492,
+    "platform": "Windows x86 OpenGL",
+    "map": "c1a0",
+    "dll_sha256": "ed1d4081d831bb2b76d5526fc2759522aed5e2dfae771414ab6e6a3bfc7ecde4",
+    "package_sha256": "70ae3e17d7b7ede838f56903bcc79ba2b07fb2f0e1eaac81fd652e49d1850ca3",
+    "ui_checkpoint_sha256": "28d8ef5761b911a862515ef60b559cb5969ea584e629ef8f9e7f81cacd229446",
+    "native_binary_sha256": {
+      "hl.exe": "be7c061a2d36a3517c98412a06642f98985ab746e3d65c8d105d25b6ac77369c",
+      "hw.dll": "9ba9a2db5e07598fd59afa35507a98c86162e4e15b3835177b78c11842cd2295",
+      "valve/cl_dlls/client.dll": "e9827e3fe884b72da897c48b9921feb93660f9b0be62bd772e0104ab8c7135f8",
+      "valve/dlls/hl.dll": "d932d274061ee05bef89ea712f9b32b8f5f742ad0124d5f516c8cca1e421ca24"
+    },
+    "recorded_utc": "2026-09-22T16:09:15.561010+00:00",
+    "capture_method": "Original full 1600x900 OpenGL game framebuffer PNGs. No cropping, composites or pixel edits; each file is a byte-identical copy of its listed original.",
+    "diagnostic_overlay": "Existing status overlay remains visible in these preserved originals. A later telemetry-off session stopped responding to UI requests and ended; those failed captures are excluded.",
+    "acceptance_limit": "Screenshots and UI/config/binding/Lua/navigation checks only. Expanded final gameplay acceptance and capability promotion remain pending; pSilent and Linux unverified."
+  },
+  "source_manifest": "Scooby-Op/source/ports/research/goldsrc-final/site-screenshots/halflife-final-originals/manifest.json",
+  "source_manifest_sha256": "ebecfd35b0e2220d1f4e30d4241ce66ca202529221ec82cc50803f29ef616090",
+  "note": "Original Half-Life Windows captures. Do not label these as Blue Shift, Opposing Force or Half-Life: Source screenshots. Images are UI/screenshots evidence, not final gameplay release acceptance."
 }
