@@ -25,8 +25,8 @@ function clean(s) {
   return text;
 }
 const count = tab => tab.categories.reduce((n,c)=>n+c.groups.reduce((n,g)=>n+g.items.length,0),0);
-function render(page) {
-  const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,page.file),'utf8'));
+function render(page, manifest = JSON.parse(fs.readFileSync(path.join(__dirname,page.file),'utf8'))) {
+  if (manifest.website) page = {...page, description:manifest.website.features.description, notice:manifest.website.notice};
   const total=manifest.tabs.reduce((n,t)=>n+count(t),0);
   const categoryCount=manifest.tabs.reduce((n,t)=>n+t.categories.length,0);
   const url='https://scoobymenu.cc/'+page.out.replace(/index\.html$/,'');
@@ -64,8 +64,12 @@ ${page.slug==='gta5-highlights'?'<aside class="feature-notice">Looking for the c
 <div class="feature-bottom"><div><h2>Found what you're looking for?</h2><p>Explore editions, pricing, and setup instructions.</p></div><a class="button" href="/products/${page.product}/">View ${esc(page.short||page.name)} product ↗</a></div></div></div></main>
 <footer class="feature-footer feature-shell"><a href="/" class="brand">scooby</a><p>Explore more. Make it yours.</p><nav aria-label="Footer navigation"><a href="/store/">Store</a><a href="/guides/">Guides</a><a href="/tos/">Terms</a></nav></footer></body></html>`;
 }
+if (require.main === module) {
 const onlyIndex = process.argv.indexOf("--only");
 const selectedPages = onlyIndex < 0 ? pages : pages.filter(page => page.slug === process.argv[onlyIndex + 1]);
 if (!selectedPages.length) throw new Error("Unknown feature page requested");
 for(const page of selectedPages){const html=require('../seo-metadata').applyMetadata(page.out,render(page));console.log(`${page.out}: ${Math.round(Buffer.byteLength(html)/1024)} KB`);if(APPLY){const file=path.join(SITE,page.out);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html.replace(/></g,'>\n<')+'\n');}}
 console.log(APPLY?`WROTE ${selectedPages.length} feature pages`:'DRY RUN — use --apply to write');
+
+}
+module.exports = {pages, render};

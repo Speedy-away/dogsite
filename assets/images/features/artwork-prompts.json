@@ -1,0 +1,216 @@
+{
+  "mode": "Built-in image generation",
+  "referenceMethod": "Original compositions guided by visually reviewed characters, outfits, and environments from the user reference folder; references could not be attached directly to the generator.",
+  "artwork": [
+    {
+      "id": "gta-heist",
+      "game": "GTA V",
+      "file": "gta-heist-v1.webp",
+      "referenceFiles": [
+        "GTA5/backgrounds/818525eae1a735b5fccd011a946c3917.jpg",
+        "GTA5/characters/a441ef29725e9a38f89cb8f7a2bae45f.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a GTA V feature card on a game website. Output 1024x1536 portrait. Scene: A masked adult heist planner in a sharp ivory suit and black shirt, holding a compact duffel bag, standing beside a charcoal sports coupe in a palm-lined Los Santos bank plaza at peach sunrise. Modern glass bank entrance and a quiet boulevard recede into soft haze. Full newly composed city scene, no casino, no mountains. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "gta-chaos",
+      "game": "GTA V",
+      "file": "gta-chaos-v1.webp",
+      "referenceFiles": [
+        "GTA5/backgrounds/images.jpg",
+        "GTA5/characters/maxresdefault.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a GTA V feature card on a game website. Output 1024x1536 portrait. Scene: An adult woman with magenta bob haircut, white cropped jacket over a purple top and black trousers, confidently standing on a beachside Los Santos rooftop. A small lowrider car is caught mid-jump far behind her on a stunt ramp. Neon cyan dusk, distant Ferris wheel and palm silhouettes, a playful cinematic scene, not an explosion. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "gta-business",
+      "game": "GTA V",
+      "file": "gta-business-v1.webp",
+      "referenceFiles": [
+        "GTA5/backgrounds/images.jpg",
+        "GTA5/characters/images.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a GTA V feature card on a game website. Output 1024x1536 portrait. Scene: An adult dark-haired nightclub entrepreneur in a charcoal tailored suit, in the upper center-right of an upscale nightclub office with city lights and palm silhouettes through tall windows. An open desk case with neatly stacked bills and a business ledger, tasteful amber and violet lighting, a modern downtown Los Santos night setting. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "rdr-horses",
+      "game": "RDR2",
+      "file": "rdr-horses-v1.webp",
+      "referenceFiles": [
+        "rdr2/backgrounds/d86eb1d7de022e2303b5509250eccc66.jpg",
+        "rdr2/characters/34443.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a RDR2 feature card on a game website. Output 1024x1536 portrait. Scene: A rugged adult cowboy wearing a dark brimmed hat, tan vest and rolled sleeves leading a chestnut horse out of a timber stable. Broad spring-green Heartlands and layered limestone cliffs behind, cool blue dawn with warm stable lanterns. New angle, three-quarter portrait of rider and horse, no reused sunset vista. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "rdr-chaos",
+      "game": "RDR2",
+      "file": "rdr-chaos-v1.webp",
+      "referenceFiles": [
+        "rdr2/backgrounds/images.jpg",
+        "rdr2/characters/4545.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a RDR2 feature card on a game website. Output 1024x1536 portrait. Scene: A confident adult frontier woman in a tan brimmed hat, black leather coat and burgundy neckerchief on a forest river overlook. A dramatic distant dust devil lifts autumn leaves above a wild herd on the opposite bank. Silver-blue storm break and amber rim light, cinematic western illustration, the character calm and clear. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "rdr-progression",
+      "game": "RDR2",
+      "file": "rdr-progression-v1.webp",
+      "referenceFiles": [
+        "rdr2/backgrounds/54rfgfg.jpg",
+        "rdr2/characters/im333ages.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a RDR2 feature card on a game website. Output 1024x1536 portrait. Scene: An adult frontier trader wearing an ornate dark leather vest, black cowboy hat and gloves at a rustic trading post. An open canvas satchel with coins, an antique pocket watch, and collectible cards on a rough wooden counter. A frontier railway station glows in late warm daylight in the background, no modern objects. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "fivem-vehicles",
+      "game": "FiveM",
+      "file": "fivem-vehicles-v1.webp",
+      "referenceFiles": [
+        "GTA5/backgrounds/818525eae1a735b5fccd011a946c3917.jpg",
+        "GTA5/characters/images.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a FiveM feature card on a game website. Output 1024x1536 portrait. Scene: An adult custom car builder in a black mechanic jacket, standing beside a vivid teal tuner coupe inside a high-ceiling Los Santos workshop. Hoists, wheel racks, clean concrete and blue-white industrial light, orange sunset through the doorway. Visually rich original vehicle customization scene. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "fivem-chaos",
+      "game": "FiveM",
+      "file": "fivem-chaos-v1.webp",
+      "referenceFiles": [
+        "GTA5/backgrounds/images.jpg",
+        "GTA5/characters/maxresdefault.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a FiveM feature card on a game website. Output 1024x1536 portrait. Scene: An adult female custom-server street racer in a white cropped jacket, purple shirt and loose dark trousers at a lively skatepark parking lot. Bright yellow custom pickup and an improbable tower of traffic cones and beach inflatables in the background, Los Santos palms, playful pink-orange late afternoon. Distinct from rooftop and garage scenes. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "fivem-items",
+      "game": "FiveM",
+      "file": "fivem-items-v1.webp",
+      "referenceFiles": [
+        "GTA5/backgrounds/818525eae1a735b5fccd011a946c3917.jpg",
+        "GTA5/characters/a441ef29725e9a38f89cb8f7a2bae45f.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a FiveM feature card on a game website. Output 1024x1536 portrait. Scene: A sharp adult courier wearing a pale suit and black gloves in a cinematic port warehouse, inspecting an open transport case filled with mundane gear, bundles of cash and radios. Shipping containers and a cargo crane beyond tall windows, turquoise water reflections, golden early morning, original Los Santos harbor scene. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "redm-rides",
+      "game": "RedM",
+      "file": "redm-rides-v1.webp",
+      "referenceFiles": [
+        "rdr2/backgrounds/d86eb1d7de022e2303b5509250eccc66.jpg",
+        "rdr2/characters/5454.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a RedM feature card on a game website. Output 1024x1536 portrait. Scene: An adult cowgirl wearing a worn black hat, patterned neckerchief and dark riding waistcoat beside a black horse and a timber wagon outside a bustling frontier livery. Dusty ochre street, red rock outcrops, tall telegraph poles, clear pale sky. Distinct western roleplay town, crisp cinematic framing. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "redm-chaos",
+      "game": "RedM",
+      "file": "redm-chaos-v1.webp",
+      "referenceFiles": [
+        "rdr2/backgrounds/images.jpg",
+        "rdr2/characters/4545.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a RedM feature card on a game website. Output 1024x1536 portrait. Scene: An adult frontier woman in a fitted dark coat and tan hat stands on a wooden jetty, a paddle steamer crossing a foggy river behind. Unexpected fireflies illuminate a swirling bank of mist, lanterns on the wharf, deep blue twilight and warm gold, fantastical but grounded western roleplay atmosphere. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "redm-trading",
+      "game": "RedM",
+      "file": "redm-trading-v1.webp",
+      "referenceFiles": [
+        "rdr2/backgrounds/54rfgfg.jpg",
+        "rdr2/characters/34443.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a RedM feature card on a game website. Output 1024x1536 portrait. Scene: An adult cowboy in a weathered hat and brown vest in a frontier general store, near shelves of unlabeled supplies, boxed provisions, a brass cash register and a leather satchel. Sunlight streams through dusty windows onto a boardwalk outside, rich warm red-brown and olive palette, fresh character pose. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "cs2-aim",
+      "game": "CS2",
+      "file": "cs2-aim-v1.webp",
+      "referenceFiles": [
+        "CS2/backgrounds/cs2_inferno_a_site-1024x576.png",
+        "CS2/character/54fd.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a CS2 feature card on a game website. Output 1024x1536 portrait. Scene: An adult tactical operator wearing a stylized gold demon mask and a dark utility vest, holding a rifle safely angled downward, at an original Italian-inspired stone courtyard near a bell tower. Terracotta walls, cypress trees, sand-colored cobbles, brilliant morning light. Counter-Strike 2 loading-art mood, no combat impact or gore. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "cs2-visuals",
+      "game": "CS2",
+      "file": "cs2-visuals-v1.webp",
+      "referenceFiles": [
+        "CS2/backgrounds/nuke.jpg",
+        "CS2/character/5b64af229619223.Y3JvcCwxNTg0LDEyMzksMjE5LDA.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a CS2 feature card on a game website. Output 1024x1536 portrait. Scene: An adult red-haired female tactical agent with dark round sunglasses, charcoal beret, white shirt, orange tie and green tactical suspenders, studying an industrial power-station yard. Cooling towers and clean blue-gray pipes, cool crisp daylight, a subtle transparent cyan schematic pane in background without text or numbers. Counter-Strike 2 editorial game key art. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "cs2-loadout",
+      "game": "CS2",
+      "file": "cs2-loadout-v1.webp",
+      "referenceFiles": [
+        "CS2/backgrounds/4erfcdf.jpg",
+        "CS2/character/b52fd4234110579.Y3JvcCwxODMzLDE0MzMsMCwzMzU.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a CS2 feature card on a game website. Output 1024x1536 portrait. Scene: An adult operator with a stylized white-and-red skull mask and dark red tactical top, standing behind a tidy equipment workbench with a colorful rifle skin, tactical gloves, and a closed gear case. Blue-washed Mediterranean street visible through archway, warm angled sunlight, high-quality Counter-Strike 2 loading illustration. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "l4d-awareness",
+      "game": "Left 4 Dead",
+      "file": "l4d-awareness-v1.webp",
+      "referenceFiles": [
+        "l4d/background/screenshot_9.jpg",
+        "l4d/characters/54erf.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a Left 4 Dead feature card on a game website. Output 1024x1536 portrait. Scene: Bill, an older gray-bearded survivor in an olive army jacket and beret, moving cautiously through abandoned railway tracks under a steel bridge. Small distant infected silhouettes in fog, a flashlight cutting through wet blue-gray dusk, tense Left 4 Dead illustrated loading screen, no blood, gore, or firing. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "l4d-movement",
+      "game": "Left 4 Dead",
+      "file": "l4d-movement-v1.webp",
+      "referenceFiles": [
+        "l4d/background/screenshot_6.jpg",
+        "l4d/characters/54rdfcc.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a Left 4 Dead feature card on a game website. Output 1024x1536 portrait. Scene: Ellis, an adult young mechanic wearing a yellow shirt and blue cap, vaulting a low fallen fence beside a weathered lakeside farmhouse. A rowboat and windblown reeds, a path to a warm-lit safehouse door, stormy moonlit sky with a break of pale dawn, cinematic Left 4 Dead survival illustration, no gore. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "l4d-world",
+      "game": "Left 4 Dead",
+      "file": "l4d-world-v1.webp",
+      "referenceFiles": [
+        "l4d/background/43edsc.jpg",
+        "l4d/characters/r4erf.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a Left 4 Dead feature card on a game website. Output 1024x1536 portrait. Scene: Coach, a sturdy bald adult survivor in a purple and yellow polo, carrying a red first-aid pack and flashlight on a raised wooden path through a Louisiana cypress swamp. Mossy trunks, abandoned skiff, dim lanterns, green-blue mist with a bright warm light opening beyond. Left 4 Dead key art, suspense without gore. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "gmod-visuals",
+      "game": "GMod",
+      "file": "gmod-visuals-v1.webp",
+      "referenceFiles": [
+        "gmod/background/4efdcx.jpg",
+        "gmod/characters/DD-GarrysMod-PlayerSandbox-Render.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a GMod feature card on a game website. Output 1024x1536 portrait. Scene: A dark-haired adult citizen wearing the iconic plain blue jacket, beside a blue physics gun near an abandoned green tram in a bright autumn sandbox map. Birch trees, orange leaves, mossy tracks, an ordinary wooden crate suspended in blue light. Playful Garrys Mod screenshot-inspired painted game art. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "gmod-sandbox",
+      "game": "GMod",
+      "file": "gmod-sandbox-v1.webp",
+      "referenceFiles": [
+        "gmod/background/3440c756259f.jpg",
+        "gmod/characters/images.jpg"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a GMod feature card on a game website. Output 1024x1536 portrait. Scene: A lanky adult cartoonish red-shirted scout with black headset and shoulder bag, gleefully gesturing at a ridiculous hovering construction made of chairs, barrels and a bathtub. A concrete sandbox courtyard with green grass and distant city blocks, warm afternoon, playful Garrys Mod physics chaos, no destruction or gore. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    },
+    {
+      "id": "gmod-profiles",
+      "game": "GMod",
+      "file": "gmod-profiles-v1.webp",
+      "referenceFiles": [
+        "gmod/background/thumb-1920-557529.jpg",
+        "gmod/characters/png-clipart-half-life-2-episode-three-garry-s-mod-portal-2-half-game-video-game.png"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: a brand-new portrait illustration for a GMod feature card on a game website. Output 1024x1536 portrait. Scene: A masked blue-goggled Civil Protection-inspired character in black armored uniform standing in a sandbox workshop with neatly arranged tool props and a blue physics gun. A concrete construct map opens through a large garage doorway, cloudy cyan sky and warm workshop lamp light. Clean composition, Garrys Mod worldbuilding illustration. Reference direction: the subjects, clothing and environments described above come from the user's supplied game screenshots and character references, visually reviewed by the art director. Produce a new scene and new camera angle, never reuse an existing game artwork. Style: polished game loading-screen illustration, detailed painterly realism, cinematic lighting, rich atmospheric depth, recognizable game-world character design. Composition: clear face and key scene details in the upper 55%; lower 45% is calm environmental detail suitable for HTML text laid over it later. Character centered or slightly right of center with generous margins around face and hands, coherent perspective and anatomy. No text, logos, lettering, UI, watermark, borders, collage, triptych or baked-in black gradient. One beautiful coherent scene with a distinct mood."
+    }
+  ]
+}

@@ -117,12 +117,18 @@ rdr2|rdr2-launch|How to Launch the Scooby RDR2 Menu|Follow the launch instructio
 rdr2|rdr2-more-help|RDR2 Mod Menu Support & Troubleshooting Help|Find further help for Scooby Red Dead Redemption 2 when setup or crash fixes do not resolve your issue. Open the support resources from the guide.|Scooby RDR2 support, RDR2 menu troubleshooting, Scooby RDR2 help
 `;
 for (const row of topics.trim().split('\n')) guide(...row.split('|'));
+// Half-Life source sync owns these two metadata records through its manifest.
+const halfLifeMetadata = require('./features/features-half-life-1.json').website;
+if (halfLifeMetadata) {
+ pages['products/half-life-1/index.html'] = halfLifeMetadata.product;
+ pages['features-list/half-life-1-features/index.html'] = halfLifeMetadata.features;
+}
 const escape = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const decode = s => s.replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 function attrs(tag) { return Object.fromEntries([...tag.matchAll(/([\w:-]+)\s*=\s*(["'])([\s\S]*?)\2/g)].map(m=>[m[1].toLowerCase(),decode(m[3])])); }
 function excluded(head) { return [...head.matchAll(/<meta\b[^>]*>/gi)].some(m=>{const a=attrs(m[0]);return a.name?.toLowerCase()==='robots' && /noindex/i.test(a.content) || a['http-equiv']?.toLowerCase()==='refresh';}); }
-function applyMetadata(file, html) {
- file=file.replace(/\\/g,'/'); const meta=pages[file]; if(!meta) return html;
+function applyMetadata(file, html, override) {
+ file=file.replace(/\\/g,'/'); const meta=override || pages[file]; if(!meta) return html;
  return html.replace(/<head\b[^>]*>[\s\S]*?<\/head>/i, head=>{
   if(excluded(head))return head;
   const nl=head.includes('\r\n')?'\r\n':'\n';

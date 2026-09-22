@@ -68,6 +68,17 @@
 <nav>
 <a class="sidebar-home" href="/guides/">Wiki overview</a>
 <details>
+<summary>General help</summary>
+<a class="sidebar-overview" href="/guides/general/">Overview</a>
+<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/free-key/">Getting a Free Key</a>
+<a href="/guides/general/crashing/">Crashing Solutions</a>
+<a href="/guides/general/universal/">Universal Troubleshooting</a>
+<a href="/guides/general/connection/">Connection or SSL Errors</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
+<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+</details>
+<details>
 <summary>GTA 5</summary>
 <a class="sidebar-overview" href="/guides/gta5/">Overview</a>
 <a href="/guides/gta5/introduction/">Introduction</a>
@@ -125,17 +136,6 @@
 <a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
 </details>
 <details>
-<summary>General help</summary>
-<a class="sidebar-overview" href="/guides/general/">Overview</a>
-<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
-<a href="/guides/general/free-key/">Getting a Free Key</a>
-<a href="/guides/general/crashing/">Crashing Solutions</a>
-<a href="/guides/general/universal/">Universal Troubleshooting</a>
-<a href="/guides/general/connection/">Connection or SSL Errors</a>
-<a href="/guides/general/hwid/">Resetting Your HWID</a>
-<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
-</details>
-<details>
 <summary>The Last of Us</summary>
 <a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
 <a href="/guides/last-of-us/requirements/">Requirements</a>
@@ -155,7 +155,17 @@
 </aside>
 <div class="article-layout">
 <main id="main-content" tabindex="-1">
-<div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/l4d/">Left 4 Dead</a></div><h1>Requirements</h1><p class="article-intro">Windows, Steam game versions, and the runtimes needed by the loader.</p><div class="guide-card" id="requirements"><h2 class="sr-only">Requirements</h2><ul><li>A Windows installation of Left 4 Dead 1 or Left 4 Dead 2 on Steam, using the supported 32-bit game build.</li><li>The current Scooby Loader, with a valid free-key session or paid sign-in.</li><li>Microsoft Visual C++ runtimes: <a href="https://aka.ms/vc14/vc_redist.x64.exe">x64 for the loader</a> and <a href="https://aka.ms/vc14/vc_redist.x86.exe">x86 for the game module/helper</a>.</li></ul><h3>Rendering</h3><p>Direct3D 9 is the verified Windows path. Vulkan/DXVK depends on the game installation. The OpenGL UI preview is supported separately; stock Windows L4D does not provide a native OpenGL game renderer.</p><p>Adapters check the installed game binaries before enabling hooks. A game update may require a matching Scooby update.</p></div><footer class="wiki-footer">
+<div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/l4d/">Left 4 Dead</a></div><h1>Requirements</h1><p class="article-intro">Windows, Steam game versions, and the runtimes needed by the loader.</p><div class="guide-card" id="requirements"><h2 class="sr-only">Requirements</h2>
+<div class="requirements-box" id="vc-runtimes">
+<h3>Download VC Runtimes</h3>
+<p>Install the <strong>Visual C++ runtimes</strong> before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then <strong>restart your PC</strong>.</p>
+<p><strong>VC Runtimes (all-in-one package):</strong></p>
+<a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener">Download the all-in-one VC runtime package</a>
+<p><strong>Or install both packages directly from Microsoft:</strong></p>
+<a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">Download VC Runtimes — x64 (64-bit)</a>
+<a href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank" rel="noopener">Download VC Runtimes — x86 (32-bit)</a>
+</div>
+<ul><li>A Windows installation of Left 4 Dead 1 or Left 4 Dead 2 on Steam, using the supported 32-bit game build.</li><li>The current Scooby Loader, with a valid free-key session or paid sign-in.</li></ul><h3>Rendering</h3><p>Direct3D 9 is the verified Windows path. Vulkan/DXVK depends on the game installation. The OpenGL UI preview is supported separately; stock Windows L4D does not provide a native OpenGL game renderer.</p><p>Adapters check the installed game binaries before enabling hooks. A game update may require a matching Scooby update.</p></div><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>

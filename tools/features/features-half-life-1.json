@@ -1,61 +1,172 @@
 {
   "game": "Half-Life 1",
   "slug": "half-life-1",
-  "source": "Original Half-Life owner handoff, 2026-09-22. Visual acceptance and campaign validation are identified separately. No support claimed for other editions.",
+  "source": "Generated from the Half-Life / GoldSrc menu source. Source inventory is not a release or runtime verification claim.",
+  "provenance": {
+    "source/ports/goldsrc/src/ui.cpp": "c2cb2e8224533007dd136f90fa278f644665ca765c0126bf615c527f696db88d",
+    "source/ports/goldsrc/src/combat_ui.cpp": "1292b389ea9997d163b9739057cb76b054b10f135374e2e53aad202efd2fcab3",
+    "source/ports/goldsrc/src/view_ui.cpp": "a1c726a730c3bf035181cd505d4d1e60905d808c9d8def8c85d5dd9c2e26f24f",
+    "source/ports/goldsrc/src/campaign_ui.cpp": "460012cf88d34dfbd08568e7ef4c2659dde521c8be3769cab61d4c05c9dd031c",
+    "source/ports/games/halflife/assets/halflife_pages.lua": "6a87a6e80ab9418f8b00452f425b0f9aa3b285c6d848f88f38c4d9f2659d6cfd",
+    "source/ports/shared/vendor/UI/src/core/feature_registry.cpp": "ac5acd115db167172a8436df086c073bde1739507bc9744b9c2d93484336a3d9",
+    "source/ports/shared/vendor/UI/src/ui/application.cpp": "d668e5467870906b66632593cd29f77bceb04b24281182b2edd7c9d05ded6140"
+  },
+  "website": {
+    "product": {
+      "title": "Free Half-Life 1 Mod Menu - Scooby",
+      "description": "Free Half-Life 1 menu: Aimbot & Triggerbot, Entity ESP & Radar, Animated Chams, Bunny Hop & Auto Strafe, Camera & Viewmodel Controls, Godmode, Ammo & Spawner, Lua Scripting, Saved Profiles. Explore screenshots and features.",
+      "keywords": "Scooby Menu, Half-Life 1, HL1, GoldSrc, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, free mod menu, Entity ESP, Boxes, Skeletons, Entity names, Distance, Snaplines, Watermark, Hotkeys, Radar, Active Features, Scientists and security, Hostile NPCs, Players, Dropped weapons, Health, HEV and ammunition, Projectiles, Buttons, doors and chargers, Model materials, Occluded colors, First-person weapon, Color grading, Animated chams, Animation speed, Animation strength, Stop features, Aimbot, Triggerbot, FOV circle, Aim snapline, Bunny Hop, Auto Strafe, Aim at hostile humans, Aim at aliens and infected, Trigger on hostile humans, Trigger on aliens and infected, Hitbox, Hitgroup, Target FOV, Smoothing, Trigger delay, Target range, Trigger range, Third Person, Camera FOV, Model FOV, Viewmodel offsets, Viewmodel X offset, Viewmodel Y offset, Viewmodel Z offset, Reset view, Godmode, Noclip, Infinite reserve ammo, No reload, Super run, Jump height, Refill health, Refill armor, Remove temporary world spawns, Weapons, items & NPC spawner, Saved profiles, Feature hotkeys, Menu appearance, Language packs, Lua pages, Session and entity API, Campaign API"
+    },
+    "features": {
+      "title": "Half-Life 1 Features — Scooby",
+      "description": "Explore Half-Life 1 Combat, Visuals, Self & View, Movement, Spawner, Interface & Lua. Search features, modes and settings.",
+      "keywords": "Scooby Menu, Half-Life 1, HL1, GoldSrc, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, free mod menu, Entity ESP, Boxes, Skeletons, Entity names, Distance, Snaplines, Watermark, Hotkeys, Radar, Active Features, Scientists and security, Hostile NPCs, Players, Dropped weapons, Health, HEV and ammunition, Projectiles, Buttons, doors and chargers, Model materials, Occluded colors, First-person weapon, Color grading, Animated chams, Animation speed, Animation strength, Stop features, Aimbot, Triggerbot, FOV circle, Aim snapline, Bunny Hop, Auto Strafe, Aim at hostile humans, Aim at aliens and infected, Trigger on hostile humans, Trigger on aliens and infected, Hitbox, Hitgroup, Target FOV, Smoothing, Trigger delay, Target range, Trigger range, Third Person, Camera FOV, Model FOV, Viewmodel offsets, Viewmodel X offset, Viewmodel Y offset, Viewmodel Z offset, Reset view, Godmode, Noclip, Infinite reserve ammo, No reload, Super run, Jump height, Refill health, Refill armor, Remove temporary world spawns, Weapons, items & NPC spawner, Saved profiles, Feature hotkeys, Menu appearance, Language packs, Lua pages, Session and entity API, Campaign API"
+    },
+    "notice": "Feature availability depends on your selected game, build and session. The menu enables controls supported by that setup."
+  },
   "tabs": [
     {
-      "name": "Visuals",
+      "name": "Combat",
       "categories": [
         {
-          "name": "Visuals",
+          "name": "Aimbot",
           "groups": [
             {
               "name": "Features",
               "items": [
                 {
-                  "id": "halflife.ESP",
-                  "label": "Entity ESP",
-                  "desc": "Display supported received entities in the original Half-Life local game."
+                  "id": "hl.combat.aim",
+                  "label": "Aimbot",
+                  "desc": "Choose an aim mode with separate key activation and targeting controls.",
+                  "settings": [
+                    "Mode: Lock-on, Silent",
+                    "Aim key: keyboard or mouse; Hold, Toggle or Always"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.boxes",
-                  "label": "Boxes",
-                  "desc": "Full or corner boxes with configurable appearance."
+                  "id": "hl.combat.circle",
+                  "label": "FOV circle",
+                  "desc": "Display the targeting field of view on screen.",
+                  "settings": [
+                    "Circle style: Outline, Filled"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.names",
-                  "label": "Entity names",
-                  "desc": "Labels for supported stock models; NPC health and faction are not inferred."
+                  "id": "hl.combat.snapline",
+                  "label": "Aim snapline",
+                  "desc": "Draw a line to the current aim target.",
+                  "settings": [
+                    "Snapline style: Crosshair, Bottom"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.distance",
-                  "label": "Distance",
-                  "desc": "Distances displayed in metres."
+                  "id": "hl.combat.humans",
+                  "label": "Aim at hostile humans",
+                  "desc": "Include eligible hostile human NPCs in aim targeting.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.bones",
-                  "label": "Skeletons",
-                  "desc": "Animated bones for supported rendered studio models."
+                  "id": "hl.combat.aliens",
+                  "label": "Aim at aliens and infected",
+                  "desc": "Include eligible aliens and infected NPCs in aim targeting.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.snaplines",
-                  "label": "Snaplines",
-                  "desc": "Connect supported entities to the selected screen anchor."
+                  "id": "hl.combat.hitbox",
+                  "label": "Hitbox",
+                  "desc": "Choose an anatomical aim point. Nearest selects the eligible hitbox closest to the crosshair angle.",
+                  "settings": [
+                    "Hitbox: Nearest, Head, Chest, Stomach, Arms, Legs"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.radar",
-                  "label": "Radar",
-                  "desc": "A configurable overview of supported entity positions."
+                  "id": "hl.combat.fov",
+                  "label": "Target FOV",
+                  "desc": "Limit aim targeting to a field of view around the crosshair.",
+                  "settings": [
+                    "Range: 1–90; default: 15"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.categories",
-                  "label": "Entity categories",
-                  "desc": "Filter players, NPCs, weapons, items and projectiles."
+                  "id": "hl.combat.smoothing",
+                  "label": "Smoothing",
+                  "desc": "Adjust how smoothly Lock-on moves toward its target.",
+                  "settings": [
+                    "Range: 1–10; default: 1"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.interactables",
-                  "label": "Interactables",
-                  "desc": "Optional doors, buttons, chargers, breakables and lifts from supported BSP data."
+                  "id": "hl.combat.range",
+                  "label": "Target range",
+                  "desc": "Limit the distance used by aim targeting.",
+                  "settings": [
+                    "Range: 64–4096; default: 2048"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triggerbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.combat.trigger",
+                  "label": "Triggerbot",
+                  "desc": "Fire when an eligible target crosses the crosshair, with its own activation key and delay.",
+                  "settings": [
+                    "Trigger key: keyboard or mouse; Hold, Toggle or Always"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.combat.trigger_humans",
+                  "label": "Trigger on hostile humans",
+                  "desc": "Allow Triggerbot to react to eligible hostile human NPCs.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.combat.trigger_aliens",
+                  "label": "Trigger on aliens and infected",
+                  "desc": "Allow Triggerbot to react to eligible aliens and infected NPCs.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.combat.trigger_group",
+                  "label": "Hitgroup",
+                  "desc": "Filter Triggerbot by the body region actually under the crosshair.",
+                  "settings": [
+                    "Hitgroup: All, Head, Chest, Stomach, Arms, Legs"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.combat.delay",
+                  "label": "Trigger delay",
+                  "desc": "Set the wait before Triggerbot fires.",
+                  "settings": [
+                    "Range: 0–500; default: 100"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.combat.trigger_range",
+                  "label": "Trigger range",
+                  "desc": "Set a separate maximum distance for Triggerbot.",
+                  "settings": [
+                    "Range: 64–4096; default: 2048"
+                  ],
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 }
               ]
             }
@@ -64,38 +175,387 @@
       ]
     },
     {
-      "name": "Materials",
+      "name": "Visuals",
       "categories": [
         {
-          "name": "Materials",
+          "name": "Entity ESP",
           "groups": [
             {
               "name": "Features",
               "items": [
                 {
-                  "id": "halflife.styles",
-                  "label": "Material styles",
-                  "desc": "Tinted, Flat, Wireframe and Additive OpenGL passes."
+                  "id": "esp.enabled",
+                  "label": "Entity ESP",
+                  "desc": "Display supported entities with configurable ESP range and appearance.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
                 },
                 {
-                  "id": "halflife.colors",
-                  "label": "Visible and occluded colors",
-                  "desc": "Independent model colors for visible and hidden passes."
+                  "id": "esp.box",
+                  "label": "Boxes",
+                  "desc": "Draw full or corner boxes around supported entities.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
                 },
                 {
-                  "id": "halflife.animation",
-                  "label": "Animated chams",
-                  "desc": "Pulse, Color fade and Rainbow, with speed and strength controls."
+                  "id": "esp.skeleton",
+                  "label": "Skeletons",
+                  "desc": "Follow the animated bones of supported models.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
                 },
                 {
-                  "id": "halflife.viewmodel",
+                  "id": "esp.name",
+                  "label": "Entity names",
+                  "desc": "Show names for supported entities and stock models.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
+                },
+                {
+                  "id": "esp.distance",
+                  "label": "Distance",
+                  "desc": "Display entity distances in metres.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
+                },
+                {
+                  "id": "esp.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Connect entities to the top, bottom or center of the screen.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Radar",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "overlay.radar",
+                  "label": "Radar",
+                  "desc": "Keep track of entity positions on a customizable radar.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Entity filters",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.friendly",
+                  "label": "Scientists and security",
+                  "desc": "Include scientists and security in entity visuals.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.hostile",
+                  "label": "Hostile NPCs",
+                  "desc": "Include hostile NPCs in entity visuals.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.players",
+                  "label": "Players",
+                  "desc": "Include supported player entities in visuals.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.weapons",
+                  "label": "Dropped weapons",
+                  "desc": "Highlight dropped weapons.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.items",
+                  "label": "Health, HEV and ammunition",
+                  "desc": "Find supported health, suit and ammunition pickups.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.projectiles",
+                  "label": "Projectiles",
+                  "desc": "Include supported projectiles in entity visuals.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.objectives",
+                  "label": "Buttons, doors and chargers",
+                  "desc": "Highlight supported buttons, doors, chargers and other interactable map objects.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Materials & world",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.chams",
+                  "label": "Model materials",
+                  "desc": "Customize model materials and their visible color.",
+                  "settings": [
+                    "Material: Tinted, Flat, Wireframe, Additive"
+                  ],
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.hidden",
+                  "label": "Occluded colors",
+                  "desc": "Choose a separate color for the occluded model pass.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "hl.viewmodel",
                   "label": "First-person weapon",
-                  "desc": "Optional material treatment for the first-person weapon."
+                  "desc": "Apply model materials to the first-person weapon.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
                 },
                 {
-                  "id": "halflife.grading",
+                  "id": "hl.grade",
                   "label": "Color grading",
-                  "desc": "A configurable whole-frame tint, including the stock HUD."
+                  "desc": "Apply a configurable color tint to the scene and HUD.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "chams.animation",
+                  "label": "Animated chams",
+                  "desc": "Animate model colors with a selectable effect.",
+                  "settings": [
+                    "Animation mode: Pulse, Color fade, Rainbow"
+                  ],
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "chams.animation_speed",
+                  "label": "Animation speed",
+                  "desc": "Set how quickly the material color animation plays.",
+                  "settings": [
+                    "Speed (cycles/sec): 0.05–3"
+                  ],
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                },
+                {
+                  "id": "chams.animation_strength",
+                  "label": "Animation strength",
+                  "desc": "Blend the animation with the base material color.",
+                  "settings": [
+                    "Strength: 0–1"
+                  ],
+                  "source": "source/ports/goldsrc/src/ui.cpp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Self & View",
+      "categories": [
+        {
+          "name": "View",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.view.third_person",
+                  "label": "Third Person",
+                  "desc": "View the player from a third-person camera with adjustable distance.",
+                  "settings": [
+                    "Range: 32–160; default: 100"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.fov",
+                  "label": "Camera FOV",
+                  "desc": "Adjust the world camera field of view.",
+                  "settings": [
+                    "Range: 60–120; default: 90"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.model_fov",
+                  "label": "Model FOV",
+                  "desc": "Adjust the first-person weapon field of view separately from the world camera.",
+                  "settings": [
+                    "Range: 50–130; default: 90"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.offsets",
+                  "label": "Viewmodel offsets",
+                  "desc": "Enable first-person weapon positioning along three axes.",
+                  "settings": [
+                    "Range: 0–1; default: 0"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.x",
+                  "label": "Viewmodel X offset",
+                  "desc": "Move the first-person weapon horizontally.",
+                  "settings": [
+                    "Range: -12–12; default: 0"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.y",
+                  "label": "Viewmodel Y offset",
+                  "desc": "Move the first-person weapon forward or backward.",
+                  "settings": [
+                    "Range: -12–12; default: 0"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.z",
+                  "label": "Viewmodel Z offset",
+                  "desc": "Move the first-person weapon vertically.",
+                  "settings": [
+                    "Range: -12–12; default: 0"
+                  ],
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                },
+                {
+                  "id": "hl.view.reset",
+                  "label": "Reset view",
+                  "desc": "Reset camera and viewmodel controls to their defaults.",
+                  "source": "source/ports/goldsrc/src/view_ui.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Player",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.campaign.god",
+                  "label": "Godmode",
+                  "desc": "Prevent damage to the local campaign player.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.infinite_ammo",
+                  "label": "Infinite reserve ammo",
+                  "desc": "Maintain reserve ammunition for supported weapons.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.no_reload",
+                  "label": "No reload",
+                  "desc": "Refill supported weapon magazines without reloading.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.refill_health",
+                  "label": "Refill health",
+                  "desc": "Restore the local player health.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.refill_armor",
+                  "label": "Refill armor",
+                  "desc": "Restore the local player suit armor.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement",
+      "categories": [
+        {
+          "name": "Movement controls",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.movement.bunny_hop",
+                  "label": "Bunny Hop",
+                  "desc": "Automatically time jumps while the jump control is held.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.movement.auto_strafe",
+                  "label": "Auto Strafe",
+                  "desc": "Assist strafing while airborne.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.noclip",
+                  "label": "Noclip",
+                  "desc": "Move through the local campaign without normal collision.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.super_run",
+                  "label": "Super run",
+                  "desc": "Adjust the local player running-speed multiplier.",
+                  "settings": [
+                    "Run multiplier: 1–3"
+                  ],
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.jump",
+                  "label": "Jump height",
+                  "desc": "Adjust the local player jump-height multiplier.",
+                  "settings": [
+                    "Jump multiplier: 1–2.5"
+                  ],
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spawner",
+      "categories": [
+        {
+          "name": "World spawns",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "hl.campaign.cleanup",
+                  "label": "Remove temporary world spawns",
+                  "desc": "Remove temporary world objects created by the spawner.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
+                },
+                {
+                  "id": "hl.campaign.spawn",
+                  "label": "Weapons, items & NPC spawner",
+                  "desc": "Search the game catalog, select an entry and spawn it with adjustable quantity and placement.",
+                  "settings": [
+                    "Quantity: 1–8",
+                    "Distance (game units): 64–512"
+                  ],
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
                 }
               ]
             }
@@ -107,100 +567,96 @@
       "name": "Interface & Lua",
       "categories": [
         {
-          "name": "Interface & Lua",
+          "name": "Menu controls",
           "groups": [
             {
               "name": "Features",
               "items": [
                 {
-                  "id": "halflife.profiles",
-                  "label": "Saved profiles",
-                  "desc": "Save and restore menu preferences in scoped profiles."
+                  "id": "overlay.watermark",
+                  "label": "Watermark",
+                  "desc": "Show the project name, frame rate and renderer.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
                 },
                 {
-                  "id": "halflife.hotkeys",
-                  "label": "Feature hotkeys",
-                  "desc": "Bind frequently used controls through the shared menu."
+                  "id": "overlay.binds",
+                  "label": "Hotkeys",
+                  "desc": "Show assigned keys; enabled features light up and actions flash.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
                 },
                 {
-                  "id": "halflife.appearance",
-                  "label": "Appearance",
-                  "desc": "Customize menu colors, fonts and scale."
+                  "id": "overlay.active_features",
+                  "label": "Active Features",
+                  "desc": "Show currently active features as compact labels. Drag them while the menu is open.",
+                  "source": "source/ports/shared/vendor/UI/src/core/feature_registry.cpp"
                 },
                 {
-                  "id": "halflife.languages",
-                  "label": "Language packs",
-                  "desc": "Shared UI translations with English fallback; product-specific translations are incomplete."
-                },
-                {
-                  "id": "halflife.lua",
-                  "label": "Lua pages",
-                  "desc": "Local sandboxed UI and configuration scripting."
-                },
-                {
-                  "id": "halflife.session",
-                  "label": "Session and entity API",
-                  "desc": "Read copied supported Half-Life session and entity information without engine pointers."
-                },
-                {
-                  "id": "halflife.stop",
-                  "label": "Stop",
-                  "desc": "Stop active features and restore owned input routing; restart the game to replace the DLL."
+                  "id": "hl.stop",
+                  "label": "Stop features",
+                  "desc": "Stop active features and restore the input state managed by the menu.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
                 }
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Campaign",
-      "categories": [
+        },
         {
-          "name": "Campaign",
+          "name": "Personalization",
           "groups": [
             {
               "name": "Features",
               "items": [
                 {
-                  "id": "halflife.godmode",
-                  "label": "Godmode",
-                  "desc": "Verified for the original Windows local campaign. Prevent player damage and restore normal behavior on disable."
+                  "id": "ui.profiles",
+                  "label": "Saved profiles",
+                  "desc": "Save, load and switch between menu configurations.",
+                  "source": "source/ports/shared/vendor/UI/src/ui/application.cpp"
                 },
                 {
-                  "id": "halflife.noclip",
-                  "label": "Noclip",
-                  "desc": "Verified for the original Windows local campaign. Local campaign movement with state restoration."
+                  "id": "ui.hotkeys",
+                  "label": "Feature hotkeys",
+                  "desc": "Assign keyboard or mouse buttons, with Hold, Toggle and Always activation where supported.",
+                  "source": "source/ports/goldsrc/src/combat_ui.cpp"
                 },
                 {
-                  "id": "halflife.ammo",
-                  "label": "Infinite ammo",
-                  "desc": "Verified for the original Windows local campaign. Reserve ammunition controls for supported weapons."
+                  "id": "ui.appearance",
+                  "label": "Menu appearance",
+                  "desc": "Customize menu colors, fonts and interface scale.",
+                  "source": "source/ports/shared/vendor/UI/src/ui/application.cpp"
                 },
                 {
-                  "id": "halflife.reload",
-                  "label": "No reload",
-                  "desc": "Verified for the original Windows local campaign. Magazine refill; melee and clipless weapons are handled separately."
+                  "id": "ui.languages",
+                  "label": "Language packs",
+                  "desc": "Choose a shared UI translation, with English fallback for untranslated entries.",
+                  "source": "source/ports/shared/vendor/UI/src/ui/application.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Scripting",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "ui.lua",
+                  "label": "Lua pages",
+                  "desc": "Create local menu pages and scripts using the shared UI and feature APIs.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
                 },
                 {
-                  "id": "halflife.run",
-                  "label": "Super run",
-                  "desc": "Verified for the original Windows local campaign. Adjustable local campaign movement speed."
+                  "id": "hl.lua.entities",
+                  "label": "Session and entity API",
+                  "desc": "Read supported session information and entity snapshots in Lua.",
+                  "source": "source/ports/goldsrc/src/ui.cpp"
                 },
                 {
-                  "id": "halflife.jump",
-                  "label": "Jump controls",
-                  "desc": "Verified for the original Windows local campaign. Campaign jump multiplier."
-                },
-                {
-                  "id": "halflife.vitals",
-                  "label": "Health and armor",
-                  "desc": "Verified for the original Windows local campaign. Restore the local campaign playerâ€™s health and armor."
-                },
-                {
-                  "id": "halflife.spawn",
-                  "label": "Spawners",
-                  "desc": "Verified for the original Windows local campaign. Supported items, weapons and NPCs with bounded placement and cleanup."
+                  "id": "hl.lua.campaign",
+                  "label": "Campaign API",
+                  "desc": "Read the active game catalog and capability information, and use supported campaign actions from Lua.",
+                  "source": "source/ports/goldsrc/src/campaign_ui.cpp"
                 }
               ]
             }

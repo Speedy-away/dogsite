@@ -633,10 +633,10 @@ h2.section-title {
   <script src="/assets/js/hero-slideshow.js" defer></script>
 <link rel="stylesheet" href="/assets/css/last-of-us-card.css">
 <link rel="stylesheet" href="/assets/css/l4d.css">
-<link rel="stylesheet" href="/assets/css/home-features.css?v=5">
-<link rel="stylesheet" href="/assets/css/home-community.css?v=4">
-<script src="/assets/js/home-reviews.js" defer></script>
-<script src="/assets/js/home-features.js?v=5" defer></script>
+<link rel="stylesheet" href="/assets/css/home-features.css?v=6">
+<link rel="stylesheet" href="/assets/css/home-community.css?v=6">
+<script src="/assets/js/home-reviews.js?v=6" defer></script>
+<script src="/assets/js/home-features.js?v=7" defer></script>
 </head>
 <body>
 
@@ -750,7 +750,7 @@ h2.section-title {
     </div>
 
     <!-- Free banner -->
-    <a href="/store/#free-version" class="product-card wide dark-card reveal" style="margin-bottom:16px">
+    <a href="/products/free/" class="product-card wide dark-card reveal" style="margin-bottom:16px">
       <span class="product-status free">Free</span>
       <div class="product-card-body">
         <h3>Free Version</h3>
@@ -835,16 +835,25 @@ h2.section-title {
 
     <div class="why-toolkit-bar reveal">
       <div class="why-toolkit-label" id="whyProductLabel">Inside the GTA V menu</div>
-      <div class="why-product-picker" id="whyProductPicker" role="group" aria-label="Choose a product; selecting one pauses automatic rotation" hidden>
-        <button type="button" data-product="gta5" aria-pressed="true" aria-controls="whyCards">GTA V</button>
-        <button type="button" data-product="rdr2" aria-pressed="false" aria-controls="whyCards">RDR2</button>
-        <button type="button" data-product="fivem" aria-pressed="false" aria-controls="whyCards">FiveM</button>
-        <button type="button" data-product="redm" aria-pressed="false" aria-controls="whyCards">RedM</button>
+      <div class="why-product-controls" id="whyProductControls" hidden>
+        <div class="why-product-picker" id="whyProductPicker" role="group" aria-label="Choose a game">
+          <button type="button" data-product="gta5" aria-pressed="true" aria-controls="whyCards">GTA V</button>
+          <button type="button" data-product="rdr2" aria-pressed="false" aria-controls="whyCards">RDR2</button>
+          <button type="button" data-product="fivem" aria-pressed="false" aria-controls="whyCards">FiveM</button>
+          <button type="button" data-product="redm" aria-pressed="false" aria-controls="whyCards">RedM</button>
+          <button type="button" data-product="cs2" aria-pressed="false" aria-controls="whyCards">CS2</button>
+          <button type="button" data-product="l4d" aria-pressed="false" aria-controls="whyCards">Left 4 Dead</button>
+          <button type="button" data-product="gmod" aria-pressed="false" aria-controls="whyCards">GMod</button>
+        </div>
+        <button class="why-rotation-toggle" id="whyRotationToggle" type="button" aria-label="Pause automatic rotation" title="Pause automatic rotation" aria-pressed="false" aria-controls="whyCards">
+          <svg class="why-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg>
+          <svg class="why-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 10 7-10 7z"/></svg>
+        </button>
       </div>
     </div>
     <div class="why-cards" id="whyCards" data-product="gta5" aria-labelledby="whyProductLabel">
       <article class="why-card why-heist reveal">
-        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/hero/gta-casino-v2-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/features/gta-heist-v1.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
         <div class="why-card-copy">
           <div class="why-card-kicker">Plan your next big score</div>
           <h3>Heist Editor</h3>
@@ -853,7 +862,7 @@ h2.section-title {
         </div>
       </article>
       <article class="why-card why-fun reveal">
-        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/hero/gta-hills-v2-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/features/gta-chaos-v1.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
         <div class="why-card-copy">
           <div class="why-card-kicker">Change the way you play</div>
           <h3>Fun &amp; Chaos</h3>
@@ -862,7 +871,7 @@ h2.section-title {
         </div>
       </article>
       <article class="why-card why-recovery reveal">
-        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/hero/gta-desert-v2-960.webp" alt="" width="960" height="540" loading="lazy" decoding="async"></div>
+        <div class="why-card-art" aria-hidden="true"><img class="why-art-image is-active" src="/assets/images/features/gta-business-v1.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
         <div class="why-card-copy">
           <div class="why-card-kicker">Build your progression</div>
           <h3>Money Recovery</h3>
@@ -930,39 +939,30 @@ h2.section-title {
     <div class="review-filters" id="reviewFilters" role="group" aria-label="Filter reviews by game" hidden></div>
     <div class="community-grid" id="communityReviews">
       <article class="community-card" tabindex="-1">
-        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">XN</span><div class="community-person"><h3 class="community-author">xNightRider</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <div class="community-card-top"><div class="community-person"><h3 class="community-author">NightRider</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
         <blockquote class="community-quote">Best menu I&#x27;ve ever used. The heist editor alone is worth it, and the amount of features for the price is insane. Support team is super helpful too.</blockquote>
-        <a class="community-game" href="/products/gta5/"><img src="/assets/images/games/gta5-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>GTA V</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a class="community-game" href="/products/gta5/"><span>GTA V</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </article>
       <article class="community-card" tabindex="-1">
-        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">CI</span><div class="community-person"><h3 class="community-author">Cirrus</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
-        <blockquote class="community-quote">Easily the most complete RedM menu around. ESP and aimbot are dialled in, and it holds up on the big RP servers.</blockquote>
-        <a class="community-game" href="/products/redm/"><img src="/assets/images/games/redm-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>RedM</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      </article>
-      <article class="community-card" tabindex="-1">
-        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">VA</span><div class="community-person"><h3 class="community-author">Vantablack</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
-        <blockquote class="community-quote">Aimbot and ESP are the cleanest I have used on FiveM. The Lua executor is a massive bonus, I run my own scripts on it constantly.</blockquote>
-        <a class="community-game" href="/products/fivem/"><img src="/assets/images/games/fivem-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>FiveM</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      </article>
-      <article class="community-card" tabindex="-1">
-        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">RE</span><div class="community-person"><h3 class="community-author">Redgrave</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
-        <blockquote class="community-quote">Swapping to DX12 like the guide said fixed my crashing instantly. Since then it has been completely stable in story and online.</blockquote>
-        <a class="community-game" href="/products/rdr2/"><img src="/assets/images/games/rdr2-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>RDR2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-      </article>
-      <article class="community-card" tabindex="-1">
-        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">GI</span><div class="community-person"><h3 class="community-author">Gizmax</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <div class="community-card-top"><div class="community-person"><h3 class="community-author">Gizmax</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
         <blockquote class="community-quote">The skin changer is the best part. Knives, gloves and agents all swap instantly and everything looks exactly right in game.</blockquote>
-        <a class="community-game" href="/products/cs2/"><img src="/assets/images/games/cs2-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>CS2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a class="community-game" href="/products/cs2/"><span>CS2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </article>
       <article class="community-card" tabindex="-1">
-        <div class="community-card-top"><span class="community-avatar" aria-hidden="true">KE</span><div class="community-person"><h3 class="community-author">Kenzo</h3><p class="community-role">Premium Plus User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
-        <blockquote class="community-quote">The heist editor is a game changer. Set up Cayo solo and made millions in a day. Easy to follow even if you have never touched a menu before.</blockquote>
-        <a class="community-game" href="/products/gta5/"><img src="/assets/images/games/gta5-small.webp" alt="" width="44" height="29" loading="lazy" decoding="async"><span>GTA V</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <div class="community-card-top"><div class="community-person"><h3 class="community-author">Redgrave</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
+        <blockquote class="community-quote">Swapping to DX12 like the guide said fixed my crashing instantly. Since then it has been completely stable in story and online.</blockquote>
+        <a class="community-game" href="/products/rdr2/"><span>RDR2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </article>
     </div>
     <div class="community-footer">
-      <p class="community-count" id="reviewCount" role="status">Showing 6 of 27 reviews</p>
-      <button class="review-more" id="reviewMore" type="button" aria-controls="communityReviews" hidden>Show more reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6"/></svg></button>
+      <p class="community-count" id="reviewCount">3 of 26 reviews</p>
+      <div class="review-rotation-controls" id="reviewRotationControls" hidden>
+        <button class="review-rotation-toggle" id="reviewRotationToggle" type="button" aria-label="Pause automatic reviews" title="Pause automatic reviews" aria-pressed="false" aria-controls="communityReviews">
+          <svg class="review-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg>
+          <svg class="review-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 10 7-10 7z"/></svg>
+        </button>
+        <button class="review-next" id="reviewNext" type="button" aria-controls="communityReviews">Next reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+      </div>
     </div>
   </div>
 </section>
@@ -1039,7 +1039,7 @@ h2.section-title {
     <div style="display:flex;flex-direction:column;gap:10px">
 
       <!-- Free Version -->
-      <a href="/products/free" onclick="closeModal('startModal')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:14px;text-decoration:none;transition:.2s;color:inherit" onmouseover="this.style.background='rgba(34,197,94,.14)'" onmouseout="this.style.background='rgba(34,197,94,.08)'">
+      <a href="/products/free/" onclick="closeModal('startModal')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:14px;text-decoration:none;transition:.2s;color:inherit" onmouseover="this.style.background='rgba(34,197,94,.14)'" onmouseout="this.style.background='rgba(34,197,94,.08)'">
         <div style="width:40px;height:40px;border-radius:10px;background:rgba(34,197,94,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">
           <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>

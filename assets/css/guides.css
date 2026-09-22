@@ -1084,3 +1084,8 @@ main:focus {
 .guide-logo-art--rdr2::before { background-image:url('/assets/images/games/rdr2.webp'); }
 .guide-logo-art img { object-fit:contain; padding:8% 18%; filter:drop-shadow(0 3px 8px #0008); }
 .guide-logo-art--rdr2 img { padding:12% 10%; }
+
+/* Shared VC runtime download instructions. */
+#vc-runtimes h3 { margin-top:0; }
+#vc-runtimes a + p { margin-top:18px; }
+#vc-runtimes a + a { margin-top:6px; }

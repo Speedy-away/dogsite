@@ -27,7 +27,11 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
   assert.deepEqual(await page.locator('[data-game]').evaluateAll(cards=>cards.slice(0,3).map(c=>c.dataset.game)),['cs2','gmod','l4d']);
   assert.equal(await page.locator('[data-game="portal"]').count(),1);
   assert.equal(await page.locator('[data-game="portal"] h3').innerText(),'Portal 1 & 2');
-  assert.equal(await page.locator('[data-catalog-section]').last().getAttribute('id'),'classics');
+  assert.deepEqual(await page.locator('[data-catalog-section]').evaluateAll(sections=>sections.map(section=>section.id)),['released','coming-soon']);
+  assert.deepEqual(await page.locator('#released [data-game]').evaluateAll(cards=>cards.map(card=>card.dataset.game)),['cs2','gmod','l4d','sbox','half-life-1']);
+  assert.equal(await page.locator('#coming-soon [data-game]').count(),10);
+  assert.equal(await page.locator('#released .source-availability').filter({hasText:'Released'}).count(),5);
+  assert.equal(await page.locator('#coming-soon .source-availability').filter({hasText:'Coming soon'}).count(),10);
   for(const image of await page.locator('img').all()){
    await image.scrollIntoViewIfNeeded();
    await image.evaluate(i=>i.decode());
@@ -53,9 +57,9 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
   assert.equal(await page.locator('[data-game]:visible').count(),15);
   assert(await search.evaluate(el=>el===document.activeElement));
   await page.locator('[data-engine-filter="source2"]').click();
-  await page.getByRole('link',{name:'Explore the classics',exact:true}).click();
+  await page.getByRole('link',{name:'Coming soon',exact:true}).click();
   assert.equal(await page.locator('[data-game]:visible').count(),15);
-  assert(await page.locator('#classics').isVisible());
+  assert(await page.locator('#coming-soon').isVisible());
   if(width<=768){
    await page.locator('#hamburgerBtn').click();
    assert.equal(await page.locator('#hamburgerBtn').getAttribute('aria-expanded'),'true');
@@ -67,7 +71,7 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
   checks.push(`Card order, all images, filters, aliases, empty/reset, anchors and layout at ${width}px`);
  }
  await page.setViewportSize({width:1440,height:1000});
- for(const section of ['featured','source-worlds','classics']){
+ for(const section of ['released','coming-soon']){
   await page.locator('#'+section).screenshot({path:path.join(output,`expanded-final-${section}.jpg`),type:'jpeg',quality:75,style:'#product-nav,.product-skip-link{visibility:hidden!important}'});
  }
  const links=await page.locator('a[href^="/"]').evaluateAll(nodes=>[...new Set(nodes.map(n=>n.getAttribute('href').split('#')[0]||'/'))]);
@@ -103,8 +107,8 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
  await fallback.goto(base+'/source-games/');
  assert.equal(await fallback.locator('[data-game]:visible').count(),15);
  assert(!await fallback.locator('.collection-tools').isVisible());
- await fallback.getByRole('link',{name:/Browse games/}).click();
- assert(fallback.url().endsWith('#featured'));
+ await fallback.getByRole('link',{name:/Browse released/}).click();
+ assert(fallback.url().endsWith('#released'));
  await fallback.locator('[data-game="half-life-1"]').click();
  assert(fallback.url().endsWith('/products/half-life-1/'));
  await noJs.close();
