@@ -8,7 +8,7 @@
     const products = [
         { id:'gta5', name:'GTA V', href:'/features-list/gta-features/', cards:[
             { art:'gta-heist', kicker:'Plan your next big score', title:'Heist Editor', description:'Set your cuts and take control of Cayo Perico, Casino, Doomsday, and apartment heists.', href:'/guides/gta5/money/#topic-11', action:'Explore heist tools' },
-            { art:'gta-chaos', kicker:'Change the way you play', title:'Fun & Chaos', description:'Vehicle spawns, world effects, player options, and unexpected ways to make every session your own.', href:'/features-list/gta-features/#section-world', action:'Explore fun features' },
+            { art:'gta-chaos', kicker:'Change the way you play', title:'Fun & Chaos', description:'Player trolling, weapon mods, modded outfits and vehicles, vehicle spawns, and world effects. Make every session your own.', href:'/features-list/gta-features/#section-world', action:'Explore fun features' },
             { art:'gta-business', kicker:'Build your progression', title:'Money Recovery', description:'Business Manager, money tools, RP, rank, stats, and unlocks. Manage your progression in one place.', href:'/features-list/gta-features/#section-recovery', action:'See recovery features' }
         ] },
         { id:'rdr2', name:'RDR2', href:'/features-list/rdr2-features/', cards:[
@@ -18,12 +18,12 @@
         ] },
         { id:'fivem', name:'FiveM', href:'/products/fivem/', cards:[
             { art:'fivem-vehicles', kicker:'Dial in your combat setup', title:'Aimbot & ESP', description:'Aimbot, silent aim, triggerbot, and ESP for players, vehicles, and items. Fine-tune your aim and visual settings.', href:'/products/fivem/#product-details', action:'Explore combat & visuals' },
-            { art:'fivem-chaos', kicker:'Make it your own', title:'Lua Executor & Triggers', description:'Run custom Lua scripts, use triggers, and work with the event and resource managers to customize your setup.', href:'/docs/fivem/', action:'Explore Lua tools' },
+            { art:'fivem-chaos', kicker:'Make it your own', title:'Lua Executor & Triggers', description:'Lua execution, triggers, event and resource managers, plus Server Dumper to dump all resources and Stream Dumper for streamed assets.', href:'/docs/fivem/', action:'Explore Lua & server tools' },
             { art:'fivem-items', kicker:'Take control of the scene', title:'Freecam & World', description:'Freecam, noclip, teleportation, vehicle spawns, and player tools. Explore the map and change the way you play.', href:'/products/fivem/#product-details', action:'Explore world tools' }
         ] },
         { id:'redm', name:'RedM', href:'/products/redm/', cards:[
             { art:'redm-rides', kicker:'Dial in your frontier setup', title:'Aimbot & ESP', description:'Aimbot, triggerbot, and ESP for players, NPCs, horses, and objects, with customizable aim and visual settings.', href:'/products/redm/#product-details', action:'Explore combat & visuals' },
-            { art:'redm-chaos', kicker:'Make it your own', title:'Lua Executor & Triggers', description:'Execute custom Lua scripts, use triggers, and manage resources and events from one place.', href:'/docs/redm/', action:'Explore Lua tools' },
+            { art:'redm-chaos', kicker:'Make it your own', title:'Lua Executor & Triggers', description:'Lua execution, triggers, event and resource managers, plus Server Dumper to dump all resources and Stream Dumper for streamed assets.', href:'/docs/redm/', action:'Explore Lua & server tools' },
             { art:'redm-trading', kicker:'Explore the frontier', title:'Freecam & World', description:'Freecam, noclip, teleportation, and horse, wagon, and NPC spawners. Set the scene with time and weather controls.', href:'/products/redm/#product-details', action:'Explore world tools' }
         ] },
         { id:'cs2', name:'CS2', href:'/features-list/cs2-features/', cards:[
