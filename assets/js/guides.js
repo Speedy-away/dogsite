@@ -63,6 +63,7 @@
         status.textContent = matches.length ? `${matches.length} matching topic${matches.length === 1 ? '' : 's'}` : 'No topics found. Try a game name or a different keyword.';
         matches.forEach(topic => {
             const a = document.createElement('a'); a.href = topic.href;
+            if (topic.newTab) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
             const context = document.createElement('span'); context.textContent = topic.game;
             const title = document.createElement('strong'); title.textContent = topic.title;
             a.append(context, title); results.append(a);
