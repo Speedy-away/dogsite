@@ -126,9 +126,9 @@
 }
 /* Supplied product logos retain their original proportions and colors. */
 .dashboard-product-art.dashboard-product-logo { object-fit:contain; padding:7px; background:#08080a; border-color:#ffffff1f; }
-.dashboard-product-art.dashboard-product-logo--gta-v { background:#fff; padding:5px; border-color:#fff; }
+.dashboard-product-art.dashboard-product-logo--gta-v { background:transparent; padding:5px; border-color:transparent; }
 .dashboard-product-art.dashboard-product-logo--redm { background:#f80008; padding:0; border-color:#ff3e461f; }
-.dashboard-product-art.dashboard-product-logo--rdr2 { padding:6px; background:#080808; }
+.dashboard-product-art.dashboard-product-logo--rdr2 { padding:6px; background:transparent; border-color:transparent; }
 
 .dashboard-download > .dashboard-button { margin-top:22px; }
 .portal-download-dialog { position:fixed; inset:0; margin:auto; width:min(540px,calc(100vw - 32px)); max-height:calc(100dvh - 40px); padding:0; overflow:auto; color:#eeeef3; background:#101012; border:1px solid #ffffff24; border-radius:20px; box-shadow:0 32px 110px #000b,inset 0 1px #ffffff05; }
