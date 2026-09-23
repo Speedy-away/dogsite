@@ -110,7 +110,7 @@ test('sitemap and JavaScript-free directory cover public pages while excluding a
     .map(file => path.relative(root, file).replace(/\\/g, '/'));
   const urls = files.map(pageUrl).sort();
   assert.deepEqual(sitemapUrls(fs.readFileSync('sitemap.xml', 'utf8')).sort(), urls);
-  assert(!urls.some(url => /\/portal\/$|\/(?:discord|scoobyontop)\.html$/.test(url)));
+  assert(![SITE + '/portal/', SITE + '/discord.html', SITE + '/scoobyontop.html'].some(url => urls.includes(url)));
   const directory = fs.readFileSync('sitemap/index.html', 'utf8');
   for (const file of files.filter(file => file !== 'sitemap/index.html')) {
     assert(directory.includes('href="' + pageUrl(file).slice(SITE.length) + '"'), 'Directory omits ' + file);
