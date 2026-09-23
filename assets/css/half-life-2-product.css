@@ -1,0 +1,21 @@
+/* Half-Life 2 products share Half-Life 1's heading, access card and details. */
+.hl2-product .product-heading h1{display:flex;align-items:center;min-width:0}
+.hl2-product .hl-title-logo{flex-shrink:0}
+.hl2-product .hl2-artwork{margin:0;align-self:start;overflow:hidden;border:1px solid #42424d;border-radius:12px;background:#16171f}
+.hl2-product .hl2-artwork>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
+.hl2-product .hl2-artwork figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:14px 16px;color:#ededf4;font-size:14px;line-height:1.5}
+.hl2-product .hl2-artwork figcaption>span:last-child{color:#bcbfca}
+.hl2-product .hl-product-grid .features-list{gap:8px}
+.hl2-product .description-section{scroll-margin-top:120px}
+.hl2-product .hl2-setup{margin-top:30px}
+.hl2-product .hl2-setup-steps{padding-left:24px}
+.hl2-product .hl2-setup-steps li{padding-left:8px;margin-bottom:14px}
+.hl2-product .hl2-setup-steps li::marker{color:var(--source-accent);font-weight:700}
+.hl2-product .hl2-setup-note{margin-top:20px}
+.hl2-product code{padding:2px 6px;border:1px solid #42424d;border-radius:4px;color:#ededf4;font-size:.95em}
+.hl2-product .hl2-collection-link{display:inline-flex;align-items:center;gap:16px;min-height:44px;margin-top:16px}
+@media(max-width:580px){
+ .hl2-product .product-heading h1{font-size:28px;line-height:1.2}
+ .hl2-product .hl2-artwork figcaption{padding:12px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

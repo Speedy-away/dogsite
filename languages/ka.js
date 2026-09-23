@@ -4,6 +4,12 @@
    triggerbot, chams, ragebot, noclip) is deliberately left untranslated. */
 (function () {
   var t = {
+    /* Search landing copy */
+    "Scooby Mod Menu — Official Website (scoobymenu.cc)": "Scooby Mod Menu — ოფიციალური საიტი ქართულად",
+    "Official Scooby Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod. Compare free and premium editions, explore features and find setup guides.": "Scooby Mod Menu-ს ოფიციალური საიტი GTA 5-ის, RDR2-ის, FiveM-ის, RedM-ის, CS2-ისა და Garry's Mod-ისთვის. შეადარე უფასო და პრემიუმ ვერსიები და გაეცანი დაყენების გზამკვლევებს.",
+    "Free and premium mod menus for GTA 5, RDR2, FiveM, RedM, CS2, Garry’s Mod and more. Explore features, compare editions and find your setup guide.": "Scooby Mod Menu-ს ოფიციალური საიტი GTA 5-ის, RDR2-ის, FiveM-ის, RedM-ის, CS2-ისა და Garry's Mod-ისთვის. შეადარე უფასო და პრემიუმ ვერსიები და გაეცანი დაყენების გზამკვლევებს.",
+    "Compare editions": "ვერსიების შედარება",
+    "Site directory": "საიტის რუკა",
     /* ---- navigation & chrome ---- */
     "Home": "მთავარი",
     "Products": "პროდუქტები",

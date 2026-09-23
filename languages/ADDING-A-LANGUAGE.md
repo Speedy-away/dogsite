@@ -1,174 +1,36 @@
-# Adding a language — runbook
+# Adding a language
 
-**Purpose:** say "add \<language\>" and this file is all that's needed to do it correctly.
-Everything lives in `languages/`. There is no build step.
+The site has runtime dictionaries for detailed pages and generated static homepages for search discovery. Add both when introducing a language.
 
----
+1. Add the lowercase URL code, native name and badge label to `LANGS` in `i18n.js`. Use `rtl: true` for right-to-left languages. Optionally add a flag to `FLAGS`; native language names remain the identifying labels.
+2. Copy an existing dictionary to `<code>.js`. Change both registration codes at the bottom, keep the English keys, and translate the values. Keep the key set consistent with the other dictionaries. Brand names and code identifiers remain unchanged.
+3. Add the language to `../tools/search-locales.json`, including its native name, valid BCP 47 tag, Open Graph locale, title, introduction, descriptive paragraph and English-content notice. Add `rtl: true` where appropriate. URL codes can differ from tags: `zh` uses `zh-Hans`; `pt-br` uses `pt-BR`.
+4. Add the translated word for “Languages” to `languageLabels` in `../tools/seo-locales.js`.
+5. Run the generators and checks from the repository root:
 
-## The 4 steps
-
-### 1. Register it in the engine
-
-[i18n.js](i18n.js) → the `LANGS` array near the top. Append:
-
-```js
-{ code: 'nl', label: 'NL', native: 'Nederlands' }
+```sh
+node --check languages/<code>.js
+node tools/seo-locales.js --apply
+node tools/seo-directory.js --apply
+node tools/seo-metadata.js --apply
+node --test tools/seo.test.js
+node tools/seo-locales.js
+node tools/seo-directory.js
+node tools/seo-metadata.js
 ```
 
-- `code` — ISO 639-1, lowercase, two letters, optionally with a region subtag (`pt-br`). Must match the dictionary filename.
-- `label` — the badge text, uppercase, two letters.
-- `native` — the language's own name, **written in that language** (Deutsch, not German). This is what users scan for, so it must never be translated.
+The generators add the homepage, metadata, reciprocal language links and directory entry. Commit page changes, then regenerate `sitemap.xml` and commit it, following [../SEO.md](../SEO.md).
 
-Order in this array is the order shown in the dropdown and the first-visit picker. English stays first.
-
-### 2. Draw a flag
-
-Same file → the `FLAGS` map. Plain SVG shapes on a **`0 0 60 40`** canvas (no `<svg>` wrapper — that is added for you):
-
-```js
-nl: '<rect width="60" height="40" fill="#fff"/>' +
-    '<rect width="60" height="13.33" fill="#AE1C28"/>' +
-    '<rect y="26.67" width="60" height="13.33" fill="#21468B"/>',
-```
-
-**Do not use emoji flags.** Windows ships no flag glyphs, so 🇳🇱 renders as the letters "NL". That is the entire reason these are drawn.
-
-Handy geometry on the 60×40 canvas:
-- horizontal thirds → `y=0 / 13.33 / 26.67`, each `height="13.33"`
-- vertical thirds → `x=0 / 20 / 40`, each `width="20"`
-- halves → `height="20"` or `width="30"`
-- centred disc → `<circle cx="30" cy="20" r="12"/>`
-- a five-pointed star helper already exists: `star(x, y, radius, rotation)`
-
-Skipping the flag is allowed — the entry still works, it just shows without one.
-
-### 3. Create the dictionary
-
-Copy an existing file, e.g. `es.js` → `nl.js`, and change **both** occurrences of the code at the bottom:
-
-```js
-if (window.__scoobyI18n) window.__scoobyI18n.register('nl', t);
-else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push(['nl', t]);
-```
-
-Then translate the values. **Keys are the English source text and must never change** — they are what the runtime looks up.
-
-Keep the key set identical to `es.js` so every language stays in step. Verify with:
-
-```bash
-node tools/i18n-verify.js
-```
-
-### 4. Check it
-
-```bash
-node --check languages/nl.js      # parses
-node tools/i18n-verify.js         # 0 dead keys, key count matches the others
-node tools/i18n-update.js         # drift report
-```
-
-Then load any page, open the selector, pick the language, and confirm the nav and footer change.
-
----
-
-## Translation conventions
-
-These are followed by every existing dictionary — match them.
-
-**Leave in English** — cheat jargon, because that is what these communities actually say in every language:
-
-> aimbot · ESP · triggerbot · chams · ragebot · legitbot · silent aim · magic bullet · noclip · wallhack · speedhack · HWID · spoofer
-
-**Also leave alone** — brand and product names:
-
-> Scooby · FiveM · RedM · GTA 5 · RDR2 · CS2 · GMOD · S&box · Discord · Telegram · PayPal · BattlEye · Premium · Premium Plus · Lua
-
-**Do translate** — descriptive feature names ("Infinite Ammo", "Never Wanted", "Money Rain"), all UI text, all prose, page titles and meta descriptions.
-
-**Register:** informal/second-person, matching the English. This is a gaming audience, not a bank.
-
-**Watch out for:**
-- The key `"© 2026 Scooby. All rights reserved."` — translate the sentence, keep the `©` and the year.
-- Keys containing quotes, e.g. `"\"Unlock Link\""` — that button label stays in English because it is the literal text on a third-party page.
-- Sentence-fragment keys like `"Click the"` / `"button to reveal your key"` — these join around a bolded element, so keep them as fragments that still read correctly in sequence.
-- CJK and Thai: no space before punctuation, and use full-width colons (：) where natural.
-
----
-
-## Right-to-left languages
-
-**RTL is supported.** Mark the language in `LANGS` and the engine handles the rest:
-
-```js
-{ code: 'fa', label: 'FA', native: 'فارسی', rtl: true }
-```
-
-On switching, the engine sets `dir="rtl"` on `<html>` alongside `lang`. The selector's dropdown and floating pill anchor flips from `left` to `right` so it stays on screen, and the option rows right-align. Verified: the selector moves from x=74 to x=1119 on a 1280px viewport, and the dropdown stays inside the viewport.
-
-One caveat worth knowing: `dir="rtl"` mirrors normal document flow, but any **page CSS that hard-codes `left`/`right`** (rather than `inline-start`/`inline-end`) will not mirror on its own. The shared chrome is fine; if a specific page looks off in Arabic or Hebrew, that is where to look.
-
----
-
-## Current state
-
-| Code | Language | Dictionary |
-| --- | --- | --- |
-| `en` | English | source — no file |
-| `es` | Español | ✅ |
-| `pt` | Português (BR) | ✅ |
-| `fr` | Français | ✅ |
-| `de` | Deutsch | ✅ |
-| `ru` | Русский | ✅ |
-| `tr` | Türkçe | ✅ |
-| `pl` | Polski | ✅ |
-| `it` | Italiano | ✅ |
-| `zh` | 简体中文 | ✅ |
-| `ja` | 日本語 | ✅ |
-| `ko` | 한국어 | ✅ |
-| `th` | ไทย | ✅ |
-| `vi` | Tiếng Việt | ✅ |
-| `id` | Indonesia | ✅ |
-| `hi` | हिन्दी | ✅ |
-| `sr` | Српски | ✅ |
-| `ar` | العربية | ✅ **RTL** |
-| `nl` | Nederlands | ⬜ registered + flag, dictionary pending |
-| `ka` | ქართული | ⬜ registered + flag, dictionary pending |
-| `he` | עברית | ⬜ registered + flag, dictionary pending (**RTL**) |
-
-All completed dictionaries carry the same 392 keys, verified with zero dead keys.
-
-A language that is registered without a dictionary is **safe** — it appears in the picker, and choosing it leaves the page in English rather than erroring. It is just not useful until the file exists.
-
----
+Check the homepage with JavaScript disabled, on mobile and desktop, and in the intended reading direction. Follow a product link and verify the selected language carries into the runtime translator. Check that English and other language links still work. Have a fluent speaker review new translations.
 
 ## Regional variants
 
-A language can have a region subtag — `pt` (Portugal) and `pt-br` (Brazil) both
-ship. Everything works the same, with three things to know:
+Use a distinct code and dictionary for a regional variant, such as `pt-br.js`. Detection tries the full browser tag before its base language. Give each variant appropriate copy and metadata, with its own canonical URL.
 
-- The **filename carries the full code**: `pt-br.js`, registered as `'pt-br'`.
-- `detect()` tries the **full browser tag first**, then falls back to the base.
-  So a `pt-BR` browser gets Brazilian and a `pt-PT` browser gets European. Order
-  the base language *before* its variants in `LANGS` so the list reads sensibly.
-- The **flags must actually differ**, otherwise the two rows are
-  indistinguishable in the dropdown. `pt` is the Portuguese green/red; `pt-br` is
-  the Brazilian green with the yellow diamond.
+## Existing coverage
 
-The `pt`/`pt-br` pair is ~97% identical text: the real divergences are lexical
-(transferir/baixar, ficheiro/arquivo, utilizador/usuário, ecrã/tela, equipa/equipe,
-registo/registro, num/em um) plus the gerund, where European Portuguese says
-"está a fazer" and Brazilian says "está fazendo". The `você` vs `tu` register
-difference has **not** been applied — that needs a native speaker, since it means
-re-conjugating verbs rather than swapping words.
+All 22 choices listed in [../TRANSLATIONS.md](../TRANSLATIONS.md) are available. English uses source content; the other 21 have dictionaries and generated homepages. Detailed content can still fall back to English.
 
 ## Removing a language
 
-Delete `languages/<code>.js`, then remove its `LANGS` entry and its `FLAGS` entry. Anyone who had it saved falls back to English automatically on their next visit.
-
----
-
-## Related
-
-- [../TRANSLATIONS.md](../TRANSLATIONS.md) — how the engine works, the selector, the first-visit picker
-- [../tools/i18n-update.js](../tools/i18n-update.js) — keeps dictionaries in sync as site copy changes
-- `_todo/` — generated lists of strings still needing translation
+Remove its dictionary, runtime registration, optional flag, locale record, language label and generated homepage. Regenerate the other homepages, directory and sitemap so no stale alternate links remain. Existing saved choices then fall back to English. Consider a redirect for previously published URLs.

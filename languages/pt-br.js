@@ -4,6 +4,12 @@
    lives in pt.js. */
 (function () {
   var t = {
+    /* Search landing copy */
+    "Scooby Mod Menu — Official Website (scoobymenu.cc)": "Scooby Mod Menu — Site oficial em português do Brasil",
+    "Official Scooby Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod. Compare free and premium editions, explore features and find setup guides.": "Site oficial do Scooby Mod Menu para GTA 5, RDR2, FiveM, RedM, CS2 e Garry's Mod. Compare as versões gratuitas e premium e confira os guias de configuração.",
+    "Free and premium mod menus for GTA 5, RDR2, FiveM, RedM, CS2, Garry’s Mod and more. Explore features, compare editions and find your setup guide.": "Site oficial do Scooby Mod Menu para GTA 5, RDR2, FiveM, RedM, CS2 e Garry's Mod. Compare as versões gratuitas e premium e confira os guias de configuração.",
+    "Compare editions": "Comparar versões",
+    "Site directory": "Diretório do site",
     /* ---- navigation & chrome ---- */
     "Home": "Início",
     "Products": "Produtos",

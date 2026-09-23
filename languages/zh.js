@@ -4,6 +4,12 @@
    (aimbot, ESP, triggerbot, chams, ragebot, noclip) is left untranslated. */
 (function () {
   var t = {
+    /* Search landing copy */
+    "Scooby Mod Menu — Official Website (scoobymenu.cc)": "Scooby Mod Menu — 简体中文官方网站",
+    "Official Scooby Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod. Compare free and premium editions, explore features and find setup guides.": "Scooby Mod Menu 官方网站，提供 GTA 5、RDR2、FiveM、RedM、CS2 和 Garry's Mod 的游戏菜单。比较免费版与高级版，查看功能和设置指南。",
+    "Free and premium mod menus for GTA 5, RDR2, FiveM, RedM, CS2, Garry’s Mod and more. Explore features, compare editions and find your setup guide.": "Scooby Mod Menu 官方网站，提供 GTA 5、RDR2、FiveM、RedM、CS2 和 Garry's Mod 的游戏菜单。比较免费版与高级版，查看功能和设置指南。",
+    "Compare editions": "比较版本",
+    "Site directory": "网站目录",
     /* ---- navigation & chrome ---- */
     "Home": "首页",
     "Products": "产品",

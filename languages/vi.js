@@ -4,6 +4,12 @@
    triggerbot, chams, ragebot, noclip) is deliberately left untranslated. */
 (function () {
   var t = {
+    /* Search landing copy */
+    "Scooby Mod Menu — Official Website (scoobymenu.cc)": "Scooby Mod Menu — Trang chính thức bằng tiếng Việt",
+    "Official Scooby Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod. Compare free and premium editions, explore features and find setup guides.": "Trang chính thức của Scooby Mod Menu cho GTA 5, RDR2, FiveM, RedM, CS2 và Garry's Mod. So sánh bản miễn phí và premium, xem tính năng và hướng dẫn thiết lập.",
+    "Free and premium mod menus for GTA 5, RDR2, FiveM, RedM, CS2, Garry’s Mod and more. Explore features, compare editions and find your setup guide.": "Trang chính thức của Scooby Mod Menu cho GTA 5, RDR2, FiveM, RedM, CS2 và Garry's Mod. So sánh bản miễn phí và premium, xem tính năng và hướng dẫn thiết lập.",
+    "Compare editions": "So sánh phiên bản",
+    "Site directory": "Danh mục trang",
     /* ---- navigation & chrome ---- */
     "Home": "Trang chủ",
     "Products": "Sản phẩm",

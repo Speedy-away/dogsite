@@ -4,6 +4,12 @@
    triggerbot, chams, ragebot, noclip) is deliberately left untranslated. */
 (function () {
   var t = {
+    /* Search landing copy */
+    "Scooby Mod Menu — Official Website (scoobymenu.cc)": "Scooby Mod Menu — 日本語公式サイト",
+    "Official Scooby Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod. Compare free and premium editions, explore features and find setup guides.": "GTA 5、RDR2、FiveM、RedM、CS2、Garry's Mod 向けの Scooby Mod Menu 公式サイト。無料版とプレミアム版を比較し、機能や設定ガイドを確認できます。",
+    "Free and premium mod menus for GTA 5, RDR2, FiveM, RedM, CS2, Garry’s Mod and more. Explore features, compare editions and find your setup guide.": "GTA 5、RDR2、FiveM、RedM、CS2、Garry's Mod 向けの Scooby Mod Menu 公式サイト。無料版とプレミアム版を比較し、機能や設定ガイドを確認できます。",
+    "Compare editions": "バージョンを比較",
+    "Site directory": "サイトマップ",
     /* ---- navigation & chrome ---- */
     "Home": "ホーム",
     "Products": "製品",

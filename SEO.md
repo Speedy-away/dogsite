@@ -1,57 +1,85 @@
-# Bing search identity for Scooby Mod Menu
+# Search discovery for Scooby Mod Menu
 
-The official domain configured in `CNAME`, canonical tags and the sitemap is **https://scoobymenu.cc/**. The homepage identifies that domain in its title, description, visible badge, heading, download guidance and footer. Open Graph, Twitter and application description metadata use the same wording through `tools/seo-metadata.js`.
+The official site is **https://scoobymenu.cc/**. Public HTML, canonical URLs, the sitemap and structured data use this domain. Engines decide whether to crawl, index and rank pages; submissions do not guarantee placement or clear security warnings.
 
-These are local changes until published. Bing chooses its own search titles and snippets, and a recrawl does not guarantee a ranking change or removal of another domain.
+## Implemented
 
-## What the site already provides
+- Unique titles, descriptions, canonical URLs and social previews for public pages, maintained in `tools/seo-metadata.js`.
+- Relevant search phrases in titles and visible homepage copy. Updated keyword tags describe page topics; Google does not use `meta keywords` for ranking.
+- Homepage Organization and WebSite identity, WebPage descriptions, and BreadcrumbList data based on visible navigation. Existing application and collection markup is preserved. No ratings, reviews or ownership verification are invented.
+- A JavaScript-free directory at `/sitemap/`, linked from the homepage, covering public game, feature, guide and documentation pages.
+- `robots.txt` allows crawling and advertises `/sitemap.xml`. Noindex pages, account pages, redirect stubs, tools and local backups are excluded from the sitemap.
+- Searchable homepages in 22 language options (English plus 21 translations), with self-canonical URLs, reciprocal hreflang links and an English x-default. Translated prose is present in the HTML; Arabic and Hebrew use right-to-left layouts. Product and guide pages retain their existing runtime translations and can still contain English text.
+- IndexNow verification at `/indexnow-key.txt`, a preview-first submission tool, and a manual GitHub Actions release workflow for participating engines including Bing.
 
-- `robots.txt` allows crawling and links to `https://scoobymenu.cc/sitemap.xml`.
-- The homepage serves its content as HTML, has an indexable robots tag and uses a self-referencing canonical URL.
-- `Organization` and `WebSite` structured data describe the brand. `sameAs` references the official Discord and Telegram accounts.
+The dashboard loader remains available. The homepage download remains paused. These changes do not alter the loader or its destination.
 
-Structured data is a description, not ownership verification. Anyone can copy markup or profile links. Keep those links accurate and make sure the official profiles link back to `scoobymenu.cc`; do not add unverified profiles or other domains to `sameAs`.
+## Account setup
 
-## After publishing
+1. Preserve the existing Google Search Console DNS verification record.
+2. In [Bing Webmaster Tools](https://www.bing.com/webmasters/), import the verified property from Google Search Console, or use the actual verification value provided by Bing.
+3. Submit `https://scoobymenu.cc/sitemap.xml` in each engine's Sitemaps report.
+4. Inspect important URLs. Fix reported crawl errors, accidental noindex directives or incorrect canonicals. Redirects and duplicate URLs can appropriately remain unindexed.
+5. Compare clicks, impressions and queries over equivalent periods. Use actual queries to guide future content improvements. Review security issues separately.
 
-1. Open [Bing Webmaster Tools](https://www.bing.com/webmasters) and select or verify `https://scoobymenu.cc/`. Use a real verification tag, file or DNS value supplied by Bing; the repository alone cannot establish account ownership.
-2. Submit `https://scoobymenu.cc/sitemap.xml` in Sitemaps.
-3. Inspect `https://scoobymenu.cc/` with URL Inspection. Check the live response, crawl errors, index status and selected canonical URL; request indexing if available.
-4. Check Search Performance for `scooby mod menu` and related branded queries. Use account reports to diagnose indexing; an empty `site:` search is not conclusive.
-5. Link to the official domain from the official Discord, Telegram and reseller profiles you control. Those account edits are separate from this repository change.
+IndexNow is not a Google indexing submission or a security review. Google clearance does not establish Microsoft SmartScreen clearance. Do not hide downloads or rotate domains to avoid review.
 
-IndexNow is optional: it notifies participating engines about changed URLs. It requires a publicly hosted key file and does not guarantee crawling, indexing or ranking. There is no IndexNow submission implemented by this change.
+## Release maintenance
 
-## Report the two domains in the screenshot
-
-The owner identified `scoobymenu.net` and `scoobymenu.live` as fake sites in Bing results for `scooby mod menu`. The supplied screenshot shows both using Scooby branding. A read-only inspection of `.net` also showed homepage sections and text matching Scooby's site. These observations do not establish what the downloaded software does.
-
-Use Microsoft's [Report a Concern](https://www.microsoft.com/digitalsafety/report-a-concern), linked from [Bing's reporting instructions](https://support.microsoft.com/en-us/bing/how-to-report-a-concern-or-contact-bing). Select the category that matches the evidence. Include the exact result URLs, search query, screenshot, date observed and proof that you control the official site. Bing decides whether action is appropriate; reporting does not guarantee removal.
-
-### Report draft for the owner
-
-> Bing results for "scooby mod menu" show https://scoobymenu.net/ and https://scoobymenu.live/ using our Scooby name and branding. Our official website is https://scoobymenu.cc/. The two reported domains are unaffiliated with us and can mislead people seeking our downloads and support. Please review the results for impersonation and misleading content. We can provide proof of control of the official domain, the attached search-results screenshot and examples of matching content.
-
-Attach the screenshot and ownership evidence when submitting. This draft has not been submitted. Requests concerning another site's downloads need evidence specific to those files; a copied page alone does not prove malware.
-
-## Maintenance
-
-Edit homepage search copy in `tools/seo-metadata.js`; keep visible homepage copy consistent with it.
+From the repository root, using Node 22 or later:
 
 ```sh
-node tools/seo-metadata.js           # audit all public page metadata
-node tools/seo-metadata.js --apply   # regenerate all covered pages; review the diff
-node tools/seo-sitemap.js            # audit the sitemap
-node tools/seo-sitemap.js --apply    # regenerate after page changes
+node tools/seo-locales.js --apply
+node tools/seo-directory.js --apply
+node tools/seo-metadata.js --apply
+node --test tools/seo.test.js
+node tools/seo-locales.js
+node tools/seo-directory.js
+node tools/seo-metadata.js
 ```
 
-The sitemap generator uses each page's last Git commit date for `lastmod`. Regenerate after committing page changes when preparing a release. Excluded, redirect and account pages should stay excluded. The metadata audit may surface stale pages unrelated to an individual edit; review those separately.
+Commit the page changes, then update the sitemap so `lastmod` uses their actual last Git commit dates:
 
-## Sources
+```sh
+node tools/seo-sitemap.js --apply
+node tools/seo-sitemap.js
+```
 
-- [Bing Webmaster Guidelines](https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a)
-- [Bing: Add and verify a site](https://www2.bing.com/webmasters/help/add-and-verify-site-12184f8b)
-- [Bing: Sitemaps](https://www2.bing.com/webmasters/help/sitemaps-3b5cf6ed)
-- [Bing: Structured data](https://www.bing.com/webmasters/help/marking-up-your-site-with-structured-data-3a93e731)
-- [Microsoft: Report a concern about Bing](https://support.microsoft.com/en-us/bing/how-to-report-a-concern-or-contact-bing)
-- [IndexNow FAQ](https://www.indexnow.org/faq)
+Commit the sitemap and deploy. Unchanged pages retain their commit dates; the generator does not reset all dates each time it runs. Homepage language choices link to the corresponding language URL. Automatic browser-language detection does not redirect visitors. See TRANSLATIONS.md for translation maintenance; only equivalent homepages have hreflang, not English-only detailed pages.
+
+## IndexNow after deployment
+
+For an initial submission:
+
+```sh
+node tools/indexnow.js --all
+node tools/indexnow.js --all --submit
+```
+
+For subsequent releases, specify the commit deployed before the new release:
+
+```sh
+node tools/indexnow.js --since PREVIOUS_RELEASE_COMMIT
+node tools/indexnow.js --since PREVIOUS_RELEASE_COMMIT --submit
+```
+
+Without `--submit`, no network requests are sent. Submission first verifies the live key and matching deployed sitemap. It includes changed public HTML pages and removed URLs from the prior sitemap. Shared styles, scripts and data trigger notifications for public pages that may render differently. Image changes notify pages referencing that path. Account pages and local tooling remain excluded.
+
+Alternatively, after Pages deployment completes, open GitHub Actions → **Notify search engines with IndexNow** → Run workflow on `main`. Supply the previous deployed commit; leave it blank only for the initial submission. This workflow is manual, not scheduled, and has read-only repository permissions.
+
+HTTP 200 means received; 202 means received with key validation pending. Neither means indexed. Do not repeatedly submit unchanged pages. A 403 can mean the key is not deployed; 429 means submissions are throttled. Preserve the public key file across releases. It proves website control, not ownership of a webmaster account.
+
+## Official identity and impersonation
+
+Keep official Discord, Telegram and reseller profiles accurate and link back to `scoobymenu.cc`. Structured data `sameAs` links describe identity; they cannot prove ownership or remove another domain.
+
+The owner identified `scoobymenu.net` and `scoobymenu.live` as unaffiliated sites using Scooby branding. Report impersonation through [Microsoft Report a Concern](https://www.microsoft.com/digitalsafety/report-a-concern), with exact result URLs, the query, dated screenshots, examples of copied branding and ownership evidence. Do not claim their downloads are malware without file-specific evidence. These tools do not submit reports.
+
+## References
+
+- [Google: supported meta tags](https://developers.google.com/search/docs/crawling-indexing/special-tags)
+- [Google: localized versions](https://developers.google.com/search/docs/specialty/international/localized-versions)
+- [Google: breadcrumb data](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb)
+- [Google: sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)
+- [Bing Webmaster Guidelines](https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a)
+- [IndexNow documentation](https://www.indexnow.org/documentation)

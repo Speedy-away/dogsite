@@ -5,6 +5,12 @@
    triggerbot, chams, ragebot, noclip) is deliberately left untranslated. */
 (function () {
   var t = {
+    /* Search landing copy */
+    "Scooby Mod Menu — Official Website (scoobymenu.cc)": "Scooby Mod Menu — الموقع الرسمي بالعربية",
+    "Official Scooby Mod Menu for GTA 5, RDR2, FiveM, RedM, CS2 and Garry's Mod. Compare free and premium editions, explore features and find setup guides.": "الموقع الرسمي لـ Scooby Mod Menu لألعاب GTA 5 وRDR2 وFiveM وRedM وCS2 وGarry's Mod. قارن الإصدارات المجانية والمميزة واطّلع على الميزات وأدلة الإعداد.",
+    "Free and premium mod menus for GTA 5, RDR2, FiveM, RedM, CS2, Garry’s Mod and more. Explore features, compare editions and find your setup guide.": "الموقع الرسمي لـ Scooby Mod Menu لألعاب GTA 5 وRDR2 وFiveM وRedM وCS2 وGarry's Mod. قارن الإصدارات المجانية والمميزة واطّلع على الميزات وأدلة الإعداد.",
+    "Compare editions": "مقارنة الإصدارات",
+    "Site directory": "دليل الموقع",
     /* ---- navigation & chrome ---- */
     "Home": "الرئيسية",
     "Products": "المنتجات",

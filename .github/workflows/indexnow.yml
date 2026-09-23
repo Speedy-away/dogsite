@@ -1,0 +1,35 @@
+name: Notify search engines with IndexNow
+on:
+  workflow_dispatch:
+    inputs:
+      previous_release:
+        description: 'Previous deployed commit (blank only for the initial submission)'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: indexnow-production
+  cancel-in-progress: false
+jobs:
+  notify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Submit after the Pages deployment has completed
+        env:
+          PREVIOUS_RELEASE: ${{ inputs.previous_release }}
+        run: |
+          if [ -n "$PREVIOUS_RELEASE" ]; then
+            node tools/indexnow.js --since "$PREVIOUS_RELEASE" --submit
+          else
+            node tools/indexnow.js --all --submit
+          fi

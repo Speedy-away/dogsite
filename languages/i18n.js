@@ -249,6 +249,13 @@
   function setLang(code, opts) {
     opts = opts || {};
     if (CODES.indexOf(code) === -1) code = DEFAULT_LANG;
+    // Explicit homepage language choices have crawlable translated URLs.
+    // Browser detection never redirects a visitor or crawler automatically.
+    if (!opts.silent && code !== DEFAULT_LANG && /^\/(?:index\.html)?$/.test(location.pathname)) {
+      store(code);
+      location.assign('/' + code + '/');
+      return;
+    }
 
     // Dictionaries load over the network, so a slow one must never overwrite a
     // newer choice made while it was still in flight.

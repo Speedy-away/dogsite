@@ -12,11 +12,11 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { walk, excluded } = require('./seo-metadata');
 
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://scoobymenu.cc';
 const APPLY = process.argv.includes('--apply');
-const SKIP_DIRS = ['.git', '.claude', 'backup', 'node_modules', 'revolution', 'tools', 'languages'];
 
 // Never belongs in a public index.
 const EXCLUDE = [
@@ -45,16 +45,6 @@ const RULES = [
   { re: /^tos\//,                   priority: '0.3', freq: 'yearly'  },
 ];
 
-function walk(dir, out = []) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (SKIP_DIRS.includes(e.name)) continue;
-    const p = path.join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (e.name.endsWith('.html')) out.push(p);
-  }
-  return out;
-}
-
 function gitDate(rel) {
   try {
     const d = execFileSync('git', ['log', '-1', '--format=%cs', '--', rel],
@@ -71,8 +61,8 @@ for (const abs of walk(ROOT)) {
   if (EXCLUDE.includes(rel)) continue;
 
   const html = fs.readFileSync(abs, 'utf8');
-  if (/<meta[^>]+name=["']robots["'][^>]*noindex/i.test(html)) continue;
-  if (/http-equiv=["']Refresh["']/i.test(html)) continue;      // redirect stub
+  const head = html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '';
+  if (excluded(head)) continue;
 
   // /a/b/index.html -> /a/b/ ; /page.html stays /page.html
   const urlPath = rel.endsWith('/index.html') ? rel.slice(0, -'index.html'.length)
@@ -98,10 +88,10 @@ const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '\n</urlset>\n';
 
 const target = path.join(ROOT, 'sitemap.xml');
-const existing = fs.existsSync(target) ? fs.readFileSync(target, 'utf8') : '';
+const existing = fs.existsSync(target) ? fs.readFileSync(target, 'utf8').replace(/\r\n/g, '\n') : '';
 
 console.log('pages in sitemap:', rows.length);
-rows.forEach(r => console.log('  ' + r.priority + '  ' + r.lastmod + '  ' + r.loc));
+if (process.argv.includes('--verbose')) rows.forEach(r => console.log('  ' + r.priority + '  ' + r.lastmod + '  ' + r.loc));
 
 if (APPLY) {
   fs.writeFileSync(target, xml, 'utf8');
