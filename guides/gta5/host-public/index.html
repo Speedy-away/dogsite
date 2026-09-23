@@ -84,11 +84,17 @@
 <a href="/guides/gta5/introduction/">Introduction</a>
 <a href="/guides/gta5/first-time/">First Time Setup</a>
 <a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
-<a href="/guides/gta5/outfits/">Modding Outfits</a>
-<a href="/guides/gta5/vehicles/">Modding Vehicles</a>
 <a href="/guides/gta5/money/">Money Making Methods</a>
 <a href="/guides/gta5/host-public/" aria-current="page">How To Host Public Sessions with Scooby (BE Disabled)</a>
 <a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-customization" open="">
+<summary>Customization</summary>
+<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
+<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
+<a href="/guides/gta5/outfits/">Outfits</a>
+<a href="/guides/gta5/themes/">Themes</a>
+<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
+</details>
 </details>
 <details>
 <summary>FiveM</summary>
@@ -111,6 +117,15 @@
 <a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
 <a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
 <a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+<details class="sidebar-customization" data-guide-game="rdr2">
+<summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
+<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
+<a href="/guides/rdr2/outfits/">Outfits</a>
+<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
+<a href="/guides/rdr2/themes/">Themes</a>
+<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+</details>
 </details>
 <details>
 <summary>Counter-Strike 2</summary>
@@ -157,7 +172,13 @@
 <main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><span>Guide</span></div><h1>How To Host Public Sessions with Scooby (BE Disabled)</h1><p class="article-intro">GTA 5 · Scooby Wiki</p><div class="guide-card" id="host-public">
                 <h2 class="sr-only">How To Host Public Sessions with Scooby (BE Disabled)</h2>
                 <p>Getting a public lobby to fill up is not just luck - it comes down to a handful of factors you can actually control. This guide covers what makes players join your session and what to do when nobody shows up.</p>
-                <p>Everything here assumes you have launched GTA 5 with <strong>BattlEye disabled</strong> in the Rockstar Launcher settings, which is required for Scooby. If you have not done that yet, see <a href="/guides/gta5/first-time/">First Time Setup</a>.</p>
+                <div class="requirements-box" id="premium-hosting">
+                    <h4>Premium: you must remain the session host</h4>
+                    <p>This hosting guide is for <strong>Premium with BattlEye disabled</strong>. Premium lets you host public lobbies and play with friends, but you must <strong>remain the session host at all times</strong> to avoid being desynced after about <strong>3–5 minutes</strong> as a non-host.</p>
+                    <p><strong>Premium Plus</strong> supports <strong>BattlEye enabled</strong> and lets you play as either the host or a non-host. The free version does not support public lobbies.</p>
+                    <p><a href="/guides/gta5/free-setup/#online-access">Compare Free, Premium, and Premium Plus online access →</a></p>
+                </div>
+                <p>For the Premium hosting steps below, launch GTA 5 with <strong>BattlEye disabled</strong> in the Rockstar Launcher settings. Premium Plus users playing with BattlEye enabled do not need to follow this host-only setup.</p>
 
                 <p>There are <strong>four factors</strong> behind a lobby that actually fills: your NAT type, your aim type, the region and time you host in, and a fair amount of luck.</p>
 
@@ -228,6 +249,7 @@
                 <div class="requirements-box">
                     <h4>Checklist - you have done everything right if:</h4>
                     <ul>
+                        <li>You have Premium and remain the session host</li>
                         <li>Session advertising is enabled</li>
                         <li>You are on Open or Moderate NAT</li>
                         <li>You picked the right Aim Type (Free Aim fills fastest)</li>

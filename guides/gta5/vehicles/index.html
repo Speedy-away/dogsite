@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>GTA 5 Modded Vehicles: Import &amp; Customize - Scooby Guide</title>
-<meta name="description" content="Read the Scooby GTA 5 vehicle guide to use shared vehicles and customize your own. Find vehicle file locations and the relevant menu options.">
+<title>GTA 5 Modded Vehicles: Install, Import &amp; Save - Scooby Guide</title>
+<meta name="description" content="Install shared vehicles in Scooby GTA 5, import compatible menu exports, save JSON, XML or INI presets, and troubleshoot missing models or vehicle files.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/gta5/vehicles/">
-<meta property="og:title" content="GTA 5 Modded Vehicles: Import &amp; Customize - Scooby Guide">
-<meta property="og:description" content="Read the Scooby GTA 5 vehicle guide to use shared vehicles and customize your own. Find vehicle file locations and the relevant menu options.">
+<meta property="og:title" content="GTA 5 Modded Vehicles: Install, Import &amp; Save - Scooby Guide">
+<meta property="og:description" content="Install shared vehicles in Scooby GTA 5, import compatible menu exports, save JSON, XML or INI presets, and troubleshoot missing models or vehicle files.">
 <meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GTA 5 Modded Vehicles: Import &amp; Customize - Scooby Guide">
-<meta name="twitter:description" content="Read the Scooby GTA 5 vehicle guide to use shared vehicles and customize your own. Find vehicle file locations and the relevant menu options.">
+<meta name="twitter:title" content="GTA 5 Modded Vehicles: Install, Import &amp; Save - Scooby Guide">
+<meta name="twitter:description" content="Install shared vehicles in Scooby GTA 5, import compatible menu exports, save JSON, XML or INI presets, and troubleshoot missing models or vehicle files.">
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
-<meta name="keywords" content="Scooby Menu, GTA 5 modded vehicles, Scooby vehicle guide, GTA 5 vehicle customization">
+<meta name="keywords" content="Scooby Menu, GTA 5 modded vehicles, install Scooby vehicles, saved vehicles, Menyoo XML">
 
 <!-- DNS Prefetch for external resources -->
 
@@ -84,11 +84,17 @@
 <a href="/guides/gta5/introduction/">Introduction</a>
 <a href="/guides/gta5/first-time/">First Time Setup</a>
 <a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
-<a href="/guides/gta5/outfits/">Modding Outfits</a>
-<a href="/guides/gta5/vehicles/" aria-current="page">Modding Vehicles</a>
 <a href="/guides/gta5/money/">Money Making Methods</a>
 <a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
 <a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-customization" open="">
+<summary>Customization</summary>
+<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
+<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
+<a href="/guides/gta5/outfits/">Outfits</a>
+<a href="/guides/gta5/themes/">Themes</a>
+<a href="/guides/gta5/vehicles/" aria-current="page">Modded Vehicles</a>
+</details>
 </details>
 <details>
 <summary>FiveM</summary>
@@ -111,6 +117,15 @@
 <a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
 <a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
 <a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+<details class="sidebar-customization" data-guide-game="rdr2">
+<summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
+<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
+<a href="/guides/rdr2/outfits/">Outfits</a>
+<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
+<a href="/guides/rdr2/themes/">Themes</a>
+<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+</details>
 </details>
 <details>
 <summary>Counter-Strike 2</summary>
@@ -154,24 +169,66 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><span>Guide</span></div><h1>Modding Vehicles</h1><p class="article-intro">GTA 5 · Scooby Wiki</p><div class="guide-card" id="vehicles">
-                <h2 class="sr-only">Modding Vehicles</h2>
-                <p>Modding vehicles with Scooby is also very simple!</p>
-                <h3 id="topic-9">Creating Modded Vehicles</h3>
-                <p>Open the menu and head to the Vehicles icon, then click Vehicle Editor at the bottom. This will allow you to mod your vehicle. To save it, head to Saved Vehicles, click Save Vehicle, name it, and save!</p>
-                <h3 id="topic-10">Using Shared Vehicles</h3>
-                <p>Similar to outfits, you can use others' saved vehicles. Head to the Discord, find the vehicles thread, and download a file you want. Then drop it into:</p>
-                <p>
-<code>C:\scooby\GTA5\vehicles</code>
-</p>
-            </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/outfits/"><span>← Previous guide</span><strong>Modding Outfits</strong></a><a href="/guides/gta5/money/"><span>Next guide →</span><strong>Money Making Methods</strong></a></nav><footer class="wiki-footer">
+<main id="main-content" tabindex="-1">
+<div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><a href="/guides/gta5/#customization">Customization</a></div>
+<h1>Modded Vehicles</h1>
+<p class="article-intro">Install shared vehicles, import compatible menu exports, and save your own customized rides.</p>
+<div class="guide-card" id="vehicles">
+<h2 class="sr-only">Modded Vehicles</h2>
+<p>Saved Vehicles stores reusable vehicle presets. These files describe a vehicle and its saved settings; the underlying model must already be available in your game.</p>
+<div class="requirements-box"><h4>Vehicle folder and menu</h4><p><code>C:\scooby\GTA5\vehicles</code><br><strong>Vehicle → Saved Vehicles → Browse</strong> in ClickUI and ListUI.<br>Supported preset formats include <code>.json</code>, <code>.xml</code>, and <code>.ini</code>.</p></div>
+<nav class="guide-contents" aria-label="On this page"><a href="#install-vehicle">Install</a><a href="#other-vehicles">Other-menu imports</a><a href="#save-vehicle">Save and share</a><a href="#vehicle-help">Troubleshooting</a></nav>
+<h3 id="install-vehicle">Install and spawn a shared vehicle</h3>
+<ol>
+<li>Download a compatible vehicle preset and extract it if it is inside an archive.</li>
+<li>Open <strong>Vehicle → Saved Vehicles</strong> and select <strong>Open Folder</strong>, or paste <code>C:\scooby\GTA5\vehicles</code> into File Explorer.</li>
+<li>Copy the preset into the vehicles folder or your own subfolder. Keep the original extension.</li>
+<li>Open <strong>Browse</strong>, select <strong>Refresh</strong>, and open the folder containing the vehicle.</li>
+<li>Select the vehicle to spawn it. Enable <strong>Spawn Inside</strong> if you want to enter it automatically. <strong>3D Preview</strong> shows a preview when one is available.</li>
+</ol>
+<pre><code>C:\scooby\GTA5\vehicles\
+    MyVehicle.json
+    Favorites\
+        SharedVehicle.xml</code></pre>
+<p>Keep personal saves in the parent folder or your own subfolders. <code>vehicles\PresetVehicles</code> is used for bundled presets.</p>
+<h3 id="other-vehicles">Import a vehicle from another menu</h3>
+<p>Place the original export in the matching folder:</p>
+<ul>
+<li><strong>Stand:</strong> <code>C:\scooby\GTA5\other-menu-addons\stand-vehicles</code></li>
+<li><strong>Cherax:</strong> <code>C:\scooby\GTA5\other-menu-addons\cherax-vehicles</code></li>
+<li><strong>Other supported exports:</strong> <code>C:\scooby\GTA5\other-menu-addons\other-menus-vehicles</code></li>
+</ul>
+<p>Open <strong>Other Menu / Other Menus</strong> in Saved Vehicles, refresh, and choose the import. Compatible <code>.json</code>, <code>.txt</code>, <code>.ini</code>, and <code>.xml</code> exports can be scanned. Keep files directly in the matching folder and preserve their original structure; an extension alone does not guarantee support.</p>
+<p>The installed format notes are in <code>C:\scooby\GTA5\other-menu-addons\VEHICLES-GUIDE.txt</code>.</p>
+<h3 id="save-vehicle">Save and share your own vehicle</h3>
+<ol>
+<li>Enter the vehicle you want to save and finish customizing it.</li>
+<li>Open <strong>Vehicle → Saved Vehicles → Save Vehicle</strong>, or browse to the subfolder where you want to save.</li>
+<li>Choose <strong>JSON [SCOOBY]</strong> for a native Scooby save, <strong>XML [Menyoo]</strong> for a Menyoo-compatible export, or <strong>INI [Other Menus]</strong> for a supported INI export.</li>
+<li>Select <strong>Save Current Vehicle</strong> and enter a filename without an extension. Scooby adds the selected extension.</li>
+<li>Use <strong>Open Folder</strong> to copy, back up, or share the file. Include any model or edition requirements when sharing.</li>
+</ol>
+<p><strong>Save as Personal Vehicle</strong> opens the garage registration flow. Use <strong>Save Current Vehicle</strong> when you want a portable file; saving a preset is separate from registering a personal vehicle.</p>
+<h3 id="vehicle-help">If a vehicle will not appear or spawn</h3>
+<ul>
+<li><strong>Missing preset:</strong> check the folder and extension, clear the search, open the correct subfolder, and refresh.</li>
+<li><strong>Cannot save:</strong> enter a valid vehicle first and use a simple filename.</li>
+<li><strong>Cannot spawn:</strong> the model may be unavailable in your game build, or the preset may use an unsupported structure. Restore the original download or ask for a compatible export.</li>
+<li><strong>Wrong format:</strong> select the intended save format before saving. Changing <code>.xml</code> to <code>.json</code> does not convert the file.</li>
+<li><strong>Downloaded an RPF or model assets:</strong> follow <a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>. The saved-vehicle folder does not install custom game assets.</li>
+</ul>
+<p>Back up the vehicles folder and import folders while Scooby is closed. In ListUI, pressing <strong>Right</strong> on a local library entry permanently deletes that file.</p>
+</div>
+<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/themes/"><span>← Previous guide</span><strong>Themes</strong></a><a href="/guides/gta5/money/"><span>Next guide →</span><strong>Money Making Methods</strong></a></nav>
+<footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>
 <a href="/docs/">Developer docs</a>
 <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
 </div>
-</footer></main>
+</footer>
+</main>
 
 </div>
 <dialog class="search-dialog" id="search-dialog" aria-label="Search guides">

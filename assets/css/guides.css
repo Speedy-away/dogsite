@@ -437,6 +437,34 @@ main:focus {
     border-left:1px solid var(--border);
     border-radius:0
 }
+.wiki-sidebar .sidebar-customization {
+    margin:12px 0 12px 8px
+}
+.wiki-sidebar .sidebar-customization>summary {
+    padding-left:12px
+}
+.wiki-sidebar .sidebar-customization>a {
+    margin-left:12px
+}
+.wiki-topic-page .wiki-sidebar .sidebar-customization>a[aria-current=page] {
+    color:#211638;
+    background:#cbb8ff;
+    border-left:3px solid #9670eb;
+    border-radius:5px;
+    font-weight:600
+}
+.guide-contents {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    margin:24px 0;
+    font-size:.9rem
+}
+.guide-card pre code {
+    border:0;
+    padding:0;
+    background:transparent
+}
 .wiki-sidebar a.current,.wiki-sidebar a[aria-current=location] {
     background:var(--soft);
     color:var(--accent);

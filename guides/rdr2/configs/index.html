@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>RDR2 Configs: Save Profiles &amp; Back Up Content - Scooby Guide</title>
+<meta name="description" content="Save and load Scooby RDR2 config profiles. Install shared config files and back up outfits, horse outfits, Lua scripts, themes, and custom images.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/rdr2/configs/">
+<meta property="og:title" content="RDR2 Configs: Save Profiles &amp; Back Up Content - Scooby Guide">
+<meta property="og:description" content="Save and load Scooby RDR2 config profiles. Install shared config files and back up outfits, horse outfits, Lua scripts, themes, and custom images.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RDR2 Configs: Save Profiles &amp; Back Up Content - Scooby Guide">
+<meta name="twitter:description" content="Save and load Scooby RDR2 config profiles. Install shared config files and back up outfits, horse outfits, Lua scripts, themes, and custom images.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta name="keywords" content="Scooby Menu, Scooby RDR2 configs, RDR2 settings profiles, config backup, saved content">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/rdr2/configs/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/rdr2/configs/">
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand" href="/guides/">Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details>
+<summary>General help</summary>
+<a class="sidebar-overview" href="/guides/general/">Overview</a>
+<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/free-key/">Getting a Free Key</a>
+<a href="/guides/general/crashing/">Crashing Solutions</a>
+<a href="/guides/general/universal/">Universal Troubleshooting</a>
+<a href="/guides/general/connection/">Connection or SSL Errors</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
+<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+</details>
+<details>
+<summary>GTA 5</summary>
+<a class="sidebar-overview" href="/guides/gta5/">Overview</a>
+<a href="/guides/gta5/introduction/">Introduction</a>
+<a href="/guides/gta5/first-time/">First Time Setup</a>
+<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
+<a href="/guides/gta5/money/">Money Making Methods</a>
+<a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
+<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-customization">
+<summary>Customization</summary>
+<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
+<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
+<a href="/guides/gta5/outfits/">Outfits</a>
+<a href="/guides/gta5/themes/">Themes</a>
+<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
+</details>
+</details>
+<details>
+<summary>FiveM</summary>
+<a class="sidebar-overview" href="/guides/fivem/">Overview</a>
+<a href="/guides/fivem/fivem-requirements/">Requirements</a>
+<a href="/guides/fivem/fivem-inject/">How to Inject</a>
+<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>RedM</summary>
+<a class="sidebar-overview" href="/guides/redm/">Overview</a>
+<a href="/guides/redm/redm-requirements/">Requirements</a>
+<a href="/guides/redm/redm-inject/">How to Inject</a>
+<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details open="">
+<summary>Red Dead Redemption 2</summary>
+<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
+<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
+<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
+<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
+<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+<details class="sidebar-customization" data-guide-game="rdr2" open="">
+<summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
+<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
+<a href="/guides/rdr2/outfits/">Outfits</a>
+<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
+<a href="/guides/rdr2/themes/">Themes</a>
+<a aria-current="page" href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+</details>
+</details>
+<details>
+<summary>Counter-Strike 2</summary>
+<a class="sidebar-overview" href="/guides/cs2/">Overview</a>
+<a href="/guides/cs2/cs2-requirements/">Requirements</a>
+<a href="/guides/cs2/cs2-inject/">How to Inject</a>
+<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+</details>
+<details>
+<summary>S&amp;box (Sandbox)</summary>
+<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
+<a href="/guides/sbox/requirements/">Requirements</a>
+<a href="/guides/sbox/getting-started/">Getting started</a>
+<a href="/guides/sbox/menu-settings/">Menu settings</a>
+<a href="/guides/sbox/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>Garry's Mod (GMOD)</summary>
+<a class="sidebar-overview" href="/guides/gmod/">Overview</a>
+<a href="/guides/gmod/requirements/">Requirements</a>
+<a href="/guides/gmod/getting-started/">Getting started</a>
+<a href="/guides/gmod/menu-settings/">Menu settings</a>
+<a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>The Last of Us</summary>
+<a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
+<a href="/guides/last-of-us/requirements/">Requirements</a>
+<a href="/guides/last-of-us/getting-started/">Getting started</a>
+<a href="/guides/last-of-us/menu-settings/">Menu settings</a>
+<a href="/guides/last-of-us/troubleshooting/">Troubleshooting</a>
+</details>
+<details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
+<details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a></details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1">
+<div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/rdr2/">Red Dead Redemption 2</a><span>/</span><a href="/guides/rdr2/#customization">Customization</a></div>
+<h1>Configs &amp; Backups</h1>
+<p class="article-intro">Save settings profiles, load shared RDR2 configs, and back up outfits, Lua scripts, and themes.</p>
+<div class="guide-card" id="configs"><h2 class="sr-only">Configs &amp; Backups</h2>
+<p>A config profile captures the menu settings you want to reuse. Use separate named profiles for different setups, and keep a copy of your current profile before trying someone else's.</p>
+<div class="requirements-box"><h4>Config folder and menu</h4><p><code>C:\scooby\RDR2\configs</code><br><strong>Settings → GUI → Configs</strong><br>Named profiles use the <code>.config</code> extension.</p></div>
+<nav class="guide-contents" aria-label="On this page"><a href="#save-config">Save a profile</a><a href="#install-config">Install and load</a><a href="#backup-content">Back up content</a><a href="#config-help">Troubleshooting</a></nav>
+<h3 id="save-config">Save your current settings</h3>
+<ol>
+<li>Set up the menu as you want it, then open <strong>Settings → GUI → Configs</strong>.</li>
+<li>Enter a <strong>New config name</strong> and select <strong>Save New</strong>.</li>
+<li>The saved profile becomes the active config. Use <strong>Open Folder</strong> to find its <code>.config</code> file.</li>
+<li>To update it later, use <strong>Quick Save Active</strong>. To overwrite another selected profile, use <strong>Save Selected</strong> and confirm the overwrite.</li>
+</ol>
+<p>Choose a simple name such as <code>MySetup</code>. The menu adds the extension. <code>default</code> is reserved and is not a normal named profile.</p>
+<p><strong>Auto Save Features</strong> controls whether feature toggles and values are saved automatically. With it off, feature changes remain live for the session; a manual config save still captures them.</p>
+<h3 id="install-config">Install and load a shared profile</h3>
+<ol>
+<li>Get a compatible Scooby RDR2 <code>.config</code> file and extract it if needed.</li>
+<li>Open the Configs screen and select <strong>Open Folder</strong>.</li>
+<li>Copy the file directly into <code>C:\scooby\RDR2\configs</code>. Keep its extension.</li>
+<li>Select <strong>Refresh</strong>, choose the profile in <strong>Config Library</strong>, then select <strong>Load Selected</strong>. You can also double-click its row.</li>
+<li>Check the active profile name and review the loaded feature settings before continuing.</li>
+</ol>
+<pre><code>C:\scooby\RDR2\configs\
+    MySetup.config
+    SharedSetup.config</code></pre>
+<p>A config changes menu settings. It does not copy the author's Lua scripts, outfit files, or image assets to your computer. Install those separately if the setup depends on them.</p>
+<h3 id="backup-content">Back up your personal content</h3>
+<p>Close the game and Scooby, then copy the folders you want to preserve to your backup location:</p>
+<ul>
+<li><code>C:\scooby\RDR2\configs</code> — settings and named profiles.</li>
+<li><code>C:\scooby\RDR2\outfits</code> — player outfits and the <code>Horse</code> subfolder.</li>
+<li><code>C:\scooby\RDR2\lua</code> — scripts and their supporting configuration/data.</li>
+<li><code>C:\scooby\RDR2\theme</code> — saved appearance JSON files.</li>
+<li><code>C:\scooby\RDR2\images</code> — custom images and ListUI image themes.</li>
+</ul>
+<p>Preserve filenames and folder structure. To restore a file, copy it back to the same location, then refresh the relevant library. Refreshing the Lua library stops running scripts, so start the scripts you need again afterward.</p>
+<h3 id="config-help">If a profile does not save or load</h3>
+<ul>
+<li><strong>Not listed:</strong> check the <code>.config</code> extension, place the file directly in the configs folder, and refresh. The internal <code>default.config</code> is intentionally hidden from the named-profile list.</li>
+<li><strong>Invalid name:</strong> use 1–64 characters without Windows filename symbols such as <code>\ / : * ?</code>, and avoid the reserved name <code>default</code>.</li>
+<li><strong>Incompatible settings:</strong> restore the original file or ask for an export from a compatible Scooby RDR2 version. Renaming a GTA config does not convert it.</li>
+<li><strong>Images or scripts are missing:</strong> restore those files separately as well as the config.</li>
+</ul>
+</div>
+<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/rdr2/themes/"><span>← Previous guide</span><strong>Themes</strong></a><a href="/guides/rdr2/rdr2-crashing/"><span>Next guide →</span><strong>Crashing? Switch to DX12</strong></a></nav>
+<footer class="wiki-footer">
+<span>Scooby Wiki · Guides &amp; support</span>
+<div>
+<a href="/">Main site</a>
+<a href="/docs/">Developer docs</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+</div>
+</footer>
+</main>
+
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+</body>
+</html>

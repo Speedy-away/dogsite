@@ -84,11 +84,17 @@
 <a href="/guides/gta5/introduction/">Introduction</a>
 <a href="/guides/gta5/first-time/">First Time Setup</a>
 <a href="/guides/gta5/free-setup/" aria-current="page">Free Version Setup (Legacy &amp; Enhanced)</a>
-<a href="/guides/gta5/outfits/">Modding Outfits</a>
-<a href="/guides/gta5/vehicles/">Modding Vehicles</a>
 <a href="/guides/gta5/money/">Money Making Methods</a>
 <a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
 <a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-customization" open="">
+<summary>Customization</summary>
+<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
+<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
+<a href="/guides/gta5/outfits/">Outfits</a>
+<a href="/guides/gta5/themes/">Themes</a>
+<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
+</details>
 </details>
 <details>
 <summary>FiveM</summary>
@@ -111,6 +117,15 @@
 <a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
 <a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
 <a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+<details class="sidebar-customization" data-guide-game="rdr2">
+<summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
+<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
+<a href="/guides/rdr2/outfits/">Outfits</a>
+<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
+<a href="/guides/rdr2/themes/">Themes</a>
+<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+</details>
 </details>
 <details>
 <summary>Counter-Strike 2</summary>
@@ -168,7 +183,7 @@
 
                 <p>Need a key first? See <a href="/guides/general/free-key/">Getting a Free Key</a> in the General tab.</p>
                 <div class="warning-banner">
-                    FREE VERSION = SOLO ONLY - you can only play solo or with other Scooby users. You cannot play public lobbies with BattlEye disabled.
+                    The free version is limited to solo play or invite-only sessions with other Scooby users. For public lobbies and playing with friends, see the <a href="#online-access">Premium and Premium Plus requirements below</a>.
                 </div>
                 <p>If you have used Scooby before, delete the <code>C:\scooby</code> folder first - <strong>the folder, not the loader</strong>. Otherwise it will probably crash due to old settings.</p>
                 <p>For both versions: make sure your <strong>antivirus is disabled</strong> or you will likely have issues, and use a <strong>Cloudflare or Proton VPN</strong> if you have connection issues. The free version runs with <strong>BattlEye off</strong>.</p>
@@ -201,11 +216,21 @@
 </li>
                 </ul>
 
-                <div class="error-card">
-                    <h4>You cannot play public lobbies on the free version</h4>
-                    <p>With BattlEye disabled you can play <strong>solo</strong>, or in a session <strong>with other Scooby users</strong>. You <strong>cannot</strong> join a public lobby and you <strong>cannot</strong> play with non-modders - joining public on the free version will crash. Public lobbies with friends require Premium Plus.</p>
+                <h3 id="online-access">Free, Premium, and Premium Plus: online play</h3>
+                <div class="error-card" id="free-online">
+                    <h4>Free — solo or other Scooby users only</h4>
+                    <p>With <strong>BattlEye disabled</strong>, you can play <strong>solo</strong> or in an invite-only session <strong>with other Scooby users</strong>. You cannot join public lobbies or play with non-modders on the free version. Joining a public lobby on the free version will crash.</p>
                 </div>
-            </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/first-time/"><span>← Previous guide</span><strong>First Time Setup</strong></a><a href="/guides/gta5/outfits/"><span>Next guide →</span><strong>Modding Outfits</strong></a></nav><footer class="wiki-footer">
+                <div class="requirements-box" id="premium-online">
+                    <h4>Premium — host public lobbies and play with friends</h4>
+                    <p>Premium lets you <strong>host public lobbies and play with friends</strong> with <strong>BattlEye disabled</strong>. You must <strong>remain the session host at all times</strong> to avoid being desynced after about <strong>3–5 minutes</strong> as a non-host.</p>
+                    <p><a href="/guides/gta5/host-public/">Follow the Premium public-session hosting guide →</a></p>
+                </div>
+                <div class="requirements-box" id="premium-plus-online">
+                    <h4>Premium Plus — play as host or non-host</h4>
+                    <p>Premium Plus supports <strong>BattlEye enabled</strong>, so you can <strong>join public lobbies and play with friends as either the host or a non-host</strong>. You do not need to stay the session host; Premium's host requirement does not apply.</p>
+                </div>
+            </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/first-time/"><span>← Previous guide</span><strong>First Time Setup</strong></a><a href="/guides/gta5/dlcs/"><span>Next guide →</span><strong>DLCs (Vehicles and Peds)</strong></a></nav><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>
