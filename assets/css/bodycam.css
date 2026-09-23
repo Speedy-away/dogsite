@@ -1,9 +1,1 @@
-.bodycam-page{--source-accent:#83b7ce;--product-accent:#83b7ce;background:radial-gradient(ellipse at 10% 20%,#26404a38,transparent 55%),#0a0c11}
-.bodycam-page .product-heading{flex-wrap:wrap}.bodycam-free{font-size:12px;font-weight:600;color:#8ce0b2;background:#153225;border:1px solid #28523b;border-radius:6px;padding:5px 10px}
-.bodycam-hero{margin:0;border-radius:16px;border:1px solid #ffffff1b;min-height:100%}
-.bodycam-page .placeholder-layout{grid-template-columns:minmax(0,1.8fr) minmax(280px,1fr);gap:24px}
-.bodycam-page .placeholder-details{background:linear-gradient(140deg,#83b7ce09,transparent),#12161e}
-.bodycam-unavailable{background:#222b33;border:1px solid #36434f;color:#aeb8c4;border-radius:8px;font:inherit;font-size:14px;padding:14px 20px;width:100%;cursor:default;margin:0 0 12px}
-.bodycam-page .placeholder-details .purchase-btn{min-height:48px;margin-top:0;border-color:#53616b}
-.bodycam-art-note{font-size:12px;color:#83919e;margin:16px 0 0;line-height:1.6}
-@media(max-width:900px){.bodycam-page .placeholder-layout{grid-template-columns:1fr}.bodycam-hero{min-height:0}.bodycam-unavailable{max-width:310px}}
+.bodycam-free{font-size:12px;font-weight:600;color:#8ce0b2;background:#153225;border:1px solid #28523b;border-radius:6px;padding:5px 10px}
