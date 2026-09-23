@@ -1,7 +1,7 @@
 {
   "game": "Left 4 Dead 1 & 2",
   "slug": "l4d",
-  "source": "Scooby L4D runtime feature registry. Hidden diagnostics and synthetic preview controls excluded.",
+  "source": "Scooby L4D runtime registry and verified VFX/custom-material release. Hidden storage, diagnostics and synthetic preview controls excluded.",
   "tabs": [
     {
       "name": "Visuals",
@@ -1257,51 +1257,6 @@
       "name": "World",
       "categories": [
         {
-          "name": "Materials",
-          "groups": [
-            {
-              "name": "Features",
-              "items": [
-                {
-                  "id": "world.tint",
-                  "label": "World tint",
-                  "desc": "Tint map surface materials; restores their original colors when disabled."
-                },
-                {
-                  "id": "world.sky",
-                  "label": "Sky tint",
-                  "desc": "Tint skybox materials; restores their original colors when disabled."
-                },
-                {
-                  "id": "world.props",
-                  "label": "Static prop tint",
-                  "desc": "Tint static prop materials independently of map surfaces and sky."
-                },
-                {
-                  "id": "world.night",
-                  "label": "Night preset",
-                  "desc": "Apply coordinated colors to the world, props and sky."
-                },
-                {
-                  "id": "world.warm",
-                  "label": "Warm preset",
-                  "desc": "Apply coordinated colors to the world, props and sky."
-                },
-                {
-                  "id": "world.cool",
-                  "label": "Cool preset",
-                  "desc": "Apply coordinated colors to the world, props and sky."
-                },
-                {
-                  "id": "world.reset",
-                  "label": "Restore world",
-                  "desc": "Disable world, prop and sky tint and restore the game materials."
-                }
-              ]
-            }
-          ]
-        },
-        {
           "name": "View",
           "groups": [
             {
@@ -1377,6 +1332,250 @@
           ]
         }
       ]
+    },
+    {
+      "name": "VFX",
+      "categories": [
+        {
+          "name": "Presets",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "vfx.atmosphere_library",
+                  "label": "Unified atmosphere library",
+                  "desc": "One gallery with labeled previews, selected-card feedback and a separate scrolling inspector.",
+                  "settings": [
+                    "Galaxy",
+                    "Blue nebula",
+                    "Crimson nebula",
+                    "Dawn",
+                    "Storm",
+                    "Aurora",
+                    "Bloodmoon",
+                    "Synthwave",
+                    "Frost",
+                    "Toxic",
+                    "Sunset",
+                    "Noir"
+                  ]
+                },
+                {
+                  "id": "vfx.apply_preset",
+                  "label": "Apply atmosphere preset",
+                  "desc": "Apply coordinated sky, world and static-prop colors, then fine-tune them independently."
+                },
+                {
+                  "id": "world.reset.vfx",
+                  "label": "Restore original world",
+                  "desc": "Disable environment overrides and restore the saved original colors and sky textures."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sky",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "world.skybox",
+                  "label": "Skybox library",
+                  "desc": "Choose among twelve sky presets. Recognized sky faces and supported LDR/HDR/RGBS formats can be replaced; unsupported custom skies retain their original texture.",
+                  "settings": [
+                    "Galaxy",
+                    "Blue nebula",
+                    "Crimson nebula",
+                    "Dawn",
+                    "Storm",
+                    "Aurora",
+                    "Bloodmoon",
+                    "Synthwave",
+                    "Frost",
+                    "Toxic",
+                    "Sunset",
+                    "Noir"
+                  ]
+                },
+                {
+                  "id": "world.sky_brightness",
+                  "label": "Sky brightness",
+                  "desc": "Adjust the brightness of successfully replaced sky materials.",
+                  "settings": [
+                    "Brightness: 0.1–2"
+                  ]
+                },
+                {
+                  "id": "vfx.map_refresh",
+                  "label": "Map and material refresh",
+                  "desc": "Discover late-loaded world and sky materials, rebind when the preset changes and restore original textures on disable or map transition. This does not establish support for every custom-map shader."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Lighting",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "world.tint",
+                  "label": "World tint",
+                  "desc": "Tint map surface materials; restores their original colors when disabled."
+                },
+                {
+                  "id": "world.sky",
+                  "label": "Sky tint",
+                  "desc": "Tint skybox materials; restores their original colors when disabled."
+                },
+                {
+                  "id": "world.props",
+                  "label": "Static prop tint",
+                  "desc": "Tint static prop materials independently of map surfaces and sky."
+                },
+                {
+                  "id": "world.night",
+                  "label": "Night preset",
+                  "desc": "Apply coordinated colors to the world, props and sky."
+                },
+                {
+                  "id": "world.warm",
+                  "label": "Warm preset",
+                  "desc": "Apply coordinated colors to the world, props and sky."
+                },
+                {
+                  "id": "world.cool",
+                  "label": "Cool preset",
+                  "desc": "Apply coordinated colors to the world, props and sky."
+                },
+                {
+                  "id": "world.reset",
+                  "label": "Restore world",
+                  "desc": "Disable world, prop and sky tint and restore the game materials."
+                },
+                {
+                  "id": "world.pulse",
+                  "label": "World pulse",
+                  "desc": "Animate world and static-prop brightness.",
+                  "settings": [
+                    "Speed: 0.05–1 Hz",
+                    "Strength: 0–0.8"
+                  ]
+                },
+                {
+                  "id": "world.sky_animation",
+                  "label": "Animated sky color",
+                  "desc": "Blend sky tint toward a secondary color over time.",
+                  "settings": [
+                    "Independent color and speed controls"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Materials",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "vfx.material_library",
+                  "label": "27 built-in materials",
+                  "desc": "Browse texture previews and apply a preset to the selected target and layer.",
+                  "settings": [
+                    "New styles: Dark matter, Acid, Vortex, Hologram, Frost, Inferno, Circuit, Pearl",
+                    "Existing styles include lit, flat, wireframe, glow, galaxy, lightning, plasma, aurora and molten"
+                  ]
+                },
+                {
+                  "id": "vfx.layers",
+                  "label": "Independent material layers",
+                  "desc": "Select Visible, Invisible or Overlay for each supported actor, self, arms or weapon target. Keep separate material, color, opacity and animation choices."
+                },
+                {
+                  "id": "vfx.layer_animation",
+                  "label": "Eight layer animation modes",
+                  "desc": "Animate layer color or opacity with an independent speed, strength and secondary color.",
+                  "settings": [
+                    "Static",
+                    "Color wave",
+                    "Pulse opacity",
+                    "Rainbow colors",
+                    "Shimmer",
+                    "Ember flicker",
+                    "Color surge",
+                    "Color steps"
+                  ]
+                },
+                {
+                  "id": "vfx.texture_scroll",
+                  "label": "Scrolling material textures",
+                  "desc": "Built-in animated presets use scrolling UV textures; compatible imported VMTs can use the TextureScroll proxy."
+                },
+                {
+                  "id": "vfx.preview_motion",
+                  "label": "Animated previews",
+                  "desc": "Preview texture motion and layer tint in the selected-material swatch. Enable Animate preview to play matching custom GIFs."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "My materials",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "vfx.user_import",
+                  "label": "Custom material library",
+                  "desc": "Use Open folder, add same-name VMT/VTF pairs and press Refresh. Supported shaders are VertexLitGeneric and UnlitGeneric; start from Add example.",
+                  "settings": [
+                    "Up to 32 materials",
+                    "Single-frame 2D VTF 7.2–7.5, power-of-two textures up to 1024 × 1024",
+                    "RGBA/ABGR/ARGB/BGRA8888, RGB/BGR888, DXT1, DXT3 and DXT5",
+                    "Supported switches, alpha and TextureScroll; arbitrary shaders/proxies are not imported"
+                  ]
+                },
+                {
+                  "id": "vfx.user_preview",
+                  "label": "Automatic PNG and GIF previews",
+                  "desc": "Place name.png or name.gif beside name.vmt and name.vtf. The matching basename selects the preview automatically.",
+                  "settings": [
+                    "PNG takes priority when both exist",
+                    "GIF previews animate; the game uses the VTF texture",
+                    "Missing or invalid images fall back to a VTF thumbnail"
+                  ]
+                },
+                {
+                  "id": "vfx.user_profiles",
+                  "label": "Saved custom selections",
+                  "desc": "Save independent custom material selections for every target and layer. Copy/swap includes custom choices; missing materials use the built-in fallback."
+                },
+                {
+                  "id": "vfx.user_example",
+                  "label": "Editable example and source assets",
+                  "desc": "Add example copies a VMT, VTF and matching PNG without overwriting existing files. Bundled VFX materials and preview assets are backed up in the source assets folder."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "website": {
+    "features": {
+      "description": "Browse Left 4 Dead 1 and 2 features: ESP, 12 sky presets, animated chams, custom materials with matching PNG/GIF previews, movement, Lua and profiles."
+    },
+    "notice": "The expanded VFX library requires the updated loader linked on the L4D product page. Sky replacement depends on map materials; unsupported custom-map shaders or sky naming can retain their original sky."
+  }
 }
