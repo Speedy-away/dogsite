@@ -102,26 +102,30 @@
     "id": "half-life-2",
     "name": "Half-Life 2",
     "engine": "source",
-    "group": "coming-soon",
+    "group": "released",
     "kind": "Campaign",
     "image": "/assets/images/source-games/half-life-2-logo.webp",
     "background": "/assets/images/source-games/source-collection-hero-v1.png",
     "href": "/products/half-life-2/",
     "text": "Return to City 17 as Gordon Freeman in the Half-Life 2 campaign.",
     "aliases": "HL2 half life 2 campaign",
-    "status": "placeholder"
+    "status": "beta",
+    "access": "free",
+    "release_channel": "beta"
   },
   {
     "id": "hl2-deathmatch",
     "name": "Half-Life 2: Deathmatch",
     "engine": "source",
-    "group": "coming-soon",
+    "group": "released",
     "kind": "Arena multiplayer",
     "image": "/assets/images/source-games/hl2-deathmatch-official.jpg",
     "href": "/products/half-life-2-deathmatch/",
     "text": "Gravity guns, physics and fast multiplayer battles in the Half-Life 2 universe.",
     "aliases": "HL2DM half life 2 deathmatch",
-    "status": "placeholder"
+    "status": "beta",
+    "access": "free",
+    "release_channel": "beta"
   },
   {
     "id": "dods",

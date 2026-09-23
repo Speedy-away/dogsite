@@ -18,3 +18,5 @@
 @media(max-width:900px){.placeholder-layout{grid-template-columns:1fr}.placeholder-details{padding:28px}.placeholder-details h2 br{display:none}.placeholder-details .purchase-btn{max-width:310px}.placeholder-art{max-height:520px}}
 @media(max-width:580px){.source-placeholder .main-content{padding:105px 20px 40px}.source-placeholder .source-breadcrumb{margin-bottom:26px}.source-placeholder .product-heading{gap:12px}.source-placeholder .product-heading h1{font-size:29px;overflow-wrap:anywhere}.source-placeholder .product-intro{font-size:14px}.placeholder-layout{gap:20px}.placeholder-details{padding:26px 22px}.placeholder-details h2{font-size:28px}.source-placeholder .source-footer{font-size:12px;gap:20px}}
 @media(prefers-reduced-motion:reduce){html.source-placeholder-document{scroll-behavior:auto}}
+
+.source-placeholder[data-beta-product] .placeholder-art{width:100%;align-self:start}

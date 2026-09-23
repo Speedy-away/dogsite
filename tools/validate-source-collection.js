@@ -28,10 +28,11 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
   assert.equal(await page.locator('[data-game="portal"]').count(),1);
   assert.equal(await page.locator('[data-game="portal"] h3').innerText(),'Portal 1 & 2');
   assert.deepEqual(await page.locator('[data-catalog-section]').evaluateAll(sections=>sections.map(section=>section.id)),['released','coming-soon']);
-  assert.deepEqual(await page.locator('#released [data-game]').evaluateAll(cards=>cards.map(card=>card.dataset.game)),['cs2','gmod','l4d','sbox','half-life-1']);
-  assert.equal(await page.locator('#coming-soon [data-game]').count(),10);
+  assert.deepEqual(await page.locator('#released [data-game]').evaluateAll(cards=>cards.map(card=>card.dataset.game)),['cs2','gmod','l4d','sbox','half-life-1','half-life-2','hl2-deathmatch']);
+  assert.equal(await page.locator('#coming-soon [data-game]').count(),8);
   assert.equal(await page.locator('#released .source-availability').filter({hasText:'Released'}).count(),5);
-  assert.equal(await page.locator('#coming-soon .source-availability').filter({hasText:'Coming soon'}).count(),10);
+  assert.equal(await page.locator('#released [data-release-channel=beta] .source-availability').filter({hasText:'Beta'}).count(),2);
+  assert.equal(await page.locator('#coming-soon .source-availability').filter({hasText:'Coming soon'}).count(),8);
   for(const image of await page.locator('img').all()){
    await image.scrollIntoViewIfNeeded();
    await image.evaluate(i=>i.decode());
@@ -79,7 +80,24 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
  const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
  assert.equal(schema.mainEntity.numberOfItems,15);
 
- assert.equal(placeholders.length,10);
+ for(const width of [1440,375,320]){
+  await page.setViewportSize({width,height:1000});
+  for(const slug of ['half-life-2','half-life-2-deathmatch']){
+   await page.goto(base+'/products/'+slug+'/',{waitUntil:'networkidle'});
+   assert.equal(await page.locator('.product-status').innerText(),'Beta');
+   const text=await page.locator('main').innerText();
+   assert(text.includes('FREE ACCESS') && text.includes('Beta limitations:') && text.includes('Start game'));
+   if(slug==='half-life-2-deathmatch')assert(text.includes('-insecure') && text.includes('x86 / x64'));
+   await page.locator('.placeholder-art img').evaluate(image=>image.decode());
+   assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),'Beta page overflow: '+slug+' '+width);
+   const art=await page.locator('.placeholder-art').boundingBox(),details=await page.locator('.placeholder-details').boundingBox();
+   assert(width>900?art.x+art.width<=details.x:art.y+art.height<=details.y,'Artwork overlaps Beta details: '+slug+' '+width);
+   assert.equal(await page.locator('main .purchase-btn').getAttribute('href'),'/source-games/');
+   if(width!==320)await page.screenshot({path:path.join(output,'beta-'+slug+'-'+width+'.jpg'),type:'jpeg',quality:80,fullPage:true});
+  }
+ }
+ checks.push('Both Beta products: labels, free access, setup/limitations, 1440/375/320px layouts and original artwork');
+ assert.equal(placeholders.length,8);
  for(const width of [1440,375,320]){
   await page.setViewportSize({width,height:1000});
   for(const game of placeholders){
@@ -101,7 +119,7 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
    assert.equal(new URL(page.url()).pathname,'/source-games/');
   }
  }
- checks.push('All ten placeholder cards open local product pages and return; Coming soon, artwork, canonical metadata and 1440/375/320px layouts');
+ checks.push('All eight placeholder cards open local product pages and return; Coming soon, artwork, canonical metadata and 1440/375/320px layouts');
  const noJs=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce'});
  const fallback=await noJs.newPage();
  await fallback.goto(base+'/source-games/');
