@@ -4,6 +4,7 @@ const ROOT = path.resolve(__dirname, '..'), SITE = 'https://scoobymenu.cc';
 const pages = {};
 function add(file, title, description, keywords) { pages[file] = {title, description, keywords: 'Scooby Menu, ' + keywords}; }
 const rows = `
+products/bodycam/index.html|Bodycam — Free · Coming Soon - Scooby|Bodycam is coming to Scooby with free access. Preview the new dashboard artwork; product details, features and setup information are coming soon.|Bodycam, free access, coming soon, Scooby Bodycam
 products/tf2/index.html|Team Fortress 2 — Coming Soon - Scooby|Team Fortress 2 is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Source Games, Team Fortress 2, TF2 teamfortress2
 products/css/index.html|Counter-Strike: Source — Coming Soon - Scooby|Counter-Strike: Source is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Source Games, Counter-Strike: Source, CSS CS:S counter strike source
 products/portal/index.html|Portal 1 & 2 — Coming Soon - Scooby|Portal 1 & 2 is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Source Games, Portal 1 & 2, Portal Portal 1 Portal 2 Aperture

@@ -1,0 +1,10 @@
+{
+  "mode": "builtin image_gen.imagegen",
+  "prompt": "Use case: ads-marketing. Create one original cinematic background image for a dark desktop game-loader dashboard and a website product hero for Bodycam. Landscape 16:9, 2048x1152 or similar. Photorealistic body-camera-inspired view into an empty abandoned industrial warehouse at blue hour: concrete pillars, wet reflective floor, weathered walls, metal catwalks, a cool beam of daylight from high windows, a restrained red practical light in the far right distance. Subtle wide-angle lens distortion, believable grain, muted charcoal and steel-blue palette with a small deep red accent. Detailed environment at the edges, calmer darker central area suitable for overlaying an existing game logo and a compact UI panel. Dramatic but legible shadow detail, premium restrained game promotional art. No people, no weapons, no gore, no interface, no lettering, no logo, no watermark. Fill the entire canvas with the environment; no borders or empty bars. This is original illustrative promotional artwork, not a screenshot of gameplay.",
+  "background": "background-v1.png",
+  "background_sha256": "9854222e3fa933d0ad58894325a033b028a2d2b18480bd3ad4ab6b55f0eaafb6",
+  "logo": "bodycam-logo.png",
+  "logo_source": "C:\\Users\\whatw\\OneDrive\\Desktop\\Bodycam-Game-Logo.png",
+  "logo_sha256": "5e66c0f1cabf6eba83dbc15f9c404fdf047737ccbf276f1ec4e10055dff2b0be",
+  "notes": "User logo preserved unchanged. Runtime assets are resized and encoded only. Original promotional artwork, not gameplay."
+}
