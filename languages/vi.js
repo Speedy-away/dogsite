@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "Nhận bộ cài đặt Scooby Launcher",
     "Install VC Runtimes": "Cài VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "Cài VC Runtimes để tránh bị crash.",
-    "Download Defender Control": "Tải Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "Bật hoặc tắt hoàn toàn phần mềm diệt virus của Windows chỉ với một cú nhấp.",
     "Recommended tool": "Công cụ khuyên dùng",
     "Get Free Key": "Nhận key miễn phí",

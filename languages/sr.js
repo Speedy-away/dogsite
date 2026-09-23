@@ -172,7 +172,6 @@
     "Get the Scooby launcher installer": "Преузми инсталацију Scooby launcher-а",
     "Install VC Runtimes": "Инсталирај VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "Инсталирај VC Runtimes да избегнеш пуцање игре.",
-    "Download Defender Control": "Преузми Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "Укључи или потпуно искључи Windows антивирус једним кликом.",
     "Recommended tool": "Препоручен алат",
     "Get Free Key": "Узми бесплатан кључ",

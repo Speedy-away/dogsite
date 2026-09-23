@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "获取 Scooby 启动器安装程序",
     "Install VC Runtimes": "安装 VC 运行库",
     "Avoid crashes and install VC Runtimes.": "安装 VC 运行库以避免崩溃。",
-    "Download Defender Control": "下载 Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "一键完全启用或关闭 Windows 杀毒软件。",
     "Recommended tool": "推荐工具",
     "Get Free Key": "获取免费密钥",

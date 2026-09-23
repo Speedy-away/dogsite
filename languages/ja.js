@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "Scooby ランチャーのインストーラーを入手",
     "Install VC Runtimes": "VC ランタイムをインストール",
     "Avoid crashes and install VC Runtimes.": "クラッシュを防ぐため VC ランタイムをインストールしてください。",
-    "Download Defender Control": "Defender Control をダウンロード",
     "Enable / disable Windows antivirus fully with one click.": "Windows のウイルス対策をワンクリックで完全に有効・無効にできます。",
     "Recommended tool": "推奨ツール",
     "Get Free Key": "無料キーを取得",

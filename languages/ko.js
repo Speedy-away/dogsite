@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "Scooby 런처 설치 파일 받기",
     "Install VC Runtimes": "VC 런타임 설치",
     "Avoid crashes and install VC Runtimes.": "충돌을 방지하려면 VC 런타임을 설치하세요.",
-    "Download Defender Control": "Defender Control 다운로드",
     "Enable / disable Windows antivirus fully with one click.": "클릭 한 번으로 윈도우 백신을 완전히 켜거나 끌 수 있습니다.",
     "Recommended tool": "추천 도구",
     "Get Free Key": "무료 키 받기",

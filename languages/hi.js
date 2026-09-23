@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "Scooby लॉन्चर का इंस्टॉलर लें",
     "Install VC Runtimes": "VC Runtimes इंस्टॉल करें",
     "Avoid crashes and install VC Runtimes.": "क्रैश से बचने के लिए VC Runtimes इंस्टॉल करें।",
-    "Download Defender Control": "Defender Control डाउनलोड करें",
     "Enable / disable Windows antivirus fully with one click.": "एक क्लिक में Windows एंटीवायरस पूरी तरह चालू या बंद करें।",
     "Recommended tool": "सुझाया गया टूल",
     "Get Free Key": "मुफ्त की लें",

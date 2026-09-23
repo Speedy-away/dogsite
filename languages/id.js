@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "Dapatkan installer Scooby Launcher",
     "Install VC Runtimes": "Pasang VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "Pasang VC Runtimes agar terhindar dari crash.",
-    "Download Defender Control": "Unduh Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "Aktifkan atau matikan antivirus Windows sepenuhnya dengan satu klik.",
     "Recommended tool": "Alat yang disarankan",
     "Get Free Key": "Dapatkan key gratis",

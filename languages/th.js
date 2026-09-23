@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "รับตัวติดตั้ง Scooby Launcher",
     "Install VC Runtimes": "ติดตั้ง VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "ติดตั้ง VC Runtimes เพื่อป้องกันเกมแครช",
-    "Download Defender Control": "ดาวน์โหลด Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "เปิดหรือปิดแอนตี้ไวรัสของ Windows ทั้งหมดได้ด้วยคลิกเดียว",
     "Recommended tool": "เครื่องมือที่แนะนำ",
     "Get Free Key": "รับคีย์ฟรี",

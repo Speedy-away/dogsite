@@ -172,7 +172,6 @@
     "Get the Scooby launcher installer": "קבלו את קובץ ההתקנה של משגר Scooby",
     "Install VC Runtimes": "התקינו VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "התקינו VC Runtimes כדי למנוע קריסות.",
-    "Download Defender Control": "הורדת Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "הפעילו או כבו לחלוטין את האנטי-וירוס של Windows בלחיצה אחת.",
     "Recommended tool": "כלי מומלץ",
     "Get Free Key": "קבלו מפתח חינם",

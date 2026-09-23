@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "მიიღე Scooby-ს ლაუნჩერის ინსტალატორი",
     "Install VC Runtimes": "დააინსტალირე VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "ჩამოშლების თავიდან ასაცილებლად დააინსტალირე VC Runtimes.",
-    "Download Defender Control": "Defender Control-ის ჩამოტვირთვა",
     "Enable / disable Windows antivirus fully with one click.": "ერთი დაწკაპუნებით სრულად ჩართე ან გამორთე Windows-ის ანტივირუსი.",
     "Recommended tool": "რეკომენდებული ხელსაწყო",
     "Get Free Key": "მიიღე უფასო გასაღები",

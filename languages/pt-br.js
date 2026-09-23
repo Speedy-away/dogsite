@@ -171,7 +171,6 @@
     "Get the Scooby launcher installer": "Obtenha o instalador do launcher do Scooby",
     "Install VC Runtimes": "Instalar os VC Runtimes",
     "Avoid crashes and install VC Runtimes.": "Evite travamentos e instale os VC Runtimes.",
-    "Download Defender Control": "Baixar o Defender Control",
     "Enable / disable Windows antivirus fully with one click.": "Ative ou desative totalmente o antivírus do Windows com um clique.",
     "Recommended tool": "Ferramenta recomendada",
     "Get Free Key": "Pegue sua chave grátis",
