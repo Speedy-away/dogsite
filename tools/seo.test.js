@@ -29,6 +29,20 @@ test('updating a page does not overwrite the description of its parent collectio
   assert.equal(data.description, meta.description);
   assert.equal(data.isPartOf.description, 'Parent collection');
 });
+test('structured metadata matches the current page with or without a trailing slash', () => {
+  for (const suffix of ['', '/']) {
+    const application = { '@type': 'SoftwareApplication', url: SITE + '/products/gmod' + suffix,
+      description: 'Old description', keywords: 'Old keywords',
+      isRelatedTo: { '@type': 'SoftwareApplication', url: SITE + '/products/gta5/', description: 'GTA description', keywords: 'GTA 5 mod menu' } };
+    const html = '<html><head><title>Old</title><script type="application/ld+json">' + JSON.stringify(application) + '</script></head><body><h1>GMOD Cheat</h1></body></html>';
+    const result = applyMetadata('products/gmod/index.html', html, meta);
+    const data = JSON.parse(result.match(/type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(data.description, meta.description);
+    assert.equal(data.keywords, meta.keywords);
+    assert.deepEqual(data.isRelatedTo, application.isRelatedTo);
+    assert.equal(applyMetadata('products/gmod/index.html', result, meta), result);
+  }
+});
 test('IndexNow selects changed public pages and removals, excluding dashboard, redirects and unrelated files', () => {
   const files = [{ file: 'index.html', html: '' }, { file: 'guides/index.html', html: '' }];
   assert.deepEqual(selectUrls(files, ['index.html', 'portal/index.html', 'discord.html', 'tools/private.html', 'SEO.md', 'old/index.html'], [SITE + '/old/', SITE + '/portal/', 'https://example.com/']), [SITE + '/', SITE + '/old/']);

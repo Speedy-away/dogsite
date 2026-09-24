@@ -28,11 +28,11 @@ const PAGES = [
     desc: 'Complete GTA 5 setup guide for Scooby mod menu: first time setup, free version, modded outfits and vehicles, money methods, hosting public sessions and troubleshooting.',
     sub: 'Setup, features and troubleshooting for GTA 5' },
   { id: 'fivem',   slug: 'fivem',   tab: 'FiveM',   name: 'FiveM',
-    title: 'FiveM Setup Guide - Scooby Mod Menu',
+    title: 'FiveM Cheat Setup Guide - Scooby',
     desc: 'FiveM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.',
     sub: 'Requirements and installation for FiveM' },
   { id: 'redm',    slug: 'redm',    tab: 'RedM',    name: 'RedM',
-    title: 'RedM Setup Guide - Scooby Mod Menu',
+    title: 'RedM Cheat Setup Guide - Scooby',
     desc: 'RedM setup guide for Scooby: requirements, VC Runtimes, installation and fixes for crashing and connection errors.',
     sub: 'Requirements and installation for RedM' },
   { id: 'rdr2',    slug: 'rdr2',    tab: 'RDR2',    name: 'RDR2',
@@ -40,7 +40,7 @@ const PAGES = [
     desc: 'Red Dead Redemption 2 setup guide for Scooby: what to do before launching, how to launch the menu and how to fix crashes.',
     sub: 'Setup and troubleshooting for Red Dead Redemption 2' },
   { id: 'general', slug: 'general', tab: 'General', name: 'General',
-    title: 'General Guides - Scooby Mod Menu',
+    title: 'General Guides - Scooby Menu',
     desc: 'General Scooby guides: getting a free key, resetting your HWID, fixing connection or SSL errors and solving crashes.',
     sub: 'Free keys, HWID resets and common fixes' },
 ];
@@ -378,13 +378,13 @@ const HUB_CSS = `<style>
 `;
 
 const hubHead = headBlock.text
-  .replace(/<title>[^<]*<\/title>/, '<title>Setup Guides - Scooby Mod Menu</title>')
+  .replace(/<title>[^<]*<\/title>/, '<title>Setup Guides - Scooby Menu</title>')
   .replace(/(<meta name="description" content=")[^"]*(">)/, '$1' + HUB_DESC + '$2')
   .replace(/(<link rel="canonical" href=")[^"]*(">)/, '$1https://scoobymenu.cc/guides/$2')
   .replace(/(<meta property="og:url" content=")[^"]*(">)/, '$1https://scoobymenu.cc/guides/$2')
-  .replace(/(<meta property="og:title" content=")[^"]*(">)/, '$1Setup Guides - Scooby Mod Menu$2')
+  .replace(/(<meta property="og:title" content=")[^"]*(">)/, '$1Setup Guides - Scooby Menu$2')
   .replace(/(<meta property="og:description" content=")[^"]*(">)/, '$1' + HUB_DESC + '$2')
-  .replace(/(<meta name="twitter:title" content=")[^"]*(">)/, '$1Setup Guides - Scooby Mod Menu$2')
+  .replace(/(<meta name="twitter:title" content=")[^"]*(">)/, '$1Setup Guides - Scooby Menu$2')
   .replace(/(<meta name="twitter:description" content=")[^"]*(">)/, '$1' + HUB_DESC + '$2')
   .replace('</head>', HUB_CSS + '</head>');
 

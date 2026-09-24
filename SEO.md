@@ -1,4 +1,4 @@
-# Search discovery for Scooby Mod Menu
+# Search discovery for Scooby cheats and mod menus
 
 The official site is **https://scoobymenu.cc/**. Public HTML, canonical URLs, the sitemap and structured data use this domain. Engines decide whether to crawl, index and rank pages; submissions do not guarantee placement or clear security warnings.
 

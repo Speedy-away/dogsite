@@ -16,7 +16,7 @@ function structure(file, html, meta) {
     .flatMap(match => { const data = JSON.parse(match[1]); return data['@graph'] || [data]; });
   const graph = [];
   if (!existing.some(item => ['WebPage', 'CollectionPage', 'FAQPage'].includes(item['@type']))) {
-    graph.push({ '@type': 'WebPage', '@id': url + '#webpage', url, name: meta.title, description: meta.description,
+    graph.push({ '@type': 'WebPage', '@id': url + '#webpage', url, name: meta.title, description: meta.description, keywords: meta.keywords,
       inLanguage: meta.language || 'en', isPartOf: { '@id': SITE + '/#website' }, publisher: { '@id': SITE + '/#organization' } });
   }
   // Only describe breadcrumb paths actually present in the rendered HTML.

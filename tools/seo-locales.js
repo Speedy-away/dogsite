@@ -48,13 +48,13 @@ for (const [code, locale] of Object.entries(locales)) {
 <body>
 <header class="site-header"><a class="brand" href="/${code}/"><img src="/assets/images/logo.png" alt="" width="36" height="36">SCOOBY</a><nav aria-label="${t('Menu')}"><a href="/store/">${t('Store')}</a><a href="/guides/">${t('Guides')}</a><a href="/portal/#dashboard">${t('Portal / Login')}</a></nav></header>
 <main id="main-content">
-<div class="intro"><p class="eyebrow"><bdi>scoobymenu.cc</bdi> · ${escape(locale.native)}</p><h1><bdi>Scooby Mod Menu</bdi></h1><p>${escape(locale.intro)}</p><div class="home-actions"><a href="/products/free/">${t('Free Version')}</a><a href="/store/">${t('Store')}</a><a href="#products">${t('Products')}</a></div></div>
+<div class="intro"><p class="eyebrow"><bdi>scoobymenu.cc</bdi> · ${escape(locale.native)}</p><h1><bdi>Scooby Menu</bdi></h1><p>${escape(locale.intro)}</p><div class="home-actions"><a href="/products/free/">${t('Free Version')}</a><a href="/store/">${t('Store')}</a><a href="#products">${t('Products')}</a></div></div>
 <section id="products" aria-labelledby="products-title"><h2 id="products-title">${t('Supported Games')}</h2><p class="section-intro">${escape(locale.about)}</p><div class="game-grid">${cards}</div></section>
 <section aria-labelledby="resources-title"><h2 id="resources-title">${t('Resources')}</h2><p class="section-intro">${escape(locale.notice)}</p><nav class="resource-links" aria-label="${t('Resources')}"><a href="/guides/">${t('Guides')}</a><a href="/docs/">${t('Docs')}</a><a href="/videos/">${t('Videos')}</a><a href="/changelog/">${t('Changelog')}</a></nav></section>
 <section aria-labelledby="support-title"><h2 id="support-title">${t('Support')}</h2><nav class="resource-links" aria-label="${t('Support')}"><a href="/portal/#dashboard">${t('Portal / Login')}</a><a href="https://discord.gg/tGtvzChYQq" rel="noopener">${t('Discord Server')}</a><a href="https://t.me/ScoobyOnTop" rel="noopener">Telegram</a><a href="/tos/">${t('Terms of Service')}</a></nav></section>
 <section aria-labelledby="languages-title"><h2 id="languages-title">${escape(languageLabels[code])}</h2><nav class="language-links" aria-labelledby="languages-title">${languageLinks(code)}</nav></section>
 </main>
-<footer><span><bdi>Scooby Mod Menu · scoobymenu.cc</bdi></span><a href="/" data-site-language="en" lang="en">English</a></footer>
+<footer><span><bdi>Scooby Menu · scoobymenu.cc</bdi></span><a href="/" data-site-language="en" lang="en">English</a></footer>
 </body>
 </html>
 `;

@@ -46,7 +46,7 @@ let html = `<!DOCTYPE html>
 <nav class="section-nav" aria-label="Directory sections">${sections.map(([id, name]) => `<a href="#${id}">${name}</a>`).join('')}</nav>
 ${sectionsHtml}
 </main>
-<footer><span>Scooby Mod Menu · Official site directory</span><a href="/">Back to homepage <span aria-hidden="true">↗</span></a></footer>
+<footer><span>Scooby Menu · Official site directory</span><a href="/">Back to homepage <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>
 `;

@@ -32,3 +32,8 @@ Always create `newpage/index.html`, never `newpage.html`.
 - Run `python tools/build-guide-search.py` after wiki edits. SEO entries are in `tools/seo-metadata.js`; regenerate metadata and sitemap with their `--apply` options.
 - Browser validation: serve this repo on `127.0.0.1:8184`, then run `node tools/validate-l4d.js <screenshot-output-directory>` with Playwright and Microsoft Edge available. It covers desktop/mobile layouts, the screenshot lightbox, free-key modal, feature search, Lua copy buttons, and navigation.
 - Gameplay images are user-supplied development captures, not synthetic screenshots. The city banner is original generated artwork. These pages use the existing general free-key flow; no separate L4D key policy is needed.
+
+
+## Product terminology
+
+Use **cheat** for GMOD, L4D, CS2, FiveM, RedM and other games. GTA 5 and RDR2 can use both **cheat** and **mod menu**; reserve **mod menu** for those two games. Keep product titles, visible copy, social metadata and structured data consistent; edit the source entries in `tools/seo-metadata.js` when changing generated metadata. References to interface menus and menu settings are still valid.

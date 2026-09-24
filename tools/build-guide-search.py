@@ -21,10 +21,84 @@ GAMES = {
 
 
 SEARCH_ALIASES = {
-    "half-life-1": ["HL1", "Half Life", "Half-Life", "GoldSrc", "Source Games", "Opposing Force", "Blue Shift"],
-    "l4d": ["L4D", "L4D1", "L4D2", "Left 4 Dead", "Left 4 Dead 2", "infected", "Lua"],
-    "sbox": ["S&box", "Sbox", "Sandbox"],
-    "last-of-us": ["The Last of Us", "TLOU", "TLOU1", "Part I", "Part 1"],
+    "half-life-1": [
+        "HL1",
+        "Half Life",
+        "Half-Life",
+        "GoldSrc",
+        "Source Games",
+        "Opposing Force",
+        "Blue Shift",
+        "Half-Life cheat",
+        "HL1 cheat"
+    ],
+    "l4d": [
+        "L4D",
+        "L4D1",
+        "L4D2",
+        "Left 4 Dead",
+        "Left 4 Dead 2",
+        "infected",
+        "Lua",
+        "L4D cheat",
+        "L4D1 cheat",
+        "L4D2 cheat",
+        "Left 4 Dead cheat",
+        "Left 4 Dead 2 cheat"
+    ],
+    "sbox": [
+        "S&box",
+        "Sbox",
+        "Sandbox",
+        "S&box cheat",
+        "Sbox cheat",
+        "Sandbox cheat"
+    ],
+    "last-of-us": [
+        "The Last of Us",
+        "TLOU",
+        "TLOU1",
+        "Part I",
+        "Part 1",
+        "The Last of Us cheat",
+        "TLOU cheat"
+    ],
+    "gmod": [
+        "GMOD",
+        "Garry's Mod",
+        "Garrys Mod",
+        "GMOD cheat",
+        "Garry's Mod cheat"
+    ],
+    "cs2": [
+        "CS2",
+        "Counter-Strike 2",
+        "CS2 cheat",
+        "Counter-Strike 2 cheat"
+    ],
+    "fivem": [
+        "FiveM cheat"
+    ],
+    "redm": [
+        "RedM cheat"
+    ],
+    "gta5": [
+        "GTA5",
+        "GTA V",
+        "GTA 5 mod menu",
+        "GTA 5 cheat",
+        "GTA5 cheat",
+        "GTA V cheats",
+        "GTA Online cheats"
+    ],
+    "rdr2": [
+        "RDR2",
+        "Red Dead Redemption 2",
+        "RDR2 mod menu",
+        "RDR2 cheat",
+        "Red Dead Redemption 2 cheats",
+        "Red Dead Online cheats"
+    ]
 }
 
 

@@ -153,17 +153,17 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Changelog - Scooby Mod Menu</title>
+<title>Changelog - Scooby Menu</title>
 <meta name="description" content="${esc(DESC)}">
 <link rel="canonical" href="https://scoobymenu.cc/changelog/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/changelog/">
-<meta property="og:title" content="Changelog - Scooby Mod Menu">
+<meta property="og:title" content="Changelog - Scooby Menu">
 <meta property="og:description" content="${esc(DESC)}">
 <meta property="og:image" content="https://scoobymenu.cc/background-home.jpg">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Changelog - Scooby Mod Menu">
+<meta name="twitter:title" content="Changelog - Scooby Menu">
 <meta name="twitter:description" content="${esc(DESC)}">
 <link rel="shortcut icon" href="/assets/images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">

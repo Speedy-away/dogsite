@@ -129,15 +129,15 @@ function makeManifest(s) {
     if (!entry.desc) delete entry.desc;
     category.groups[0].items.push(entry);
   }
-  const keywords = ['Scooby Menu','Half-Life 1','HL1','GoldSrc','Half-Life Blue Shift','Half-Life Opposing Force','Half-Life Source','free mod menu',...new Set(items.map(i=>i.label))].join(', ');
+  const keywords = ['Scooby Menu','Half-Life 1 cheat','HL1 cheat','GoldSrc','Half-Life Blue Shift cheat','Half-Life Opposing Force cheat','Half-Life Source cheat','free Half-Life cheat',...new Set(items.map(i=>i.label))].join(', ');
   const available = new Set(items.map(item=>item.id));
-  const description = 'Free Half-Life 1 menu: '+copy.highlights.filter(h=>h.ids.every(id=>available.has(id))).map(h=>h.label).join(', ')+'. Explore screenshots and features.';
+  const description = 'Free Half-Life 1 cheat: '+copy.highlights.filter(h=>h.ids.every(id=>available.has(id))).map(h=>h.label).join(', ')+'. Explore screenshots and features.';
   return {
     game:'Half-Life 1',slug:'half-life-1',
     source:'Generated from the Half-Life / GoldSrc menu source. Source inventory is not a release or runtime verification claim.',
     provenance:Object.fromEntries(Object.entries(SOURCES).map(([key,file])=>[file,hash(s[key])])),
     website:{
-      product:{title:'Free Half-Life 1 Mod Menu - Scooby',description,keywords},
+      product:{title:'Free Half-Life 1 Cheat - Scooby',description,keywords},
       features:{title:'Half-Life 1 Features — Scooby',description:'Explore Half-Life 1 '+tabs.filter(t=>t.categories.length).map(t=>t.name).join(', ')+'. Search features, modes and settings.',keywords},
       notice:'Feature availability depends on your selected game, build and session. The menu enables controls supported by that setup.'
     },
