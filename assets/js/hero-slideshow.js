@@ -33,13 +33,14 @@
   });
   stepContainer.replaceChildren.apply(stepContainer, steps);
   var cache = new Map();
-  var current = -1;
+  var current = 0;
   var queue = [];
   var position = 0;
   var activeLayer = stage.querySelector('.hero-scene');
   var timer;
+  var preloadTimer;
   var busy = false;
-  var ready = false;
+  var ready = true;
   var visible = true;
   var focused = false;
   var paused = motion.matches;
@@ -71,11 +72,16 @@
 
   function schedule() {
     window.clearTimeout(timer);
+    window.clearTimeout(preloadTimer);
     hero.classList.toggle('is-paused', !canRun());
     pauseButton.setAttribute('aria-pressed', String(paused));
     pauseButton.setAttribute('aria-label', paused ? 'Play background slideshow' : 'Pause background slideshow');
     pauseButton.title = paused ? 'Play backgrounds' : 'Pause backgrounds';
-    if (canRun() && !busy) timer = window.setTimeout(function () { advance(false); }, dwell);
+    if (canRun() && !busy) {
+      // Give the first view time to load before fetching decorative artwork.
+      preloadTimer = window.setTimeout(preloadNext, dwell / 2);
+      timer = window.setTimeout(function () { advance(false); }, dwell);
+    }
   }
 
   function loadImage(index) {
@@ -107,14 +113,15 @@
 
   function preloadNext() {
     // Fetch only the next scene, rather than every scene on the initial page load.
-    if (ready && !document.hidden && visible) loadImage(nextIndex()).catch(function () {});
+    if (canRun() && !navigator.connection?.saveData) loadImage(nextIndex()).catch(function () {});
   }
 
-  async function advance(manual, initial) {
+  async function advance(manual) {
     if (busy || (!manual && !canRun())) return;
     busy = true;
     nextButton.disabled = true;
     window.clearTimeout(timer);
+    window.clearTimeout(preloadTimer);
     try {
       var next;
       var img;
@@ -128,24 +135,18 @@
       // Do not consume the queued scene if playback paused while it was loading.
       queue.shift();
       position = scenes.length - queue.length - 1;
-      var previousLayer;
-      if (initial) {
-        activeLayer.dataset.scene = scenes[next].file;
-        activeLayer.replaceChildren(img);
-      } else {
-        var layer = document.createElement('div');
-        layer.className = 'hero-scene';
-        layer.dataset.scene = scenes[next].file;
-        layer.appendChild(img);
-        stage.appendChild(layer);
-        // Commit the transparent frame before crossfading the decoded image in.
-        void layer.offsetWidth;
-        layer.classList.add('is-active');
-        activeLayer.classList.add('is-leaving');
-        activeLayer.classList.remove('is-active');
-        previousLayer = activeLayer;
-        activeLayer = layer;
-      }
+      var layer = document.createElement('div');
+      layer.className = 'hero-scene';
+      layer.dataset.scene = scenes[next].file;
+      layer.appendChild(img);
+      stage.appendChild(layer);
+      // Commit the transparent frame before crossfading the decoded image in.
+      void layer.offsetWidth;
+      layer.classList.add('is-active');
+      activeLayer.classList.add('is-leaving');
+      activeLayer.classList.remove('is-active');
+      var previousLayer = activeLayer;
+      activeLayer = layer;
       current = next;
       gameLabel.textContent = scenes[current].game;
       nameLabel.textContent = scenes[current].name;
@@ -156,7 +157,6 @@
         // Clean up the fade independently so transitions start ten seconds apart.
         window.setTimeout(function () { previousLayer.remove(); }, motion.matches ? 0 : 1650);
       }
-      preloadNext();
     } finally {
       busy = false;
       nextButton.disabled = false;
@@ -170,7 +170,7 @@
   controls.addEventListener('focusout', function (event) {
     if (!controls.contains(event.relatedTarget)) { focused = false; schedule(); }
   });
-  document.addEventListener('visibilitychange', function () { schedule(); preloadNext(); });
+  document.addEventListener('visibilitychange', schedule);
   motion.addEventListener('change', function () {
     if (motion.matches) paused = true;
     schedule();
@@ -179,11 +179,14 @@
     new IntersectionObserver(function (entries) {
       visible = entries[0].isIntersecting;
       schedule();
-      if (ready) preloadNext();
     }, { threshold: 0 }).observe(hero);
   }
 
-  // Keep the HTML artwork as a no-JavaScript/loading fallback; start on a
-  // randomly selected, fully decoded scene once the slideshow is available.
-  advance(true, true);
+  // Keep the image discovered in HTML for the first scene instead of fetching a
+  // second large image immediately. Shuffle the remaining scenes for this cycle.
+  nextIndex();
+  queue = queue.filter(function (index) { return index !== current; });
+  steps[0].classList.add('is-current');
+  cache.set(current, Promise.resolve(activeLayer.querySelector('img')));
+  schedule();
 })();

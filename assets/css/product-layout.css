@@ -89,3 +89,9 @@
 @media(prefers-reduced-motion:reduce) {
     .product-detail * { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
 }
+
+/* Native disclosure controls keep setup answers available without JavaScript. */
+.product-detail .product-faq { margin-top:32px; padding-top:24px; border-top:1px solid var(--border-color); }
+.product-detail .product-faq details { border-top:1px solid var(--border-color); }
+.product-detail .product-faq summary { padding:16px 0; color:var(--text-primary); font-weight:600; cursor:pointer; }
+.product-detail .product-faq details p { padding:0 0 18px; }

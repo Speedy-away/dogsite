@@ -261,11 +261,11 @@
 
                 <div class="screenshot-gallery">
                     <button type="button" class="screenshot-item main" onclick="openLightbox(0)" aria-label="Enlarge the Garry's Mod ESP menu screenshot">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/gmod/gmod-menu-gameplay.png" alt="Scooby ESP menu open in Garry's Mod, with player boxes, skeletons and cyan chams" width="1920" height="1080">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/gmod/gmod-menu-gameplay-preview-960.webp" srcset="/assets/images/previews/gmod/gmod-menu-gameplay-preview-640.webp 640w, /assets/images/previews/gmod/gmod-menu-gameplay-preview-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 48px), 600px" data-full-src="/assets/images/previews/gmod/gmod-menu-gameplay.png" alt="Scooby ESP menu open in Garry's Mod, with player boxes, skeletons and cyan chams" width="1920" height="1080">
                         <span class="preview-caption">Player ESP &amp; the new interface</span>
                     </button>
                     <button type="button" class="screenshot-item main" onclick="openLightbox(1)" aria-label="Enlarge the Garry's Mod gameplay screenshot">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/gmod/gmod-visuals-gameplay.png" alt="Garry's Mod gameplay showing player ESP, cyan player chams, gold weapon chams and the aim FOV circle" width="1920" height="1080">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/gmod/gmod-visuals-gameplay-preview-960.webp" srcset="/assets/images/previews/gmod/gmod-visuals-gameplay-preview-640.webp 640w, /assets/images/previews/gmod/gmod-visuals-gameplay-preview-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 48px), 600px" data-full-src="/assets/images/previews/gmod/gmod-visuals-gameplay.png" alt="Garry's Mod gameplay showing player ESP, cyan player chams, gold weapon chams and the aim FOV circle" width="1920" height="1080">
                         <span class="preview-caption">ESP, player chams &amp; weapon visuals</span>
                     </button>
                 </div>
@@ -400,6 +400,14 @@
                         <p>Use Garry's Mod on Windows with Steam's <strong>x86-64</strong> branch selected under <strong>Properties → Game Versions &amp; Betas</strong>. Load Scooby while the game is at the <strong>main menu</strong>. Game updates can affect compatibility; check the product status and <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener noreferrer">support channel</a> if you need help.</p>
                     </details>
                     <details>
+                        <summary>How do I open the GMOD cheat after loading?</summary>
+                        <p>Use <strong>Insert</strong> or <strong>F2</strong> by default. If the interface does not appear, confirm that Steam has finished installing the x86-64 branch and that you loaded Scooby at the game's main menu. Follow the <a href="/guides/gmod/getting-started/">step-by-step GMOD setup guide</a> before retrying.</p>
+                    </details>
+                    <details>
+                        <summary>Do the same features work in every gamemode?</summary>
+                        <p>Available information depends on the active gamemode and server. TTT, Murder, DarkRP, Prop Hunt and GRust have their own tools; use the <a href="/features-list/gmod-features/">GMOD feature list</a> to check the settings for your gamemode.</p>
+                    </details>
+                    <details>
                         <summary>Can I run Lua scripts?</summary>
                         <p>Yes. The editor can run client-side Lua while you are loaded into a game. Select a local script or write a draft, then use Run Lua or Ctrl+Enter. Run Console sends the editor contents to the game console.</p>
                     </details>
@@ -520,7 +528,7 @@
         let previewTrigger;
         function showImage(index) {
             currentIndex = (index + images.length) % images.length;
-            lightboxImage.src = images[currentIndex].src;
+            lightboxImage.src = images[currentIndex].dataset.fullSrc || images[currentIndex].src;
             lightboxImage.alt = images[currentIndex].alt;
         }
         function openLightbox(index) {

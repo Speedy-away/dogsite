@@ -24,6 +24,26 @@ The dashboard loader remains available. The homepage download remains paused. Th
 
 IndexNow is not a Google indexing submission or a security review. Google clearance does not establish Microsoft SmartScreen clearance. Do not hide downloads or rotate domains to avoid review.
 
+## Coverage beyond Google
+
+Submit changed pages once through the global IndexNow endpoint. Participating engines share the notification: Bing, Yandex, Naver, Seznam.cz, Yep and Amazon. Do not send the same batch separately to each engine. [IndexNow lists its current participants](https://www.indexnow.org/faq).
+
+DuckDuckGo sources many traditional web links from Bing, so Bing discovery also supports that route; it is not a separate DuckDuckGo submission. [DuckDuckGo explains its sources](https://duckduckgo.com/duckduckgo-help-pages/results/sources).
+
+Brave operates its own crawler. Its documentation says pages must be crawlable by Googlebot; the site's public pages meet that robots requirement. This is crawl eligibility, not confirmation that Brave has indexed them. [Brave crawler documentation](https://search.brave.com/help/brave-search-crawler).
+
+Google is separate from IndexNow. Submit the sitemap through the verified Search Console property and inspect important URLs there. Bing Webmaster Tools and Yandex Webmaster also provide account-based sitemap and crawl reports. Preserve genuine verification records; do not invent account tokens or treat an HTTP 200 page response as indexing evidence.
+
+## Mobile images and useful content
+
+The homepage and store use smaller card images. GMOD and the largest L4D screenshot use responsive WebP previews; the lightbox fetches the original only when opened. The original captures remain intact. Rebuild the display copies with `node tools/build-display-images.js` when those source assets change (requires `sharp`).
+
+The homepage keeps its initial HTML background image, delays the next scene's preload, and skips preloading while paused, offscreen, hidden, or using data saver. GMOD, L4D and CS2 product questions link to their actual setup, requirements, feature and troubleshooting guides. Keep answers aligned with those guides as game support changes.
+
+Run `node tools/validate-search-pages.js <output-directory>` with Playwright and Microsoft Edge available. The script serves the local repository, checks mobile/desktop layouts, preview enlargement, FAQs and slideshow playback, and records local image-transfer totals. These measurements are not PageSpeed scores or real-user Core Web Vitals.
+
+For search performance, compare equivalent periods in Search Console and Bing Webmaster Tools. Filter by page, query, device and country; prioritize relevant queries with substantial impressions and low click-through rates. Review the landing page and search intent before changing a title or description. Do not infer impressions or clicks from public searches.
+
 ## Release maintenance
 
 From the repository root, using Node 22 or later:
