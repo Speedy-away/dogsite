@@ -36,6 +36,14 @@
     updateCatalogue();
     document.getElementById('reset-filters').addEventListener('click', () => { search.value = ''; filters[0].click(); search.focus(); });
 
+    // Reveal catalogue sections before the browser follows an in-page link.
+    document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+        const section = document.getElementById(link.hash.slice(1));
+        if (!section?.matches('[data-catalog-section]')) return;
+        search.value = '';
+        filters[0].click();
+    }));
+
     const gtaCheckout = document.getElementById('gta-checkout');
     document.querySelectorAll('input[name="gta-plan"]').forEach(input => input.addEventListener('change', () => {
         const plan = data.plans.find(plan => plan.id === input.value);

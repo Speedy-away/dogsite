@@ -2,6 +2,8 @@
 // ProudlyAuthentication API Integration
 
 // ==================== STATE ====================
+// Community routes are temporarily paused; their implementations remain available.
+const PORTAL_DISABLED_PAGES = new Set(['forum', 'category', 'thread', 'search', 'messages', 'conversation', 'reports', 'user']);
 let currentUser = null;
 let sessionToken = localStorage.getItem('portalSessionToken') || '';
 let currentCategoryId = null;
@@ -209,6 +211,7 @@ async function fetchSubscriptionsConfig() {
             // Transform API response to match expected format
             subscriptionsCache = result.data.subscriptions.map(sub => ({
                 key: sub.public_id,
+                internalName: sub.name || '',
                 name: sub.display_name || sub.name || `Subscription ${sub.public_id}`,
                 description: sub.description || '',
                 image: sub.image || subscriptionImages[sub.name] || subscriptionImages[sub.display_name] || ''
@@ -241,7 +244,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const oauthHandled = await handleOAuthCallback();
 
     // Setup navigation
-    document.querySelectorAll('.nav-tab').forEach(link => {
+    document.querySelectorAll('.nav-tab[data-page]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const page = e.currentTarget.dataset.page;
@@ -857,17 +860,10 @@ async function logout() {
 function updateUIForUser() {
     document.getElementById('guestActions').style.display = 'none';
     document.getElementById('userDropdown').style.display = 'flex';
-    document.getElementById('navMessages').style.display = '';
     document.getElementById('notificationBell').style.display = '';
 
     if (window.portalSettings?.tickets_enabled !== false) {
         document.getElementById('navSupport').style.display = '';
-    }
-
-    // Show reports tab for moderators and load pending count
-    if (isPortalModerator()) {
-        document.getElementById('navReports').style.display = '';
-        loadPendingReportsCount();
     }
 
     if (isPortalAdmin()) {
@@ -895,10 +891,8 @@ function updateUIForUser() {
 function updateUIForGuest() {
     document.getElementById('guestActions').style.display = 'flex';
     document.getElementById('userDropdown').style.display = 'none';
-    document.getElementById('navMessages').style.display = 'none';
     document.getElementById('notificationBell').style.display = 'none';
     document.getElementById('notificationsPanel').style.display = 'none';
-    document.getElementById('navReports').style.display = 'none';
 }
 
 // ==================== OAUTH ====================
@@ -3457,22 +3451,8 @@ async function closeTicket() {
 }
 
 // ==================== PROFILE ====================
-async function loadProfile() {
+function renderProfileDetails() {
     if (!currentUser) return;
-
-    // Refresh user data from profile endpoint (includes badges/reputation)
-    const result = await api('GET', '/profile');
-    if (result.ok && result.data.profile) {
-        // Merge profile data into currentUser
-        Object.assign(currentUser, result.data.profile);
-
-        // Update badge system enabled state from profile response
-        if (result.data.profile.badge_system_enabled !== undefined) {
-            badgeSystemEnabled = false;
-            updateBadgeVisibility();
-        }
-    }
-
     // Update profile display
     const avatarEl = document.getElementById('profileAvatar');
     if (currentUser.profile_picture) {
@@ -3487,28 +3467,24 @@ async function loadProfile() {
     document.getElementById('profilePosts').textContent = currentUser.post_count || 0;
     document.getElementById('profileThreads').textContent = currentUser.thread_count || 0;
     document.getElementById('profileReputation').textContent = badgeSystemEnabled ? (currentUser.reputation || 0) : 0;
-    document.getElementById('profileJoined').textContent = formatDate(currentUser.created_at || currentUser.join_date);
+    document.getElementById('profileJoined').textContent = (currentUser.created_at || currentUser.join_date) ? formatDate(currentUser.created_at || currentUser.join_date) : '—';
     document.getElementById('profileBio').textContent = currentUser.bio || 'No bio set.';
 
-    // Load badges (only if badge system is enabled)
-    if (badgeSystemEnabled) {
-        loadProfileBadges();
+}
+
+async function loadProfile() {
+    if (!currentUser) return;
+    const user = currentUser;
+    renderProfileDetails();
+    const result = await api('GET', '/profile');
+    if (currentUser !== user) return;
+    if (result.ok && result.data.profile) {
+        Object.assign(currentUser, result.data.profile);
+        renderProfileDetails();
     }
-
-    // Load subscriptions
     loadSubscriptions();
-
-    // Load friends
-    loadFriends();
-
-    // Load HWID state
     loadHwidState();
-
-    // Load OAuth status
     loadOAuthStatusForProfile();
-
-    // Load blocked users
-    loadBlockedUsers();
 }
 
 // ==================== BADGES ====================
@@ -3918,14 +3894,16 @@ async function loadSubscriptions() {
     // Fetch available subscriptions from API
     const subscriptionsConfig = await fetchSubscriptionsConfig();
 
+    if (!currentUser) return;
+
     // Get user's owned subscriptions (public_ids)
     // subscription_types contains the public_ids the user owns
     const subscriptionTypes = currentUser.subscription_types || currentUser.subscriptions || [];
-    const subscriptionGrants = currentUser.subscription_grants || [];
+    const subscriptionGrants = Array.isArray(currentUser.subscription_grants) ? currentUser.subscription_grants : [];
 
     // Build list of owned subscription keys (from both subscription_types and active grants)
     const ownedKeys = [
-        ...subscriptionTypes,
+        ...(Array.isArray(subscriptionTypes) ? subscriptionTypes : []).map(item => typeof item === 'object' && item !== null ? item.public_id || item.key || item.name : item),
         ...subscriptionGrants
             .filter(grant => grant.status === 'active')
             .map(grant => grant.public_id || grant.name)
@@ -3943,9 +3921,9 @@ async function loadSubscriptions() {
         );
 
         html += `
-            <div class="subscription-card ${isOwned ? 'owned' : 'locked'}" ${!isOwned ? 'onclick="showRedeemKeyModal()"' : ''}>
+            <div class="subscription-card ${isOwned ? 'owned' : 'locked'}" ${!isOwned ? `role="button" tabindex="0" aria-label="Redeem a key for ${escapeHtml(sub.name)}" onclick="showRedeemKeyModal()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRedeemKeyModal()}"` : ''}>
                 ${sub.image
-                    ? `<img src="${escapeHtml(sub.image)}" alt="${escapeHtml(sub.name)}" class="subscription-image" onerror="this.outerHTML='<div class=\\'subscription-image-placeholder\\'><i class=\\'fas fa-crown\\'></i></div>'">`
+                    ? `<img src="${escapeHtml(sub.image)}" alt="" width="40" height="40" loading="lazy" class="subscription-image" onerror="this.outerHTML='<div class=\\'subscription-image-placeholder\\'><i class=\\'fas fa-crown\\'></i></div>'">`
                     : `<div class="subscription-image-placeholder"><i class="fas fa-crown"></i></div>`
                 }
                 <div class="subscription-info">
@@ -4820,39 +4798,57 @@ async function resetHwid() {
 }
 
 // ==================== REDEEM KEY ====================
+let redeemKeyBusy = false;
+let redeemKeyOpener = null;
+let redeemKeyPreviousOverflow = '';
 function showRedeemKeyModal() {
+    if (!currentUser || redeemKeyBusy) return;
+    const dialog = document.getElementById('redeemKeyModal');
+    if (dialog.open) return;
+    redeemKeyOpener = document.activeElement;
+    redeemKeyPreviousOverflow = document.body.style.overflow;
     document.getElementById('redeemKeyInput').value = '';
     document.getElementById('redeemKeyAlert').innerHTML = '';
-    document.getElementById('redeemKeyModal').classList.add('active');
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    document.getElementById('redeemKeyInput').focus();
 }
 
 function hideRedeemKeyModal() {
-    document.getElementById('redeemKeyModal').classList.remove('active');
+    document.getElementById('redeemKeyModal').close();
 }
 
 async function redeemLicenseKey() {
-    const key = document.getElementById('redeemKeyInput').value.trim();
-
+    if (redeemKeyBusy || !currentUser) return;
+    const input = document.getElementById('redeemKeyInput');
+    const key = input.value.trim();
     if (!key) {
-        showAlert('redeemKeyAlert', 'Please enter a license key', 'danger');
+        showAlert('redeemKeyAlert', 'Please enter a license key.', 'danger');
+        input.focus();
         return;
     }
-
-    const btn = document.querySelector('#redeemKeyModal .btn-primary');
+    const btn = document.getElementById('redeemKeySubmit');
+    redeemKeyBusy = true;
+    input.readOnly = true;
+    document.getElementById('redeemKeyAlert').innerHTML = '';
     setButtonLoading(btn, true);
-
-    const result = await api('POST', '/auth/redeem-key', { key });
-
-    setButtonLoading(btn, false, '<i class="fas fa-check"></i> Redeem Key');
-
-    if (result.ok) {
+    try {
+        const result = await api('POST', '/auth/redeem-key', { key });
+        if (!result.ok) {
+            showAlert('redeemKeyAlert', result.data.message || 'Invalid license key.', 'danger');
+            return;
+        }
         hideRedeemKeyModal();
         showToast('License key redeemed successfully!', 'success');
-        // Refresh session and subscriptions
+        subscriptionsCache = null;
         await validateSession();
-        loadSubscriptions();
-    } else {
-        showAlert('redeemKeyAlert', result.data.message || 'Invalid license key', 'danger');
+        if (!currentUser) { showPage('login'); return; }
+        if (document.getElementById('page-profile').classList.contains('active')) await loadSubscriptions();
+        if (document.getElementById('page-dashboard').classList.contains('active')) showPage('dashboard', false);
+    } finally {
+        redeemKeyBusy = false;
+        input.readOnly = false;
+        setButtonLoading(btn, false, '<i class="fas fa-plus" aria-hidden="true"></i> Redeem key');
     }
 }
 
@@ -5835,6 +5831,10 @@ async function openNotification(notificationId, link) {
     if (link) {
         // Parse the link - e.g., /forum/thread/123
         const threadMatch = link.match(/\/forum\/thread\/(\d+)/);
+        if (threadMatch && PORTAL_DISABLED_PAGES.has('thread')) {
+            showPage('dashboard');
+            return;
+        }
         if (threadMatch) {
             const threadId = parseInt(threadMatch[1]);
             currentThreadId = threadId;

@@ -1,6 +1,6 @@
 /* Game-inspired scenery for community pages; account and authentication pages stay plain. */
 body.portal-modern { isolation:isolate; }
-.portal-modern:is(.dashboard-active,.auth-mode) .portal-backgrounds { display:none; }
+.portal-modern:is(.dashboard-active,.profile-active,.auth-mode) .portal-backgrounds { display:none; }
 .portal-backgrounds { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; background:#11151b; }
 .portal-background-scene { position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease-in-out; }
 .portal-background-scene.is-active { opacity:1; }

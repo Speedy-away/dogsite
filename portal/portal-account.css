@@ -1,0 +1,77 @@
+/* Account pages share the dashboard's quiet surfaces and compact controls. */
+.portal-modern.profile-active { background:#09090b; }
+.profile-page-heading .dashboard-button { width:auto; }
+.portal-modern #page-profile { color:#ededf0; }
+.portal-modern #page-profile .profile-header { align-items:center; flex-direction:row; gap:20px; padding:24px; margin-bottom:20px; background:#0e0e11; border:1px solid #26262c; border-radius:12px; text-align:left; }
+.portal-modern #page-profile .profile-avatar { width:68px; height:68px; border:1px solid #3a3a44; border-radius:16px; background:#202026; color:#ededf0; font:600 26px 'Inter',sans-serif; padding:0; }
+.portal-modern #page-profile .profile-avatar:hover { transform:none; box-shadow:none; border-color:#8a8a96; }
+.portal-modern #page-profile .profile-info { min-width:0; display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:20px; row-gap:8px; align-items:center; }
+.portal-modern #page-profile .profile-name { grid-column:1; margin:0; font-size:21px; font-weight:600; letter-spacing:-.5px; overflow-wrap:anywhere; }
+.portal-modern #page-profile .profile-username { grid-column:1; grid-row:2; margin:0; color:#94949e; font-size:12px; overflow-wrap:anywhere; }
+.portal-modern #page-profile .profile-role { grid-column:2; grid-row:1; justify-self:end; background:#10271b; color:#7dd9a4; padding:4px 8px; border-radius:5px; font-size:10px; text-transform:capitalize; letter-spacing:0; }
+.portal-modern #page-profile .profile-stats { grid-column:2; grid-row:2; margin:0; justify-content:flex-end; }
+.portal-modern #page-profile .profile-stat { display:flex; flex-direction:row-reverse; align-items:center; gap:6px; }
+.portal-modern #page-profile .profile-stat-value { font-size:11px; font-weight:500; color:#bdbdc7; }
+.portal-modern #page-profile .profile-stat-label { font-size:11px; text-transform:none; letter-spacing:0; color:#7f7f8b; }
+.portal-modern #page-profile .profile-community-stat, .portal-modern #page-profile .profile-community-section, .portal-modern #blockedUsersSection { display:none; }
+.portal-modern #page-profile .profile-section { margin-bottom:20px; border-color:#26262c; background:#0e0e11; }
+.portal-modern #page-profile .card-header { display:flex; flex-direction:row; text-align:left; align-items:center; justify-content:space-between; gap:16px; padding:21px 24px 0; border:0; background:transparent; }
+.portal-modern #page-profile .card-header h2 { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:600; letter-spacing:-.15px; }
+.portal-modern #page-profile .card-header h2 i { color:#babac4; font-size:14px; text-shadow:none; }
+.portal-modern #page-profile .card-header .btn { width:auto; }
+.portal-modern #page-profile .card-header .dashboard-button { width:auto; min-height:34px; padding:8px 11px; font-size:11px; }
+.portal-modern #page-profile .card-body { padding:20px 24px 24px; }
+.portal-modern #page-profile #profileBio { color:#a2a2ad; font-size:12px; line-height:1.8; white-space:pre-wrap; overflow-wrap:anywhere; }
+.portal-modern #page-profile .subscriptions-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.portal-modern #page-profile .subscription-card { display:flex; align-items:center; gap:12px; padding:14px; min-width:0; border:1px solid #27272d; border-radius:8px; background:#0a0a0d; }
+.portal-modern #page-profile .subscription-card:hover { transform:none; box-shadow:none; }
+.portal-modern #page-profile .subscription-card.locked:hover { border-color:#666672; background:#121216; }
+.portal-modern #page-profile .subscription-image, .portal-modern #page-profile .subscription-image-placeholder { width:40px; height:40px; flex-shrink:0; object-fit:contain; background:transparent; border:0; border-radius:0; font-size:22px; color:#93939e; }
+.portal-modern #page-profile .subscription-info { padding:0; min-width:0; }
+.portal-modern #page-profile .subscription-name { margin:0 0 7px; font-size:12px; font-weight:600; overflow-wrap:anywhere; }
+.portal-modern #page-profile .subscription-description { margin:0 0 8px; font-size:11px; line-height:1.5; overflow-wrap:anywhere; }
+.portal-modern #page-profile .subscription-description:empty { display:none; }
+.portal-modern #page-profile .subscription-status { padding:3px 7px; border-radius:5px; gap:5px; text-transform:none; font-size:10px; }
+.portal-modern #page-profile .subscription-status.owned { color:#7dd9a4; background:#10271b; }
+.portal-modern #page-profile .subscription-status.locked { color:#a3a3b0; background:#222228; }
+.portal-modern #page-profile .subscription-overlay { display:none; }
+.portal-modern #page-profile .loading, .portal-modern #page-profile .empty-state { font-size:12px; padding:20px 0; }
+.portal-modern #page-profile .hwid-card { background:#0a0a0d; border:1px solid #27272d; border-radius:8px; }
+.portal-modern :is(#avatarModal,#editBioModal) .modal { border:1px solid #303038; border-radius:12px; background:#0e0e11; }
+.portal-modern :is(#avatarModal,#editBioModal) .modal-header { background:transparent; }
+.portal-modern :is(#avatarModal,#editBioModal) .modal-header h2 { font-size:16px; }
+.portal-modern :is(#avatarModal,#editBioModal) .modal-header h2 i { color:#babac4; }
+.portal-redeem-dialog { position:fixed; inset:0; margin:auto; width:min(460px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); padding:0; overflow:auto; border:1px solid #303038; border-radius:14px; background:#0e0e11; color:#ededf0; box-shadow:0 24px 90px #0009; }
+.portal-redeem-dialog::backdrop { background:#050507bd; backdrop-filter:blur(5px); }
+.portal-redeem-dialog form { padding:28px; }
+.redeem-dialog-heading { display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+.redeem-dialog-icon { display:flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid #33333b; border-radius:10px; background:#1a1a20; color:#d0d0db; font-size:16px; }
+.portal-redeem-dialog h2 { font-size:24px; font-weight:600; letter-spacing:-.7px; }
+.portal-redeem-dialog .dashboard-description { margin-top:9px; }
+.portal-redeem-dialog .dashboard-input { height:44px; }
+.portal-redeem-dialog #redeemKeyAlert:empty { display:none; }
+.portal-redeem-dialog #redeemKeyAlert .alert { margin:14px 0 0; font-size:12px; border-radius:7px; }
+.redeem-dialog-actions { display:flex; gap:10px; margin-top:24px; }
+.redeem-dialog-actions .secondary { flex:0 0 100px; }
+.redeem-dialog-note { display:flex; align-items:center; gap:7px; margin:18px 0 0; color:#868691; font-size:11px; line-height:1.6; }
+@media(max-width:800px) {
+ .portal-modern #page-profile .subscriptions-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+ .profile-page-heading { align-items:flex-start; gap:12px; }
+ .profile-page-heading .dashboard-button { padding:8px 10px; font-size:11px; min-height:34px; }
+ .profile-page-heading p { max-width:210px; line-height:1.6; }
+ .portal-modern #page-profile .profile-header { padding:20px; gap:14px; align-items:flex-start; }
+ .portal-modern #page-profile .profile-avatar { width:54px; height:54px; border-radius:12px; font-size:22px; }
+ .portal-modern #page-profile .profile-info { display:flex; flex-wrap:wrap; gap:8px; }
+ .portal-modern #page-profile .profile-name { width:100%; font-size:18px; }
+ .portal-modern #page-profile .profile-username { width:100%; }
+ .portal-modern #page-profile .profile-role { margin-top:3px; }
+ .portal-modern #page-profile .profile-stats { width:100%; justify-content:flex-start; margin-top:6px; }
+ .portal-modern #page-profile .card-header { padding:20px 20px 0; flex-wrap:wrap; gap:12px; }
+ .portal-modern #page-profile .card-body { padding:18px 20px 20px; }
+ .portal-modern #page-profile .subscriptions-grid { grid-template-columns:minmax(0,1fr); }
+ .portal-modern #page-profile .subscription-image { width:36px; height:36px; }
+ .portal-redeem-dialog form { padding:24px; }
+ .portal-redeem-dialog h2 { font-size:22px; }
+}

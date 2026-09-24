@@ -110,10 +110,11 @@
             .dashboard-footer { flex-wrap: wrap; }
         }
     </style>
-    <link rel="stylesheet" href="portal-refresh.css?v=20260923-download-look">
-    <link rel="stylesheet" href="portal-backgrounds.css?v=20260923-plain-auth">
+    <link rel="stylesheet" href="portal-refresh.css?v=20260924-account">
+    <link rel="stylesheet" href="portal-backgrounds.css?v=20260924-account">
     <link rel="stylesheet" href="portal-messages.css?v=1">
-    <link rel="stylesheet" href="portal-navigation.css?v=1">
+    <link rel="stylesheet" href="portal-navigation.css?v=20260924-account">
+    <link rel="stylesheet" href="portal-account.css?v=20260924-account">
     <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
 <body class="portal-modern auth-mode">
@@ -134,6 +135,15 @@
                 <img src="../assets/images/logo.png" alt="Scooby Logo">
                 <span id="portalName">Scooby</span>
             </a>
+            <nav class="nav-bar" aria-label="Portal navigation">
+                <div class="nav-container">
+                    <div class="nav-tabs">
+                        <a class="nav-tab" data-page="dashboard" href="#dashboard" aria-label="Dashboard"><i class="fas fa-table-columns" aria-hidden="true"></i><span>Dashboard</span></a>
+                        <button type="button" class="nav-tab nav-tab-disabled" disabled aria-label="Forums temporarily unavailable" title="Forums are temporarily unavailable"><i class="fas fa-comments" aria-hidden="true"></i><span>Forums</span><span class="nav-paused">Paused</span></button>
+                        <a class="nav-tab" href="/guides/" target="_blank" rel="noopener noreferrer" aria-label="Guides (opens in a new tab)"><i class="fas fa-book-open" aria-hidden="true"></i><span>Guides</span><i class="fas fa-arrow-up-right-from-square nav-external" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </nav>
             <div class="header-actions">
                 <a href="/" class="nav-link-home"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Home</span></a>
                 <div class="social-links" id="socialLinks" style="display: none;"></div>
@@ -173,48 +183,14 @@
                     <div class="dropdown-menu" id="accountMenu" role="group" aria-label="Account options" hidden>
                         <div class="account-menu-heading"><span>SIGNED IN AS</span><strong id="accountMenuName">Username</strong></div>
                         <button type="button" class="dropdown-item" onclick="showPage('profile')"><i class="far fa-user" aria-hidden="true"></i><span>My profile</span></button>
-                        <button type="button" class="dropdown-item" onclick="showPage('messages')"><i class="far fa-envelope" aria-hidden="true"></i><span>Messages</span></button>
                         <button type="button" class="dropdown-item" onclick="showRedeemKeyModal()"><i class="fas fa-key" aria-hidden="true"></i><span>Redeem key</span></button>
+                        <button type="button" class="dropdown-item" id="navSupport" style="display:none;" onclick="showPage('support')"><i class="fas fa-life-ring" aria-hidden="true"></i><span>Support</span></button>
                         <div class="dropdown-divider"></div>
                         <button type="button" class="dropdown-item account-logout" onclick="logout()"><i class="fas fa-arrow-right-from-bracket" aria-hidden="true"></i><span>Log out</span></button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Navigation Tabs -->
-        <nav class="nav-bar" aria-label="Portal navigation">
-            <div class="nav-container">
-                <div class="nav-tabs">
-                    <a class="nav-tab" data-page="dashboard" href="#dashboard"><i class="fas fa-table-columns" aria-hidden="true"></i><span>Dashboard</span></a>
-                    <a class="nav-tab" data-page="forum">
-                        <i class="fas fa-comments"></i>
-                        <span>Forums</span>
-                    </a>
-                    <a class="nav-tab" data-page="messages" id="navMessages" style="display: none;">
-                        <i class="fas fa-envelope"></i>
-                        <span>Messages</span>
-                    </a>
-                    <a class="nav-tab" data-page="support" id="navSupport" style="display: none;">
-                        <i class="fas fa-life-ring"></i>
-                        <span>Support</span>
-                    </a>
-                    <a class="nav-tab" data-page="reports" id="navReports" style="display: none;">
-                        <i class="fas fa-flag"></i>
-                        <span>Reports</span>
-                        <span class="nav-badge" id="pendingReportsBadge" style="display: none;">0</span>
-                    </a>
-                </div>
-                <div class="nav-search">
-                    <div class="search-input-wrapper">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="search-input" id="globalSearchInput" aria-label="Search community" placeholder="Search community" oninput="onSearchInput()" onkeypress="if(event.key==='Enter')performSearch()">
-                        <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" onclick="clearSearch()" style="display: none;">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
     </header>
     <!-- Banner -->
     <div id="portalBanner" class="portal-banner">
@@ -468,7 +444,7 @@
         <!-- FORUM PAGE (Categories) -->
         <div class="page-view" id="page-forum">
             <header class="forum-heading">
-                <div><div class="dashboard-eyebrow">Scooby community</div><h1>Better together.</h1><p>Ask questions, share what you know, and find your people.</p></div>
+                <div><div class="dashboard-eyebrow">Scooby community</div><h1>Forums</h1></div>
                 <a class="dashboard-button secondary" href="/guides/"><i class="fas fa-book-open" aria-hidden="true"></i> Browse guides</a>
             </header>
             <div class="forum-toolbar">
@@ -874,23 +850,27 @@
             </div>
         </div>
         <!-- PROFILE PAGE -->
-        <div class="page-view" id="page-profile">
+        <div class="page-view" id="page-profile" aria-labelledby="profilePageTitle">
+            <div class="dashboard-heading profile-page-heading">
+                <div><div class="dashboard-eyebrow">Your account</div><h1 id="profilePageTitle">My profile</h1><p>Manage your profile and subscriptions.</p></div>
+                <a class="dashboard-button secondary" href="#dashboard"><i class="fas fa-arrow-left" aria-hidden="true"></i> Dashboard</a>
+            </div>
             <div class="profile-header" id="profileHeader">
-                <div class="profile-avatar" id="profileAvatar" onclick="showAvatarModal()">U</div>
+                <button type="button" class="profile-avatar" id="profileAvatar" onclick="showAvatarModal()" aria-label="Change profile picture" title="Change profile picture">U</button>
                 <div class="profile-info">
-                    <h1 class="profile-name" id="profileName">Username</h1>
+                    <h2 class="profile-name" id="profileName">Username</h2>
                     <p class="profile-username" id="profileUsername">@username</p>
                     <span class="profile-role" id="profileRole">Member</span>
                     <div class="profile-stats">
-                        <div class="profile-stat">
+                        <div class="profile-stat profile-community-stat">
                             <div class="profile-stat-value" id="profilePosts">0</div>
                             <div class="profile-stat-label">Posts</div>
                         </div>
-                        <div class="profile-stat">
+                        <div class="profile-stat profile-community-stat">
                             <div class="profile-stat-value" id="profileThreads">0</div>
                             <div class="profile-stat-label">Threads</div>
                         </div>
-                        <div class="profile-stat">
+                        <div class="profile-stat profile-community-stat">
                             <div class="profile-stat-value" id="profileReputation">0</div>
                             <div class="profile-stat-label">Reputation</div>
                         </div>
@@ -924,10 +904,11 @@
             </div>
             <div class="content-card profile-section">
                 <div class="card-header">
-                    <h2><i class="fas fa-crown"></i> Subscriptions</h2>
+                    <div><h2><i class="fas fa-cube" aria-hidden="true"></i> Subscriptions</h2><p class="dashboard-description">Products linked to your account.</p></div>
+                    <button type="button" class="dashboard-button secondary" onclick="showRedeemKeyModal()"><i class="fas fa-plus" aria-hidden="true"></i> Redeem key</button>
                 </div>
                 <div class="card-body">
-                    <div id="subscriptionsList" class="subscriptions-grid">
+                    <div id="subscriptionsList" class="subscriptions-grid" aria-live="polite">
                         <div class="loading">
                             <div class="spinner"></div>
                             Loading subscriptions...
@@ -935,7 +916,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content-card profile-section">
+            <div class="content-card profile-section profile-community-section">
                 <div class="card-header">
                     <h2><i class="fas fa-user-friends"></i> Friends</h2>
                 </div>
@@ -975,7 +956,7 @@
                             <span class="hwid-value" id="hwidResets">0</span>
                         </div>
                     </div>
-                    <button class="btn btn-danger btn-sm" onclick="resetHwid()" style="margin-top: 16px; display: none;" id="resetHwidBtn">
+                    <button class="btn btn-secondary btn-sm" onclick="resetHwid()" style="margin-top: 16px; display: none;" id="resetHwidBtn">
                         <i class="fas fa-redo"></i> Reset HWID
                     </button>
                 </div>
@@ -986,7 +967,7 @@
                 </div>
                 <div class="card-body"></div>
             </div>
-            <div class="content-card profile-section" id="blockedUsersSection">
+            <div class="content-card profile-section" id="blockedUsersSection" hidden>
                 <div class="card-header">
                     <h2><i class="fas fa-ban"></i> Blocked Users</h2>
                 </div>
@@ -1202,30 +1183,27 @@
         </div>
     </div>
     <!-- Redeem Key Modal -->
-    <div class="modal-overlay" id="redeemKeyModal">
-        <div class="modal" style="max-width: 420px;">
-            <div class="modal-header">
-                <h2><i class="fas fa-key"></i> Redeem License Key</h2>
-                <button class="modal-close" onclick="hideRedeemKeyModal()">&times;</button>
+    <dialog id="redeemKeyModal" class="portal-redeem-dialog" aria-labelledby="redeemKeyTitle" aria-describedby="redeemKeyDescription">
+        <form id="redeemKeyForm" onsubmit="event.preventDefault(); redeemLicenseKey()">
+            <div class="redeem-dialog-heading">
+                <span class="redeem-dialog-icon"><i class="fas fa-key" aria-hidden="true"></i></span>
+                <button type="button" class="modal-close" onclick="hideRedeemKeyModal()" aria-label="Close redeem key dialog"><i class="fas fa-xmark" aria-hidden="true"></i></button>
             </div>
-            <div class="modal-body">
-                <div id="redeemKeyAlert"></div>
-                <p style="color: var(--muted-text); font-size: 0.875rem; margin-bottom: 16px;">
-                    Enter your license key to activate your membership.
-                </p>
-                <div class="form-row">
-                    <label>License Key</label>
-                    <input type="text" class="form-input" id="redeemKeyInput" placeholder="XXXX-XXXX-XXXX-XXXX" style="font-family: 'JetBrains Mono', monospace; letter-spacing: 1px;" onkeypress="if(event.key==='Enter')redeemLicenseKey()">
-                </div>
+            <div class="dashboard-eyebrow">Your account</div>
+            <h2 id="redeemKeyTitle">Redeem a license key</h2>
+            <p id="redeemKeyDescription" class="dashboard-description">Enter your key to add a product to your account.</p>
+            <div class="dashboard-form">
+                <label for="redeemKeyInput">License key</label>
+                <input type="text" class="dashboard-input" id="redeemKeyInput" placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="redeemKeyDescription redeemKeyAlert" autofocus>
+                <div id="redeemKeyAlert" role="status" aria-live="polite"></div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="hideRedeemKeyModal()">Cancel</button>
-                <button class="btn btn-primary" onclick="redeemLicenseKey()">
-                    <i class="fas fa-check"></i> Redeem Key
-                </button>
+            <div class="redeem-dialog-actions">
+                <button type="button" class="dashboard-button secondary" onclick="hideRedeemKeyModal()">Cancel</button>
+                <button type="submit" class="dashboard-button" id="redeemKeySubmit"><i class="fas fa-plus" aria-hidden="true"></i> Redeem key</button>
             </div>
-        </div>
-    </div>
+            <p class="redeem-dialog-note"><i class="fas fa-circle-check" aria-hidden="true"></i> Your products update after activation.</p>
+        </form>
+    </dialog>
     <!-- User Card Modal -->
     <div class="modal-overlay" id="userCardModal">
         <div class="modal" style="max-width: 400px;">
@@ -1670,10 +1648,10 @@
         </div>
         <div class="portal-download-footer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Downloads open in a new tab.</div>
     </dialog>
-    <script src="portal.js?v=20260923-dashboard-title"></script>
-    <script src="portal-refresh.js?v=20260923-download"></script>
-    <script src="portal-navigation.js?v=1"></script>
-    <script src="portal-backgrounds.js?v=20260923-plain-auth"></script>
+    <script src="portal.js?v=20260924-account"></script>
+    <script src="portal-refresh.js?v=20260924-account"></script>
+    <script src="portal-navigation.js?v=20260924-account"></script>
+    <script src="portal-backgrounds.js?v=20260924-account"></script>
     <script>
     // Account dashboard integration. All other routes still use portal.js.
     (() => {
@@ -1790,8 +1768,8 @@
                 artwork.className = 'dashboard-product-art' + (logo ? ` dashboard-product-logo dashboard-product-logo--${logo.id}` : '');
                 artwork.src = logo?.src || portalProductArtwork(entry.product?.name, name, key);
                 artwork.alt = '';
-                artwork.width = 88;
-                artwork.height = 66;
+                artwork.width = 40;
+                artwork.height = 40;
                 artwork.loading = 'lazy';
                 artwork.addEventListener('error', () => {
                     artwork.className = 'dashboard-product-art dashboard-product-logo';
@@ -1878,7 +1856,7 @@
         let returnRoute = '';
         const originalShowPage = showPage;
         showPage = function(page, updateUrl = true) {
-            if (page === 'chat' || page === 'badges' || page === 'members') page = 'dashboard';
+            if (PORTAL_DISABLED_PAGES.has(page) || page === 'chat' || page === 'badges' || page === 'members') page = 'dashboard';
             if (!currentUser && !authPages.has(page)) page = 'login';
             if (currentUser && (page === 'register' || page === 'login')) page = 'dashboard';
             // Password and OAuth sign-in previously opened the forum by default.
@@ -1889,6 +1867,7 @@
             const authVisible = authPages.has(activePage?.id.replace('page-', ''));
             document.body.classList.toggle('auth-mode', authVisible);
             document.body.classList.toggle('dashboard-active', dashboardVisible);
+            document.body.classList.toggle('profile-active', activePage?.id === 'page-profile');
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 if (tab.classList.contains('active')) tab.setAttribute('aria-current', 'page');
                 else tab.removeAttribute('aria-current');
@@ -1899,6 +1878,12 @@
         const originalHashRoute = handleHashRoute;
         handleHashRoute = function() {
             const route = location.hash.slice(1).split('/')[0];
+            if (PORTAL_DISABLED_PAGES.has(route)) {
+                const destination = currentUser ? 'dashboard' : 'login';
+                history.replaceState(null, '', '#' + destination);
+                showPage(destination, false);
+                return;
+            }
             if (!currentUser && !authPages.has(route)) {
                 if (route && !['chat', 'badges', 'members', 'dashboard'].includes(route)) returnRoute = location.hash;
                 showPage('login', false);

@@ -1,14 +1,17 @@
 // Shared artwork and presentation helpers. Account data still comes from portal.js.
 function portalProductLogo(...values) {
     const names = values.filter(Boolean).map(value => String(value).toLowerCase().replace(/[^a-z0-9]/g, ''));
-    if (names.some(name => /fivem/.test(name))) return null;
     const logos = [
-        { pattern:/redm/, id:'redm', source:'redm.webp' },
-        { pattern:/grandtheft|gtalegacy|gtaenhanced|gtabe|gta5|gtav|^gta$/, id:'gta-v', source:'gta-v.jpg' },
-        { pattern:/reddead|rdr/, id:'rdr2', source:'rdr2.png' }
+        { pattern:/fivem/, id:'fivem', src:'/portal/images/product-logos/fivem.png' },
+        { pattern:/redm/, id:'redm', src:'/portal/images/product-logos/redm.png' },
+        { pattern:/grandtheft|gtalegacy|gtaenhanced|gtabe|gta5|gtav|^gta$/, id:'gta-v', src:'/assets/images/store/gta5-logo-transparent.png' },
+        { pattern:/reddead|rdr/, id:'rdr2', src:'/assets/images/store/rdr2-logo-transparent.png' },
+        { pattern:/counterstrike|cs2|csgo/, id:'cs2', src:'/portal/images/product-logos/cs2.png' },
+        { pattern:/garry|gmod/, id:'gmod', src:'/portal/images/product-logos/gmod.png' },
+        { pattern:/spoofer|hwid/, id:'spoofer', src:'/portal/images/product-logos/spoofer.png' }
     ];
     const logo = logos.find(item => names.some(name => item.pattern.test(name)));
-    return logo ? { id:logo.id, src:`images/reference-logos/${logo.source}` } : null;
+    return logo ? { id:logo.id, src:logo.src } : null;
 }
 
 function portalProductArtwork(...values) {
@@ -79,7 +82,7 @@ function portalProductArtwork(...values) {
     const originalSubscriptions = fetchSubscriptionsConfig;
     fetchSubscriptionsConfig = async function(...args) {
         const subscriptions = await originalSubscriptions(...args);
-        return subscriptions.map(product => ({ ...product, image: portalProductArtwork(product.name, product.key) }));
+        return subscriptions.map(product => ({ ...product, image: portalProductLogo(product.internalName, product.name, product.key)?.src || portalProductArtwork(product.name, product.key) }));
     };
     // Use native form submission for keyboard access and avoid duplicate Enter requests.
     document.getElementById('loginForm').addEventListener('submit', event => { event.preventDefault(); login(); });
@@ -122,6 +125,22 @@ function portalProductArtwork(...values) {
     dialog.addEventListener('close', () => {
         document.body.style.overflow = previousOverflow;
         if (trigger.getClientRects().length) trigger.focus();
+    });
+    window.addEventListener('hashchange', () => { if (dialog.open) dialog.close(); });
+})();
+
+// Native dialog provides Escape dismissal and keeps focus within the redeem form.
+(() => {
+    const dialog = document.getElementById('redeemKeyModal');
+    dialog.addEventListener('close', () => {
+        document.body.style.overflow = redeemKeyPreviousOverflow;
+        if (redeemKeyOpener?.isConnected && redeemKeyOpener.getClientRects().length) redeemKeyOpener.focus();
+        else if (document.getElementById('userDropdown').getClientRects().length) document.getElementById('accountMenuToggle').focus();
+    });
+    dialog.addEventListener('click', event => {
+        if (event.target !== dialog) return;
+        const bounds = dialog.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
     });
     window.addEventListener('hashchange', () => { if (dialog.open) dialog.close(); });
 })();

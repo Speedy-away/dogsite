@@ -1,0 +1,26 @@
+{
+  "tool": "Built-in image_gen",
+  "purpose": "Transparent logo cutouts for dashboard My products.",
+  "assets": [
+    {
+      "file": "cs2.png",
+      "prompt": "Use case: background-extraction. Asset type: small dashboard product icon. The reference image is a six-cell contact sheet of existing logos. Produce ONLY ONE isolated cutout from the bottom-left cell labeled cs2.png: the central white CS2 wordmark and small player silhouette in that wordmark. Remove the large background soldier, architecture, sky and ground. Ignore all other cells and exclude filename labels. Preserve the logo's original design, colors, proportions and exact lettering. Do not redesign or add anything. Output a genuinely transparent RGBA PNG, with alpha 0 around the logo and through its negative spaces; no white/black canvas, no painted checkerboard, no tile, frame, scenery or cast shadow. Center the extracted logo, tightly framed with only 4% transparent padding. Clean crisp edges readable at 40px."
+    },
+    {
+      "file": "fivem.png",
+      "prompt": "Use case: background-extraction. Asset type: small dashboard product icon. The reference image is a six-cell contact sheet of existing logos. Produce ONLY ONE isolated cutout from the bottom-center cell labeled fivem.png: the central orange angular FiveM emblem and white FiveM wordmark. Remove skyline, sunset, palms and street. Ignore all other cells and exclude filename labels. Preserve the logo's original design, colors, proportions and exact lettering. Do not redesign or add anything. Output a genuinely transparent RGBA PNG, with alpha 0 around the logo and through its negative spaces; no white/black canvas, no painted checkerboard, no tile, frame, scenery or cast shadow. Center the extracted logo, tightly framed with only 4% transparent padding. Clean crisp edges readable at 40px."
+    },
+    {
+      "file": "redm.png",
+      "prompt": "Edit the attached RedM reference logo. Remove its red patterned background completely. Keep ONLY the original solid white angular central symbol, preserving its exact silhouette including diagonal red cut lines and the lower rectangular hole; these red holes become transparent. Hard flat white shapes with clean antialiased edges. Do not add blur, glow, light bloom, vignette, haze, gray pixels outside the silhouette, shadows or surface texture. No colored background. Output an actual transparent PNG cutout with entirely empty alpha-zero pixels surrounding the white mark. The result is an unlit flat logo, not a luminous object. Tight crop with 4% empty transparent margin."
+    },
+    {
+      "file": "gmod.png",
+      "prompt": "Use case: background-extraction. Asset type: small dashboard product icon. The reference image is a six-cell contact sheet of existing logos. Produce ONLY ONE isolated cutout from the top-center cell labeled gmod-logo.png: the white lowercase g lettermark. Preserve its original typography; remove the blue rounded square completely. Ignore all other cells and exclude filename labels. Preserve the logo's original design, colors, proportions and exact lettering. Do not redesign or add anything. Output a genuinely transparent RGBA PNG, with alpha 0 around the logo and through its negative spaces; no white/black canvas, no painted checkerboard, no tile, frame, scenery or cast shadow. Center the extracted logo, tightly framed with only 4% transparent padding. Clean crisp edges readable at 40px."
+    },
+    {
+      "file": "spoofer.png",
+      "prompt": "Use case: background-extraction. Asset type: small dashboard product icon. The reference image is a six-cell contact sheet of existing logos. Produce ONLY ONE isolated cutout from the bottom-right cell labeled spoofer.png: the silver shield containing the purple microchip and exact HWID lettering. Keep shield and contained chip; remove all external circuit-board background and outside light trails. Ignore all other cells and exclude filename labels. Preserve the logo's original design, colors, proportions and exact lettering. Do not redesign or add anything. Output a genuinely transparent RGBA PNG, with alpha 0 around the logo and through its negative spaces; no white/black canvas, no painted checkerboard, no tile, frame, scenery or cast shadow. Center the extracted logo, tightly framed with only 4% transparent padding. Clean crisp edges readable at 40px."
+    }
+  ]
+}

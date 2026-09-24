@@ -14,7 +14,7 @@
     function editing() {
         return document.activeElement?.matches('input:not([type=hidden]),textarea,select,[contenteditable="true"]');
     }
-    function canRun() { return !document.body.matches('.dashboard-active, .auth-mode') && !motion.matches && !document.hidden && !editing(); }
+    function canRun() { return !document.body.matches('.dashboard-active, .profile-active, .auth-mode') && !motion.matches && !document.hidden && !editing(); }
     function schedule() {
         clearTimeout(timer);
         stage.classList.toggle('is-paused', !canRun());

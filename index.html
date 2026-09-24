@@ -753,7 +753,7 @@ h2.section-title {
           Join Discord
         </a>
       </div>
-      <p class="official-site-note" id="official-site">The official Scooby Mod Menu website is <a href="https://scoobymenu.cc/" translate="no" data-i18n-skip>scoobymenu.cc</a>. Use the support links on this site, and check our <a href="/resellers/">official resellers</a> before buying elsewhere.</p>
+      <p class="official-site-note" id="official-site" hidden>The official Scooby Mod Menu website is <a href="https://scoobymenu.cc/" translate="no" data-i18n-skip>scoobymenu.cc</a>. Use the support links on this site, and check our <a href="/resellers/">official resellers</a> before buying elsewhere.</p>
     </div>
   </div>
   <div class="scene-controls" id="sceneControls" role="group" aria-label="Background slideshow" data-i18n-skip hidden>
@@ -1154,12 +1154,13 @@ h2.section-title {
   </div>
 </div>
 
-<!-- Existing /#download links show the temporary availability notice. -->
-<div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true" aria-labelledby="download-unavailable-title">
+<!-- Existing /#download links direct visitors to the portal dashboard. -->
+<div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true" aria-labelledby="download-portal-title" aria-describedby="download-portal-description">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('downloadModal')" aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <h3 id="download-unavailable-title">Downloads temporarily unavailable</h3>
-    <p>Please check back later.</p>
+    <h3 id="download-portal-title">Login / Register</h3>
+    <p id="download-portal-description">Download the loader on the dashboard.</p>
+    <a href="https://scoobymenu.cc/portal/" target="_blank" rel="noopener" class="btn-modal btn-modal-primary">Open Dashboard</a>
   </div>
 </div>
 

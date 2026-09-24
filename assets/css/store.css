@@ -1326,6 +1326,14 @@ body:has(dialog[open]) {
         gap:10px
     }
 }
+/* Keep the language switcher, brand and navigation within narrow phones. */
+@media(max-width:380px) {
+    .header-inner { padding:0 12px; gap:8px; }
+    .header-inner .i18n-lead { gap:8px; }
+    .header-inner .i18n-toggle { padding:7px 8px; gap:4px; }
+    .nav-actions { gap:6px; }
+    .download-button { padding:8px; gap:6px; }
+}
 @media(prefers-reduced-motion:reduce) {
     html {
         scroll-behavior:auto

@@ -22,466 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --bg-primary: #080808;
-        --bg-secondary: #0d0d0d;
-        --bg-card: #111111;
-        --accent-cyan: #4f8ef5;
-        --accent-pink: #4f8ef5;
-        --text-primary: #f4f4f7;
-        --text-secondary: #9a9aaa;
-        --border-color: rgba(255,255,255,.07);
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--bg-primary);
-        color: var(--text-primary);
-        min-height: 100vh;
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-primary); }
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(135deg, #4f8ef5, #2563eb);
-        border-radius: 10px;
-    }
-    /* Navbar */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        padding: 15px 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        backdrop-filter: blur(20px);
-        background: rgba(10, 10, 15, 0.9);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .logo {
-        font-size: 1.2rem;
-        font-weight: 800;
-        letter-spacing: -.01em;
-        color: #fff;
-        text-decoration: none;
-    }
-    .nav-links {
-        display: flex;
-        gap: 30px;
-        list-style: none;
-    }
-    .nav-links a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 0.95rem;
-        transition: color 0.3s;
-    }
-    .nav-links a:hover {
-        color: var(--accent-cyan);
-    }
-    /* Main Content */
-    .main-content {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 120px 20px 60px;
-    }
-    .page-title {
-        font-size: 3rem;
-        font-weight: 900;
-        letter-spacing: -.02em;
-        text-align: center;
-        margin-bottom: 40px;
-        color: #f4f4f7;
-    }
-    /* Tabs */
-    .tabs {
-        display: flex;
-        gap: 30px;
-        margin-bottom: 30px;
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 15px;
-    }
-    .tab {
-        background: none;
-        border: none;
-        color: var(--text-secondary);
-        font-size: 1rem;
-        cursor: pointer;
-        padding: 8px 0;
-        position: relative;
-        transition: color 0.3s;
-    }
-    .tab:hover {
-        color: var(--text-primary);
-    }
-    .tab.active {
-        color: var(--text-primary);
-    }
-    .tab.active::after {
-        content: '';
-        position: absolute;
-        bottom: -16px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--accent-cyan);
-    }
-    /* Reseller List */
-    .reseller-list {
-        display: flex;
-        flex-direction: column;
-    }
-    .reseller-item {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 25px 0;
-        border-bottom: 1px solid var(--border-color);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-    .reseller-item:hover {
-        background: rgba(255, 255, 255, 0.02);
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-left: -10px;
-        margin-right: -10px;
-        border-radius: 12px;
-    }
-    .reseller-avatar {
-        width: 56px;
-        height: 56px;
-        border-radius: 12px;
-        background: var(--bg-card);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        overflow: hidden;
-    }
-    .reseller-avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .reseller-avatar svg {
-        width: 28px;
-        height: 28px;
-        color: var(--accent-cyan);
-    }
-    .reseller-info {
-        flex: 1;
-        min-width: 0;
-    }
-    .reseller-name {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--accent-cyan);
-        margin-bottom: 5px;
-    }
-    .reseller-name.pink {
-        color: var(--accent-pink);
-    }
-    .reseller-description {
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-    .reseller-link {
-        color: var(--text-secondary);
-        transition: color 0.3s;
-        flex-shrink: 0;
-    }
-    /* Reseller's own Discord - sits beside the open-store arrow */
-    .reseller-discord {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-        border: 1px solid var(--border-color);
-        color: var(--text-secondary);
-        flex-shrink: 0;
-        text-decoration: none;
-        transition: all .2s ease;
-    }
-    .reseller-discord:hover {
-        color: #4f8ef5;
-        border-color: rgba(79,142,245,.4);
-        background: rgba(79,142,245,.12);
-    }
-    .reseller-item:hover .reseller-link {
-        color: var(--accent-cyan);
-    }
-    /* Tab Content */
-    .tab-content {
-        display: none;
-    }
-    .tab-content.active {
-        display: block;
-    }
-    /* Footer */
-    .footer {
-        text-align: center;
-        padding: 40px 20px;
-        border-top: 1px solid var(--border-color);
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        margin-top: 60px;
-    }
-    /* Product Select Modal */
-    .product-modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(15px);
-        z-index: 10000;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .product-modal-overlay.active {
-        display: flex;
-        opacity: 1;
-    }
-    .product-modal {
-        background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
-        border: 1px solid rgba(0, 212, 212, 0.3);
-        border-radius: 24px;
-        padding: 40px;
-        max-width: 420px;
-        width: 90%;
-        position: relative;
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-        box-shadow: 0 0 60px rgba(0, 212, 212, 0.15);
-    }
-    .product-modal-overlay.active .product-modal {
-        transform: scale(1);
-    }
-    .product-modal-close {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 36px;
-        height: 36px;
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        border-radius: 50%;
-        color: rgba(255, 255, 255, 0.6);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-    }
-    .product-modal-close:hover {
-        background: rgba(255, 0, 110, 0.3);
-        color: white;
-    }
-    .product-modal h3 {
-        
-        font-size: 1.2rem;
-        background: linear-gradient(135deg, #4f8ef5, #2563eb);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 8px;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-    .product-modal-subtitle {
-        text-align: center;
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-        margin-bottom: 25px;
-    }
-    .product-option {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 16px 20px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        color: var(--text-primary);
-        margin-bottom: 10px;
-    }
-    .product-option:hover {
-        background: rgba(0, 212, 212, 0.08);
-        border-color: rgba(0, 212, 212, 0.3);
-        transform: translateX(5px);
-    }
-    .product-option-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        overflow: hidden;
-        flex-shrink: 0;
-    }
-    .product-option-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .product-option-info {
-        flex: 1;
-    }
-    .product-option-name {
-        font-weight: 600;
-        font-size: 1rem;
-        margin-bottom: 2px;
-    }
-    .product-option-desc {
-        color: var(--text-secondary);
-        font-size: 0.8rem;
-    }
-    .product-option-arrow {
-        color: var(--text-secondary);
-        flex-shrink: 0;
-        transition: color 0.3s;
-    }
-    .product-option:hover .product-option-arrow {
-        color: var(--accent-cyan);
-    }
-    /* Payment Modal */
-    .payment-modal-overlay {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(15px);
-        z-index: 10001;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .payment-modal-overlay.active {
-        display: flex;
-        opacity: 1;
-    }
-    .payment-modal {
-        background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
-        border: 1px solid rgba(0, 212, 212, 0.3);
-        border-radius: 24px;
-        padding: 40px;
-        max-width: 420px;
-        width: 90%;
-        position: relative;
-        transform: scale(0.9);
-        transition: transform 0.3s ease;
-        box-shadow: 0 0 60px rgba(0, 212, 212, 0.15);
-    }
-    .payment-modal-overlay.active .payment-modal {
-        transform: scale(1);
-    }
-    .payment-modal h3 {
-        
-        font-size: 1.2rem;
-        background: linear-gradient(135deg, #4f8ef5, #2563eb);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 8px;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-    .payment-modal-subtitle {
-        text-align: center;
-        color: var(--text-secondary);
-        font-size: 0.85rem;
-        margin-bottom: 25px;
-    }
-    .payment-method {
-        margin-bottom: 14px;
-    }
-    .payment-method-header {
-        margin-bottom: 8px;
-    }
-    .payment-method-header h4 {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: var(--text-primary);
-    }
-    .payment-method-header p {
-        font-size: 0.8rem;
-        color: var(--text-secondary);
-        margin-top: 2px;
-    }
-    .payment-method-tag {
-        display: inline-block;
-        padding: 3px 10px;
-        border-radius: 8px;
-        font-size: 0.65rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        background: rgba(34, 197, 94, 0.15);
-        border: 1px solid rgba(34, 197, 94, 0.4);
-        color: #4ade80;
-        margin-left: 8px;
-        vertical-align: middle;
-    }
-    .pay-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        padding: 14px 20px;
-        border-radius: 14px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-        color: #fff;
-    }
-    .pay-btn svg { width: 20px; height: 20px; }
-    .pay-card-btn { background: linear-gradient(135deg, #4f8ef5, #2563eb); color: #000; }
-    .pay-card-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 212, 0.35); }
-    .pay-crypto-btn { background: linear-gradient(135deg, #f7931a, #e8850a); }
-    .pay-crypto-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(247, 147, 26, 0.35); }
-    .pay-support-btn { background: rgba(88, 101, 242, 0.15); color: #7289da; border: 1px solid rgba(88, 101, 242, 0.3); }
-    .pay-support-btn:hover { background: rgba(88, 101, 242, 0.25); transform: translateY(-2px); }
-    @media (max-width: 768px) {
-        .navbar {
-            padding: 15px 20px;
-        }
-        .nav-links {
-            display: none;
-        }
-        .page-title {
-            font-size: 1.8rem;
-        }
-        .reseller-item {
-            flex-wrap: wrap;
-        }
-        .reseller-avatar {
-            width: 48px;
-            height: 48px;
-        }
-    }
-</style>
+
   <script src="/languages/i18n.js"></script>
-  <link rel="stylesheet" href="/assets/css/mobile.css">
+
 <meta name="twitter:url" content="https://scoobymenu.cc/resellers/">
 <script type="application/ld+json" id="seo-page-structure">
 {
@@ -504,297 +47,76 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/css/resellers.css?v=20260924">
+<script src="/assets/js/resellers.js?v=20260924" defer></script>
+<noscript><style>.directory-tools,.choose-products,.menu-toggle{display:none!important}.partner-nav{display:flex!important}.direct-products{display:flex;flex-wrap:wrap;gap:12px}</style></noscript>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="/" class="logo">scooby</a>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/#products">Products</a></li>
-            <li><a href="/#products">Purchase</a></li>
-            <li><a href="https://discord.gg/tGtvzChYQq" target="_blank">Discord</a></li>
-        </ul>
-    </nav>
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1 class="page-title">Resellers</h1>
-        <!-- Tabs -->
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('international')">&#127760; International</button>
-            <button class="tab" onclick="showTab('brazil')">&#127463;&#127479; Brazil</button>
-            <button class="tab" onclick="showTab('chinese')">&#127464;&#127475; Chinese</button>
-        </div>
-        <!-- International Resellers -->
-        <div id="international" class="tab-content active">
-            <div class="reseller-list">
-                <!-- zscooby links commented out, using fusiondash for now -->
-                <div class="reseller-item" id="officialStoreItem" onclick="openProductModal('official')" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm-lifetime">
-                    <div class="reseller-avatar">
-                        <img src="/resellers/scoobystore.png" alt="Scooby Store Logo">
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name pink">Scooby Store (Official)</div>
-                        <div class="reseller-description">Official store | Best prices | Direct support | Card, PayPal & more</div>
-                    </div>
-                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </div>
-                <div class="reseller-item" onclick="openProductModal('fusionmonkey')" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm">
-                    <div class="reseller-avatar">
-                        <img src="/resellers/fusmonkey.png" alt="FusionMonkey Logo">
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name">FusionMonkey</div>
-                        <div class="reseller-description">Trusted reseller | Multiple payment options | Fast delivery</div>
-                    </div>
-                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </div>
-                <div class="reseller-item" onclick="openProductModal('ezmod')" data-gta5="https://ezmod.vip/product/scooby-mod-menu/" data-rdr2="https://ezmod.vip/product/scooby-rdr2/" data-fivem="https://ezmod.vip/product/scooby-fivem/" data-redm="https://ezmod.vip/product/scooby-redm-mod-menu/">
-                    <div class="reseller-avatar">
-                        <img src="/resellers/ezMod.png" alt="Ezmod Logo">
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name">Ezmod</div>
-                        <div class="reseller-description">Professional marketplace | Secure checkout | iDEAL, Card & more</div>
-                    </div>
-                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </div>
-                <div class="reseller-item" onclick="openProductModal('recoverygods')" data-gta5="https://recoverygods.xyz/product/scooby-gta/" data-rdr2="https://recoverygods.xyz/product/scooby-rdr2/" data-fivem="https://recoverygods.xyz/product/scooby-fivem/" data-redm="https://recoverygods.xyz/product/scooby-redm/">
-                    <div class="reseller-avatar">
-                        <img src="/resellers/Recoverygods.png" alt="RecoveryGods Logo">
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name">RecoveryGods</div>
-                        <div class="reseller-description">Established reseller | PayPal, Card, Crypto | 24/7 Support</div>
-                    </div>
-                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </div>
-                <div class="reseller-item" onclick="openProductModal('acrestore')" data-gta5="https://www.acrestore.xyz/scooby">
-                    <div class="reseller-avatar">
-                        <img src="/resellers/acrestore.png" alt="Acre Store Logo">
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name">WanderACRE</div>
-                        <div class="reseller-description">Acre Store | Brazilian reseller | GTA 5 only</div>
-                    </div>
-                    <!-- stopPropagation so this does not also open the product modal -->
-                    <a href="https://discord.gg/u4t7pXUHvz" target="_blank" rel="noopener"
-                       class="reseller-discord" title="WanderACRE Discord" aria-label="WanderACRE Discord"
-                       onclick="event.stopPropagation();">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                    </a>
-                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <!-- Brazilian Resellers -->
-        <div id="brazil" class="tab-content">
-            <div class="reseller-list">
-                <div class="reseller-item" onclick="openProductModal('acrestore')" data-gta5="https://www.acrestore.xyz/scooby">
-                    <div class="reseller-avatar">
-                        <img src="/resellers/acrestore.png" alt="Acre Store Logo">
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name">WanderACRE</div>
-                        <div class="reseller-description">Acre Store | Brazilian reseller | GTA 5 only</div>
-                    </div>
-                    <!-- stopPropagation so this does not also open the product modal -->
-                    <a href="https://discord.gg/u4t7pXUHvz" target="_blank" rel="noopener"
-                       class="reseller-discord" title="WanderACRE Discord" aria-label="WanderACRE Discord"
-                       onclick="event.stopPropagation();">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                    </a>
-                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <!-- Chinese Resellers -->
-        <div id="chinese" class="tab-content">
-            <div class="reseller-list">
-                <a href="#" class="reseller-item">
-                    <div class="reseller-avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                        </svg>
-                    </div>
-                    <div class="reseller-info">
-                        <div class="reseller-name pink">Coming Soon</div>
-                        <div class="reseller-description">Chinese resellers will be listed here soon</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Product Selection Modal -->
-    <div class="product-modal-overlay" id="productModal">
-        <div class="product-modal">
-            <button class="product-modal-close" onclick="closeProductModal()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <h3>SELECT PRODUCT</h3>
-            <p class="product-modal-subtitle" id="modalReseller">Choose which product to purchase</p>
-            <div id="productOptions"></div>
-        </div>
-    </div>
-    <!-- Payment Method Modal -->
-    <div class="payment-modal-overlay" id="paymentModal">
-        <div class="payment-modal">
-            <button class="product-modal-close" onclick="closePaymentModal()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <h3>SELECT PAYMENT</h3>
-            <p class="payment-modal-subtitle" id="paymentModalSubtitle">Choose your payment method</p>
-            <div class="payment-method">
-                <div class="payment-method-header"><h4>Credit/Debit Card and more</h4><p>Instant Delivery &bull; Secure Payment</p></div>
-                <a id="cardPayLink" href="#" target="_blank" class="pay-btn pay-card-btn" onclick="setTimeout(closePaymentModal, 300)">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/><path d="M6 15h3"/></svg>
-                    Pay with Card
-                </a>
-            </div>
-            <div class="payment-method">
-                <div class="payment-method-header"><h4>Cryptocurrency <span class="payment-method-tag">20% Cheaper</span></h4><p>Bitcoin, Ethereum & More</p></div>
-                <a href="https://nenyoo.store/" target="_blank" class="pay-btn pay-crypto-btn" onclick="setTimeout(closePaymentModal, 300)">
-                    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#f7931a"/><path fill="#fff" d="M17.16 10.796c.226-1.518-.93-2.334-2.513-2.878l.513-2.06-1.253-.312-.5 2.006c-.33-.082-.668-.16-1.006-.237l.504-2.02-1.252-.312-.514 2.058c-.273-.062-.54-.123-.8-.188l.002-.007-1.727-.431-.334 1.338s.93.213.91.226c.508.127.6.463.585.73l-.586 2.35c.035.009.08.022.13.042l-.132-.033-.822 3.295c-.062.154-.22.386-.576.298.012.018-.911-.227-.911-.227l-.622 1.434 1.63.406c.303.076.6.155.893.23l-.519 2.084 1.252.312.514-2.06c.342.092.675.178 1 .258l-.512 2.052 1.253.313.518-2.08c2.132.403 3.736.24 4.41-1.688.544-1.553-.027-2.45-1.148-3.035.816-.188 1.432-.726 1.596-1.836z"/></svg>
-                    Pay with Crypto
-                </a>
-            </div>
-            <div class="payment-method">
-                <div class="payment-method-header"><h4>Alternative Methods</h4><p>PayPal F&F &bull; Skrill &bull; Paysafe &bull; Steam Gift Cards</p></div>
-                <a href="https://discord.gg/tGtvzChYQq" target="_blank" class="pay-btn pay-support-btn" onclick="setTimeout(closePaymentModal, 300)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                    Contact Support
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Scooby. All rights reserved.</p>
-    </footer>
-    <script>
-        var currentResellerId = null;
-        var productInfo = {
-            gta5: { name: 'Grand Theft Auto V', desc: 'Mod menu with 4,250+ features', img: '/products/images/gta5.webp' },
-            rdr2: { name: 'Red Dead Redemption 2', desc: 'Premium RDR2 Online enhancement', img: '/products/images/rdr2.webp' },
-            fivem: { name: 'FiveM', desc: 'PVP, ESP, Lua executor & more', img: '/products/images/fivem.webp' },
-            redm: { name: 'RedM', desc: 'Resource Manager, Triggers & more', img: '/products/images/REDM.jpg' }
-        };
-        var resellerNames = {
-            official: 'Scooby Store (Official)',
-            fusionmonkey: 'FusionMonkey',
-            ezmod: 'Ezmod',
-            recoverygods: 'RecoveryGods',
-            acrestore: 'WanderACRE'
-        };
-        function getResellerElement(resellerId) {
-            var items = document.querySelectorAll('.reseller-item[onclick*="' + resellerId + '"]');
-            return items.length ? items[0] : null;
-        }
-        var hasPaymentModal = ['official', 'fusionmonkey'];
-        function openProductModal(resellerId) {
-            currentResellerId = resellerId;
-            var el = getResellerElement(resellerId);
-            if (!el) return;
-            var container = document.getElementById('productOptions');
-            container.innerHTML = '';
-            document.getElementById('modalReseller').textContent = 'Purchasing from ' + (resellerNames[resellerId] || resellerId);
-            var products = ['gta5', 'rdr2', 'fivem', 'redm'];
-            var hasProducts = false;
-            products.forEach(function(product) {
-                var url = el.getAttribute('data-' + product);
-                if (!url) return;
-                hasProducts = true;
-                var info = productInfo[product];
-                var option = document.createElement('div');
-                option.className = 'product-option';
-                if (hasPaymentModal.indexOf(resellerId) !== -1) {
-                    option.onclick = function() { openPaymentModal(url, info.name); };
-                    option.style.cursor = 'pointer';
-                } else {
-                    option.onclick = function() { window.open(url, '_blank'); setTimeout(closeProductModal, 300); };
-                    option.style.cursor = 'pointer';
-                }
-                option.innerHTML =
-                    '<div class="product-option-icon"><img loading="lazy" decoding="async" src="' + info.img + '" alt="' + info.name + '"></div>' +
-                    '<div class="product-option-info"><div class="product-option-name">' + info.name + '</div><div class="product-option-desc">' + info.desc + '</div></div>' +
-                    '<svg class="product-option-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>';
-                container.appendChild(option);
-            });
-            if (hasProducts) {
-                var modal = document.getElementById('productModal');
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        function closeProductModal() {
-            var modal = document.getElementById('productModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        function openPaymentModal(cardUrl, productName) {
-            closeProductModal();
-            document.getElementById('cardPayLink').href = cardUrl;
-            document.getElementById('paymentModalSubtitle').textContent = productName + ' — Choose your payment method';
-            var modal = document.getElementById('paymentModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closePaymentModal() {
-            var modal = document.getElementById('paymentModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        document.getElementById('productModal').addEventListener('click', function(e) {
-            if (e.target === this) closeProductModal();
-        });
-        document.getElementById('paymentModal').addEventListener('click', function(e) {
-            if (e.target === this) closePaymentModal();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePaymentModal();
-                closeProductModal();
-            }
-        });
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(function(content) {
-                content.classList.remove('active');
-            });
-            document.querySelectorAll('.tab').forEach(function(tab) {
-                tab.classList.remove('active');
-            });
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
-<script>/* scooby-file-guard: only fires when opened as a file, never over http */
-(function(){if(location.protocol!=='file:')return;function show(){var b=document.createElement('div');b.setAttribute('data-i18n-skip','');b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:2147483647;background:#eab308;color:#1a1200;font:600 14px/1.5 Inter,system-ui,sans-serif;padding:12px 44px 12px 16px;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.5)';b.innerHTML='Opened as a file, so links and images are broken. Double-click <b>serve.bat</b> in the project folder, then browse <b>http://localhost:8080</b>';var x=document.createElement('button');x.textContent='\u00d7';x.setAttribute('aria-label','Dismiss');x.style.cssText='position:absolute;top:6px;right:10px;width:28px;height:28px;border:0;background:transparent;color:#1a1200;font-size:20px;cursor:pointer';x.onclick=function(){b.remove();};b.appendChild(x);document.body.appendChild(b);}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();})();</script>
+<body class="resellers-page">
+<a class="skip-link" href="#main">Skip to resellers</a>
+<header class="partner-header"><div class="header-inner">
+ <a class="brand" href="/">scooby<span>/ resellers</span></a>
+ <nav class="partner-nav" id="partner-nav" aria-label="Main navigation"><a href="/store/">Store</a><a href="/guides/">Guides</a><a href="/resellers/" aria-current="page">Resellers</a></nav>
+ <div class="header-actions"><a class="account-link" href="/portal/">My account <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="partner-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</div></header>
+<main class="directory-shell" id="main">
+ <section class="directory-hero" aria-labelledby="page-title">
+  <div><p class="eyebrow">THE SCOOBY NETWORK</p><h1 id="page-title">Find your<br><span>Scooby reseller.</span></h1><p class="hero-description">The same Scooby. More ways to make it yours.<br>Choose a store and find the right license for your game.</p></div>
+  <div class="hero-aside"><div class="network-symbol" aria-hidden="true"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="44"/><ellipse cx="60" cy="60" rx="20" ry="44"/><path d="M16 60h88M23 36h74M23 84h74"/><circle class="network-point" cx="60" cy="16" r="5"/><circle class="network-point" cx="96" cy="84" r="5"/><circle class="network-point" cx="19" cy="44" r="5"/></svg></div><p>Different stores.<br>One Scooby community.</p><a href="/store/">Explore the game collection <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+ </section>
+ <section class="directory" aria-labelledby="directory-title">
+  <div class="directory-heading"><h2 id="directory-title">Browse stores</h2><span class="directory-count" id="directory-count" role="status">6 stores available</span></div>
+  <div class="directory-tools">
+   <div class="region-filters" role="group" aria-label="Filter by region"><button type="button" data-region="international" aria-pressed="true">International <span>6</span></button><button type="button" data-region="brazil" aria-pressed="false">Brazil <span>1</span></button><button type="button" data-region="chinese" aria-pressed="false">Chinese <span>0</span></button></div>
+   <label class="game-filter"><span>Game</span><select id="game-filter"><option value="all">All games</option><option value="gta5">GTA 5</option><option value="rdr2">RDR2</option><option value="fivem">FiveM</option><option value="redm">RedM</option></select></label>
+  </div>
+  <div class="reseller-grid"><article class="reseller-card official-card" data-reseller="official" data-name="Scooby Store" data-regions="international" data-checkout="payment" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm-lifetime">
+ <div class="card-top"><div class="seller-avatar"><img src="/resellers/scoobystore.png" alt="" width="52" height="52"></div><span class="store-tag official-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 12 4 4 8-8"/></svg>Official store</span></div>
+ <h3>Scooby Store</h3><p class="seller-description">Direct from Scooby. Choose card, cryptocurrency, or get help with another payment method.</p>
+ <div class="game-tags" aria-label="Available games"><span>GTA 5</span><span>RDR2</span><span>FiveM</span><span>RedM</span></div>
+ <div class="card-bottom"><span class="payment-note">Card, crypto & more</span><button type="button" class="choose-products" aria-haspopup="dialog" aria-controls="reseller-dialog" aria-label="Choose a game from Scooby Store">Choose a game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+ <noscript><div class="direct-products"><a href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" rel="noopener">GTA 5 ↗</a><a href="https://fusiondash.myshopify.com/products/scooby-rdr2" target="_blank" rel="noopener">RDR2 ↗</a><a href="https://fusiondash.myshopify.com/products/scooby-fivem" target="_blank" rel="noopener">FiveM ↗</a><a href="https://fusiondash.myshopify.com/products/scooby-redm-lifetime" target="_blank" rel="noopener">RedM ↗</a></div></noscript>
+</article><article class="reseller-card" data-reseller="fusionmonkey" data-name="FusionMonkey" data-regions="international" data-checkout="payment" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm">
+ <div class="card-top"><div class="seller-avatar"><img src="/resellers/fusmonkey.png" alt="" width="52" height="52"></div><span class="store-tag">International</span></div>
+ <h3>FusionMonkey</h3><p class="seller-description">Choose your game and explore the available payment options.</p>
+ <div class="game-tags" aria-label="Available games"><span>GTA 5</span><span>RDR2</span><span>FiveM</span><span>RedM</span></div>
+ <div class="card-bottom"><span class="payment-note">Multiple payment options</span><button type="button" class="choose-products" aria-haspopup="dialog" aria-controls="reseller-dialog" aria-label="Choose a game from FusionMonkey">Choose a game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+ <noscript><div class="direct-products"><a href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" rel="noopener">GTA 5 ↗</a><a href="https://fusiondash.myshopify.com/products/scooby-rdr2" target="_blank" rel="noopener">RDR2 ↗</a><a href="https://fusiondash.myshopify.com/products/scooby-fivem" target="_blank" rel="noopener">FiveM ↗</a><a href="https://fusiondash.myshopify.com/products/scooby-redm" target="_blank" rel="noopener">RedM ↗</a></div></noscript>
+</article><article class="reseller-card" data-reseller="ezmod" data-name="Ezmod" data-regions="international" data-checkout="direct" data-gta5="https://ezmod.vip/product/scooby-mod-menu/" data-rdr2="https://ezmod.vip/product/scooby-rdr2/" data-fivem="https://ezmod.vip/product/scooby-fivem/" data-redm="https://ezmod.vip/product/scooby-redm-mod-menu/">
+ <div class="card-top"><div class="seller-avatar"><img src="/resellers/ezMod.png" alt="" width="52" height="52"></div><span class="store-tag">International</span></div>
+ <h3>Ezmod</h3><p class="seller-description">Browse Scooby licenses on the Ezmod marketplace.</p>
+ <div class="game-tags" aria-label="Available games"><span>GTA 5</span><span>RDR2</span><span>FiveM</span><span>RedM</span></div>
+ <div class="card-bottom"><span class="payment-note">iDEAL, card & more</span><button type="button" class="choose-products" aria-haspopup="dialog" aria-controls="reseller-dialog" aria-label="Choose a game from Ezmod">Choose a game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+ <noscript><div class="direct-products"><a href="https://ezmod.vip/product/scooby-mod-menu/" target="_blank" rel="noopener">GTA 5 ↗</a><a href="https://ezmod.vip/product/scooby-rdr2/" target="_blank" rel="noopener">RDR2 ↗</a><a href="https://ezmod.vip/product/scooby-fivem/" target="_blank" rel="noopener">FiveM ↗</a><a href="https://ezmod.vip/product/scooby-redm-mod-menu/" target="_blank" rel="noopener">RedM ↗</a></div></noscript>
+</article><article class="reseller-card" data-reseller="recoverygods" data-name="RecoveryGods" data-regions="international" data-checkout="direct" data-gta5="https://recoverygods.xyz/product/scooby-gta/" data-rdr2="https://recoverygods.xyz/product/scooby-rdr2/" data-fivem="https://recoverygods.xyz/product/scooby-fivem/" data-redm="https://recoverygods.xyz/product/scooby-redm/">
+ <div class="card-top"><div class="seller-avatar"><img src="/resellers/Recoverygods.png" alt="" width="52" height="52"></div><span class="store-tag">International</span></div>
+ <h3>RecoveryGods</h3><p class="seller-description">Find a Scooby license for your next session.</p>
+ <div class="game-tags" aria-label="Available games"><span>GTA 5</span><span>RDR2</span><span>FiveM</span><span>RedM</span></div>
+ <div class="card-bottom"><span class="payment-note">PayPal, card & crypto</span><button type="button" class="choose-products" aria-haspopup="dialog" aria-controls="reseller-dialog" aria-label="Choose a game from RecoveryGods">Choose a game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+ <noscript><div class="direct-products"><a href="https://recoverygods.xyz/product/scooby-gta/" target="_blank" rel="noopener">GTA 5 ↗</a><a href="https://recoverygods.xyz/product/scooby-rdr2/" target="_blank" rel="noopener">RDR2 ↗</a><a href="https://recoverygods.xyz/product/scooby-fivem/" target="_blank" rel="noopener">FiveM ↗</a><a href="https://recoverygods.xyz/product/scooby-redm/" target="_blank" rel="noopener">RedM ↗</a></div></noscript>
+</article><article class="reseller-card" data-reseller="modzgt1" data-name="ModzGT1" data-regions="international" data-checkout="direct" data-gta5="https://modzgt1.com/gta-v-keys" data-rdr2="https://modzgt1.com/rdr2-keys">
+ <div class="card-top"><div class="seller-avatar"><img src="/resellers/modzgt1.png" alt="" width="52" height="52"></div><span class="store-tag">International</span></div>
+ <h3>ModzGT1</h3><p class="seller-description">GTA 5 and Red Dead Redemption 2 keys in one place.</p>
+ <div class="game-tags" aria-label="Available games"><span>GTA 5</span><span>RDR2</span></div>
+ <div class="card-bottom"><span class="payment-note">GTA 5 & RDR2 keys</span><button type="button" class="choose-products" aria-haspopup="dialog" aria-controls="reseller-dialog" aria-label="Choose a game from ModzGT1">Choose a game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+ <noscript><div class="direct-products"><a href="https://modzgt1.com/gta-v-keys" target="_blank" rel="noopener">GTA 5 ↗</a><a href="https://modzgt1.com/rdr2-keys" target="_blank" rel="noopener">RDR2 ↗</a></div></noscript>
+</article><article class="reseller-card" data-reseller="acrestore" data-name="WanderACRE" data-regions="international brazil" data-checkout="direct" data-gta5="https://www.acrestore.xyz/scooby">
+ <div class="card-top"><div class="seller-avatar"><img src="/resellers/acrestore.png" alt="" width="52" height="52"></div><span class="store-tag">Brazil</span></div>
+ <h3>WanderACRE</h3><p class="seller-description">Shop GTA 5 licenses with Acre Store, our Brazilian reseller.</p>
+ <div class="game-tags" aria-label="Available games"><span>GTA 5</span></div>
+ <div class="card-bottom"><span class="payment-note">GTA 5 specialist</span><button type="button" class="choose-products" aria-haspopup="dialog" aria-controls="reseller-dialog" aria-label="Choose a game from WanderACRE">Choose a game <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><a class="seller-contact" href="https://discord.gg/u4t7pXUHvz" target="_blank" rel="noopener">Acre Store Discord ↗</a></div>
+ <noscript><div class="direct-products"><a href="https://www.acrestore.xyz/scooby" target="_blank" rel="noopener">GTA 5 ↗</a></div></noscript>
+</article></div>
+  <div class="directory-empty" id="directory-empty" hidden><span class="empty-symbol" aria-hidden="true">↗</span><h3 id="empty-title">More stores on the way.</h3><p id="empty-description">No resellers are listed for this region yet. Browse International for more options.</p><button class="reset-filters" type="button">View all stores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+ </section>
+ <aside class="directory-help"><div><span class="help-mark" aria-hidden="true">?</span><p><strong>A little help choosing?</strong><span>Our community can point you in the right direction.</span></p></div><a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Talk to us on Discord <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></aside>
+</main>
+<footer class="partner-footer"><div><a class="footer-brand" href="/">scooby</a><span>© 2026 Scooby. All rights reserved.</span></div><nav aria-label="Footer navigation"><a href="/store/">Store</a><a href="/guides/">Guides</a><a href="/portal/">Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></nav></footer>
+<dialog class="reseller-dialog" id="reseller-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+ <div class="dialog-shell">
+  <header class="dialog-top"><div class="dialog-seller"><div class="seller-avatar" id="dialog-avatar"></div><div><span class="eyebrow" id="dialog-store-label">PURCHASING FROM</span><p id="dialog-seller-name"></p></div></div><button class="dialog-close" type="button" aria-label="Close product picker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+  <div class="dialog-body"><button type="button" class="dialog-back" hidden>← Back to games</button><p class="dialog-step" id="dialog-step">SELECT A PRODUCT</p><h2 id="dialog-title" tabindex="-1">Choose your game.</h2><p id="dialog-description">Pick the Scooby license you want to explore.</p><div class="selected-product" id="selected-product" hidden></div><div class="product-options" id="product-options"></div><div class="payment-options" id="payment-options" hidden></div></div>
+  <footer class="dialog-footer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></svg><span id="dialog-note">The reseller's store opens in a new tab.</span></footer>
+ </div>
+</dialog>
 </body>
 </html>

@@ -5,7 +5,7 @@
     const menu = document.getElementById('accountMenu');
     const bell = document.getElementById('notificationBell');
     const notifications = document.getElementById('notificationsPanel');
-    const items = [...menu.querySelectorAll('button')];
+    const menuItems = () => [...menu.querySelectorAll('button')].filter(button => !button.disabled && button.getClientRects().length);
 
     function closeAccount(restoreFocus = false) {
         menu.hidden = true;
@@ -22,13 +22,15 @@
         if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
             event.preventDefault();
             openAccount();
-            items[event.key === 'ArrowDown' ? 0 : items.length - 1].focus();
+            const items = menuItems();
+            items[event.key === 'ArrowDown' ? 0 : items.length - 1]?.focus();
         }
     });
     menu.addEventListener('click', event => {
         if (event.target.closest('.dropdown-item')) closeAccount(menu.contains(document.activeElement));
     });
     menu.addEventListener('keydown', event => {
+        const items = menuItems();
         const index = items.indexOf(document.activeElement);
         if (index < 0) return;
         let next;
