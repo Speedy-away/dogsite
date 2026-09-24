@@ -1,7 +1,7 @@
 {
   "game": "Left 4 Dead 1 & 2",
   "slug": "l4d",
-  "source": "Scooby L4D runtime registry and verified VFX/custom-material release. Hidden storage, diagnostics and synthetic preview controls excluded.",
+  "source": "Scooby L4D runtime registry and current menu controls. Hidden storage, diagnostics and synthetic preview controls excluded.",
   "tabs": [
     {
       "name": "Visuals",
@@ -840,6 +840,111 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Glow",
+          "groups": [
+            {
+              "name": "Native glow (L4D2)",
+              "items": [
+                {
+                  "id": "glow.enabled",
+                  "label": "Native glow (L4D2)",
+                  "desc": "Outline supported entities with the native L4D2 glow effect.",
+                  "settings": [
+                    "L4D2 only"
+                  ]
+                },
+                {
+                  "id": "glow.survivors",
+                  "label": "Survivor glow",
+                  "desc": "Enable glow for survivors and choose its color."
+                },
+                {
+                  "id": "glow.specials",
+                  "label": "Special infected glow",
+                  "desc": "Enable glow for special infected and choose its color."
+                },
+                {
+                  "id": "glow.common",
+                  "label": "Common infected glow",
+                  "desc": "Enable glow for common infected and choose its color."
+                },
+                {
+                  "id": "glow.items",
+                  "label": "Pickup glow",
+                  "desc": "Enable glow for supported items and pickups, with a separate color."
+                },
+                {
+                  "id": "glow.flash",
+                  "label": "Flashing glow",
+                  "desc": "Apply flashing to the enabled native glow targets."
+                },
+                {
+                  "id": "glow.range",
+                  "label": "Glow distance",
+                  "desc": "Limit how far away native glow is applied.",
+                  "settings": [
+                    "1–300 meters"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "HUD",
+          "groups": [
+            {
+              "name": "Team health HUD",
+              "items": [
+                {
+                  "id": "hud.team",
+                  "label": "Team health HUD",
+                  "desc": "Show survivor names and health bars in a compact panel, independently of ESP."
+                },
+                {
+                  "id": "hud.incap",
+                  "label": "Incapacitated color",
+                  "desc": "Choose the health HUD color for incapacitated teammates."
+                },
+                {
+                  "id": "hud.x",
+                  "label": "HUD horizontal position",
+                  "desc": "Place the team panel across the screen.",
+                  "settings": [
+                    "0–100%"
+                  ]
+                },
+                {
+                  "id": "hud.y",
+                  "label": "HUD vertical position",
+                  "desc": "Place the team panel vertically on the screen.",
+                  "settings": [
+                    "0–100%"
+                  ]
+                },
+                {
+                  "id": "hud.width",
+                  "label": "HUD width",
+                  "desc": "Adjust the width of the team health panel.",
+                  "settings": [
+                    "180–480"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Removals",
+              "items": [
+                {
+                  "id": "visual.no_vomit",
+                  "label": "Remove boomer overlay",
+                  "desc": "Hide the vomit screen overlay after a boomer attack."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -924,38 +1029,67 @@
                 },
                 {
                   "id": "aim.profile",
-                  "label": "aim.profile",
-                  "desc": "Aim settings"
+                  "label": "Aim profile",
+                  "desc": "Choose the active aim profile.",
+                  "settings": [
+                    "Legit",
+                    "Rage"
+                  ]
                 },
                 {
                   "id": "aim.mode",
-                  "label": "aim.mode",
-                  "desc": "Aim settings"
+                  "label": "Aim mode (Legit)",
+                  "desc": "Choose camera aim or Silent / pSilent shot aiming. Silent modes respect weapon readiness; pSilent applies aim on the firing command.",
+                  "settings": [
+                    "Camera",
+                    "Silent",
+                    "pSilent"
+                  ]
                 },
                 {
                   "id": "aim.point",
-                  "label": "aim.point",
-                  "desc": "Aim settings"
+                  "label": "Hitboxes (Legit)",
+                  "desc": "Choose the hitbox selection used by this aim profile."
                 },
                 {
                   "id": "aim.legit",
-                  "label": "aim.legit",
-                  "desc": "Aim settings"
+                  "label": "Legit field of view",
+                  "desc": "Set the target selection angle for Legit aim."
                 },
                 {
                   "id": "aim.rage",
-                  "label": "aim.rage",
-                  "desc": "Aim settings"
+                  "label": "Rage field of view",
+                  "desc": "Set the target selection angle for Rage aim."
                 },
                 {
                   "id": "aim.range",
-                  "label": "aim.range",
-                  "desc": "Aim settings"
+                  "label": "Maximum aim range (Legit)",
+                  "desc": "Limit how far away this profile can select targets."
                 },
                 {
                   "id": "aim.smoothing",
-                  "label": "aim.smoothing",
-                  "desc": "Aim settings"
+                  "label": "Camera aim smoothing (Legit)",
+                  "desc": "Adjust how gradually the camera moves toward a target in Legit camera mode."
+                },
+                {
+                  "id": "aim.autofire",
+                  "label": "Auto fire (Legit)",
+                  "desc": "Fire at a valid aim target when the weapon is ready. Respects ammunition, reloads and attack cooldowns.",
+                  "settings": [
+                    "Independent per aim profile",
+                    "Off by default"
+                  ]
+                },
+                {
+                  "id": "aim.priority",
+                  "label": "Target priority (Legit)",
+                  "desc": "Choose which eligible targets the aim profile favors.",
+                  "settings": [
+                    "Crosshair",
+                    "Special infected",
+                    "Survivors",
+                    "Common infected"
+                  ]
                 }
               ]
             }
@@ -1194,18 +1328,23 @@
                 },
                 {
                   "id": "aim.rage.mode",
-                  "label": "aim.mode",
-                  "desc": "Aim settings"
+                  "label": "Aim mode (Rage)",
+                  "desc": "Choose camera aim or Silent / pSilent shot aiming. Silent modes respect weapon readiness; pSilent applies aim on the firing command.",
+                  "settings": [
+                    "Camera",
+                    "Silent",
+                    "pSilent"
+                  ]
                 },
                 {
                   "id": "aim.rage.point",
-                  "label": "aim.point",
-                  "desc": "Aim settings"
+                  "label": "Hitboxes (Rage)",
+                  "desc": "Choose the hitbox selection used by this aim profile."
                 },
                 {
                   "id": "aim.rage.range",
-                  "label": "aim.range",
-                  "desc": "Aim settings"
+                  "label": "Maximum aim range (Rage)",
+                  "desc": "Limit how far away this profile can select targets."
                 },
                 {
                   "id": "aim.rage.smoothing",
@@ -1221,6 +1360,117 @@
                   "id": "weapon.rage.no_spread",
                   "label": "No spread",
                   "desc": "Remove bullet dispersion for your predicted player in the local client and server, including shotgun pellets. Other shooters are excluded."
+                },
+                {
+                  "id": "aim.rage.autofire",
+                  "label": "Auto fire (Rage)",
+                  "desc": "Fire at a valid aim target when the weapon is ready. Respects ammunition, reloads and attack cooldowns.",
+                  "settings": [
+                    "Independent per aim profile",
+                    "Off by default"
+                  ]
+                },
+                {
+                  "id": "aim.rage.priority",
+                  "label": "Target priority (Rage)",
+                  "desc": "Choose which eligible targets the aim profile favors.",
+                  "settings": [
+                    "Crosshair",
+                    "Special infected",
+                    "Survivors",
+                    "Common infected"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Anti-Aim",
+          "groups": [
+            {
+              "name": "Activation",
+              "items": [
+                {
+                  "id": "antiaim.enabled",
+                  "label": "Anti-Aim",
+                  "desc": "Enable the configured pitch and yaw controls."
+                },
+                {
+                  "id": "antiaim.key",
+                  "label": "Anti-Aim hotkey",
+                  "desc": "Assign a dedicated activation key and mode."
+                },
+                {
+                  "id": "antiaim.invert",
+                  "label": "Invert yaw",
+                  "desc": "Invert the configured yaw direction."
+                }
+              ]
+            },
+            {
+              "name": "Angles",
+              "items": [
+                {
+                  "id": "antiaim.pitch",
+                  "label": "Pitch mode",
+                  "desc": "Choose the vertical angle behavior.",
+                  "settings": [
+                    "View",
+                    "Down",
+                    "Up",
+                    "Zero",
+                    "Jitter",
+                    "Custom"
+                  ]
+                },
+                {
+                  "id": "antiaim.custom_pitch",
+                  "label": "Custom pitch",
+                  "desc": "Set the angle used by Custom pitch mode.",
+                  "settings": [
+                    "-89° to 89°"
+                  ]
+                },
+                {
+                  "id": "antiaim.yaw",
+                  "label": "Yaw mode",
+                  "desc": "Choose the horizontal angle behavior.",
+                  "settings": [
+                    "Backwards",
+                    "Left",
+                    "Right",
+                    "Jitter",
+                    "Spin",
+                    "Random",
+                    "Distortion",
+                    "Switch",
+                    "View"
+                  ]
+                },
+                {
+                  "id": "antiaim.yaw_offset",
+                  "label": "Yaw offset",
+                  "desc": "Adjust the selected yaw angle.",
+                  "settings": [
+                    "-180° to 180°"
+                  ]
+                },
+                {
+                  "id": "antiaim.jitter",
+                  "label": "Jitter range",
+                  "desc": "Set the angle range used by Jitter and Distortion.",
+                  "settings": [
+                    "0° to 180°"
+                  ]
+                },
+                {
+                  "id": "antiaim.spin",
+                  "label": "Spin speed",
+                  "desc": "Adjust the rate used by Spin mode.",
+                  "settings": [
+                    "30–1440"
+                  ]
                 }
               ]
             }
@@ -1246,6 +1496,112 @@
                   "id": "movement.strafe",
                   "label": "Auto strafe",
                   "desc": "Air movement assistance while holding jump; preserves view angles."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Exploits",
+          "groups": [
+            {
+              "name": "Speed and lag",
+              "items": [
+                {
+                  "id": "exploits.speed",
+                  "label": "Speed hack",
+                  "desc": "Run extra movement ticks while the feature and its hotkey are active."
+                },
+                {
+                  "id": "exploits.speed_factor",
+                  "label": "Extra movement ticks",
+                  "desc": "Choose how many additional movement ticks to run.",
+                  "settings": [
+                    "1–32"
+                  ]
+                },
+                {
+                  "id": "exploits.lag",
+                  "label": "Lag exploit",
+                  "desc": "Apply the configured outgoing sequence increment while active."
+                },
+                {
+                  "id": "exploits.lag_factor",
+                  "label": "Sequence increment",
+                  "desc": "Set the amount used by the lag exploit.",
+                  "settings": [
+                    "1–999"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Game",
+              "items": [
+                {
+                  "id": "exploits.anti_fall",
+                  "label": "Anti fall damage",
+                  "desc": "Suppress ordinary fall damage for the local survivor in supported local sessions."
+                },
+                {
+                  "id": "exploits.ping",
+                  "label": "Ping reducer",
+                  "desc": "Reduce client interpolation delay. This changes interpolation settings; it does not reduce network latency."
+                },
+                {
+                  "id": "exploits.anti_afk",
+                  "label": "Anti AFK",
+                  "desc": "Prevent the local inactivity timeout while enabled."
+                },
+                {
+                  "id": "exploits.no_push",
+                  "label": "No push",
+                  "desc": "Disable teammate avoidance and physics-object push effects while enabled."
+                },
+                {
+                  "id": "exploits.pure",
+                  "label": "SvPure bypass",
+                  "desc": "Temporarily relax the client pure-file checks in a local session. Previous settings return when disabled."
+                }
+              ]
+            },
+            {
+              "name": "Other movement exploits",
+              "items": [
+                {
+                  "id": "exploits.airstuck",
+                  "label": "Airstuck",
+                  "desc": "Freeze the living, unpinned local survivor in place while active. Disabling restores normal movement."
+                },
+                {
+                  "id": "exploits.save_position",
+                  "label": "Save teleport position",
+                  "desc": "Save a grounded position and view direction for the Teleport key.",
+                  "settings": [
+                    "Save again to replace the destination",
+                    "Cleared after death or a map change"
+                  ]
+                },
+                {
+                  "id": "exploits.teleport",
+                  "label": "Teleport key",
+                  "desc": "Return to the saved grounded position and view direction with a separate hotkey.",
+                  "settings": [
+                    "Save a position first"
+                  ]
+                },
+                {
+                  "id": "exploits.anti_smoker",
+                  "label": "Anti Smoker",
+                  "desc": "Release the local survivor from a Smoker tongue pin."
+                },
+                {
+                  "id": "exploits.anti_jockey",
+                  "label": "Anti Jockey (L4D2)",
+                  "desc": "Release the local survivor from a Jockey ride.",
+                  "settings": [
+                    "L4D2 only"
+                  ]
                 }
               ]
             }
@@ -1574,8 +1930,8 @@
   ],
   "website": {
     "features": {
-      "description": "Browse Left 4 Dead 1 and 2 features: ESP, 12 sky presets, animated chams, custom materials with matching PNG/GIF previews, movement, Lua and profiles."
+      "description": "Browse Left 4 Dead 1 and 2 features: Silent / pSilent, auto fire, glow, team HUD, movement exploits, game controls, chams, VFX and Lua."
     },
-    "notice": "The expanded VFX library requires the updated loader linked on the L4D product page. Sky replacement depends on map materials; unsupported custom-map shaders or sky naming can retain their original sky."
+    "notice": "The latest aim, glow, HUD and exploit additions are prepared for the next loader release. Gameplay controls run on local single-player maps. Native glow and Anti Jockey are L4D2-only. Custom-map sky replacement depends on supported materials."
   }
 }
