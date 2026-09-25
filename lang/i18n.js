@@ -2,7 +2,7 @@
  * Scooby site i18n — runtime translation + language selector.
  *
  * Drop this one tag into any page and it handles the rest:
- *   <script src="/languages/i18n.js"></script>
+ *   <script src="/lang/i18n.js"></script>
  *
  * How it works: the page stays authored in English. Dictionaries map the
  * English source string to a translation, so no per-element markup is needed
@@ -54,7 +54,7 @@
         if (/i18n\.js(\?|$)/.test(all[i].src)) { s = all[i]; break; }
       }
     }
-    return s && s.src ? s.src.replace(/[^/]*$/, '') : '/languages/';
+    return s && s.src ? s.src.replace(/[^/]*$/, '') : '/lang/';
   })();
 
   // ---------------------------------------------------------------- state ---

@@ -1,5 +1,5 @@
 /* pt-br - Brazilian Portuguese.
-   Keys are the exact English source strings. See languages/ADDING-A-LANGUAGE.md.
+   Keys are the exact English source strings. See lang/ADDING-A-LANGUAGE.md.
    This is the original pt.js: it was always Brazilian. European Portuguese now
    lives in pt.js. */
 (function () {

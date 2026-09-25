@@ -29,7 +29,7 @@ function output(file, html) {
 }
 for (const [code, locale] of Object.entries(locales)) {
   const context = { window: { __scoobyI18nQueue: [] } };
-  vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'languages', code + '.js'), 'utf8'), context);
+  vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'lang', code + '.js'), 'utf8'), context);
   const dictionary = context.window.__scoobyI18nQueue.find(([key]) => key === code)?.[1];
   const t = key => { if (!dictionary?.[key]) throw Error(`Missing ${code} UI translation: ${key}`); return escape(dictionary[key]); };
   const file = 'lang/' + code + '/index.html';

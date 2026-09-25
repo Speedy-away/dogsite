@@ -89,20 +89,20 @@ test('all language homepages contain translated HTML with reciprocal, self-canon
     assert(body.includes(locale.intro) && body.includes(locale.about) && body.includes(locale.notice), 'Missing visible translated prose: ' + file);
     const data = JSON.parse(head.match(/id="seo-page-structure">\s*([\s\S]*?)<\/script>/)[1]);
     assert.equal(data['@graph'].find(item => item['@type'] === 'WebPage').inLanguage, locale.tag, file);
-    assert(!html.includes('/languages/i18n.js'), 'A saved preference must not rewrite a translated URL');
+    assert(!html.includes('/lang/i18n.js'), 'A saved preference must not rewrite a translated URL');
   }
 });
 
 test('static homepages and runtime dictionaries cover the same languages with nonempty matching keys', () => {
   const vm = require('vm');
   const locales = require('./search-locales.json');
-  const engine = fs.readFileSync('languages/i18n.js', 'utf8');
+  const engine = fs.readFileSync('lang/i18n.js', 'utf8');
   const registered = [...engine.match(/var LANGS = \[([\s\S]*?)\];/)[1].matchAll(/code:\s*'([^']+)'/g)].map(m => m[1]).filter(code => code !== 'en');
   assert.deepEqual(registered.sort(), Object.keys(locales).sort());
   let expectedKeys;
   for (const code of registered) {
     const context = { window: {} };
-    vm.runInNewContext(fs.readFileSync('languages/' + code + '.js', 'utf8'), context);
+    vm.runInNewContext(fs.readFileSync('lang/' + code + '.js', 'utf8'), context);
     const entry = context.window.__scoobyI18nQueue;
     assert.equal(entry.length, 1, code);
     assert.equal(entry[0][0], code);

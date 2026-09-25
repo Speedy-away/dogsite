@@ -9,7 +9,7 @@ The site has runtime dictionaries for detailed pages and generated static homepa
 5. Run the generators and checks from the repository root:
 
 ```sh
-node --check languages/<code>.js
+node --check lang/<code>.js
 node tools/seo-locales.js --apply
 node tools/seo-directory.js --apply
 node tools/seo-metadata.js --apply

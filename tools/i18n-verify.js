@@ -13,7 +13,7 @@ const path = require('path');
 const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
-const I18N_DIR = path.join(ROOT, 'languages');
+const I18N_DIR = path.join(ROOT, 'lang');
 
 // ---- collect the site's real strings (same rules as i18n-extract.js) --------
 const { collect } = require('./i18n-extract.js');

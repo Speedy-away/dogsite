@@ -5,7 +5,7 @@
  *   node guides-chrome.js            # dry run
  *   node guides-chrome.js --apply
  *
- * Brand names stay English per languages/ADDING-A-LANGUAGE.md: Scooby, GTA 5,
+ * Brand names stay English per lang/ADDING-A-LANGUAGE.md: Scooby, GTA 5,
  * FiveM, RedM, RDR2, Red Dead Redemption 2, HWID, SSL, DX12, BE, Legacy, Enhanced.
  */
 const fs = require('fs'), path = require('path'), vm = require('vm');
@@ -65,7 +65,7 @@ console.log('rows:', ROWS.length, '| languages:', L.length, '| new pairs:', ROWS
 function existing(code) {
   const s = { window: {} };
   vm.createContext(s);
-  vm.runInContext(fs.readFileSync(path.join(ROOT, 'languages', code + '.js'), 'utf8'), s);
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'lang', code + '.js'), 'utf8'), s);
   const q = s.window.__scoobyI18nQueue || [];
   const h = q.find(p => p[0] === code);
   return h ? h[1] : {};
@@ -74,7 +74,7 @@ function existing(code) {
 let added = 0, skipped = 0;
 for (let i = 0; i < L.length; i++) {
   const code = L[i];
-  const file = path.join(ROOT, 'languages', code + '.js');
+  const file = path.join(ROOT, 'lang', code + '.js');
   const have = existing(code);
   const fresh = ROWS.filter(r => !(r[0] in have));
   skipped += ROWS.length - fresh.length;

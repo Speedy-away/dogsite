@@ -13,7 +13,7 @@ This does **not** mean every product page, feature list or guide is fully transl
 Translation sources:
 
 - `tools/search-locales.json`: language tags, native names, translated titles, introductions and explanatory text.
-- `languages/<code>.js`: existing navigation and UI dictionaries, also reused when building the homepages.
+- `lang/<code>.js`: existing navigation and UI dictionaries, also reused when building the homepages.
 - `tools/seo-locales.js`: static homepage generator and native-language links in the English footer.
 - `assets/js/language-home.js`: remembers a visited language URL for the existing page translator.
 - `assets/css/language-home.css`: responsive language homepage and footer styles.
@@ -34,17 +34,17 @@ Commit page changes, regenerate and commit the sitemap, then deploy as described
 
 ## Language selection on detailed pages
 
-`languages/i18n.js` reads the browser language on a first visit, or a saved choice under `scooby.lang`. A first-visit picker and navigation selector let the visitor choose a language. Explicit non-English choices on the English homepage open the matching translated homepage. Automatic browser detection does not redirect.
+`lang/i18n.js` reads the browser language on a first visit, or a saved choice under `scooby.lang`. A first-visit picker and navigation selector let the visitor choose a language. Explicit non-English choices on the English homepage open the matching translated homepage. Automatic browser detection does not redirect.
 
 On product pages and guides, changing language translates matching text in place. Visiting a translated homepage saves its language for these pages. Returning to English through the translated homepage's English link saves English. Storage is optional; static pages work even when it is unavailable.
 
 Dictionaries map exact English strings to translations. Unmatched text stays English. The runtime also translates titles, descriptions and selected accessibility attributes. Scripts, code blocks and elements marked `data-i18n-skip` are excluded.
 
-To correct runtime text, edit the appropriate `languages/<code>.js` file. To correct a static homepage's main copy, edit `tools/search-locales.json` and regenerate. Keep both in sync when homepage source copy changes.
+To correct runtime text, edit the appropriate `lang/<code>.js` file. To correct a static homepage's main copy, edit `tools/search-locales.json` and regenerate. Keep both in sync when homepage source copy changes.
 
 ## Browser helpers
 
-Pages loading `languages/i18n.js` expose:
+Pages loading `lang/i18n.js` expose:
 
 ```js
 __scoobyI18n.set('fr')
@@ -57,4 +57,4 @@ __scoobyI18n.reset()
 
 Use `missing()` to identify English strings without a translation on the current page. The static language homepages intentionally use ordinary language links instead of this runtime.
 
-See [languages/ADDING-A-LANGUAGE.md](languages/ADDING-A-LANGUAGE.md) for adding a language.
+See [lang/ADDING-A-LANGUAGE.md](lang/ADDING-A-LANGUAGE.md) for adding a language.

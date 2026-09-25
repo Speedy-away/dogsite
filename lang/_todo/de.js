@@ -1,7 +1,7 @@
-/* ru — strings still awaiting translation.
+/* de — strings still awaiting translation.
    Translate the RIGHT-hand side of each line, then run:
        node tools/i18n-update.js --merge
-   Finished lines move into languages/ru.js and disappear from here.
+   Finished lines move into lang/de.js and disappear from here.
    Lines left identical to the English are treated as not yet done.
    This file is never loaded by the website. */
 (function () {
@@ -1805,6 +1805,6 @@
     "Zombie Survival Mode": "Zombie Survival Mode"
   };
 
-  if (window.__scoobyI18n) window.__scoobyI18n.register("ru", t);
-  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push(["ru", t]);
+  if (window.__scoobyI18n) window.__scoobyI18n.register("de", t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push(["de", t]);
 })();

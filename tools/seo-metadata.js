@@ -179,7 +179,7 @@ function applyMetadata(file, html, override) {
  });
  return structure(file, updated, meta);
 }
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['backup','hidden_files','node_modules','revolution','tools','languages'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['backup','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
 if(require.main===module){let changed=0,skipped=0;const errors=[],titles=new Set(),descriptions=new Set();
  for(const abs of walk(ROOT)){const file=path.relative(ROOT,abs).replace(/\\/g,'/'),html=fs.readFileSync(abs,'utf8'),head=html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0]||'';if(excluded(head)){skipped++;continue;}if(!pages[file]){errors.push('Missing metadata: '+file);continue;}const meta=pages[file];if(titles.has(meta.title)||descriptions.has(meta.description))errors.push('Duplicate metadata: '+file);titles.add(meta.title);descriptions.add(meta.description);const updated=applyMetadata(file,html);if(updated!==html){changed++;if(process.argv.includes('--apply'))fs.writeFileSync(abs,updated);else console.log('Stale: '+file);}}
  console.log(`${titles.size} indexable pages; ${skipped} excluded pages preserved; ${changed} ${process.argv.includes('--apply')?'updated':'stale'}.`);errors.forEach(e=>console.error(e));if(errors.length||changed&&!process.argv.includes('--apply'))process.exitCode=1;

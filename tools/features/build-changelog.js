@@ -171,7 +171,7 @@ const html = `<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 ${CHROME_CSS}
 ${CSS}
-  <script src="/languages/i18n.js"></script>
+  <script src="/lang/i18n.js"></script>
   <link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body>

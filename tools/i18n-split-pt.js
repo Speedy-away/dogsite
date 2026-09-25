@@ -13,7 +13,7 @@ const ROOT = process.argv.find(a => a.startsWith('--root=')) ?
              process.argv.find(a => a.startsWith('--root=')).slice(7) :
              'C:/Users/whatw/OneDrive/Documents/GitHub/dogsite';
 const APPLY = process.argv.includes('--apply');
-const SRC = path.join(ROOT, 'languages', 'pt.js');
+const SRC = path.join(ROOT, 'lang', 'pt.js');
 
 // Brazilian -> European Portuguese. Order matters; longest patterns first.
 // Only high-confidence divergences - anything ambiguous is deliberately absent.
@@ -64,7 +64,7 @@ const src = fs.readFileSync(SRC, 'utf8');
 const br = src
   .replace(/^\/\*[\s\S]*?\*\//,
 `/* pt-br - Brazilian Portuguese.
-   Keys are the exact English source strings. See languages/ADDING-A-LANGUAGE.md.
+   Keys are the exact English source strings. See lang/ADDING-A-LANGUAGE.md.
    This is the original pt.js: it was always Brazilian. European Portuguese now
    lives in pt.js. */`)
   .replace(/register\('pt'/g, "register('pt-br'")
@@ -94,7 +94,7 @@ const euro = src.replace(/^(\s*"(?:[^"\\]|\\.)*":\s*)("(?:[^"\\]|\\.)*")(,?)$/gm
     return head + JSON.stringify(v) + tail;
   }).replace(/^\/\*[\s\S]*?\*\//,
 `/* pt - European Portuguese.
-   Keys are the exact English source strings. See languages/ADDING-A-LANGUAGE.md.
+   Keys are the exact English source strings. See lang/ADDING-A-LANGUAGE.md.
    Derived from the Brazilian dictionary (now pt-br.js) by a lexical and
    grammatical pass: transferir/ficheiro/utilizador/ecrã, "está a fazer" for the
    gerund, num/numa contractions. Not an independent human translation - if a
@@ -106,9 +106,9 @@ console.log('\nrules that fired:');
   .forEach(([r, n]) => console.log('  ' + String(n).padStart(4), r));
 
 if (APPLY) {
-  fs.writeFileSync(path.join(ROOT, 'languages', 'pt-br.js'), br, 'utf8');
+  fs.writeFileSync(path.join(ROOT, 'lang', 'pt-br.js'), br, 'utf8');
   fs.writeFileSync(SRC, euro, 'utf8');
-  console.log('\nWROTE languages/pt-br.js and languages/pt.js');
+  console.log('\nWROTE lang/pt-br.js and lang/pt.js');
 } else {
   console.log('\nDRY RUN - re-run with --apply');
 }

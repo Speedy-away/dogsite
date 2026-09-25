@@ -11,10 +11,10 @@
  *
  * Round trip:
  *   1. Content changes on the site.
- *   2. --apply writes languages/_todo/<lang>.js listing the new English strings
+ *   2. --apply writes lang/_todo/<lang>.js listing the new English strings
  *      as "English": "English" placeholders.
  *   3. You translate the right-hand sides in that file.
- *   4. --merge moves every finished line into languages/<lang>.js and drops it
+ *   4. --merge moves every finished line into lang/<lang>.js and drops it
  *      from the to-do list.
  *
  * The to-do files deliberately live outside assets/, so untranslated
@@ -30,8 +30,8 @@ const vm = require('vm');
 const { collect } = require('./i18n-extract.js');
 
 const ROOT = path.resolve(__dirname, '..');
-const I18N = path.join(ROOT, 'languages');
-const TODO = path.join(ROOT, 'languages', '_todo');
+const I18N = path.join(ROOT, 'lang');
+const TODO = path.join(ROOT, 'lang', '_todo');
 
 const argv = process.argv.slice(2);
 const has = f => argv.includes(f);
@@ -77,7 +77,7 @@ function writeTodo(code, entries) {
 `/* ${code} — strings still awaiting translation.
    Translate the RIGHT-hand side of each line, then run:
        node tools/i18n-update.js --merge
-   Finished lines move into languages/${code}.js and disappear from here.
+   Finished lines move into lang/${code}.js and disappear from here.
    Lines left identical to the English are treated as not yet done.
    This file is never loaded by the website. */
 (function () {
@@ -193,10 +193,10 @@ function run() {
   const sum = k => rows.reduce((n, r) => n + r[k], 0);
   console.log('');
 
-  if (MERGE) console.log('merged ' + sum('mergedCount') + ' finished translation(s) into languages/');
+  if (MERGE) console.log('merged ' + sum('mergedCount') + ' finished translation(s) into lang/');
   if (PRUNE) console.log('pruned ' + sum('prunedCount') + ' unused entr(ies)');
   if (APPLY) {
-    console.log('to-translate lists written to languages/_todo/');
+    console.log('to-translate lists written to lang/_todo/');
     console.log('Translate the values there, then run: node tools/i18n-update.js --merge');
   }
   if (!APPLY && !MERGE && !PRUNE) {

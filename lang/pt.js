@@ -1,5 +1,5 @@
 /* pt - European Portuguese.
-   Keys are the exact English source strings. See languages/ADDING-A-LANGUAGE.md.
+   Keys are the exact English source strings. See lang/ADDING-A-LANGUAGE.md.
    Derived from the Brazilian dictionary (now pt-br.js) by a lexical and
    grammatical pass: transferir/ficheiro/utilizador/ecrã, "está a fazer" for the
    gerund, num/numa contractions. Not an independent human translation - if a
