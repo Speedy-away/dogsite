@@ -328,12 +328,41 @@
     '.i18n-floating .i18n-toggle{background:rgba(12,12,14,.9);border-color:rgba(255,255,255,.18);',
     'backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}',
     '@media (max-width:600px){.i18n-menu{min-width:170px}.i18n-toggle{padding:6px 9px;font-size:.78rem}}',
+    // A selector at the end of its row opens its menu toward the start.
+    '.i18n-end .i18n-menu{left:auto;right:0}',
+    // Wiki header: sits with the theme control and follows the wiki's light/dark colours.
+    '.wiki-header .i18n-toggle,.wiki-header .i18n-toggle:hover,.wiki-header .i18n-switcher.open .i18n-toggle{',
+    'color:var(--text);background:var(--bg);border-color:var(--border)}',
+    '.wiki-header .i18n-toggle:hover,.wiki-header .i18n-switcher.open .i18n-toggle{border-color:var(--accent)}',
+    '.wiki-header .i18n-menu{background:var(--header);border-color:var(--border);box-shadow:0 14px 36px rgba(0,0,0,.25)}',
+    '.wiki-header .i18n-option{color:var(--muted)}',
+    '.wiki-header .i18n-option:hover,.wiki-header .i18n-option[aria-selected="true"]{color:var(--text)}',
+    '.wiki-header .i18n-option:hover{background:var(--soft)}',
+    '.wiki-header .i18n-badge,.wiki-header .i18n-option[aria-selected="true"] .i18n-badge{background:var(--soft);color:var(--text)}',
+    '@media (max-width:600px){.wiki-header .i18n-current{display:none}}',
+    // API reference sidebar: the brand and the selector share the brand's underline.
+    'aside.sidebar>.i18n-row{display:flex;align-items:center;gap:10px;',
+    'border-bottom:1px solid var(--border);margin-bottom:10px}',
+    'aside.sidebar>.i18n-row>.brand{flex:1;min-width:0;border-bottom:0;margin-bottom:0}',
+    'aside.sidebar>.i18n-row>.i18n-switcher{margin:0 4px 8px 0}',
+    // Native references: docked at the end of the fixed header, and the search
+    // box gives up that much room. At 900px and below the header stacks, so the
+    // selector sits beside the (narrow, centred) search box instead.
+    '.i18n-floating.i18n-docked{top:8px;left:auto;right:12px}',
+    '@media (min-width:901px){html.i18n-dock-next #__next>header input{margin-right:calc(var(--i18n-dock-w,90px) + 24px)}}',
+    '@media (max-width:900px){.i18n-floating.i18n-docked{top:61px;right:10px}.i18n-docked .i18n-current{display:none}}',
 
     /* ---- right-to-left ---- */
     /* The dropdown and the floating pill are anchored with `left`, which has to
        flip so the menu stays inside the viewport when the page is mirrored. */
     '[dir="rtl"] .i18n-menu{left:auto;right:0}',
     '[dir="rtl"] .i18n-floating{left:auto;right:16px}',
+    '[dir="rtl"] .i18n-end .i18n-menu{right:auto;left:0}',
+    '[dir="rtl"] .i18n-floating.i18n-docked{right:auto;left:12px}',
+    '[dir="rtl"] aside.sidebar>.i18n-row>.i18n-switcher{margin:0 0 8px 4px}',
+    '@media (min-width:901px){html[dir="rtl"].i18n-dock-next #__next>header input{',
+    'margin-right:16px;margin-left:calc(var(--i18n-dock-w,90px) + 24px)}}',
+    '@media (max-width:900px){[dir="rtl"] .i18n-floating.i18n-docked{left:10px}}',
     '[dir="rtl"] .i18n-option{text-align:right}',
     '[dir="rtl"] .i18n-check{margin-left:0;margin-right:auto}',
     '[dir="rtl"] .i18n-suggested-tag{margin-left:0;margin-right:auto}',
@@ -483,7 +512,11 @@
 
   // Ordered by preference; the selector lands in the first container that exists.
   var MOUNTS = ['.nav-inner', '.navbar-inner', '.nav-container', 'nav.navbar',
-                '.portal-header .header-inner', 'header.header', '.header-inner'];
+                '.portal-header .header-inner', 'header.header', '.header-inner',
+                '.site-header'];
+  // Headers with a group of controls on the right (the wiki's search/theme bar):
+  // the selector joins that group rather than crowding the brand.
+  var END_SLOTS = ['.wiki-header .header-actions'];
   var BRANDS = '.brand, .logo, .navbar-brand-text, .portal-logo, .navbar-brand, .brand-name';
 
   var root = null;
@@ -559,9 +592,11 @@
       }
       var r = toggle.getBoundingClientRect();
       var rtl = document.documentElement.getAttribute('dir') === 'rtl';
+      // A selector at the end of its row opens toward the start, like the CSS.
+      var alignRight = rtl !== root.classList.contains('i18n-end');
       menu.style.position = 'fixed';
       menu.style.top = Math.round(r.bottom + 9) + 'px';
-      if (rtl) {
+      if (alignRight) {
         menu.style.right = Math.round(window.innerWidth - r.right) + 'px';
         menu.style.left = 'auto';
       } else {
@@ -591,6 +626,36 @@
 
   function mount(el) {
     var host = null;
+    for (var s = 0; s < END_SLOTS.length; s++) {
+      host = document.querySelector(END_SLOTS[s]);
+      if (host) {
+        el.classList.add('i18n-end');
+        host.insertBefore(el, host.firstChild);
+        return;
+      }
+    }
+    // The API references' sidebar opens with a block-level brand. Put the brand
+    // and the selector on one row, with the selector at the far end.
+    var sideBrand = document.querySelector('aside.sidebar > .brand');
+    if (sideBrand) {
+      var row = document.createElement('div');
+      row.className = 'i18n-row';
+      sideBrand.parentNode.insertBefore(row, sideBrand);
+      row.appendChild(sideBrand);
+      row.appendChild(el);
+      el.classList.add('i18n-end');
+      return;
+    }
+    // The native references are a React app that owns its header, so anything
+    // inserted there could be dropped when it hydrates. Keep the selector
+    // outside the app and dock it into room the header leaves free for it.
+    if (document.querySelector('#__next > header')) {
+      el.classList.add('i18n-floating', 'i18n-docked', 'i18n-end');
+      document.documentElement.classList.add('i18n-dock-next');
+      document.body.appendChild(el);
+      window.addEventListener('resize', reserveDock);
+      return;
+    }
     for (var i = 0; i < MOUNTS.length; i++) {
       host = document.querySelector(MOUNTS[i]);
       if (host) break;
@@ -623,6 +688,15 @@
     var opts = root.querySelectorAll('.i18n-option');
     for (var i = 0; i < opts.length; i++) {
       opts[i].setAttribute('aria-selected', String(opts[i].getAttribute('data-lang') === current));
+    }
+    reserveDock();
+  }
+
+  // A docked selector is out of the header's flow; tell the header how much
+  // room to leave. Its width changes with the language and the breakpoint.
+  function reserveDock() {
+    if (root && root.classList.contains('i18n-docked')) {
+      document.documentElement.style.setProperty('--i18n-dock-w', root.offsetWidth + 'px');
     }
   }
 
