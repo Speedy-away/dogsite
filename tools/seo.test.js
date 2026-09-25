@@ -71,10 +71,10 @@ test('all language homepages contain translated HTML with reciprocal, self-canon
   const locales = require('./search-locales.json');
   const { plain } = require('./seo-structured');
   const homes = [['en', { tag:'en' }], ...Object.entries(locales)];
-  const expected = Object.fromEntries(homes.map(([code, locale]) => [locale.tag, SITE + (code === 'en' ? '/' : '/' + code + '/')]));
+  const expected = Object.fromEntries(homes.map(([code, locale]) => [locale.tag, SITE + (code === 'en' ? '/' : '/lang/' + code + '/')]));
   expected['x-default'] = SITE + '/';
   for (const [code, locale] of homes) {
-    const file = code === 'en' ? 'index.html' : code + '/index.html';
+    const file = code === 'en' ? 'index.html' : 'lang/' + code + '/index.html';
     const html = fs.readFileSync(file, 'utf8');
     const head = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)[1];
     const alternates = [...head.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)];

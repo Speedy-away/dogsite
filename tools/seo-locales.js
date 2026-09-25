@@ -17,7 +17,7 @@ const games = [
   ['half-life-2-deathmatch', 'Half-Life 2: Deathmatch', null], ['spoofer', 'HWID Spoofer + Cleaner', null],
 ];
 const languageLinks = (code = 'en') => [['en', { tag:'en', native:'English' }], ...Object.entries(locales)].map(([key, locale]) =>
-  `<a href="${key === 'en' ? '/' : '/' + key + '/'}" lang="${locale.tag}" hreflang="${locale.tag}" data-site-language="${key}"${code === key ? ' aria-current="page"' : ''}>${escape(locale.native)}</a>`).join('\n');
+  `<a href="${key === 'en' ? '/' : '/lang/' + key + '/'}" lang="${locale.tag}" hreflang="${locale.tag}" data-site-language="${key}"${code === key ? ' aria-current="page"' : ''}>${escape(locale.native)}</a>`).join('\n');
 let stale = 0;
 function output(file, html) {
   const target = path.join(ROOT, file);
@@ -32,7 +32,7 @@ for (const [code, locale] of Object.entries(locales)) {
   vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'languages', code + '.js'), 'utf8'), context);
   const dictionary = context.window.__scoobyI18nQueue.find(([key]) => key === code)?.[1];
   const t = key => { if (!dictionary?.[key]) throw Error(`Missing ${code} UI translation: ${key}`); return escape(dictionary[key]); };
-  const file = code + '/index.html';
+  const file = 'lang/' + code + '/index.html';
   const cards = games.map(([slug, name, features]) => `<article class="game-card"><h3><a href="/products/${slug}/">${escape(name)}</a></h3><div class="game-links"><a href="/products/${slug}/">${t('View Details')}</a>${features ? `<a href="${features}">${t('Features')}</a>` : ''}${fs.existsSync(path.join(ROOT, 'guides', slug, 'index.html')) ? `<a href="/guides/${slug}/">${t('Guides')}</a>` : ''}</div></article>`).join('\n');
   const html = `<!DOCTYPE html>
 <html lang="${locale.tag}" dir="${locale.rtl ? 'rtl' : 'ltr'}" data-site-language="${code}">
@@ -46,7 +46,7 @@ for (const [code, locale] of Object.entries(locales)) {
 <script src="/assets/js/language-home.js" defer></script>
 </head>
 <body>
-<header class="site-header"><a class="brand" href="/${code}/"><img src="/assets/images/logo.png" alt="" width="36" height="36">SCOOBY</a><nav aria-label="${t('Menu')}"><a href="/store/">${t('Store')}</a><a href="/guides/">${t('Guides')}</a><a href="/portal/#dashboard">${t('Portal / Login')}</a></nav></header>
+<header class="site-header"><a class="brand" href="/lang/${code}/"><img src="/assets/images/logo.png" alt="" width="36" height="36">SCOOBY</a><nav aria-label="${t('Menu')}"><a href="/store/">${t('Store')}</a><a href="/guides/">${t('Guides')}</a><a href="/portal/#dashboard">${t('Portal / Login')}</a></nav></header>
 <main id="main-content">
 <div class="intro"><p class="eyebrow"><bdi>scoobymenu.cc</bdi> · ${escape(locale.native)}</p><h1><bdi>Scooby Menu</bdi></h1><p>${escape(locale.intro)}</p><div class="home-actions"><a href="/products/free/">${t('Free Version')}</a><a href="/store/">${t('Store')}</a><a href="#products">${t('Products')}</a></div></div>
 <section id="products" aria-labelledby="products-title"><h2 id="products-title">${t('Supported Games')}</h2><p class="section-intro">${escape(locale.about)}</p><div class="game-grid">${cards}</div></section>

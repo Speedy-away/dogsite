@@ -4,7 +4,7 @@ The site supports **22 language options**: English, Spanish, Portuguese, Brazili
 
 ## Searchable homepages
 
-English uses `/`. Each other language has its own static homepage, such as `/es/`, `/pt-br/`, `/th/` or `/ar/`. The introduction, navigation and resource text are translated in the HTML, so they work without JavaScript. Game names and product brands remain unchanged.
+English uses `/`. Each other language has its own static homepage under `lang/`, such as `/lang/es/`, `/lang/pt-br/`, `/lang/th/` or `/lang/ar/`. The old root addresses (`/es/` and so on) forward there through `404.html`. The introduction, navigation and resource text are translated in the HTML, so they work without JavaScript. Game names and product brands remain unchanged.
 
 Each homepage has a localized title and description, a self-canonical URL, and reciprocal hreflang links to all homepages. English is the x-default fallback. The sitemap and site directory include these pages. Arabic and Hebrew use right-to-left layouts.
 

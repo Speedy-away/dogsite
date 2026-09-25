@@ -57,6 +57,7 @@ store/index.html|Scooby Store: Free & Premium Cheats and Mod Menus|Browse premiu
 best-mod-menu/index.html|Choosing Cheats & Mod Menus: Features, Pricing & FAQs - Scooby|Compare Scooby cheats and GTA 5 / RDR2 mod menu features, free and premium options, compatibility and setup. Read answers about pricing, updates and game-ban risks.|cheat comparison, GTA 5 cheats, GTA 5 mod menu comparison, RDR2 cheats, RDR2 mod menu comparison, CS2 cheat, GMOD cheat, FiveM cheat, RedM cheat, free vs premium cheats, Scooby pricing
 changelog/index.html|Scooby Menu Changelog & Release Notes|Read Scooby release notes for GTA 5, RDR2, FiveM, RedM and the loader. Track new features, improvements and fixes by version.|Scooby changelog, Scooby updates, product release notes, Scooby loader updates
 freekey.html|Get a Scooby Free Key - Product Access|Get a Scooby free key through the official key page. Follow the access steps, copy your key and use it with the Scooby loader.|Scooby free key, Scooby key page, free product key, Scooby loader
+download/index.html|Download the Scooby Loader - Scooby|Sign in to download the Scooby loader for GTA 5, RDR2, FiveM, RedM, CS2, GMOD and more, plus the runtimes it needs to start.|Scooby loader, Scooby download, GTA 5 mod menu download, FiveM cheat download, RDR2 mod menu download
 resellers/index.html|Official Scooby Resellers & Payment Options|Find official Scooby resellers and their payment options. Browse regional stores and choose a reseller for your Scooby license.|official Scooby resellers, buy Scooby license, Scooby payment options
 videos/index.html|Scooby Menu Videos: Showcases & Setup Tutorials|Watch Scooby product showcases and setup tutorials for GTA 5, RDR2, FiveM, RedM and CS2. Browse videos by game, topic and language.|Scooby videos, product showcase, GTA 5 cheats, GTA 5 mod menu tutorial, FiveM setup video
  tos/index.html|Scooby Terms of Service: Purchases, Refunds & Usage|Read the Scooby terms of service for product access, payments, refunds, updates and support before purchasing or using a Scooby license.|Scooby terms of service, Scooby refund policy, Scooby purchase terms
@@ -140,7 +141,7 @@ if (halfLifeMetadata) {
  pages['features-list/half-life-1-features/index.html'] = halfLifeMetadata.features;
 }
 for (const [code, locale] of Object.entries(locales)) {
- pages[code + '/index.html'] = { title: locale.title, description: locale.intro,
+ pages['lang/' + code + '/index.html'] = { title: locale.title, description: locale.intro,
   keywords: pages['index.html'].keywords, language: locale.tag, ogLocale: locale.ogLocale };
 }
 const escape = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -171,7 +172,7 @@ function applyMetadata(file, html, override) {
   });
   if (file === 'index.html' || meta.language) {
    head = head.replace(/<link\b[^>]*>(?:\r?\n)?/gi, tag => attrs(tag).hreflang ? '' : tag);
-   const homes = [['en','/'], ...Object.entries(locales).map(([code,locale]) => [locale.tag,'/'+code+'/']), ['x-default','/']];
+   const homes = [['en','/'], ...Object.entries(locales).map(([code,locale]) => [locale.tag,'/lang/'+code+'/']), ['x-default','/']];
    for (const [language,pathname] of homes) append('<link rel="alternate" hreflang="'+language+'" href="'+SITE+pathname+'">');
   }
   return head;
