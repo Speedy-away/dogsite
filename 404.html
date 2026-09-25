@@ -7,6 +7,14 @@
 <meta name="description" content="That page doesn't exist. Head back to the Scooby homepage for cheats for FiveM, RedM, CS2 and GMOD, plus mod menus for GTA 5 and RDR2.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://scoobymenu.cc/404.html">
+<script>
+  // The API references moved from the site root into /api/. Old links and
+  // bookmarks land here; forward them, keeping any ?query and #anchor.
+  (function () {
+    var m = location.pathname.match(/^\/((?:fivem|gta5|l4d|redm)_api_reference\.html)$/);
+    if (m) location.replace('/api/' + m[1] + location.search + location.hash);
+  })();
+</script>
 <link rel="shortcut icon" href="/assets/images/logo.png">
 <link rel="stylesheet" href="/assets/css/mobile.css">
 <style>

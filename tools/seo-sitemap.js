@@ -41,6 +41,7 @@ const RULES = [
   { re: /^videos\//,                priority: '0.5', freq: 'monthly' },
   { re: /^changelog\//,             priority: '0.5', freq: 'weekly'  },
   { re: /^resellers\//,             priority: '0.5', freq: 'monthly' },
+  { re: /^download\//,              priority: '0.7', freq: 'monthly' },
   { re: /^freekey\.html$/,          priority: '0.4', freq: 'monthly' },
   { re: /^tos\//,                   priority: '0.3', freq: 'yearly'  },
 ];

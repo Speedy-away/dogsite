@@ -1854,6 +1854,22 @@
         // Gate every route before its data loaders can run.
         const authPages = new Set(['login', 'register', 'verify', 'forgot-password', 'reset-password', 'session']);
         let returnRoute = '';
+        // Other pages of the site send visitors here to sign in with ?next=/path
+        // (the download page does). Hold on to it for this tab, across OAuth
+        // round trips, and go back there once signed in. Same-site paths only.
+        (() => {
+            const next = new URLSearchParams(location.search).get('next');
+            if (next === null) return;
+            try { if (/^\/(?![\/\\])/.test(next)) sessionStorage.setItem('portalReturnPath', next); } catch (e) {}
+            history.replaceState(null, '', location.pathname + location.hash);
+        })();
+        const takeReturnPath = () => {
+            try {
+                const path = sessionStorage.getItem('portalReturnPath');
+                sessionStorage.removeItem('portalReturnPath');
+                return path;
+            } catch (e) { return null; }
+        };
         const originalShowPage = showPage;
         showPage = function(page, updateUrl = true) {
             if (PORTAL_DISABLED_PAGES.has(page) || page === 'chat' || page === 'badges' || page === 'members') page = 'dashboard';
@@ -1861,6 +1877,10 @@
             if (currentUser && (page === 'register' || page === 'login')) page = 'dashboard';
             // Password and OAuth sign-in previously opened the forum by default.
             if (currentUser && document.body.classList.contains('auth-mode') && page === 'forum') page = 'dashboard';
+            if (currentUser && page === 'dashboard') {
+                const next = takeReturnPath();
+                if (next) { location.replace(next); return; }
+            }
             originalShowPage(page, updateUrl);
             const activePage = document.querySelector('.page-view.active');
             const dashboardVisible = activePage?.id === 'page-dashboard';

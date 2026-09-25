@@ -15,8 +15,8 @@ const SKIP_DIRS = ['.git', '.claude', 'backup', 'node_modules', 'revolution', 't
 
 // Machine-generated reference dumps: function signatures, not prose.
 const DUMP = new Set([
-  'fivem_api_reference.html',
-  'redm_api_reference.html',
+  'api/fivem_api_reference.html',
+  'api/redm_api_reference.html',
   'features-list/gta-features/index.html',
   'features-list/rdr2-features/index.html',
   'changelog/index.html',

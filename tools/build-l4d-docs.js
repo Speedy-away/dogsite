@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const {marked} = require('marked');
 const root = path.resolve(__dirname, '..');
-const destination = '/l4d_api_reference.html';
+const destination = '/api/l4d_api_reference.html';
 const sources = [['snippets','Code snippets','snippets.md'], ['game-api','L4D host API','game-api.md'], ['ui-api','UI, features and rendering','ui-api.md']];
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const plain = s => s.replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');
