@@ -60,6 +60,26 @@
   ::-webkit-scrollbar-track{background:#0f0f12}
   ::-webkit-scrollbar-thumb{background:#2e2e36;border-radius:5px}
   ::-webkit-scrollbar-thumb:hover{background:#3a3a44}
+  /* Phones and small tablets: the sidebar becomes a bar pinned to the top, and
+     its section list folds away under the Sections button (it opens while searching). */
+  .sections-toggle{display:none}
+  @media (max-width:860px){
+    html{scroll-padding-top:112px}
+    aside.sidebar{position:sticky;z-index:20;width:auto;height:auto;max-height:100vh;padding:10px 14px;border-right:0;border-bottom:1px solid var(--border)}
+    aside .brand{padding:2px 4px 8px;margin-bottom:8px}
+    .search-bar{display:flex;gap:8px}
+    aside .search{flex:1;min-width:0;margin-bottom:0;font-size:16px}
+    .sections-toggle{display:inline-flex;align-items:center;flex-shrink:0;background:#0f0f12;border:1px solid var(--border);color:var(--text);border-radius:5px;padding:0 12px;font:inherit;font-size:13px;cursor:pointer}
+    .sections-toggle[aria-expanded="true"]{border-color:var(--accent)}
+    aside nav{display:none;padding-bottom:8px}
+    aside.open nav{display:block}
+    main.content{margin-left:0;padding:22px 16px 64px;overflow-wrap:anywhere}
+    section.cat h1{font-size:24px}
+    .entry-name{font-size:17px;overflow-wrap:anywhere}
+    .sig{max-width:100%;overflow-x:auto;white-space:nowrap;vertical-align:top}
+  }
+  /* Touch screens cannot hover, so keep the copy buttons visible, clear of the code. */
+  @media (hover:none){button.copy{opacity:1}.codewrap>.sig,.codewrap>pre.code{padding-right:64px}}
 </style>
 <meta name="twitter:url" content="https://scoobymenu.cc/api/gta5_api_reference.html">
 <script type="application/ld+json" id="seo-page-structure">
@@ -87,7 +107,7 @@
 </head><body>
 <aside class="sidebar">
   <div class="brand">Scooby GTA5 <span>API</span></div>
-  <input class="search" id="sidebar-search" placeholder="Search classes, methods...">
+  <div class="search-bar"><input class="search" id="sidebar-search" placeholder="Search classes, methods..." aria-label="Search the reference"><button class="sections-toggle" type="button" aria-expanded="false" aria-controls="sidebar-nav">Sections</button></div>
   <nav id="sidebar-nav">
     <div class="sect">Classes</div>
     <a class="entry" href="#cat-centity-script">CEntity (Script)</a>
@@ -69087,6 +69107,13 @@ V4 V4.New(number x, number y, number z, number w)">Copy example</button></detail
   }
   window.addEventListener('scroll', updateSpy, { passive: true });
   updateSpy();
+  // Small screens: the section list folds away under the Sections button.
+  var aside = document.querySelector('aside.sidebar');
+  var sectionsToggle = document.querySelector('.sections-toggle');
+  function setSectionsOpen(open){ aside.classList.toggle('open', open); sectionsToggle.setAttribute('aria-expanded', String(open)); }
+  sectionsToggle.addEventListener('click', function(){ setSectionsOpen(!aside.classList.contains('open')); });
+  document.querySelectorAll('aside nav a.entry').forEach(function(a){ a.addEventListener('click', function(){ setSectionsOpen(false); }); });
+  if (search) search.addEventListener('input', function(){ if (search.value.trim()) setSectionsOpen(true); });
 })();
 </script>
 </body></html>
