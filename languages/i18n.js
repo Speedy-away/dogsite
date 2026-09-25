@@ -249,13 +249,10 @@
   function setLang(code, opts) {
     opts = opts || {};
     if (CODES.indexOf(code) === -1) code = DEFAULT_LANG;
-    // Explicit homepage language choices have crawlable translated URLs.
-    // Browser detection never redirects a visitor or crawler automatically.
-    if (!opts.silent && code !== DEFAULT_LANG && /^\/(?:index\.html)?$/.test(location.pathname)) {
-      store(code);
-      location.assign('/' + code + '/');
-      return;
-    }
+    // Choosing a language always translates the page in place - it never
+    // navigates away. The per-language URLs (/pt/, /es/, ...) still exist and
+    // stay crawlable through the sitemap and hreflang tags; they are just not
+    // forced on someone who used the dropdown.
 
     // Dictionaries load over the network, so a slow one must never overwrite a
     // newer choice made while it was still in flight.
