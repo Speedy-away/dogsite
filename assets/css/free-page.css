@@ -45,3 +45,10 @@
 .free-game-art { position:relative; overflow:hidden; }
 .free-game-art .free-game-logo { position:absolute; inset:15% 22%; width:56%; height:70%; object-fit:contain; filter:brightness(0) invert(1) drop-shadow(0 2px 7px #000b); pointer-events:none; }
 .free-game-art .free-game-logo.is-l4d { inset:23% 10%; width:80%; height:54%; filter:invert(1) hue-rotate(180deg) saturate(6) drop-shadow(0 2px 8px #000); }
+
+/* Keep advertising separate from key access and contained on narrow screens. */
+.free-page .free-ad-slot { width:100%; margin:24px 0 30px; }
+.free-page .free-ad-slot > .free-ad-content { max-width:100%; min-height:0; overflow-x:auto; }
+.free-page .free-ad-slot > .free-ad-offer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; min-height:0; margin-top:12px; }
+.free-page .free-ad-offer p { margin:0; color:#a7b3c6; font-size:.78rem; line-height:1.6; }
+.free-page .free-ad-offer .direct-link-ad { padding:10px 16px; font-size:.78rem; }

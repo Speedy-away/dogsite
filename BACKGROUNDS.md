@@ -77,7 +77,8 @@ This JSON file is a record, **not the slideshow configuration**. The JavaScript 
 
 ## Current slideshow settings
 
-- Random first scene, then a shuffled cycle through all active entries.
+- Random first scene on every page load or refresh, then a shuffled cycle through all active entries.
+- When session storage is available, a reload or return visit in the same tab avoids the last scene shown. Without JavaScript, a fixed fallback image is displayed.
 - A fresh shuffle each cycle, with no immediate repeat across cycles.
 - Background changes start **10 seconds apart**, with a smooth crossfade. The setting is `var dwell = 10000;`.
 - The caption, progress bars, pause button, and next button stay hidden.

@@ -12,6 +12,21 @@ All pages use folder-based routing (`page/index.html`) for clean URLs on GitHub 
 picks the next free port if 8080 is taken, and opens your browser once the server is actually up.
 Leave the window open while you browse; Ctrl+C stops it.
 
+The preview uses `tools/serve.py` to show the root `404.html` for missing URLs,
+with an actual HTTP 404 status, matching the site's GitHub Pages fallback.
+Directories without an index also show the error page instead of a file listing.
+To start without opening a browser, run `python tools/serve.py 8080`.
+The server binds to `127.0.0.1` by default; use `--bind` to change it.
+Check routing with `python -B -m unittest discover -s tools -p "test_serve.py"`.
+
+### Error page
+`404.html` is the hosting-required exception to folder-based routing. Keep its
+links and assets root-relative so it works at any missing URL depth. It stays
+out of search indexes and preserves redirects for old API and language URLs.
+The recovery page works without JavaScript; JavaScript adds the requested path
+and handles legacy redirects. Query strings and fragments are never displayed.
+
+
 ### Why opening the .html files directly does not work
 Every internal href and asset path is absolute (see URL Structure above). Under `file://`
 a link to `/guides` resolves against the **root of your drive** — the browser asks for

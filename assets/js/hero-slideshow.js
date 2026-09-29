@@ -33,14 +33,16 @@
   });
   stepContainer.replaceChildren.apply(stepContainer, steps);
   var cache = new Map();
-  var current = 0;
+  var current = -1;
+  var lastScene = '';
+  try { lastScene = window.sessionStorage.getItem('scooby.hero.lastScene') || ''; } catch (_) { /* Storage may be unavailable. */ }
   var queue = [];
   var position = 0;
   var activeLayer = stage.querySelector('.hero-scene');
   var timer;
   var preloadTimer;
   var busy = false;
-  var ready = true;
+  var ready = false;
   var visible = true;
   var focused = false;
   var paused = motion.matches;
@@ -55,8 +57,9 @@
         queue[i] = queue[j];
         queue[j] = swap;
       }
-      // The first scene of a new cycle must differ from the last scene shown.
-      if (queue.length > 1 && queue[0] === current) {
+      // Avoid repeating the last scene, including across loads in this tab.
+      var previousFile = current >= 0 ? scenes[current].file : lastScene;
+      if (queue.length > 1 && scenes[queue[0]].file === previousFile) {
         var first = 1 + Math.floor(Math.random() * (queue.length - 1));
         var previous = queue[0];
         queue[0] = queue[first];
@@ -140,14 +143,17 @@
       layer.dataset.scene = scenes[next].file;
       layer.appendChild(img);
       stage.appendChild(layer);
-      // Commit the transparent frame before crossfading the decoded image in.
-      void layer.offsetWidth;
+      // Show the random opening scene directly; crossfade subsequent scenes.
+      if (activeLayer) {
+        void layer.offsetWidth;
+        activeLayer.classList.add('is-leaving');
+        activeLayer.classList.remove('is-active');
+      }
       layer.classList.add('is-active');
-      activeLayer.classList.add('is-leaving');
-      activeLayer.classList.remove('is-active');
       var previousLayer = activeLayer;
       activeLayer = layer;
       current = next;
+      try { window.sessionStorage.setItem('scooby.hero.lastScene', scenes[current].file); } catch (_) { /* Randomization also works without storage. */ }
       gameLabel.textContent = scenes[current].game;
       nameLabel.textContent = scenes[current].name;
       steps.forEach(function (step, i) { step.classList.toggle('is-current', i === position); });
@@ -182,11 +188,6 @@
     }, { threshold: 0 }).observe(hero);
   }
 
-  // Keep the image discovered in HTML for the first scene instead of fetching a
-  // second large image immediately. Shuffle the remaining scenes for this cycle.
-  nextIndex();
-  queue = queue.filter(function (index) { return index !== current; });
-  steps[0].classList.add('is-current');
-  cache.set(current, Promise.resolve(activeLayer.querySelector('img')));
-  schedule();
+  // Load the first shuffled scene even when reduced motion pauses playback.
+  advance(true);
 })();

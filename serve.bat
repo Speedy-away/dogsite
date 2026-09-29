@@ -61,7 +61,7 @@ echo   Leave this window open while you browse.
 echo   Press Ctrl+C (or close this window) to stop.
 echo.
 
-%PY% -m http.server %PORT%
+%PY% tools\serve.py %PORT%
 
 echo.
 echo   Server stopped.
