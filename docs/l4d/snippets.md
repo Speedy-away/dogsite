@@ -41,6 +41,19 @@ ui.overlay("status", function()
 end)
 ```
 
+## Player chams overlay
+
+```lua
+features.set("chams.enabled", true)
+features.set("chams.survivors", true)
+features.set("chams.visible", true)
+l4d.setting("chams.visible", "style", 1)
+features.color("chams.visible", 1, 0.1, 0.1, 1)
+features.set("chams.survivors.overlay", true)
+l4d.setting("chams.survivors.overlay", "style", 15)
+features.color("chams.survivors.overlay", 1, 1, 1, 0.8)
+```
+
 ## Special infected names
 
 Subscribe only to the data you need. Subscriptions are released when the script stops. Witch is separate from special infected.
@@ -143,3 +156,31 @@ ui.subtab("settings", "my_info", "Info",
 ## Full reference
 
 The complete function signatures, fields and lifecycle rules are in docs/LUA_API.md beside your assets. Longer working examples are available in Lua > Scripts.
+
+## Native pattern and function hook
+
+```lua
+-- Supply a verified function-entry pattern and its exact x86 signature.
+local pattern = nil
+local signature = nil
+if not pattern or not signature then return end
+if not l4d.native or not l4d.native.available
+    or not l4d.native.available() then return end
+
+local address, err = l4d.native.scan("client.dll", pattern)
+if not address then base.log(err); return end
+local hook
+hook, err = l4d.native.hook(address, signature, [[
+    return function(original, ...)
+        shared.set("calls", (shared.get("calls") or 0) + 1)
+        return original(...)
+    end
+]], {enabled=false})
+if not hook then base.log(err); return end
+hook:set("calls", 0)
+hook:enable(true)
+-- Hook failures report a traceback once in Lua > Console.
+-- hook:enable(false), hook:enable(true), hook:remove()
+-- hook:get("calls") reads copied telemetry from the callback.
+-- Stop/reload retires the hook automatically.
+```

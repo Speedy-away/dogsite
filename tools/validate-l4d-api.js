@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
+const crypto = require('node:crypto');
 
 (async () => {
   const root = path.resolve(__dirname,'..');
@@ -45,6 +46,15 @@ const http = require('http');
     assert.ok(allCount>30);
     const broken=await api.evaluate(()=>[...document.querySelectorAll('a[href^="#"]')].filter(a=>!document.getElementById(a.hash.slice(1))).map(a=>a.hash));
     assert.deepEqual(broken,[]);
+    const duplicateIds=await api.evaluate(()=>{const seen=new Set();return [...document.querySelectorAll('[id]')].map(e=>e.id).filter(id=>seen.has(id)||!seen.add(id));});
+    assert.deepEqual(duplicateIds,[]);
+    const manifest=await (await context.request.get(base+'/docs/l4d/sources.json')).json();
+    assert.equal(manifest.nativeApi,'1.1');
+    for (const [file, digest] of Object.entries(manifest.files)) {
+      const response=await context.request.get(base+'/docs/l4d/'+file);
+      assert.equal(response.status(),200,file);
+      assert.equal(crypto.createHash('sha256').update((await response.text()).replace(/\r\n/g,'\n')).digest('hex'),digest,file);
+    }
     await api.screenshot({path:path.join(output,'api-desktop.png')});
     await api.locator('.lua-reference pre button').first().click();
     await api.getByRole('button',{name:'Copied',exact:true}).waitFor();
@@ -55,6 +65,12 @@ const http = require('http');
     assert.ok(await api.locator('.reference-entry:visible').count()<allCount);
     assert.ok((await api.locator('.reference-entry:visible').allTextContents()).every(t=>t.toLowerCase().includes('l4d.session')));
     await api.screenshot({path:path.join(output,'api-search.png')});
+    for(const term of ['l4d.native.hook', 'stack traceback', 'enabled = false', 'l4d.native.available']) {
+      await input.fill(term);
+      assert.ok(await api.locator('.reference-entry:visible').count()>0,term);
+    }
+    await input.fill('native hooks');
+    await api.screenshot({path:path.join(output,'api-native-search.png')});
     await input.fill('no_such_function_93847');
     assert.equal(await api.locator('.reference-entry:visible').count(),0);
     assert.ok(await api.locator('#no-results').isVisible());
@@ -84,11 +100,12 @@ const http = require('http');
     await page.locator('#guide-results a[href^="/api/l4d_api_reference.html"]').first().waitFor();
     assert.equal(await page.locator('#guide-results a').first().getAttribute('target'),'_blank');
     await api.goto(base+'/api/l4d_api_reference.html',{waitUntil:'networkidle'});
+    assert.equal(await api.locator('a[download][href*="/templates/"]').count(),4);
     for(const a of await api.locator('a[download]').all()){
       const response=await context.request.get(base+await a.getAttribute('href')); assert.equal(response.status(),200);
     }
     assert.deepEqual(errors,[]);
-    const report={passed:true,topics:allCount,checks:['new tab and isolated opener','original docs tab retained','reference anchors','clipboard copy','search and no-results reset','old URL/query/bookmark redirect','mobile navigation and overflow','product/guide new-tab links','docs search new-tab links','Markdown downloads','no page errors']};
+    const report={passed:true,topics:allCount,checks:['new tab and isolated opener','original docs tab retained','reference anchors and unique IDs','native hook and diagnostic search','source manifest hashes and template downloads','clipboard copy','search and no-results reset','old URL/query/bookmark redirect','mobile navigation and overflow','product/guide new-tab links','docs search new-tab links','Markdown downloads','no page errors']};
     fs.writeFileSync(path.join(output,'results.json'),JSON.stringify(report,null,2));
     console.log(JSON.stringify(report));
   } finally { await browser.close(); if(server)await new Promise(resolve=>server.close(resolve)); }
