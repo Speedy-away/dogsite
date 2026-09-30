@@ -2196,7 +2196,7 @@ end)
 </div></details>
 <details class="reference-entry" id="host-local-inventory-and-native-3d-previews"><summary>Local inventory and native 3D previews</summary><div class="entry-body"><a class="permalink" href="#host-local-inventory-and-native-3d-previews" aria-label="Link to Local inventory and native 3D previews"># Permalink</a>
 <p>The <code>inventory</code> API operates the host&#39;s local inventory changer. It does not create Steam-owned/tradable items or modify an account&#39;s server inventory. IDs are decimal strings to preserve all 64 bits. Catalog and owned-item reads return copies, paged from 1 with a maximum of 256 entries per call. <code>inventory.categories()</code> lists supported catalog families; <code>inventory.catalog</code> returns <code>{category,definition,auxiliary,name,rarity,resource}</code>. <code>inventory.finishes</code> returns current <code>{paint_kit,name,rarity,old_model}</code> entries for weapons, knives or gloves; <code>all=true</code> includes paint kits authored for other models.</p>
-<p>Draft identity is <code>{category,definition,auxiliary=0}</code> and must exist in the host catalog. Optional cosmetics: <code>paint_kit</code>, <code>wear</code> (0..1), <code>seed</code> (0..1000), <code>stattrak</code> (-1..999999), <code>custom_name</code> (160 bytes), four <code>stickers</code>, four <code>sticker_wear</code> values, <code>charm</code>, <code>charm_seed</code>, and three <code>charm_offset</code> values (-10..10). Paint kits must exist in the current host catalog. Unknown keys and changing identity through <code>inventory.update</code> are errors. The host owns resource paths and rarity. Add is limited to 4096 locally owned items.</p>
+<p>Draft identity is <code>{category,definition,auxiliary=0}</code> and must exist in the host catalog. Optional cosmetics: <code>paint_kit</code>, <code>wear</code> (0..1), <code>seed</code> (0..1000), <code>stattrak</code> (-1..999999), <code>custom_name</code> (160 bytes), <code>stickers</code> and <code>sticker_wear</code> arrays with exactly <code>inventory.status().sticker_slots</code> entries (five in the current build), <code>charm</code>, <code>charm_seed</code>, and three <code>charm_offset</code> values (-10..10). Paint kits must exist in the current host catalog. Unknown keys and changing identity through <code>inventory.update</code> are errors. The host owns resource paths and rarity. Add is limited to 4096 locally owned items.</p>
 <p><code>inventory.add/update/remove/equip/unequip</code> require inventory permission. Successful changes persist; failed saves roll back the local transaction. Team masks are CT=1, T=2, both=3; equipping clears the same slot on the requested teams and preserves the other team&#39;s selection. <code>true</code> means the local operation was accepted; native application may still be waiting for an in-game session or supported schema. Read <code>inventory.status()</code> for the local store, native bridge, apply message and revision.</p>
 <p><code>model_preview.draw(label,id_or_draft,width,height,transparent=false)</code> belongs inside a UI drawing callback; dimensions are 32..2048. It returns <code>{visible,ready,x1,y1,x2,y2}</code> or <code>nil,error</code> and uses the existing host 3D renderer and its drag/zoom controls. The preview service supports one live model at a time. A validated draft can be previewed without adding or equipping an item. The preview obeys the native live-preview setting and renderer availability. Unload closes a preview owned by that script. Arbitrary imported meshes, managed textures, shaders and font resources are not added by this API.</p>
 </div></details>
@@ -2343,7 +2343,7 @@ end]],{enabled=false}))
 </code></pre>
 </div></details>
 <details class="reference-entry" id="host-inventory-status"><summary>inventory.status</summary><div class="entry-body"><a class="permalink" href="#host-inventory-status" aria-label="Link to inventory.status"># Permalink</a>
-<pre><code class="language-lua">inventory.status() -&gt; {local,native,apply,revision}
+<pre><code class="language-lua">inventory.status() -&gt; {local,native,apply,revision,sticker_slots}
 </code></pre>
 <pre><code class="language-lua">local status=inventory.status();print(status[&#39;local&#39;],status.native,status.apply)
 </code></pre>
@@ -3244,7 +3244,7 @@ end]],{enabled=false}))
 </code></pre>
 </div></details>
 <details class="reference-entry" id="bindings-inventory-status"><summary>inventory.status</summary><div class="entry-body"><a class="permalink" href="#bindings-inventory-status" aria-label="Link to inventory.status"># Permalink</a>
-<pre><code class="language-lua">inventory.status() -&gt; {local,native,apply,revision}
+<pre><code class="language-lua">inventory.status() -&gt; {local,native,apply,revision,sticker_slots}
 </code></pre>
 <p><code>Returns: table</code></p>
 <pre><code class="language-lua">local status=inventory.status();print(status[&#39;local&#39;],status.native,status.apply)

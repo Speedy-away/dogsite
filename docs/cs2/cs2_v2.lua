@@ -1188,8 +1188,8 @@ function print(...) end
 ---@field seed? integer
 ---@field stattrak? integer
 ---@field custom_name? string
----@field stickers? integer[] Exactly four slots.
----@field sticker_wear? number[] Exactly four slots.
+---@field stickers? integer[] Use inventory.status().sticker_slots entries.
+---@field sticker_wear? number[] Use inventory.status().sticker_slots entries.
 ---@field charm? integer
 ---@field charm_seed? integer
 ---@field charm_offset? number[] Exactly three slots.
@@ -1349,7 +1349,7 @@ function inventory.equip(id,teams) end
 ---@return boolean?
 ---@return string? error
 function inventory.unequip(id,teams) end
----inventory.status() -> {local,native,apply,revision}
+---inventory.status() -> {local,native,apply,revision,sticker_slots}
 ---@return table
 function inventory.status() end
 ---model_preview.draw(label,id_or_draft,width,height,transparent=false) -> {visible,ready,x1,y1,x2,y2} or nil,error

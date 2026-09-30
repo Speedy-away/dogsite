@@ -1347,7 +1347,7 @@ assert(inventory.remove(saved_id))
 ## inventory.status
 
 ```lua
-inventory.status() -> {local,native,apply,revision}
+inventory.status() -> {local,native,apply,revision,sticker_slots}
 ```
 
 `Returns: table`

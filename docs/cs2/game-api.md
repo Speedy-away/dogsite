@@ -2443,7 +2443,7 @@ Poll `request:status()` for `pending`, `complete` or `canceled`. `request:result
 
 The `inventory` API operates the host's local inventory changer. It does not create Steam-owned/tradable items or modify an account's server inventory. IDs are decimal strings to preserve all 64 bits. Catalog and owned-item reads return copies, paged from 1 with a maximum of 256 entries per call. `inventory.categories()` lists supported catalog families; `inventory.catalog` returns `{category,definition,auxiliary,name,rarity,resource}`. `inventory.finishes` returns current `{paint_kit,name,rarity,old_model}` entries for weapons, knives or gloves; `all=true` includes paint kits authored for other models.
 
-Draft identity is `{category,definition,auxiliary=0}` and must exist in the host catalog. Optional cosmetics: `paint_kit`, `wear` (0..1), `seed` (0..1000), `stattrak` (-1..999999), `custom_name` (160 bytes), four `stickers`, four `sticker_wear` values, `charm`, `charm_seed`, and three `charm_offset` values (-10..10). Paint kits must exist in the current host catalog. Unknown keys and changing identity through `inventory.update` are errors. The host owns resource paths and rarity. Add is limited to 4096 locally owned items.
+Draft identity is `{category,definition,auxiliary=0}` and must exist in the host catalog. Optional cosmetics: `paint_kit`, `wear` (0..1), `seed` (0..1000), `stattrak` (-1..999999), `custom_name` (160 bytes), `stickers` and `sticker_wear` arrays with exactly `inventory.status().sticker_slots` entries (five in the current build), `charm`, `charm_seed`, and three `charm_offset` values (-10..10). Paint kits must exist in the current host catalog. Unknown keys and changing identity through `inventory.update` are errors. The host owns resource paths and rarity. Add is limited to 4096 locally owned items.
 
 `inventory.add/update/remove/equip/unequip` require inventory permission. Successful changes persist; failed saves roll back the local transaction. Team masks are CT=1, T=2, both=3; equipping clears the same slot on the requested teams and preserves the other team's selection. `true` means the local operation was accepted; native application may still be waiting for an in-game session or supported schema. Read `inventory.status()` for the local store, native bridge, apply message and revision.
 
@@ -2686,7 +2686,7 @@ assert(inventory.unequip(saved_id,3))
 ### inventory.status
 
 ```lua
-inventory.status() -> {local,native,apply,revision}
+inventory.status() -> {local,native,apply,revision,sticker_slots}
 ```
 
 ```lua

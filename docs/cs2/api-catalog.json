@@ -1111,10 +1111,10 @@
     },
     {
       "name": "inventory.status",
-      "signature": "inventory.status() -> {local,native,apply,revision}",
+      "signature": "inventory.status() -> {local,native,apply,revision,sticker_slots}",
       "example": "local status=inventory.status();print(status['local'],status.native,status.apply)",
       "origin": "framework",
-      "annotations": "---inventory.status() -> {local,native,apply,revision}\n---@return table",
+      "annotations": "---inventory.status() -> {local,native,apply,revision,sticker_slots}\n---@return table",
       "status": "supported"
     },
     {
