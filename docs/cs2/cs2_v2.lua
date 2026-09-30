@@ -300,7 +300,7 @@ function mathx.seconds_to_ticks(seconds) end
 ---@return number
 function mathx.ticks_to_seconds(ticks) end
 
--- CS2 host 2.3 / native extension 1.0. Fixed Win64 scalar ABI only.
+-- CS2 host 2.4 / native extension 1.0. Fixed Win64 scalar ABI only.
 ---@alias CS2NativeType 'void'|'bool'|'i32'|'u32'|'i64'|'u64'|'ptr'|'float'|'double'
 ---@class CS2NativeSignature
 ---@field abi? 'win64'
@@ -375,7 +375,7 @@ function shared.get(key) end
 ---@param value nil|boolean|number|string
 function shared.set(key,value) end
 
--- Complete host and shared UI exports (API 2.3).
+-- Complete host and shared UI exports (API 2.4).
 ---Explicit capabilities; false entries are not implemented by this host.
 ---@return table<string,boolean>
 function cs2.capabilities() end

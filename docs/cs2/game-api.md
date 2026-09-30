@@ -59,6 +59,8 @@ console.trace('Preferences loaded')
 
 ## CS2 visual templates
 
+**Framework - Player ESP** draws its own boxes, names and health bars from copied players and projected positions. Its controls include a color picker and enemy filtering; it leaves built-in ESP settings alone. **Framework - Asset downloads** downloads binary data asynchronously, keeps the destination fixed during the request, and lists saved subfolders. Both are bundled and available from the website template index.
+
 **Standalone Menu** is a floating tools window with F9 as its default open/close key. It includes a speed HUD, center crosshair and real CS2 ESP/box/name switches. **ImGui Demo** keeps the Simple-base UI-v2 panel layout and replaces its placeholder combat settings with custom crosshair sizing, speed HUD, local health ring, projected player labels, rainbow accent and native visual switches. F10 opens/closes its window. Both offer a key selector, Close window and explicit Save preferences. Hiding a window keeps its effects active; Unload removes its callbacks, windows and drawings. Native settings changed with `settings.set` keep their values.
 
 The smaller **Crosshair** and **Speed HUD** scripts are starting templates for custom pages, toggle features, sampled player data and per-frame drawing. Templates skip missing/dead local players and unavailable projections. Distances and speed use Source units. Bundled visual templates never fetch or execute remote Lua. The Download asset template only downloads when the user supplies a URL and clicks its button. The [Aimware v5 collection](https://github.com/ticzz/Aimware-v5-luas) was reviewed as a visual-feature reference; its CSGO scripts are not drop-in CS2 scripts and were not copied into this package.
