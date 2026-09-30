@@ -1,0 +1,60 @@
+/* The Last of Us uses the shared product header, with a bounded mobile dropdown. */
+#tlou-nav { padding-left:16px; padding-right:16px; }
+#tlou-nav .nav-inner { position:relative; }
+#tlou-nav .nav-download { margin-left:auto; }
+#tlou-nav .btn-nav-primary { color:#fff; }
+#tlou-nav a:focus-visible, #tlou-nav button:focus-visible { outline:2px solid #9bbdff; outline-offset:4px; }
+@media (max-width:980px) {
+    #tlou-nav .nav-inner { flex-wrap:nowrap; gap:12px; padding:10px 16px; }
+    #tlou-nav .hamburger { display:flex; order:2; min-width:44px; min-height:44px; align-items:center; justify-content:center; }
+    #tlou-nav .nav-links { display:none; position:absolute; inset:calc(100% + 10px) 0 auto; flex-direction:column; flex-wrap:nowrap; align-items:stretch; gap:4px; padding:12px; max-height:calc(100dvh - 116px); overflow-y:auto; background:rgba(10,10,15,.98); border:1px solid rgba(255,255,255,.1); border-radius:18px; box-shadow:0 16px 36px #0006; }
+    #tlou-nav .nav-links.mobile-open { display:flex; }
+    #tlou-nav .nav-links li { width:100%; text-align:center; }
+    #tlou-nav .nav-links a { display:block; padding:14px 20px; }
+    #tlou-nav .nav-download { margin-left:0; }
+    #tlou-nav .hamburger[aria-expanded="true"] span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    #tlou-nav .hamburger[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+    #tlou-nav .hamburger[aria-expanded="true"] span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+}
+@media (prefers-reduced-motion:reduce) {
+    #tlou-nav, #tlou-nav .nav-inner, #tlou-nav .hamburger span { transition:none; }
+}
+
+/* Product-specific content follows the existing product layout. */
+
+/* Product styling keeps the shared GMod/product layout. */
+:root{--tlou-accent:#cadba0}
+.tlou-eyebrow{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--tlou-accent)}
+.tlou-product .free-btn{background:var(--tlou-accent);color:#192114;border-color:var(--tlou-accent)}
+.tlou-product .free-btn:hover{background:#deebbd;color:#192114;transform:translateY(-2px)}
+.tlou-product .price{color:var(--tlou-accent)}
+.tlou-product .main-content{max-width:1240px;padding-top:140px}
+.tlou-heading{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:32px}
+.tlou-heading h1{margin:0;color:#f4f5ed;font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-.035em}
+.tlou-online{padding:6px 12px;border:1px solid #4ade8044;border-radius:6px;background:#4ade801a;color:#9ee6b4;font-size:12px;font-weight:700}
+.tlou-product .section-heading{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}
+.tlou-product .section-title{margin:10px 0 0;letter-spacing:-.02em}
+.section-heading>a{color:var(--tlou-accent);font-size:13px;white-space:nowrap}
+.tlou-gallery{display:block}.tlou-gallery figure{margin:0 0 24px}.tlou-gallery .screenshot-item{height:auto;aspect-ratio:auto;display:block;overflow:hidden;border-radius:12px}
+.tlou-gallery img{width:100%;height:auto;display:block;object-fit:contain}
+.tlou-gallery figcaption,.capture-note{font-size:12px!important;color:#a8b1a7;line-height:1.7;margin-top:12px}
+.support-list{margin-top:26px}.support-list>div{padding:14px 0;border-top:1px solid #ffffff12}.support-list dt{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#aab3a7}.support-list dd{margin:6px 0 0;font-size:13px;line-height:1.6;color:#e4e8df}.support-list dd span{color:var(--tlou-accent);font-size:11px}
+.tlou-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:32px}.tlou-feature-grid h3{font-size:18px!important;margin:0 0 12px;color:#e5eccf}.tlou-feature-grid p{font-size:14px;line-height:1.8;color:#b5bdb1}
+
+.skip-link{position:fixed;top:-100px;left:20px;z-index:9999;background:#cadba0;color:#15200e;padding:14px}.skip-link:focus{top:15px}
+.tlou-product a:focus-visible,.tlou-product button:focus-visible{outline:2px solid #cadba0;outline-offset:5px}
+@media(max-width:980px){.tlou-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tlou-product .content-grid{grid-template-columns:minmax(0,1fr)}.tlou-product .sidebar{position:static}.tlou-product .purchase-card{max-width:none}}
+@media(max-width:600px){.tlou-product .main-content{padding:120px 18px 30px}.tlou-feature-grid{grid-template-columns:1fr;gap:24px}.tlou-product .section-heading{align-items:start;flex-direction:column}.tlou-product .description-section{padding:24px 20px}}
+@media(prefers-reduced-motion:reduce){.tlou-product *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Use the shared free-key chooser with native dialog focus and Escape handling. */
+.tlou-product #freeKeyModal{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;color:#fff}
+.tlou-product #freeKeyModal[open]{display:flex;align-items:center;justify-content:center}
+.tlou-product #freeKeyModal::backdrop{background:transparent}
+.tlou-product #freeKeyModal .freekey-modal{position:relative}
+.tlou-product #freeKeyModal .freekey-modal-close{position:absolute;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.tlou-product #freeKeyModal .freekey-step{display:flex;align-items:flex-start}
+.tlou-product #freeKeyModal .freekey-step-num{display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700}
+.tlou-product #freeKeyModal .freekey-btn{display:flex;align-items:center;justify-content:center;text-decoration:none}
+.tlou-product #freeKeyModal .freekey-tip{display:flex;align-items:flex-start;gap:10px}
+.tlou-product #freeKeyModal .freekey-tip svg{flex-shrink:0}

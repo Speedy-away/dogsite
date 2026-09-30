@@ -56,7 +56,7 @@ const html = `<!DOCTYPE html>
 ${sections}
 <footer><a href="/docs/">All API references</a><a href="/products/l4d/">Left 4 Dead product page</a><a href="#main-content">Back to top ↑</a></footer>
 </main></body></html>\n`;
-fs.writeFileSync(path.join(root,destination.slice(1)),html);
+fs.writeFileSync(path.join(root,destination.slice(1)),require('./seo-metadata').applyMetadata(destination.slice(1),html));
 fs.writeFileSync(path.join(root,'assets/data/docs-search.json'),JSON.stringify(search,null,2)+'\n');
 fs.writeFileSync(path.join(root,'docs/l4d/index.html'),`<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Left 4 Dead Lua API</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="https://scoobymenu.cc${destination}"><script>location.replace('${destination}' + location.search + location.hash);</script></head><body><p>The L4D API reference has moved. <a href="${destination}">Open the Left 4 Dead Lua API reference</a>.</p></body></html>\n`);

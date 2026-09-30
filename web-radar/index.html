@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#080a0e">
+  <title>Web Radar · Scooby</title>
+  <link rel="icon" href="/assets/images/brand/scooby-logo.png">
+  <link rel="stylesheet" href="/assets/css/site-brand.css">
+  <link rel="stylesheet" href="/web-radar/radar.css">
+  <script type="module" src="/web-radar/app.mjs"></script>
+</head>
+<body>
+<header>
+  <a class="scooby-brand" href="/" aria-label="Scooby home"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a>
+  <span class="divider"></span><h1>Web Radar <span>COUNTER-STRIKE 2</span></h1>
+  <div class="connection"><i id="status-dot"></i><span id="status" role="status">Waiting for a link</span></div>
+  <button id="copy" type="button" disabled>Copy link</button>
+</header>
+<main>
+  <div class="matchbar"><div><span class="eyebrow">LIVE OVERVIEW</span><h2 id="map-name">Your match, in view.</h2></div><div class="matchmeta"><span id="entity-count">Host-powered radar</span><span id="freshness">Private session</span></div></div>
+  <div class="radar-layout">
+    <aside class="team t-team" aria-label="Terrorist players"><div class="team-heading"><span>TERRORISTS</span><strong id="t-alive">—</strong></div><div id="t-roster" class="roster"><p class="empty-roster">Players appear when the host joins a match.</p></div></aside>
+    <section class="overview" aria-label="Live map">
+      <div class="map-tools"><span id="map-label">SCOOBY / RADAR</span><label>Floor <select id="floor"><option value="auto">Follow host</option><option value="upper">Upper</option><option value="lower">Lower</option></select></label><button id="fullscreen" type="button" aria-label="Toggle fullscreen map">Fullscreen</button></div>
+      <div id="map-stage"><canvas id="radar" width="1024" height="1024" aria-label="Player positions, dropped weapons, bomb and utility"></canvas><div class="state-panel" id="state-panel"><span class="radar-symbol" aria-hidden="true">◎</span><h3 id="state-title">Follow a match</h3><p id="state-description">Open a shared radar link, or generate one in Scooby under Misc → Web Radar.</p></div><span id="map-warning" hidden></span></div>
+      <div class="legend"><span><i class="t-swatch"></i>T player</span><span><i class="ct-swatch"></i>CT player</span><span><b>C4</b>Bomb</span><span><i class="smoke-swatch"></i>Smoke</span><span><i class="fire-swatch"></i>Fire</span><span>◇ Drop</span></div>
+    </section>
+    <aside class="team ct-team" aria-label="Counter-terrorist players"><div class="team-heading"><span>COUNTER-TERRORISTS</span><strong id="ct-alive">—</strong></div><div id="ct-roster" class="roster"><p class="empty-roster">Players appear when the host joins a match.</p></div></aside>
+  </div>
+  <footer><span id="footer-status">Live data comes from the player sharing this link.</span><div class="filters"><label><input id="names" type="checkbox" checked> Names</label><label><input id="drops" type="checkbox" checked> Weapon drops</label><label><input id="utility" type="checkbox" checked> Utility</label></div></footer>
+</main>
+<noscript><p class="noscript">Enable JavaScript to receive live radar updates.</p></noscript>
+</body>
+</html>

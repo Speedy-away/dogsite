@@ -38,6 +38,22 @@
     "status": "released"
   },
   {
+    "id": "tf2",
+    "name": "TF2 & TF2 Classified",
+    "engine": "source",
+    "group": "released",
+    "kind": "Two editions · Class-based multiplayer",
+    "image": "/assets/images/tf2/tf2-logo-transparent-v1.png",
+    "href": "/products/tf2/",
+    "text": "Team Fortress 2 and TF2 Classified share one launcher entry, with separate game files, settings and scripts.",
+    "aliases": "TF2 teamfortress2 TF2 Classified Team Fortress 2 cheat TF2C free TF2 cheat TF2 ESP chams skins aimbot Lua",
+    "status": "released",
+    "background": "/assets/images/tf2/background-v1.webp",
+    "guide": "/guides/tf2/",
+    "docs": "/docs/tf2/",
+    "features": "/features-list/tf2-features/"
+  },
+  {
     "id": "sbox",
     "name": "S&box",
     "engine": "source2",
@@ -61,18 +77,6 @@
     "text": "Half-Life 1, Blue Shift, Opposing Force and Half-Life: Source share one product, with previews and a setup guide.",
     "aliases": "HL1 half life 1 blue shift opposing force half-life source Half-Life cheat HL1 cheat",
     "status": "released"
-  },
-  {
-    "id": "tf2",
-    "name": "Team Fortress 2",
-    "engine": "source",
-    "group": "coming-soon",
-    "kind": "Class-based multiplayer",
-    "image": "/assets/images/source-games/tf2-official.jpg",
-    "href": "/products/tf2/",
-    "text": "Nine classes, RED versus BLU, and the unmistakable world of Team Fortress.",
-    "aliases": "TF2 teamfortress2 Team Fortress 2 cheat",
-    "status": "placeholder"
   },
   {
     "id": "css",

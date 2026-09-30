@@ -1,6 +1,9 @@
 """Preview the static site, including the GitHub Pages custom 404 fallback."""
 
 import argparse
+import os
+import subprocess
+import sys
 from functools import partial
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -10,6 +13,9 @@ ROOT = Path(__file__).resolve().parent.parent
 
 
 class PreviewHandler(SimpleHTTPRequestHandler):
+    # Windows MIME registries may omit WebP; match static hosting in previews.
+    extensions_map = {**SimpleHTTPRequestHandler.extensions_map, ".webp": "image/webp"}
+
     def send_error(self, code, message=None, explain=None):
         if code == HTTPStatus.NOT_FOUND:
             try:
@@ -35,7 +41,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("port", nargs="?", type=int, default=8080)
     parser.add_argument("--bind", default="127.0.0.1")
+    parser.add_argument("--no-lua-sync", action="store_true", help="Do not start CS2 docs auto-sync")
     args = parser.parse_args()
+    if not args.no_lua_sync:
+        source = Path(os.environ.get("CS2_LUA_SOURCE_ROOT", ROOT.parent / "Scooby-Op/CS2/v2"))
+        sync = source / "tools/sync_lua_site.py"
+        if sync.is_file():
+            result = subprocess.run([sys.executable, str(sync), "--background", "--site-root", str(ROOT)], check=False)
+            if result.returncode:
+                print("CS2 Lua docs sync failed; serving the last generated docs. See the error above.", flush=True)
     handler = partial(PreviewHandler, directory=str(ROOT))
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         print(f"Serving {ROOT} at http://{args.bind}:{server.server_port}/", flush=True)

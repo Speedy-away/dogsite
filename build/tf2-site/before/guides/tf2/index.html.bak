@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>TF2 &amp; TF2 Classified — Scooby TF2 Wiki</title>
+<meta name="description" content="Follow the Scooby Left 4 Dead setup steps: select L4D1 or L4D2, start the game, load the menu and open it with Insert in a local single-player map.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/tf2/">
+<meta property="og:title" content="How to Set Up Scooby in Left 4 Dead 1 &amp; 2">
+<meta property="og:description" content="Follow the Scooby Left 4 Dead setup steps: select L4D1 or L4D2, start the game, load the menu and open it with Insert in a local single-player map.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Set Up Scooby in Left 4 Dead 1 &amp; 2">
+<meta name="twitter:description" content="Follow the Scooby Left 4 Dead setup steps: select L4D1 or L4D2, start the game, load the menu and open it with Insert in a local single-player map.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/logo.png">
+<meta name="keywords" content="Scooby Menu, L4D cheat setup, Left 4 Dead setup, L4D1 loader, L4D2 loader, Scooby menu key">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/tf2/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/tf2/">
+
+  <script src="/lang/i18n.js"></script>
+<link rel="stylesheet" href="/assets/css/tf2-guides.css">
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand" href="/guides/">Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details>
+<summary>General help</summary>
+<a class="sidebar-overview" href="/guides/general/">Overview</a>
+<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/free-key/">Getting a Free Key</a>
+<a href="/guides/general/crashing/">Crashing Solutions</a>
+<a href="/guides/general/universal/">Universal Troubleshooting</a>
+<a href="/guides/general/connection/">Connection or SSL Errors</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
+<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+</details>
+<details>
+<summary>GTA 5</summary>
+<a class="sidebar-overview" href="/guides/gta5/">Overview</a>
+<a href="/guides/gta5/introduction/">Introduction</a>
+<a href="/guides/gta5/first-time/">First Time Setup</a>
+<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
+<a href="/guides/gta5/money/">Money Making Methods</a>
+<a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
+<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-customization">
+<summary>Customization</summary>
+<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
+<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
+<a href="/guides/gta5/outfits/">Outfits</a>
+<a href="/guides/gta5/themes/">Themes</a>
+<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
+</details>
+</details>
+<details>
+<summary>FiveM</summary>
+<a class="sidebar-overview" href="/guides/fivem/">Overview</a>
+<a href="/guides/fivem/fivem-requirements/">Requirements</a>
+<a href="/guides/fivem/fivem-inject/">How to Inject</a>
+<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>RedM</summary>
+<a class="sidebar-overview" href="/guides/redm/">Overview</a>
+<a href="/guides/redm/redm-requirements/">Requirements</a>
+<a href="/guides/redm/redm-inject/">How to Inject</a>
+<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>Red Dead Redemption 2</summary>
+<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
+<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
+<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
+<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
+<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+<details class="sidebar-customization" data-guide-game="rdr2">
+<summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
+<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
+<a href="/guides/rdr2/outfits/">Outfits</a>
+<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
+<a href="/guides/rdr2/themes/">Themes</a>
+<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+</details>
+</details>
+<details>
+<summary>Counter-Strike 2</summary>
+<a class="sidebar-overview" href="/guides/cs2/">Overview</a>
+<a href="/guides/cs2/cs2-requirements/">Requirements</a>
+<a href="/guides/cs2/cs2-inject/">How to Inject</a>
+<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+</details>
+<details>
+<summary>S&amp;box (Sandbox)</summary>
+<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
+<a href="/guides/sbox/requirements/">Requirements</a>
+<a href="/guides/sbox/getting-started/">Getting started</a>
+<a href="/guides/sbox/menu-settings/">Menu settings</a>
+<a href="/guides/sbox/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>Garry's Mod (GMOD)</summary>
+<a class="sidebar-overview" href="/guides/gmod/">Overview</a>
+<a href="/guides/gmod/requirements/">Requirements</a>
+<a href="/guides/gmod/getting-started/">Getting started</a>
+<a href="/guides/gmod/menu-settings/">Menu settings</a>
+<a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>The Last of Us</summary>
+<a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
+<a href="/guides/last-of-us/requirements/">Requirements</a>
+<a href="/guides/last-of-us/getting-started/">Getting started</a>
+<a href="/guides/last-of-us/menu-settings/">Menu settings</a>
+<a href="/guides/last-of-us/troubleshooting/">Troubleshooting</a>
+</details>
+<details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
+<details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a></details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Wiki</a> / <a href="/guides/tf2/">TF2 &amp; Classified</a></div><h1>TF2 &amp; TF2 Classified</h1><p class="article-intro">Everything you need to choose an edition, set up Scooby and start scripting.</p><div class="tf2-wiki-hero"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" alt="Team Fortress 2" width="739" height="249"><img src="/assets/images/tf2/tf2-classified-logo.png" alt="TF2 Classified" width="500" height="148"></div><div class="wiki-note"><strong>Free preview · Windows x64</strong><p>Both editions are free for signed-in Scooby users. Use an eligible local practice session. Each edition keeps its own files, settings and scripts.</p></div><div class="topic-grid"><a class="topic-card" href="/guides/tf2/getting-started/"><h3>Getting started →</h3><p>Set up the free TF2 preview, choose your edition and open the menu.</p></a><a class="topic-card" href="/guides/tf2/requirements/"><h3>Requirements →</h3><p>Check your game edition, Windows architecture, account and session before loading.</p></a><a class="topic-card" href="/guides/tf2/editions/"><h3>TF2 or TF2 Classified →</h3><p>Choose the correct game and keep the loader’s selection and your game data in sync.</p></a><a class="topic-card" href="/guides/tf2/menu-settings/"><h3>Menu settings and profiles →</h3><p>Adjust the interface, visuals, keybinds and edition-specific settings.</p></a><a class="topic-card" href="/guides/tf2/lua-scripts/"><h3>Lua scripts →</h3><p>Run examples in either edition and use the shared TF2 host API.</p></a><a class="topic-card" href="/guides/tf2/troubleshooting/"><h3>Troubleshooting →</h3><p>Resolve edition selection, loading, missing menu, empty data and script errors.</p></a></div><footer class="wiki-footer"><span>Scooby Wiki · TF2 &amp; Classified</span><div><a href="/products/tf2/">Product page</a><a href="/docs/tf2/">Lua documentation</a><a href="/guides/tf2/">All TF2 guides</a></div></footer></main>
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+</body>
+</html>

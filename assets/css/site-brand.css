@@ -1,0 +1,34 @@
+/* The supplied Scooby mark, prepared as a clear alpha mask for small UI sizes. */
+.scooby-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.scooby-brand > .scooby-emblem {
+    display: inline-block !important;
+    margin: 0 !important;
+    color: inherit !important;
+    background-clip: border-box !important;
+    -webkit-background-clip: border-box !important;
+    filter: drop-shadow(0 0 .3px currentColor);
+    flex: 0 0 auto;
+    width: 36px;
+    height: 42px;
+    background: currentColor !important;
+    -webkit-mask-image: url('/assets/images/brand/scooby-mark.svg');
+    mask-image: url('/assets/images/brand/scooby-mark.svg');
+    mask-mode: alpha;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+.scooby-brand.brand, .scooby-brand.portal-logo { color: inherit; }
+.scooby-brand .brand-name { line-height: 1.1; }
+@media (max-width: 600px) {
+    .scooby-brand { gap: 7px; }
+    .scooby-brand > .scooby-emblem { width: 29px; height: 34px; }
+}

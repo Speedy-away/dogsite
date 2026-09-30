@@ -2,6 +2,8 @@
 function portalProductLogo(...values) {
     const names = values.filter(Boolean).map(value => String(value).toLowerCase().replace(/[^a-z0-9]/g, ''));
     const logos = [
+        { pattern:/tf2classified|teamfortress2classified/, id:'tf2-classified', src:'/assets/images/tf2/tf2-classified-logo.png' },
+        { pattern:/teamfortress2|^tf2$/, id:'tf2', src:'/assets/images/tf2/tf2-logo-transparent-v1.png' },
         { pattern:/fivem/, id:'fivem', src:'/portal/images/product-logos/fivem.png' },
         { pattern:/redm/, id:'redm', src:'/portal/images/product-logos/redm.png' },
         { pattern:/grandtheft|gtalegacy|gtaenhanced|gtabe|gta5|gtav|^gta$/, id:'gta-v', src:'/assets/images/store/gta5-logo-transparent.png' },
@@ -25,8 +27,10 @@ function portalProductArtwork(...values) {
         [/left4dead|leftfordead|l4d/, 'l4d'], [/lastofus|tlou/, 'tlou'],
         [/spoofer|hwid/, 'spoofer']
     ];
+    if(/tf2classified|teamfortress2classified/.test(name))return '/assets/images/tf2/tf2-classified-logo.png';
+    if(/teamfortress2|^tf2$/.test(name))return '/assets/images/tf2/tf2-logo-transparent-v1.png';
     const match = artwork.find(([pattern]) => pattern.test(name));
-    return match ? `images/product-icons/${match[1]}.png` : '../assets/images/logo.png';
+    return match ? `images/product-icons/${match[1]}.png` : '/assets/images/brand/scooby-logo.png';
 }
 
 (() => {
@@ -44,7 +48,7 @@ function portalProductArtwork(...values) {
         rows.forEach(row => {
             const title = row.querySelector('.node-title').textContent;
             const source = portalProductArtwork(title);
-            if (!source.includes('assets/images/logo')) {
+            if (!source.includes('/brand/scooby-logo.png')) {
                 const image = document.createElement('img');
                 image.src = source;
                 image.alt = '';

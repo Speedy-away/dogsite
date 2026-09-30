@@ -1,0 +1,16 @@
+# Serve the same dogsite checkout on your VPS. Caddy obtains the HTTPS certificate.
+# Point scoobymenu.cc at this server only after the site and relay are tested.
+scoobymenu.cc {
+    @radar path /web-radar /web-radar/*
+    handle @radar {
+        reverse_proxy 127.0.0.1:8787 {
+            flush_interval -1
+        }
+    }
+    handle {
+        root * /srv/dogsite
+        file_server {
+            hide .git .github build tools *.md *.sln *.vcxproj *.ps1 *.bat
+        }
+    }
+}

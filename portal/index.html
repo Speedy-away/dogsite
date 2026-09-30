@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scooby Dashboard</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" href="/assets/images/logo.png" type="image/x-icon">
+    <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -131,8 +132,8 @@
     <!-- Header (matching index.html style) -->
     <header class="portal-header" aria-label="Scooby portal header">
         <div class="header-top">
-            <a href="/" class="portal-logo">
-                <img src="../assets/images/logo.png" alt="Scooby Logo">
+            <a href="/" class="portal-logo scooby-brand">
+                <span class="scooby-emblem" aria-hidden="true"></span>
                 <span id="portalName">Scooby</span>
             </a>
             <nav class="nav-bar" aria-label="Portal navigation">
@@ -1630,7 +1631,7 @@
             <p id="dashboardDownloadDescription">Get the latest Scooby installer.</p>
             <div class="portal-loader-card">
                 <div class="portal-loader-product">
-                    <div class="portal-loader-logo"><img src="/assets/images/logo.png" width="42" height="42" alt=""></div>
+                    <div class="portal-loader-logo"><img src="/assets/images/brand/scooby-logo.png" width="42" height="42" alt=""></div>
                     <div class="portal-loader-info"><h3>Scooby loader</h3><span><i class="fab fa-windows" aria-hidden="true"></i> For Windows</span></div>
                     <span class="portal-loader-mark" aria-hidden="true"><i class="fas fa-download"></i></span>
                 </div>
@@ -1773,7 +1774,7 @@
                 artwork.loading = 'lazy';
                 artwork.addEventListener('error', () => {
                     artwork.className = 'dashboard-product-art dashboard-product-logo';
-                    artwork.src = '../assets/images/logo.png';
+                    artwork.src = '/assets/images/brand/scooby-logo.png';
                 }, { once: true });
                 row.append(artwork, info, badge);
                 fragment.append(row);

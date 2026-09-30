@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "Card order, all images, filters, aliases, empty/reset, anchors and layout at 1440px",
+    "Card order, all images, filters, aliases, empty/reset, anchors and layout at 768px",
+    "Card order, all images, filters, aliases, empty/reset, anchors and layout at 375px",
+    "Card order, all images, filters, aliases, empty/reset, anchors and layout at 320px",
+    "Both released products: labels, free access, setup/limitations, 1440/375/320px layouts and original artwork",
+    "All seven placeholder cards open local product pages and return; Coming soon, artwork, canonical metadata and 1440/375/320px layouts",
+    "All local destinations HTTP 200, structured data, complete no-JavaScript catalog and product navigation"
+  ],
+  "errors": [],
+  "failures": []
+}

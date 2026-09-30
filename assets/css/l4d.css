@@ -2,11 +2,9 @@
 
 .l4d-page .hero-bg{background:linear-gradient(180deg,rgba(8,8,8,.25),rgba(8,8,8,.55) 60%,var(--bg-primary))}
 
-/* Match the shared GTA 5 gallery proportions while retaining accessible buttons. */
-.l4d-page .screenshot-item {
-    aspect-ratio:16/9;
-}
-.l4d-page .screenshot-item img {
-    height:100%;
-    object-fit:cover;
-}
+/* Preserve complete UI screenshots and keep their captions outside the image. */
+.l4d-page .screenshot-item { aspect-ratio:auto; }
+.l4d-page .screenshot-frame { display:block; aspect-ratio:1000/671; background:#101418; }
+.l4d-page .screenshot-frame img { width:100%; height:100%; object-fit:contain; }
+.l4d-page .preview-caption { display:block; padding:12px 14px; font-size:.85rem; line-height:1.5; }
+.l4d-page .preview-caption>span { display:block; margin-top:2px; color:var(--text-secondary); font-size:.75rem; }

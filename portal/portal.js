@@ -201,6 +201,8 @@ async function fetchSubscriptionsConfig() {
         'FiveM': 'images/FIVEM.webp',
         'Spoofer': 'images/Spoofer.jpg',
         'cs2': 'images/cs2.jpg',
+        'tf2': '/assets/images/tf2/background-v1.webp',
+        'tf2-classified': '/assets/images/tf2/background-v1.webp',
         'GTABE': 'images/GTA5BE.webp'
     };
 

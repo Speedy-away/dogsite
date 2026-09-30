@@ -58,3 +58,6 @@
 .tlou-product #freeKeyModal .freekey-btn{display:flex;align-items:center;justify-content:center;text-decoration:none}
 .tlou-product #freeKeyModal .freekey-tip{display:flex;align-items:flex-start;gap:10px}
 .tlou-product #freeKeyModal .freekey-tip svg{flex-shrink:0}
+
+/* Collection breadcrumbs on individual product pages. */
+.product-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:24px;color:var(--text-secondary);font-size:12px;line-height:1.6}.product-breadcrumb a{color:var(--text-secondary);text-decoration:none}.product-breadcrumb a:hover{color:var(--product-accent,#cadba0)}

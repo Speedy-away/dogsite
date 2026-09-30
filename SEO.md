@@ -44,6 +44,18 @@ Run `node tools/validate-search-pages.js <output-directory>` with Playwright and
 
 For search performance, compare equivalent periods in Search Console and Bing Webmaster Tools. Filter by page, query, device and country; prioritize relevant queries with substantial impressions and low click-through rates. Review the landing page and search intent before changing a title or description. Do not infer impressions or clicks from public searches.
 
+## Social link previews
+
+The supplied Scooby logo is stored unchanged at `assets/images/brand/scooby-logo.png`. `tools/site-branding.js` maintains the static header marks and PNG favicons, and is called by the metadata generator; run it with `--apply` for the portal and error page as well. `node tools/build-brand-assets.js` derives the small UI mask from the unchanged PNG; the social-card build runs this step too. `assets/css/site-brand.css` uses that alpha mask so the mark follows dark and light theme text colors. Preview game marks are mapped in `tools/social-logos.js`; new official Steam assets record their source URLs in `assets/images/game-logos/sources.json`. Shared game sections use a mixed logo collection, while product cards show their own game marks.
+
+Public pages use branded PNG cards from `assets/images/social/`, including section cards for the Wiki, developer docs, store and support, and individual product cards. The card catalog and route mapping live in `tools/social-cards.js`. Text and layout are rendered from HTML/CSS by `tools/build-social-cards.js`; source artwork and on-page backgrounds are independent.
+
+To change card content or layout, run `node tools/build-social-cards.js` with Playwright and Microsoft Edge available, then `node tools/seo-metadata.js --apply`. The generated PNGs are committed assets; deployment does not need a renderer. When replacing published graphics, increment `VERSION` in the catalog and regenerate the cards and page metadata to give crawlers a new image URL.
+
+The metadata generator writes matching Open Graph and Twitter images, their alt text, and the PNG dimensions/type directly into each HTML head. CS2, TF2, L4D and feature-page generators use that helper so rebuilding content keeps the preview metadata. Check with `node --test tools/seo.test.js tools/social-cards.test.js`.
+
+Publish the HTML and image assets together. Chat platforms may keep cached previews of links shared before deployment; a local regeneration does not update an existing message.
+
 ## Release maintenance
 
 From the repository root, using Node 22 or later:

@@ -1,0 +1,15 @@
+/* More Games uses the existing collection layout and loader cover artwork. */
+.more-games-art{position:relative;overflow:hidden;width:100%;height:100%;background:radial-gradient(ellipse at 75% 65%,#89572c66,transparent 65%),#121a22}
+.more-games-art img{position:absolute;width:65%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid #ffffff30;border-radius:9px;box-shadow:0 14px 36px #0009}
+.more-games-art img:first-child{top:5%;left:6%;transform:rotate(-9deg)}
+.more-games-art img:last-child{bottom:5%;right:5%;transform:rotate(8deg)}
+.catalog-art.more-games-catalog-art{padding:0}.catalog-art.more-games-catalog-art .more-games-art img{width:65%;height:auto;object-fit:cover}
+.more-games-collection .collection-hero{min-height:460px;background:#10161d}
+.more-games-collection .collection-hero>.more-games-art{position:absolute;inset:0 0 0 auto;width:55%;z-index:-1}
+.more-games-collection .collection-hero::after{background:linear-gradient(90deg,#10161d 34%,#10161d55 58%,transparent 74%);pointer-events:none}
+.more-games-collection .collection-hero-copy{max-width:55%;padding:48px;z-index:1}
+.more-games-collection .source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.more-games-collection .source-card-art>img{object-fit:contain}
+.more-games-collection .source-card-copy{min-height:142px}
+@media(max-width:760px){.more-games-collection .collection-hero{min-height:600px;align-items:flex-end}.more-games-collection .collection-hero>.more-games-art{inset:0 0 auto;width:100%;height:320px}.more-games-collection .collection-hero::after{background:linear-gradient(0deg,#10161d 38%,#10161d00 65%)}.more-games-collection .collection-hero-copy{padding:320px 24px 30px;max-width:100%;width:100%}.more-games-collection .collection-hero h1{font-size:42px}.more-games-collection .collection-hero-caption{top:16px;left:16px;bottom:auto;right:auto;padding:6px 9px;border-radius:4px;background:#10161de6}.more-games-collection .collection-hero-actions .collection-button{width:100%}}
+@media(max-width:580px){.more-games-collection .source-grid{grid-template-columns:1fr}}

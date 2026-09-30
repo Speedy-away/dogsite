@@ -85,6 +85,7 @@
     document.addEventListener('keydown', event => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); openSearch(); } });
     input.addEventListener('input', render);
     input.addEventListener('keydown', event => {
+        if (event.key === 'Escape') { event.preventDefault(); dialog.close(); return; }
         if (event.key === 'ArrowDown' && results.firstElementChild) { event.preventDefault(); results.firstElementChild.focus(); }
         if (event.key === 'Enter' && results.firstElementChild) { event.preventDefault(); results.firstElementChild.click(); }
     });

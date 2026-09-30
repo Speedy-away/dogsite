@@ -11,10 +11,9 @@ const languageLabels = { es:'Idiomas', pt:'Idiomas', 'pt-br':'Idiomas', fr:'Lang
 const games = [
   ['gta5', 'GTA 5', '/features-list/gta-features/'], ['rdr2', 'Red Dead Redemption 2', '/features-list/rdr2-features/'],
   ['fivem', 'FiveM', '/fivem-features/'], ['redm', 'RedM', null], ['cs2', 'Counter-Strike 2', '/features-list/cs2-features/'],
-  ['gmod', "Garry's Mod", '/features-list/gmod-features/'], ['l4d', 'Left 4 Dead 1 & 2', '/features-list/l4d-features/'],
-  ['sbox', 'S&box', null], ['last-of-us', 'The Last of Us Part I', '/features-list/last-of-us-features/'],
-  ['half-life-1', 'Half-Life 1', '/features-list/half-life-1-features/'], ['half-life-2', 'Half-Life 2', null],
-  ['half-life-2-deathmatch', 'Half-Life 2: Deathmatch', null], ['spoofer', 'HWID Spoofer + Cleaner', null],
+  ['gmod', "Garry's Mod", '/features-list/gmod-features/'], ['l4d', 'Left 4 Dead 1 & 2', '/features-list/l4d-features/'], ['tf2', 'Team Fortress 2 & TF2 Classified', '/features-list/tf2-features/'],
+  ['sbox', 'S&box', null], ['source-games', 'Source Games', null, '/source-games/'],
+  ['more-games', 'More Games', null, '/more-games/'], ['spoofer', 'HWID Spoofer + Cleaner', null],
 ];
 const languageLinks = (code = 'en') => [['en', { tag:'en', native:'English' }], ...Object.entries(locales)].map(([key, locale]) =>
   `<a href="${key === 'en' ? '/' : '/lang/' + key + '/'}" lang="${locale.tag}" hreflang="${locale.tag}" data-site-language="${key}"${code === key ? ' aria-current="page"' : ''}>${escape(locale.native)}</a>`).join('\n');
@@ -33,7 +32,7 @@ for (const [code, locale] of Object.entries(locales)) {
   const dictionary = context.window.__scoobyI18nQueue.find(([key]) => key === code)?.[1];
   const t = key => { if (!dictionary?.[key]) throw Error(`Missing ${code} UI translation: ${key}`); return escape(dictionary[key]); };
   const file = 'lang/' + code + '/index.html';
-  const cards = games.map(([slug, name, features]) => `<article class="game-card"><h3><a href="/products/${slug}/">${escape(name)}</a></h3><div class="game-links"><a href="/products/${slug}/">${t('View Details')}</a>${features ? `<a href="${features}">${t('Features')}</a>` : ''}${fs.existsSync(path.join(ROOT, 'guides', slug, 'index.html')) ? `<a href="/guides/${slug}/">${t('Guides')}</a>` : ''}</div></article>`).join('\n');
+  const cards = games.map(([slug, name, features, collection]) => `<article class="game-card"><h3><a href="${collection || `/products/${slug}/`}">${escape(name)}</a></h3><div class="game-links"><a href="${collection || `/products/${slug}/`}">${t('View Details')}</a>${features ? `<a href="${features}">${t('Features')}</a>` : ''}${fs.existsSync(path.join(ROOT, 'guides', slug, 'index.html')) ? `<a href="/guides/${slug}/">${t('Guides')}</a>` : ''}</div></article>`).join('\n');
   const html = `<!DOCTYPE html>
 <html lang="${locale.tag}" dir="${locale.rtl ? 'rtl' : 'ltr'}" data-site-language="${code}">
 <head>

@@ -612,7 +612,11 @@
       open();
     });
     window.addEventListener('resize', function () { if (root.classList.contains('open')) positionMenu(); });
-    window.addEventListener('scroll', function () { if (root.classList.contains('open')) close(); }, true);
+    window.addEventListener('scroll', function (e) {
+      // Capture also receives the language list's own scroll events.
+      if (menu.contains(e.target)) return;
+      if (root.classList.contains('open')) close();
+    }, true);
     document.addEventListener('click', function (e) {
       if (!root.contains(e.target)) close();
     });

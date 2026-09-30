@@ -1,13 +1,15 @@
 /* Search metadata: node tools/seo-metadata.js [--apply]. */
 const fs = require('fs'), path = require('path');
 const { structure } = require('./seo-structured');
+const { cardFor } = require('./social-cards');
+const { applyBranding } = require('./site-branding');
 const locales = require('./search-locales.json');
 const ROOT = path.resolve(__dirname, '..'), SITE = 'https://scoobymenu.cc';
 const pages = {};
 function add(file, title, description, keywords) { pages[file] = {title, description, keywords: 'Scooby Menu, ' + keywords}; }
 const rows = `
 products/bodycam/index.html|Bodycam — Free · Coming Soon - Scooby|Bodycam is coming to Scooby with free access. Preview the new dashboard artwork; product details, features and setup information are coming soon.|Bodycam cheat, Bodycam, free access, coming soon, Scooby Bodycam
-products/tf2/index.html|Team Fortress 2 — Coming Soon - Scooby|Team Fortress 2 is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Team Fortress 2 cheat, Source Games, Team Fortress 2, TF2 teamfortress2
+products/tf2/index.html|TF2 & TF2 Classified — Free Preview - Scooby|Choose Team Fortress 2 or TF2 Classified in Scooby Launcher. Two Windows x64 editions, free access for signed-in users, and separate game settings.|Team Fortress 2 cheat, Source Games, Team Fortress 2, TF2 teamfortress2
 products/css/index.html|Counter-Strike: Source — Coming Soon - Scooby|Counter-Strike: Source is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Counter-Strike Source cheat, Source Games, Counter-Strike: Source, CSS CS:S counter strike source
 products/portal/index.html|Portal 1 & 2 — Coming Soon - Scooby|Portal 1 & 2 is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Portal cheat, Source Games, Portal 1 & 2, Portal Portal 1 Portal 2 Aperture
 products/half-life-2/index.html|Half-Life 2 — Free - Scooby|Scooby for Half-Life 2 is released with free access on Windows. Setup details and compatibility information.|Half-Life 2 cheat, Source Games, Half-Life 2, HL2 half life 2 campaign
@@ -19,15 +21,17 @@ products/counter-strike/index.html|Counter-Strike 1.6 — Coming Soon - Scooby|C
 products/day-of-defeat/index.html|Day of Defeat — Coming Soon - Scooby|Day of Defeat is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Day of Defeat cheat, Source Games, Day of Defeat, DOD day of defeat classic
 source-games/index.html|Source Games - Scooby|Explore Scooby Source Games: CS2, Garry’s Mod, Left 4 Dead, Portal 1 & 2, Team Fortress, Half-Life, Counter-Strike and the GoldSrc classics.|Source game cheats, GoldSrc cheats, CS2 cheat, GMOD cheat, L4D cheat, Half-Life cheat, Counter-Strike Source cheat, Team Fortress 2 cheat, Portal cheat, Scooby Source Games
 products/half-life-1/index.html|Half-Life 1 Cheat - Scooby|Explore the Half-Life 1 collection: Half-Life, Blue Shift, Opposing Force and Half-Life: Source. View real gameplay screenshots, features and edition guides.|Half-Life 1, HL1, GoldSrc, Source Games, Half Life cheat, Half-Life ESP, animated chams, Lua, campaign, godmode, noclip, Half-Life guide, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, Half-Life screenshots
-guides/source-games/index.html|Source & GoldSrc Game Setup Guides - Scooby|Find Scooby setup guides for Half-Life, Left 4 Dead and other Source games. Check each game’s requirements, menu controls and troubleshooting steps.|Source game cheat guides, GoldSrc cheat guides, Half-Life cheat setup, Left 4 Dead cheat setup, Scooby setup guides
+guides/source-games/index.html|Source & GoldSrc Game Setup Guides - Scooby|Set up Scooby for CS2, GMOD, TF2 & Classified, Left 4 Dead, S&box and Half-Life. Find game requirements, menu controls and troubleshooting guides.|Source game cheat guides, GoldSrc cheat guides, TF2 setup, TF2 Classified guide, Half-Life cheat setup, Left 4 Dead cheat setup, Scooby setup guides
 guides/half-life-1/index.html|Half-Life 1 guide - Scooby Wiki|One guide for Half-Life 1, Blue Shift, Opposing Force and Half-Life: Source. Choose your edition and explore setup, menu settings and gameplay previews.|Half-Life 1 cheat setup, Half-Life 1, HL1, GoldSrc, Source Games, Half Life cheat, Half-Life ESP, animated chams, Lua, campaign, godmode, noclip, Half-Life guide, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, Half-Life screenshots
 guides/half-life-1/requirements/index.html|Half-Life 1 Requirements & VC Runtimes - Scooby|Check Scooby Half-Life requirements, Windows game editions, OpenGL and Direct3D compatibility, package status and Visual C++ runtime installation.|Half-Life 1 cheat setup, Half-Life requirements, Half-Life OpenGL, Half-Life Source Direct3D, Visual C++ runtimes
 guides/half-life-1/getting-started/index.html|Half-Life, Blue Shift & Opposing Force Setup - Scooby|Set up Scooby for Half-Life, Blue Shift, Opposing Force or Half-Life: Source. Select your installed edition, check the renderer and open the menu.|Half-Life 1 cheat setup, Half-Life setup, Blue Shift setup, Opposing Force setup, Half-Life Source menu
 guides/half-life-1/menu-settings/index.html|Half-Life 1 Menu Settings, Hotkeys & Profiles - Scooby|Customize Scooby Half-Life visuals, materials, language, menu keys and saved profiles. Find settings for the Half-Life 1 collection.|Half-Life 1 cheat setup, Half-Life menu settings, Half-Life hotkeys, Scooby profiles, Half-Life visuals
 guides/half-life-1/troubleshooting/index.html|Half-Life 1 Edition & Loader Troubleshooting - Scooby|Troubleshoot Scooby Half-Life edition mismatches, unavailable loading options, missing fonts or scripts and session-dependent features.|Half-Life 1 cheat setup, Half-Life loader troubleshooting, Scooby edition mismatch, Half-Life missing assets
 features-list/half-life-1-features/index.html|Half-Life 1 Features — Scooby|Explore Half-Life 1 ESP, animated chams, radar, Lua, profiles and campaign controls. Search features and check their current availability.|Half-Life 1, HL1, GoldSrc, Source Games, Half Life cheat, Half-Life ESP, animated chams, Lua, campaign, godmode, noclip, Half-Life guide, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, Half-Life screenshots
-products/l4d/index.html|Free Left 4 Dead 1 & 2 Cheat — Scooby|Free Scooby cheat for Left 4 Dead 1 and 2: Silent and pSilent aim, native glow, team HUD, movement exploits, animated chams, VFX and Lua.|Left 4 Dead cheat, Left 4 Dead 2 cheat, L4D cheat, L4D1 cheat, L4D2 cheat, free L4D cheat, infected ESP, animated chams, L4D Lua API, Scooby L4D, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits
+products/l4d/index.html|Free Left 4 Dead 1 & 2 Cheat — Scooby|Free Scooby cheat for Left 4 Dead 1 and 2: campaign VFX presets, 12 skies, independent chams, infected ESP, movement tools and Lua.|Left 4 Dead cheat, Left 4 Dead 2 cheat, L4D cheat, L4D1 cheat, L4D2 cheat, free L4D cheat, infected ESP, animated chams, L4D Lua API, Scooby L4D, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits
 features-list/l4d-features/index.html|Left 4 Dead 1 & 2 Features — Scooby|Browse Left 4 Dead 1 and 2 features: Silent / pSilent, auto fire, glow, team HUD, movement exploits, game controls, chams, VFX and Lua.|L4D cheat features, L4D1 cheat, L4D2 cheat, Left 4 Dead 2 cheat features, infected ESP, animated chams, L4D Lua, L4D profiles, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits
+api/cs2/index.html|CS2 Lua API — Scooby Developer Docs|Search the Scooby CS2 API: player snapshots, visuals, rendering, settings, hotkeys and standalone Lua interfaces.|CS2 Lua API, Scooby scripting, Lua templates
+docs/cs2/index.html|CS2 Lua scripts — Scooby Developer Docs|Get started with Scooby CS2 Lua, download standalone visual templates, and browse the host and UI API.|CS2 Lua scripts, standalone Lua UI, Scooby Lua
 api/l4d_api_reference.html|Left 4 Dead Lua API Reference - Scooby Developer Docs|L4D1 and L4D2 snapshots, entities, projection, rendering, UI controls and working Lua snippets.|L4D cheat Lua API, Left 4 Dead Lua scripting, L4D1 Lua, L4D2 Lua, entity snapshots, Lua rendering, Scooby developer docs
 guides/l4d/index.html|Left 4 Dead 1 & 2 Setup & Troubleshooting - Scooby|Set up Scooby for Left 4 Dead 1 and 2 on Windows. Find Steam game requirements, loader instructions, menu controls, Lua tools and troubleshooting.|L4D cheat setup, Left 4 Dead setup, L4D1 guide, L4D2 guide, Scooby L4D troubleshooting
 guides/l4d/getting-started/index.html|How to Set Up Scooby in Left 4 Dead 1 & 2|Follow the Scooby Left 4 Dead setup steps: select L4D1 or L4D2, start the game, load the menu and open it with Insert in a local single-player map.|L4D cheat setup, Left 4 Dead setup, L4D1 loader, L4D2 loader, Scooby menu key
@@ -51,9 +55,9 @@ guides/last-of-us/requirements/index.html|The Last of Us Part I Requirements —
 guides/last-of-us/getting-started/index.html|How to Load Scooby in The Last of Us Part I|Launch Part I through Steam, detect the running game, load the verified Scooby module and open the menu with F1 or Insert. Step-by-step setup.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
 guides/last-of-us/menu-settings/index.html|The Last of Us Menu Settings & Configs — Scooby Wiki|Configure Part I ESP, hotkeys, UI and overlay scale, languages and saved profiles. Find your config folder and learn the activation modes.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
 guides/last-of-us/troubleshooting/index.html|The Last of Us Loader & Feature Fixes — Scooby Wiki|Troubleshoot Part I process detection, missing overlays, download verification, disabled features and character-spawn requirements.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
-index.html|Scooby Cheats & Mod Menus for GTA 5, RDR2 & More|Explore Scooby cheats and mod menus for GTA 5 and RDR2, plus cheats for CS2, GMOD, L4D and more. Compare editions, features and setup guides.|Scooby cheats, GTA 5 cheats, GTA 5 mod menu, RDR2 cheats, RDR2 mod menu, CS2 cheat, GMOD cheat, Garry's Mod cheat, L4D cheat, Left 4 Dead 2 cheat, FiveM cheat, RedM cheat, S&box cheat, The Last of Us Part I cheat, Half-Life cheat
+index.html|Scooby Cheats & Mod Menus for GTA 5, RDR2 & More|Explore Scooby for GTA 5, RDR2, CS2, GMOD, TF2 & Classified, L4D, Half-Life and more. Browse cheats, mod menus, features and setup guides.|Scooby cheats, GTA 5 cheats, GTA 5 mod menu, RDR2 cheats, RDR2 mod menu, CS2 cheat, GMOD cheat, Garry's Mod cheat, TF2 cheat, TF2 Classified cheat, L4D cheat, Left 4 Dead 2 cheat, FiveM cheat, RedM cheat, S&box cheat, The Last of Us Part I cheat, Half-Life cheat
 sitemap/index.html|Scooby Site Directory: Games, Features & Setup Guides|Find Scooby game pages, feature lists, installation guides, troubleshooting, Lua API documentation and official support resources in one site directory.|Scooby site directory, Scooby games, game guides, Scooby documentation
-store/index.html|Scooby Store: Free & Premium Cheats and Mod Menus|Browse premium plans, free games and tools, including CS2, GMod, Left 4 Dead, S&box, Spoofer + Cleaner and Half-Life. Complete simple steps to get a free key.|Scooby store, free cheats, premium cheats, GTA 5 cheats, GTA 5 mod menu, RDR2 cheats, RDR2 mod menu, CS2 cheat, GMOD cheat, L4D cheat, FiveM cheat, RedM cheat, S&box cheat, Half-Life cheat, Scooby pricing
+store/index.html|Scooby Store: Free & Premium Cheats and Mod Menus|Browse Scooby premium plans, free products and the TF2 & Classified preview. Compare game editions, explore features and find access options.|Scooby store, free cheats, premium cheats, GTA 5 cheats, GTA 5 mod menu, RDR2 cheats, RDR2 mod menu, CS2 cheat, GMOD cheat, TF2 preview, TF2 Classified, L4D cheat, FiveM cheat, RedM cheat, S&box cheat, Half-Life cheat, Scooby pricing
 best-mod-menu/index.html|Choosing Cheats & Mod Menus: Features, Pricing & FAQs - Scooby|Compare Scooby cheats and GTA 5 / RDR2 mod menu features, free and premium options, compatibility and setup. Read answers about pricing, updates and game-ban risks.|cheat comparison, GTA 5 cheats, GTA 5 mod menu comparison, RDR2 cheats, RDR2 mod menu comparison, CS2 cheat, GMOD cheat, FiveM cheat, RedM cheat, free vs premium cheats, Scooby pricing
 changelog/index.html|Scooby Menu Changelog & Release Notes|Read Scooby release notes for GTA 5, RDR2, FiveM, RedM and the loader. Track new features, improvements and fixes by version.|Scooby changelog, Scooby updates, product release notes, Scooby loader updates
 freekey.html|Get a Scooby Free Key - Product Access|Get a Scooby free key through the official key page. Follow the access steps, copy your key and use it with the Scooby loader.|Scooby free key, Scooby key page, free product key, Scooby loader
@@ -67,19 +71,19 @@ products/fivem/index.html|FiveM Cheat & Lua Executor - Scooby|Browse Scooby Five
 products/redm/index.html|RedM Cheat & Lua Executor - Scooby|Explore Scooby RedM with player tools, ESP, Lua scripting and resource management. Browse screenshots, setup guides and premium access options.|RedM cheat, Scooby RedM, RedM Lua executor, RedM ESP, RedM aimbot, RedM resource manager
 products/cs2/index.html|Free CS2 Cheat & Skin Changer - Scooby|Explore the free Scooby CS2 cheat: aim and recoil controls, ESP, chams, skins, local inventory, custom models and world effects. View features and setup guides.|CS2 cheat, Counter-Strike 2 cheat, free CS2 cheat, CS2 aimbot, CS2 triggerbot, CS2 ESP, CS2 chams, CS2 skin changer, CS2 local inventory, Scooby CS2
 products/gmod/index.html|Free GMOD Cheat: Garry’s Mod - Scooby|Explore the free Scooby GMOD cheat: Rage and Legit aim controls, ESP, chams, movement, radar and Lua tools. View screenshots and browse all features.|GMOD cheat, Garry's Mod cheat, free GMOD cheat, GMOD ESP, GMOD chams, GMOD ragebot, GMOD legitbot, GMOD Lua, Scooby GMOD
-products/free/index.html|Free Scooby Cheats & Mod Menus: Supported Games & Key Access|Explore ten free Scooby products, including Half-Life 1, Left 4 Dead 1 & 2, Garry’s Mod and S&box. Browse setup guides and free-key access with automatic resets every 24 hours.|free Scooby cheats, free GTA 5 cheats, GTA 5 mod menu, free RDR2 cheats, RDR2 mod menu, free CS2 cheat, free GMOD cheat, free Garry's Mod cheat, free FiveM cheat, free S&box cheat, free L4D1 cheat, free L4D2 cheat, free The Last of Us Part I cheat, free Half-Life cheat, Scooby free key
+products/free/index.html|Free Scooby Cheats & Mod Menus: Supported Games & Key Access|Explore free Scooby products, including Half-Life 1, Left 4 Dead 1 & 2, Garry’s Mod and S&box. Find game features, setup guides and free-key access steps.|free Scooby cheats, free GTA 5 cheats, GTA 5 mod menu, free RDR2 cheats, RDR2 mod menu, free CS2 cheat, free GMOD cheat, free Garry's Mod cheat, free FiveM cheat, free S&box cheat, free L4D1 cheat, free L4D2 cheat, free The Last of Us Part I cheat, free Half-Life cheat, Scooby free key
 products/spoofer/index.html|Scooby HWID Spoofer & Cleaner: Features & Access|Explore the Scooby HWID Spoofer and Cleaner for FiveM, RedM and GTA Online. Review supported uses, product details and free access instructions.|Scooby spoofer, HWID spoofer, FiveM cleaner, RedM cleaner, GTA Online cleaner
 products/pubg/index.html|PUBG — Coming Soon - Scooby|PUBG is coming to Scooby. Product details, previews, setup information and pricing will be announced when ready.|PUBG cheat, Scooby PUBG, PUBG, coming soon, product preview
 products/r6/index.html|Rainbow Six Siege — Coming Soon - Scooby|Rainbow Six Siege is coming to Scooby. Product details, previews, setup information and pricing will be announced when ready.|Rainbow Six Siege cheat, Scooby Rainbow Six Siege, Rainbow Six Siege, coming soon, product preview
 products/sbox/index.html|Free S&box Cheat: ESP, Aimbot & Radar - Scooby|Explore the free Scooby S&box cheat: aim tools, player and entity ESP, radar, world visuals, movement and hotkeys. Included with free-key and paid accounts.|S&box cheat, Sbox cheat, Sandbox cheat, free S&box cheat, S&box ESP, S&box aimbot, S&box radar, S&box triggerbot, Scooby S&box
-docs/index.html|Scooby Developer Docs: Lua APIs & Native References|Browse Scooby Lua API documentation for GTA 5, FiveM, RedM and Left 4 Dead, plus searchable native references for game scripting and custom menu development.|Scooby documentation, Scooby Lua API, GTA 5 scripting, FiveM natives, RedM natives, Left 4 Dead Lua API, L4D1, L4D2
+docs/index.html|Scooby Developer Docs: Lua APIs, Scripts & Native References|Browse Scooby Lua APIs, script examples and native references for GTA 5, FiveM, RedM, CS2, TF2 & Classified and Left 4 Dead.|Scooby documentation, Scooby Lua API, GTA 5 scripting, FiveM natives, RedM natives, CS2 Lua API, TF2 Lua API, TF2 Classified scripting, Left 4 Dead Lua API, L4D1, L4D2
 features-list/gta-features/index.html|GTA 5 Cheats & Mod Menu Features - Scooby|Browse Scooby GTA 5 cheats and mod menu features: heists, vehicles, recovery, player and world tools. Search feature names, descriptions and settings.|GTA 5 cheats, GTA 5 mod menu features, Scooby GTA 5 features, GTA 5 vehicle tools, GTA 5 recovery
 features-list/gmod-features/index.html|GMOD Cheat Feature List - Scooby|Browse Scooby Garry's Mod features: Rage, Legit, ESP, chams, movement, gamemode tools, Lua, profiles and interface settings. Search the full feature library.|GMOD cheat features, Garry's Mod cheat features, GMOD ragebot, GMOD legitbot, GMOD ESP, GMOD chams, GMOD Lua, Scooby GMOD
 features-list/cs2-features/index.html|CS2 Cheat Feature List - Scooby|Browse Scooby Counter-Strike 2 features and settings: aimbot, triggerbot, ESP, chams, skin changer, local inventory, models, movement and profiles.|CS2 cheat features, Counter-Strike 2 cheat features, CS2 aimbot, CS2 triggerbot, CS2 ESP, CS2 chams, CS2 skin changer, CS2 local inventory
 features-list/rdr2-features/index.html|RDR2 Cheats & Mod Menu Features - Scooby|Browse Scooby RDR2 cheats and mod menu features for Red Dead Online: player options, weapons, horses, teleports, recovery and Lua scripting.|RDR2 cheats, RDR2 mod menu features, Scooby RDR2 features, Red Dead Redemption 2 tools
 fivem-features/index.html|FiveM Cheat Feature List - Scooby|Explore Scooby FiveM features and settings for visuals, combat, movement, local player options and server tools in the searchable feature library.|FiveM cheat features, Scooby FiveM features, FiveM visuals, FiveM server tools
 scooby-features/index.html|GTA 5 Cheats & Mod Menu Highlights - Scooby|Explore Scooby GTA 5 cheat and mod menu highlights: outfits, vehicles, world controls, special powers and player tools. Browse the overview by topic.|Scooby GTA 5 overview, GTA 5 cheats, GTA 5 mod menu highlights, GTA 5 special powers
-guides/index.html|Scooby Setup Guides: Installation & Troubleshooting|Find Scooby guides for GTA 5, RDR2, FiveM, RedM, CS2, GMOD, S&box and The Last of Us Part I. Get setup steps, requirements, menu controls and troubleshooting.|Scooby cheat setup guides, GTA 5 cheats, GTA 5 mod menu setup, RDR2 cheats, RDR2 mod menu setup, CS2 cheat setup, GMOD cheat setup, L4D cheat setup, FiveM cheat setup, RedM cheat setup, S&box cheat setup, Scooby troubleshooting
+guides/index.html|Scooby Wiki: Game Setup & Troubleshooting Guides|Browse setup, requirements, menu controls and fixes for Scooby games, including GTA 5, RDR2, CS2, TF2 & Classified, L4D and Half-Life.|Scooby cheat setup guides, GTA 5 cheats, GTA 5 mod menu setup, RDR2 cheats, RDR2 mod menu setup, CS2 cheat setup, GMOD cheat setup, TF2 setup, TF2 Classified guide, L4D cheat setup, Half-Life setup, FiveM cheat setup, RedM cheat setup, S&box cheat setup, Scooby troubleshooting
 `;
 for (const row of rows.trim().split('\n')) add(...row.trim().split('|'));
 for (const [slug, game] of [['gta5','GTA 5'],['fivem','FiveM'],['redm','RedM']]) add(`api/${slug}_api_reference.html`, `${game} Lua API Reference - Scooby Developer Docs`, `Read the Scooby ${game} Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.`, `${game} Lua API, Scooby ${game} scripting, ${game} Lua functions`);
@@ -144,10 +148,82 @@ for (const [code, locale] of Object.entries(locales)) {
  pages['lang/' + code + '/index.html'] = { title: locale.title, description: locale.intro,
   keywords: pages['index.html'].keywords, language: locale.tag, ogLocale: locale.ogLocale };
 }
+// TF2 product, wiki and developer documentation.
+Object.assign(pages, {
+  "guides/tf2/getting-started/index.html": {
+    "title": "Getting started — TF2 & TF2 Classified | Scooby Wiki",
+    "description": "Set up the free TF2 preview, choose your edition and open the menu. Follow the Scooby guide for retail Team Fortress 2 and TF2 Classified.",
+    "keywords": "TF2, Team Fortress 2, TF2 Classified, Scooby, Getting started"
+  },
+  "guides/tf2/requirements/index.html": {
+    "title": "Requirements — TF2 & TF2 Classified | Scooby Wiki",
+    "description": "Check your game edition, Windows architecture, account and session before loading. Follow the Scooby guide for retail Team Fortress 2 and TF2 Classified.",
+    "keywords": "TF2, Team Fortress 2, TF2 Classified, Scooby, Requirements"
+  },
+  "guides/tf2/editions/index.html": {
+    "title": "TF2 or TF2 Classified — TF2 & TF2 Classified | Scooby Wiki",
+    "description": "Choose the correct game and keep the loader’s selection and your game data in sync. Follow the Scooby guide for retail Team Fortress 2 and TF2 Classified.",
+    "keywords": "TF2, Team Fortress 2, TF2 Classified, Scooby, TF2 or TF2 Classified"
+  },
+  "guides/tf2/menu-settings/index.html": {
+    "title": "Menu settings and profiles — TF2 & TF2 Classified | Scooby Wiki",
+    "description": "Adjust the interface, visuals, keybinds and edition-specific settings. Follow the Scooby guide for retail Team Fortress 2 and TF2 Classified.",
+    "keywords": "TF2, Team Fortress 2, TF2 Classified, Scooby, Menu settings and profiles"
+  },
+  "guides/tf2/lua-scripts/index.html": {
+    "title": "Lua scripts — TF2 & TF2 Classified | Scooby Wiki",
+    "description": "Run examples in either edition and use the shared TF2 host API. Follow the Scooby guide for retail Team Fortress 2 and TF2 Classified.",
+    "keywords": "TF2, Team Fortress 2, TF2 Classified, Scooby, Lua scripts"
+  },
+  "guides/tf2/troubleshooting/index.html": {
+    "title": "Troubleshooting — TF2 & TF2 Classified | Scooby Wiki",
+    "description": "Resolve edition selection, loading, missing menu, empty data and script errors. Follow the Scooby guide for retail Team Fortress 2 and TF2 Classified.",
+    "keywords": "TF2, Team Fortress 2, TF2 Classified, Scooby, Troubleshooting"
+  },
+  "guides/tf2/index.html": {
+    "title": "TF2 & TF2 Classified Setup and Guides — Scooby Wiki",
+    "description": "Set up the free Scooby TF2 preview. Choose retail or Classified, configure the menu, manage profiles and Lua scripts, and solve common loading problems.",
+    "keywords": "TF2 guide, TF2 Classified setup, Scooby Wiki, Team Fortress 2 cheat guide"
+  },
+  "docs/tf2/index.html": {
+    "title": "TF2 & Classified Lua Scripts — Scooby Developer Docs",
+    "description": "Start scripting in Scooby TF2 and TF2 Classified. Download HUD and player-label examples, check edition capabilities, and browse the shared Lua API.",
+    "keywords": "TF2 Lua, TF2 Classified Lua, Scooby scripts, TF2 API examples"
+  },
+  "api/tf2/index.html": {
+    "title": "TF2 & Classified Lua API Reference — Scooby Developer Docs",
+    "description": "Search the TF2 and TF2 Classified Lua API: snapshots, entities, projection, settings, capabilities, UI controls and copyable examples.",
+    "keywords": "TF2 API, tf2.info, tf2.entities, tf2c, Classified scripting, Scooby Lua API"
+  },
+  "products/tf2/index.html": {
+    "title": "Free TF2 & TF2 Classified Cheat Preview — Scooby",
+    "description": "Explore the free Scooby TF2 cheat preview for retail and Classified. Choose your edition, follow setup guides and build with the shared Lua API.",
+    "keywords": "TF2 cheat, TF2 Classified cheat, Team Fortress 2, Scooby TF2, free TF2 preview"
+  }
+});
 const escape = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const decode = s => s.replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 function attrs(tag) { return Object.fromEntries([...tag.matchAll(/([\w:-]+)\s*=\s*(["'])([\s\S]*?)\2/g)].map(m=>[m[1].toLowerCase(),decode(m[3])])); }
 function excluded(head) { return [...head.matchAll(/<meta\b[^>]*>/gi)].some(m=>{const a=attrs(m[0]);return a.name?.toLowerCase()==='robots' && /noindex/i.test(a.content) || a['http-equiv']?.toLowerCase()==='refresh';}); }
+Object.assign(pages, {
+  "products/tf2/index.html": {
+    "title": "Free TF2 & TF2 Classified Cheat — Scooby",
+    "description": "Explore Scooby for Team Fortress 2 and TF2 Classified: aim, ESP, chams, class skins, movement and Lua. View gameplay screenshots, all features and setup guides.",
+    "keywords": "Scooby TF2, Team Fortress 2 cheat, TF2 cheat, free TF2 cheat, TF2 Classified cheat, Team Fortress 2 Classified, TF2 ESP, TF2 chams, TF2 aimbot, TF2 skins, TF2 Lua, TF2 features, TF2 screenshots"
+  },
+  "features-list/tf2-features/index.html": {
+    "title": "TF2 & TF2 Classified Features — Scooby",
+    "description": "Search the Scooby TF2 feature list: Rage and Legit aim, ESP, chams, class skins, movement, world visuals, Lua and settings, with edition-specific controls labeled.",
+    "keywords": "TF2 features, Team Fortress 2 features, TF2 Classified features, Scooby TF2, TF2 aimbot, TF2 triggerbot, TF2 ESP, TF2 chams, TF2 skin changer, TF2 Lua API"
+  }
+});
+pages['index.html'].description='Explore Scooby cheats and mod menus for GTA 5 and RDR2, plus CS2, GMOD, L4D, TF2 and TF2 Classified. Compare features, screenshots and setup guides.';
+for (const [file, meta] of Object.entries(pages)) if (file==='index.html' || meta.language) meta.keywords += ', TF2 cheat, Team Fortress 2 cheat, TF2 Classified, Scooby TF2';
+Object.assign(pages, {
+  'more-games/index.html': {title:'More Games — The Last of Us & Megabonk | Scooby', description:'Browse The Last of Us and Megabonk in the Scooby More Games collection. Open each product page and get a free key.', keywords:'Scooby More Games, The Last of Us, TLOU cheat, Megabonk, Megabonk cheat, free key'},
+  'products/megabonk/index.html': {title:'Megabonk — Get a Free Key | Scooby', description:'Get a free key for Scooby Megabonk and access the Scooby launcher.', keywords:'Scooby Megabonk, Megabonk cheat, Mega Bonk, free Megabonk key, Megabonk free key, Scooby More Games'}
+});
+for (const [file, meta] of Object.entries(pages)) if (file==='index.html' || meta.language) meta.keywords += ', Megabonk, Scooby Megabonk, More Games';
 function applyMetadata(file, html, override) {
  file=file.replace(/\\/g,'/'); const meta=override || pages[file]; if(!meta) return html;
  if (excluded(html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '')) return html;
@@ -162,8 +238,10 @@ function applyMetadata(file, html, override) {
   for(const prefix of ['og','twitter']) for(const [key,value] of [['title',meta.title],['description',meta.description],['url',url]])set(`${prefix}:${key}`,value,prefix==='og');
   set('og:type','website',true);set('og:site_name','Scooby Menu',true);
   if (meta.ogLocale) set('og:locale',meta.ogLocale,true);
-  const image=[...head.matchAll(/<meta\b[^>]*>/gi)].map(m=>attrs(m[0])).find(a=>a.property==='og:image')?.content || SITE+'/background-home.jpg';
-  set('og:image',image,true);set('twitter:image',image);set('twitter:card','summary_large_image');
+  const card=cardFor(file),image=SITE+card.path;
+  set('og:image',image,true);set('og:image:secure_url',image,true);
+  set('og:image:type','image/png',true);set('og:image:width',String(card.width),true);set('og:image:height',String(card.height),true);
+  set('og:image:alt',card.alt,true);set('twitter:image',image);set('twitter:image:alt',card.alt);set('twitter:card','summary_large_image');
   let found=false;head=head.replace(/<link\b[^>]*>/gi,old=>{if(attrs(old).rel!=='canonical')return old;if(found)return '';found=true;return `<link rel="canonical" href="${url}">`;});if(!found)append(`<link rel="canonical" href="${url}">`);
   head=head.replace(/(<script\b[^>]*type=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/gi,(whole,start,json,end)=>{
    const data=JSON.parse(json);let changed=false;
@@ -177,7 +255,7 @@ function applyMetadata(file, html, override) {
   }
   return head;
  });
- return structure(file, updated, meta);
+ return structure(file, applyBranding(updated), meta);
 }
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['backup','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
 if(require.main===module){let changed=0,skipped=0;const errors=[],titles=new Set(),descriptions=new Set();

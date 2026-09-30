@@ -1,0 +1,21 @@
+[Unit]
+Description=Scooby Web Radar relay
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/srv/dogsite
+Environment=NODE_ENV=production
+Environment=RADAR_TRUST_PROXY=1
+ExecStart=/usr/bin/node /srv/dogsite/web-radar/relay/server.mjs
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target

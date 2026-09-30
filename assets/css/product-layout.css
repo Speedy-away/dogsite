@@ -95,3 +95,6 @@
 .product-detail .product-faq details { border-top:1px solid var(--border-color); }
 .product-detail .product-faq summary { padding:16px 0; color:var(--text-primary); font-weight:600; cursor:pointer; }
 .product-detail .product-faq details p { padding:0 0 18px; }
+
+/* Collection breadcrumbs on individual product pages. */
+.product-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:24px;color:var(--text-secondary);font-size:12px;line-height:1.6}.product-breadcrumb a{color:var(--text-secondary);text-decoration:none}.product-breadcrumb a:hover{color:var(--product-accent,#cadba0)}

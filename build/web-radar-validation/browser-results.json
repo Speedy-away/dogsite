@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "synthetic": true,
+  "errors": [],
+  "checks": [
+    "live SSE",
+    "10-player roster",
+    "copy URL",
+    "filters",
+    "XSS text escaping",
+    "375px mobile",
+    "812px landscape",
+    "reduced motion",
+    "map and floor changes",
+    "waiting clears entities",
+    "host loss clears entities",
+    "reconnect",
+    "Stop",
+    "expired link",
+    "landing"
+  ]
+}

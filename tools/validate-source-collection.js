@@ -11,6 +11,7 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
  const browser=await chromium.launch({channel:'msedge',headless:true});
  const failures=[],errors=[],checks=[];
  const page=await browser.newPage({reducedMotion:'reduce'});
+ await page.addInitScript(()=>localStorage.setItem('scooby.lang','en'));
  page.on('pageerror',error=>errors.push(error.message));
  page.on('response',response=>{if(response.url().startsWith(base)&&response.status()>=400)failures.push(`${response.status()} ${response.url()}`)});
  for(const width of [1440,768,375,320]){
@@ -28,11 +29,11 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
   assert.equal(await page.locator('[data-game="portal"]').count(),1);
   assert.equal(await page.locator('[data-game="portal"] h3').innerText(),'Portal 1 & 2');
   assert.deepEqual(await page.locator('[data-catalog-section]').evaluateAll(sections=>sections.map(section=>section.id)),['released','coming-soon']);
-  assert.deepEqual(await page.locator('#released [data-game]').evaluateAll(cards=>cards.map(card=>card.dataset.game)),['cs2','gmod','l4d','sbox','half-life-1','half-life-2','hl2-deathmatch']);
-  assert.equal(await page.locator('#coming-soon [data-game]').count(),8);
-  assert.equal(await page.locator('#released .source-availability').filter({hasText:'Released'}).count(),7);
+  assert.deepEqual(await page.locator('#released [data-game]').evaluateAll(cards=>cards.map(card=>card.dataset.game)),['cs2','gmod','l4d','tf2','sbox','half-life-1','half-life-2','hl2-deathmatch']);
+  assert.equal(await page.locator('#coming-soon [data-game]').count(),7);
+  assert.equal(await page.locator('#released .source-availability').filter({hasText:'Released'}).count(),8);
   assert.equal(await page.locator('#released [data-release-channel=beta] .source-availability').filter({hasText:'Beta'}).count(),0);
-  assert.equal(await page.locator('#coming-soon .source-availability').filter({hasText:'Coming soon'}).count(),8);
+  assert.equal(await page.locator('#coming-soon .source-availability').filter({hasText:'Coming soon'}).count(),7);
   for(const image of await page.locator('img').all()){
    await image.scrollIntoViewIfNeeded();
    await image.evaluate(i=>i.decode());
@@ -105,7 +106,7 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
   }
  }
  checks.push('Both released products: labels, free access, setup/limitations, 1440/375/320px layouts and original artwork');
- assert.equal(placeholders.length,8);
+ assert.equal(placeholders.length,7);
  for(const width of [1440,375,320]){
   await page.setViewportSize({width,height:1000});
   for(const game of placeholders){
@@ -127,7 +128,7 @@ const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-gam
    assert.equal(new URL(page.url()).pathname,'/source-games/');
   }
  }
- checks.push('All eight placeholder cards open local product pages and return; Coming soon, artwork, canonical metadata and 1440/375/320px layouts');
+ checks.push('All seven placeholder cards open local product pages and return; Coming soon, artwork, canonical metadata and 1440/375/320px layouts');
  const noJs=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce'});
  const fallback=await noJs.newPage();
  await fallback.goto(base+'/source-games/');

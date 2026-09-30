@@ -1,0 +1,8 @@
+(() => {
+ 'use strict';
+ const select=document.getElementById('tf2-edition');if(!select)return;
+ const editions={tf2:{name:'Team Fortress 2',logo:'tf2-logo-transparent-v1.png',text:'The original nine-class battlefield. Choose retail TF2 for the Steam version of Team Fortress 2.'},'tf2-classified':{name:'TF2 Classified',logo:'tf2-classified-logo.png',text:'A separate take on Team Fortress. Choose Classified for the standalone TF2 Classified game, with its own game files and settings.'}};
+ function render(){const key=Object.hasOwn(editions,select.value)?select.value:'tf2';select.value=key;const edition=editions[key];const logo=document.getElementById('tf2-logo');logo.src='/assets/images/tf2/'+edition.logo;logo.alt=edition.name;document.getElementById('tf2-about').textContent=edition.name;document.getElementById('tf2-description').textContent=edition.text;}
+ const requested=new URLSearchParams(location.search).get('edition');if(Object.hasOwn(editions,requested))select.value=requested;
+ select.addEventListener('change',()=>{render();const url=new URL(location.href);url.searchParams.set('edition',select.value);history.replaceState(null,'',url);});render();
+})();

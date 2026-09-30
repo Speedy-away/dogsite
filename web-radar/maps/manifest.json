@@ -1,0 +1,122 @@
+{
+  "ar_baggage": {
+    "bytes": 116861,
+    "sha256": "b57df0af5b17570b48f8da8f53926109f35bb78b8b79df22b22e744beb0237ed",
+    "source": "src/GUI/overlay/map_images/ar_baggage.cpp"
+  },
+  "ar_baggage_lower": {
+    "bytes": 62062,
+    "sha256": "0da618ebdeede2e8204f8c6873ce92b58596f17f66950bb6f514b6c3e0ab3a94",
+    "source": "src/GUI/overlay/map_images/ar_baggage_lower.cpp"
+  },
+  "ar_shoots": {
+    "bytes": 309948,
+    "sha256": "58e496c52c5611e688ad5bb7eb7839430e7490c507961f9976594dba41a95c7b",
+    "source": "src/GUI/overlay/map_images/ar_shoots.cpp"
+  },
+  "ar_shoots_night": {
+    "bytes": 224248,
+    "sha256": "448a60434e4264068d5c6d58c4c3965c6974db6a1cdd90891c8e5d4c265c7c64",
+    "source": "src/GUI/overlay/map_images/ar_shoots_night.cpp"
+  },
+  "cs_italy": {
+    "bytes": 104602,
+    "sha256": "67b2ffe024e0410efaa1051c97fec4264c8ddb8977035bd92854fe95501c93c4",
+    "source": "src/GUI/overlay/map_images/cs_italy.cpp"
+  },
+  "cs_office": {
+    "bytes": 197509,
+    "sha256": "14f8336c1b6d41b251e925dba506e3fb32ff7adc66bc2c2ca5752b0f528e734b",
+    "source": "src/GUI/overlay/map_images/cs_office.cpp"
+  },
+  "de_ancient": {
+    "bytes": 89550,
+    "sha256": "cb6adca45e32ecff0b131f742c129324ba5e2dd695247f61d2d21d85ef2c581c",
+    "source": "src/GUI/overlay/map_images/de_ancient.cpp"
+  },
+  "de_ancient_night": {
+    "bytes": 77264,
+    "sha256": "f1f7754f1c2fa6ce9657f44f846f02ffb83c7c925fbeeeaae842d2fb70821e77",
+    "source": "src/GUI/overlay/map_images/de_ancient_night.cpp"
+  },
+  "de_ancient_v1": {
+    "bytes": 89550,
+    "sha256": "cb6adca45e32ecff0b131f742c129324ba5e2dd695247f61d2d21d85ef2c581c",
+    "source": "src/GUI/overlay/map_images/de_ancient_v1.cpp"
+  },
+  "de_anubis": {
+    "bytes": 218922,
+    "sha256": "b8f07c36edb13e34dbfaabf9a74e057961ac4fb29545d98d16ff9b7c4e6d1206",
+    "source": "src/GUI/overlay/map_images/de_anubis.cpp"
+  },
+  "de_cache": {
+    "bytes": 93413,
+    "sha256": "94c058b3deaa5cc24be81006322da3af1ef0bbded116160a3fcdea6d87227967",
+    "source": "src/GUI/overlay/map_images/de_cache.cpp"
+  },
+  "de_cache_tga": {
+    "bytes": 509094,
+    "sha256": "a981b80b382b127b16bd9c15a9401dfe19ccdcbdbc2e89b0c6edb82facbeae01",
+    "source": "src/GUI/overlay/map_images/de_cache_tga.cpp"
+  },
+  "de_dust2": {
+    "bytes": 175761,
+    "sha256": "0828297130ce26db25a299806ff743df9104de634a3e64b52b358f6f4399354d",
+    "source": "src/GUI/overlay/map_images/de_dust2.cpp"
+  },
+  "de_inferno": {
+    "bytes": 136914,
+    "sha256": "53e1d660d5e61a9b876cc56725c2e891c56efcb788657520fa9c10fec321dce3",
+    "source": "src/GUI/overlay/map_images/de_inferno.cpp"
+  },
+  "de_mirage": {
+    "bytes": 143685,
+    "sha256": "c8032f6c83ffca63c0a20ebdcc598a0e1aa618efd746e381e2db26f33a4a964f",
+    "source": "src/GUI/overlay/map_images/de_mirage.cpp"
+  },
+  "de_nuke": {
+    "bytes": 96995,
+    "sha256": "21167d05292e80eebe7b068f0bba36a2e3f9116d154d96952a8366cdcc72e6b1",
+    "source": "src/GUI/overlay/map_images/de_nuke.cpp"
+  },
+  "de_nuke_lower": {
+    "bytes": 96487,
+    "sha256": "b8c4e659491ba79be60b7d3f9bc78bdaeb808afc2bae14bf3b25b1801220ebe0",
+    "source": "src/GUI/overlay/map_images/de_nuke_lower.cpp"
+  },
+  "de_overpass": {
+    "bytes": 290940,
+    "sha256": "2a59b62668e80037b5a88e980f56af360269f5ea581d52eb0669d78a981f0d96",
+    "source": "src/GUI/overlay/map_images/de_overpass.cpp"
+  },
+  "de_train": {
+    "bytes": 146404,
+    "sha256": "ccdb11d6f9fbfb7bf199dfa35d58b3e86131a2c872f38b67502d1be3759e912e",
+    "source": "src/GUI/overlay/map_images/de_train.cpp"
+  },
+  "de_train_lower": {
+    "bytes": 135051,
+    "sha256": "bc1aa9b1bbcceb06b8e82b7e0980ae11188aa1d460a2e799da9ecd8e21e4d67a",
+    "source": "src/GUI/overlay/map_images/de_train_lower.cpp"
+  },
+  "de_vertigo": {
+    "bytes": 97762,
+    "sha256": "d2e2e18668f951f7d3b7c6a4fe4580632d5de253d0991f4b9639f9eca73264bf",
+    "source": "src/GUI/overlay/map_images/de_vertigo.cpp"
+  },
+  "de_vertigo_lower": {
+    "bytes": 123826,
+    "sha256": "61639197f940d9702f6cb5476a38ae932a821170cdb6405f14733a5b83e32723",
+    "source": "src/GUI/overlay/map_images/de_vertigo_lower.cpp"
+  },
+  "workshop_preview": {
+    "bytes": 34221,
+    "sha256": "2a3636d2050747dbaa743f6287cb5adb54513d400100d64090b19e3333a67e87",
+    "source": "src/GUI/overlay/map_images/workshop_preview.cpp"
+  },
+  "workshop_preview_tga": {
+    "bytes": 35597,
+    "sha256": "350a9ccd136e37b4559578b61a5793912ca6375568ba617359e73f2794d4435f",
+    "source": "src/GUI/overlay/map_images/workshop_preview_tga.cpp"
+  }
+}
