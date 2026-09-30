@@ -1,0 +1,24 @@
+{
+  "host_api": "2.4",
+  "ui_api": "1.1",
+  "inputs": {
+    "CS2/v2/docs/LUA_API.md": "32537746fc519e04cdc1e5792298c6cb9725d6291ecc5816d0ce7e7d74a489c6",
+    "simple-base/UI/docs/LUA_API.md": "66003897648c8efc9b33bf4cc2cb90f379c3024ab3324bedd297a457e9939efd",
+    "simple-base/UI/docs/HEALTH_ESP.md": "7003cb29838aab94a246836b7760a95216d796c5d13485620023fd59f7bd6a50",
+    "simple-base/UI/docs/GAME_SIDEBAR.md": "a092ec0b22144f546a26cf84dee626abd4fba014be7b1417fc1ad4b99951544e",
+    "simple-base/UI/docs/ENTITY_COLORS.md": "1350bda59f717c93983eec2faa4308c8c81dfe921772fcb2f1827f4cfaade089",
+    "CS2/v2/docs/lua/cs2_v2.lua": "3acd86a869c07911e5ee23accf705a1cc51629f8361cb12a097cca43edeb9c9c",
+    "CS2/v2/docs/LUA_BINDINGS.md": "b791ef5f862ee51d6ce366465ad1da580b4b7e00c31e84681ea1a2acf23f168f",
+    "CS2/v2/docs/LUA_API_COVERAGE.md": "093ca4f972e8ec1535bca341e64c55a22b266bf31f854e646ee325beb2e77ee9",
+    "CS2/v2/docs/lua/api-catalog.json": "1826885c89e0f51b29c97e136b20dffe1a6d2b5c16bf532b592a883ad02c3a59",
+    "CS2/v2/assets/scripts/Framework - Player ESP.lua": "d99fea9b315478506eee7f4003eaa5888f49a11a47340adb13fc67ab264ea7d7",
+    "CS2/v2/assets/scripts/Command framework.lua": "0a3e581e73c519bcc278117fa7062b6ad6141276f4426063a57dc13f03caed6d",
+    "CS2/v2/assets/scripts/Inventory studio.lua": "6e0706e819ee34d9c3f9ea4640835b8ecb8ce530c37fa5ccec0dcfaa6716655d",
+    "CS2/v2/assets/scripts/Download asset.lua": "435c4ff994a10266c11091d46f31243c2912973cc4f5d779817d8d6f698a471f",
+    "CS2/v2/assets/scripts/Native hooks.lua": "75d4bd5e34f654000d6a582b699a4d0d3a4282d182b9aba9bd867db3f8ced3d1",
+    "CS2/v2/assets/scripts/ImGui Demo.lua": "9f004a59512ee8e23c38f2c1bb4797fd777a600d104498e5ebbb56308cafd441",
+    "CS2/v2/assets/scripts/Standalone Menu.lua": "d9bbcb03c692b958b705f924f4eddae295eb0f963f42a0938e5240fa3cbf07ef",
+    "CS2/v2/assets/scripts/Crosshair.lua": "1ff7deada08cd1a3306321646ff481c6dee6439d6c13d496c0d8b6ca32e7368d",
+    "CS2/v2/assets/scripts/Speed HUD.lua": "2b8f40e51c5c000e5784e9895a8f92e6e3409529de043a5687f64cc3ec08d1c2"
+  }
+}

@@ -43,7 +43,7 @@ Always create `newpage/index.html`, never `newpage.html`.
 - Product: `/products/l4d/`; features: `/features-list/l4d-features/`.
 - Wiki: `/guides/l4d/`; Lua API and examples: `/docs/l4d/`.
 - Feature registry data: `tools/features/features-l4d.json`. Regenerate with `node tools/features/build-features-page.js --apply`.
-- Lua reference: run `node tools/build-l4d-docs.js --l4d-root <L4D-Debug path>` with `marked` available. It syncs the host guide, snippets, canonical Simple-base UI guide and four script templates, then builds `/api/l4d_api_reference.html` and L4D search entries. `--ui-root` overrides the shared UI source path. Run again with `--check` to detect source/generated drift. Keep `docs/l4d/anchors.json` in git to preserve existing bookmarks; `sources.json` records SHA-256 source hashes. Run `node tools/validate-l4d-api.js <evidence directory>` with Playwright/Edge available before publishing. The docs describe native API 1.1; they do not update an installed DLL.
+- Lua reference sources: `docs/l4d/game-api.md`, `snippets.md`, and `ui-api.md`. Sync them from L4D-Debug after API changes, then run `node tools/build-l4d-docs.js` with the `marked` Node package available.
 - Run `python tools/build-guide-search.py` after wiki edits. SEO entries are in `tools/seo-metadata.js`; regenerate metadata and sitemap with their `--apply` options.
 - Browser validation: serve this repo on `127.0.0.1:8184`, then run `node tools/validate-l4d.js <screenshot-output-directory>` with Playwright and Microsoft Edge available. It covers desktop/mobile layouts, the screenshot lightbox, free-key modal, feature search, Lua copy buttons, and navigation.
 - Gameplay images are user-supplied development captures, not synthetic screenshots. The city banner is original generated artwork. These pages use the existing general free-key flow; no separate L4D key policy is needed.
@@ -52,3 +52,11 @@ Always create `newpage/index.html`, never `newpage.html`.
 ## Product terminology
 
 Use **cheat** for GMOD, L4D, CS2, FiveM, RedM and other games. GTA 5 and RDR2 can use both **cheat** and **mod menu**; reserve **mod menu** for those two games. Keep product titles, visible copy, social metadata and structured data consistent; edit the source entries in `tools/seo-metadata.js` when changing generated metadata. References to interface menus and menu settings are still valid.
+
+## CS2 Lua documentation
+
+- Quick start and downloadable templates: `/docs/cs2/`; searchable reference: `/api/cs2/`.
+- Run `node tools/build-cs2-docs.js` with `marked` available. It reads the sibling `Scooby-Op/CS2/v2` host docs, editor definitions and templates, plus canonical `simple-base/UI/docs` for the UI-v2 API. Override the source with `--cs2-root <path>`.
+- `--check` verifies the generated pages, downloads, source hashes and scoped docs-search entries without writing files. Edit the source docs/templates or generator, not the generated reference HTML. The CS2 host contract takes precedence over shared integration examples.
+- Run `node tools/validate-cs2-api.js <output-directory>` with Playwright and Edge. It starts a loopback-only static server, checks search, copy, deep links, mobile layouts and downloads, then closes the server/browser. `CS2_API_BASE` optionally targets an existing local preview.
+- The site changes remain local until the normal publication process is requested.

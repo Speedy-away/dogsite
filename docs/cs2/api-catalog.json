@@ -1,0 +1,1966 @@
+{
+  "host_api": "2.4",
+  "functions": [
+    {
+      "name": "base.get",
+      "op": "base.get",
+      "origin": "core",
+      "signature": "base.get(id)",
+      "annotations": "---@param id string\n---@return boolean?",
+      "status": "supported"
+    },
+    {
+      "name": "base.log",
+      "op": "base.log",
+      "origin": "core",
+      "signature": "base.log(...)",
+      "annotations": "---@vararg any",
+      "status": "supported"
+    },
+    {
+      "name": "base.set",
+      "op": "base.set",
+      "origin": "core",
+      "signature": "base.set(id,value)",
+      "annotations": "---@param id string\n---@param value boolean",
+      "status": "supported"
+    },
+    {
+      "name": "color",
+      "origin": "value",
+      "signature": "color(r,g,b,a)",
+      "annotations": "---@param r? number\n---@param g? number\n---@param b? number\n---@param a? number\n---@return CS2Color",
+      "status": "supported"
+    },
+    {
+      "name": "colors.from_hex",
+      "origin": "value",
+      "signature": "colors.from_hex(hex)",
+      "annotations": "---@param hex string\n---@return CS2Color",
+      "status": "supported"
+    },
+    {
+      "name": "colors.from_hsv",
+      "origin": "value",
+      "signature": "colors.from_hsv(hue_degrees,saturation,value,alpha)",
+      "annotations": "---@param hue_degrees number\n---@param saturation number\n---@param value number\n---@param alpha? number\n---@return CS2Color",
+      "status": "supported"
+    },
+    {
+      "name": "colors.to_hsv",
+      "origin": "value",
+      "signature": "colors.to_hsv(rgba)",
+      "annotations": "---@param rgba CS2Color|number[]\n---@return number,number,number,number",
+      "status": "supported"
+    },
+    {
+      "name": "commands.available",
+      "signature": "commands.available() -> boolean",
+      "example": "print(commands.available()) -- permission state",
+      "origin": "framework",
+      "annotations": "---commands.available() -> boolean\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "commands.create",
+      "signature": "commands.create(source,options?) -> CommandCallback or nil,error",
+      "example": "local callback=assert(commands.create([[return function(cmd,ctx)\n  if game.key_down(1) then cmd.pitch=math.max(-89,math.min(89,cmd.pitch-ctx.recoil.x*2)) end\nend]],{enabled=false}))",
+      "origin": "framework",
+      "annotations": "---commands.create(source,options?) -> CommandCallback or nil,error\n---@param source string\n---@param options CommandOptions?\n---@return CommandCallback?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "commands.engine_status",
+      "signature": "commands.engine_status() -> {ready,trace,message}",
+      "example": "print(commands.engine_status().message)",
+      "origin": "framework",
+      "annotations": "---commands.engine_status() -> {ready,trace,message}\n---@return table",
+      "status": "supported"
+    },
+    {
+      "name": "console.clear",
+      "signature": "console.clear()",
+      "example": "console.clear()",
+      "origin": "host",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "console.error",
+      "signature": "console.error(message)",
+      "example": "console.error(\"Could not load custom preferences\")",
+      "origin": "host",
+      "annotations": "---Log only; use error(message) to raise an actual Lua failure.\n---@param message string",
+      "status": "supported"
+    },
+    {
+      "name": "console.log",
+      "signature": "console.log(text)",
+      "example": "console.log('Script loaded')",
+      "origin": "host",
+      "annotations": "---Log only; use error(message) to raise an actual Lua failure.\n---@param message string",
+      "status": "supported"
+    },
+    {
+      "name": "console.trace",
+      "signature": "console.trace(message)",
+      "example": "console.trace(\"Reached update handler\")",
+      "origin": "host",
+      "annotations": "---Log only; use error(message) to raise an actual Lua failure.\n---@param message string",
+      "status": "supported"
+    },
+    {
+      "name": "console.warn",
+      "signature": "console.warn(message)",
+      "example": "console.warn(\"Optional data is unavailable\")",
+      "origin": "host",
+      "annotations": "---Log only; use error(message) to raise an actual Lua failure.\n---@param message string",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.capabilities",
+      "signature": "cs2.capabilities() -> table",
+      "example": "print(json.encode(cs2.capabilities()))",
+      "origin": "host",
+      "annotations": "-- Complete host and shared UI exports (API 2.3).\n---Explicit capabilities; false entries are not implemented by this host.\n---@return table<string,boolean>",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.clock",
+      "signature": "cs2.clock() -> {curtime,tick,interval,realtime,frame}",
+      "example": "local tick = cs2.clock().tick",
+      "origin": "host",
+      "annotations": "---@return {curtime:number,tick:integer,interval:number,realtime:number,frame:integer}",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.connected",
+      "signature": "cs2.connected() -> boolean",
+      "example": "if cs2.connected() then print(cs2.map_name()) end",
+      "origin": "host",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.info",
+      "signature": "cs2.info() -> table",
+      "example": "print(json.encode(cs2.info()))",
+      "origin": "host",
+      "annotations": "---@return table",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.map_name",
+      "signature": "cs2.map_name() -> string",
+      "example": "print(cs2.map_name())",
+      "origin": "host",
+      "annotations": "---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.permissions",
+      "signature": "cs2.permissions() -> table",
+      "example": "print(cs2.permissions().http)",
+      "origin": "framework",
+      "annotations": "---cs2.permissions() -> table\n---@return LuaPermissions",
+      "status": "supported"
+    },
+    {
+      "name": "cs2.view_angles",
+      "signature": "cs2.view_angles() -> vector or nil",
+      "example": "local angles = cs2.view_angles()",
+      "origin": "host",
+      "annotations": "---@return CS2Vector?",
+      "status": "supported"
+    },
+    {
+      "name": "draw.circle",
+      "op": "DrawCircle",
+      "origin": "shared",
+      "signature": "draw.circle(x,y,radius,rgba,filled,thickness)",
+      "annotations": "---@param x number\n---@param y number\n---@param radius number\n---@param rgba CS2Color|number[]\n---@param filled? boolean\n---@param thickness? number",
+      "status": "supported"
+    },
+    {
+      "name": "draw.line",
+      "op": "DrawLine",
+      "origin": "shared",
+      "signature": "draw.line(x0,y0,x1,y1,rgba,thickness)",
+      "annotations": "---@param x0 number\n---@param y0 number\n---@param x1 number\n---@param y1 number\n---@param rgba CS2Color|number[]\n---@param thickness? number",
+      "status": "supported"
+    },
+    {
+      "name": "draw.rect",
+      "op": "DrawRect",
+      "origin": "shared",
+      "signature": "draw.rect(x,y,width,height,rgba,filled,rounding)",
+      "annotations": "---@param x number\n---@param y number\n---@param width number\n---@param height number\n---@param rgba CS2Color|number[]\n---@param filled? boolean\n---@param rounding? number",
+      "status": "supported"
+    },
+    {
+      "name": "draw.text",
+      "op": "DrawText",
+      "origin": "shared",
+      "signature": "draw.text(x,y,text,rgba,size)",
+      "annotations": "---@param x number\n---@param y number\n---@param text string\n---@param rgba CS2Color|number[]\n---@param size? number",
+      "status": "supported"
+    },
+    {
+      "name": "draw.triangle",
+      "op": "DrawTriangle",
+      "origin": "shared",
+      "signature": "draw.triangle(x0,y0,x1,y1,x2,y2,rgba,filled,thickness)",
+      "annotations": "---@param x0 number\n---@param y0 number\n---@param x1 number\n---@param y1 number\n---@param x2 number\n---@param y2 number\n---@param rgba CS2Color|number[]\n---@param filled? boolean\n---@param thickness? number",
+      "status": "supported"
+    },
+    {
+      "name": "engine.delta_time",
+      "op": "Delta",
+      "origin": "shared",
+      "signature": "engine.delta_time()",
+      "annotations": "---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "engine.fps",
+      "op": "Fps",
+      "origin": "shared",
+      "signature": "engine.fps()",
+      "annotations": "---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "engine.time",
+      "op": "Time",
+      "origin": "shared",
+      "signature": "engine.time()",
+      "annotations": "---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "engine.viewport",
+      "op": "Viewport",
+      "origin": "shared",
+      "signature": "engine.viewport()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "entity.bone",
+      "signature": "entity.bone(full_handle, bone_index) -> vector or nil",
+      "example": "local head = entity.bone(player.handle,6)",
+      "origin": "host",
+      "annotations": "---@param full_handle integer\n---@param bone_index integer\n---@return CS2Vector?",
+      "status": "supported"
+    },
+    {
+      "name": "entity.get",
+      "signature": "entity.get(full_handle) -> player or nil",
+      "example": "local current = entity.get(saved_handle)",
+      "origin": "host",
+      "annotations": "---@param full_handle integer\n---@return CS2Player?",
+      "status": "supported"
+    },
+    {
+      "name": "entity.get_local_player",
+      "signature": "entity.get_local_player() -> player or nil",
+      "example": "local me = entity.get_local_player()",
+      "origin": "host",
+      "annotations": "---@return CS2Player?",
+      "status": "supported"
+    },
+    {
+      "name": "entity.get_players",
+      "signature": "entity.get_players(enemies_only=false, alive_only=false) -> players",
+      "example": "for _,p in ipairs(entity.get_players(true,true)) do print(p.name,p.health) end",
+      "origin": "host",
+      "annotations": "---@param enemies_only? boolean\n---@param alive_only? boolean\n---@return CS2Player[]",
+      "status": "supported"
+    },
+    {
+      "name": "entity.weapon",
+      "signature": "entity.weapon(full_handle) -> weapon snapshot or nil",
+      "example": "local gun = entity.weapon(player.handle)",
+      "origin": "host",
+      "annotations": "---@param full_handle integer\n---@return CS2Weapon?",
+      "status": "supported"
+    },
+    {
+      "name": "esp_colors.available",
+      "op": "esp_colors.available",
+      "origin": "core",
+      "signature": "esp_colors.available()",
+      "annotations": "---Returns false in CS2.\n---@return boolean",
+      "status": "availability probe"
+    },
+    {
+      "name": "esp_colors.categories",
+      "op": "esp_colors.categories",
+      "origin": "core",
+      "signature": "esp_colors.categories(...)",
+      "annotations": "---Unavailable in CS2; use settings.get/set/list for native ESP colors.\n---@vararg any\n---@return any",
+      "status": "unavailable"
+    },
+    {
+      "name": "esp_colors.enabled",
+      "op": "esp_colors.enabled",
+      "origin": "core",
+      "signature": "esp_colors.enabled(...)",
+      "annotations": "---Unavailable in CS2; use settings.get/set/list for native ESP colors.\n---@vararg any\n---@return any",
+      "status": "unavailable"
+    },
+    {
+      "name": "esp_colors.get",
+      "op": "esp_colors.get",
+      "origin": "core",
+      "signature": "esp_colors.get(...)",
+      "annotations": "---Unavailable in CS2; use settings.get/set/list for native ESP colors.\n---@vararg any\n---@return any",
+      "status": "unavailable"
+    },
+    {
+      "name": "esp_colors.reset",
+      "op": "esp_colors.reset",
+      "origin": "core",
+      "signature": "esp_colors.reset(...)",
+      "annotations": "---Unavailable in CS2; use settings.get/set/list for native ESP colors.\n---@vararg any\n---@return any",
+      "status": "unavailable"
+    },
+    {
+      "name": "esp_colors.set",
+      "op": "esp_colors.set",
+      "origin": "core",
+      "signature": "esp_colors.set(...)",
+      "annotations": "---Unavailable in CS2; use settings.get/set/list for native ESP colors.\n---@vararg any\n---@return any",
+      "status": "unavailable"
+    },
+    {
+      "name": "events.off",
+      "op": "events.off",
+      "origin": "core",
+      "signature": "events.off(token)",
+      "annotations": "---@param token integer",
+      "status": "supported"
+    },
+    {
+      "name": "events.on",
+      "op": "events.on",
+      "origin": "core",
+      "signature": "events.on(event,callback)",
+      "annotations": "---@param event CS2Event\n---@param callback fun(current?:CS2Player,previous?:CS2Player)\n---@return integer token",
+      "status": "supported"
+    },
+    {
+      "name": "features.active",
+      "op": "features.active",
+      "origin": "core",
+      "signature": "features.active(id)",
+      "annotations": "---@param id string\n---@return boolean?",
+      "status": "supported"
+    },
+    {
+      "name": "features.add",
+      "op": "features.add",
+      "origin": "core",
+      "signature": "features.add(options)",
+      "annotations": "---@param options {id:string,label:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,mode?:string,callback?:function}\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "features.bind",
+      "op": "features.bind",
+      "origin": "core",
+      "signature": "features.bind(id,key,mode)",
+      "annotations": "---@param id string\n---@param key string\n---@param mode? string",
+      "status": "supported"
+    },
+    {
+      "name": "features.color",
+      "op": "features.color",
+      "origin": "core",
+      "signature": "features.color(id,r,g,b,a)",
+      "annotations": "---@param id string\n---@param r number\n---@param g number\n---@param b number\n---@param a? number",
+      "status": "supported"
+    },
+    {
+      "name": "features.get",
+      "op": "features.get",
+      "origin": "core",
+      "signature": "features.get(id)",
+      "annotations": "---@param id string\n---@return boolean?",
+      "status": "supported"
+    },
+    {
+      "name": "features.list",
+      "op": "features.list",
+      "origin": "core",
+      "signature": "features.list()",
+      "annotations": "---@return table[]",
+      "status": "supported"
+    },
+    {
+      "name": "features.set",
+      "op": "features.set",
+      "origin": "core",
+      "signature": "features.set(id,value)",
+      "annotations": "---@param id string\n---@param value boolean",
+      "status": "supported"
+    },
+    {
+      "name": "features.trigger",
+      "op": "features.trigger",
+      "origin": "core",
+      "signature": "features.trigger(id)",
+      "annotations": "---@param id string",
+      "status": "supported"
+    },
+    {
+      "name": "files.delete",
+      "signature": "files.delete(name) -> boolean,error?",
+      "example": "local removed,err=files.delete(\"old notes\")",
+      "origin": "host",
+      "annotations": "---@param name string\n---@return boolean, string?",
+      "status": "supported"
+    },
+    {
+      "name": "files.exists",
+      "signature": "files.exists(name) -> boolean",
+      "example": "print(files.exists(\"notes\"))",
+      "origin": "host",
+      "annotations": "---@param name string\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "files.list",
+      "signature": "files.list() -> names[]",
+      "example": "for _,name in ipairs(files.list()) do print(name) end",
+      "origin": "host",
+      "annotations": "---@return string[]",
+      "status": "supported"
+    },
+    {
+      "name": "files.read",
+      "signature": "files.read(name) -> string or nil",
+      "example": "local text=files.read('notes')",
+      "origin": "host",
+      "annotations": "---@param name string\n---@return string?",
+      "status": "supported"
+    },
+    {
+      "name": "files.write",
+      "signature": "files.write(name, text)",
+      "example": "files.write('notes','hello')",
+      "origin": "host",
+      "annotations": "---Binary-safe, at most 65536 bytes. Simple names only; scoped to this script.\n---@param name string\n---@param bytes string",
+      "status": "supported"
+    },
+    {
+      "name": "fs.exists",
+      "signature": "fs.exists(path) -> boolean or nil,error",
+      "example": "local exists,err=fs.exists('assets/icons')",
+      "origin": "framework",
+      "annotations": "---fs.exists(path) -> boolean or nil,error\n---@param path string\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.list",
+      "signature": "fs.list(path,recursive=false) -> entries or nil,error",
+      "example": "for _,entry in ipairs(assert(fs.list('',true))) do print(entry.path,entry.directory,entry.size) end",
+      "origin": "framework",
+      "annotations": "---fs.list(path,recursive=false) -> entries or nil,error\n---@param path string\n---@param recursive boolean?\n---@return ScriptFileEntry[]?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.load",
+      "signature": "fs.load(path) -> module_value or nil,error",
+      "example": "local module=assert(fs.load('modules/helpers.lua'))",
+      "origin": "framework",
+      "annotations": "---fs.load(path) -> module_value or nil,error\n---@param path string\n---@return any\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.mkdir",
+      "signature": "fs.mkdir(path) -> true or nil,error",
+      "example": "assert(fs.mkdir('assets/icons'))",
+      "origin": "framework",
+      "annotations": "---fs.mkdir(path) -> true or nil,error\n---@param path string\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.read",
+      "signature": "fs.read(path) -> string or nil,error",
+      "example": "local data,err=fs.read('profiles/default.json')",
+      "origin": "framework",
+      "annotations": "---fs.read(path) -> string or nil,error\n---@param path string\n---@return string?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.remove",
+      "signature": "fs.remove(path) -> boolean or nil,error",
+      "example": "assert(fs.remove('profiles/unused.json'))",
+      "origin": "framework",
+      "annotations": "---fs.remove(path) -> boolean or nil,error\n---@param path string\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.rename",
+      "signature": "fs.rename(from,to) -> true or nil,error",
+      "example": "assert(fs.rename('profiles/draft.json','profiles/current.json'))",
+      "origin": "framework",
+      "annotations": "---fs.rename(from,to) -> true or nil,error\n---@param from string\n---@param to string\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "fs.write",
+      "signature": "fs.write(path,bytes) -> true or nil,error",
+      "example": "assert(fs.write('profiles/default.json',json.encode({enabled=true})))",
+      "origin": "framework",
+      "annotations": "---fs.write(path,bytes) -> true or nil,error\n---@param path string\n---@param bytes string\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "http.request",
+      "signature": "http.request(options) -> HttpRequest or nil,error",
+      "example": "local request=assert(http.request{url='https://example.com/version.json',max_bytes=65536})",
+      "origin": "framework",
+      "annotations": "---http.request(options) -> HttpRequest or nil,error\n---@param options HttpOptions\n---@return HttpRequest?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.available",
+      "op": "Available",
+      "origin": "shared",
+      "signature": "imgui.available()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.button",
+      "op": "Button",
+      "origin": "shared",
+      "signature": "imgui.button(label,width,height)",
+      "annotations": "---@param label string\n---@param width? number\n---@param height? number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.checkbox",
+      "op": "Checkbox",
+      "origin": "shared",
+      "signature": "imgui.checkbox(label,value)",
+      "annotations": "---@param label string\n---@param value boolean\n---@return boolean, boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.child",
+      "op": "Child",
+      "origin": "shared",
+      "signature": "imgui.child(id,width,height,draw,options)",
+      "annotations": "---@param id string\n---@param width number\n---@param height number\n---@param draw function\n---@param options? {border?:boolean,padding?:boolean,horizontal_scroll?:boolean}",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.close_popup",
+      "op": "ClosePopup",
+      "origin": "shared",
+      "signature": "imgui.close_popup()",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.color_edit",
+      "op": "Color",
+      "origin": "shared",
+      "signature": "imgui.color_edit(label,rgba)",
+      "annotations": "---@param label string\n---@param rgba CS2Color|number[]\n---@return boolean, CS2Color",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.combo",
+      "op": "Combo",
+      "origin": "shared",
+      "signature": "imgui.combo(label,index,items)",
+      "annotations": "---One-based index; 1..128 items.\n---@param label string\n---@param index integer\n---@param items string[]\n---@return boolean, integer",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.combo_custom",
+      "op": "CustomCombo",
+      "origin": "shared",
+      "signature": "imgui.combo_custom(label,preview,draw)",
+      "annotations": "---@param label string\n---@param preview string\n---@param draw function\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.cursor",
+      "op": "Cursor",
+      "origin": "shared",
+      "signature": "imgui.cursor()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.cursor_local",
+      "op": "LocalCursor",
+      "origin": "shared",
+      "signature": "imgui.cursor_local()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.disabled",
+      "op": "Disabled",
+      "origin": "shared",
+      "signature": "imgui.disabled(disabled,draw)",
+      "annotations": "---@param disabled boolean\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.drag_float",
+      "op": "DragFloat",
+      "origin": "shared",
+      "signature": "imgui.drag_float(label,value,min,max,speed)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param speed? number\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.drag_int",
+      "op": "DragInt",
+      "origin": "shared",
+      "signature": "imgui.drag_int(label,value,min,max,speed)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param speed? number\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.dummy",
+      "op": "Dummy",
+      "origin": "shared",
+      "signature": "imgui.dummy(width,height)",
+      "annotations": "---@param width number\n---@param height number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.group",
+      "op": "RawGroup",
+      "origin": "shared",
+      "signature": "imgui.group(draw)",
+      "annotations": "---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.input_text",
+      "op": "Input",
+      "origin": "shared",
+      "signature": "imgui.input_text(label,text)",
+      "annotations": "---Maximum 4095 UTF-8 bytes.\n---@param label string\n---@param text string\n---@return boolean, string",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.invisible_button",
+      "op": "Invisible",
+      "origin": "shared",
+      "signature": "imgui.invisible_button(id,width,height)",
+      "annotations": "---@param id string\n---@param width number\n---@param height number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_item_active",
+      "op": "Active",
+      "origin": "shared",
+      "signature": "imgui.is_item_active()",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_item_clicked",
+      "op": "Clicked",
+      "origin": "shared",
+      "signature": "imgui.is_item_clicked(button)",
+      "annotations": "---Mouse button 0..4; default 0.\n---@param button? integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_item_hovered",
+      "op": "Hovered",
+      "origin": "shared",
+      "signature": "imgui.is_item_hovered()",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_mouse_clicked",
+      "op": "MouseClicked",
+      "origin": "shared",
+      "signature": "imgui.is_mouse_clicked(button)",
+      "annotations": "---Mouse button 0..4; default 0.\n---@param button? integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_mouse_down",
+      "op": "MouseDown",
+      "origin": "shared",
+      "signature": "imgui.is_mouse_down(button)",
+      "annotations": "---Mouse button 0..4; default 0.\n---@param button? integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_mouse_released",
+      "op": "MouseReleased",
+      "origin": "shared",
+      "signature": "imgui.is_mouse_released(button)",
+      "annotations": "---Mouse button 0..4; default 0.\n---@param button? integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.item_rect",
+      "op": "ItemRect",
+      "origin": "shared",
+      "signature": "imgui.item_rect()",
+      "annotations": "---@return number, number, number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.mouse_delta",
+      "op": "MouseDelta",
+      "origin": "shared",
+      "signature": "imgui.mouse_delta()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.mouse_pos",
+      "op": "MousePosition",
+      "origin": "shared",
+      "signature": "imgui.mouse_pos()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.open_popup",
+      "op": "OpenPopup",
+      "origin": "shared",
+      "signature": "imgui.open_popup(id)",
+      "annotations": "---@param id string",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.popup",
+      "op": "Popup",
+      "origin": "shared",
+      "signature": "imgui.popup(label,draw)",
+      "annotations": "---@param label string\n---@param draw function\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.progress",
+      "op": "Progress",
+      "origin": "shared",
+      "signature": "imgui.progress(fraction)",
+      "annotations": "---@param fraction number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.radio_button",
+      "op": "Radio",
+      "origin": "shared",
+      "signature": "imgui.radio_button(label,selected)",
+      "annotations": "---@param label string\n---@param selected boolean\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.same_line",
+      "op": "SameLine",
+      "origin": "shared",
+      "signature": "imgui.same_line(spacing,local_x)",
+      "annotations": "---@param spacing? number\n---@param local_x? number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.selectable",
+      "op": "Selectable",
+      "origin": "shared",
+      "signature": "imgui.selectable(label,selected,width,height)",
+      "annotations": "---@param label string\n---@param selected boolean\n---@param width? number\n---@param height? number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.separator",
+      "op": "Separator",
+      "origin": "shared",
+      "signature": "imgui.separator()",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.set_cursor",
+      "op": "SetCursor",
+      "origin": "shared",
+      "signature": "imgui.set_cursor(x,y)",
+      "annotations": "---@param x number\n---@param y number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.set_cursor_screen",
+      "op": "ScreenCursor",
+      "origin": "shared",
+      "signature": "imgui.set_cursor_screen(x,y)",
+      "annotations": "---@param x number\n---@param y number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.set_next_item_width",
+      "op": "ItemWidth",
+      "origin": "shared",
+      "signature": "imgui.set_next_item_width(width)",
+      "annotations": "---@param width number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.slider_float",
+      "op": "Slider",
+      "origin": "shared",
+      "signature": "imgui.slider_float(label,value,min,max,options)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param options? {style?:string}\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.slider_int",
+      "op": "SliderInt",
+      "origin": "shared",
+      "signature": "imgui.slider_int(label,value,min,max,options)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param options? {style?:string}\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.spacing",
+      "op": "Spacing",
+      "origin": "shared",
+      "signature": "imgui.spacing(height)",
+      "annotations": "---@param height? number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.tab_bar",
+      "op": "TabBar",
+      "origin": "shared",
+      "signature": "imgui.tab_bar(label,draw)",
+      "annotations": "---@param label string\n---@param draw function\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.tab_item",
+      "op": "TabItem",
+      "origin": "shared",
+      "signature": "imgui.tab_item(label,draw)",
+      "annotations": "---@param label string\n---@param draw function\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.table",
+      "op": "Table",
+      "origin": "shared",
+      "signature": "imgui.table(id,columns,options,draw)",
+      "annotations": "---One to sixteen columns; layout scope restores after errors.\n---@param id string\n---@param columns integer\n---@param options table\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.table_headers_row",
+      "op": "TableHeaders",
+      "origin": "shared",
+      "signature": "imgui.table_headers_row()",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.table_next_column",
+      "op": "TableNextColumn",
+      "origin": "shared",
+      "signature": "imgui.table_next_column()",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.table_next_row",
+      "op": "TableNextRow",
+      "origin": "shared",
+      "signature": "imgui.table_next_row(height)",
+      "annotations": "---@param height? number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.table_set_column",
+      "op": "TableColumn",
+      "origin": "shared",
+      "signature": "imgui.table_set_column(index)",
+      "annotations": "---One-based column.\n---@param index integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.table_setup_column",
+      "op": "TableSetup",
+      "origin": "shared",
+      "signature": "imgui.table_setup_column(label,width_or_weight,fixed)",
+      "annotations": "---@param label string\n---@param width_or_weight? number\n---@param fixed? boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.text",
+      "op": "Text",
+      "origin": "shared",
+      "signature": "imgui.text(text)",
+      "annotations": "---@param text string",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.text_colored",
+      "op": "TextColored",
+      "origin": "shared",
+      "signature": "imgui.text_colored(text,rgba)",
+      "annotations": "---@param text string\n---@param rgba CS2Color|number[]",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.text_size",
+      "op": "TextSize",
+      "origin": "shared",
+      "signature": "imgui.text_size(text)",
+      "annotations": "---@param text string\n---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.text_wrapped",
+      "op": "TextWrapped",
+      "origin": "shared",
+      "signature": "imgui.text_wrapped(text)",
+      "annotations": "---@param text string",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.tooltip",
+      "op": "Tooltip",
+      "origin": "shared",
+      "signature": "imgui.tooltip(text)",
+      "annotations": "---@param text string",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.tree",
+      "op": "Tree",
+      "origin": "shared",
+      "signature": "imgui.tree(label,draw)",
+      "annotations": "---@param label string\n---@param draw function\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.window",
+      "op": "ImWindow",
+      "origin": "shared",
+      "signature": "imgui.window(title,options,draw)",
+      "annotations": "---@param title string\n---@param options table\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.window_pos",
+      "op": "WindowPosition",
+      "origin": "shared",
+      "signature": "imgui.window_pos()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.window_size",
+      "op": "WindowSize",
+      "origin": "shared",
+      "signature": "imgui.window_size()",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.with_clip_rect",
+      "op": "Clip",
+      "origin": "shared",
+      "signature": "imgui.with_clip_rect(x0,y0,x1,y1,draw)",
+      "annotations": "---@param x0 number\n---@param y0 number\n---@param x1 number\n---@param y1 number\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.with_font_size",
+      "op": "FontSize",
+      "origin": "shared",
+      "signature": "imgui.with_font_size(size,draw)",
+      "annotations": "---@param size number\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.with_id",
+      "op": "WithId",
+      "origin": "shared",
+      "signature": "imgui.with_id(id,draw)",
+      "annotations": "---@param id string\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.with_style",
+      "op": "Style",
+      "origin": "shared",
+      "signature": "imgui.with_style(colors,draw)",
+      "annotations": "---@param colors table<string,CS2Color|number[]>\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.with_style_vars",
+      "op": "StyleVars",
+      "origin": "shared",
+      "signature": "imgui.with_style_vars(vars,draw)",
+      "annotations": "---@param vars table\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "input.is_key_down",
+      "signature": "input.is_key_down(vk_code) -> boolean",
+      "example": "local held = input.is_key_down(0x56)",
+      "origin": "host",
+      "annotations": "---@param vk_code integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "input.is_key_pressed",
+      "signature": "input.is_key_pressed(vk_code) -> boolean",
+      "example": "if input.is_key_pressed(0x56) then print('V') end",
+      "origin": "host",
+      "annotations": "---@param vk_code integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "input.menu_open",
+      "signature": "input.menu_open() -> boolean",
+      "example": "local editing=input.menu_open()",
+      "origin": "host",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "input.mouse_position",
+      "signature": "input.mouse_position() -> x,y",
+      "example": "local x,y=input.mouse_position()",
+      "origin": "host",
+      "annotations": "---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.add",
+      "signature": "inventory.add(draft) -> decimal_id or nil,error",
+      "example": "local id=assert(inventory.add{category='weapon',definition=7,wear=.1,seed=1})",
+      "origin": "framework",
+      "annotations": "---inventory.add(draft) -> decimal_id or nil,error\n---@param draft InventoryDraft\n---@return string?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.catalog",
+      "signature": "inventory.catalog(category,start=1,limit=100) -> entries,total",
+      "example": "local entries,total=inventory.catalog('weapon',1,100)",
+      "origin": "framework",
+      "annotations": "---inventory.catalog(category,start=1,limit=100) -> entries,total\n---@param category string\n---@param start integer?\n---@param limit integer?\n---@return InventoryCatalogEntry[]\n---@return integer total",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.categories",
+      "signature": "inventory.categories() -> string[]",
+      "example": "for _,category in ipairs(inventory.categories()) do print(category) end",
+      "origin": "framework",
+      "annotations": "---inventory.categories() -> string[]\n---@return string[]",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.equip",
+      "signature": "inventory.equip(id,teams=3) -> true or nil,error",
+      "example": "assert(inventory.equip(saved_id,1)) -- CT=1, T=2, both=3",
+      "origin": "framework",
+      "annotations": "---inventory.equip(id,teams=3) -> true or nil,error\n---@param id string\n---@param teams integer?\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.finishes",
+      "signature": "inventory.finishes(category,definition,start=1,limit=100,all=false) -> entries,total",
+      "example": "local finishes,total=inventory.finishes('weapon',7,1,100)",
+      "origin": "framework",
+      "annotations": "---inventory.finishes(category,definition,start=1,limit=100,all=false) -> entries,total\n---@param category string\n---@param definition integer\n---@param start integer?\n---@param limit integer?\n---@param all boolean?\n---@return InventoryFinish[]?\n---@return integer|string total_or_error",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.get",
+      "signature": "inventory.get(id) -> item or nil,error",
+      "example": "local item,err=inventory.get(saved_id)",
+      "origin": "framework",
+      "annotations": "---inventory.get(id) -> item or nil,error\n---@param id string\n---@return InventoryItem?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.items",
+      "signature": "inventory.items(start=1,limit=100) -> items,total",
+      "example": "local owned,total=inventory.items(1,100)",
+      "origin": "framework",
+      "annotations": "---inventory.items(start=1,limit=100) -> items,total\n---@param start integer?\n---@param limit integer?\n---@return InventoryItem[]\n---@return integer total",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.remove",
+      "signature": "inventory.remove(id) -> true or nil,error",
+      "example": "assert(inventory.remove(saved_id))",
+      "origin": "framework",
+      "annotations": "---inventory.remove(id) -> true or nil,error\n---@param id string\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.status",
+      "signature": "inventory.status() -> {local,native,apply,revision}",
+      "example": "local status=inventory.status();print(status['local'],status.native,status.apply)",
+      "origin": "framework",
+      "annotations": "---inventory.status() -> {local,native,apply,revision}\n---@return table",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.unequip",
+      "signature": "inventory.unequip(id,teams=3) -> true or nil,error",
+      "example": "assert(inventory.unequip(saved_id,3))",
+      "origin": "framework",
+      "annotations": "---inventory.unequip(id,teams=3) -> true or nil,error\n---@param id string\n---@param teams integer?\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "inventory.update",
+      "signature": "inventory.update(id,cosmetics) -> true or nil,error",
+      "example": "assert(inventory.update(saved_id,{wear=.2,custom_name='My item'}))",
+      "origin": "framework",
+      "annotations": "---inventory.update(id,cosmetics) -> true or nil,error\n---@param id string\n---@param cosmetics InventoryCosmetics\n---@return boolean?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "json.array",
+      "signature": "json.array(table={}) -> tagged table",
+      "example": "print(json.encode(json.array()))",
+      "origin": "host",
+      "annotations": "---Marks array/object intent; rejects foreign metatables and invalid key types.\n---@param value? table\n---@return table",
+      "status": "supported"
+    },
+    {
+      "name": "json.decode",
+      "signature": "json.decode(text, preserve_null=false) -> value",
+      "example": "local value=json.decode('{\"health\":100}')",
+      "origin": "host",
+      "annotations": "---Set preserve_null=true to retain null as json.null; default nil for compatibility.\n---@param text string\n---@param preserve_null? boolean\n---@return any",
+      "status": "supported"
+    },
+    {
+      "name": "json.encode",
+      "signature": "json.encode(value) -> string",
+      "example": "print(json.encode({health=100}))",
+      "origin": "host",
+      "annotations": "---@param value any\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "json.object",
+      "signature": "json.object(table={}) -> tagged table",
+      "example": "print(json.encode(json.object()))",
+      "origin": "host",
+      "annotations": "---Marks array/object intent; rejects foreign metatables and invalid key types.\n---@param value? table\n---@return table",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.angle_fov",
+      "signature": "mathx.angle_fov(pitch,yaw,target_pitch,target_yaw) -> number",
+      "example": "local fov=mathx.angle_fov(0,0,10,20)",
+      "origin": "host",
+      "annotations": "---@param pitch number\n---@param yaw number\n---@param target_pitch number\n---@param target_yaw number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.angle_vectors",
+      "signature": "mathx.angle_vectors(pitch,yaw,roll=0) -> forward,right,up",
+      "example": "local forward,right,up=mathx.angle_vectors(0,90)",
+      "origin": "host",
+      "annotations": "---Forward/right/up basis; degrees.\n---@param pitch number\n---@param yaw number\n---@param roll? number\n---@return CS2Vector, CS2Vector, CS2Vector",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.approach",
+      "signature": "mathx.approach(current,target,max_step) -> number",
+      "example": "print(mathx.approach(0,10,2))",
+      "origin": "host",
+      "annotations": "---@param current number\n---@param target number\n---@param max_step number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.approach_angle",
+      "signature": "mathx.approach_angle(current,target,max_degrees) -> [-180,180)",
+      "example": "print(mathx.approach_angle(170,-170,5))",
+      "origin": "host",
+      "annotations": "---@param current number\n---@param target number\n---@param max_degrees number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.calc_angle",
+      "signature": "mathx.calc_angle(x1,y1,z1,x2,y2,z2) -> vector",
+      "example": "local angles=mathx.calc_angle(0,0,0,100,100,0)",
+      "origin": "host",
+      "annotations": "---@param x1 number\n---@param y1 number\n---@param z1 number\n---@param x2 number\n---@param y2 number\n---@param z2 number\n---@return CS2Vector",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.clamp",
+      "signature": "mathx.clamp(value,min,max) -> number",
+      "example": "local hp=mathx.clamp(player.health,0,100)",
+      "origin": "host",
+      "annotations": "---@param value number\n---@param min number\n---@param max number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.damp",
+      "signature": "mathx.damp(current,target,rate,dt=engine.delta_time()) -> number",
+      "example": "local next_value=mathx.damp(0,1,8,1/60)",
+      "origin": "host",
+      "annotations": "---Exponential damping; rate and dt nonnegative, dt defaults to engine.delta_time().\n---@param current number\n---@param target number\n---@param rate number\n---@param dt? number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.distance",
+      "signature": "mathx.distance(x1,y1,z1,x2,y2,z2) -> number",
+      "example": "local d=mathx.distance(0,0,0,3,4,0)",
+      "origin": "host",
+      "annotations": "---@param x1 number\n---@param y1 number\n---@param z1 number\n---@param x2 number\n---@param y2 number\n---@param z2 number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.ease",
+      "signature": "mathx.ease(curve,t) -> [0,1]",
+      "example": "local progress=mathx.ease(\"in_out_cubic\",.5)",
+      "origin": "host",
+      "annotations": "---linear, in_quad, out_quad, in_out_quad, in_cubic, out_cubic, in_out_cubic, in_sine, out_sine, in_out_sine.\n---@param curve string\n---@param t number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.lerp",
+      "signature": "mathx.lerp(a,b,t) -> number",
+      "example": "local alpha=mathx.lerp(0,1,.5)",
+      "origin": "host",
+      "annotations": "---@param a number\n---@param b number\n---@param t number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.lerp_angle",
+      "signature": "mathx.lerp_angle(current,target,t) -> [-180,180)",
+      "example": "print(mathx.lerp_angle(170,-170,.5))",
+      "origin": "host",
+      "annotations": "---Shortest arc; result normalized to [-180,180).\n---@param current number\n---@param target number\n---@param t number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.normalize_angle",
+      "signature": "mathx.normalize_angle(degrees) -> [-180,180)",
+      "example": "print(mathx.normalize_angle(270))",
+      "origin": "host",
+      "annotations": "---@param degrees number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.remap",
+      "signature": "mathx.remap(value,in_min,in_max,out_min,out_max) -> number",
+      "example": "local width=mathx.remap(player.health,0,100,0,160)",
+      "origin": "host",
+      "annotations": "---@param value number\n---@param in_min number\n---@param in_max number\n---@param out_min number\n---@param out_max number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.remap_clamped",
+      "signature": "mathx.remap_clamped(value,in_min,in_max,out_min,out_max) -> number",
+      "example": "print(mathx.remap_clamped(150,0,100,0,1))",
+      "origin": "host",
+      "annotations": "---@param value number\n---@param in_min number\n---@param in_max number\n---@param out_min number\n---@param out_max number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.seconds_to_ticks",
+      "signature": "mathx.seconds_to_ticks(seconds) -> nearest integer tick count",
+      "example": "local ticks=mathx.seconds_to_ticks(.5)",
+      "origin": "host",
+      "annotations": "---@param seconds number\n---@return integer",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.smootherstep",
+      "signature": "mathx.smootherstep(t) -> [0,1]",
+      "example": "print(mathx.smootherstep(.5))",
+      "origin": "host",
+      "annotations": "---@param t number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.smoothstep",
+      "signature": "mathx.smoothstep(t) -> [0,1]",
+      "example": "print(mathx.smoothstep(.5))",
+      "origin": "host",
+      "annotations": "---@param t number\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.ticks_to_seconds",
+      "signature": "mathx.ticks_to_seconds(integer_ticks) -> seconds",
+      "example": "local seconds=mathx.ticks_to_seconds(32)",
+      "origin": "host",
+      "annotations": "---@param ticks integer\n---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "mathx.vector_angles",
+      "signature": "mathx.vector_angles(direction) -> angles or nil",
+      "example": "local angles=mathx.vector_angles(vector(1,1,0))",
+      "origin": "host",
+      "annotations": "---Pitch/yaw/zero roll; nil for the zero vector.\n---@param direction CS2Vector\n---@return CS2Vector?",
+      "status": "supported"
+    },
+    {
+      "name": "model_preview.draw",
+      "signature": "model_preview.draw(label,id_or_draft,width,height,transparent=false) -> {visible,ready,x1,y1,x2,y2} or nil,error",
+      "example": "ui.tab('models','Models',function()\n  model_preview.draw('AK preview',{category='weapon',definition=7},320,280)\nend)",
+      "origin": "framework",
+      "annotations": "---model_preview.draw(label,id_or_draft,width,height,transparent=false) -> {visible,ready,x1,y1,x2,y2} or nil,error\n---@param label string\n---@param id_or_draft string|InventoryDraft\n---@param width number\n---@param height number\n---@param transparent boolean?\n---@return table?\n---@return string? error",
+      "status": "supported"
+    },
+    {
+      "name": "model_preview.status",
+      "signature": "model_preview.status() -> {state,message}",
+      "example": "print(model_preview.status().message)",
+      "origin": "framework",
+      "annotations": "---model_preview.status() -> {state,message}\n---@return table",
+      "status": "supported"
+    },
+    {
+      "name": "native.bind",
+      "origin": "native",
+      "signature": "native.bind(address,signature)",
+      "annotations": "---@param address integer\n---@param signature CS2NativeSignature\n---@return fun(...):any?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.export",
+      "origin": "native",
+      "signature": "native.export(module,name)",
+      "annotations": "---@param module string\n---@param name string\n---@return integer?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.hook",
+      "origin": "native",
+      "signature": "native.hook(address,signature,callback_source)",
+      "annotations": "---@param address integer\n---@param signature CS2NativeSignature\n---@param callback_source string Returns function(original,...); isolated worker, no parent closures/UI.\n---@return CS2NativeHook?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.module",
+      "origin": "native",
+      "signature": "native.module(module)",
+      "annotations": "---@param module string\n---@return {base:integer,size:integer}?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.read",
+      "origin": "native",
+      "signature": "native.read(address,type)",
+      "annotations": "---@param address integer\n---@param type CS2NativeType\n---@return boolean|number|nil,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.read_bytes",
+      "origin": "native",
+      "signature": "native.read_bytes(address,length)",
+      "annotations": "---@param address integer\n---@param length integer 1..4096\n---@return string?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.relative",
+      "origin": "native",
+      "signature": "native.relative(address,displacement_offset,instruction_length)",
+      "annotations": "---@param address integer\n---@param displacement_offset? integer\n---@param instruction_length? integer\n---@return integer?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.scan",
+      "origin": "native",
+      "signature": "native.scan(module,pattern,occurrence)",
+      "annotations": "---@param module string\n---@param pattern string Space-separated hex and ?/?? bytes, up to 256 bytes.\n---@param occurrence? integer 0 requires a unique match; positive values are one-based.\n---@return integer?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "native.vtable",
+      "origin": "native",
+      "signature": "native.vtable(object_address,zero_based_index)",
+      "annotations": "---@param object_address integer\n---@param zero_based_index integer\n---@return integer?,string?",
+      "status": "supported"
+    },
+    {
+      "name": "print",
+      "origin": "core",
+      "op": "base.log",
+      "signature": "print(...)",
+      "annotations": "---Writes script-prefixed output to the developer console.\n---@vararg any",
+      "status": "supported"
+    },
+    {
+      "name": "rect",
+      "origin": "value",
+      "signature": "rect(x0,y0,x1,y1)",
+      "annotations": "---@param x0? number\n---@param y0? number\n---@param x1? number\n---@param y1? number\n---@return CS2Rect",
+      "status": "supported"
+    },
+    {
+      "name": "render.arc",
+      "signature": "render.arc(x,y,radius,start_degrees,end_degrees,color,thickness=1,segments=48)",
+      "example": "events.on('render',function()\n  render.arc(90,90,30,-90,180,color(.2,.7,1),3)\nend)",
+      "origin": "host",
+      "annotations": "---@param x number\n---@param y number\n---@param radius number\n---@param start_degrees number\n---@param end_degrees number\n---@param color CS2Color|number[]\n---@param thickness? number\n---@param segments? integer",
+      "status": "supported"
+    },
+    {
+      "name": "render.bezier",
+      "signature": "render.bezier(x1,y1,x2,y2,x3,y3,x4,y4,color,thickness=1,segments=32)",
+      "example": "events.on('render',function()\n  render.bezier(20,90,60,10,120,10,160,90,color(1,.5,.2),2)\nend)",
+      "origin": "host",
+      "annotations": "---@param x1 number\n---@param y1 number\n---@param x2 number\n---@param y2 number\n---@param x3 number\n---@param y3 number\n---@param x4 number\n---@param y4 number\n---@param color CS2Color|number[]\n---@param thickness? number\n---@param segments? integer",
+      "status": "supported"
+    },
+    {
+      "name": "render.circle",
+      "op": "DrawCircle",
+      "origin": "shared",
+      "signature": "render.circle(x,y,radius,rgba,filled,thickness)",
+      "annotations": "---@param x number\n---@param y number\n---@param radius number\n---@param rgba CS2Color|number[]\n---@param filled? boolean\n---@param thickness? number",
+      "status": "supported"
+    },
+    {
+      "name": "render.gradient",
+      "signature": "render.gradient(x,y,w,h,rgba_top,rgba_bottom)",
+      "example": "render.gradient(20,20,160,40,{.2,.6,.8,1},{.1,.1,.1,1})",
+      "origin": "host",
+      "annotations": "---@param x number\n---@param y number\n---@param w number\n---@param h number\n---@param rgba_top CS2Color|number[]\n---@param rgba_bottom CS2Color|number[]",
+      "status": "supported"
+    },
+    {
+      "name": "render.line",
+      "op": "DrawLine",
+      "origin": "shared",
+      "signature": "render.line(x0,y0,x1,y1,rgba,thickness)",
+      "annotations": "---@param x0 number\n---@param y0 number\n---@param x1 number\n---@param y1 number\n---@param rgba CS2Color|number[]\n---@param thickness? number",
+      "status": "supported"
+    },
+    {
+      "name": "render.measure_text",
+      "signature": "render.measure_text(text,size=14) -> width,height",
+      "example": "local w,h=render.measure_text('CS2',14)",
+      "origin": "host",
+      "annotations": "---@param text string\n---@param size? number\n---@return number, number",
+      "status": "supported"
+    },
+    {
+      "name": "render.polyline",
+      "signature": "render.polyline({{x,y},...},color,thickness=1,closed=false)",
+      "example": "render.polyline({{10,10},{30,30},{50,10}},{1,1,1,1})",
+      "origin": "host",
+      "annotations": "---@param points number[][]\n---@param rgba CS2Color|number[]\n---@param thickness? number\n---@param closed? boolean",
+      "status": "supported"
+    },
+    {
+      "name": "render.rect",
+      "op": "DrawRect",
+      "origin": "shared",
+      "signature": "render.rect(x,y,width,height,rgba,filled,rounding)",
+      "annotations": "---@param x number\n---@param y number\n---@param width number\n---@param height number\n---@param rgba CS2Color|number[]\n---@param filled? boolean\n---@param rounding? number",
+      "status": "supported"
+    },
+    {
+      "name": "render.scale",
+      "signature": "render.scale() -> number",
+      "example": "local scale=render.scale()",
+      "origin": "host",
+      "annotations": "---@return number",
+      "status": "supported"
+    },
+    {
+      "name": "render.screen_size",
+      "signature": "render.screen_size() -> width,height",
+      "example": "local width,height=render.screen_size()",
+      "origin": "host",
+      "annotations": "---@return number,number",
+      "status": "supported"
+    },
+    {
+      "name": "render.text",
+      "op": "DrawText",
+      "origin": "shared",
+      "signature": "render.text(x,y,text,rgba,size)",
+      "annotations": "---@param x number\n---@param y number\n---@param text string\n---@param rgba CS2Color|number[]\n---@param size? number",
+      "status": "supported"
+    },
+    {
+      "name": "render.theme",
+      "signature": "render.theme() -> {accent,text,muted,panel,border}",
+      "example": "local colors=render.theme()",
+      "origin": "host",
+      "annotations": "---@return {accent:CS2Color,text:CS2Color,muted:CS2Color,panel:CS2Color,border:CS2Color}",
+      "status": "supported"
+    },
+    {
+      "name": "render.triangle",
+      "signature": "render.triangle(x1,y1,x2,y2,x3,y3,color,filled=true)",
+      "example": "render.triangle(20,20,40,20,30,40,{1,1,1,1})",
+      "origin": "host",
+      "annotations": "---@param x1 number\n---@param y1 number\n---@param x2 number\n---@param y2 number\n---@param x3 number\n---@param y3 number\n---@param rgba CS2Color|number[]\n---@param filled? boolean",
+      "status": "supported"
+    },
+    {
+      "name": "render.world_to_screen",
+      "signature": "render.world_to_screen(x,y,z) or render.world_to_screen(vector) -> x,y or nil",
+      "example": "local x,y=render.world_to_screen(p.origin.x,p.origin.y,p.origin.z)",
+      "origin": "host",
+      "annotations": "---@overload fun(position:CS2Vector):number?,number?\n---@param x number\n---@param y number\n---@param z number\n---@return number?,number?",
+      "status": "supported"
+    },
+    {
+      "name": "script.name",
+      "signature": "script.name() -> string",
+      "example": "print(script.name())",
+      "origin": "host",
+      "annotations": "---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "settings.get",
+      "signature": "settings.get(feature_id) -> value",
+      "example": "print(settings.get('espEnabled'))",
+      "origin": "host",
+      "annotations": "---@param feature_id string\n---@return any",
+      "status": "supported"
+    },
+    {
+      "name": "settings.info",
+      "signature": "settings.info(feature_id) -> metadata or nil",
+      "example": "print(json.encode(settings.info('espEnabled')))",
+      "origin": "host",
+      "annotations": "---@param feature_id string\n---@return CS2Setting?",
+      "status": "supported"
+    },
+    {
+      "name": "settings.list",
+      "signature": "settings.list(filter='') -> metadata[]",
+      "example": "for _,f in ipairs(settings.list('esp')) do print(f.id,f.type) end",
+      "origin": "host",
+      "annotations": "---@param filter? string\n---@return CS2Setting[]",
+      "status": "supported"
+    },
+    {
+      "name": "settings.set",
+      "signature": "settings.set(feature_id, value)",
+      "example": "settings.set('espEnabled',true)",
+      "origin": "host",
+      "annotations": "---@param feature_id string\n---@param value any",
+      "status": "supported"
+    },
+    {
+      "name": "storage.delete",
+      "signature": "storage.delete(key)",
+      "example": "storage.delete('preferences')",
+      "origin": "host",
+      "annotations": "---@param key string",
+      "status": "supported"
+    },
+    {
+      "name": "storage.read",
+      "signature": "storage.read(key, fallback=nil, preserve_null=false) -> value",
+      "example": "local prefs=storage.read('preferences',{enabled=true})",
+      "origin": "host",
+      "annotations": "---@param key string\n---@param fallback? any\n---@param preserve_null? boolean\n---@return any",
+      "status": "supported"
+    },
+    {
+      "name": "storage.write",
+      "signature": "storage.write(key, JSON-compatible value)",
+      "example": "storage.write('preferences',{enabled=true})",
+      "origin": "host",
+      "annotations": "---@param key string\n---@param value any",
+      "status": "supported"
+    },
+    {
+      "name": "timers.after",
+      "signature": "timers.after(seconds, callback) -> id",
+      "example": "timers.after(2,function() print('ready') end)",
+      "origin": "host",
+      "annotations": "---@param seconds number\n---@param callback function\n---@return integer",
+      "status": "supported"
+    },
+    {
+      "name": "timers.cancel",
+      "signature": "timers.cancel(id) -> boolean",
+      "example": "timers.cancel(timer_id)",
+      "origin": "host",
+      "annotations": "---@param id integer\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "timers.every",
+      "signature": "timers.every(seconds, callback) -> id",
+      "example": "local id=timers.every(1,function() print(cs2.clock().tick) end)",
+      "origin": "host",
+      "annotations": "---@param seconds number\n---@param callback function\n---@return integer",
+      "status": "supported"
+    },
+    {
+      "name": "ui.button",
+      "op": "Button",
+      "origin": "shared",
+      "signature": "ui.button(label,width,height)",
+      "annotations": "---@param label string\n---@param width? number\n---@param height? number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "ui.columns",
+      "op": "Columns",
+      "origin": "shared",
+      "signature": "ui.columns(count,draw,compact)",
+      "annotations": "---@param count integer\n---@param draw function\n---@param compact? boolean",
+      "status": "supported"
+    },
+    {
+      "name": "ui.combo",
+      "op": "Combo",
+      "origin": "shared",
+      "signature": "ui.combo(label,index,items)",
+      "annotations": "---One-based index; 1..128 items.\n---@param label string\n---@param index integer\n---@param items string[]\n---@return boolean, integer",
+      "status": "supported"
+    },
+    {
+      "name": "ui.entity_colors",
+      "op": "EntityColors",
+      "origin": "shared",
+      "signature": "ui.entity_colors()",
+      "annotations": "---Returns false in CS2; use settings for CS2 colors.\n---@return boolean",
+      "status": "availability probe"
+    },
+    {
+      "name": "ui.feature",
+      "op": "Feature",
+      "origin": "shared",
+      "signature": "ui.feature(id)",
+      "annotations": "---@param id string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.feature_visible",
+      "op": "FeatureVisible",
+      "origin": "shared",
+      "signature": "ui.feature_visible(id,visible)",
+      "annotations": "---@param id string\n---@param visible boolean",
+      "status": "supported"
+    },
+    {
+      "name": "ui.group",
+      "op": "Group",
+      "origin": "shared",
+      "signature": "ui.group(label,draw)",
+      "annotations": "---@param label string\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "ui.keybind",
+      "op": "Keybind",
+      "origin": "shared",
+      "signature": "ui.keybind(id,label)",
+      "annotations": "---@param id string\n---@param label? string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.menu_visible",
+      "op": "Menu",
+      "origin": "shared",
+      "signature": "ui.menu_visible(visible)",
+      "annotations": "---@param visible? boolean\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "ui.multi_combo",
+      "op": "MultiCombo",
+      "origin": "shared",
+      "signature": "ui.multi_combo(label,selected,items)",
+      "annotations": "---Dense selection array with one entry per item.\n---@param label string\n---@param selected boolean[]\n---@param items string[]\n---@return boolean, boolean[]",
+      "status": "supported"
+    },
+    {
+      "name": "ui.next_column",
+      "op": "NextColumn",
+      "origin": "shared",
+      "signature": "ui.next_column()",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "ui.overlay",
+      "op": "Overlay",
+      "origin": "shared",
+      "signature": "ui.overlay(id,draw)",
+      "annotations": "---@param id string\n---@param draw function\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.override",
+      "op": "Override",
+      "origin": "shared",
+      "signature": "ui.override(page,draw)",
+      "annotations": "---CS2 supports lua/ui and lua/api only.\n---@param page string\n---@param draw function\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.reset_theme",
+      "op": "ResetTheme",
+      "origin": "shared",
+      "signature": "ui.reset_theme()",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "ui.selectable",
+      "op": "Selectable",
+      "origin": "shared",
+      "signature": "ui.selectable(label,selected,width,height)",
+      "annotations": "---@param label string\n---@param selected boolean\n---@param width? number\n---@param height? number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "ui.slider",
+      "op": "Slider",
+      "origin": "shared",
+      "signature": "ui.slider(label,value,min,max,options)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param options? {style?:string}\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "ui.slider_int",
+      "op": "SliderInt",
+      "origin": "shared",
+      "signature": "ui.slider_int(label,value,min,max,options)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param options? {style?:string}\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "ui.subtab",
+      "op": "Subtab",
+      "origin": "shared",
+      "signature": "ui.subtab(parent,id,label,draw)",
+      "annotations": "---@param parent string\n---@param id string\n---@param label string\n---@param draw function\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.tab",
+      "op": "Tab",
+      "origin": "shared",
+      "signature": "ui.tab(id,label,draw,metadata)",
+      "annotations": "---Register during script loading. Metadata may be third argument if there is no draw callback.\n---@param id string\n---@param label string\n---@param draw? function|table\n---@param metadata? table\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.theme",
+      "op": "SetTheme",
+      "origin": "shared",
+      "signature": "ui.theme(options)",
+      "annotations": "---@param options table",
+      "status": "supported"
+    },
+    {
+      "name": "ui.toggle",
+      "op": "Checkbox",
+      "origin": "shared",
+      "signature": "ui.toggle(label,value)",
+      "annotations": "---@param label string\n---@param value boolean\n---@return boolean, boolean",
+      "status": "supported"
+    },
+    {
+      "name": "ui.tr",
+      "op": "TranslateText",
+      "origin": "shared",
+      "signature": "ui.tr(english_key)",
+      "annotations": "---@param english_key string\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.window",
+      "op": "Window",
+      "origin": "shared",
+      "signature": "ui.window(id,title,options,draw)",
+      "annotations": "---@param id string\n---@param title string\n---@param options table\n---@param draw function\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "ui.window_visible",
+      "op": "WindowVisible",
+      "origin": "shared",
+      "signature": "ui.window_visible(id,visible)",
+      "annotations": "---@param id string\n---@param visible? boolean\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "utils.base64_decode",
+      "signature": "utils.base64_decode(text) -> bytes",
+      "example": "print(utils.base64_decode(\"aGVsbG8=\"))",
+      "origin": "host",
+      "annotations": "---Strict alphabet and canonical Base64 padding; output at most 65536 bytes.\n---@param text string\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "utils.base64_encode",
+      "signature": "utils.base64_encode(bytes) -> string",
+      "example": "print(utils.base64_encode(\"hello\"))",
+      "origin": "host",
+      "annotations": "---Binary strings supported; at most 65536 input bytes.\n---@param bytes string\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "utils.fnv1a",
+      "signature": "utils.fnv1a(bytes) -> unsigned 32-bit integer",
+      "example": "print(utils.fnv1a(\"hello\"))",
+      "origin": "host",
+      "annotations": "---FNV-1a 32-bit hash, not cryptographic.\n---@param bytes string\n---@return integer",
+      "status": "supported"
+    },
+    {
+      "name": "utils.from_bytes",
+      "signature": "utils.from_bytes(byte[]) -> string",
+      "example": "print(utils.from_bytes({72,105,0}))",
+      "origin": "host",
+      "annotations": "---Dense array of integer bytes 0..255.\n---@param bytes integer[]\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "utils.hex_decode",
+      "signature": "utils.hex_decode(hex) -> bytes",
+      "example": "print(utils.hex_decode(\"68656c6c6f\"))",
+      "origin": "host",
+      "annotations": "---Strict alphabet and canonical Base64 padding; output at most 65536 bytes.\n---@param text string\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "utils.hex_encode",
+      "signature": "utils.hex_encode(bytes) -> lowercase hex",
+      "example": "print(utils.hex_encode(\"hello\"))",
+      "origin": "host",
+      "annotations": "---Binary strings supported; at most 65536 input bytes.\n---@param bytes string\n---@return string",
+      "status": "supported"
+    },
+    {
+      "name": "utils.to_bytes",
+      "signature": "utils.to_bytes(string) -> byte[]",
+      "example": "local bytes=utils.to_bytes(\"hello\")",
+      "origin": "host",
+      "annotations": "---@param bytes string\n---@return integer[]",
+      "status": "supported"
+    },
+    {
+      "name": "utils.unix_time",
+      "signature": "utils.unix_time() -> integer seconds since Unix epoch",
+      "example": "print(utils.unix_time())",
+      "origin": "host",
+      "annotations": "---@return integer",
+      "status": "supported"
+    },
+    {
+      "name": "vector",
+      "origin": "value",
+      "signature": "vector(x,y,z)",
+      "annotations": "---@param x? number\n---@param y? number\n---@param z? number\n---@return CS2Vector",
+      "status": "supported"
+    },
+    {
+      "name": "vector2",
+      "origin": "value",
+      "signature": "vector2(x,y)",
+      "annotations": "---@param x? number\n---@param y? number Defaults to x.\n---@return CS2Vector2",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.button",
+      "op": "Button",
+      "origin": "shared",
+      "signature": "widgets.button(label,width,height)",
+      "annotations": "---@param label string\n---@param width? number\n---@param height? number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.columns",
+      "op": "Columns",
+      "origin": "shared",
+      "signature": "widgets.columns(count,draw,compact)",
+      "annotations": "---@param count integer\n---@param draw function\n---@param compact? boolean",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.combo",
+      "op": "Combo",
+      "origin": "shared",
+      "signature": "widgets.combo(label,index,items)",
+      "annotations": "---One-based index; 1..128 items.\n---@param label string\n---@param index integer\n---@param items string[]\n---@return boolean, integer",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.group",
+      "op": "Group",
+      "origin": "shared",
+      "signature": "widgets.group(label,draw)",
+      "annotations": "---@param label string\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.multi_combo",
+      "op": "MultiCombo",
+      "origin": "shared",
+      "signature": "widgets.multi_combo(label,selected,items)",
+      "annotations": "---Dense selection array with one entry per item.\n---@param label string\n---@param selected boolean[]\n---@param items string[]\n---@return boolean, boolean[]",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.next_column",
+      "op": "NextColumn",
+      "origin": "shared",
+      "signature": "widgets.next_column()",
+      "annotations": "",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.selectable",
+      "op": "Selectable",
+      "origin": "shared",
+      "signature": "widgets.selectable(label,selected,width,height)",
+      "annotations": "---@param label string\n---@param selected boolean\n---@param width? number\n---@param height? number\n---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.slider",
+      "op": "Slider",
+      "origin": "shared",
+      "signature": "widgets.slider(label,value,min,max,options)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param options? {style?:string}\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.slider_int",
+      "op": "SliderInt",
+      "origin": "shared",
+      "signature": "widgets.slider_int(label,value,min,max,options)",
+      "annotations": "---@param label string\n---@param value number\n---@param min number\n---@param max number\n---@param options? {style?:string}\n---@return boolean, number",
+      "status": "supported"
+    },
+    {
+      "name": "widgets.toggle",
+      "op": "Checkbox",
+      "origin": "shared",
+      "signature": "widgets.toggle(label,value)",
+      "annotations": "---@param label string\n---@param value boolean\n---@return boolean, boolean",
+      "status": "supported"
+    }
+  ],
+  "widget_alias": "ui.widgets = widgets"
+}
