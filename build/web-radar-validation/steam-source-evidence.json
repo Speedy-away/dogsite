@@ -1,0 +1,15 @@
+{
+  "recordedUtc": "2026-09-30T23:25:37.592657+00:00",
+  "synthetic": true,
+  "publicRelayDeployed": false,
+  "nodeTests": 8,
+  "browserResults": "browser-results.json",
+  "sources": {
+    "web-radar\\app.mjs": "a02e4ef4517896f869c6510dfd732d457b22dcfe3afdce65192040132279099e",
+    "web-radar\\radar.css": "c4a6f267c933211fe68a046e76051805ee816a107751a9e8a2857360f52ad4c5",
+    "web-radar\\relay\\server.mjs": "c21b3d5a0f900014eebbd34f614992b85c434c75ed2aea3bac8e0f1decb3789b",
+    "web-radar\\relay\\avatars.mjs": "be287c17e4eeaee2afb586516b4657ccb0c382136ed4101f92fdf42bfa2b96bc",
+    "web-radar\\relay\\server.test.mjs": "2128cb91cee1d55700a894b008d97b1915aba29b9c271ef2554a9cf151c73361",
+    "web-radar\\tools\\validate-browser.cjs": "08a22da8c2e16da5bdd6682e1fe0493c72cd73da0cc4edb56680e60759c0fab1"
+  }
+}

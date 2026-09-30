@@ -84,15 +84,15 @@ The ordinary static preview (`serve.bat`) does not run the live relay.
 
 `PUT /web-radar/api/session/:id` creates a session idempotently, `POST` updates it,
 and `DELETE` closes it. Each requires `Authorization: Bearer <64 hex chars>`.
-`GET /web-radar/api/session/:id/events` receives `frame`, `status`, `heartbeat`,
-and `ended` events. All API responses use `no-store`; sessions remain in RAM only.
+`GET /web-radar/api/session/:id/events` receives `frame`, `avatar`, `status`,
+`heartbeat`, and `ended` events. All API responses use `no-store`; sessions remain in RAM only.
 An expired ID cannot be revived during the bounded tombstone retention period.
 
 `frame` fields are `version`, increasing `seq`, `state` (`live`/`waiting`),
 `keepLink`, `map`, `layer`, `calibration`, and `entities`. Calibration is the exact
 host Quick Map transform (`x`, `y`, `scale`, `size`, `offsetX`, `offsetY`, `zoom`).
 Kinds: 0 player, 1 planted bomb, 2 dropped bomb, 3 smoke, 4 fire, 5 grenade,
-6 dropped weapon, 7 hostage. Team numbers are native 2=T and 3=CT, independent
+6 dropped weapon, 7 hostage. There are at most 64 player markers. Team numbers are native 2=T and 3=CT, independent
 of the host's team. The viewer also shows active weapon, HP, armor, money,
 local-player marker, bomb carrier, defuse state and planted timer when available.
 Upper/lower layers use the same Nuke/Train/Vertigo/Baggage thresholds as Quick Map.
@@ -109,3 +109,43 @@ python web-radar/tools/export-maps.py --source ../Scooby-Op/CS2/v2/src/GUI/overl
 
 Re-run after updating CS2 overview assets, then compare `maps/manifest.json`.
 New map calibration remains owned by the CS2 source.
+
+## Steam avatars and profile links
+
+Player `steamId` is an optional decimal string. It must identify a public
+individual desktop Steam account; zero/bot IDs become an empty string. JSON
+numbers are rejected to avoid losing precision. The avatar, name and Steam
+profile label open `https://steamcommunity.com/profiles/<steamId>/` with a new-tab
+native link and `noopener noreferrer`. Bots/unavailable identities show a generic
+avatar and no link; valid accounts without an image keep their profile link.
+
+The host obtains small avatars from Steam's native friends/utilities APIs. No
+Steam Web API key is required and the website makes no Steam profile/API fetches.
+Optional publisher `avatars` contains up to two `{steamId, rgba}` entries per
+snapshot: exactly 32x32 RGBA pixels, canonical base64 (4096 bytes / 5464 characters),
+and only IDs present in that snapshot's player roster. The relay converts the
+fixed-size pixels into PNG; it does not fetch publisher URLs or decode supplied
+image formats. Regular `frame` events exclude avatar uploads. Separate `avatar`
+events carry `{steamId, image}` with a `data:image/png;base64,...` image.
+
+Images are sent only when changed, cached in the current room, delivered once to
+new viewers, and pruned when their player leaves or the host sends a waiting
+snapshot. A host acknowledges images only after successful publishing. Stale
+reconnects restore the cache without changing its ownership. Cards preserve DOM
+nodes when stats change, keeping profile keyboard focus and loaded images stable.
+
+## Direct PC hosting alternative
+
+The current transport above forwards all snapshots through the relay. Direct
+PC-to-viewer hosting is a separate transport change and is not implemented here.
+For that model the PC owns each live session, the site serves the viewer at the
+same clean share URL, a small signaling service associates that random ID with
+the connected host, and WebRTC data channels carry updates directly where possible.
+A TURN relay is needed as fallback for networks that prevent direct connections.
+GitHub Pages can continue serving static assets but cannot perform signaling or
+TURN. This design still needs a deployed connection service; a random site URL
+alone cannot discover and connect to a private PC through arbitrary routers.
+
+References: [WebRTC connectivity](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Connectivity),
+[GitHub Pages hosting](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages),
+and [Steam friends/avatar API](https://partner.steamgames.com/doc/api/ISteamFriends?l=english).

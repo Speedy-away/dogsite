@@ -8,7 +8,7 @@ if($Clean) { if(Test-Path -LiteralPath $log){Remove-Item -LiteralPath $log -Forc
 New-Item -ItemType Directory -Path $output -Force | Out-Null
 Push-Location $siteRoot
 try {
-  foreach($file in @('web-radar/relay/server.mjs','web-radar/app.mjs','web-radar/render.mjs')) {
+  foreach($file in @('web-radar/relay/server.mjs','web-radar/relay/avatars.mjs','web-radar/app.mjs','web-radar/render.mjs')) {
     & node --check $file
     if($LASTEXITCODE -ne 0){throw "Syntax check failed: $file"}
   }

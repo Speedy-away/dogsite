@@ -293,11 +293,13 @@ main:focus {
     justify-content:center;
     position:relative
 }
-.hero-logo img {
+.hero-logo .hero-mark {
+    display:block;
     width:230px;
     height:230px;
-    object-fit:contain;
-    filter:none
+    background:var(--text);
+    -webkit-mask:url("/assets/images/brand/scooby-mark.svg") center / contain no-repeat;
+    mask:url("/assets/images/brand/scooby-mark.svg") center / contain no-repeat
 }
 .wiki-note {
     background:var(--note);
@@ -888,7 +890,7 @@ main:focus {
         gap:30px;
         padding:80px 0
     }
-    .hero-logo img {
+    .hero-logo .hero-mark {
         width:190px;
         height:190px
     }

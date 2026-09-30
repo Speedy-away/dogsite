@@ -29,7 +29,7 @@ const output=path.resolve(__dirname,'../build/tf2-free-key');
   await page.keyboard.press('Escape');assert(!await page.locator('#freeKeyModal').isVisible());
   assert(await page.locator('#getFreeKey').evaluate(el=>el===document.activeElement));checks+=6;
   await page.locator('[data-tf2-preview]').first().click();assert(await page.locator('#lightbox').isVisible());
-  await page.keyboard.press('ArrowRight');assert((await page.locator('#lightbox-caption').innerText()).startsWith('2 /'));
+  await page.keyboard.press('ArrowRight');assert.equal(await page.locator('#lightbox-img').getAttribute('src'),await page.locator('[data-tf2-preview]').nth(1).getAttribute('href'));
   await page.keyboard.press('Escape');assert(!await page.locator('#lightbox').isVisible());checks+=3;
  }
  for(const edition of ['tf2-classified','invalid']){await page.goto(base+'/products/tf2/?edition='+edition);assert.equal(await page.locator('#tf2-edition,#tf2-logo').count(),0);assert(await page.locator('#getFreeKey').isVisible());checks+=2;}

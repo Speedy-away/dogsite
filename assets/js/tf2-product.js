@@ -1,8 +1,8 @@
 (() => {
  const links=[...document.querySelectorAll('[data-tf2-preview]')],box=document.getElementById('lightbox');
  if(!box||!links.length)return;
- const image=document.getElementById('lightbox-img'),caption=document.getElementById('lightbox-caption');let index=0,trigger=null;
- const show=i=>{index=(i+links.length)%links.length;image.src=links[index].href;image.alt=links[index].querySelector('img').alt;caption.textContent=(index+1)+' / '+links.length+' · '+links[index].querySelector('.preview-caption').textContent;};
+ const image=document.getElementById('lightbox-img');let index=0,trigger=null;
+ const show=i=>{index=(i+links.length)%links.length;image.src=links[index].href;image.alt=links[index].querySelector('img').alt;box.setAttribute('aria-label','TF2 screenshot '+(index+1)+' of '+links.length);};
  const close=()=>{box.classList.remove('active');box.setAttribute('aria-hidden','true');document.body.style.overflow='';trigger?.focus();};
  links.forEach((link,i)=>link.addEventListener('click',e=>{e.preventDefault();trigger=link;show(i);box.classList.add('active');box.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';box.querySelector('.lightbox-close').focus();}));
  box.querySelector('.lightbox-close').addEventListener('click',close);box.querySelector('.lightbox-next').addEventListener('click',()=>show(index+1));box.querySelector('.lightbox-prev').addEventListener('click',()=>show(index-1));

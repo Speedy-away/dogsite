@@ -2,6 +2,8 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {randomBytes} from 'node:crypto';
 import {createRadarServer,validateFrame} from './server.mjs';
+import {inflateSync} from 'node:zlib';
+import {publicSteamId,avatarPng} from './avatars.mjs';
 import {project,floorFor} from '../render.mjs';
 
 export const marker=(id=1,kind=0)=>({id,kind,team:2,x:100,y:-200,z:0,yaw:90,health:100,armor:50,money:1000,weapon:7,grenade:0,radius:0,timer:-1,alive:true,local:false,bomb:false,defusing:false,name:'Test player'});
@@ -114,4 +116,63 @@ test('waiting sessions expire and viewer links never contain the publisher key',
   assert.equal((await fetch(url,{method:'PUT',headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:JSON.stringify(f)})).status,204);
   assert.equal(JSON.stringify(app.rooms.get(id).frame).includes(token),false);
   clock+=1001;app.sweep();assert.equal((await fetch(url+'/events')).status,410);
+});
+
+const steam='76561198012345679';
+const pixels=Buffer.alloc(4096,127),rgba=pixels.toString('base64');
+function avatarFixture(seq=1) {
+  const f=fixture(seq);f.entities[0].steamId=steam;f.avatars=[{steamId:steam,rgba}];return f;
+}
+test('Steam identities are exact strings and avatar uploads have a fixed safe format',()=>{
+  assert(publicSteamId(steam));
+  for(const bad of [Number(steam),null,'','0','76561197960265728','76561202255233024','javascript:alert(1)',steam+'/'])assert(!publicSteamId(bad));
+  const f=avatarFixture(),valid=validateFrame(f);
+  assert.equal(valid.entities[0].steamId,steam);assert.equal(valid.avatars[0].rgba,rgba);
+  assert.equal(validateFrame(fixture()).entities[0].steamId,''); // older native publisher
+  for(const bad of [Number(steam),'https://steamcommunity.com/profiles/'+steam,{},'0']) {
+    const f=avatarFixture();f.entities[0].steamId=bad;assert.equal(validateFrame(f),null);
+  }
+  for(const bad of [null,{},[...f.avatars,...f.avatars],Array(3).fill(f.avatars[0]),
+    [{steamId:'76561198012345680',rgba}],[{steamId:steam,rgba:'data:image/svg+xml,<svg/>'}],
+    [{steamId:steam,rgba:rgba.slice(0,-2)+'A='}],[{steamId:steam,rgba:rgba.slice(0,-3)+'x=='}]]) {
+    assert.equal(validateFrame({...f,avatars:bad}),null);
+  }
+  const prop=avatarFixture();prop.entities[0].kind=6;assert.equal(validateFrame(prop),null);
+  assert.equal(validateFrame({...fixture(),entities:Array.from({length:65},(_,i)=>marker(i))}),null);
+  const png=Buffer.from(avatarPng(rgba).split(',')[1],'base64');
+  assert.equal(png.subarray(1,4).toString(),'PNG');assert.equal(png.readUInt32BE(16),32);assert.equal(png.readUInt32BE(20),32);
+  const raw=inflateSync(png.subarray(41,41+png.readUInt32BE(33)));
+  assert.equal(raw.length,4128);
+  for(let y=0;y<32;++y) {assert.equal(raw[y*129],0);assert.deepEqual(raw.subarray(y*129+1,(y+1)*129),pixels.subarray(y*128,(y+1)*128));}
+});
+
+test('avatar SSE is separate, cached for new viewers, restored after loss and pruned with the roster',async t=>{
+  let clock=10000;const app=createRadarServer({now:()=>clock});
+  await new Promise(r=>app.server.listen(0,'127.0.0.1',r));
+  t.after(()=>{app.closeAll();app.server.closeAllConnections();app.server.close();});
+  const id='8'.repeat(32),url=`http://127.0.0.1:${app.server.address().port}/web-radar/api/session/${id}`;
+  const publish=async f=>{clock+=100;return fetch(url,{method:'PUT',headers:{'Content-Type':'application/json',Authorization:`Bearer ${'7'.repeat(64)}`},body:JSON.stringify(f)});};
+  assert.equal((await publish(avatarFixture())).status,204);
+  const room=app.rooms.get(id);assert.equal(room.avatars.size,1);assert.equal(room.frame.avatars,undefined);
+  const ac=new AbortController();t.after(()=>ac.abort());
+  const response=await fetch(url+'/events',{signal:ac.signal}),reader=response.body.getReader();let pending='';
+  async function until(needle) {
+    const timeout=setTimeout(()=>ac.abort(),4000);
+    try{while(!pending.includes(needle)){const part=await reader.read();assert(!part.done);pending+=Buffer.from(part.value).toString();}
+      const result=pending;pending='';return result;
+    }finally{clearTimeout(timeout);}
+  }
+  const initial=await until('event: avatar');assert.match(initial,/event: frame/);assert.match(initial,/data:image\/png;base64/);assert(!initial.includes('"rgba"'));
+  const same=avatarFixture(2);delete same.avatars;assert.equal((await publish(same)).status,204);
+  const update=await until('"seq":2');assert(!update.includes('event: avatar'));assert.equal(room.avatars.size,1);
+  clock+=3100;app.sweep();await until('offline');
+  assert.equal((await publish({...same,seq:3})).status,204);assert.match(await until('event: avatar'),/"seq":3/);
+  const changed=avatarFixture(3);changed.avatars[0].rgba=Buffer.alloc(4096,10).toString('base64');
+  assert.equal((await publish(changed)).status,409);assert.equal(room.avatars.get(steam).rgba,rgba);
+  changed.seq=4;assert.equal((await publish(changed)).status,204);
+  assert.match(await until('event: avatar'),/"seq":4/);assert.equal(room.avatars.get(steam).rgba,changed.avatars[0].rgba);
+  assert.equal((await publish(fixture(5))).status,204);await until('"seq":5');assert.equal(room.avatars.size,0);
+  assert.equal((await publish(avatarFixture(6))).status,204);await until('event: avatar');
+  assert.equal((await publish({...fixture(7),state:'waiting',entities:[],map:'',layer:''})).status,204);
+  await until('"state":"waiting"');assert.equal(room.avatars.size,0);
 });
