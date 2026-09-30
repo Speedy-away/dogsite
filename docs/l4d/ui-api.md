@@ -1,12 +1,12 @@
 # Lua UI API
 
-Version **1.0**. `UI_API_VERSION` is `"1.0"`.
+Version **1.1** (shared by V1 and V2). `UI_API_VERSION` is `"1.1"`.
 
 This is the portable UI API for Scooby Simple Base. It provides persistent scripts, custom features, tabs, sub-tabs, independent menus, overlays, page replacements, theming, and a curated set of ImGui controls. Game-specific functions are supplied by the project that embeds the UI.
 
-Open **Lua > API docs** for a continuous scrollable reader beside the main GUI. Code blocks preserve indentation, use Lua syntax colors, and are read-only: select code and press Ctrl+C, or click a block and press Ctrl+A to select the whole example. Long lines scroll horizontally. There are no toolbar dropdowns or script-management buttons. The host can supply `docs/LUA_SNIPPETS.md` for a concise example guide; otherwise the reader shows this reference. It follows the menu's position and height. The preview also supports `--page api --no-welcome`.
+Open **API docs** from the Lua editor for the API browser beside the main GUI. V1 uses the editor documentation button; V2 uses the toggle beside **Stop**. Expand sections and API members to view signatures and code examples. The browser uses the main UI's theme, fonts, spacing and editor colors; explanatory notes and sections containing only notes are omitted. It supports mouse navigation, independent resizing, selection/copy and horizontal code scrolling. Use the close button or Escape while focused to dismiss it. The browser loads this reference with the host's game-specific extension; optional `docs/LUA_SNIPPETS.md` adds examples. The preview supports `--page api --no-welcome`.
 
-The source reference is `docs/LUA_API.md`; preview builds copy it to `assets/docs/LUA_API.md` beside the executable.
+The source reference is `docs/LUA_API.md`; consumer and preview builds automatically stage it at `assets/docs/LUA_API.md` beside the executable.
 
 ## Getting started
 
@@ -48,6 +48,30 @@ end)
 ```
 
 Do not cache `ui.tr` results at script load if the text should change with the selected language. Keep `%s`, `%d`, and other format specifiers unchanged in translated templates. Missing keys intentionally fall back to English. The API guide and console/game diagnostics remain developer text.
+
+
+## Lua console diagnostics
+
+Open **Lua > Console**, or the windowed console, after a script fails. Reports identify the script and the failure phase: `compile`, `startup`, `events.update`/`events.draw`/`events.shutdown`, a feature action, or the UI callback ID. Syntax errors include the source line; runtime failures include a Lua traceback with nested calls.
+
+```text
+[ERROR] [Lua error] My overlay | events.update (runtime)
+My overlay.lua:12: attempt to index a nil value
+stack traceback:
+    My overlay.lua:12: in local 'read_player'
+    My overlay.lua:20: in function <My overlay.lua:19>
+This callback was disabled. Fix the error and run the script again.
+```
+
+The console timestamp and `[ERROR]` severity are added by the host. A callback failure is reported once and that callback is disabled; other scripts continue. Fix the reported line and run the script again. Startup failures remove resources registered by that attempt.
+
+- **Nil value or missing field:** check the API name, host version and session state; functions may return `nil` while loading.
+- **Syntax:** inspect the named line and the preceding statement for missing `end`, quotes, commas or brackets.
+- **Execution budget:** split long loops over updates; avoid blocking work and excessive nested callbacks.
+- **Memory limit (16 MiB per script):** reduce retained tables/strings and large allocations.
+- **Error object:** use `error("description")` or `error({message="description"})` for useful text. Error reporting does not invoke custom `__tostring` functions.
+
+Native hooks use a separate 2 MiB VM and report their native address and fallback behavior in addition to the traceback. See the host's native-hook reference for those limits.
 
 ## Script lifetime and ownership
 
@@ -105,12 +129,40 @@ local action = features.add {
 | `features.color(id, r, g, b, a)` | Sets RGBA color; components must be 0-1. Alpha defaults to 1. |
 | `features.list()` | Returns an array of tables with id, label, category, description, kind, enabled. |
 | `ui.feature(id)` | Draws the standard feature row, including applicable gear/color/hotkey controls. |
+| `ui.keybind(id [, label])` | Draws shared capture, Clear and activation mode for an existing feature; drawing callbacks only. Label defaults to Key. |
 
 Binding modes are `"always"`, `"toggle"`, `"hold"`, and `"hold_off"`. Key names match the menu's binding names, for example `F8`, `G`, `Mouse 1` and `Insert`. Hotkeys follow the host's focus and text-input rules.
 
 `features.active` should gate behavior. `features.get` intentionally returns saved state and does not resolve Hold modes.
 
 Legacy compatibility: `base.get(id)`, `base.set(id, boolean)`, `base.log(...)` and `print(...)` remain available.
+
+### Independent health overlays
+
+```lua
+features.set("esp.health", true)
+features.set("esp.health_text", true)
+features.bind("esp.health_text", "F7", "toggle")
+ui.tab("health_overlays", "Health", function()
+    ui.feature("esp.health")
+    ui.feature("esp.health_text")
+end)
+```
+
+`esp.health` is the existing bar; `esp.health_text` is independent HP text using the same config/hotkey services. Both require authoritative host health. Text can render without a maximum; bars require a valid maximum. See [the host health contract](HEALTH_ESP.md).
+
+### Inline key capture
+
+```lua
+ui.tab("aim_controls", "Aimbot", function()
+    ui.group("Activation", function()
+        ui.feature("host.aim")
+        ui.keybind("host.aim", "Aim key")
+    end)
+end)
+```
+
+Use an existing registered host feature ID. Release initiating inputs before assigning a key or mouse button; Escape cancels and Delete clears. The control edits the same binding as `features.bind` and Hotkeys. Hosts can opt into separate saved master and transient activation; see [the integration contract](GAME_SIDEBAR.md). Aim behavior modes remain separate from activation modes.
 
 ## Tabs and sub-tabs
 
@@ -172,7 +224,7 @@ end)
 
 To toggle a standalone window with a hotkey, register a toggle feature and call `ui.window_visible(windowId, features.active(featureId))` from an update callback. See `Standalone Menu.lua`.
 
-For windows constructed dynamically inside a UI/overlay callback, use `imgui.window(title, options, draw)`. Its options are width and height. It is drawn whenever that scope is called; visibility is controlled by the Lua code surrounding the call.
+For windows constructed dynamically inside a UI/overlay callback, use `imgui.window(title, options, draw)`. Its options include width, height, initial x/y, no_title_bar, no_resize, no_move, no_scrollbar and auto_resize. It is drawn whenever that scope is called; visibility is controlled by the Lua code surrounding the call.
 
 ## ImGui controls
 
@@ -192,16 +244,17 @@ end)
 
 | Function | Return / behavior |
 | --- | --- |
-| `imgui.text(text)` | Wrapped text; treats the string as text, not a printf format. |
+| `imgui.text(text)` | Unwrapped text; treats the string as text, not a printf format. |
 | `imgui.text_colored(text, rgba)` | Colored text. |
 | `imgui.button(label [, width, height])` | Returns true on activation; dimensions default to automatic. |
+| `ui.selectable(label, selected [, width, height])` | Plain text row using the host selection highlight. Returns true on mouse activation; selection remains caller-owned. Zero dimensions use available width and text height. |
 | `imgui.checkbox(label, value)` | Returns changed, boolean. |
-| `imgui.slider_float(label, value, min, max)` | Returns changed, number. |
-| `imgui.slider_int(label, value, min, max)` | Returns changed, integer-valued number. |
+| `imgui.slider_float(label, value, min, max[, options])` | Returns changed, number. Optional `{style="track"}` uses a slim track and separate value. |
+| `imgui.slider_int(label, value, min, max[, options])` | Returns changed, integer-valued number. Optional `{style="track"}` uses a slim track and separate value. |
 | `imgui.input_text(label, text)` | Returns changed, string; maximum 4095 bytes. |
 | `imgui.combo(label, index, items)` | Returns changed, selected index. Indices start at 1; 1-128 items. |
 | `imgui.color_edit(label, rgba)` | Returns changed, RGBA table. |
-| `imgui.same_line([spacing])` | Places the next item on the same line; default style spacing. |
+| `imgui.same_line([spacing, local_x])` | Places the next item on the same line; default style spacing. |
 | `imgui.separator()` | Separator line. |
 | `imgui.spacing([height])` | Vertical space; default 4 physical pixels. |
 | `imgui.tooltip(text)` | Tooltip when the preceding item is hovered. |
@@ -210,7 +263,7 @@ end)
 | `imgui.cursor()` | Returns cursor x, y in screen coordinates. |
 | `imgui.set_cursor(x, y)` | Sets the next cursor position in window-local coordinates. |
 | `imgui.is_item_hovered()` | Returns whether the preceding item is hovered. |
-| `imgui.child(id, width, height, draw)` | Scoped scrollable child; 0 uses remaining size. |
+| `imgui.child(id, width, height, draw [, options])` | Scoped scrollable child; 0 uses remaining size. Options: border, padding (retain WindowPadding without a visible border), horizontal_scroll. |
 | `imgui.disabled(boolean, draw)` | Scoped disabled controls. |
 | `imgui.with_style(colors, draw)` | Scoped color overrides, restored even after callback errors. |
 | `imgui.window(title, options, draw)` | Scoped independent ImGui window. |
@@ -218,6 +271,31 @@ end)
 RGBA values use `{r, g, b, a}` with components between 0 and 1. Alpha defaults to 1 when omitted. Use stable `##suffix` labels when controls have duplicate visible names.
 
 Lua local variables are live session state; they are not automatically written to profiles. Registered feature values participate in the existing profile system. Register the scripts before loading a profile containing their feature IDs.
+
+### Selectable catalog rows
+
+```lua
+local selected = 1
+local catalog = {"Crowbar", "Health kit"}
+ui.tab("catalog", "Spawner", function()
+    ui.group("Items", function()
+        for index, label in ipairs(catalog) do
+            if ui.selectable(label .. "##item_" .. index, selected == index) then
+                selected = index
+            end
+        end
+        imgui.disabled(true, function()
+            ui.selectable("Unavailable item", false)
+        end)
+    end)
+    if ui.button("Spawn item") then
+        print("Spawn requested for " .. catalog[selected])
+        -- Invoke the host's actual spawn API here.
+    end
+end)
+```
+
+The row has no button border or idle box. `selected` is a required boolean; Lua keeps selection state and changes it only when activation returns true. Mouse clicks activate rows; keyboard navigation is disabled, and `imgui.disabled` blocks activation. Use stable hidden ID suffixes for repeated labels. Dimensions are optional nonnegative finite physical pixels; 0 fills available width or uses text height. Drawing-context validation is identical to other controls. Selecting a catalog row must not call a spawn API; the separate Spawn item action uses the current selection.
 
 ## Overlays and drawing
 
@@ -364,9 +442,9 @@ Host tabs may specify navigation metadata: `ui.tab("world", "World", {section="V
 
 ## Custom product controls
 
-`ui.slider(label,value,min,max)` and `ui.slider_int(label,value,min,max)` return `changed,value` and use the Lumia track, handle and click-to-edit value control. Signed/zero ranges are supported. `ui.toggle(label,value)` returns `changed,value`; `ui.combo(label,index,items)` returns `changed,index` with a one-based index. `ui.button(label[,width,height])` returns a boolean. These controls follow the active template scale, colors and disabled scope.
+`ui.slider(label,value,min,max)` and `ui.slider_int(label,value,min,max)` return `changed,value` and use the compact Lumia track and editable value control. Signed/zero ranges are supported. `ui.toggle(label,value)` returns `changed,value`; `ui.combo(label,index,items)` returns `changed,index` with a one-based index. `ui.button(label[,width,height])` returns a boolean. These controls follow the active template scale, colors and disabled scope.
 
-The copied L4D UI also routes legacy `imgui.slider_float`, `imgui.slider_int`, `imgui.checkbox`, `imgui.combo` and `imgui.button` through these custom controls for script compatibility. Product pages use the `ui` names. Text/editing/layout still uses the regular Lua API. `AppOptions.footer` lets a host replace the portable-template footer without changing another application's branding.
+API 1.1 uses native Dear ImGui implementations for `imgui.button`, `imgui.checkbox`, `imgui.slider_float`, `imgui.slider_int`, `imgui.combo` and `imgui.selectable`. Existing `ui.*` controls retain the Simple Base appearance. Use `widgets.*` (also available as `ui.widgets.*`) to explicitly request that appearance in any script. Lua owns control values in either family; return shapes and one-based combo indices are unchanged. Native controls respect `imgui.set_next_item_width` and the current style, without forcing full width.
 
 `ui.multi_combo(label, selected, items)` returns `changed, selected` for 1-128 items. Pass a dense boolean array with one entry per item; the returned array is new and the input is unchanged. Selected rows are highlighted without checkboxes. Clicking an entry toggles only that entry and keeps the dropdown open; click outside or press Escape to close it. Labels and the None/All summary follow the active language. Save selections through feature/config values when persistence is needed.
 
@@ -382,3 +460,212 @@ end
 Shared settings and hotkey popups use the same custom buttons and dropdowns. Native hosts can use `ui::beginCombo`, `ui::comboItem` and `ui::endCombo` for dynamic lists. Negative button widths fill the remaining row, matching the existing layout convention.
 
 `ui.columns(count, draw [, compact])` accepts an optional boolean for tighter columns. The default is unchanged; `true` uses a smaller readable minimum width before reflowing on narrow windows.
+
+## Entity colors
+
+| Signature | Behavior |
+| --- | --- |
+| `esp_colors.available()` | Returns whether the host registered classification color support. |
+| `esp_colors.categories()` | Returns the 13 stable category IDs in display order. |
+| `esp_colors.enabled([boolean])` | Reads or sets the category master. Unsupported hosts return false; writes fail. |
+| `esp_colors.get(category)` | Returns enabled, color, second_color and tint_fill; returns nil without host support. |
+| `esp_colors.set(category, settings)` | Atomically applies supplied fields. RGBA arrays require exactly four finite numbers from 0 to 1. |
+| `esp_colors.reset([category])` | Resets one category, or all categories and the master when omitted. |
+| `ui.entity_colors()` | Draws the category dropdown inline inside a Filters group. Non-Global categories expose Override global; enabled overrides show a color picker and settings popup. Returns false without host support. |
+
+```lua
+if esp_colors.available() then
+    esp_colors.set("npc_friendly", {
+        enabled = true,
+        color = {0.2, 0.9, 0.4, 1},
+        second_color = {0.1, 0.5, 0.2, 1},
+        tint_fill = false
+    })
+    ui.window("entity_colors", "Entity colors", function()
+        ui.group("Filters", function() ui.entity_colors() end)
+    end)
+end
+```
+
+The host supplies Entity kind and relationship; scripts edit persisted appearance only. Writes survive script stop. Category colors affect enabled ESP features after the user enables the master, and preserve independent health colors and host-palette precedence. See [entity classification colors](ENTITY_COLORS.md) for the category mapping and profile migration contract.
+
+
+## Native controls and optional themed widgets
+
+### Native controls
+
+```lua
+local changed, enabled = imgui.checkbox("Enabled", enabled)
+imgui.set_next_item_width(140)
+changed, amount = imgui.slider_float("Amount", amount, 0, 1)
+changed, count = imgui.slider_int("Count", count, 0, 10)
+changed, choice = imgui.combo("Mode", choice, {"First", "Second"})
+changed, amount = imgui.drag_float("Drag", amount, 0, 1, 0.01)
+changed, count = imgui.drag_int("Count", count, 0, 100, 1)
+if imgui.radio_button("Mode A", choice == 1) then choice = 1 end
+imgui.text_wrapped("A longer description that wraps within the current layout.")
+```
+
+### Themed widgets
+
+```lua
+-- widgets and ui.widgets are the same table. Legacy ui.* names remain compatible.
+local changed, enabled = widgets.toggle("Enabled", enabled)
+changed, amount = widgets.slider("Amount", amount, 0, 1)
+changed, count = widgets.slider_int("Count", count, 0, 10)
+changed, choice = widgets.combo("Mode", choice, {"First", "Second"})
+changed, selected = widgets.multi_combo("Targets", selected, {"One", "Two"})
+if widgets.button("Apply") then print("Applied") end
+widgets.columns(2, function()
+    widgets.group("First", function() widgets.toggle("Example", false) end)
+    widgets.next_column()
+    widgets.group("Second", function() imgui.text("Shared theme") end)
+end)
+```
+
+## Native layout and scoped state
+
+### imgui.table and columns
+
+```lua
+imgui.table("layout", 2, {borders=false, resizable=true, row_bg=false,
+    width=0, height=0, scroll_y=false}, function()
+    -- Width is a stretch weight unless fixed=true. Setup precedes any rows.
+    imgui.table_setup_column("Controls", 1, false)
+    imgui.table_setup_column("Preview", 1, false)
+    imgui.table_headers_row()
+    imgui.table_next_row(24) -- optional minimum row height
+    imgui.table_next_column()
+    imgui.text("Column one")
+    imgui.table_set_column(2) -- one-based
+    imgui.child("preview", 0, 100, function() imgui.text("Column two") end,
+        {border=true, horizontal_scroll=true})
+end)
+```
+
+### Groups, IDs and placement
+
+```lua
+imgui.with_id("unique_scope", function()
+    imgui.group(function()
+        local x,y = imgui.cursor_local()
+        imgui.set_cursor(x+8,y)
+        imgui.button("Repeated label")
+        imgui.same_line(8)
+        imgui.dummy(12,24)
+    end)
+end)
+local screenX,screenY = imgui.cursor()
+imgui.set_cursor_screen(screenX,screenY)
+local width,height = imgui.available()
+local windowX,windowY = imgui.window_pos()
+local windowWidth,windowHeight = imgui.window_size()
+local textWidth,textHeight = imgui.text_size("Measure me")
+```
+
+### imgui.with_font_size
+
+```lua
+imgui.with_font_size(14, function()
+    imgui.text("Readable standalone text")
+    imgui.checkbox("Enabled", true)
+end)
+```
+
+Sets the current font size for this scope in physical pixels (8-80), restoring the previous size even when the callback raises an error. The host's font family and glyph coverage are retained.
+
+### imgui.with_style_vars
+
+```lua
+imgui.with_style_vars({WindowPadding={8,8},FramePadding={4,2},ItemSpacing={5,3},
+    CellPadding={4,3},WindowRounding=3,FrameRounding=0,GrabMinSize=9},function()
+    imgui.button("Compact")
+end)
+```
+
+Supported scalar names: Alpha, DisabledAlpha, WindowRounding, WindowBorderSize, ChildRounding, ChildBorderSize, PopupRounding, PopupBorderSize, FrameRounding, FrameBorderSize, IndentSpacing, ScrollbarSize, ScrollbarRounding, GrabMinSize, GrabRounding, TabRounding. Vector names: WindowPadding, WindowMinSize, WindowTitleAlign, FramePadding, ItemSpacing, ItemInnerSpacing, CellPadding, ButtonTextAlign, SelectableTextAlign. Values are finite 0-256; alpha is 0-1. All scopes restore state even if their callback raises an error. Existing `imgui.with_style(colors, callback)` accepts the bundled ImGui color names.
+
+### Tabs and trees
+
+```lua
+imgui.tab_bar("pages",function()
+    imgui.tab_item("Main",function() imgui.text("Main page") end)
+    imgui.tab_item("Settings",function() imgui.text("Settings page") end)
+end)
+imgui.tree("Details",function() imgui.text("Expanded details") end)
+```
+
+## Custom widgets and drawing
+
+### Hit targets and input
+
+```lua
+local x,y = imgui.cursor()
+if imgui.invisible_button("custom_toggle", 120, 24) then enabled = not enabled end
+local hovered,active = imgui.is_item_hovered(),imgui.is_item_active()
+local x1,y1,x2,y2 = imgui.item_rect()
+local mouseX,mouseY = imgui.mouse_pos()
+local deltaX,deltaY = imgui.mouse_delta()
+local down = imgui.is_mouse_down(0) -- 0 left, 1 right, 2 middle, 3/4 extra
+local clicked,released = imgui.is_mouse_clicked(0),imgui.is_mouse_released(0)
+local itemClicked = imgui.is_item_clicked(0)
+draw.rect(x,y+4,30,16,enabled and {0.5,0.8,0.2,1} or {0.2,0.2,0.2,1},true,8)
+draw.circle(x+(enabled and 22 or 8),y+12,5,{1,1,1,1},true)
+draw.text(x+40,y+5,"Custom toggle",{1,1,1,1},13)
+```
+
+### Window drawing and clipping
+
+```lua
+-- Screen coordinates. draw.* uses the current window's draw list and clipping.
+-- render.* retains the existing foreground overlay behavior.
+draw.text(x,y,"Label",{1,1,1,1},13)
+draw.line(x,y,x+100,y,{0.5,0.8,0.2,1},2)
+draw.rect(x,y,100,30,{0.1,0.1,0.1,1},true,4)
+draw.circle(x+12,y+12,8,{1,1,1,1},false,2)
+draw.triangle(x,y,x+12,y,x+6,y+8,{1,1,1,1},true,1)
+imgui.with_clip_rect(x,y,x+100,y+30,function()
+    draw.text(x,y,"Clipped content",{1,1,1,1},13)
+end)
+```
+
+### Custom dropdowns and popups
+
+```lua
+if imgui.button("Custom dropdown") then imgui.open_popup("choices") end
+imgui.popup("choices",function()
+    if imgui.selectable("First",choice==1) then choice=1 end
+    if imgui.selectable("Second",choice==2) then choice=2 end
+    -- selectable(label, selected [, width, height, keep_open])
+    -- With keep_open=true, Lua can build a multi-select list.
+end)
+imgui.combo_custom("Custom combo",tostring(choice),function()
+    if imgui.button("Use first") then choice=1;imgui.close_popup() end
+end)
+```
+
+### Slim slider appearance
+
+```lua
+imgui.set_next_item_width(170)
+changed, amount = imgui.slider_float("Amount", amount, 0, 1, {style="track"})
+changed, count = imgui.slider_int("Count", count, 0, 100, {style="track"})
+-- Default / {style="native"}: standard Dear ImGui slider.
+-- Track: drag to adjust; click the value / Ctrl-click to type.
+-- Arrow adjustment is available when the host enables ImGui keyboard navigation.
+-- Track numeric entry clamps to the supplied range. Colors and sizing use ImGui style.
+```
+
+### Compact example GUI
+
+```lua
+-- Run ImGui Demo.lua from Lua > Scripts; F10 toggles visibility.
+-- Main: native ImGui widgets aligned in titled panels and responsive columns.
+-- Visuals: Lua-drawn toggles, slider and dropdown contents with a live local preview.
+-- Settings: accent/footer preferences and optional widgets.* controls.
+```
+
+
+## Shared source and automatic updates
+
+V1 and V2 compile the same `UI/src/ui/lua_ui.cpp` and header. Edit this reference in `UI/docs/LUA_API.md` and examples in `UI/assets/scripts/`. Both builds automatically embed and stage these resources. Rebuild and restart the preview or host to receive an update; running binaries do not hot-reload C++ bindings. User-edited data scripts remain unchanged.
