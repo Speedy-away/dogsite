@@ -5,7 +5,7 @@
  const show=i=>{index=(i+links.length)%links.length;image.src=links[index].href;image.alt=links[index].querySelector('img').alt;box.setAttribute('aria-label','TF2 screenshot '+(index+1)+' of '+links.length);};
  const close=()=>{box.classList.remove('active');box.setAttribute('aria-hidden','true');document.body.style.overflow='';trigger?.focus();};
  links.forEach((link,i)=>link.addEventListener('click',e=>{e.preventDefault();trigger=link;show(i);box.classList.add('active');box.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';box.querySelector('.lightbox-close').focus();}));
- box.querySelector('.lightbox-close').addEventListener('click',close);box.querySelector('.lightbox-next').addEventListener('click',()=>show(index+1));box.querySelector('.lightbox-prev').addEventListener('click',()=>show(index-1));
+ box.querySelector('.lightbox-close').addEventListener('click',close);box.querySelector('.lightbox-next')?.addEventListener('click',()=>show(index+1));box.querySelector('.lightbox-prev')?.addEventListener('click',()=>show(index-1));
  box.addEventListener('click',e=>{if(e.target===box)close();});
  document.addEventListener('keydown',e=>{if(!box.classList.contains('active'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight'){e.preventDefault();show(index+1);}if(e.key==='ArrowLeft'){e.preventDefault();show(index-1);}if(e.key==='Tab'){const buttons=[...box.querySelectorAll('button')],first=buttons[0],last=buttons.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 })();

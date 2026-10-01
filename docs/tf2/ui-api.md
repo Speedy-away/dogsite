@@ -102,6 +102,7 @@ local id = features.add {
     default = false,                -- initial enabled state
     key = "F8",                     -- optional key, Toggle mode
     active_list = true,             -- include effective toggles in Active Features
+    capture_protection = "disable", -- "disable" (default) or "safe"
     kind = "toggle"                 -- "toggle" or "action"
 }
 ```
@@ -121,21 +122,66 @@ local action = features.add {
 
 | Function | Behavior |
 | --- | --- |
-| `features.get(id)` | Returns the saved enabled boolean, or nil for an unknown ID. |
+| `features.get(id)` | Returns the saved enabled boolean (false while host/capture-blocked), or nil for an unknown ID. |
 | `features.set(id, boolean)` | Changes enabled state; rejects unknown IDs. |
 | `features.active(id)` | Returns effective hotkey state, including Hold/Hold Off. |
 | `features.trigger(id)` | Activates an action, including its callback and overlay flash. |
 | `features.bind(id, key, mode)` | Sets a key and mode. Empty key clears the key. |
 | `features.color(id, r, g, b, a)` | Sets RGBA color; components must be 0-1. Alpha defaults to 1. |
+| `features.blocked_reason(id)` | Returns the host/capture blocking reason or nil. Unknown IDs are rejected. |
 | `features.list()` | Returns an array of tables with id, label, category, description, kind, enabled. |
 | `ui.feature(id)` | Draws the standard feature row, including applicable gear/color/hotkey controls. |
 | `ui.keybind(id [, label])` | Draws shared capture, Clear and activation mode for an existing feature; drawing callbacks only. Label defaults to Key. |
 
 Binding modes are `"always"`, `"toggle"`, `"hold"`, and `"hold_off"`. Key names match the menu's binding names, for example `F8`, `G`, `Mouse 1` and `Insert`. Hotkeys follow the host's focus and text-input rules.
 
-`features.active` should gate behavior. `features.get` intentionally returns saved state and does not resolve Hold modes.
+`features.active` should gate behavior. `features.get` returns saved state when available, false while blocked, and does not resolve Hold modes.
 
 Legacy compatibility: `base.get(id)`, `base.set(id, boolean)`, `base.log(...)` and `print(...)` remain available.
+
+### Capture Protection
+
+| Function | Behavior |
+| --- | --- |
+| `capture_protection.status()` | Returns `{available, enabled, active, message}` from the host. `enabled` is requested protection; `active` means the protected surface is ready. A failed or paused surface can be enabled but inactive. |
+| `capture_protection.enabled()` | Returns the requested protection state, including when the surface fails or the application is in the background. |
+| `capture_protection.active()` | Returns true only when the host reports an available, enabled and active protected surface. |
+| `events.on("capture_protection_changed", callback)` | Runs when requested protection changes. Read the state inside the callback and restore prior native effects when enabling protection. Register during script loading. |
+
+```lua
+local hud = features.add {
+    id="hud", label="Protected HUD", default=true,
+    capture_protection="safe"
+}
+local world = features.add {
+    id="world", label="World effect", default=false,
+    capture_protection="disable"
+}
+ui.tab("capture", "Capture Protection", function()
+    ui.group("Features", function()
+        ui.feature(hud)
+        ui.feature(world)
+        ui.keybind(world)
+    end)
+end)
+events.on("capture_protection_changed", function()
+    if capture_protection.enabled() then
+        -- Restore any native effects previously applied by this script.
+    end
+end)
+events.on("update", function()
+    if not features.active(world) then return end
+    -- Apply host-supported behavior here.
+end)
+```
+
+`capture_protection` is registration metadata, not a profile value. `"disable"` is the default: while protection is enabled the feature is switched off, its shared UI row/keybind is disabled, hotkeys/actions cannot activate it, and Lua writes to the blocked feature are rejected. Config loads and resets retain the policy. Turning protection off does not re-enable it. `features.get`/`features.list` enforce the off state; use `features.active` to gate behavior including hold bindings. Unknown policy names are rejected. Stopping/reloading a script removes its policies with its features.
+
+`imgui.disabled(features.blocked_reason(id) ~= nil, callback)` also gates custom sliders/buttons associated with a feature; use this inside a drawing callback.
+
+`"safe"` is the author's declaration that the feature can run under the host's protection contract. Shared `ui.*`, `imgui.*` and `render.*` drawing uses the host's UI surface. This declaration does not hide arbitrary game/world changes, sounds, OS windows or external drawing, and cannot override another host restriction. A feature declaration does not automatically gate unrelated script callbacks: check `features.active`, and explicitly restore native effects on state changes and shutdown. The supplied `Capture Protection.lua` example exercises safe and blocked rows without changing a game.
+
+Hosts supply `ScriptRuntime::captureProtectionStatus` and call `syncCaptureProtection()` after changing requested protection, before native gameplay/render dispatch. `beginFrame()` also synchronizes before update callbacks. The callback must report requested state even if rendering fails; a missing callback returns unavailable/off. A UI-only host cannot claim an active protected surface. The Simple-base combined DX11 preview supplies this bridge; other products need their native adapter wired and tested before advertising support. Scripts cannot set the backend's state through `capture_protection.*`.
 
 ### Independent health overlays
 

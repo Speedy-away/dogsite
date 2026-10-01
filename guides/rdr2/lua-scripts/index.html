@@ -187,6 +187,7 @@
 <a href="/guides/cs2/cs2-requirements/">Requirements</a>
 <a href="/guides/cs2/cs2-inject/">How to Inject</a>
 <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+<a href="/guides/cs2/custom-models/">Custom Models</a>
 </details>
 <details>
 <summary>S&amp;box (Sandbox)</summary>
@@ -215,6 +216,7 @@
 <details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
 <details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a><a href="/guides/tf2/">TF2 &amp; Classified</a></details>
 <details data-tf2-nav><summary>TF2 &amp; TF2 Classified</summary><a class="sidebar-overview" href="/guides/tf2/">Overview</a><a href="/guides/tf2/getting-started/">Getting started</a><a href="/guides/tf2/requirements/">Requirements</a><a href="/guides/tf2/editions/">TF2 or TF2 Classified</a><a href="/guides/tf2/menu-settings/">Menu settings and profiles</a><a href="/guides/tf2/lua-scripts/">Lua scripts</a><a href="/guides/tf2/troubleshooting/">Troubleshooting</a></details>
+<details data-megabonk-nav><summary>Megabonk</summary><a class="sidebar-overview" href="/guides/megabonk/">Overview</a><a href="/guides/megabonk/getting-started/">Getting started</a><a href="/guides/megabonk/menu-settings/">Menu settings, configs and hotkeys</a><a href="/guides/megabonk/languages/">Languages and language packs</a><a href="/guides/megabonk/lua-scripts/">Lua scripts and game API</a><a href="/guides/megabonk/spawner-unlocks/">Pickups, items and unlocks</a><a href="/guides/megabonk/troubleshooting/">Troubleshooting</a></details>
 <div class="sidebar-resources">
 <span>Resources</span>
 <a href="/docs/">Developer documentation ↗</a>
@@ -243,13 +245,13 @@
 <pre><code>C:\scooby\RDR2\lua\
     MyRDR2Script.lua
     ScoobyRDR2Template.lua</code></pre>
-<p>The script list scans <code>.lua</code> files directly inside <code>lua</code>. A main script buried in an extra download folder will not appear. Keep the real extension visible so you do not accidentally install <code>MyRDR2Script.lua.txt</code>.</p>
+<p>The script list supports single <code>.lua</code> files and package folders. A package uses <code>main.lua</code>, <code>init.lua</code>, or its folder name as the entry point. Keep the package modules together and avoid an extra archive wrapper folder. Keep file extensions visible.</p><p><a href="/docs/rdr2/">Download Frontier, the standalone RDR2 Lua GUI</a>, or <a href="/api/rdr2/">browse the current Lua API</a>. Frontier supports Lua54 and LuaJIT hosts with API 2.1.0 or a compatible newer 2.x version.</p>
 <h3 id="manage-lua">Reload, stop, and refresh scripts</h3>
 <ul>
 <li><strong>Run / Reload:</strong> loads the selected script and enables it.</li>
 <li><strong>Reload:</strong> restarts a script from the Runtime panel after changes.</li>
 <li><strong>Stop:</strong> disables that script. <strong>Stop All Scripts</strong> disables the running list.</li>
-<li><strong>Refresh Scripts:</strong> rescans the folder and stops the currently running scripts. Run the scripts you want again after refreshing.</li>
+<li><strong>Refresh Scripts:</strong> discovers changed files without restarting scripts that are already running. Use <strong>Reload</strong> to recreate the selected script state after editing.</li>
 </ul>
 <p>Scripts start disabled when the library is initialized. Run the scripts you need from this screen; the GTA 5 auto-run checkbox is not part of this RDR2 workflow.</p>
 <p>To remove a script, stop it, remove its main file from the Lua folder, and refresh. Keep any configuration or data files you want to reuse.</p>
@@ -258,10 +260,10 @@
 <p>A script may draw its own window or expose its controls in a separate menu. Check the author's instructions if the Runtime panel says it is running but you cannot find its controls.</p>
 <h3 id="lua-help">If the script does not work</h3>
 <ul>
-<li><strong>Not in the list:</strong> extract the archive, place the main <code>.lua</code> directly in the Lua folder, clear the search, and refresh.</li>
+<li><strong>Not in the list:</strong> extract the archive, keep the single script or complete package directly inside the Lua folder, clear the search, and refresh. Frontier should have <code>lua\Frontier\main.lua</code>.</li>
 <li><strong>Error on startup:</strong> read the message in <strong>Runtime</strong> or the <strong>Console</strong> tab. Confirm that the script supports Scooby RDR2 and your menu version.</li>
 <li><strong>Missing module or image:</strong> restore the full download and its expected supporting folders.</li>
-<li><strong>Stopped after adding another script:</strong> refreshing the list stops running scripts. Select each one you want and use <strong>Run / Reload</strong> again.</li>
+<li><strong>Runtime or API mismatch:</strong> read the required API/game/runtime in the error. LuaJIT uses Lua 5.1 syntax; Lua 5.4 scripts may require the Lua54 host. Refreshing alone does not stop other scripts.</li>
 </ul>
 </div>
 <nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/rdr2/vehicles-peds/"><span>← Previous guide</span><strong>Vehicles, Peds &amp; Animals</strong></a><a href="/guides/rdr2/outfits/"><span>Next guide →</span><strong>Outfits</strong></a></nav>

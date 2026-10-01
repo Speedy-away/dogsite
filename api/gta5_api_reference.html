@@ -81,6 +81,11 @@
   }
   /* Touch screens cannot hover, so keep the copy buttons visible, clear of the code. */
   @media (hover:none){button.copy{opacity:1}.codewrap>.sig,.codewrap>pre.code{padding-right:64px}}
+
+#cat-gta-lua-studio summary{cursor:pointer;padding:10px 0;color:var(--text);overflow-wrap:anywhere}
+#cat-gta-lua-studio pre{white-space:pre-wrap;overflow-wrap:anywhere;min-width:0;margin:0;padding:34px 12px 12px}
+#cat-gta-lua-studio .codewrap{min-width:0;width:100%;background:var(--code-bg);border:1px solid var(--code-bd);border-radius:5px}
+#cat-gta-lua-studio button.copy{opacity:1}
 </style>
 <meta name="twitter:url" content="https://scoobymenu.cc/api/gta5_api_reference.html">
 <meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/docs-v2.png">
@@ -117,6 +122,7 @@
   <div class="search-bar"><input class="search" id="sidebar-search" placeholder="Search classes, methods..." aria-label="Search the reference"><button class="sections-toggle" type="button" aria-expanded="false" aria-controls="sidebar-nav">Sections</button></div>
   <nav id="sidebar-nav">
     <div class="sect">Classes</div>
+    <a class="entry" href="#cat-gta-lua-studio">Standalone GUI &amp; Yim</a>
     <a class="entry" href="#cat-centity-script">CEntity (Script)</a>
     <a class="entry" href="#cat-cnetgameplayer-script">CNetGamePlayer (Script)</a>
     <a class="entry" href="#cat-cnetobject-script">CNetObject (Script)</a>
@@ -560,7 +566,112 @@
   <h1 style="font-size:32px;color:#fff;margin:0 0 18px">Documentation</h1>
   <p class="desc" style="max-width:720px">Reference for the Scooby Lua scripting surface. Each class lists its methods with a signature, the return type, parameters, a description, and the original usage example. Hover a signature to copy a <code>Class.method(params)</code> snippet.</p>
   <p class="desc" style="max-width:720px">External references: <a target="_blank" rel="noopener noreferrer" style="color:#4ea8de" title="Searchable GTA V native reference for the Legacy build" href="https://alloc8or.re/gta5/nativedb/">NativeDB (Legacy)</a> &middot; <a target="_blank" rel="noopener noreferrer" style="color:#4ea8de" title="Searchable GTA V native reference for the Enhanced build" href="https://alloc8or.re/gta5/nativedb/enhanced/">NativeDB (Enhanced)</a> &middot; <a target="_blank" rel="noopener noreferrer" style="color:#4ea8de" title="Raw natives.json powering both databases - useful for codegen" href="https://github.com/alloc8or/gta5-nativedb-data">NativeDB Data (GitHub)</a> &middot; <a target="_blank" rel="noopener noreferrer" style="color:#4ea8de" title="Browsable list of every anim dict and clip for task.play_anim" href="https://alexguirre.github.io/animations-list/">Animation Dictionaries</a></p>
-  <section class="cat" id="cat-centity-script">
+  <!-- GTA-LUA-STUDIO:BEGIN -->
+<section class="cat" id="cat-gta-lua-studio"><h1>Standalone GUI &amp; Yim compatibility</h1>
+<details class="entry-block" id="lua-studio-gui-add-always-draw-imgui"><summary><code>gui.add_always_draw_imgui</code></summary><div class="codewrap"><pre><code>int gui.add_always_draw_imgui(callback: function)
+local render = gui.add_always_draw_imgui(function() end)</code></pre><button class="copy" data-copy="int gui.add_always_draw_imgui(callback: function)
+local render = gui.add_always_draw_imgui(function() end)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-gui-add-imgui"><summary><code>gui.add_imgui</code></summary><div class="codewrap"><pre><code>int gui.add_imgui(callback: function)</code></pre><button class="copy" data-copy="int gui.add_imgui(callback: function)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-gui-remove-imgui"><summary><code>gui.remove_imgui</code></summary><div class="codewrap"><pre><code>bool gui.remove_imgui(handle: int)</code></pre><button class="copy" data-copy="bool gui.remove_imgui(handle: int)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-gui-is-open"><summary><code>gui.is_open</code></summary><div class="codewrap"><pre><code>bool gui.is_open()</code></pre><button class="copy" data-copy="bool gui.is_open()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-gui-toggle"><summary><code>gui.toggle</code></summary><div class="codewrap"><pre><code>bool gui.toggle(open?: bool)
+gui.toggle(false)</code></pre><button class="copy" data-copy="bool gui.toggle(open?: bool)
+gui.toggle(false)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-menu-set-open"><summary><code>menu.set_open</code></summary><div class="codewrap"><pre><code>bool menu.set_open(open: bool)
+menu.set_open(false)</code></pre><button class="copy" data-copy="bool menu.set_open(open: bool)
+menu.set_open(false)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-begin-value"><summary><code>imgui.begin_value</code></summary><div class="codewrap"><pre><code>visible: bool, open: bool imgui.begin_value(name: string, open?: bool, flags: int = 0)</code></pre><button class="copy" data-copy="visible: bool, open: bool imgui.begin_value(name: string, open?: bool, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-input-text-value"><summary><code>imgui.input_text_value</code></summary><div class="codewrap"><pre><code>changed: bool, text: string imgui.input_text_value(label: string, text: string, capacity: int = 256, flags: int = 0)</code></pre><button class="copy" data-copy="changed: bool, text: string imgui.input_text_value(label: string, text: string, capacity: int = 256, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-input-text-multiline-value"><summary><code>imgui.input_text_multiline_value</code></summary><div class="codewrap"><pre><code>changed: bool, text: string imgui.input_text_multiline_value(label: string, text: string, capacity: int = 256, width: float = 0, height: float = 0, flags: int = 0)</code></pre><button class="copy" data-copy="changed: bool, text: string imgui.input_text_multiline_value(label: string, text: string, capacity: int = 256, width: float = 0, height: float = 0, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-input-text-with-hint-value"><summary><code>imgui.input_text_with_hint_value</code></summary><div class="codewrap"><pre><code>changed: bool, text: string imgui.input_text_with_hint_value(label: string, hint: string, text: string, capacity: int = 256, flags: int = 0)</code></pre><button class="copy" data-copy="changed: bool, text: string imgui.input_text_with_hint_value(label: string, hint: string, text: string, capacity: int = 256, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-input-int-value"><summary><code>imgui.input_int_value</code></summary><div class="codewrap"><pre><code>changed: bool, value: int imgui.input_int_value(label: string, value: int, step: int = 1, fast_step: int = 100, flags: int = 0)</code></pre><button class="copy" data-copy="changed: bool, value: int imgui.input_int_value(label: string, value: int, step: int = 1, fast_step: int = 100, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-input-float-value"><summary><code>imgui.input_float_value</code></summary><div class="codewrap"><pre><code>changed: bool, value: float imgui.input_float_value(label: string, value: float, step: float = 0, fast_step: float = 0, format: string = &quot;%.3f&quot;, flags: int = 0)</code></pre><button class="copy" data-copy="changed: bool, value: float imgui.input_float_value(label: string, value: float, step: float = 0, fast_step: float = 0, format: string = &quot;%.3f&quot;, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-combo-value"><summary><code>imgui.combo_value</code></summary><div class="codewrap"><pre><code>changed: bool, index: int imgui.combo_value(label: string, index: int, items: table, count?: int, height: int = -1)</code></pre><button class="copy" data-copy="changed: bool, index: int imgui.combo_value(label: string, index: int, items: table, count?: int, height: int = -1)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-listbox-value"><summary><code>imgui.listbox_value</code></summary><div class="codewrap"><pre><code>changed: bool, index: int imgui.listbox_value(label: string, index: int, items: table, count?: int, height: int = -1)</code></pre><button class="copy" data-copy="changed: bool, index: int imgui.listbox_value(label: string, index: int, items: table, count?: int, height: int = -1)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-begin-list-box"><summary><code>imgui.begin_list_box</code></summary><div class="codewrap"><pre><code>bool imgui.begin_list_box(label: string, width: float = 0, height: float = 0)</code></pre><button class="copy" data-copy="bool imgui.begin_list_box(label: string, width: float = 0, height: float = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-end-list-box"><summary><code>imgui.end_list_box</code></summary><div class="codewrap"><pre><code>void imgui.end_list_box()</code></pre><button class="copy" data-copy="void imgui.end_list_box()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-separator-text"><summary><code>imgui.separator_text</code></summary><div class="codewrap"><pre><code>void imgui.separator_text(text: string)</code></pre><button class="copy" data-copy="void imgui.separator_text(text: string)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-font-size"><summary><code>imgui.get_font_size</code></summary><div class="codewrap"><pre><code>float imgui.get_font_size()</code></pre><button class="copy" data-copy="float imgui.get_font_size()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-cursor-pos-x"><summary><code>imgui.get_cursor_pos_x</code></summary><div class="codewrap"><pre><code>float imgui.get_cursor_pos_x()</code></pre><button class="copy" data-copy="float imgui.get_cursor_pos_x()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-cursor-pos-y"><summary><code>imgui.get_cursor_pos_y</code></summary><div class="codewrap"><pre><code>float imgui.get_cursor_pos_y()</code></pre><button class="copy" data-copy="float imgui.get_cursor_pos_y()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-window-width"><summary><code>imgui.get_window_width</code></summary><div class="codewrap"><pre><code>float imgui.get_window_width()</code></pre><button class="copy" data-copy="float imgui.get_window_width()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-window-height"><summary><code>imgui.get_window_height</code></summary><div class="codewrap"><pre><code>float imgui.get_window_height()</code></pre><button class="copy" data-copy="float imgui.get_window_height()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-set-cursor-screen-pos"><summary><code>imgui.set_cursor_screen_pos</code></summary><div class="codewrap"><pre><code>void imgui.set_cursor_screen_pos(x: float, y: float)</code></pre><button class="copy" data-copy="void imgui.set_cursor_screen_pos(x: float, y: float)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-set-keyboard-focus-here"><summary><code>imgui.set_keyboard_focus_here</code></summary><div class="codewrap"><pre><code>void imgui.set_keyboard_focus_here(offset: int = 0)</code></pre><button class="copy" data-copy="void imgui.set_keyboard_focus_here(offset: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-is-any-item-hovered"><summary><code>imgui.is_any_item_hovered</code></summary><div class="codewrap"><pre><code>bool imgui.is_any_item_hovered()</code></pre><button class="copy" data-copy="bool imgui.is_any_item_hovered()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-is-popup-open"><summary><code>imgui.is_popup_open</code></summary><div class="codewrap"><pre><code>bool imgui.is_popup_open(id: string, flags: int = 0)</code></pre><button class="copy" data-copy="bool imgui.is_popup_open(id: string, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-set-scroll-here-y"><summary><code>imgui.set_scroll_here_y</code></summary><div class="codewrap"><pre><code>void imgui.set_scroll_here_y(ratio: float = 0.5)</code></pre><button class="copy" data-copy="void imgui.set_scroll_here_y(ratio: float = 0.5)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-begin-tab-item-value"><summary><code>imgui.begin_tab_item_value</code></summary><div class="codewrap"><pre><code>visible: bool, open: bool imgui.begin_tab_item_value(name: string, open?: bool, flags: int = 0)</code></pre><button class="copy" data-copy="visible: bool, open: bool imgui.begin_tab_item_value(name: string, open?: bool, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-begin-popup-modal-value"><summary><code>imgui.begin_popup_modal_value</code></summary><div class="codewrap"><pre><code>visible: bool, open: bool imgui.begin_popup_modal_value(name: string, open?: bool, flags: int = 0)</code></pre><button class="copy" data-copy="visible: bool, open: bool imgui.begin_popup_modal_value(name: string, open?: bool, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-color-edit3-value"><summary><code>imgui.color_edit3_value</code></summary><div class="codewrap"><pre><code>changed: bool, r, g, b imgui.color_edit3_value(label: string, r, g, b, flags: int = 0)</code></pre><button class="copy" data-copy="changed: bool, r, g, b imgui.color_edit3_value(label: string, r, g, b, flags: int = 0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-display-size"><summary><code>imgui.get_display_size</code></summary><div class="codewrap"><pre><code>width: number, height: number imgui.get_display_size()</code></pre><button class="copy" data-copy="width: number, height: number imgui.get_display_size()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-frame-rate"><summary><code>imgui.get_frame_rate</code></summary><div class="codewrap"><pre><code>number imgui.get_frame_rate()</code></pre><button class="copy" data-copy="number imgui.get_frame_rate()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-frame-count"><summary><code>imgui.get_frame_count</code></summary><div class="codewrap"><pre><code>int imgui.get_frame_count()</code></pre><button class="copy" data-copy="int imgui.get_frame_count()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-window-id"><summary><code>imgui.get_window_id</code></summary><div class="codewrap"><pre><code>number imgui.get_window_id()</code></pre><button class="copy" data-copy="number imgui.get_window_id()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-is-any-item-active"><summary><code>imgui.is_any_item_active</code></summary><div class="codewrap"><pre><code>bool imgui.is_any_item_active()</code></pre><button class="copy" data-copy="bool imgui.is_any_item_active()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-color-convert-float4-to-u32"><summary><code>imgui.color_convert_float4_to_u32</code></summary><div class="codewrap"><pre><code>number imgui.color_convert_float4_to_u32(r: number, g: number, b: number, a: number)</code></pre><button class="copy" data-copy="number imgui.color_convert_float4_to_u32(r: number, g: number, b: number, a: number)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-imgui-get-style-color-u32"><summary><code>imgui.get_style_color_u32</code></summary><div class="codewrap"><pre><code>number imgui.get_style_color_u32(index: ImGuiCol)</code></pre><button class="copy" data-copy="number imgui.get_style_color_u32(index: ImGuiCol)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-script-register-looped"><summary><code>script.register_looped</code></summary><div class="codewrap"><pre><code>int script.register_looped(name?: string, callback: function(context))
+local job = script.register_looped(&quot;demo&quot;, function(s) s:sleep(500) end)</code></pre><button class="copy" data-copy="int script.register_looped(name?: string, callback: function(context))
+local job = script.register_looped(&quot;demo&quot;, function(s) s:sleep(500) end)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-script-unregister-looped"><summary><code>script.unregister_looped</code></summary><div class="codewrap"><pre><code>bool script.unregister_looped(name_or_handle: string|int)
+script.unregister_looped(&quot;demo&quot;)</code></pre><button class="copy" data-copy="bool script.unregister_looped(name_or_handle: string|int)
+script.unregister_looped(&quot;demo&quot;)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-script-unregister-tick"><summary><code>script.unregister_tick</code></summary><div class="codewrap"><pre><code>bool script.unregister_tick(name_or_handle: string|int)</code></pre><button class="copy" data-copy="bool script.unregister_tick(name_or_handle: string|int)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-script-run-in-fiber"><summary><code>script.run_in_fiber</code></summary><div class="codewrap"><pre><code>int script.run_in_fiber(callback: function(context))
+local job = script.run_in_fiber(function(s) s:sleep(100) end)</code></pre><button class="copy" data-copy="int script.run_in_fiber(callback: function(context))
+local job = script.run_in_fiber(function(s) s:sleep(100) end)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-use-yim"><summary><code>compat.use_yim</code></summary><div class="codewrap"><pre><code>table compat.use_yim(edition: string = &quot;legacy&quot;)</code></pre><button class="copy" data-copy="table compat.use_yim(edition: string = &quot;legacy&quot;)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui"><summary><code>compat.yim.ImGui</code></summary><div class="codewrap"><pre><code>table compat.yim.ImGui()
+local ImGui = compat.yim.ImGui</code></pre><button class="copy" data-copy="table compat.yim.ImGui()
+local ImGui = compat.yim.ImGui">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-is-supported"><summary><code>compat.is_supported</code></summary><div class="codewrap"><pre><code>bool compat.is_supported(namespace: string, member: string)
+compat.is_supported(&quot;compat.yim.ImGui&quot;, &quot;InputText&quot;)</code></pre><button class="copy" data-copy="bool compat.is_supported(namespace: string, member: string)
+compat.is_supported(&quot;compat.yim.ImGui&quot;, &quot;InputText&quot;)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui"><summary><code>compat.yim_v2.ImGui</code></summary><div class="codewrap"><pre><code>local ImGui = compat.yim_v2.ImGui</code></pre><button class="copy" data-copy="local ImGui = compat.yim_v2.ImGui">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-runtime"><summary><code>compat.runtime</code></summary><div class="codewrap"><pre><code>table compat.runtime</code></pre><button class="copy" data-copy="table compat.runtime">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui-getwindowdrawlist"><summary><code>compat.yim.ImGui.GetWindowDrawList</code></summary><div class="codewrap"><pre><code>DrawList compat.yim.ImGui.GetWindowDrawList()
+local ui = compat.yim.ImGui
+local draw = ui.GetWindowDrawList()
+draw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)</code></pre><button class="copy" data-copy="DrawList compat.yim.ImGui.GetWindowDrawList()
+local ui = compat.yim.ImGui
+local draw = ui.GetWindowDrawList()
+draw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui-getdisplaysize"><summary><code>compat.yim.ImGui.GetDisplaySize</code></summary><div class="codewrap"><pre><code>width: number, height: number compat.yim.ImGui.GetDisplaySize()</code></pre><button class="copy" data-copy="width: number, height: number compat.yim.ImGui.GetDisplaySize()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui-getframerate"><summary><code>compat.yim.ImGui.GetFrameRate</code></summary><div class="codewrap"><pre><code>number compat.yim.ImGui.GetFrameRate()</code></pre><button class="copy" data-copy="number compat.yim.ImGui.GetFrameRate()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui-isanyitemactive"><summary><code>compat.yim.ImGui.IsAnyItemActive</code></summary><div class="codewrap"><pre><code>bool compat.yim.ImGui.IsAnyItemActive()</code></pre><button class="copy" data-copy="bool compat.yim.ImGui.IsAnyItemActive()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui-colorconvertfloat4tou32"><summary><code>compat.yim.ImGui.ColorConvertFloat4ToU32</code></summary><div class="codewrap"><pre><code>number compat.yim.ImGui.ColorConvertFloat4ToU32(r, g, b, a)</code></pre><button class="copy" data-copy="number compat.yim.ImGui.ColorConvertFloat4ToU32(r, g, b, a)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-imgui-getstylecoloru32"><summary><code>compat.yim.ImGui.GetStyleColorU32</code></summary><div class="codewrap"><pre><code>number compat.yim.ImGui.GetStyleColorU32(index: ImGuiCol)</code></pre><button class="copy" data-copy="number compat.yim.ImGui.GetStyleColorU32(index: ImGuiCol)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui-getwindowdrawlist"><summary><code>compat.yim_v2.ImGui.GetWindowDrawList</code></summary><div class="codewrap"><pre><code>DrawList compat.yim_v2.ImGui.GetWindowDrawList()
+local ui = compat.yim_v2.ImGui
+local draw = ui.GetWindowDrawList()
+draw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)</code></pre><button class="copy" data-copy="DrawList compat.yim_v2.ImGui.GetWindowDrawList()
+local ui = compat.yim_v2.ImGui
+local draw = ui.GetWindowDrawList()
+draw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui-getdisplaysize"><summary><code>compat.yim_v2.ImGui.GetDisplaySize</code></summary><div class="codewrap"><pre><code>width: number, height: number compat.yim_v2.ImGui.GetDisplaySize()</code></pre><button class="copy" data-copy="width: number, height: number compat.yim_v2.ImGui.GetDisplaySize()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui-getframerate"><summary><code>compat.yim_v2.ImGui.GetFrameRate</code></summary><div class="codewrap"><pre><code>number compat.yim_v2.ImGui.GetFrameRate()</code></pre><button class="copy" data-copy="number compat.yim_v2.ImGui.GetFrameRate()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui-isanyitemactive"><summary><code>compat.yim_v2.ImGui.IsAnyItemActive</code></summary><div class="codewrap"><pre><code>bool compat.yim_v2.ImGui.IsAnyItemActive()</code></pre><button class="copy" data-copy="bool compat.yim_v2.ImGui.IsAnyItemActive()">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui-colorconvertfloat4tou32"><summary><code>compat.yim_v2.ImGui.ColorConvertFloat4ToU32</code></summary><div class="codewrap"><pre><code>number compat.yim_v2.ImGui.ColorConvertFloat4ToU32(r, g, b, a)</code></pre><button class="copy" data-copy="number compat.yim_v2.ImGui.ColorConvertFloat4ToU32(r, g, b, a)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-compat-yim-v2-imgui-getstylecoloru32"><summary><code>compat.yim_v2.ImGui.GetStyleColorU32</code></summary><div class="codewrap"><pre><code>number compat.yim_v2.ImGui.GetStyleColorU32(index: ImGuiCol)</code></pre><button class="copy" data-copy="number compat.yim_v2.ImGui.GetStyleColorU32(index: ImGuiCol)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addline"><summary><code>YimDrawList.AddLine</code></summary><div class="codewrap"><pre><code>void draw:AddLine(x1, y1, x2, y2, color, thickness=1)</code></pre><button class="copy" data-copy="void draw:AddLine(x1, y1, x2, y2, color, thickness=1)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addrect"><summary><code>YimDrawList.AddRect</code></summary><div class="codewrap"><pre><code>void draw:AddRect(x1, y1, x2, y2, color, rounding=0, flags=0, thickness=1)</code></pre><button class="copy" data-copy="void draw:AddRect(x1, y1, x2, y2, color, rounding=0, flags=0, thickness=1)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addrectfilled"><summary><code>YimDrawList.AddRectFilled</code></summary><div class="codewrap"><pre><code>void draw:AddRectFilled(x1, y1, x2, y2, color, rounding=0, flags=0)</code></pre><button class="copy" data-copy="void draw:AddRectFilled(x1, y1, x2, y2, color, rounding=0, flags=0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addcircle"><summary><code>YimDrawList.AddCircle</code></summary><div class="codewrap"><pre><code>void draw:AddCircle(x, y, radius, color, segments=0, thickness=1)</code></pre><button class="copy" data-copy="void draw:AddCircle(x, y, radius, color, segments=0, thickness=1)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addcirclefilled"><summary><code>YimDrawList.AddCircleFilled</code></summary><div class="codewrap"><pre><code>void draw:AddCircleFilled(x, y, radius, color, segments=0)</code></pre><button class="copy" data-copy="void draw:AddCircleFilled(x, y, radius, color, segments=0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addtext"><summary><code>YimDrawList.AddText</code></summary><div class="codewrap"><pre><code>void draw:AddText(x, y, color, text)</code></pre><button class="copy" data-copy="void draw:AddText(x, y, color, text)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addtrianglefilled"><summary><code>YimDrawList.AddTriangleFilled</code></summary><div class="codewrap"><pre><code>void draw:AddTriangleFilled(x1, y1, x2, y2, x3, y3, color)</code></pre><button class="copy" data-copy="void draw:AddTriangleFilled(x1, y1, x2, y2, x3, y3, color)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addquadfilled"><summary><code>YimDrawList.AddQuadFilled</code></summary><div class="codewrap"><pre><code>void draw:AddQuadFilled(x1, y1, x2, y2, x3, y3, x4, y4, color)</code></pre><button class="copy" data-copy="void draw:AddQuadFilled(x1, y1, x2, y2, x3, y3, x4, y4, color)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addbeziercubic"><summary><code>YimDrawList.AddBezierCubic</code></summary><div class="codewrap"><pre><code>void draw:AddBezierCubic(x1, y1, x2, y2, x3, y3, x4, y4, color, thickness=1, segments=0)</code></pre><button class="copy" data-copy="void draw:AddBezierCubic(x1, y1, x2, y2, x3, y3, x4, y4, color, thickness=1, segments=0)">Copy</button></div></details>
+<details class="entry-block" id="lua-studio-yimdrawlist-addrectfilledmulticolor"><summary><code>YimDrawList.AddRectFilledMultiColor</code></summary><div class="codewrap"><pre><code>void draw:AddRectFilledMultiColor(x1, y1, x2, y2, upper_left, upper_right, lower_right, lower_left)</code></pre><button class="copy" data-copy="void draw:AddRectFilledMultiColor(x1, y1, x2, y2, upper_left, upper_right, lower_right, lower_left)">Copy</button></div></details>
+<details class="entry-block"><summary>Vesper template</summary><div class="codewrap"><pre><code>LuaJIT / GUI API 2026.10.1
+F6: workspace
+F7: speedometer
+F8: keybinds
+LB + RB + X: workspace</code></pre></div><a href="/docs/gta5/Vesper.zip" download>Download Lua + modules</a> · <a href="/docs/gta5/Vesper/README.md">Features and setup</a></details>
+</section>
+<!-- GTA-LUA-STUDIO:END -->
+<section class="cat" id="cat-centity-script">
     <h1>CEntity (Script)</h1>
     <p class="cat-desc">Entity class for native/scripting (handle-based)</p>
     <div class="entry-block">
@@ -69092,7 +69203,8 @@ V4 V4.New(number x, number y, number z, number w)">Copy example</button></detail
   if (search){ search.addEventListener('input', function(){
     var q = search.value.trim().toLowerCase();
     document.querySelectorAll('aside nav a.entry').forEach(function(a){
-      var match = !q || a.textContent.toLowerCase().indexOf(q) !== -1;
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      var match = !q || a.textContent.toLowerCase().indexOf(q) !== -1 || (target && target.textContent.toLowerCase().indexOf(q) !== -1);
       a.style.display = match ? '' : 'none';
     });
     document.querySelectorAll('main section.cat').forEach(function(s){
@@ -69121,6 +69233,17 @@ V4 V4.New(number x, number y, number z, number w)">Copy example</button></detail
   sectionsToggle.addEventListener('click', function(){ setSectionsOpen(!aside.classList.contains('open')); });
   document.querySelectorAll('aside nav a.entry').forEach(function(a){ a.addEventListener('click', function(){ setSectionsOpen(false); }); });
   if (search) search.addEventListener('input', function(){ if (search.value.trim()) setSectionsOpen(true); });
+})();
+</script>
+
+<script>
+(function(){
+  function openStudioAnchor(){
+    var entry = document.getElementById(location.hash.slice(1));
+    if (entry && entry.matches('#cat-gta-lua-studio details.entry-block')) { entry.open = true; entry.scrollIntoView(); }
+  }
+  window.addEventListener('hashchange', openStudioAnchor);
+  openStudioAnchor();
 })();
 </script>
 </body></html>

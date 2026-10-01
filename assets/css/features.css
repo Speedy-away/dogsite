@@ -877,3 +877,27 @@ mark {
         break-inside:auto
     }
 }
+
+.supported-versions {
+    margin-top:20px;
+}
+.supported-versions h2 {
+    color:var(--muted);
+    font-size:.8rem;
+    font-weight:600;
+}
+.supported-versions ul {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:8px 0 0;
+    padding:0;
+    list-style:none;
+}
+.supported-versions li {
+    padding:4px 12px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--panel);
+    font-size:.875rem;
+}

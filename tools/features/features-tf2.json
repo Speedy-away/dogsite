@@ -1,15 +1,22 @@
 {
-  "game": "TF2 & TF2 Classified",
+  "game": "TF2",
   "slug": "tf2",
-  "source": "Current independent TF2 and Classified menu pages and feature registries. Edition-specific controls are labeled; entries describe the preview source, not complete gameplay acceptance.",
+  "source": "Independent TF2 and Classified menu pages and feature registries. Edition-specific controls are labeled; this catalog describes implemented controls, not complete native gameplay acceptance.",
   "source_hashes": {
-    "TF2-base-game/assets/tf2_pages.lua": "c77d866521c0a6a9fde8d54052ae7d3f05461aefafbf77fa65051a1f96193138",
-    "TF2-Classified/assets/tf2c_pages.lua": "36b1ac17a3a99de191c400ec1c4a349c5f44d59fd78a308537abffa3a76d95f9",
-    "TF2-base-game/src/ui.cpp": "44e5a378c3fe1b48e559cfc9dfccc79313f43e85c2c5079a7dfb3f66ff866e9f",
-    "TF2-Classified/src/ui.cpp": "c41239a4eaa92cbb620fbe16ab472e3aaaad07cc9e453644e7bb443fa238dbde",
-    "TF2-base-game/src/skins.cpp": "77f51dd91d75f6136af641023442963cdc48086d6de5fdd3cf83f16a29d341e2",
-    "TF2-Classified/src/skins.cpp": "fa99d5f18bd8bf6416933cd2b4678c8a99077afe277794c963df926c2a94d7f4",
-    "../../simple-base/UI/src/core/feature_registry.cpp": "918cfe64d180c4d8657fb6b73fad235e2d32b8346a4b3bdf0e2fb62b9a2101fb"
+    "TF2-base-game/assets/tf2_pages.lua": "9e3b4b1ca7327020658ab898df23fe6ad0b2c093a2762c9077e156f9a3740753",
+    "TF2-Classified/assets/tf2c_pages.lua": "ca9891a76a40e76271050d2dcaaf78b4709b9b33d35eaed54c8469dd3aa0b0c3",
+    "TF2-base-game/src/ui.cpp": "6eb58cbf45f0b978f9a821b849fa8ad86e321430a601bfb21cc17c8bf02ce723",
+    "TF2-Classified/src/ui.cpp": "6434bde19b2eaf8e448c9daca0161bcf3d4f4729634c57d3626d279de151500d",
+    "TF2-base-game/src/skins.cpp": "d4daa0356aa38dc2b33cc634e80312576afe09506bf63c83f2160d4bcf6fe2f1",
+    "../../simple-base/UI/src/core/feature_registry.cpp": "516fa6c09ad14d740d23177c9ca776496099398741d46672acfedcb03c8e73bb",
+    "TF2-base-game/docs/LUA_API.md": "f0676307e2b10603118eeebe1a53d3662cc6954d91d31c01cb76a97e015aff81",
+    "TF2-Classified/docs/LUA_API.md": "9b06825e964f3d8cb15bc618245155a15a01b9e20553e3388fc888bea8f0752a",
+    "TF2-base-game/src/combat_profiles.cpp": "902dc43ee59a4c812fe96fd4c6b3e93207ef0e582b87c3e6f0feb2ef74f675ab",
+    "TF2-Classified/src/combat_profiles.cpp": "83f10bf8de3f83c408496d584862d6853ea05df79dd046575924a1677fbed0a6",
+    "TF2-base-game/docs/INVENTORY.md": "f59b4263da8a1c2c3ddf8f46d6a31597e2c5eea372c79af93eedd7ed833e0047",
+    "TF2-base-game/src/inventory.cpp": "b384bd0a88083d89497801f0735935b7199236e1d038362bcc6c33cfd2a5d6ab",
+    "TF2-base-game/src/skins_browser.inl": "5f7840147f51c7f331d47decb129720ada9efe0f983ef643c9efb48172108599",
+    "runtime/capture_policy.h": "bfc66252ced54f7fde8e71dc46cfe8b2a1c2eb762456fee5ef5d72d233e87beb"
   },
   "tabs": [
     {
@@ -95,6 +102,16 @@
                   "id": "aim.rage.invulnerable",
                   "label": "Ignore invulnerable",
                   "desc": "Exclude invulnerable targets."
+                },
+                {
+                  "id": "aim.rage.projectile",
+                  "label": "Projectile aim",
+                  "desc": "Enable prediction for supported projectile weapons in the standard Aimbot profile editor."
+                },
+                {
+                  "id": "aim.rage.max_time",
+                  "label": "Prediction time",
+                  "desc": "Adjust the projectile prediction time limit in the standard Aimbot profile editor."
                 }
               ]
             }
@@ -215,6 +232,16 @@
                   "id": "aim.invulnerable",
                   "label": "Ignore invulnerable",
                   "desc": "Exclude invulnerable targets."
+                },
+                {
+                  "id": "aim.projectile",
+                  "label": "Projectile aim",
+                  "desc": "Enable prediction for supported projectile weapons in the standard Aimbot profile editor."
+                },
+                {
+                  "id": "aim.max_time",
+                  "label": "Prediction time",
+                  "desc": "Adjust the projectile prediction time limit in the standard Aimbot profile editor."
                 }
               ]
             }
@@ -295,6 +322,31 @@
                   "id": "antiaim.spin",
                   "label": "Spin speed",
                   "desc": "Set the spin speed from 0 to 1,440 degrees."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Class and weapon profiles",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "combat.profile",
+                  "label": "Active combat profile",
+                  "desc": "Switch between Camera / smooth and Silent / instant profiles in the standard Aimbot layout, or use the Rage / Legit layout."
+                },
+                {
+                  "id": "combat.class",
+                  "label": "Class defaults",
+                  "desc": "Set per-class aim and trigger defaults."
+                },
+                {
+                  "id": "combat.weapon",
+                  "label": "Weapon overrides",
+                  "desc": "Create or remove per-weapon overrides with inheritance from class defaults."
                 }
               ]
             }
@@ -390,6 +442,66 @@
                   "id": "esp.teammate.snaplines",
                   "label": "Teammate Snaplines",
                   "desc": "Connect the screen origin to recognized players."
+                },
+                {
+                  "id": "esp.class",
+                  "label": "Enemy Class",
+                  "desc": "Show the recognized player class."
+                },
+                {
+                  "id": "esp.weapon",
+                  "label": "Enemy Active weapon",
+                  "desc": "Show available captured weapon details."
+                },
+                {
+                  "id": "esp.conditions",
+                  "label": "Enemy Flags",
+                  "desc": "Choose which captured player condition flags to display."
+                },
+                {
+                  "id": "esp.hide_cloaked",
+                  "label": "Enemy Hide cloaked",
+                  "desc": "Exclude cloaked players from this ESP relationship profile."
+                },
+                {
+                  "id": "esp.hide_disguised",
+                  "label": "Enemy Hide disguised",
+                  "desc": "Exclude disguised players from this ESP relationship profile."
+                },
+                {
+                  "id": "esp.teammate.class",
+                  "label": "Teammate Class",
+                  "desc": "Show the recognized player class."
+                },
+                {
+                  "id": "esp.teammate.weapon",
+                  "label": "Teammate Active weapon",
+                  "desc": "Show available captured weapon details."
+                },
+                {
+                  "id": "esp.teammate.conditions",
+                  "label": "Teammate Flags",
+                  "desc": "Choose which captured player condition flags to display."
+                },
+                {
+                  "id": "esp.teammate.hide_cloaked",
+                  "label": "Teammate Hide cloaked",
+                  "desc": "Exclude cloaked players from this ESP relationship profile."
+                },
+                {
+                  "id": "esp.teammate.hide_disguised",
+                  "label": "Teammate Hide disguised",
+                  "desc": "Exclude disguised players from this ESP relationship profile."
+                },
+                {
+                  "id": "esp.layout",
+                  "label": "ESP placement",
+                  "desc": "Choose independent top, bottom, left or right placement for names, distance and health displays."
+                },
+                {
+                  "id": "esp.box_fill",
+                  "label": "Box fill and gradients",
+                  "desc": "Configure box fill, colors and gradients separately from the outline."
                 }
               ]
             }
@@ -404,100 +516,91 @@
                 {
                   "id": "chams.players",
                   "label": "Enemy players",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.teammates",
                   "label": "Teammates",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.self",
                   "label": "Self",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.arms",
                   "label": "Arms",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.weapon",
                   "label": "Viewmodel weapon",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.world_weapon",
                   "label": "Held weapon",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.dropped_weapons",
                   "label": "Dropped weapons",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.buildings",
                   "label": "Buildings",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 },
                 {
                   "id": "chams.items",
                   "label": "Items",
-                  "desc": "Customize this target independently.",
+                  "desc": "Set independent Visible, Invisible and Overlay layers, each with its own color, material and animation.",
                   "settings": [
-                    "Visible, Invisible and Overlay: separate toggles and colors",
-                    "Flat, Lit or Wireframe material",
-                    "Static, Pulse or Rainbow animation",
-                    "Animation speed and strength"
+                    "Materials: Flat, Lit, Wireframe, Fresnel, Chrome, Crystal and Scanline.",
+                    "Animations: Static, Pulse, Rainbow and Breathe; textured materials also offer Scroll and Rotate.",
+                    "Tune animation speed and strength independently for each layer."
                   ]
                 }
               ]
@@ -523,14 +626,14 @@
                 {
                   "id": "preview.view",
                   "label": "Rotate and zoom",
-                  "desc": "Inspect the model; zoom is limited to 90\u2013150% of its default size."
+                  "desc": "Rotate and zoom the class model; reset the view to its default pose."
                 }
               ]
             }
           ]
         },
         {
-          "name": "Skins",
+          "name": "Retail skins and loadout",
           "groups": [
             {
               "name": "Features",
@@ -538,27 +641,82 @@
                 {
                   "id": "skins.class",
                   "label": "Class selector",
-                  "desc": "Browse the installed class catalog."
+                  "desc": "Retail TF2 only. Browse the installed class catalog."
                 },
                 {
                   "id": "skins.weapons",
                   "label": "Weapon appearances",
-                  "desc": "Select a supported weapon model skin family from the image catalog."
+                  "desc": "Retail TF2 only. Select a supported weapon model skin family from the image catalog."
                 },
                 {
                   "id": "skins.players",
                   "label": "Player appearances",
-                  "desc": "Select supported class-model skin families."
+                  "desc": "Retail TF2 only. Select supported class-model skin families."
                 },
                 {
                   "id": "skins.restore",
                   "label": "Restore original",
-                  "desc": "Return an appearance selection to its original model skin."
+                  "desc": "Retail TF2 only. Return an appearance selection to its original model skin."
                 },
                 {
-                  "id": "skins.enabled",
-                  "label": "Skin changer master",
-                  "desc": "Classified only: enable or disable the skin overrides as a group."
+                  "id": "skins.cosmetics",
+                  "label": "Cosmetic slots",
+                  "desc": "Retail TF2 only. Equip up to three local cosmetic appearances, with supported styles, paint and team colors."
+                },
+                {
+                  "id": "skins.loadout",
+                  "label": "Class loadout preview",
+                  "desc": "Retail TF2 only. Preview all nine classes with a stock held weapon and selected cosmetics. Drag to rotate, scroll to zoom and double-click to reset."
+                },
+                {
+                  "id": "skins.player_tile",
+                  "label": "Player appearance tile",
+                  "desc": "Retail TF2 only. Open the skin picker from the Player tile and preview the selected appearance on the class model."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Retail local inventory",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "inventory.catalog",
+                  "label": "Item catalog",
+                  "desc": "Retail TF2 only. Search installed weapons, cosmetics, taunts, cases, keys, tools, war paints and crafting items."
+                },
+                {
+                  "id": "inventory.copies",
+                  "label": "Local item copies",
+                  "desc": "Retail TF2 only. Create distinct local copies and duplicates, then edit or remove each copy."
+                },
+                {
+                  "id": "inventory.details",
+                  "label": "Item customization",
+                  "desc": "Retail TF2 only. Set supported quality, level, paint, wear, style and custom name fields."
+                },
+                {
+                  "id": "inventory.equip",
+                  "label": "Class loadouts",
+                  "desc": "Retail TF2 only. Equip eligible items in class weapon, cosmetic and taunt slots."
+                },
+                {
+                  "id": "inventory.native",
+                  "label": "Native backpack",
+                  "desc": "Retail TF2 only. Show local copies in the native backpack during supported main-menu and local listen-server sessions. This does not create Steam ownership or enable trading, crafting or case redemption."
+                },
+                {
+                  "id": "inventory.profiles",
+                  "label": "Inventory profiles",
+                  "desc": "Retail TF2 only. Save local copies and equipment with the selected profile and Auto Save preference."
+                },
+                {
+                  "id": "inventory.restore",
+                  "label": "Inventory restoration",
+                  "desc": "Retail TF2 only. Stop or Capture Protection removes injected copies and restores the original native loadout lookup."
                 }
               ]
             }
@@ -738,6 +896,126 @@
               ]
             }
           ]
+        },
+        {
+          "name": "World and sky effects",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "vfx.world",
+                  "label": "World tint",
+                  "desc": "Choose the world material color."
+                },
+                {
+                  "id": "vfx.props",
+                  "label": "Prop tint",
+                  "desc": "Choose the prop material color."
+                },
+                {
+                  "id": "vfx.prop_opacity",
+                  "label": "Prop opacity",
+                  "desc": "Adjust prop opacity from 5 to 100 percent."
+                },
+                {
+                  "id": "vfx.night",
+                  "label": "Night mode",
+                  "desc": "Enable world darkening with a brightness control from 5 to 100 percent."
+                },
+                {
+                  "id": "vfx.sky",
+                  "label": "Sky tint",
+                  "desc": "Choose the sky material color."
+                },
+                {
+                  "id": "vfx.skybox",
+                  "label": "Skybox presets",
+                  "desc": "Choose the map default or one of ten named sky presets."
+                },
+                {
+                  "id": "vfx.world_pulse",
+                  "label": "World pulse",
+                  "desc": "Animate world tint with independent speed and strength controls."
+                },
+                {
+                  "id": "vfx.sky_cycle",
+                  "label": "Sky color cycle",
+                  "desc": "Cycle sky tint with independent speed and strength controls."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Fog and screen filters",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "vfx.no_fog",
+                  "label": "Remove world fog",
+                  "desc": "Disable world fog."
+                },
+                {
+                  "id": "vfx.no_sky_fog",
+                  "label": "Remove sky fog",
+                  "desc": "Disable sky fog."
+                },
+                {
+                  "id": "vfx.pure_bypass",
+                  "label": "Custom materials",
+                  "desc": "Enable custom material support before joining a session; restart if a material whitelist was already loaded."
+                },
+                {
+                  "id": "vfx.remove.water",
+                  "label": "Remove water effect",
+                  "desc": "Hide the water screen effect."
+                },
+                {
+                  "id": "vfx.remove.invulnerability",
+                  "label": "Remove invulnerability effect",
+                  "desc": "Hide the invulnerability screen effect."
+                },
+                {
+                  "id": "vfx.remove.milk",
+                  "label": "Remove milk effect",
+                  "desc": "Hide the milk screen effect."
+                },
+                {
+                  "id": "vfx.remove.jarate",
+                  "label": "Remove jarate effect",
+                  "desc": "Hide the jarate screen effect."
+                },
+                {
+                  "id": "vfx.remove.bleeding",
+                  "label": "Remove bleeding effect",
+                  "desc": "Hide the bleeding screen effect."
+                },
+                {
+                  "id": "vfx.remove.stealth",
+                  "label": "Remove stealth effect",
+                  "desc": "Hide the stealth screen effect."
+                },
+                {
+                  "id": "vfx.remove.bonk",
+                  "label": "Remove bonk effect",
+                  "desc": "Hide the bonk screen effect."
+                },
+                {
+                  "id": "vfx.remove.gas",
+                  "label": "Remove gas effect",
+                  "desc": "Hide the gas screen effect."
+                },
+                {
+                  "id": "vfx.remove.burning",
+                  "label": "Remove burning effect",
+                  "desc": "Hide the burning screen effect."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -759,6 +1037,26 @@
                   "id": "movement.strafe",
                   "label": "Auto strafe",
                   "desc": "Enable the host air-strafe control."
+                },
+                {
+                  "id": "movement.air_jump",
+                  "label": "Preserve Scout air jump",
+                  "desc": "Keep Scout air-jump input while bunny hop is enabled."
+                },
+                {
+                  "id": "movement.strafe_direction",
+                  "label": "Strafe direction",
+                  "desc": "Choose View / mouse or Movement keys as the auto-strafe direction."
+                },
+                {
+                  "id": "movement.rev_jump",
+                  "label": "Heavy rev-jump",
+                  "desc": "Add one jump on a fresh secondary-attack press while a grounded Heavy holds an idle minigun."
+                },
+                {
+                  "id": "movement.prespeed",
+                  "label": "Pre-speed",
+                  "desc": "With Auto strafe enabled, briefly accelerate before takeoff when holding Jump from a stationary position."
                 }
               ]
             }
@@ -783,7 +1081,57 @@
                 {
                   "id": "view.model_offset",
                   "label": "Model offsets",
-                  "desc": "Retail only: adjust X, Y and Z position and Pitch, Yaw and Roll."
+                  "desc": "Both editions: adjust X, Y and Z position and Pitch, Yaw and Roll."
+                },
+                {
+                  "id": "view.thirdperson",
+                  "label": "Third person",
+                  "desc": "Toggle the third-person camera; the default binding is F5."
+                },
+                {
+                  "id": "view.thirdperson_distance",
+                  "label": "Camera distance",
+                  "desc": "Adjust camera distance from 30 to 400 Source units."
+                },
+                {
+                  "id": "view.thirdperson_shoulder",
+                  "label": "Shoulder offset",
+                  "desc": "Adjust the shoulder offset from -64 to 64 Source units."
+                },
+                {
+                  "id": "view.thirdperson_height",
+                  "label": "Height offset",
+                  "desc": "Adjust camera height from -64 to 64 Source units."
+                },
+                {
+                  "id": "view.thirdperson_collision",
+                  "label": "Camera collision",
+                  "desc": "Adjust the camera position around scene geometry."
+                },
+                {
+                  "id": "view.thirdperson_scoped",
+                  "label": "First person while scoped",
+                  "desc": "Return to first person while scoped."
+                },
+                {
+                  "id": "view.thirdperson_swap",
+                  "label": "Swap shoulder",
+                  "desc": "Switch the camera shoulder; the default binding is V."
+                },
+                {
+                  "id": "view.freecam",
+                  "label": "Free camera",
+                  "desc": "Fly the view with movement, Jump and Duck controls. Player movement and attack input are suppressed while active; the camera has no world collision."
+                },
+                {
+                  "id": "view.freecam_speed",
+                  "label": "Flight speed",
+                  "desc": "Set free-camera flight speed from 50 to 2000 units per second."
+                },
+                {
+                  "id": "view.freecam_boost",
+                  "label": "Speed multiplier",
+                  "desc": "Use the Speed action to multiply flight speed by 1 to 5."
                 }
               ]
             }
@@ -818,7 +1166,7 @@
                 {
                   "id": "lua.host",
                   "label": "TF2 API",
-                  "desc": "Read copied player/entity data, conditions and projections, and access settings."
+                  "desc": "API 1.2: copied player/entity data, active weapons, conditions, projections, vector/tick helpers, feature metadata and capture-aware controls."
                 },
                 {
                   "id": "lua.ui",
@@ -884,6 +1232,31 @@
                   "id": "session.stop",
                   "label": "Stop",
                   "desc": "Stop the active module through its session control."
+                },
+                {
+                  "id": "settings.capture_protection",
+                  "label": "Capture Protection",
+                  "desc": "Disable and lock protected visual and scene features, including free camera. Restore native inventory objects when enabled."
+                },
+                {
+                  "id": "settings.ui_version",
+                  "label": "Menu layouts",
+                  "desc": "Choose either supported interface layout while keeping the same saved features."
+                },
+                {
+                  "id": "settings.language",
+                  "label": "23 downloadable languages",
+                  "desc": "Download or update language packs in-game. English is included and locally edited translations are preserved."
+                },
+                {
+                  "id": "settings.theme",
+                  "label": "Themes and colors",
+                  "desc": "Customize the interface theme, accent colors and background."
+                },
+                {
+                  "id": "settings.custom_image",
+                  "label": "Custom image and logo",
+                  "desc": "Use the interface image and logo controls to personalize the menu."
                 }
               ]
             }
@@ -891,5 +1264,9 @@
         }
       ]
     }
+  ],
+  "supported_versions": [
+    "Team Fortress 2",
+    "TF2 Classified"
   ]
 }

@@ -1,0 +1,1086 @@
+--- before/guides\cs2\cs2-inject\index.html
++++ guides\cs2\cs2-inject\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/" aria-current="page">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\cs2\cs2-requirements\index.html
++++ guides\cs2\cs2-requirements\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/" aria-current="page">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\cs2\cs2-updates\index.html
++++ guides\cs2\cs2-updates\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/" aria-current="page">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\cs2\custom-models\index.html
++++ guides\cs2\custom-models\index.html
+@@ -4,21 +4,21 @@
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+-<title>CS2 Menu Features Not Working After an Update - Scooby Guide</title>
++<title>CS2 Custom Models: Install Folder, Players, Arms &amp; Weapons - Scooby Guide</title>
+ <link rel="stylesheet" href="/assets/css/site-brand.css">
+-<meta name="description" content="Find out why Scooby CS2 features may stop working after a game patch, where to check update status and when to update your loader.">
++<meta name="description" content="Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.">
+ 
+ <meta property="og:type" content="website">
+-<meta property="og:url" content="https://scoobymenu.cc/guides/cs2/cs2-updates/">
+-<meta property="og:title" content="CS2 Menu Features Not Working After an Update - Scooby Guide">
+-<meta property="og:description" content="Find out why Scooby CS2 features may stop working after a game patch, where to check update status and when to update your loader.">
++<meta property="og:url" content="https://scoobymenu.cc/guides/cs2/custom-models/">
++<meta property="og:title" content="CS2 Custom Models: Install Folder, Players, Arms &amp; Weapons - Scooby Guide">
++<meta property="og:description" content="Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.">
+ <meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+ <meta property="og:site_name" content="Scooby Menu">
+ <meta name="twitter:card" content="summary_large_image">
+-<meta name="twitter:title" content="CS2 Menu Features Not Working After an Update - Scooby Guide">
+-<meta name="twitter:description" content="Find out why Scooby CS2 features may stop working after a game patch, where to check update status and when to update your loader.">
++<meta name="twitter:title" content="CS2 Custom Models: Install Folder, Players, Arms &amp; Weapons - Scooby Guide">
++<meta name="twitter:description" content="Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.">
+ <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+-<meta name="keywords" content="Scooby Menu, CS2 features not working, Scooby CS2 update, CS2 cheat troubleshooting">
++<meta name="keywords" content="Scooby Menu, CS2 custom models, game csgo folder, model installation path, custom agents, arms, hands, weapons, model preview">
+ 
+ <!-- DNS Prefetch for external resources -->
+ 
+@@ -30,12 +30,12 @@
+ </script>
+ <script src="/assets/js/guides.js" defer="">
+ </script>
+-<link rel="canonical" href="https://scoobymenu.cc/guides/cs2/cs2-updates/">
++<link rel="canonical" href="https://scoobymenu.cc/guides/cs2/custom-models/">
+ <noscript>
+ <style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+ </noscript>
+ <meta name="robots" content="index, follow, max-image-preview:large">
+-<meta name="twitter:url" content="https://scoobymenu.cc/guides/cs2/cs2-updates/">
++<meta name="twitter:url" content="https://scoobymenu.cc/guides/cs2/custom-models/">
+ <script src="/lang/i18n.js"></script>
+ <meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+ <meta property="og:image:type" content="image/png">
+@@ -49,11 +49,11 @@
+   "@graph": [
+     {
+       "@type": "WebPage",
+-      "@id": "https://scoobymenu.cc/guides/cs2/cs2-updates/#webpage",
+-      "url": "https://scoobymenu.cc/guides/cs2/cs2-updates/",
+-      "name": "CS2 Menu Features Not Working After an Update - Scooby Guide",
+-      "description": "Find out why Scooby CS2 features may stop working after a game patch, where to check update status and when to update your loader.",
+-      "keywords": "Scooby Menu, CS2 features not working, Scooby CS2 update, CS2 cheat troubleshooting",
++      "@id": "https://scoobymenu.cc/guides/cs2/custom-models/#webpage",
++      "url": "https://scoobymenu.cc/guides/cs2/custom-models/",
++      "name": "CS2 Custom Models: Install Folder, Players, Arms & Weapons - Scooby Guide",
++      "description": "Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.",
++      "keywords": "Scooby Menu, CS2 custom models, game csgo folder, model installation path, custom agents, arms, hands, weapons, model preview",
+       "inLanguage": "en",
+       "isPartOf": {
+         "@id": "https://scoobymenu.cc/#website"
+@@ -64,7 +64,7 @@
+     },
+     {
+       "@type": "BreadcrumbList",
+-      "@id": "https://scoobymenu.cc/guides/cs2/cs2-updates/#breadcrumb",
++      "@id": "https://scoobymenu.cc/guides/cs2/custom-models/#breadcrumb",
+       "itemListElement": [
+         {
+           "@type": "ListItem",
+@@ -81,8 +81,8 @@
+         {
+           "@type": "ListItem",
+           "position": 3,
+-          "name": "Features Not Working",
+-          "item": "https://scoobymenu.cc/guides/cs2/cs2-updates/"
++          "name": "Custom Models",
++          "item": "https://scoobymenu.cc/guides/cs2/custom-models/"
+         }
+       ]
+     }
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/" aria-current="page">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\cs2\index.html
++++ guides\cs2\index.html
+@@ -6,17 +6,17 @@
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title>CS2 Setup &amp; Troubleshooting Guides - Scooby</title>
+ <link rel="stylesheet" href="/assets/css/site-brand.css">
+-<meta name="description" content="Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.">
++<meta name="description" content="Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.">
+ 
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://scoobymenu.cc/guides/cs2/">
+ <meta property="og:title" content="CS2 Setup &amp; Troubleshooting Guides - Scooby">
+-<meta property="og:description" content="Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.">
++<meta property="og:description" content="Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.">
+ <meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+ <meta property="og:site_name" content="Scooby Menu">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="CS2 Setup &amp; Troubleshooting Guides - Scooby">
+-<meta name="twitter:description" content="Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.">
++<meta name="twitter:description" content="Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.">
+ <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+ <meta name="keywords" content="Scooby Menu, Scooby CS2 setup, CS2 installation guide, Scooby CS2 troubleshooting, CS2 cheat setup">
+ 
+@@ -52,7 +52,7 @@
+       "@id": "https://scoobymenu.cc/guides/cs2/#webpage",
+       "url": "https://scoobymenu.cc/guides/cs2/",
+       "name": "CS2 Setup & Troubleshooting Guides - Scooby",
+-      "description": "Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.",
++      "description": "Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.",
+       "keywords": "Scooby Menu, Scooby CS2 setup, CS2 installation guide, Scooby CS2 troubleshooting, CS2 cheat setup",
+       "inLanguage": "en",
+       "isPartOf": {
+@@ -181,6 +181,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+@@ -219,7 +220,7 @@
+ </nav>
+ </aside>
+ <div class="article-layout">
+-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><span>Counter-Strike 2</span></div><h1>Counter-Strike 2 guide</h1><p class="article-intro">Setup, injection, and fixes after updates.</p><p class="topic-index-intro">Choose a topic to open its guide.</p><div class="topic-grid"><a class="topic-card" id="cs2-requirements" href="/guides/cs2/cs2-requirements/"><h3>Requirements <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-inject" href="/guides/cs2/cs2-inject/"><h3>How to Inject <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-updates" href="/guides/cs2/cs2-updates/"><h3>Features Not Working <span aria-hidden="true">→</span></h3><p>Open guide</p></a></div><footer class="wiki-footer">
++<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><span>Counter-Strike 2</span></div><h1>Counter-Strike 2 guide</h1><p class="article-intro">Setup, custom models, and fixes after updates.</p><p class="topic-index-intro">Choose a topic to open its guide.</p><div class="topic-grid"><a class="topic-card" id="cs2-requirements" href="/guides/cs2/cs2-requirements/"><h3>Requirements <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-inject" href="/guides/cs2/cs2-inject/"><h3>How to Inject <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-updates" href="/guides/cs2/cs2-updates/"><h3>Features Not Working <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="custom-models" href="/guides/cs2/custom-models/"><h3>Custom Models <span aria-hidden="true">→</span></h3><p>Install folder, player agents, arms/hands, weapons and previews.</p></a></div><footer class="wiki-footer">
+ <span>Scooby Wiki · Guides &amp; support</span>
+ <div>
+ <a href="/">Main site</a>
+
+--- before/guides\fivem\fivem-inject\index.html
++++ guides\fivem\fivem-inject\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\fivem\fivem-requirements\index.html
++++ guides\fivem\fivem-requirements\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\fivem\index.html
++++ guides\fivem\index.html
+@@ -177,6 +177,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\fivem\money-items-weapons\index.html
++++ guides\fivem\money-items-weapons\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\connection\index.html
++++ guides\general\connection\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\crashing\index.html
++++ guides\general\crashing\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\faq\index.html
++++ guides\general\faq\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\free-key\index.html
++++ guides\general\free-key\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\hwid\index.html
++++ guides\general\hwid\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\index.html
++++ guides\general\index.html
+@@ -181,6 +181,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\linux-mac\index.html
++++ guides\general\linux-mac\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\general\universal\index.html
++++ guides\general\universal\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gmod\getting-started\index.html
++++ guides\gmod\getting-started\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gmod\index.html
++++ guides\gmod\index.html
+@@ -182,6 +182,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gmod\menu-settings\index.html
++++ guides\gmod\menu-settings\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gmod\requirements\index.html
++++ guides\gmod\requirements\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gmod\troubleshooting\index.html
++++ guides\gmod\troubleshooting\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\dlcs\index.html
++++ guides\gta5\dlcs\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\first-time\index.html
++++ guides\gta5\first-time\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\free-setup\index.html
++++ guides\gta5\free-setup\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\host-public\index.html
++++ guides\gta5\host-public\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\index.html
++++ guides\gta5\index.html
+@@ -181,6 +181,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\introduction\index.html
++++ guides\gta5\introduction\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\lua-scripts\index.html
++++ guides\gta5\lua-scripts\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\money\index.html
++++ guides\gta5\money\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\outfits\index.html
++++ guides\gta5\outfits\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\themes\index.html
++++ guides\gta5\themes\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\troubleshooting\index.html
++++ guides\gta5\troubleshooting\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\gta5\vehicles\index.html
++++ guides\gta5\vehicles\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\half-life-1\getting-started\index.html
++++ guides\half-life-1\getting-started\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\half-life-1\index.html
++++ guides\half-life-1\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\half-life-1\menu-settings\index.html
++++ guides\half-life-1\menu-settings\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\half-life-1\requirements\index.html
++++ guides\half-life-1\requirements\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\half-life-1\troubleshooting\index.html
++++ guides\half-life-1\troubleshooting\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\index.html
++++ guides\index.html
+@@ -161,6 +161,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+@@ -352,6 +353,10 @@
+ <span>GTA 5</span>
+ </a>
+ </div>
++</section>
++<section class="hub-section">
++<h2>CS2 customization</h2>
++<div class="topic-grid"><a class="topic-card" href="/guides/cs2/custom-models/"><h3>Custom Models <span aria-hidden="true">→</span></h3><p>Find the game install folder and set up player models, your own arms and hands, and weapon replacements.</p><span>Counter-Strike 2</span></a></div>
+ </section>
+ <section class="hub-section">
+ <h2>RDR2 customization</h2>
+
+--- before/guides\l4d\getting-started\index.html
++++ guides\l4d\getting-started\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\l4d\index.html
++++ guides\l4d\index.html
+@@ -181,6 +181,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\l4d\menu-settings\index.html
++++ guides\l4d\menu-settings\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\l4d\requirements\index.html
++++ guides\l4d\requirements\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\l4d\troubleshooting\index.html
++++ guides\l4d\troubleshooting\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\last-of-us\getting-started\index.html
++++ guides\last-of-us\getting-started\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>The Last of Us</summary>
+
+--- before/guides\last-of-us\index.html
++++ guides\last-of-us\index.html
+@@ -182,6 +182,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>The Last of Us</summary>
+
+--- before/guides\last-of-us\menu-settings\index.html
++++ guides\last-of-us\menu-settings\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>The Last of Us</summary>
+
+--- before/guides\last-of-us\requirements\index.html
++++ guides\last-of-us\requirements\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>The Last of Us</summary>
+
+--- before/guides\last-of-us\troubleshooting\index.html
++++ guides\last-of-us\troubleshooting\index.html
+@@ -188,6 +188,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\getting-started\index.html
++++ guides\megabonk\getting-started\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\index.html
++++ guides\megabonk\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\languages\index.html
++++ guides\megabonk\languages\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\lua-scripts\index.html
++++ guides\megabonk\lua-scripts\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\menu-settings\index.html
++++ guides\megabonk\menu-settings\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\spawner-unlocks\index.html
++++ guides\megabonk\spawner-unlocks\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\megabonk\troubleshooting\index.html
++++ guides\megabonk\troubleshooting\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>The Last of Us</summary>
+
+--- before/guides\rdr2\configs\index.html
++++ guides\rdr2\configs\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\horse-outfits\index.html
++++ guides\rdr2\horse-outfits\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\index.html
++++ guides\rdr2\index.html
+@@ -181,6 +181,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\lua-scripts\index.html
++++ guides\rdr2\lua-scripts\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\outfits\index.html
++++ guides\rdr2\outfits\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\rdr2-before\index.html
++++ guides\rdr2\rdr2-before\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\rdr2-crashing\index.html
++++ guides\rdr2\rdr2-crashing\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\rdr2-launch\index.html
++++ guides\rdr2\rdr2-launch\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\rdr2-more-help\index.html
++++ guides\rdr2\rdr2-more-help\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\themes\index.html
++++ guides\rdr2\themes\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\rdr2\vehicles-peds\index.html
++++ guides\rdr2\vehicles-peds\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\redm\index.html
++++ guides\redm\index.html
+@@ -177,6 +177,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\redm\money-items-weapons\index.html
++++ guides\redm\money-items-weapons\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\redm\redm-inject\index.html
++++ guides\redm\redm-inject\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\redm\redm-requirements\index.html
++++ guides\redm\redm-requirements\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\sbox\getting-started\index.html
++++ guides\sbox\getting-started\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\sbox\index.html
++++ guides\sbox\index.html
+@@ -182,6 +182,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\sbox\menu-settings\index.html
++++ guides\sbox\menu-settings\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\sbox\requirements\index.html
++++ guides\sbox\requirements\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\sbox\troubleshooting\index.html
++++ guides\sbox\troubleshooting\index.html
+@@ -187,6 +187,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details open>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\source-games\index.html
++++ guides\source-games\index.html
+@@ -182,6 +182,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\editions\index.html
++++ guides\tf2\editions\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\getting-started\index.html
++++ guides\tf2\getting-started\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\index.html
++++ guides\tf2\index.html
+@@ -183,6 +183,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\lua-scripts\index.html
++++ guides\tf2\lua-scripts\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\menu-settings\index.html
++++ guides\tf2\menu-settings\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\requirements\index.html
++++ guides\tf2\requirements\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/guides\tf2\troubleshooting\index.html
++++ guides\tf2\troubleshooting\index.html
+@@ -189,6 +189,7 @@
+ <a href="/guides/cs2/cs2-requirements/">Requirements</a>
+ <a href="/guides/cs2/cs2-inject/">How to Inject</a>
+ <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
++<a href="/guides/cs2/custom-models/">Custom Models</a>
+ </details>
+ <details>
+ <summary>S&amp;box (Sandbox)</summary>
+
+--- before/tools\seo-metadata.js
++++ tools\seo-metadata.js
+@@ -93,7 +93,7 @@
+  ['rdr2','RDR2','Set up Scooby for Red Dead Redemption 2. Install outfits, horse outfits, Lua scripts and themes, save configs, use spawners, and troubleshoot problems.'],
+  ['fivem','FiveM','Set up Scooby for FiveM with runtime requirements and injection instructions. Read about server events, feature limitations and troubleshooting.'],
+  ['redm','RedM','Set up Scooby for RedM with runtime requirements and injection instructions. Find server-event guidance, feature limitations and troubleshooting.'],
+- ['cs2','CS2','Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.'],
++ ['cs2','CS2','Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.'],
+  ['general','Loader','Find help with the Scooby loader, downloads, free keys, HWID resets and account access. Browse crash fixes, connection errors and compatibility guides.']
+ ];
+ for (const [slug, game, desc] of groups) {
+@@ -106,6 +106,7 @@
+  guide(slug,`${slug}-inject`,`How to Load Scooby in ${game}`, slug === 'cs2' ? 'Learn how to load Scooby into Counter-Strike 2 using automatic loading or manual injection from the main menu, with links to troubleshooting.' : `Learn when and how to inject Scooby into ${game}, from the main menu or resource loading screen, with step-by-step instructions and troubleshooting links.`, `Scooby ${game} injection, how to load Scooby ${game}, ${game} cheat setup`);
+ }
+ guide('cs2','cs2-updates','CS2 Menu Features Not Working After an Update','Find out why Scooby CS2 features may stop working after a game patch, where to check update status and when to update your loader.','CS2 features not working, Scooby CS2 update, CS2 cheat troubleshooting');
++guide('cs2','custom-models','CS2 Custom Models: Install Folder, Players, Arms & Weapons','Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.','CS2 custom models, game csgo folder, model installation path, custom agents, arms, hands, weapons, model preview');
+ for (const [slug, game] of [['fivem','FiveM'],['redm','RedM']]) guide(slug,'money-items-weapons',`${game} Money, Items & Weapons: Server Limits`, `Understand ${game} server events for money, items and weapons, including server-side requirements, restrictions, kick or ban risks and Scooby support limits.`, `${game} server events, ${game} money items weapons, ${game} event restrictions`);
+ const topics = `
+ general|connection|Scooby Connection & SSL Error Help|Troubleshoot Scooby website and loader connection or SSL errors. Read the connection guidance and find links to related setup and account help.|Scooby connection error, Scooby SSL error, Scooby loader connection

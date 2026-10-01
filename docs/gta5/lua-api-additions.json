@@ -1,0 +1,285 @@
+{
+  "gui": {
+    "add_always_draw_imgui": {
+      "Example": "int gui.add_always_draw_imgui(callback: function)\nlocal render = gui.add_always_draw_imgui(function() end)",
+      "Description": "Draw independently of the Scooby menu; returns a removable render handle."
+    },
+    "add_imgui": {
+      "Example": "int gui.add_imgui(callback: function)",
+      "Description": "Draw only while the Scooby menu is open."
+    },
+    "remove_imgui": {
+      "Example": "bool gui.remove_imgui(handle: int)",
+      "Description": "Remove a draw callback by handle."
+    },
+    "is_open": {
+      "Example": "bool gui.is_open()",
+      "Description": "Return whether the Scooby menu is open."
+    },
+    "toggle": {
+      "Example": "bool gui.toggle(open?: bool)\ngui.toggle(false)",
+      "Description": "No argument toggles ClickUI; true/false explicitly sets visibility."
+    }
+  },
+  "menu": {
+    "set_open": {
+      "Example": "bool menu.set_open(open: bool)\nmenu.set_open(false)",
+      "Description": "Set menu visibility. False closes ClickUI and ListUI; repeated calls are idempotent."
+    }
+  },
+  "imgui": {
+    "begin_value": {
+      "Example": "visible: bool, open: bool imgui.begin_value(name: string, open?: bool, flags: int = 0)",
+      "Description": "Begin with an optional close button; always pair with end_."
+    },
+    "input_text_value": {
+      "Example": "changed: bool, text: string imgui.input_text_value(label: string, text: string, capacity: int = 256, flags: int = 0)",
+      "Description": "Edit Lua-owned text; buffer includes NUL, clamped to 1..65536. Callback flags raise an error."
+    },
+    "input_text_multiline_value": {
+      "Example": "changed: bool, text: string imgui.input_text_multiline_value(label: string, text: string, capacity: int = 256, width: float = 0, height: float = 0, flags: int = 0)",
+      "Description": "Edit Lua-owned multiline text."
+    },
+    "input_text_with_hint_value": {
+      "Example": "changed: bool, text: string imgui.input_text_with_hint_value(label: string, hint: string, text: string, capacity: int = 256, flags: int = 0)",
+      "Description": "Edit Lua-owned text with placeholder."
+    },
+    "input_int_value": {
+      "Example": "changed: bool, value: int imgui.input_int_value(label: string, value: int, step: int = 1, fast_step: int = 100, flags: int = 0)",
+      "Description": "Edit a Lua-owned integer."
+    },
+    "input_float_value": {
+      "Example": "changed: bool, value: float imgui.input_float_value(label: string, value: float, step: float = 0, fast_step: float = 0, format: string = \"%.3f\", flags: int = 0)",
+      "Description": "Edit a Lua-owned float."
+    },
+    "combo_value": {
+      "Example": "changed: bool, index: int imgui.combo_value(label: string, index: int, items: table, count?: int, height: int = -1)",
+      "Description": "Edit a zero-based selection from a string array."
+    },
+    "listbox_value": {
+      "Example": "changed: bool, index: int imgui.listbox_value(label: string, index: int, items: table, count?: int, height: int = -1)",
+      "Description": "Edit a zero-based list selection from a string array."
+    },
+    "begin_list_box": {
+      "Example": "bool imgui.begin_list_box(label: string, width: float = 0, height: float = 0)",
+      "Description": "Open a list region. Pair with end_list_box only when true."
+    },
+    "end_list_box": {
+      "Example": "void imgui.end_list_box()",
+      "Description": "Close the Lua-owned list region."
+    },
+    "separator_text": {
+      "Example": "void imgui.separator_text(text: string)",
+      "Description": "Draw a labeled separator."
+    },
+    "get_font_size": {
+      "Example": "float imgui.get_font_size()",
+      "Description": "Render-callback ImGui helper."
+    },
+    "get_cursor_pos_x": {
+      "Example": "float imgui.get_cursor_pos_x()",
+      "Description": "Render-callback ImGui helper."
+    },
+    "get_cursor_pos_y": {
+      "Example": "float imgui.get_cursor_pos_y()",
+      "Description": "Render-callback ImGui helper."
+    },
+    "get_window_width": {
+      "Example": "float imgui.get_window_width()",
+      "Description": "Render-callback ImGui helper."
+    },
+    "get_window_height": {
+      "Example": "float imgui.get_window_height()",
+      "Description": "Render-callback ImGui helper."
+    },
+    "set_cursor_screen_pos": {
+      "Example": "void imgui.set_cursor_screen_pos(x: float, y: float)",
+      "Description": "Render-callback ImGui helper."
+    },
+    "set_keyboard_focus_here": {
+      "Example": "void imgui.set_keyboard_focus_here(offset: int = 0)",
+      "Description": "Render-callback ImGui helper."
+    },
+    "is_any_item_hovered": {
+      "Example": "bool imgui.is_any_item_hovered()",
+      "Description": "Render-callback ImGui helper."
+    },
+    "is_popup_open": {
+      "Example": "bool imgui.is_popup_open(id: string, flags: int = 0)",
+      "Description": "Render-callback ImGui helper."
+    },
+    "set_scroll_here_y": {
+      "Example": "void imgui.set_scroll_here_y(ratio: float = 0.5)",
+      "Description": "Render-callback ImGui helper."
+    },
+    "begin_tab_item_value": {
+      "Example": "visible: bool, open: bool imgui.begin_tab_item_value(name: string, open?: bool, flags: int = 0)"
+    },
+    "begin_popup_modal_value": {
+      "Example": "visible: bool, open: bool imgui.begin_popup_modal_value(name: string, open?: bool, flags: int = 0)"
+    },
+    "color_edit3_value": {
+      "Example": "changed: bool, r, g, b imgui.color_edit3_value(label: string, r, g, b, flags: int = 0)"
+    },
+    "get_display_size": {
+      "Example": "width: number, height: number imgui.get_display_size()",
+      "Description": "Render callback only; current viewport size in pixels."
+    },
+    "get_frame_rate": {
+      "Example": "number imgui.get_frame_rate()",
+      "Description": "Render callback only; ImGui smoothed frame rate, not a separate game benchmark."
+    },
+    "get_frame_count": {
+      "Example": "int imgui.get_frame_count()",
+      "Description": "Current ImGui frame index; render callback only."
+    },
+    "get_window_id": {
+      "Example": "number imgui.get_window_id()",
+      "Description": "Current ImGui window ID; render callback only."
+    },
+    "is_any_item_active": {
+      "Example": "bool imgui.is_any_item_active()",
+      "Description": "Whether an ImGui item is active; render callback only."
+    },
+    "color_convert_float4_to_u32": {
+      "Example": "number imgui.color_convert_float4_to_u32(r: number, g: number, b: number, a: number)",
+      "Description": "Finite components are clamped to 0..1 and packed for draw-list colors; render callback only."
+    },
+    "get_style_color_u32": {
+      "Example": "number imgui.get_style_color_u32(index: ImGuiCol)",
+      "Description": "Validated style color including global style alpha; render callback only."
+    }
+  },
+  "script": {
+    "register_looped": {
+      "Example": "int script.register_looped(name?: string, callback: function(context))\nlocal job = script.register_looped(\"demo\", function(s) s:sleep(500) end)",
+      "Description": "Register a named or anonymous loop; returning false stops it. Reusing a name replaces the old loop."
+    },
+    "unregister_looped": {
+      "Example": "bool script.unregister_looped(name_or_handle: string|int)\nscript.unregister_looped(\"demo\")",
+      "Description": "Cancel a loop by name or callback handle."
+    },
+    "unregister_tick": {
+      "Example": "bool script.unregister_tick(name_or_handle: string|int)",
+      "Description": "Alias of cancel_callback; accepts loop name or handle."
+    },
+    "run_in_fiber": {
+      "Example": "int script.run_in_fiber(callback: function(context))\nlocal job = script.run_in_fiber(function(s) s:sleep(100) end)",
+      "Description": "Queue one yielding job and return a cancellable handle. Errors follow the script error policy."
+    }
+  },
+  "compat": {
+    "use_yim": {
+      "Example": "table compat.use_yim(edition: string = \"legacy\")",
+      "Description": "Choose legacy or enhanced Yim GUI overloads in this script."
+    },
+    "yim.ImGui": {
+      "Example": "table compat.yim.ImGui()\nlocal ImGui = compat.yim.ImGui",
+      "Description": "Yim-style GUI adapter; edited values precede changed flags, selections are zero-based."
+    },
+    "is_supported": {
+      "Example": "bool compat.is_supported(namespace: string, member: string)\ncompat.is_supported(\"compat.yim.ImGui\", \"InputText\")",
+      "Description": "Check that a namespace member exists and is not marked unsupported. Nested namespaces are supported."
+    },
+    "yim_v2.ImGui": {
+      "Example": "local ImGui = compat.yim_v2.ImGui"
+    },
+    "runtime": {
+      "Example": "table compat.runtime"
+    }
+  },
+  "compat.yim.ImGui": {
+    "GetWindowDrawList": {
+      "Example": "DrawList compat.yim.ImGui.GetWindowDrawList()\nlocal ui = compat.yim.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
+      "Description": "Frame/window-bound Lua drawing object. Obtain a fresh object inside each window/frame; use colon calls with scalar coordinates."
+    },
+    "GetDisplaySize": {
+      "Example": "width: number, height: number compat.yim.ImGui.GetDisplaySize()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+    },
+    "GetFrameRate": {
+      "Example": "number compat.yim.ImGui.GetFrameRate()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+    },
+    "IsAnyItemActive": {
+      "Example": "bool compat.yim.ImGui.IsAnyItemActive()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+    },
+    "ColorConvertFloat4ToU32": {
+      "Example": "number compat.yim.ImGui.ColorConvertFloat4ToU32(r, g, b, a)",
+      "Description": "Convert finite 0..1 RGBA components into a packed draw-list color."
+    },
+    "GetStyleColorU32": {
+      "Example": "number compat.yim.ImGui.GetStyleColorU32(index: ImGuiCol)",
+      "Description": "Read a validated style color and return its packed value."
+    }
+  },
+  "compat.yim_v2.ImGui": {
+    "GetWindowDrawList": {
+      "Example": "DrawList compat.yim_v2.ImGui.GetWindowDrawList()\nlocal ui = compat.yim_v2.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
+      "Description": "Frame/window-bound Lua drawing object. Obtain a fresh object inside each window/frame; use colon calls with scalar coordinates."
+    },
+    "GetDisplaySize": {
+      "Example": "width: number, height: number compat.yim_v2.ImGui.GetDisplaySize()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+    },
+    "GetFrameRate": {
+      "Example": "number compat.yim_v2.ImGui.GetFrameRate()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+    },
+    "IsAnyItemActive": {
+      "Example": "bool compat.yim_v2.ImGui.IsAnyItemActive()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+    },
+    "ColorConvertFloat4ToU32": {
+      "Example": "number compat.yim_v2.ImGui.ColorConvertFloat4ToU32(r, g, b, a)",
+      "Description": "Convert finite 0..1 RGBA components into a packed draw-list color."
+    },
+    "GetStyleColorU32": {
+      "Example": "number compat.yim_v2.ImGui.GetStyleColorU32(index: ImGuiCol)",
+      "Description": "Read a validated style color and return its packed value."
+    }
+  },
+  "YimDrawList": {
+    "AddLine": {
+      "Example": "void draw:AddLine(x1, y1, x2, y2, color, thickness=1)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddRect": {
+      "Example": "void draw:AddRect(x1, y1, x2, y2, color, rounding=0, flags=0, thickness=1)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddRectFilled": {
+      "Example": "void draw:AddRectFilled(x1, y1, x2, y2, color, rounding=0, flags=0)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddCircle": {
+      "Example": "void draw:AddCircle(x, y, radius, color, segments=0, thickness=1)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddCircleFilled": {
+      "Example": "void draw:AddCircleFilled(x, y, radius, color, segments=0)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddText": {
+      "Example": "void draw:AddText(x, y, color, text)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddTriangleFilled": {
+      "Example": "void draw:AddTriangleFilled(x1, y1, x2, y2, x3, y3, color)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddQuadFilled": {
+      "Example": "void draw:AddQuadFilled(x1, y1, x2, y2, x3, y3, x4, y4, color)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddBezierCubic": {
+      "Example": "void draw:AddBezierCubic(x1, y1, x2, y2, x3, y3, x4, y4, color, thickness=1, segments=0)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    },
+    "AddRectFilledMultiColor": {
+      "Example": "void draw:AddRectFilledMultiColor(x1, y1, x2, y2, upper_left, upper_right, lower_right, lower_left)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    }
+  }
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GAMES = {
+    "megabonk": "Megabonk",
     "tf2": "TF2 & TF2 Classified",
     "half-life-1": "Half-Life 1",
     "source-games": "Source Games",
@@ -22,6 +23,7 @@ GAMES = {
 
 
 SEARCH_ALIASES = {
+    "megabonk": ["Mega Bonk", "Megabonk", "Lua", "spawner", "unlocks", "languages", "hotkeys"],
     "tf2": ["Team Fortress 2", "TF2", "TF2 Classified", "Classified", "retail", "tf2c", "Lua", "TF2 cheat"],
     "half-life-1": [
         "HL1",

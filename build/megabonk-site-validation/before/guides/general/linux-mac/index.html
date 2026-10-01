@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Scooby on Linux &amp; Mac: Compatibility Setup - Scooby Guide</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/general/linux-mac/">
+<meta property="og:title" content="Scooby on Linux &amp; Mac: Compatibility Setup - Scooby Guide">
+<meta property="og:description" content="Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/support-v2.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scooby on Linux &amp; Mac: Compatibility Setup - Scooby Guide">
+<meta name="twitter:description" content="Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/support-v2.png">
+<meta name="keywords" content="Scooby Menu, Scooby Linux, Scooby Steam Deck, Scooby Proton, Scooby Mac, Scooby Wine, Scooby Lutris, Scooby CrossOver">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<link rel="stylesheet" href="/assets/css/linux-guide.css">
+<script src="/assets/js/linux-guide.js" defer></script>
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/general/linux-mac/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/general/linux-mac/">
+<script src="/lang/i18n.js"></script>
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/support-v2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SCOOBY SUPPORT: A little help. A better start. Loader · Account · Troubleshooting.">
+<meta name="twitter:image:alt" content="SCOOBY SUPPORT: A little help. A better start. Loader · Account · Troubleshooting.">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/guides/general/linux-mac/#webpage",
+      "url": "https://scoobymenu.cc/guides/general/linux-mac/",
+      "name": "Scooby on Linux & Mac: Compatibility Setup - Scooby Guide",
+      "description": "Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.",
+      "keywords": "Scooby Menu, Scooby Linux, Scooby Steam Deck, Scooby Proton, Scooby Mac, Scooby Wine, Scooby Lutris, Scooby CrossOver",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://scoobymenu.cc/guides/general/linux-mac/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Guides",
+          "item": "https://scoobymenu.cc/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "General help",
+          "item": "https://scoobymenu.cc/guides/general/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Use Scooby on Linux & Mac",
+          "item": "https://scoobymenu.cc/guides/general/linux-mac/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand scooby-brand" href="/guides/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details open="">
+<summary>General help</summary>
+<a class="sidebar-overview" href="/guides/general/">Overview</a>
+<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
+<a href="/guides/general/free-key/">Getting a Free Key</a>
+<a href="/guides/general/crashing/">Crashing Solutions</a>
+<a href="/guides/general/universal/">Universal Troubleshooting</a>
+<a href="/guides/general/connection/">Connection or SSL Errors</a>
+<a href="/guides/general/hwid/">Resetting Your HWID</a>
+<a href="/guides/general/linux-mac/" aria-current="page">Use Scooby on Linux &amp; Mac</a>
+</details>
+<details>
+<summary>GTA 5</summary>
+<a class="sidebar-overview" href="/guides/gta5/">Overview</a>
+<a href="/guides/gta5/introduction/">Introduction</a>
+<a href="/guides/gta5/first-time/">First Time Setup</a>
+<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
+<a href="/guides/gta5/money/">Money Making Methods</a>
+<a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
+<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-customization">
+<summary>Customization</summary>
+<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
+<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
+<a href="/guides/gta5/outfits/">Outfits</a>
+<a href="/guides/gta5/themes/">Themes</a>
+<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
+</details>
+</details>
+<details>
+<summary>FiveM</summary>
+<a class="sidebar-overview" href="/guides/fivem/">Overview</a>
+<a href="/guides/fivem/fivem-requirements/">Requirements</a>
+<a href="/guides/fivem/fivem-inject/">How to Inject</a>
+<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>RedM</summary>
+<a class="sidebar-overview" href="/guides/redm/">Overview</a>
+<a href="/guides/redm/redm-requirements/">Requirements</a>
+<a href="/guides/redm/redm-inject/">How to Inject</a>
+<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
+</details>
+<details>
+<summary>Red Dead Redemption 2</summary>
+<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
+<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
+<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
+<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
+<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
+<details class="sidebar-customization" data-guide-game="rdr2">
+<summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
+<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
+<a href="/guides/rdr2/outfits/">Outfits</a>
+<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
+<a href="/guides/rdr2/themes/">Themes</a>
+<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+</details>
+</details>
+<details>
+<summary>Counter-Strike 2</summary>
+<a class="sidebar-overview" href="/guides/cs2/">Overview</a>
+<a href="/guides/cs2/cs2-requirements/">Requirements</a>
+<a href="/guides/cs2/cs2-inject/">How to Inject</a>
+<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+</details>
+<details>
+<summary>S&amp;box (Sandbox)</summary>
+<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
+<a href="/guides/sbox/requirements/">Requirements</a>
+<a href="/guides/sbox/getting-started/">Getting started</a>
+<a href="/guides/sbox/menu-settings/">Menu settings</a>
+<a href="/guides/sbox/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>Garry's Mod (GMOD)</summary>
+<a class="sidebar-overview" href="/guides/gmod/">Overview</a>
+<a href="/guides/gmod/requirements/">Requirements</a>
+<a href="/guides/gmod/getting-started/">Getting started</a>
+<a href="/guides/gmod/menu-settings/">Menu settings</a>
+<a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
+</details>
+<details>
+<summary>The Last of Us</summary>
+<a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
+<a href="/guides/last-of-us/requirements/">Requirements</a>
+<a href="/guides/last-of-us/getting-started/">Getting started</a>
+<a href="/guides/last-of-us/menu-settings/">Menu settings</a>
+<a href="/guides/last-of-us/troubleshooting/">Troubleshooting</a>
+</details>
+<details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
+<details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a><a href="/guides/tf2/">TF2 &amp; Classified</a></details>
+<details data-tf2-nav><summary>TF2 &amp; TF2 Classified</summary><a class="sidebar-overview" href="/guides/tf2/">Overview</a><a href="/guides/tf2/getting-started/">Getting started</a><a href="/guides/tf2/requirements/">Requirements</a><a href="/guides/tf2/editions/">TF2 or TF2 Classified</a><a href="/guides/tf2/menu-settings/">Menu settings and profiles</a><a href="/guides/tf2/lua-scripts/">Lua scripts</a><a href="/guides/tf2/troubleshooting/">Troubleshooting</a></details>
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/general/">General help</a><span>/</span><span>Guide</span></div><h1>Use Scooby on Linux &amp; Mac</h1><p class="article-intro">Get set up, open Scooby and find help. Follow the steps for the way you play.</p><div class="guide-card linux-guide" id="linux-mac">
+                    <h2 class="sr-only">Use Scooby on Linux &amp; Mac</h2>
+                    <p class="guide-preview-note"><strong>Compatibility preview.</strong> Game support is still being tested. <a href="#compatibility-limits">What works and what to expect</a>.</p>
+                    <nav class="setup-nav" aria-label="On this page"><a href="#before-you-start">1. Get ready</a><a href="#choose-setup">2. Choose your setup</a><a href="#using-scooby">3. Start playing</a><a href="#troubleshooting">Get help</a></nav>
+
+                    <h3 id="before-you-start">1. Get ready</h3>
+                    <ol class="setup-steps">
+                        <li><strong>Download and extract Scooby.</strong> Get <code>Scooby-compatibility.zip</code> from <a href="/download/">Scooby downloads</a> and extract the whole ZIP. Keep all the files together. If you only see the Windows installer, <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">ask support for the compatibility preview</a>.</li>
+                        <li><strong>Check your game works first.</strong> Open the Windows version of your game through its usual launcher at least once. It needs to work on its own before you add Scooby.</li>
+                        <li><strong>Open a terminal in the extracted folder.</strong> Open the folder containing <code>linux</code>, right-click an empty area and choose <strong>Open in Terminal</strong>, if your file manager offers it.</li>
+                    </ol>
+                    <details class="guide-extra"><summary>New to the terminal? Start here</summary><div>
+                        <p>A terminal lets you run the short commands in this guide. On Steam Deck, use <strong>Desktop Mode</strong> and open <strong>Konsole</strong>. Paste a command with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd>, then press <kbd>Enter</kbd>.</p>
+                        <p>Keep the terminal in the extracted folder that contains <code>linux</code>. If you opened it elsewhere, type <code>cd </code> followed by that folder's full path in quotes, then press Enter. Run Scooby as your normal user, without <code>sudo</code>.</p>
+                    </div></details>
+                    <p>The launch scripts need <strong>Python 3.10 or newer</strong>. Check with this command:</p>
+                    <pre><code data-command-label="Check Python version">python3 --version</code></pre>
+                    <p class="guide-hint">A result such as <code>Python 3.12.3</code> is fine. If Python is missing or older than 3.10, install it using your system's supported package manager.</p>
+
+                    <h3 id="choose-setup">2. Choose your setup</h3>
+                    <p>Open the option that matches how you start your game. You only need to follow one.</p>
+                    <details class="setup-path" id="topic-3" data-steam-setup>
+                        <summary><span><strong>Linux with Steam</strong><small>I launch my game from my Steam library.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <ol class="setup-steps">
+                                <li><strong>Install Protontricks.</strong> Follow the <a href="https://github.com/Matoking/protontricks#installation" target="_blank" rel="noopener">official installation instructions</a>. Installed it through Discover or as a Flatpak? Use the <a href="#steam-deck">Steam Deck / Flatpak steps</a> instead.</li>
+                                <li><strong>Start your game once with Proton.</strong> In Steam, open the game's <strong>Properties → Compatibility</strong>, select the Proton version you use for the Windows game, then launch it.</li>
+                                <li><strong>Find your game number.</strong> Run this command. Look for your game in the list; the number next to it is its <strong>App ID</strong>.
+                                    <pre><code data-command-label="List Steam games">protontricks -l</code></pre>
+                                    <div class="appid-field" data-appid-field hidden>
+                            <label for="steam-appid">Your game's App ID</label>
+                            <input id="steam-appid" type="text" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="Enter the number" aria-describedby="steam-appid-help">
+                            <p id="steam-appid-help" class="guide-hint" data-appid-help aria-live="polite">Paste the number next to your game. Your launch command will update below.</p>
+                        </div>
+                        <p data-appid-fallback>Replace <code>APPID</code> in the command below with the number next to your game.</p>
+                                </li>
+                                <li><strong>Open Scooby.</strong> Copy the command below into your terminal and press Enter.
+                                    <pre><code data-command-label="Launch Scooby with Steam" data-appid-command>sh linux/launch.sh --runner proton --appid APPID</code></pre>
+                                    <p class="guide-hint">The Scooby sign-in window should open. Then continue to <a href="#using-scooby">Start playing</a>.</p>
+                                </li>
+                            </ol>
+                            <p class="setup-tip"><strong>Keep using your game's usual Steam entry.</strong> Adding Scooby as a separate non-Steam game can put it in the wrong Windows environment.</p>
+                            <details class="guide-extra"><summary>Advanced: I use a custom Steam data folder</summary><div>
+                                <p>Only use this if you changed the game's Steam compatdata location. Replace the path with the folder containing <code>pfx</code>, not <code>pfx</code> itself.</p>
+                                <pre><code data-command-label="Launch with a custom Steam folder" data-appid-command>sh linux/launch.sh --runner proton --appid APPID --compat-data "/path/to/compatdata/APPID"</code></pre>
+                                <p class="guide-hint">The App ID field fills in the game number. You still need to replace the example folder path.</p>
+                            </div></details>
+                        </div>
+                    </details>
+                    <details class="setup-path" id="steam-deck" data-steam-setup>
+                        <summary><span><strong>Steam Deck / Flatpak</strong><small>I use a Steam Deck, or installed Protontricks through Flatpak.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <ol class="setup-steps">
+                                <li><strong>Use Desktop Mode.</strong> On Steam Deck, open <strong>Discover</strong>, search for <strong>Protontricks</strong> and install it. Leave SteamOS in its normal read-only state.</li>
+                                <li><strong>Start the Windows game once through Steam.</strong> Use its usual Proton version. Keep the extracted Scooby folder open in your terminal.</li>
+                                <li><strong>Find your game's App ID.</strong> Run this command and find the number next to your game.
+                                    <pre><code data-command-label="List Steam games with Flatpak">flatpak run com.github.Matoking.protontricks -l</code></pre>
+                                    <div class="appid-field" data-appid-field hidden>
+                            <label for="deck-appid">Your game's App ID</label>
+                            <input id="deck-appid" type="text" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="Enter the number" aria-describedby="deck-appid-help">
+                            <p id="deck-appid-help" class="guide-hint" data-appid-help aria-live="polite">Paste the number next to your game. Your launch command will update below.</p>
+                        </div>
+                        <p data-appid-fallback>Replace <code>APPID</code> in the command below with the number next to your game.</p>
+                                </li>
+                                <li><strong>Open Scooby.</strong> Copy this command into the terminal and press Enter.
+                                    <pre><code data-command-label="Launch Scooby with Flatpak" data-appid-command>sh linux/launch.sh --runner proton --flatpak --appid APPID</code></pre>
+                                    <p class="guide-hint">When the sign-in window appears, continue to <a href="#using-scooby">Start playing</a>.</p>
+                                </li>
+                            </ol>
+                            <p class="setup-tip">Use Desktop Mode with a mouse or trackpad for now. Game Mode, controller navigation and suspend/resume are not yet verified.</p>
+                            <details class="guide-extra"><summary>My game is on an SD card or another drive</summary><div><p>Protontricks may need permission to access that Steam library. Follow its <a href="https://github.com/Matoking/protontricks#flatpak-recommended" target="_blank" rel="noopener">Flatpak access instructions</a>. The Scooby launcher already grants access to its own <code>bin</code> folder for each run.</p></div></details>
+                        </div>
+                    </details>
+                    <details class="setup-path" id="wine-lutris">
+                        <summary><span><strong>Linux with Lutris / Wine</strong><small>I use Lutris, Rockstar Games Launcher or another Wine setup.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <p><strong>Using Lutris? You can set up a shortcut.</strong> Scooby needs the same Windows folder and Wine version as your game.</p>
+                            <ol class="setup-steps">
+                                <li><strong>Open your game's configuration in Lutris.</strong> Note the <strong>Wine prefix</strong> and <strong>Wine version</strong>. The prefix is the folder containing the game's Windows files.</li>
+                                <li><strong>Add a locally installed game.</strong> Name it Scooby, choose the Wine runner, and select <code>linux/bin/ScoobyLoader.exe</code> from your extracted package.</li>
+                                <li><strong>Match the two settings.</strong> Use the exact same Wine prefix and Wine version as your game. Leave the bundled DLL files beside <code>ScoobyLoader.exe</code>.</li>
+                                <li><strong>Save and launch Scooby.</strong> Once the sign-in window opens, continue to <a href="#using-scooby">Start playing</a>.</li>
+                            </ol>
+                            <details class="guide-extra"><summary>I use Wine directly, without Lutris</summary><div>
+                                <p>Replace both paths with your game's Wine executable and existing prefix folder. Keep the quotes around the paths.</p>
+                                <pre><code data-command-label="Launch Scooby with Wine">sh linux/launch.sh --runner wine --wine "/path/to/wine" --prefix "/path/to/game-prefix"</code></pre>
+                                <p>The prefix is the folder containing <code>drive_c</code>. It must already be set up and support 64-bit Windows apps. The launcher does not create or repair it. Do not use plain Wine on a Steam Proton prefix.</p>
+                            </div></details>
+                        </div>
+                    </details>
+                    <details class="setup-path" id="topic-5">
+                        <summary><span><strong>Mac</strong><small>I have a Mac-compatible Wine setup for my Windows game.</small></span><span class="path-action" aria-hidden="true"></span></summary>
+                        <div class="setup-body">
+                            <p>Mac support is <strong>unverified</strong>. You need Python 3.10+ and a Mac-compatible Wine version that runs Windows x64 apps. On Apple silicon, that Wine distribution must also provide the required translation and graphics support.</p>
+                            <ol class="setup-steps">
+                                <li><strong>Confirm your Windows game works first.</strong> Find the Wine executable and prefix used by that game.</li>
+                                <li><strong>Open Terminal in the extracted Scooby folder.</strong> Replace both example paths, then run:
+                                    <pre><code data-command-label="Launch Scooby on Mac">sh linux/mac/launch.command --wine "/absolute/path/to/wine" --prefix "/absolute/path/to/game-prefix"</code></pre>
+                                </li>
+                                <li><strong>Continue to <a href="#using-scooby">Start playing</a></strong> if the sign-in window opens.</li>
+                            </ol>
+                            <p class="setup-tip">Using CrossOver? Follow its instructions to run Scooby in the same bottle as your game. This script does not configure CrossOver bottles automatically. Double-clicking the script without the paths above will not set it up. Proton is Linux-only.</p>
+                        </div>
+                    </details>
+
+                    <h3 id="using-scooby">3. Start playing</h3>
+                    <ol class="setup-steps">
+                        <li><strong>Sign in to Scooby.</strong> Use your account or follow the <a href="/guides/general/free-key/">free-key guide</a>.</li>
+                        <li><strong>Open your game as usual.</strong> Use the Steam or Lutris entry you set up above.</li>
+                        <li><strong>Follow your game's loading steps.</strong> Open its <a href="/guides/">Scooby guide</a> to check when to load the menu. Timing and game support vary.</li>
+                    </ol>
+                    <p><strong>Next time:</strong> use the same launch command or Lutris shortcut. Close both the game and Scooby before changing Wine or Proton versions.</p>
+
+                    <h3 id="troubleshooting">Something not working?</h3>
+                    <p>Pick the problem you see.</p>
+                    <details class="guide-extra"><summary>“File not found” or the launch script will not open</summary><div><p>Open the extracted folder that contains <code>linux</code>, then open a terminal there. Check that <code>linux/bin/ScoobyLoader.exe</code> exists. Extract the whole compatibility ZIP again if files are missing; the standard Windows installer does not include these scripts.</p></div></details>
+                    <details class="guide-extra"><summary>“Python not found” or “Runner not found”</summary><div><p>Check <code>python3 --version</code>; you need 3.10 or newer. For Steam, install Protontricks. If you installed it through Discover or Flatpak, follow the <a href="#steam-deck">Flatpak steps</a>. For Wine, check the Wine executable path.</p></div></details>
+                    <details class="guide-extra"><summary>Scooby cannot find my game</summary><div><p>Run the Windows version of the game and check your App ID. In Lutris, Scooby and the game must share the exact same <strong>Wine prefix</strong> and <strong>Wine version</strong>. A native Linux game cannot load the Windows menu. If these match, the game may still be incompatible with this preview.</p></div></details>
+                    <details class="guide-extra"><summary>The window is blank, or text is missing</summary><div><p>Keep all the runtime DLLs beside the loader and check that your game works with the selected runner. For missing Segoe UI text, add a licensed copy of <code>segoeui.ttf</code> to the same prefix's <code>drive_c/windows/Fonts</code> folder, then restart Scooby. A graphics error may need help with your Wine/Proton setup.</p></div></details>
+                    <details class="guide-extra"><summary>I need to update Scooby or find my settings</summary><div><p>Close Scooby, then download and extract the latest compatibility package. Updates are manual; an old package can be blocked by a required minimum version.</p><p>Your settings are inside the game's prefix at <code>drive_c/scooby</code> (the Windows path <code>C:\scooby</code>). Each prefix has separate data. If changing prefixes causes an HWID mismatch, follow the <a href="/guides/general/hwid/">HWID reset guide</a>.</p></div></details>
+                    <details class="guide-extra" id="topic-4"><summary>The game is running slowly</summary><div><p>Compare the game with and without Scooby using the same settings. Performance depends on your graphics drivers, Wine/Proton version and enabled menu features. Close both apps before testing a different runner, and keep the game and loader on the same version.</p></div></details>
+                    <details class="guide-extra" id="diagnostics"><summary>I need more help / want to check my setup</summary><div><p>Add <code>--diagnose</code> to the end of your launch command. It prints a setup report without opening Scooby. This checks local files and launch options; it does not prove that login, graphics, Steam/Flatpak access or game loading will work.</p><p>Send <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby support</a> your OS, game, Wine/Proton version and exact error. Remove private details from reports and never share passwords or license keys.</p></div></details>
+                    <details class="guide-extra" id="compatibility-limits"><summary>What works and what to expect</summary><div><p>This package runs the Windows x64 loader through Wine or Proton. Login, graphics and in-game loading still need testing on real Linux, Steam Deck and Mac systems. No game is certified yet; the loader opening does not guarantee that its menu will work.</p><p>Windows-only cleaner, identifier and kernel-driver tools are unavailable. Native Linux/Mac games cannot load Windows DLLs. Game and anti-cheat restrictions still apply.</p></div></details>
+                </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/general/hwid/"><span>← Previous guide</span><strong>Resetting Your HWID</strong></a><a href="/guides/general/"><span>Browse topics →</span><strong>All General help guides</strong></a></nav><footer class="wiki-footer">
+<span>Scooby Wiki · Guides &amp; support</span>
+<div>
+<a href="/">Main site</a>
+<a href="/docs/">Developer docs</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+</div>
+</footer></main>
+
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+
+</body>
+</html>

@@ -26,6 +26,44 @@ base.set(id,value)
 
 `id string`; `value boolean`
 
+## capture_protection.get_feature
+
+```lua
+capture_protection.get_feature(feature_id) -> mode, blocked
+```
+
+`feature_id string`; `Returns: CaptureProtectionMode mode`; `Returns: boolean blocked`
+
+```lua
+local id=features.add{id='hud',capture_protection='compatible'}
+local mode,blocked=capture_protection.get_feature(id)
+```
+
+## capture_protection.is_enabled
+
+```lua
+capture_protection.is_enabled() -> boolean
+```
+
+`Returns: boolean enabled`
+
+```lua
+if capture_protection.is_enabled() then print('Capture Protection is on') end
+```
+
+## capture_protection.set_feature
+
+```lua
+capture_protection.set_feature(owned_feature_id, 'compatible'|'disable')
+```
+
+`owned_feature_id string`; `mode CaptureProtectionMode`
+
+```lua
+local id=features.add{id='effect',capture_protection='disable'}
+capture_protection.set_feature(id,'disable')
+```
+
 ## color
 
 ```lua
@@ -482,7 +520,7 @@ features.active(id)
 features.add(options)
 ```
 
-`options {id:string,label:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,mode?:string,callback?:function}`; `Returns: string`
+`options {id:string,label?:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,on_trigger?:function,capture_protection?:CaptureProtectionMode}`; `Returns: string`
 
 ## features.bind
 

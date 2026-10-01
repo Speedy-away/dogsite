@@ -1,10 +1,10 @@
-# CS2 v2 Lua API 2.4
+# CS2 v2 Lua API 2.5
 
 Open **Other → Scripts**. The visible tabs are Scripts, Lua Editor and Console. The manager opens custom Script UI pages. Toggle **API docs** in the editor to attach its searchable documentation window to the right of the menu, with expandable signatures and examples.
 
 ## Getting started
 
-Scripts live in `C:\scooby\CS2-v2\scripts`. First use installs the CS2 examples: **Welcome**, **Player labels**, **Session monitor**, **Saved preferences**, and **Geometry HUD**, **Crosshair**, and **Speed HUD**, plus **Command framework**, **Download asset**, **Inventory studio**, **Framework - Player ESP** and **Framework - Asset downloads**. The **Native hooks** template demonstrates pattern discovery, a typed hook, shared values and a custom page; it stays inactive until its pattern is configured. It also installs canonical **Custom UI** and CS2 adaptations of the Simple-base UI-v2 **Standalone Menu** and **ImGui Demo** layouts. Builds refresh the shared docs/templates automatically. Startup upgrades untouched bundled examples and preserves user-edited scripts.
+Scripts live in `C:\scooby\CS2-v2\scripts`. First use installs the CS2 examples: **Welcome**, **Player labels**, **Session monitor**, **Saved preferences**, and **Geometry HUD**, **Crosshair**, and **Speed HUD**, plus **Capture Protection**, **Command framework**, **Download asset**, **Inventory studio**, **Framework - Player ESP** and **Framework - Asset downloads**. The **Native hooks** template demonstrates pattern discovery, a typed hook, shared values and a custom page; it stays inactive until its pattern is configured. It also installs canonical **Custom UI** and CS2 adaptations of the Simple-base UI-v2 **Standalone Menu** and **ImGui Demo** layouts. Builds refresh the shared docs/templates automatically. Startup upgrades untouched bundled examples and preserves user-edited scripts.
 
 1. Open an example in Editor or choose New script.
 2. Save with a simple filename, without `.lua` or a path. Names allow Unicode letters, numbers, spaces, underscores and hyphens, up to 64 UTF-8 bytes.
@@ -69,7 +69,7 @@ The manager's Other group contains only Open folder and Refresh. Edit, Run/Unloa
 
 ## Runtime contract
 
-The runtime is **Lua 5.4.7**, reused from canonical `simple-base/UI`, with its Lua UI bindings compiled directly from canonical source and its text editor adapted to the native v2 shell. `CS2_API_VERSION` is `2.4`; `UI_API_VERSION` is `1.1`. It is not LuaJIT and is not binary/script compatible with other clients.
+The runtime is **Lua 5.4.7**, reused from canonical `simple-base/UI`, with its Lua UI bindings compiled directly from canonical source and its text editor adapted to the native v2 shell. `CS2_API_VERSION` is `2.5`; `UI_API_VERSION` is `1.1`. It is not LuaJIT and is not binary/script compatible with other clients.
 
 Each named script has separate globals, a 16 MB Lua allocator quota and a 1 MB source limit. At most 16 scripts run together. Loading and console evaluation have 200 ms instruction-hook budgets. Each running script has a shared 8 ms callback budget reset each frame, with at most 16 nested callbacks. These are instruction-hook limits, not real-time preemption of native C++ calls. Standard `string`, `table`, `math`, `utf8`, and base language functions are present. `os`, `io`, `package`, `debug`, dynamic `load` and LuaJIT FFI are not exposed. The separate `native` extension exposes integer addresses and typed Win64 calls/hooks.
 
@@ -252,6 +252,49 @@ The CS2 state-change events are **frame comparisons, not native server game even
 Custom pages and subtabs are available through the **Script UI** selector. Tab `section` and `icon` metadata are accepted but do not add product-sidebar sections. Page overrides are limited to `lua/scripts`, `lua/editor`, `lua/console`, `lua/ui`, and `lua/api`. `ui.feature_visible` affects rows rendered through `ui.feature` or Custom features; it does not hide controls in built-in CS2 pages. `ui.tr` currently returns the supplied text. `esp_colors.available()` is false because v2 has its own native color registry; use `settings` for its actual color settings. Other inherited `esp_colors` operations return missing capability values or errors, rather than writing a disconnected color model.
 
 Use `render.theme()` for accent, text, muted, panel and border colors. The native widget adapter follows the product palette. `ui.theme`/`reset_theme` and `imgui.with_style` customize standard ImGui controls/windows inside script rendering; they do not replace native product palette tokens. Script-created windows can attach to the left/right of the menu and optionally follow its visibility. Visible interactive Lua windows also receive the cursor when the main menu is closed, using the same Block Input policy as detached product windows. Closing or unloading the last script window releases that ownership; drawing-only overlays do not capture input.
+
+## Capture Protection (2.5)
+
+Custom toggles and actions can declare `capture_protection = "compatible"` or `"disable"` in `features.add`. Omitting it keeps the prior compatible behavior. Use compatible for drawings routed through the protected overlay; use disable for features that change the native scene or play sound. This declaration controls activation; it does not make native calls or audio invisible to capture.
+
+When protection is requested, disabled features are forced off, `features.active` returns false for every bind mode, action triggers/hotkeys are blocked, and `ui.feature`/`ui.keybind` show the product's disabled blur and hover reason. Enabling a blocked feature with `features.set` or `base.set`, or triggering it, raises the protection reason. Setting a toggle false is allowed. Turning protection off unlocks the feature without restoring its enabled value.
+
+Policies are owned by the Lua state and removed on stop, reload or failed load. `capture_protection.set_feature` can reclassify only the current script's own features; built-in restrictions and other scripts' policies cannot be changed. Reclassifying does not enable the feature. Use `capture_protection.get_feature` for the policy and current lock, and `capture_protection.is_enabled` for requested state, including startup/recovery.
+
+### capture_protection.is_enabled
+
+`capture_protection.is_enabled() -> boolean`
+
+### capture_protection.get_feature
+
+`capture_protection.get_feature(feature_id) -> "compatible"|"disable", blocked`
+
+### capture_protection.set_feature
+
+`capture_protection.set_feature(owned_feature_id, "compatible"|"disable")`
+
+~~~lua
+local effect = features.add {
+    id = "effect", label = "Custom effect",
+    capture_protection = "disable"
+}
+local hud = features.add {
+    id = "hud", label = "Custom HUD", default = true,
+    capture_protection = "compatible"
+}
+ui.tab("controls", "Controls", function()
+    ui.feature(effect)
+    ui.feature(hud)
+end)
+events.on("update", function()
+    if not features.active(effect) then return end
+    -- Apply your feature here.
+end)
+~~~
+
+`events.on("capture_protection_changed", function(enabled) ... end)` fires once for each observed transition at a runtime synchronization boundary, after feature locks are applied. It does not emit an initial event; check `is_enabled()` during setup. Release owned native/audio effects when protection turns on, and also clean them up when the feature becomes inactive or the script shuts down. Native workers have their existing isolated APIs; synchronize/stop owned workers from the script's cleanup code. An ordinary Lua feature gate does not automatically undo arbitrary native side effects.
+
+The bundled **Capture Protection** example includes both policies, a custom page, activation checks and cleanup callbacks.
 
 ## Storage
 
@@ -1108,7 +1151,7 @@ local width=mathx.remap(player.health,0,100,0,160)
 ### features.add
 
 ```text
-features.add({id,label,category,description,default,kind,key,on_trigger}) -> feature_id
+features.add({id,label,category,description,default,kind,key,on_trigger,capture_protection}) -> feature_id
 ```
 
 ```lua

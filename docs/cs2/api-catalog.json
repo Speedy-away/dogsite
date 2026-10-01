@@ -1,5 +1,5 @@
 {
-  "host_api": "2.4",
+  "host_api": "2.5",
   "functions": [
     {
       "name": "base.get",
@@ -23,6 +23,30 @@
       "origin": "core",
       "signature": "base.set(id,value)",
       "annotations": "---@param id string\n---@param value boolean",
+      "status": "supported"
+    },
+    {
+      "name": "capture_protection.get_feature",
+      "signature": "capture_protection.get_feature(feature_id) -> mode, blocked",
+      "example": "local id=features.add{id='hud',capture_protection='compatible'}\nlocal mode,blocked=capture_protection.get_feature(id)",
+      "origin": "host",
+      "annotations": "---@param feature_id string\n---@return CaptureProtectionMode mode\n---@return boolean blocked",
+      "status": "supported"
+    },
+    {
+      "name": "capture_protection.is_enabled",
+      "signature": "capture_protection.is_enabled() -> boolean",
+      "example": "if capture_protection.is_enabled() then print('Capture Protection is on') end",
+      "origin": "host",
+      "annotations": "---@return boolean enabled",
+      "status": "supported"
+    },
+    {
+      "name": "capture_protection.set_feature",
+      "signature": "capture_protection.set_feature(owned_feature_id, 'compatible'|'disable')",
+      "example": "local id=features.add{id='effect',capture_protection='disable'}\ncapture_protection.set_feature(id,'disable')",
+      "origin": "host",
+      "annotations": "---Only this Lua state's owned features can be reclassified. Does not re-enable the feature.\n---@param owned_feature_id string\n---@param mode CaptureProtectionMode",
       "status": "supported"
     },
     {
@@ -122,7 +146,7 @@
       "signature": "cs2.capabilities() -> table",
       "example": "print(json.encode(cs2.capabilities()))",
       "origin": "host",
-      "annotations": "-- Complete host and shared UI exports (API 2.4).\n---Explicit capabilities; false entries are not implemented by this host.\n---@return table<string,boolean>",
+      "annotations": "-- Complete host and shared UI exports (API 2.5).\n---Explicit capabilities; false entries are not implemented by this host.\n---@return table<string,boolean>",
       "status": "supported"
     },
     {
@@ -362,7 +386,7 @@
       "op": "features.add",
       "origin": "core",
       "signature": "features.add(options)",
-      "annotations": "---@param options {id:string,label:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,mode?:string,callback?:function}\n---@return string",
+      "annotations": "---@alias CaptureProtectionMode \"compatible\"|\"disable\"\n---@param options {id:string,label?:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,on_trigger?:function,capture_protection?:CaptureProtectionMode}\n---@return string",
       "status": "supported"
     },
     {

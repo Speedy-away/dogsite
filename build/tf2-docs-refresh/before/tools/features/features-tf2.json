@@ -1,0 +1,895 @@
+{
+  "game": "TF2 & TF2 Classified",
+  "slug": "tf2",
+  "source": "Current independent TF2 and Classified menu pages and feature registries. Edition-specific controls are labeled; entries describe the preview source, not complete gameplay acceptance.",
+  "source_hashes": {
+    "TF2-base-game/assets/tf2_pages.lua": "c77d866521c0a6a9fde8d54052ae7d3f05461aefafbf77fa65051a1f96193138",
+    "TF2-Classified/assets/tf2c_pages.lua": "36b1ac17a3a99de191c400ec1c4a349c5f44d59fd78a308537abffa3a76d95f9",
+    "TF2-base-game/src/ui.cpp": "44e5a378c3fe1b48e559cfc9dfccc79313f43e85c2c5079a7dfb3f66ff866e9f",
+    "TF2-Classified/src/ui.cpp": "c41239a4eaa92cbb620fbe16ab472e3aaaad07cc9e453644e7bb443fa238dbde",
+    "TF2-base-game/src/skins.cpp": "77f51dd91d75f6136af641023442963cdc48086d6de5fdd3cf83f16a29d341e2",
+    "TF2-Classified/src/skins.cpp": "fa99d5f18bd8bf6416933cd2b4678c8a99077afe277794c963df926c2a94d7f4",
+    "../../simple-base/UI/src/core/feature_registry.cpp": "918cfe64d180c4d8657fb6b73fad235e2d32b8346a4b3bdf0e2fb62b9a2101fb"
+  },
+  "tabs": [
+    {
+      "name": "Combat",
+      "categories": [
+        {
+          "name": "Rage aim",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aim.rage.enabled",
+                  "label": "Aimbot",
+                  "desc": "Enable this aim profile."
+                },
+                {
+                  "id": "aim.rage.key",
+                  "label": "Aim key",
+                  "desc": "Choose the activation key and Hold, Toggle or Always mode."
+                },
+                {
+                  "id": "aim.rage.mode",
+                  "label": "Aim mode",
+                  "desc": "Choose Camera or Silent aim."
+                },
+                {
+                  "id": "aim.rage.fov",
+                  "label": "Aim FOV",
+                  "desc": "Set the target selection angle from 0.1 to 180 degrees."
+                },
+                {
+                  "id": "aim.rage.range",
+                  "label": "Aim range",
+                  "desc": "Limit target distance from 1 to 500 metres."
+                },
+                {
+                  "id": "aim.rage.smoothing",
+                  "label": "Smoothing",
+                  "desc": "Adjust camera smoothing from 1 to 40."
+                },
+                {
+                  "id": "aim.rage.autofire",
+                  "label": "Auto fire",
+                  "desc": "Fire automatically while the aim conditions are met."
+                },
+                {
+                  "id": "aim.rage.circle",
+                  "label": "FOV circle",
+                  "desc": "Show the selected aim angle as an overlay."
+                },
+                {
+                  "id": "aim.rage.snapline",
+                  "label": "Aim snapline",
+                  "desc": "Draw a line to the selected target."
+                },
+                {
+                  "id": "aim.rage.point",
+                  "label": "Hitbox",
+                  "desc": "Choose Head, Chest, Stomach, individual limbs, Upper body or Nearest."
+                },
+                {
+                  "id": "aim.rage.visible",
+                  "label": "Visible only",
+                  "desc": "Filter target selection by visibility."
+                },
+                {
+                  "id": "aim.rage.buildings",
+                  "label": "Target buildings",
+                  "desc": "Include recognized buildings."
+                },
+                {
+                  "id": "aim.rage.cloaked",
+                  "label": "Ignore cloaked",
+                  "desc": "Exclude cloaked targets."
+                },
+                {
+                  "id": "aim.rage.disguised",
+                  "label": "Ignore disguised",
+                  "desc": "Exclude disguised targets."
+                },
+                {
+                  "id": "aim.rage.invulnerable",
+                  "label": "Ignore invulnerable",
+                  "desc": "Exclude invulnerable targets."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Rage triggerbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "trigger.rage.enabled",
+                  "label": "Triggerbot",
+                  "desc": "Enable this trigger profile."
+                },
+                {
+                  "id": "trigger.rage.key",
+                  "label": "Trigger key",
+                  "desc": "Use a separate activation key and mode."
+                },
+                {
+                  "id": "trigger.rage.group",
+                  "label": "Hitgroup",
+                  "desc": "Select a body group, Upper body or All."
+                },
+                {
+                  "id": "trigger.rage.delay",
+                  "label": "Trigger delay",
+                  "desc": "Set the firing delay from 0 to 1 second."
+                },
+                {
+                  "id": "trigger.rage.range",
+                  "label": "Trigger range",
+                  "desc": "Limit range from 1 to 500 metres."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Legit aim",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "aim.enabled",
+                  "label": "Aimbot",
+                  "desc": "Enable this aim profile."
+                },
+                {
+                  "id": "aim.key",
+                  "label": "Aim key",
+                  "desc": "Choose the activation key and Hold, Toggle or Always mode."
+                },
+                {
+                  "id": "aim.mode",
+                  "label": "Aim mode",
+                  "desc": "Choose Camera or Silent aim."
+                },
+                {
+                  "id": "aim.fov",
+                  "label": "Aim FOV",
+                  "desc": "Set the target selection angle from 0.1 to 180 degrees."
+                },
+                {
+                  "id": "aim.range",
+                  "label": "Aim range",
+                  "desc": "Limit target distance from 1 to 500 metres."
+                },
+                {
+                  "id": "aim.smoothing",
+                  "label": "Smoothing",
+                  "desc": "Adjust camera smoothing from 1 to 40."
+                },
+                {
+                  "id": "aim.autofire",
+                  "label": "Auto fire",
+                  "desc": "Fire automatically while the aim conditions are met."
+                },
+                {
+                  "id": "aim.circle",
+                  "label": "FOV circle",
+                  "desc": "Show the selected aim angle as an overlay."
+                },
+                {
+                  "id": "aim.snapline",
+                  "label": "Aim snapline",
+                  "desc": "Draw a line to the selected target."
+                },
+                {
+                  "id": "aim.point",
+                  "label": "Hitbox",
+                  "desc": "Choose Head, Chest, Stomach, individual limbs, Upper body or Nearest."
+                },
+                {
+                  "id": "aim.visible",
+                  "label": "Visible only",
+                  "desc": "Filter target selection by visibility."
+                },
+                {
+                  "id": "aim.buildings",
+                  "label": "Target buildings",
+                  "desc": "Include recognized buildings."
+                },
+                {
+                  "id": "aim.cloaked",
+                  "label": "Ignore cloaked",
+                  "desc": "Exclude cloaked targets."
+                },
+                {
+                  "id": "aim.disguised",
+                  "label": "Ignore disguised",
+                  "desc": "Exclude disguised targets."
+                },
+                {
+                  "id": "aim.invulnerable",
+                  "label": "Ignore invulnerable",
+                  "desc": "Exclude invulnerable targets."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Legit triggerbot",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "trigger.enabled",
+                  "label": "Triggerbot",
+                  "desc": "Enable this trigger profile."
+                },
+                {
+                  "id": "trigger.key",
+                  "label": "Trigger key",
+                  "desc": "Use a separate activation key and mode."
+                },
+                {
+                  "id": "trigger.group",
+                  "label": "Hitgroup",
+                  "desc": "Select a body group, Upper body or All."
+                },
+                {
+                  "id": "trigger.delay",
+                  "label": "Trigger delay",
+                  "desc": "Set the firing delay from 0 to 1 second."
+                },
+                {
+                  "id": "trigger.range",
+                  "label": "Trigger range",
+                  "desc": "Limit range from 1 to 500 metres."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Anti-aim",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "antiaim.enabled",
+                  "label": "Anti-aim",
+                  "desc": "Enable the angle controls when the host permits them."
+                },
+                {
+                  "id": "antiaim.key",
+                  "label": "Anti-aim key",
+                  "desc": "Set an independent activation key and mode."
+                },
+                {
+                  "id": "antiaim.pitch",
+                  "label": "Pitch",
+                  "desc": "Keep, Down, Up, Level or Jitter."
+                },
+                {
+                  "id": "antiaim.yaw",
+                  "label": "Yaw",
+                  "desc": "Backwards, Left, Right, Jitter, Spin or View."
+                },
+                {
+                  "id": "antiaim.offset",
+                  "label": "Yaw offset",
+                  "desc": "Adjust the angle between -180 and 180 degrees."
+                },
+                {
+                  "id": "antiaim.jitter",
+                  "label": "Jitter range",
+                  "desc": "Set the jitter range from 0 to 180 degrees."
+                },
+                {
+                  "id": "antiaim.spin",
+                  "label": "Spin speed",
+                  "desc": "Set the spin speed from 0 to 1,440 degrees."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visuals",
+      "categories": [
+        {
+          "name": "Player ESP",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "esp.enabled",
+                  "label": "Enemy ESP",
+                  "desc": "Enable this relationship profile and adjust distance."
+                },
+                {
+                  "id": "esp.box",
+                  "label": "Enemy Box",
+                  "desc": "Set box style, fill and gradients."
+                },
+                {
+                  "id": "esp.skeleton",
+                  "label": "Enemy Skeleton",
+                  "desc": "Show the captured anatomical body joints."
+                },
+                {
+                  "id": "esp.name",
+                  "label": "Enemy Name",
+                  "desc": "Display the player name with an independent placement."
+                },
+                {
+                  "id": "esp.health",
+                  "label": "Enemy Health bar",
+                  "desc": "Display health with its own color and placement."
+                },
+                {
+                  "id": "esp.health_text",
+                  "label": "Enemy Health text",
+                  "desc": "Display a numeric health value."
+                },
+                {
+                  "id": "esp.distance",
+                  "label": "Enemy Distance",
+                  "desc": "Show player distance with an independent placement."
+                },
+                {
+                  "id": "esp.snaplines",
+                  "label": "Enemy Snaplines",
+                  "desc": "Connect the screen origin to recognized players."
+                },
+                {
+                  "id": "esp.teammate.enabled",
+                  "label": "Teammate ESP",
+                  "desc": "Enable this relationship profile and adjust distance."
+                },
+                {
+                  "id": "esp.teammate.box",
+                  "label": "Teammate Box",
+                  "desc": "Set box style, fill and gradients."
+                },
+                {
+                  "id": "esp.teammate.skeleton",
+                  "label": "Teammate Skeleton",
+                  "desc": "Show the captured anatomical body joints."
+                },
+                {
+                  "id": "esp.teammate.name",
+                  "label": "Teammate Name",
+                  "desc": "Display the player name with an independent placement."
+                },
+                {
+                  "id": "esp.teammate.health",
+                  "label": "Teammate Health bar",
+                  "desc": "Display health with its own color and placement."
+                },
+                {
+                  "id": "esp.teammate.health_text",
+                  "label": "Teammate Health text",
+                  "desc": "Display a numeric health value."
+                },
+                {
+                  "id": "esp.teammate.distance",
+                  "label": "Teammate Distance",
+                  "desc": "Show player distance with an independent placement."
+                },
+                {
+                  "id": "esp.teammate.snaplines",
+                  "label": "Teammate Snaplines",
+                  "desc": "Connect the screen origin to recognized players."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chams",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "chams.players",
+                  "label": "Enemy players",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.teammates",
+                  "label": "Teammates",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.self",
+                  "label": "Self",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.arms",
+                  "label": "Arms",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.weapon",
+                  "label": "Viewmodel weapon",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.world_weapon",
+                  "label": "Held weapon",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.dropped_weapons",
+                  "label": "Dropped weapons",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.buildings",
+                  "label": "Buildings",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                },
+                {
+                  "id": "chams.items",
+                  "label": "Items",
+                  "desc": "Customize this target independently.",
+                  "settings": [
+                    "Visible, Invisible and Overlay: separate toggles and colors",
+                    "Flat, Lit or Wireframe material",
+                    "Static, Pulse or Rainbow animation",
+                    "Animation speed and strength"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Model previews",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "preview.class",
+                  "label": "Class preview",
+                  "desc": "Choose a class model to preview your visual settings."
+                },
+                {
+                  "id": "preview.team",
+                  "label": "Team preview",
+                  "desc": "Preview the available team appearances for the selected edition."
+                },
+                {
+                  "id": "preview.view",
+                  "label": "Rotate and zoom",
+                  "desc": "Inspect the model; zoom is limited to 90\u2013150% of its default size."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Skins",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "skins.class",
+                  "label": "Class selector",
+                  "desc": "Browse the installed class catalog."
+                },
+                {
+                  "id": "skins.weapons",
+                  "label": "Weapon appearances",
+                  "desc": "Select a supported weapon model skin family from the image catalog."
+                },
+                {
+                  "id": "skins.players",
+                  "label": "Player appearances",
+                  "desc": "Select supported class-model skin families."
+                },
+                {
+                  "id": "skins.restore",
+                  "label": "Restore original",
+                  "desc": "Return an appearance selection to its original model skin."
+                },
+                {
+                  "id": "skins.enabled",
+                  "label": "Skin changer master",
+                  "desc": "Classified only: enable or disable the skin overrides as a group."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World & modes",
+      "categories": [
+        {
+          "name": "Both editions",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "esp.world.health",
+                  "label": "Health packs",
+                  "desc": "Configure visuals for recognized health packs.",
+                  "settings": [
+                    "Enable, box, name, distance and snaplines",
+                    "Independent range"
+                  ]
+                },
+                {
+                  "id": "esp.world.ammo",
+                  "label": "Ammo packs",
+                  "desc": "Configure visuals for recognized ammo packs.",
+                  "settings": [
+                    "Enable, box, name, distance and snaplines",
+                    "Independent range"
+                  ]
+                },
+                {
+                  "id": "esp.world.weapons",
+                  "label": "Dropped weapons",
+                  "desc": "Configure visuals for recognized dropped weapons.",
+                  "settings": [
+                    "Enable, box, name, distance and snaplines",
+                    "Independent range"
+                  ]
+                },
+                {
+                  "id": "esp.world.buildings",
+                  "label": "Buildings",
+                  "desc": "Configure visuals for recognized buildings.",
+                  "settings": [
+                    "Enable, box, name, distance and snaplines",
+                    "Independent range",
+                    "Health bar and health text"
+                  ]
+                },
+                {
+                  "id": "esp.world.projectiles",
+                  "label": "Projectiles",
+                  "desc": "Configure visuals for recognized projectiles.",
+                  "settings": [
+                    "Enable, box, name, distance and snaplines",
+                    "Independent range"
+                  ]
+                },
+                {
+                  "id": "esp.world.objectives",
+                  "label": "Objectives",
+                  "desc": "Configure visuals for recognized objectives.",
+                  "settings": [
+                    "Enable, box, name, distance and snaplines",
+                    "Independent range"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Retail TF2",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "esp.world.payload",
+                  "label": "Payload / trains",
+                  "desc": "Retail only: separate visual settings for recognized payload / trains."
+                },
+                {
+                  "id": "esp.world.robots",
+                  "label": "Robots",
+                  "desc": "Retail only: separate visual settings for recognized robots."
+                },
+                {
+                  "id": "esp.world.giants",
+                  "label": "Giant robots",
+                  "desc": "Retail only: separate visual settings for recognized giant robots."
+                },
+                {
+                  "id": "esp.world.tanks",
+                  "label": "MvM tanks",
+                  "desc": "Retail only: separate visual settings for recognized mvm tanks."
+                },
+                {
+                  "id": "esp.world.currency",
+                  "label": "Currency",
+                  "desc": "Retail only: separate visual settings for recognized currency."
+                },
+                {
+                  "id": "esp.world.bomb",
+                  "label": "MvM bomb",
+                  "desc": "Retail only: separate visual settings for recognized mvm bomb."
+                },
+                {
+                  "id": "esp.world.revive",
+                  "label": "Revive markers",
+                  "desc": "Retail only: separate visual settings for recognized revive markers."
+                },
+                {
+                  "id": "esp.world.bosses",
+                  "label": "Bosses",
+                  "desc": "Retail only: separate visual settings for recognized bosses."
+                },
+                {
+                  "id": "esp.world.halloween",
+                  "label": "Halloween pickups / bombs",
+                  "desc": "Retail only: separate visual settings for recognized halloween pickups / bombs."
+                },
+                {
+                  "id": "esp.world.powerups",
+                  "label": "Mannpower powerups",
+                  "desc": "Retail only: separate visual settings for recognized mannpower powerups."
+                },
+                {
+                  "id": "esp.world.robot_destruction",
+                  "label": "Robot Destruction robots",
+                  "desc": "Retail only: separate visual settings for recognized robot destruction robots."
+                },
+                {
+                  "id": "esp.world.passtime",
+                  "label": "PASS Time ball",
+                  "desc": "Retail only: separate visual settings for recognized pass time ball."
+                },
+                {
+                  "id": "esp.world.control_points",
+                  "label": "Control points",
+                  "desc": "Retail only: separate visual settings for recognized control points."
+                },
+                {
+                  "id": "mvm.auto_ready",
+                  "label": "MvM auto ready",
+                  "desc": "Retail only: enable automatic ready behavior between supported waves."
+                },
+                {
+                  "id": "mvm.wave_panel",
+                  "label": "MvM wave information",
+                  "desc": "Retail only: show wave information and available currency/readiness data."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "TF2 Classified",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "esp.world.npcs",
+                  "label": "NPC visuals",
+                  "desc": "Classified only: configure recognized NPC visuals."
+                },
+                {
+                  "id": "classified.teams",
+                  "label": "Four-team colors",
+                  "desc": "Classified recognizes RED, BLU, GRN and YLW relationships and team colors."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement & view",
+      "categories": [
+        {
+          "name": "Movement",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "movement.bhop",
+                  "label": "Bunny hop",
+                  "desc": "Enable the host bunny-hop control."
+                },
+                {
+                  "id": "movement.strafe",
+                  "label": "Auto strafe",
+                  "desc": "Enable the host air-strafe control."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Camera and viewmodel",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "view.camera_fov",
+                  "label": "Camera FOV",
+                  "desc": "Set the camera field of view from 60 to 130 degrees."
+                },
+                {
+                  "id": "view.model_fov",
+                  "label": "Model FOV",
+                  "desc": "Set the viewmodel field of view from 40 to 140 degrees."
+                },
+                {
+                  "id": "view.model_offset",
+                  "label": "Model offsets",
+                  "desc": "Retail only: adjust X, Y and Z position and Pitch, Yaw and Roll."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lua & interface",
+      "categories": [
+        {
+          "name": "Scripting",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "lua.editor",
+                  "label": "Lua editor",
+                  "desc": "Create and edit scripts inside the interface."
+                },
+                {
+                  "id": "lua.manager",
+                  "label": "Script manager",
+                  "desc": "Refresh, run and stop individual Lua scripts."
+                },
+                {
+                  "id": "lua.console",
+                  "label": "Lua console",
+                  "desc": "Read script output, callback errors and diagnostics."
+                },
+                {
+                  "id": "lua.host",
+                  "label": "TF2 API",
+                  "desc": "Read copied player/entity data, conditions and projections, and access settings."
+                },
+                {
+                  "id": "lua.ui",
+                  "label": "Custom UI",
+                  "desc": "Add tabs, controls and overlays with the shared UI API."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Settings and overlays",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "settings.profiles",
+                  "label": "Saved profiles",
+                  "desc": "Save and reload your settings in each edition."
+                },
+                {
+                  "id": "settings.hotkeys",
+                  "label": "Hotkeys",
+                  "desc": "Assign keys with Hold, Toggle and Always activation modes."
+                },
+                {
+                  "id": "settings.search",
+                  "label": "Feature search",
+                  "desc": "Find registered controls from the menu search."
+                },
+                {
+                  "id": "settings.favorites",
+                  "label": "Favorites",
+                  "desc": "Keep frequently used controls together."
+                },
+                {
+                  "id": "settings.scale",
+                  "label": "Interface and overlay scale",
+                  "desc": "Adjust UI text and visual overlay sizing."
+                },
+                {
+                  "id": "overlay.radar",
+                  "label": "Radar",
+                  "desc": "Display recognized entities in a radar overlay."
+                },
+                {
+                  "id": "overlay.binds",
+                  "label": "Keybind overlay",
+                  "desc": "Keep active bindings visible on screen."
+                },
+                {
+                  "id": "overlay.watermark",
+                  "label": "Watermark",
+                  "desc": "Show the configured profile and frame information."
+                },
+                {
+                  "id": "overlay.active_features",
+                  "label": "Active features overlay",
+                  "desc": "Show enabled features as compact labels and drag them while the menu is open."
+                },
+                {
+                  "id": "session.stop",
+                  "label": "Stop",
+                  "desc": "Stop the active module through its session control."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

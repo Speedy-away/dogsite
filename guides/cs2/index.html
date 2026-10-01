@@ -6,17 +6,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>CS2 Setup &amp; Troubleshooting Guides - Scooby</title>
 <link rel="stylesheet" href="/assets/css/site-brand.css">
-<meta name="description" content="Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.">
+<meta name="description" content="Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/cs2/">
 <meta property="og:title" content="CS2 Setup &amp; Troubleshooting Guides - Scooby">
-<meta property="og:description" content="Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.">
+<meta property="og:description" content="Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.">
 <meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CS2 Setup &amp; Troubleshooting Guides - Scooby">
-<meta name="twitter:description" content="Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.">
+<meta name="twitter:description" content="Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.">
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
 <meta name="keywords" content="Scooby Menu, Scooby CS2 setup, CS2 installation guide, Scooby CS2 troubleshooting, CS2 cheat setup">
 
@@ -52,7 +52,7 @@
       "@id": "https://scoobymenu.cc/guides/cs2/#webpage",
       "url": "https://scoobymenu.cc/guides/cs2/",
       "name": "CS2 Setup & Troubleshooting Guides - Scooby",
-      "description": "Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.",
+      "description": "Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.",
       "keywords": "Scooby Menu, Scooby CS2 setup, CS2 installation guide, Scooby CS2 troubleshooting, CS2 cheat setup",
       "inLanguage": "en",
       "isPartOf": {
@@ -181,6 +181,7 @@
 <a href="/guides/cs2/cs2-requirements/">Requirements</a>
 <a href="/guides/cs2/cs2-inject/">How to Inject</a>
 <a href="/guides/cs2/cs2-updates/">Features Not Working</a>
+<a href="/guides/cs2/custom-models/">Custom Models</a>
 </details>
 <details>
 <summary>S&amp;box (Sandbox)</summary>
@@ -209,6 +210,7 @@
 <details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
 <details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a><a href="/guides/tf2/">TF2 &amp; Classified</a></details>
 <details data-tf2-nav><summary>TF2 &amp; TF2 Classified</summary><a class="sidebar-overview" href="/guides/tf2/">Overview</a><a href="/guides/tf2/getting-started/">Getting started</a><a href="/guides/tf2/requirements/">Requirements</a><a href="/guides/tf2/editions/">TF2 or TF2 Classified</a><a href="/guides/tf2/menu-settings/">Menu settings and profiles</a><a href="/guides/tf2/lua-scripts/">Lua scripts</a><a href="/guides/tf2/troubleshooting/">Troubleshooting</a></details>
+<details data-megabonk-nav><summary>Megabonk</summary><a class="sidebar-overview" href="/guides/megabonk/">Overview</a><a href="/guides/megabonk/getting-started/">Getting started</a><a href="/guides/megabonk/menu-settings/">Menu settings, configs and hotkeys</a><a href="/guides/megabonk/languages/">Languages and language packs</a><a href="/guides/megabonk/lua-scripts/">Lua scripts and game API</a><a href="/guides/megabonk/spawner-unlocks/">Pickups, items and unlocks</a><a href="/guides/megabonk/troubleshooting/">Troubleshooting</a></details>
 <div class="sidebar-resources">
 <span>Resources</span>
 <a href="/docs/">Developer documentation ↗</a>
@@ -218,7 +220,7 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><span>Counter-Strike 2</span></div><h1>Counter-Strike 2 guide</h1><p class="article-intro">Setup, injection, and fixes after updates.</p><p class="topic-index-intro">Choose a topic to open its guide.</p><div class="topic-grid"><a class="topic-card" id="cs2-requirements" href="/guides/cs2/cs2-requirements/"><h3>Requirements <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-inject" href="/guides/cs2/cs2-inject/"><h3>How to Inject <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-updates" href="/guides/cs2/cs2-updates/"><h3>Features Not Working <span aria-hidden="true">→</span></h3><p>Open guide</p></a></div><footer class="wiki-footer">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><span>Counter-Strike 2</span></div><h1>Counter-Strike 2 guide</h1><p class="article-intro">Setup, custom models, and fixes after updates.</p><p class="topic-index-intro">Choose a topic to open its guide.</p><div class="topic-grid"><a class="topic-card" id="cs2-requirements" href="/guides/cs2/cs2-requirements/"><h3>Requirements <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-inject" href="/guides/cs2/cs2-inject/"><h3>How to Inject <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="cs2-updates" href="/guides/cs2/cs2-updates/"><h3>Features Not Working <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="custom-models" href="/guides/cs2/custom-models/"><h3>Custom Models <span aria-hidden="true">→</span></h3><p>Install folder, player agents, arms/hands, weapons and previews.</p></a></div><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>

@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "api": "2.1.0",
+  "runtimes": [
+    "Lua54",
+    "LuaJIT"
+  ],
+  "native_declarations": 7130,
+  "native_supported": 4859,
+  "reference_entries": 103,
+  "inputs": {
+    "host/src/core/scripting/LuaRuntime.hpp": "10e167ecdf5f60091654505b621ed4341d37071ee72fea755da2550d2b5306cb",
+    "host/docs/lua-runtime-api.md": "c13d7f705a078b2d07af8061e75dbec948b671fadf539615c8560f632ae0c635",
+    "host/docs/lua-api-reference.md": "a0d61b13f8fc35a229d8a1d850fa7d9b586c44073a8b6eef6005435179820bf8",
+    "host/docs/lua-porting-compatibility.md": "2e0ae2be7ec1cf3ec4e0cc1ce8f4f132689a8a59c04303f4247c14cc00210772",
+    "host/build/x64/vs2022/generated/lua/lua-native-catalog.json": "10ac883208646caf35e35f1d9f27de09e84c1ebb57e57bd38b970a367c068da3",
+    "host/src/core/scripting/LuaInputScript.hpp": "f5b6d560633692a363277ee74c5a10724e0ba62d958b075188053779bfc83b58",
+    "host/src/core/scripting/LuaVersions.cpp": "6d49bd23a9f64a9ee462efa91adc92e60738ebbba15d78e8aa9abc8071fc1f7e",
+    "host/src/core/scripting/bindings/LuaInput.cpp": "b6a762f3b41faa5f3bec196cc9fe284a1980b0ab81079403de7db9cb6add0cb7",
+    "host/src/game/rdr/Natives.hpp": "14b8e4ae3d3a1f60ae0d123428e720a91ac778b33b0ecc147df365fee03b98ff",
+    "Frontier/main.lua": "bee85e91ee6a278352aab7c6d913e94b10b43a71d21fe4a219aa1c5769cbdc49",
+    "Frontier/frontier/model.lua": "fcc2c39f6cc75d32c64ce227ff83391b1c982ed6e78a52fbcc3ed39adee0b391",
+    "Frontier/frontier/view.lua": "1e09a85d8216d1b6426b5cf83e0a12f2ca6a2af48376027cafc4e8ed811de3f6",
+    "Frontier/README.md": "ac0367d00dbf5de7b4cc468010728b480a17885825d8aba48b16d867319d0a3c"
+  }
+}

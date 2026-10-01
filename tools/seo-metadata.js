@@ -28,8 +28,8 @@ guides/half-life-1/getting-started/index.html|Half-Life, Blue Shift & Opposing F
 guides/half-life-1/menu-settings/index.html|Half-Life 1 Menu Settings, Hotkeys & Profiles - Scooby|Customize Scooby Half-Life visuals, materials, language, menu keys and saved profiles. Find settings for the Half-Life 1 collection.|Half-Life 1 cheat setup, Half-Life menu settings, Half-Life hotkeys, Scooby profiles, Half-Life visuals
 guides/half-life-1/troubleshooting/index.html|Half-Life 1 Edition & Loader Troubleshooting - Scooby|Troubleshoot Scooby Half-Life edition mismatches, unavailable loading options, missing fonts or scripts and session-dependent features.|Half-Life 1 cheat setup, Half-Life loader troubleshooting, Scooby edition mismatch, Half-Life missing assets
 features-list/half-life-1-features/index.html|Half-Life 1 Features — Scooby|Explore Half-Life 1 ESP, animated chams, radar, Lua, profiles and campaign controls. Search features and check their current availability.|Half-Life 1, HL1, GoldSrc, Source Games, Half Life cheat, Half-Life ESP, animated chams, Lua, campaign, godmode, noclip, Half-Life guide, Half-Life Blue Shift, Half-Life Opposing Force, Half-Life Source, Half-Life screenshots
-products/l4d/index.html|Free Left 4 Dead 1 & 2 Cheat — Scooby|Free Scooby cheat for Left 4 Dead 1 and 2: campaign VFX presets, 12 skies, independent chams, infected ESP, movement tools and Lua.|Left 4 Dead cheat, Left 4 Dead 2 cheat, L4D cheat, L4D1 cheat, L4D2 cheat, free L4D cheat, infected ESP, animated chams, L4D Lua API, Scooby L4D, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits
-features-list/l4d-features/index.html|Left 4 Dead 1 & 2 Features — Scooby|Browse Left 4 Dead 1 and 2 features: Silent / pSilent, auto fire, glow, team HUD, movement exploits, game controls, chams, VFX and Lua.|L4D cheat features, L4D1 cheat, L4D2 cheat, Left 4 Dead 2 cheat features, infected ESP, animated chams, L4D Lua, L4D profiles, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits
+products/l4d/index.html|Free Left 4 Dead 1 & 2 Cheat — Scooby|Free L4D1 and L4D2 cheat with ESP, chams, aim and Lua. Preview the next update: 3D models, Capture Protection and in-game asset downloads.|Left 4 Dead cheat, Left 4 Dead 2 cheat, L4D cheat, L4D1 cheat, L4D2 cheat, free L4D cheat, infected ESP, animated chams, L4D Lua API, Scooby L4D, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits, L4D model previews, L4D Capture Protection, L4D asset downloads
+features-list/l4d-features/index.html|Left 4 Dead 1 & 2 Features — Scooby|Explore L4D1 and L4D2 ESP, chams, aim, movement and Lua, plus the next update: 3D model previews, Capture Protection and in-game asset downloads.|L4D cheat features, L4D1 cheat, L4D2 cheat, Left 4 Dead 2 cheat features, infected ESP, animated chams, L4D Lua, L4D profiles, L4D silent aim, L4D glow, L4D team HUD, L4D movement exploits, L4D model previews, L4D Capture Protection, L4D asset downloads
 api/cs2/index.html|CS2 Lua API — Scooby Developer Docs|Search the Scooby CS2 API: player snapshots, visuals, rendering, settings, hotkeys and standalone Lua interfaces.|CS2 Lua API, Scooby scripting, Lua templates
 docs/cs2/index.html|CS2 Lua scripts — Scooby Developer Docs|Get started with Scooby CS2 Lua, download standalone visual templates, and browse the host and UI API.|CS2 Lua scripts, standalone Lua UI, Scooby Lua
 api/l4d_api_reference.html|Left 4 Dead Lua API Reference - Scooby Developer Docs|L4D1 and L4D2 Lua API: native function hooks, pattern scans, console diagnostics, entity snapshots, UI controls and copyable examples.|L4D cheat Lua API, Left 4 Dead Lua scripting, L4D1 Lua, L4D2 Lua, native hooks, pattern scanning, Lua console, stack trace, entity snapshots, Lua rendering, Scooby developer docs
@@ -93,7 +93,7 @@ const groups = [
  ['rdr2','RDR2','Set up Scooby for Red Dead Redemption 2. Install outfits, horse outfits, Lua scripts and themes, save configs, use spawners, and troubleshoot problems.'],
  ['fivem','FiveM','Set up Scooby for FiveM with runtime requirements and injection instructions. Read about server events, feature limitations and troubleshooting.'],
  ['redm','RedM','Set up Scooby for RedM with runtime requirements and injection instructions. Find server-event guidance, feature limitations and troubleshooting.'],
- ['cs2','CS2','Set up Scooby for Counter-Strike 2. Find required runtimes, injection instructions, and help when features stop working after game updates.'],
+ ['cs2','CS2','Set up Scooby for Counter-Strike 2. Find runtime and loading steps, the custom model install folder, player and weapon guides, and fixes after updates.'],
  ['general','Loader','Find help with the Scooby loader, downloads, free keys, HWID resets and account access. Browse crash fixes, connection errors and compatibility guides.']
 ];
 for (const [slug, game, desc] of groups) {
@@ -106,6 +106,7 @@ for (const [slug, game] of [['cs2','CS2'],['fivem','FiveM'],['redm','RedM']]) {
  guide(slug,`${slug}-inject`,`How to Load Scooby in ${game}`, slug === 'cs2' ? 'Learn how to load Scooby into Counter-Strike 2 using automatic loading or manual injection from the main menu, with links to troubleshooting.' : `Learn when and how to inject Scooby into ${game}, from the main menu or resource loading screen, with step-by-step instructions and troubleshooting links.`, `Scooby ${game} injection, how to load Scooby ${game}, ${game} cheat setup`);
 }
 guide('cs2','cs2-updates','CS2 Menu Features Not Working After an Update','Find out why Scooby CS2 features may stop working after a game patch, where to check update status and when to update your loader.','CS2 features not working, Scooby CS2 update, CS2 cheat troubleshooting');
+guide('cs2','custom-models','CS2 Custom Models: Install Folder, Players, Arms & Weapons','Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.','CS2 custom models, game csgo folder, model installation path, custom agents, arms, hands, weapons, model preview');
 for (const [slug, game] of [['fivem','FiveM'],['redm','RedM']]) guide(slug,'money-items-weapons',`${game} Money, Items & Weapons: Server Limits`, `Understand ${game} server events for money, items and weapons, including server-side requirements, restrictions, kick or ban risks and Scooby support limits.`, `${game} server events, ${game} money items weapons, ${game} event restrictions`);
 const topics = `
 general|connection|Scooby Connection & SSL Error Help|Troubleshoot Scooby website and loader connection or SSL errors. Read the connection guidance and find links to related setup and account help.|Scooby connection error, Scooby SSL error, Scooby loader connection
@@ -185,6 +186,16 @@ Object.assign(pages, {
     "description": "Set up the free Scooby TF2 preview. Choose retail or Classified, configure the menu, manage profiles and Lua scripts, and solve common loading problems.",
     "keywords": "TF2 guide, TF2 Classified setup, Scooby Wiki, Team Fortress 2 cheat guide"
   },
+  "docs/rdr2/index.html": {
+    "title": "RDR2 Lua Scripts and Frontier — Scooby Developer Docs",
+    "description": "Download Frontier, a standalone RDR2 Lua GUI with controller support, player and horse tools, saved travel locations and world controls.",
+    "keywords": "RDR2 Lua, Frontier, standalone GUI, LuaJIT, Scooby Lua scripts"
+  },
+  "api/rdr2/index.html": {
+    "title": "RDR2 Lua API Reference — Scooby Developer Docs",
+    "description": "Search Scooby RDR2 Lua APIs, controller bindings, standalone ImGui, cooperative tasks and typed native signatures.",
+    "keywords": "RDR2 Lua API, LuaJIT, controller, ImGui, PLAYER_PED_ID"
+  },
   "docs/tf2/index.html": {
     "title": "TF2 & Classified Lua Scripts — Scooby Developer Docs",
     "description": "Start scripting in Scooby TF2 and TF2 Classified. Download HUD and player-label examples, check edition capabilities, and browse the shared Lua API.",
@@ -208,12 +219,12 @@ function excluded(head) { return [...head.matchAll(/<meta\b[^>]*>/gi)].some(m=>{
 Object.assign(pages, {
   "products/tf2/index.html": {
     "title": "Free TF2 & TF2 Classified Cheat — Scooby",
-    "description": "Explore Scooby for Team Fortress 2 and TF2 Classified: aim, ESP, chams, class skins, movement and Lua. View gameplay screenshots, all features and setup guides.",
+    "description": "Explore TF2 and Classified aim, ESP, chams, free camera, movement and Lua, plus retail skins and local inventory. Browse all features and setup guides.",
     "keywords": "Scooby TF2, Team Fortress 2 cheat, TF2 cheat, free TF2 cheat, TF2 Classified cheat, Team Fortress 2 Classified, TF2 ESP, TF2 chams, TF2 aimbot, TF2 skins, TF2 Lua, TF2 features, TF2 screenshots"
   },
   "features-list/tf2-features/index.html": {
-    "title": "TF2 & TF2 Classified Features — Scooby",
-    "description": "Search the Scooby TF2 feature list: Rage and Legit aim, ESP, chams, class skins, movement, world visuals, Lua and settings, with edition-specific controls labeled.",
+    "title": "TF2 Features — Scooby",
+    "description": "Search TF2 and Classified combat profiles, ESP, chams, free camera, filters, movement, Lua and settings, with retail skins and local inventory clearly labeled.",
     "keywords": "TF2 features, Team Fortress 2 features, TF2 Classified features, Scooby TF2, TF2 aimbot, TF2 triggerbot, TF2 ESP, TF2 chams, TF2 skin changer, TF2 Lua API"
   }
 });
@@ -221,9 +232,58 @@ pages['index.html'].description='Explore Scooby cheats and mod menus for GTA 5 a
 for (const [file, meta] of Object.entries(pages)) if (file==='index.html' || meta.language) meta.keywords += ', TF2 cheat, Team Fortress 2 cheat, TF2 Classified, Scooby TF2';
 Object.assign(pages, {
   'more-games/index.html': {title:'More Games — The Last of Us & Megabonk | Scooby', description:'Browse The Last of Us and Megabonk in the Scooby More Games collection. Open each product page and get a free key.', keywords:'Scooby More Games, The Last of Us, TLOU cheat, Megabonk, Megabonk cheat, free key'},
-  'products/megabonk/index.html': {title:'Megabonk — Get a Free Key | Scooby', description:'Get a free key for Scooby Megabonk and access the Scooby launcher.', keywords:'Scooby Megabonk, Megabonk cheat, Mega Bonk, free Megabonk key, Megabonk free key, Scooby More Games'}
+  'products/megabonk/index.html': {"title": "Megabonk — Features & Free Key | Scooby", "description": "Customize Megabonk with health, damage and XP controls, movement modifiers, pickup spawning, item grants and progression unlocks. Get a free Scooby key.", "keywords": "Scooby Megabonk, Megabonk cheat, Megabonk features, Megabonk spawner, Megabonk unlocks, free Megabonk key"},
+  'features-list/megabonk-features/index.html': {"title": "Megabonk Features — Scooby", "description": "Browse Megabonk health, damage, XP, movement, pickups, item grants, unlocks, run timers and menu settings. Search the complete feature list.", "keywords": "Megabonk feature list, Scooby Megabonk, pickup spawner, item grants, unlocks, health, XP, movement, Lua"}
 });
 for (const [file, meta] of Object.entries(pages)) if (file==='index.html' || meta.language) meta.keywords += ', Megabonk, Scooby Megabonk, More Games';
+// Megabonk product and wiki
+Object.assign(pages, {
+  "guides/megabonk/index.html": {
+    "title": "Megabonk guide — Megabonk | Scooby Wiki",
+    "description": "Set up Megabonk, customize languages and hotkeys, write Lua scripts, and use pickups, items and progression tools.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "guides/megabonk/getting-started/index.html": {
+    "title": "Getting started — Megabonk | Scooby Wiki",
+    "description": "Open Megabonk through Scooby Launcher and find the main game and Lua tabs.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "guides/megabonk/menu-settings/index.html": {
+    "title": "Menu settings, configs and hotkeys — Megabonk | Scooby Wiki",
+    "description": "Choose a UI edition, save Megabonk profiles, assign hotkeys and keep your preferred language.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "guides/megabonk/languages/index.html": {
+    "title": "Languages and language packs — Megabonk | Scooby Wiki",
+    "description": "Select one of 23 Megabonk languages, download updates and preserve your custom translations.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "guides/megabonk/lua-scripts/index.html": {
+    "title": "Lua scripts and game API — Megabonk | Scooby Wiki",
+    "description": "Use the dedicated Lua tab, Megabonk API, run HUD and pickup examples.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "guides/megabonk/spawner-unlocks/index.html": {
+    "title": "Pickups, items and unlocks — Megabonk | Scooby Wiki",
+    "description": "Spawn Megabonk pickups, add items, collect XP and unlock saved content.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "guides/megabonk/troubleshooting/index.html": {
+    "title": "Troubleshooting — Megabonk | Scooby Wiki",
+    "description": "Resolve unavailable Megabonk actions, language update errors, hotkeys and Lua script issues.",
+    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+  },
+  "products/megabonk/index.html": {
+    "title": "Megabonk — Features, Lua & Guides | Scooby",
+    "description": "Customize Megabonk with player controls, pickups, items, unlocks, Lua, 23 languages, configs and hotkeys. Browse all features and setup guides.",
+    "keywords": "Scooby Megabonk, Megabonk cheat, Megabonk Lua API, Megabonk languages, spawner, unlocks, configs, hotkeys"
+  },
+  "features-list/megabonk-features/index.html": {
+    "title": "Megabonk Features — Scooby",
+    "description": "Browse Megabonk player controls, pickups, items, unlocks, Lua API, languages, configs and hotkeys. Search the complete feature list.",
+    "keywords": "Megabonk feature list, Lua API, languages, configs, hotkeys, pickups, items, unlocks"
+  }
+});
 function applyMetadata(file, html, override) {
  file=file.replace(/\\/g,'/'); const meta=override || pages[file]; if(!meta) return html;
  if (excluded(html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '')) return html;
@@ -257,7 +317,7 @@ function applyMetadata(file, html, override) {
  });
  return structure(file, applyBranding(updated), meta);
 }
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['backup','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['backup','build','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
 if(require.main===module){let changed=0,skipped=0;const errors=[],titles=new Set(),descriptions=new Set();
  for(const abs of walk(ROOT)){const file=path.relative(ROOT,abs).replace(/\\/g,'/'),html=fs.readFileSync(abs,'utf8'),head=html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0]||'';if(excluded(head)){skipped++;continue;}if(!pages[file]){errors.push('Missing metadata: '+file);continue;}const meta=pages[file];if(titles.has(meta.title)||descriptions.has(meta.description))errors.push('Duplicate metadata: '+file);titles.add(meta.title);descriptions.add(meta.description);const updated=applyMetadata(file,html);if(updated!==html){changed++;if(process.argv.includes('--apply'))fs.writeFileSync(abs,updated);else console.log('Stale: '+file);}}
  console.log(`${titles.size} indexable pages; ${skipped} excluded pages preserved; ${changed} ${process.argv.includes('--apply')?'updated':'stale'}.`);errors.forEach(e=>console.error(e));if(errors.length||changed&&!process.argv.includes('--apply'))process.exitCode=1;

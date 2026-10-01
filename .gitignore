@@ -10,3 +10,8 @@ hidden_files/half-life-screenshot-refresh/
 
 # Local social-preview captures and before-copies
 /build/social-preview/
+
+# Local Node tools and TF2 browser evidence
+/node_modules/
+/build/tf2-site-validation/
+/build/tf2-free-key/

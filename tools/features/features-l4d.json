@@ -1,7 +1,7 @@
 {
   "game": "Left 4 Dead 1 & 2",
   "slug": "l4d",
-  "source": "Scooby L4D runtime registry and current menu controls. Hidden storage, diagnostics and synthetic preview controls excluded.",
+  "source": "Current Scooby L4D runtime registry, menu pages and documented host contracts. Public controls are grouped where they share settings; internal storage and diagnostics are excluded.",
   "tabs": [
     {
       "name": "Visuals",
@@ -20,7 +20,7 @@
                 {
                   "id": "esp.box",
                   "label": "Box",
-                  "desc": "Draw full or corner boxes around entity bounds."
+                  "desc": "Draw full or corner boxes around entity bounds, with configurable fill, gradients and colors."
                 },
                 {
                   "id": "esp.skeleton",
@@ -30,22 +30,27 @@
                 {
                   "id": "esp.name",
                   "label": "Name",
-                  "desc": "Display the entity name above its bounds."
+                  "desc": "Display the entity name with independent top, bottom, left or right placement."
                 },
                 {
                   "id": "esp.health",
                   "label": "Health Bar",
-                  "desc": "Display health as a bar next to the entity."
+                  "desc": "Display a health bar with independent top, bottom, left or right placement."
                 },
                 {
                   "id": "esp.distance",
                   "label": "Distance",
-                  "desc": "Show distance in the host's world units."
+                  "desc": "Display distance with independent top, bottom, left or right placement."
                 },
                 {
                   "id": "esp.snaplines",
                   "label": "Snaplines",
                   "desc": "Draw lines from the top, bottom or center of the screen to entity feet."
+                },
+                {
+                  "id": "esp.health_text",
+                  "label": "HP Text",
+                  "desc": "Display authoritative current health as text."
                 }
               ]
             }
@@ -61,6 +66,47 @@
                   "id": "overlay.radar",
                   "label": "Radar",
                   "desc": "Top-down positions from the shared entity data."
+                },
+                {
+                  "id": "radar.icons",
+                  "label": "Radar icons",
+                  "desc": "Use entity icons on the radar."
+                },
+                {
+                  "id": "radar.icon_size",
+                  "label": "Icon size",
+                  "desc": "Adjust the size of radar icons."
+                },
+                {
+                  "id": "radar.type_colors",
+                  "label": "Use type colors",
+                  "desc": "Give survivors, infected and pickup categories independent radar colors."
+                },
+                {
+                  "id": "radar.selector",
+                  "label": "Choose a type to edit",
+                  "desc": "Choose a survivor, infected or pickup type and edit its radar color. Available types follow the selected game.",
+                  "settings": [
+                    "Survivors",
+                    "Common infected",
+                    "Uncommon infected",
+                    "Witch",
+                    "Smoker",
+                    "Boomer",
+                    "Hunter",
+                    "Spitter",
+                    "Jockey",
+                    "Charger",
+                    "Tank",
+                    "Unknown special",
+                    "Weapons",
+                    "Melee / chainsaw",
+                    "Throwables",
+                    "Medical supplies",
+                    "Ammo piles",
+                    "Ammo / laser upgrades",
+                    "Carryable items"
+                  ]
                 }
               ]
             }
@@ -115,7 +161,7 @@
                 {
                   "id": "infected.specials",
                   "label": "Special infected",
-                  "desc": "Show the seven special infected types, including Tanks."
+                  "desc": "Show special infected, including Tanks. Spitter, Jockey and Charger are available in L4D2."
                 },
                 {
                   "id": "infected.colors",
@@ -190,7 +236,7 @@
                 {
                   "id": "infected.uncommon",
                   "label": "Uncommon infected",
-                  "desc": "Show this infected type in ESP and radar."
+                  "desc": "Show this L4D2 infected type in ESP and radar."
                 },
                 {
                   "id": "infected.uncommon.box",
@@ -340,7 +386,7 @@
                 {
                   "id": "infected.spitter",
                   "label": "Spitter",
-                  "desc": "Show this infected type in ESP and radar."
+                  "desc": "Show this L4D2 infected type in ESP and radar."
                 },
                 {
                   "id": "infected.spitter.box",
@@ -370,7 +416,7 @@
                 {
                   "id": "infected.jockey",
                   "label": "Jockey",
-                  "desc": "Show this infected type in ESP and radar."
+                  "desc": "Show this L4D2 infected type in ESP and radar."
                 },
                 {
                   "id": "infected.jockey.box",
@@ -400,7 +446,7 @@
                 {
                   "id": "infected.charger",
                   "label": "Charger",
-                  "desc": "Show this infected type in ESP and radar."
+                  "desc": "Show this L4D2 infected type in ESP and radar."
                 },
                 {
                   "id": "infected.charger.box",
@@ -589,8 +635,8 @@
                 },
                 {
                   "id": "chams.selector",
-                  "label": "Chams category",
-                  "desc": "Category selected in the Chams page."
+                  "label": "Chams target",
+                  "desc": "Choose the target beside the model preview; select an individual subtype for Special infected."
                 },
                 {
                   "id": "chams.arms.custom",
@@ -665,7 +711,7 @@
                 {
                   "id": "chams.uncommon",
                   "label": "Uncommon infected",
-                  "desc": "Enable chams for this target."
+                  "desc": "Enable chams for this L4D2 infected target."
                 },
                 {
                   "id": "chams.uncommon.custom",
@@ -740,7 +786,7 @@
                 {
                   "id": "chams.spitter",
                   "label": "Spitter",
-                  "desc": "Enable chams for this target."
+                  "desc": "Enable chams for this L4D2 infected target."
                 },
                 {
                   "id": "chams.spitter.custom",
@@ -755,7 +801,7 @@
                 {
                   "id": "chams.jockey",
                   "label": "Jockey",
-                  "desc": "Enable chams for this target."
+                  "desc": "Enable chams for this L4D2 infected target."
                 },
                 {
                   "id": "chams.jockey.custom",
@@ -770,7 +816,7 @@
                 {
                   "id": "chams.charger",
                   "label": "Charger",
-                  "desc": "Enable chams for this target."
+                  "desc": "Enable chams for this L4D2 infected target."
                 },
                 {
                   "id": "chams.charger.custom",
@@ -836,6 +882,36 @@
                   "id": "chams.swap_passes",
                   "label": "Swap pass appearance",
                   "desc": "Swap this target's visible and invisible colors and materials."
+                },
+                {
+                  "id": "chams.world_weapon",
+                  "label": "Held weapon (world)",
+                  "desc": "Apply chams to held weapons rendered in the world."
+                },
+                {
+                  "id": "chams.world_weapon.custom",
+                  "label": "Visible",
+                  "desc": "Material and color on visible model surfaces."
+                },
+                {
+                  "id": "chams.world_weapon.hidden",
+                  "label": "Invisible",
+                  "desc": "Through-wall material and color for occluded surfaces."
+                },
+                {
+                  "id": "chams.target_overlays",
+                  "label": "Independent overlay for each target",
+                  "desc": "Add a separate Overlay material and color for players, self, arms, weapons, items and supported infected targets."
+                },
+                {
+                  "id": "chams.material_animation",
+                  "label": "Material and layer animation controls",
+                  "desc": "Edit materials and animation together. Select Visible, Invisible or Overlay, then tune that layer without changing the other passes. Disabled while Capture Protection is enabled.",
+                  "settings": [
+                    "Separate color, opacity and material choices",
+                    "Eight animation modes with speed, strength and secondary color",
+                    "Copy Visible to Invisible or swap pass appearance"
+                  ]
                 }
               ]
             }
@@ -945,6 +1021,46 @@
               ]
             }
           ]
+        },
+        {
+          "name": "3D model previews",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "preview.survivors",
+                  "label": "Survivor model previews",
+                  "desc": "Preview player ESP and chams on survivor models available for the selected game."
+                },
+                {
+                  "id": "preview.infected",
+                  "label": "Common, uncommon and special infected previews",
+                  "desc": "Preview zombie types including common infected, Witch, Smoker, Boomer, Hunter and Tank. L4D2 adds uncommon infected, Spitter, Jockey and Charger."
+                },
+                {
+                  "id": "preview.equipment",
+                  "label": "Weapon, item and arms previews",
+                  "desc": "Inspect first-person arms and weapons, world weapons, dropped weapons and items using a matching model catalog."
+                },
+                {
+                  "id": "preview.camera",
+                  "label": "Rotate, zoom and reset",
+                  "desc": "Drag the 3D model to rotate, scroll to zoom and double-click to reset the preview camera."
+                },
+                {
+                  "id": "preview.chams_target",
+                  "label": "Chams target beside the preview",
+                  "desc": "Choose Players, infected, weapons, items or another chams target beside the 3D preview. Special infected also offers a subtype selector."
+                },
+                {
+                  "id": "preview.chams_random",
+                  "label": "Random chams model rotation",
+                  "desc": "The preview chooses a matching model when opened and swaps it after eight idle seconds. It avoids an immediate repeat when alternatives exist and pauses swapping during interaction. This changes the preview, not your game character."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -971,6 +1087,101 @@
                   "id": "overlay.active_features",
                   "label": "Active Features",
                   "desc": "Show currently active features as compact labels. Drag them while the menu is open."
+                },
+                {
+                  "id": "overlay.spectators",
+                  "label": "Spectators",
+                  "desc": "Display the spectator list supplied by the game."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Capture Protection",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "capture.enabled",
+                  "label": "Capture Protection",
+                  "desc": "Move the menu, ESP, radar, HUD and compatible Lua overlays to a separate capture-excluded surface. Requires Windows 10 2004 or newer. Recorder compatibility depends on its capture method; check the actual OBS recording or Discord share."
+                },
+                {
+                  "id": "capture.blocked_controls",
+                  "label": "Blocked features and hover explanation",
+                  "desc": "Incompatible controls are blurred or dimmed and cannot be enabled. Hover to see: Capture Protection is enabled. Disable it to use this feature.",
+                  "settings": [
+                    "Disables chams, native glow, world/sky effects and materials",
+                    "Disables camera/viewmodel changes, recoil camera removal and vomit removal",
+                    "Disables native Lua hooks and incompatible script features"
+                  ]
+                },
+                {
+                  "id": "capture.preserved_settings",
+                  "label": "Keep your tuning and shortcuts",
+                  "desc": "Retain colors, material choices, numeric settings, presets and hotkeys. Turning Capture Protection off unlocks the controls; it does not automatically turn cleared effects back on."
+                },
+                {
+                  "id": "capture.failure_recovery",
+                  "label": "Pause and recover protected rendering",
+                  "desc": "Hide protected UI while minimized, backgrounded or recovering from a renderer failure. Retry without drawing that UI into the game surface."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Assets and display",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "assets.download_progress",
+                  "label": "In-game asset download progress",
+                  "desc": "The upcoming release downloads its required fonts, model previews and VFX assets after loading. A bottom-screen progress bar shows the current file, downloaded bytes and percentage."
+                },
+                {
+                  "id": "assets.cache_retry",
+                  "label": "Cached assets and F5 retry",
+                  "desc": "Reuse verified cached assets and download missing or damaged files. If a download fails, press F5 to retry while retaining completed files."
+                },
+                {
+                  "id": "display.resolution",
+                  "label": "Resolution and interface scaling",
+                  "desc": "Refit the menu when render size or DPI changes, with separate text, menu and overlay scaling."
+                },
+                {
+                  "id": "display.transitions",
+                  "label": "Windowed and fullscreen transitions",
+                  "desc": "Retain UI state through supported window/device resets, resizing, minimizing and Alt-Tab. Capture Protection uses borderless fullscreen; a failed DXVK exclusive-mode reset falls back to borderless. Live in-game acceptance remains pending."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Profiles and interface",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "settings.profiles",
+                  "label": "Saved profiles",
+                  "desc": "Save and load settings for each game, including colors, materials and custom selections."
+                },
+                {
+                  "id": "settings.hotkeys",
+                  "label": "Hotkeys and Favorites",
+                  "desc": "Assign shortcuts and keep frequently used controls together in Favorites."
+                },
+                {
+                  "id": "settings.languages",
+                  "label": "23 language catalogs",
+                  "desc": "Choose a menu language, with English fallback for untranslated detail text."
                 }
               ]
             }
@@ -1610,7 +1821,7 @@
       ]
     },
     {
-      "name": "World",
+      "name": "Self",
       "categories": [
         {
           "name": "View",
@@ -1685,9 +1896,41 @@
                 }
               ]
             }
+          ],
+          "legacyId": "world-view"
+        },
+        {
+          "name": "Local / Host",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "self.god",
+                  "label": "Godmode",
+                  "desc": "Prevent damage for all players on your hosted server. Restores the previous value when disabled."
+                },
+                {
+                  "id": "self.infinite_ammo",
+                  "label": "Infinite reserve ammo",
+                  "desc": "Refill your reserve ammunition while alive."
+                },
+                {
+                  "id": "self.no_reload",
+                  "label": "No reload",
+                  "desc": "Keep magazines full for all players on your hosted server. Restores the previous value when disabled."
+                },
+                {
+                  "id": "self.info",
+                  "label": "Player information",
+                  "desc": "Show health, speed, position and current weapon."
+                }
+              ]
+            }
           ]
         }
-      ]
+      ],
+      "legacyId": "section-world"
     },
     {
       "name": "VFX",
@@ -1726,6 +1969,16 @@
                   "id": "world.reset.vfx",
                   "label": "Restore original world",
                   "desc": "Disable environment overrides and restore the saved original colors and sky textures."
+                },
+                {
+                  "id": "vfx.campaign_looks",
+                  "label": "Global and campaign looks",
+                  "desc": "Set a Global appearance or override individual campaigns. Chapters share their campaign look: 6 official L4D1 campaigns and 14 official L4D2 campaigns."
+                },
+                {
+                  "id": "vfx.saved_looks",
+                  "label": "Search, preview and save looks",
+                  "desc": "Browse campaign cards and saved looks, preview before applying, save named presets, copy Global, undo a look or return to Map Original."
                 }
               ]
             }
@@ -1926,12 +2179,113 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Spawner",
+      "categories": [
+        {
+          "name": "Local / Host",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "spawn.category",
+                  "label": "Spawn category",
+                  "desc": "Browse Weapons, Items, Ammo and Zombies available for the selected game. Spawning requires local server authority."
+                },
+                {
+                  "id": "spawn.count",
+                  "label": "Spawn count",
+                  "desc": "Spawn from 1 to 10 copies per request."
+                },
+                {
+                  "id": "spawn.distance",
+                  "label": "Spawn distance (units)",
+                  "desc": "Set placement distance from 64 to 1500 Source units."
+                },
+                {
+                  "id": "spawn.random",
+                  "label": "Random location",
+                  "desc": "Choose a clear position within the selected distance."
+                },
+                {
+                  "id": "spawn.dead",
+                  "label": "Spawn dead",
+                  "desc": "Kill only the newly spawned infected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lua",
+      "categories": [
+        {
+          "name": "Scripts and custom UI",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "lua.editor",
+                  "label": "Lua editor and L4D API",
+                  "desc": "Create scripts, pages, controls and overlays using the L4D host API. Scripts use copied game snapshots and do not run as game VScript."
+                },
+                {
+                  "id": "lua.entities",
+                  "label": "Entity and drawing helpers",
+                  "desc": "Query survivors, infected and pickups, project boxes and bones, and render custom overlays."
+                },
+                {
+                  "id": "lua.feature_policy",
+                  "label": "Capture Protection feature policy",
+                  "desc": "Declare a Lua feature compatible with Capture Protection or disable it while protection is enabled. Omitted policies default to disable.",
+                  "settings": [
+                    "features.add: capture_protection=\"safe\" or \"disable\"",
+                    "Check features.active(id) in behavior callbacks",
+                    "Native hook restrictions still apply to features marked safe"
+                  ]
+                },
+                {
+                  "id": "lua.capture_status",
+                  "label": "Capture Protection status and events",
+                  "desc": "Read available, enabled, active and message fields. Enabled is the requested setting; active means a successful protected presentation is visible.",
+                  "settings": [
+                    "capture_protection.status(), enabled() and active()",
+                    "events.on(\"capture_protection_changed\", callback)"
+                  ]
+                },
+                {
+                  "id": "lua.protected_control",
+                  "label": "Protected Lua controls and blocked reasons",
+                  "desc": "Give custom controls the same disabled appearance and hover explanation as built-in features.",
+                  "settings": [
+                    "features.blocked_reason(id)",
+                    "l4d.protected_control(id, callback)"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "website": {
     "features": {
-      "description": "Browse Left 4 Dead 1 and 2 features: Silent / pSilent, auto fire, glow, team HUD, movement exploits, game controls, chams, VFX and Lua."
+      "description": "Explore L4D1 and L4D2 ESP, chams, aim, movement and Lua, plus the next update: 3D model previews, Capture Protection and in-game asset downloads."
     },
-    "notice": "The latest aim, glow, HUD and exploit additions are prepared for the next loader release. Gameplay controls run on local single-player maps. Native glow and Anti Jockey are L4D2-only. Custom-map sky replacement depends on supported materials."
+    "notice": "Release preview: the latest model previews, Capture Protection, asset downloads and display-mode improvements are prepared for the next loader release. Live game and OBS/Discord acceptance checks are still pending. Gameplay tools require a supported local session; host controls require local server authority. Native glow, Anti Jockey and some infected/equipment types are L4D2-only."
+  },
+  "source_hashes": {
+    "assets/l4d_pages.lua": "e06eaeb77dc79ae3e1578c5057f1bf68e1fd7e6507a8b81a075d044354e7db3e",
+    "src/ui/model_preview.cpp": "8cd09b9dd09a6a4236ed6f5e981319e203ac1a7e035833b97a1b1f5d4038787b",
+    "docs/CAPTURE_PROTECTION.md": "acf30d681c529e4b204d851b8122df3d870e495b281f813ed71acc74aaf018bf",
+    "docs/L4D_LUA_API.md": "a60a37ecb3b844b019cb1b22210b05f09ba4cf677eb69597e9bd62afd9cd3fa9",
+    "docs/RENDERERS.md": "404b320f8fe00bfda4c2e6f6fa4b499eda63069225fed9e640c036c380b396e6",
+    "docs/GAME_UPDATES.md": "560b4fd1af813f03244ac0d3b84cb9d0a4ba1605738c5be398abe294c2038549"
   }
 }

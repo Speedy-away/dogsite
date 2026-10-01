@@ -1,8 +1,8 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const base=process.env.TF2_SITE_BASE||'http://127.0.0.1:8198';
-const out=path.resolve(__dirname,'../build/tf2-site-validation');
-const pages=['/products/tf2/','/guides/tf2/','/guides/tf2/getting-started/','/guides/tf2/requirements/','/guides/tf2/editions/','/guides/tf2/menu-settings/','/guides/tf2/lua-scripts/','/guides/tf2/troubleshooting/','/docs/tf2/','/api/tf2/'];
+const out=process.env.TF2_DOCS_TEST_OUT||path.resolve(__dirname,'../build/tf2-site-validation');
+const pages=['/products/tf2/','/guides/tf2/','/guides/tf2/getting-started/','/guides/tf2/requirements/','/guides/tf2/editions/','/guides/tf2/menu-settings/','/guides/tf2/lua-scripts/','/guides/tf2/troubleshooting/','/docs/tf2/','/api/tf2/','/features-list/tf2-features/'];
 (async()=>{
  fs.mkdirSync(out,{recursive:true});
  const browser=await chromium.launch({channel:'msedge',headless:true});
@@ -29,8 +29,8 @@ const pages=['/products/tf2/','/guides/tf2/','/guides/tf2/getting-started/','/gu
   await page.setViewportSize({width:1440,height:1000});
   await go('/api/tf2/');
   assert.equal(await page.locator('.reference-entry').count(),JSON.parse(fs.readFileSync(path.resolve(__dirname,'../docs/tf2/source-manifest.json'),'utf8')).reference_entries);checks++;
-  assert.equal(await page.locator('#classified-tf2-skins-page-players .edition-label').innerText(),'Classified');checks++;
-  assert.equal(await page.locator('#host-built-in-feature-families .edition-label').innerText(),'Retail');checks++;
+  assert.equal(await page.locator('#classified-tf2-skins-page-players').count(),0);checks++;
+  assert.equal(await page.locator('#host-built-in-feature-families .edition-label').innerText(),'Retail + Classified');checks++;
   await page.locator('#api-search').fill('tf2.world_to_screen');await page.locator('.reference-entry:visible[open]').first().waitFor();
   assert(await page.locator('.reference-entry:visible pre').count()>0);checks++;
   await page.locator('.reference-entry:visible').getByRole('button',{name:'Copy code',exact:true}).first().click();
@@ -49,7 +49,27 @@ const pages=['/products/tf2/','/guides/tf2/','/guides/tf2/getting-started/','/gu
   await page.keyboard.press('Escape');await page.locator('#search-dialog').waitFor({state:'hidden'});assert(!await page.locator('#search-dialog').evaluate(e=>e.open));checks++;
   for(const theme of ['light','dark']){await page.locator('#theme-select').selectOption(theme);assert.equal(await page.locator('html').getAttribute('data-theme'),theme);checks++;}
   await page.screenshot({path:path.join(out,'wiki-dark-375.png'),fullPage:true});
-  await go('/docs/');await page.keyboard.press('Control+k');await page.locator('#guide-search').fill('tf2.entities');
+  await go('/features-list/tf2-features/');
+  const featureManifest=JSON.parse(fs.readFileSync(path.resolve(__dirname,'features/features-tf2.json'),'utf8'));
+  const featureCount=featureManifest.tabs.flatMap(t=>t.categories.flatMap(c=>c.groups.flatMap(g=>g.items))).length;
+  assert.equal(await page.locator('.feature-item').count(),featureCount);checks++;
+  await page.locator('#feature-search').fill('Crystal');await page.waitForFunction(q=>new URL(location.href).searchParams.get('q')===q,'Crystal');assert(await page.locator('.feature-item:visible').count()>0);checks++;
+  await page.locator('#feature-search').fill('Third person');await page.waitForFunction(q=>new URL(location.href).searchParams.get('q')===q,'Third person');assert(await page.locator('.feature-item:visible').count()>0);checks++;
+  for(const query of ['Free camera','Heavy rev-jump','Local item copies','Capture Protection']){
+   await page.locator('#feature-search').fill(query);
+   await page.waitForFunction(q=>new URL(location.href).searchParams.get('q')===q,query);
+   assert(await page.locator('.feature-item:visible').count()>0,query+' is searchable');checks++;
+  }
+  await page.locator('#feature-search').fill('tf2-no-such-feature-123');await page.waitForFunction(q=>new URL(location.href).searchParams.get('q')===q,'tf2-no-such-feature-123');assert(await page.locator('#feature-empty').isVisible());checks++;
+  await page.locator('#reset-search').click();assert.equal(await page.locator('.feature-item:not([hidden])').count(),featureCount);checks++;
+  assert.equal(await page.locator('.sidebar-help a[href="/api/tf2/"]').count(),1);checks++;
+  await go('/guides/');assert.equal(await page.locator('.game-card[href="/guides/tf2/"]').count(),1);checks++;
+  await go('/guides/tf2/');assert(await page.locator('main a[href="/features-list/tf2-features/"]').count()>0);assert(await page.locator('main a[href="/api/tf2/"]').count()>0);checks+=2;
+  await go('/docs/');
+  assert.equal(await page.locator('.docs-card[href="/api/tf2/"]').count(),1);checks++;
+  const apiVersion=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../docs/tf2/source-manifest.json'),'utf8')).host_api;
+  assert((await page.locator('.docs-card[href="/api/tf2/"]').innerText()).includes('Host API '+apiVersion));checks++;
+  await page.keyboard.press('Control+k');await page.locator('#guide-search').fill('tf2.entities');
   await page.locator('#guide-results a[href^="/api/tf2/"]').first().waitFor();checks++;
   await go('/');assert.equal(await page.locator('.catalog-card[href="/products/tf2/"]').count(),1);checks++;
   await go('/source-games/');await page.locator('#source-game-search').fill('Classified');assert.equal(await page.locator('[data-game]:visible').count(),1);assert.equal(await page.locator('[data-game="tf2"]').getAttribute('data-status'),'released');checks+=2;
@@ -58,8 +78,8 @@ const pages=['/products/tf2/','/guides/tf2/','/guides/tf2/getting-started/','/gu
    if(url.hash&&r.headers()['content-type']?.includes('text/html')){const html=await r.text(),id=decodeURIComponent(url.hash.slice(1));assert(html.includes('id="'+id+'"')||html.includes("id='"+id+"'"),'Missing anchor '+relative);}
    checks++;
   }
-  for(const name of ['TF2 Player HUD','TF2 Player Labels','Edition Info']){
-   const r=await context.request.get(base+'/docs/tf2/examples/'+encodeURIComponent(name)+'.lua');assert.equal(r.status(),200);assert((await r.text()).includes('TF2_API_VERSION'));checks++;
+  for(const name of ['TF2 Player HUD','TF2 Player Labels','TF2 Snapshot Inspector','TF2 Capture Protection','Edition Info']){
+   const r=await context.request.get(base+'/docs/tf2/examples/'+encodeURIComponent(name)+'.lua');assert.equal(r.status(),200);const source=await r.text();assert(source.includes('TF2_API_VERSION')||source.includes('tf2.capabilities()'));assert(!source.includes('TF2_API_VERSION == \"1.0\"'));checks++;
   }
   const noJs=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:900}});
   const staticPage=await noJs.newPage();await staticPage.goto(base+'/api/tf2/');

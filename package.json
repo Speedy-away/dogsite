@@ -1,0 +1,13 @@
+{
+  "name": "scooby-site-tools",
+  "private": true,
+  "scripts": {
+    "tf2:check": "node tools/check-tf2-features.js && node tools/build-tf2-docs.js --check",
+    "tf2:build": "node tools/features/build-features-page.js --only tf2 --apply && node tools/build-tf2-docs.js",
+    "tf2:test": "node tools/validate-tf2.js && node tools/validate-tf2-docs.js"
+  },
+  "devDependencies": {
+    "marked": "17.0.5",
+    "playwright": "1.62.1"
+  }
+}

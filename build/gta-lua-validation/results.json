@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "api_entries": 68,
+  "package_files": 6,
+  "checks": [
+    "source manifest hashes",
+    "expandable function examples and deep links",
+    "copy to clipboard",
+    "function-name search and navigation",
+    "no-results search",
+    "unique IDs and local anchors",
+    "ZIP download",
+    "390px and 768px navigation/overflow",
+    "no browser exceptions"
+  ]
+}

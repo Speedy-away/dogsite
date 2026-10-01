@@ -300,7 +300,7 @@ function mathx.seconds_to_ticks(seconds) end
 ---@return number
 function mathx.ticks_to_seconds(ticks) end
 
--- CS2 host 2.4 / native extension 1.0. Fixed Win64 scalar ABI only.
+-- CS2 host 2.5 / native extension 1.0. Fixed Win64 scalar ABI only.
 ---@alias CS2NativeType 'void'|'bool'|'i32'|'u32'|'i64'|'u64'|'ptr'|'float'|'double'
 ---@class CS2NativeSignature
 ---@field abi? 'win64'
@@ -375,7 +375,7 @@ function shared.get(key) end
 ---@param value nil|boolean|number|string
 function shared.set(key,value) end
 
--- Complete host and shared UI exports (API 2.4).
+-- Complete host and shared UI exports (API 2.5).
 ---Explicit capabilities; false entries are not implemented by this host.
 ---@return table<string,boolean>
 function cs2.capabilities() end
@@ -1061,7 +1061,8 @@ function base.set(id,value) end
 ---@vararg any
 function base.log(...) end
 features={}
----@param options {id:string,label:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,mode?:string,callback?:function}
+---@alias CaptureProtectionMode "compatible"|"disable"
+---@param options {id:string,label?:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,on_trigger?:function,capture_protection?:CaptureProtectionMode}
 ---@return string
 function features.add(options) end
 ---@param id string
@@ -1117,7 +1118,7 @@ ui.widgets=widgets
 json.null=nil -- Opaque non-nil sentinel at runtime; valid only as a JSON value.
 
 ---@type string
-CS2_API_VERSION='2.4'
+CS2_API_VERSION='2.5'
 ---@type string
 UI_API_VERSION='1.1'
 ---Writes script-prefixed output to the developer console.
@@ -1216,7 +1217,7 @@ function print(...) end
 ---@field rarity integer
 ---@field old_model boolean
 
--- Host framework API 2.4. Permissions are set by the user in Scripts.
+-- Host framework API 2.5. Permissions are set by the user in Scripts.
 fs={}
 http={}
 commands={}
@@ -1407,3 +1408,16 @@ function CommandGame.bone(handle,index) end
 ---@param virtual_key integer
 ---@return boolean
 function CommandGame.key_down(virtual_key) end
+
+---Capture Protection uses requested state, including startup and recovery.
+capture_protection={}
+---@return boolean enabled
+function capture_protection.is_enabled() end
+---@param feature_id string
+---@return CaptureProtectionMode mode
+---@return boolean blocked
+function capture_protection.get_feature(feature_id) end
+---Only this Lua state's owned features can be reclassified. Does not re-enable the feature.
+---@param owned_feature_id string
+---@param mode CaptureProtectionMode
+function capture_protection.set_feature(owned_feature_id,mode) end

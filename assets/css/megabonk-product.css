@@ -16,3 +16,6 @@
 .megabonk-product #freeKeyModal .freekey-btn{display:flex;align-items:center;justify-content:center;text-decoration:none}
 .megabonk-product #freeKeyModal .freekey-tip{display:flex;align-items:flex-start;gap:10px}
 .megabonk-product #freeKeyModal .freekey-tip svg{flex-shrink:0}
+
+.megabonk-product #product-details{scroll-margin-top:120px}
+.megabonk-product .product-feature-grid h3{color:var(--product-accent)}

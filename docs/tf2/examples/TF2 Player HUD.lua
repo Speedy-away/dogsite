@@ -1,4 +1,4 @@
-assert(TF2_API_VERSION == "1.0", "Update the TF2 Lua host")
+assert(type(TF2_API_VERSION) == "string" and TF2_API_VERSION:match("^1%."), "Update the TF2 Lua host")
 ui.overlay("tf2_player_hud", function()
     local me=tf2.local_player()
     if not me then return end

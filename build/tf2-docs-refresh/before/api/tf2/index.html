@@ -1,0 +1,789 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TF2 &amp; Classified Lua API Reference — Scooby Developer Docs</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><script defer src="/assets/js/l4d-docs.js"></script><script defer src="/assets/js/tf2-api-reference.js"></script><noscript><style>.menu-toggle,.search-tools{display:none!important}.sidebar{position:static!important;width:auto!important;height:auto!important}.content{margin-left:0!important}#sidebar-nav{display:block!important;max-height:none!important}</style></noscript><meta name="description" content="Search the TF2 and TF2 Classified Lua API: snapshots, entities, projection, settings, capabilities, UI controls and copyable examples.">
+<meta name="keywords" content="TF2 API, tf2.info, tf2.entities, tf2c, Classified scripting, Scooby Lua API">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="TF2 &amp; Classified Lua API Reference — Scooby Developer Docs">
+<meta property="og:description" content="Search the TF2 and TF2 Classified Lua API: snapshots, entities, projection, settings, capabilities, UI controls and copyable examples.">
+<meta property="og:url" content="https://scoobymenu.cc/api/tf2/">
+<meta name="twitter:title" content="TF2 &amp; Classified Lua API Reference — Scooby Developer Docs">
+<meta name="twitter:description" content="Search the TF2 and TF2 Classified Lua API: snapshots, entities, projection, settings, capabilities, UI controls and copyable examples.">
+<meta name="twitter:url" content="https://scoobymenu.cc/api/tf2/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/docs-v2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SCOOBY DEVELOPERS: Build something of your own. Lua APIs · Examples · Native references.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png">
+<meta name="twitter:image:alt" content="SCOOBY DEVELOPERS: Build something of your own. Lua APIs · Examples · Native references.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://scoobymenu.cc/api/tf2/">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/api/tf2/#webpage",
+      "url": "https://scoobymenu.cc/api/tf2/",
+      "name": "TF2 & Classified Lua API Reference — Scooby Developer Docs",
+      "description": "Search the TF2 and TF2 Classified Lua API: snapshots, entities, projection, settings, capabilities, UI controls and copyable examples.",
+      "keywords": "TF2 API, tf2.info, tf2.entities, tf2c, Classified scripting, Scooby Lua API",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head><body><a class="skip-link" href="#main-content">Skip to reference</a><aside class="sidebar" aria-label="TF2 API navigation"><div class="sidebar-heading"><a class="brand scooby-brand" href="/docs/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>API</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar-nav">Sections</button></div><p class="game-label">TF2 &amp; TF2 CLASSIFIED</p><div class="search-tools"><label for="api-search">Search the reference</label><div class="search-row"><input id="api-search" type="search" placeholder="Function, setting or example…" autocomplete="off"><button type="button" id="clear-search" aria-label="Clear search" hidden>Clear</button></div><p id="search-status" role="status" aria-live="polite"></p></div><nav id="sidebar-nav"><div class="nav-group" data-section="host"><a class="sect" href="#host">TF2 host API</a><a class="entry" href="#host-tf2-info">tf2.info()</a>
+<a class="entry" href="#host-tf2-capabilities">tf2.capabilities()</a>
+<a class="entry" href="#host-tf2-session">tf2.session()</a>
+<a class="entry" href="#host-tf2-local-player">tf2.local_player()</a>
+<a class="entry" href="#host-tf2-entities-filter">tf2.entities([filter])</a>
+<a class="entry" href="#host-tf2-entity-handle">tf2.entity(handle)</a>
+<a class="entry" href="#host-tf2-bones-handle">tf2.bones(handle)</a>
+<a class="entry" href="#host-tf2-condition-handle-index">tf2.condition(handle, index)</a>
+<a class="entry" href="#host-tf2-camera">tf2.camera()</a>
+<a class="entry" href="#host-tf2-world-to-screen-position">tf2.world_to_screen(position)</a>
+<a class="entry" href="#host-tf2-screen-box-handle">tf2.screen_box(handle)</a>
+<a class="entry" href="#host-tf2-setting-id-field-value">tf2.setting(id, field [, value])</a>
+<a class="entry" href="#host-tf2-has-feature-id">tf2.has_feature(id)</a>
+<a class="entry" href="#host-tf2-keybind-id-action-mode">tf2.keybind(id [, action [, mode]])</a>
+<a class="entry" href="#host-tf2-object-preview-kind-chams">tf2.object_preview(kind, chams)</a>
+<a class="entry" href="#host-tf2-model-preview-chams">tf2.model_preview(chams)</a>
+<a class="entry" href="#host-tf2-class-name-id-tf2-team-name-id">tf2.class_name(id), tf2.team_name(id)</a>
+<a class="entry" href="#host-tf2-vec">tf2.vec</a>
+<a class="entry" href="#host-tf2-angle-to-eye-point-tf2-angle-fov-from-to">tf2.angle_to(eye, point), tf2.angle_fov(from, to)</a>
+<a class="entry" href="#host-tf2-to-metres-units-tf2-to-units-metres">tf2.to_metres(units), tf2.to_units(metres)</a>
+<a class="entry" href="#host-built-in-feature-families">Built-in feature families</a></div><div class="nav-group" data-section="classified"><a class="sect" href="#classified">Classified additions & overrides</a><a class="entry" href="#classified-built-in-feature-families">Built-in feature families</a>
+<a class="entry" href="#classified-tf2-skins-page-players">tf2.skins_page(players)</a></div><div class="nav-group" data-section="ui"><a class="sect" href="#ui">Shared UI API</a><a class="entry" href="#ui-getting-started">Getting started</a>
+<a class="entry" href="#ui-localization">Localization</a>
+<a class="entry" href="#ui-lua-console-diagnostics">Lua console diagnostics</a>
+<a class="entry" href="#ui-register-a-feature">Register a feature</a>
+<a class="entry" href="#ui-read-and-change-features">Read and change features</a>
+<a class="entry" href="#ui-independent-health-overlays">Independent health overlays</a>
+<a class="entry" href="#ui-inline-key-capture">Inline key capture</a>
+<a class="entry" href="#ui-tabs-and-sub-tabs">Tabs and sub-tabs</a>
+<a class="entry" href="#ui-groups-and-columns">Groups and columns</a>
+<a class="entry" href="#ui-independent-menus-and-attached-windows">Independent menus and attached windows</a>
+<a class="entry" href="#ui-imgui-controls">ImGui controls</a>
+<a class="entry" href="#ui-selectable-catalog-rows">Selectable catalog rows</a>
+<a class="entry" href="#ui-overlays-and-drawing">Overlays and drawing</a>
+<a class="entry" href="#ui-themes-and-ui-overrides">Themes and UI overrides</a>
+<a class="entry" href="#ui-events-and-host-information">Events and host information</a>
+<a class="entry" href="#ui-porting-and-game-specific-apis">Porting and game-specific APIs</a>
+<a class="entry" href="#ui-custom-product-controls">Custom product controls</a>
+<a class="entry" href="#ui-entity-colors">Entity colors</a>
+<a class="entry" href="#ui-native-controls">Native controls</a>
+<a class="entry" href="#ui-themed-widgets">Themed widgets</a>
+<a class="entry" href="#ui-imgui-table-and-columns">imgui.table and columns</a>
+<a class="entry" href="#ui-groups-ids-and-placement">Groups, IDs and placement</a>
+<a class="entry" href="#ui-imgui-with-font-size">imgui.with_font_size</a>
+<a class="entry" href="#ui-imgui-with-style-vars">imgui.with_style_vars</a>
+<a class="entry" href="#ui-tabs-and-trees">Tabs and trees</a>
+<a class="entry" href="#ui-hit-targets-and-input">Hit targets and input</a>
+<a class="entry" href="#ui-window-drawing-and-clipping">Window drawing and clipping</a>
+<a class="entry" href="#ui-custom-dropdowns-and-popups">Custom dropdowns and popups</a>
+<a class="entry" href="#ui-slim-slider-appearance">Slim slider appearance</a>
+<a class="entry" href="#ui-compact-example-gui">Compact example GUI</a></div><div class="resources"><a href="/docs/tf2/">TF2 scripts &amp; examples ↗</a><a href="/guides/tf2/">TF2 setup guide ↗</a><a href="/products/tf2/">Product page ↗</a><a href="/docs/">All references ↗</a></div></nav></aside><main class="content" id="main-content" tabindex="-1"><header class="page-header"><p class="page-title">Scooby <span>API Reference</span></p><h1>TF2 Lua API</h1><p class="version">Retail &amp; Classified <span>Host API 1.0 · UI API 1.1</span></p><div class="quick-links"><a href="/docs/tf2/">Start scripting</a><a href="/docs/tf2/game-api.md" download>Host contract</a><a href="/docs/tf2/ui-api.md" download>UI contract</a></div></header><p id="no-results" hidden>No matching API entries. Try <code>tf2.entities</code> or clear your search.</p><section class="reference-section lua-reference" id="host"><header><h2>TF2 host API</h2><a class="download-source" href="/docs/tf2/game-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="host-tf2-info"><summary>tf2.info()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-info" aria-label="Link to tf2.info()"># Permalink</a><pre><code class="language-lua">-- -&gt; {api_version, game_id, game, map, preview, sequence, generation,
+--     engine_time, tick_interval}
+local info=tf2.info()
+print(info.game,info.map,info.api_version)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-capabilities"><summary>tf2.capabilities()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capabilities" aria-label="Link to tf2.capabilities()"># Permalink</a><pre><code class="language-lua">-- -&gt; {snapshots, projection, settings, shared_ui, four_teams,
+--     civilian, mvm, viewmodel_offsets, native_hooks}
+local caps=tf2.capabilities()
+if caps.civilian then print(tf2.class_name(10)) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-session"><summary>tf2.session()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-session" aria-label="Link to tf2.session()"># Permalink</a><pre><code class="language-lua">-- -&gt; {allowed, data_available, in_game, preview, stopped, menu_open, entity_count}
+local state=tf2.session()
+if state.data_available then print(state.entity_count) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-local-player"><summary>tf2.local_player()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-local-player" aria-label="Link to tf2.local_player()"># Permalink</a><pre><code class="language-lua">-- -&gt; {handle, team, class_id, class_name, health, alive, on_ground, flags,
+--     position, eye_position, velocity, view_angles, speed, sequence, generation} or nil
+local me=tf2.local_player()
+if me then print(me.class_name,me.health,me.speed) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-entities-filter"><summary>tf2.entities([filter])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-entities-filter" aria-label="Link to tf2.entities([filter])"># Permalink</a><pre><code class="language-lua">-- filter = {kind=&#39;all&#39;, relationship=&#39;all&#39;, max_distance=metres}
+for _,entity in ipairs(tf2.entities{kind=&#39;player&#39;,relationship=&#39;enemy&#39;,max_distance=150}) do
+    print(entity.handle,entity.name,entity.distance_m)
+end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-entity-handle"><summary>tf2.entity(handle)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-entity-handle" aria-label="Link to tf2.entity(handle)"># Permalink</a><pre><code class="language-lua">-- Decimal string, opaque ID, or unsigned 32-bit full numeric handle -&gt; entity or nil
+local list=tf2.entities()
+if list[1] then print(tf2.entity(list[1].handle).name) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-bones-handle"><summary>tf2.bones(handle)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-bones-handle" aria-label="Link to tf2.bones(handle)"># Permalink</a><pre><code class="language-lua">-- -&gt; array of {from={x,y,z}, to={x,y,z}}
+local entities=tf2.entities{kind=&#39;player&#39;}
+if entities[1] then print(#tf2.bones(entities[1].handle)) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-condition-handle-index"><summary>tf2.condition(handle, index)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-condition-handle-index" aria-label="Link to tf2.condition(handle, index)"># Permalink</a><pre><code class="language-lua">-- index 0..159 -&gt; boolean; false for unavailable/non-player data
+local entities=tf2.entities{kind=&#39;player&#39;}
+if entities[1] then print(tf2.condition(entities[1].handle,4)) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-camera"><summary>tf2.camera()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-camera" aria-label="Link to tf2.camera()"># Permalink</a><pre><code class="language-lua">-- -&gt; {position, angles, width, height} or nil
+local camera=tf2.camera()
+if camera then print(camera.width,camera.height) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-world-to-screen-position"><summary>tf2.world_to_screen(position)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-world-to-screen-position" aria-label="Link to tf2.world_to_screen(position)"># Permalink</a><pre><code class="language-lua">-- Source {x,y,z} -&gt; {x,y,on_screen} or nil
+ui.overlay(&#39;tf2_player_labels&#39;,function()
+    for _,e in ipairs(tf2.entities{kind=&#39;player&#39;}) do
+        local p=tf2.world_to_screen(e.position)
+        if p and p.on_screen then render.text(p.x,p.y,e.name,{1,1,1,1}) end
+    end
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-screen-box-handle"><summary>tf2.screen_box(handle)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-screen-box-handle" aria-label="Link to tf2.screen_box(handle)"># Permalink</a><pre><code class="language-lua">-- -&gt; {left,top,right,bottom,width,height,fitted} or nil
+ui.overlay(&#39;tf2_box_example&#39;,function()
+    for _,e in ipairs(tf2.entities{kind=&#39;player&#39;,relationship=&#39;enemy&#39;}) do
+        local b=tf2.screen_box(e.handle)
+        if b then render.rect(b.left,b.top,b.width,b.height,{.2,.8,1,1}) end
+    end
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-setting-id-field-value"><summary>tf2.setting(id, field [, value])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-setting-id-field-value" aria-label="Link to tf2.setting(id, field [, value])"># Permalink</a><pre><code class="language-lua">-- field &#39;style&#39; or &#39;distance&#39; -&gt; normalized numeric value
+local old=tf2.setting(&#39;view.camera_fov&#39;,&#39;distance&#39;)
+tf2.setting(&#39;view.camera_fov&#39;,&#39;distance&#39;,100)
+features.set(&#39;view.camera_fov&#39;,true)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-has-feature-id"><summary>tf2.has_feature(id)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-has-feature-id" aria-label="Link to tf2.has_feature(id)"># Permalink</a><pre><code class="language-lua">-- -&gt; boolean; useful for edition-specific controls
+if tf2.has_feature(&#39;mvm.wave_panel&#39;) then features.set(&#39;mvm.wave_panel&#39;,true) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-keybind-id-action-mode"><summary>tf2.keybind(id [, action [, mode]])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-keybind-id-action-mode" aria-label="Link to tf2.keybind(id [, action [, mode]])"># Permalink</a><pre><code class="language-lua">-- -&gt; key, mode, capturing, waiting
+-- actions: &#39;capture&#39;, &#39;clear&#39;, &#39;mode&#39;; modes: 0 Hold, 1 Toggle, 2 Always
+local key,mode=tf2.keybind(&#39;aim.key&#39;)
+print(key,mode)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-object-preview-kind-chams"><summary>tf2.object_preview(kind, chams)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-object-preview-kind-chams" aria-label="Link to tf2.object_preview(kind, chams)"># Permalink</a><pre><code class="language-lua">-- UI callback only. kind: &quot;weapons&quot;, &quot;health&quot;, &quot;ammo&quot;, &quot;items&quot;.
+-- false uses the selected object&#39;s ESP settings; true uses chams.target.
+ui.subtab(&quot;visuals&quot;, &quot;custom.weapons&quot;, &quot;Weapons&quot;, function()
+    tf2.object_preview(&quot;weapons&quot;, false)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-model-preview-chams"><summary>tf2.model_preview(chams)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-model-preview-chams" aria-label="Link to tf2.model_preview(chams)"># Permalink</a><pre><code class="language-lua">-- UI callback only; draws the product&#39;s actual class model preview
+local tab=ui.tab(&#39;model_inspector&#39;,&#39;Model inspector&#39;)
+ui.subtab(tab,&#39;model&#39;,&#39;Model&#39;,function() tf2.model_preview(false) end)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-class-name-id-tf2-team-name-id"><summary>tf2.class_name(id), tf2.team_name(id)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-class-name-id-tf2-team-name-id" aria-label="Link to tf2.class_name(id), tf2.team_name(id)"># Permalink</a><pre><code class="language-lua">print(tf2.class_name(1),tf2.team_name(2)) -- Scout, RED
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-vec"><summary>tf2.vec<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-vec" aria-label="Link to tf2.vec"># Permalink</a><pre><code class="language-lua">local a={x=3,y=4,z=0}
+local b={x=1,y=0,z=0}
+local sum=tf2.vec.add(a,b)
+local difference=tf2.vec.sub(a,b)
+local scaled=tf2.vec.scale(a,2)
+local dot=tf2.vec.dot(a,b)
+local length=tf2.vec.length(a)
+local distance=tf2.vec.distance(a,b)
+local unit=tf2.vec.normalize(a) -- nil for near-zero length
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-angle-to-eye-point-tf2-angle-fov-from-to"><summary>tf2.angle_to(eye, point), tf2.angle_fov(from, to)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-angle-to-eye-point-tf2-angle-fov-from-to" aria-label="Link to tf2.angle_to(eye, point), tf2.angle_fov(from, to)"># Permalink</a><pre><code class="language-lua">local angles=tf2.angle_to({x=0,y=0,z=0},{x=100,y=0,z=50})
+local degrees=tf2.angle_fov({x=0,y=0,z=0},angles)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-to-metres-units-tf2-to-units-metres"><summary>tf2.to_metres(units), tf2.to_units(metres)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-to-metres-units-tf2-to-units-metres" aria-label="Link to tf2.to_metres(units), tf2.to_units(metres)"># Permalink</a><pre><code class="language-lua">local metres=tf2.to_metres(100)
+print(metres,tf2.to_units(metres))
+</code></pre></div></details>
+<details class="reference-entry" id="host-built-in-feature-families"><summary>Built-in feature families<span class="edition-label">Retail</span></summary><div class="entry-body"><a class="permalink" href="#host-built-in-feature-families" aria-label="Link to Built-in feature families"># Permalink</a><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Family</th>
+<th>IDs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Aim profiles</td>
+<td><code>aim.*</code>, <code>aim.rage.*</code>, <code>combat.profile</code></td>
+</tr>
+<tr>
+<td>Trigger profiles</td>
+<td><code>trigger.*</code>, <code>trigger.rage.*</code></td>
+</tr>
+<tr>
+<td>Movement/view</td>
+<td><code>movement.bhop</code>, <code>movement.strafe</code>, <code>view.camera_fov</code>, <code>view.model_fov</code></td>
+</tr>
+<tr>
+<td>Player ESP</td>
+<td><code>esp.*</code>, <code>esp.teammate.*</code></td>
+</tr>
+<tr>
+<td>Item ESP</td>
+<td><code>esp.world.health.*</code>, <code>esp.world.ammo.*</code>, <code>esp.world.weapons.*</code></td>
+</tr>
+<tr>
+<td>Chams targets</td>
+<td><code>chams.players</code>, <code>teammates</code>, <code>self</code>, <code>arms</code>, <code>weapon</code>, <code>world_weapon</code>, <code>buildings</code>, <code>items</code>, <code>dropped_weapons</code></td>
+</tr>
+</tbody></table></div></div></details></section>
+<section class="reference-section lua-reference" id="classified"><header><h2>Classified additions & overrides</h2><a class="download-source" href="/docs/tf2/classified-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="classified-built-in-feature-families"><summary>Built-in feature families<span class="edition-label">Classified</span></summary><div class="entry-body"><a class="permalink" href="#classified-built-in-feature-families" aria-label="Link to Built-in feature families"># Permalink</a><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Family</th>
+<th>IDs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Aim profiles</td>
+<td><code>aim.*</code>, <code>aim.rage.*</code>, <code>combat.profile</code></td>
+</tr>
+<tr>
+<td>Trigger profiles</td>
+<td><code>trigger.*</code>, <code>trigger.rage.*</code></td>
+</tr>
+<tr>
+<td>Movement/view</td>
+<td><code>movement.bhop</code>, <code>movement.strafe</code>, <code>view.camera_fov</code>, <code>view.model_fov</code></td>
+</tr>
+<tr>
+<td>Player ESP</td>
+<td><code>esp.*</code>, <code>esp.teammate.*</code></td>
+</tr>
+<tr>
+<td>Item ESP</td>
+<td><code>esp.world.health.*</code>, <code>esp.world.ammo.*</code>, <code>esp.world.weapons.*</code></td>
+</tr>
+<tr>
+<td>Class skins</td>
+<td><code>skins.enabled</code>, <code>skins.class</code>, <code>skins.classN.player_NAME</code>, <code>skins.classN.weapon_ITEMID</code></td>
+</tr>
+<tr>
+<td>Chams targets</td>
+<td><code>chams.players</code>, <code>teammates</code>, <code>self</code>, <code>arms</code>, <code>weapon</code>, <code>world_weapon</code>, <code>buildings</code>, <code>items</code>, <code>dropped_weapons</code></td>
+</tr>
+</tbody></table></div></div></details>
+<details class="reference-entry" id="classified-tf2-skins-page-players"><summary>tf2.skins_page(players)<span class="edition-label">Classified</span></summary><div class="entry-body"><a class="permalink" href="#classified-tf2-skins-page-players" aria-label="Link to tf2.skins_page(players)"># Permalink</a><pre><code class="language-lua">local tab=ui.tab(&quot;custom_skins&quot;,&quot;Skins&quot;)
+ui.subtab(tab,&quot;weapons&quot;,&quot;Weapons&quot;,function() tf2.skins_page(false) end)
+ui.subtab(tab,&quot;players&quot;,&quot;Players&quot;,function() tf2.skins_page(true) end)
+</code></pre></div></details></section>
+<section class="reference-section lua-reference" id="ui"><header><h2>Shared UI API</h2><a class="download-source" href="/docs/tf2/ui-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="ui-getting-started"><summary>Getting started<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-getting-started" aria-label="Link to Getting started"># Permalink</a><pre><code class="language-lua">local enabled = features.add {
+    id = &quot;enabled&quot;, label = &quot;My feature&quot;, default = false,
+    category = &quot;My Tools&quot;, description = &quot;My custom feature&quot;, key = &quot;F8&quot;
+}
+local tab = ui.tab(&quot;tools&quot;, &quot;My Tools&quot;)
+ui.subtab(tab, &quot;general&quot;, &quot;General&quot;, function()
+    ui.group(&quot;Options&quot;, function()
+        ui.feature(enabled)
+    end)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-localization"><summary>Localization<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-localization" aria-label="Link to Localization"># Permalink</a><pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;localized_stats&quot;, &quot;Info&quot;, function()
+    imgui.text(string.format(ui.tr(&quot;Speed: %.0f units/s&quot;), 250))
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-lua-console-diagnostics"><summary>Lua console diagnostics<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-lua-console-diagnostics" aria-label="Link to Lua console diagnostics"># Permalink</a><pre><code class="language-text">[ERROR] [Lua error] My overlay | events.update (runtime)
+My overlay.lua:12: attempt to index a nil value
+stack traceback:
+    My overlay.lua:12: in local &#39;read_player&#39;
+    My overlay.lua:20: in function &lt;My overlay.lua:19&gt;
+This callback was disabled. Fix the error and run the script again.
+</code></pre></div></details>
+<details class="reference-entry" id="ui-register-a-feature"><summary>Register a feature<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-register-a-feature" aria-label="Link to Register a feature"># Permalink</a><pre><code class="language-lua">local id = features.add {
+    id = &quot;example&quot;,                 -- required local ID, 1-80 characters
+    label = &quot;Example&quot;,              -- defaults to local ID
+    category = &quot;My Tools / General&quot;, -- defaults to &quot;Scripts&quot;
+    description = &quot;What this does&quot;,
+    default = false,                -- initial enabled state
+    key = &quot;F8&quot;,                     -- optional key, Toggle mode
+    active_list = true,             -- include effective toggles in Active Features
+    kind = &quot;toggle&quot;                 -- &quot;toggle&quot; or &quot;action&quot;
+}
+</code></pre>
+<pre><code class="language-lua">local action = features.add {
+    id = &quot;refresh&quot;, label = &quot;Refresh&quot;, kind = &quot;action&quot;,
+    on_trigger = function() print(&quot;Refresh requested&quot;) end
+}
+</code></pre></div></details>
+<details class="reference-entry" id="ui-read-and-change-features"><summary>Read and change features<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-read-and-change-features" aria-label="Link to Read and change features"># Permalink</a><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>features.get(id)</code></td>
+<td>Returns the saved enabled boolean, or nil for an unknown ID.</td>
+</tr>
+<tr>
+<td><code>features.set(id, boolean)</code></td>
+<td>Changes enabled state; rejects unknown IDs.</td>
+</tr>
+<tr>
+<td><code>features.active(id)</code></td>
+<td>Returns effective hotkey state, including Hold/Hold Off.</td>
+</tr>
+<tr>
+<td><code>features.trigger(id)</code></td>
+<td>Activates an action, including its callback and overlay flash.</td>
+</tr>
+<tr>
+<td><code>features.bind(id, key, mode)</code></td>
+<td>Sets a key and mode. Empty key clears the key.</td>
+</tr>
+<tr>
+<td><code>features.color(id, r, g, b, a)</code></td>
+<td>Sets RGBA color; components must be 0-1. Alpha defaults to 1.</td>
+</tr>
+<tr>
+<td><code>features.list()</code></td>
+<td>Returns an array of tables with id, label, category, description, kind, enabled.</td>
+</tr>
+<tr>
+<td><code>ui.feature(id)</code></td>
+<td>Draws the standard feature row, including applicable gear/color/hotkey controls.</td>
+</tr>
+<tr>
+<td><code>ui.keybind(id [, label])</code></td>
+<td>Draws shared capture, Clear and activation mode for an existing feature; drawing callbacks only. Label defaults to Key.</td>
+</tr>
+</tbody></table></div></div></details>
+<details class="reference-entry" id="ui-independent-health-overlays"><summary>Independent health overlays<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-independent-health-overlays" aria-label="Link to Independent health overlays"># Permalink</a><pre><code class="language-lua">features.set(&quot;esp.health&quot;, true)
+features.set(&quot;esp.health_text&quot;, true)
+features.bind(&quot;esp.health_text&quot;, &quot;F7&quot;, &quot;toggle&quot;)
+ui.tab(&quot;health_overlays&quot;, &quot;Health&quot;, function()
+    ui.feature(&quot;esp.health&quot;)
+    ui.feature(&quot;esp.health_text&quot;)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-inline-key-capture"><summary>Inline key capture<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-inline-key-capture" aria-label="Link to Inline key capture"># Permalink</a><pre><code class="language-lua">ui.tab(&quot;aim_controls&quot;, &quot;Aimbot&quot;, function()
+    ui.group(&quot;Activation&quot;, function()
+        ui.feature(&quot;host.aim&quot;)
+        ui.keybind(&quot;host.aim&quot;, &quot;Aim key&quot;)
+    end)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-tabs-and-sub-tabs"><summary>Tabs and sub-tabs<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-tabs-and-sub-tabs" aria-label="Link to Tabs and sub-tabs"># Permalink</a><pre><code class="language-lua">local tab = ui.tab(&quot;tools&quot;, &quot;My Tools&quot;)
+local subtab = ui.subtab(tab, &quot;display&quot;, &quot;Display&quot;, function()
+    imgui.text(&quot;My page&quot;)
+end)
+</code></pre>
+<pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;my_settings&quot;, &quot;My Script&quot;, function()
+    imgui.text(&quot;An extra page beside the built-in settings.&quot;)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-groups-and-columns"><summary>Groups and columns<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-groups-and-columns" aria-label="Link to Groups and columns"># Permalink</a><pre><code class="language-lua">ui.columns(3, function()
+    ui.group(&quot;First&quot;, function() imgui.text(&quot;First column&quot;) end)
+    ui.next_column()
+    ui.group(&quot;Second&quot;, function() imgui.text(&quot;Second column&quot;) end)
+    ui.next_column()
+    ui.group(&quot;Third&quot;, function() imgui.text(&quot;Third column&quot;) end)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-independent-menus-and-attached-windows"><summary>Independent menus and attached windows<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-independent-menus-and-attached-windows" aria-label="Link to Independent menus and attached windows"># Permalink</a><pre><code class="language-lua">local window = ui.window(&quot;inspector&quot;, &quot;My Inspector&quot;, {
+    width = 360, height = 280,
+    menu_only = false,
+    attach = &quot;none&quot;
+}, function()
+    imgui.text(&quot;Independent menu&quot;)
+    if imgui.button(&quot;Show main menu&quot;) then ui.menu_visible(true) end
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-imgui-controls"><summary>ImGui controls<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-imgui-controls" aria-label="Link to ImGui controls"># Permalink</a><pre><code class="language-lua">local amount, enabled, text = 50, false, &quot;Hello&quot;
+ui.window(&quot;example&quot;, &quot;Controls&quot;, {}, function()
+    local changed
+    changed, enabled = imgui.checkbox(&quot;Enabled&quot;, enabled)
+    changed, amount = imgui.slider_float(&quot;Amount&quot;, amount, 0, 100)
+    changed, text = imgui.input_text(&quot;Text&quot;, text)
+end)
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return / behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>imgui.text(text)</code></td>
+<td>Unwrapped text; treats the string as text, not a printf format.</td>
+</tr>
+<tr>
+<td><code>imgui.text_colored(text, rgba)</code></td>
+<td>Colored text.</td>
+</tr>
+<tr>
+<td><code>imgui.button(label [, width, height])</code></td>
+<td>Returns true on activation; dimensions default to automatic.</td>
+</tr>
+<tr>
+<td><code>ui.selectable(label, selected [, width, height])</code></td>
+<td>Plain text row using the host selection highlight. Returns true on mouse activation; selection remains caller-owned. Zero dimensions use available width and text height.</td>
+</tr>
+<tr>
+<td><code>imgui.checkbox(label, value)</code></td>
+<td>Returns changed, boolean.</td>
+</tr>
+<tr>
+<td><code>imgui.slider_float(label, value, min, max[, options])</code></td>
+<td>Returns changed, number. Optional <code>{style=&quot;track&quot;}</code> uses a slim track and separate value.</td>
+</tr>
+<tr>
+<td><code>imgui.slider_int(label, value, min, max[, options])</code></td>
+<td>Returns changed, integer-valued number. Optional <code>{style=&quot;track&quot;}</code> uses a slim track and separate value.</td>
+</tr>
+<tr>
+<td><code>imgui.input_text(label, text)</code></td>
+<td>Returns changed, string; maximum 4095 bytes.</td>
+</tr>
+<tr>
+<td><code>imgui.combo(label, index, items)</code></td>
+<td>Returns changed, selected index. Indices start at 1; 1-128 items.</td>
+</tr>
+<tr>
+<td><code>imgui.color_edit(label, rgba)</code></td>
+<td>Returns changed, RGBA table.</td>
+</tr>
+<tr>
+<td><code>imgui.same_line([spacing, local_x])</code></td>
+<td>Places the next item on the same line; default style spacing.</td>
+</tr>
+<tr>
+<td><code>imgui.separator()</code></td>
+<td>Separator line.</td>
+</tr>
+<tr>
+<td><code>imgui.spacing([height])</code></td>
+<td>Vertical space; default 4 physical pixels.</td>
+</tr>
+<tr>
+<td><code>imgui.tooltip(text)</code></td>
+<td>Tooltip when the preceding item is hovered.</td>
+</tr>
+<tr>
+<td><code>imgui.progress(fraction)</code></td>
+<td>Progress bar; fraction is clamped to 0-1.</td>
+</tr>
+<tr>
+<td><code>imgui.available()</code></td>
+<td>Returns available content width, height.</td>
+</tr>
+<tr>
+<td><code>imgui.cursor()</code></td>
+<td>Returns cursor x, y in screen coordinates.</td>
+</tr>
+<tr>
+<td><code>imgui.set_cursor(x, y)</code></td>
+<td>Sets the next cursor position in window-local coordinates.</td>
+</tr>
+<tr>
+<td><code>imgui.is_item_hovered()</code></td>
+<td>Returns whether the preceding item is hovered.</td>
+</tr>
+<tr>
+<td><code>imgui.child(id, width, height, draw [, options])</code></td>
+<td>Scoped scrollable child; 0 uses remaining size. Options: border, padding (retain WindowPadding without a visible border), horizontal_scroll.</td>
+</tr>
+<tr>
+<td><code>imgui.disabled(boolean, draw)</code></td>
+<td>Scoped disabled controls.</td>
+</tr>
+<tr>
+<td><code>imgui.with_style(colors, draw)</code></td>
+<td>Scoped color overrides, restored even after callback errors.</td>
+</tr>
+<tr>
+<td><code>imgui.window(title, options, draw)</code></td>
+<td>Scoped independent ImGui window.</td>
+</tr>
+</tbody></table></div></div></details>
+<details class="reference-entry" id="ui-selectable-catalog-rows"><summary>Selectable catalog rows<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-selectable-catalog-rows" aria-label="Link to Selectable catalog rows"># Permalink</a><pre><code class="language-lua">local selected = 1
+local catalog = {&quot;Crowbar&quot;, &quot;Health kit&quot;}
+ui.tab(&quot;catalog&quot;, &quot;Spawner&quot;, function()
+    ui.group(&quot;Items&quot;, function()
+        for index, label in ipairs(catalog) do
+            if ui.selectable(label .. &quot;##item_&quot; .. index, selected == index) then
+                selected = index
+            end
+        end
+        imgui.disabled(true, function()
+            ui.selectable(&quot;Unavailable item&quot;, false)
+        end)
+    end)
+    if ui.button(&quot;Spawn item&quot;) then
+        print(&quot;Spawn requested for &quot; .. catalog[selected])
+        -- Invoke the host&#39;s actual spawn API here.
+    end
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-overlays-and-drawing"><summary>Overlays and drawing<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-overlays-and-drawing" aria-label="Link to Overlays and drawing"># Permalink</a><pre><code class="language-lua">ui.overlay(&quot;status&quot;, function()
+    local width, height = engine.viewport()
+    render.rect(20, height - 60, 240, 36, {0.05, 0.07, 0.09, 0.9}, true, 4)
+    render.text(30, height - 51, &quot;Lua overlay&quot;, {0.4, 0.8, 1, 1}, 14)
+end)
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Arguments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>render.text(x, y, text, rgba [, size])</code></td>
+<td>Text; size defaults to 13 and is limited to 8-80.</td>
+</tr>
+<tr>
+<td><code>render.line(x1, y1, x2, y2, rgba [, thickness])</code></td>
+<td>Line; default thickness 1.</td>
+</tr>
+<tr>
+<td><code>render.rect(x, y, width, height, rgba [, filled, rounding])</code></td>
+<td>Filled or outlined rectangle; default outline, rounding 0.</td>
+</tr>
+<tr>
+<td><code>render.circle(x, y, radius, rgba [, filled, thickness])</code></td>
+<td>Filled or outlined circle; default outline, thickness 1.</td>
+</tr>
+</tbody></table></div></div></details>
+<details class="reference-entry" id="ui-themes-and-ui-overrides"><summary>Themes and UI overrides<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-themes-and-ui-overrides" aria-label="Link to Themes and UI overrides"># Permalink</a><pre><code class="language-lua">ui.theme {
+    rounding = 5,
+    colors = {
+        WindowBg = {0.06, 0.07, 0.1, 1},
+        Text = {0.9, 0.92, 1, 1},
+        CheckMark = {0.75, 0.4, 1, 1},
+        SliderGrab = {0.75, 0.4, 1, 1},
+        Button = {0.22, 0.15, 0.32, 1},
+        ButtonHovered = {0.32, 0.22, 0.45, 1}
+    }
+}
+</code></pre>
+<pre><code class="language-lua">ui.override(&quot;settings/interface&quot;, function()
+    imgui.text(&quot;My replacement settings page&quot;)
+    if imgui.button(&quot;Log&quot;) then print(&quot;Replacement works&quot;) end
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-events-and-host-information"><summary>Events and host information<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-events-and-host-information" aria-label="Link to Events and host information"># Permalink</a><pre><code class="language-lua">events.on(&quot;update&quot;, function()
+    -- Read feature state and call a project-provided API here.
+end)
+events.on(&quot;shutdown&quot;, function()
+    print(&quot;Cleaning up my script&quot;)
+end)
+</code></pre>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Return</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>engine.time()</code></td>
+<td>ImGui elapsed time in seconds.</td>
+</tr>
+<tr>
+<td><code>engine.delta_time()</code></td>
+<td>Frame delta in seconds.</td>
+</tr>
+<tr>
+<td><code>engine.fps()</code></td>
+<td>ImGui&#39;s smoothed frame rate.</td>
+</tr>
+<tr>
+<td><code>engine.viewport()</code></td>
+<td>Host viewport width, height.</td>
+</tr>
+<tr>
+<td><code>print(...)</code>, <code>base.log(...)</code></td>
+<td>Write to the shared console.</td>
+</tr>
+</tbody></table></div></div></details>
+<details class="reference-entry" id="ui-porting-and-game-specific-apis"><summary>Porting and game-specific APIs<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-porting-and-game-specific-apis" aria-label="Link to Porting and game-specific APIs"># Permalink</a><pre><code class="language-cpp">extern &quot;C&quot; {
+#include &quot;lua.h&quot;
+#include &quot;lauxlib.h&quot;
+}
+
+app.scripts().registerHostApi = [](lua_State* L) {
+    lua_newtable(L);
+    lua_pushcfunction(L, [](lua_State* state) -&gt; int {
+        lua_pushstring(state, &quot;My Game&quot;);
+        return 1;
+    });
+    lua_setfield(L, -2, &quot;name&quot;);
+    lua_setglobal(L, &quot;game&quot;);
+};
+</code></pre>
+<pre><code class="language-cpp">app.scripts().run(source, app.features(), logCallback, &quot;My Script&quot;);
+auto names = app.scripts().running();
+app.scripts().stop(&quot;My Script&quot;);
+app.scripts().stopAll();
+app.navigateScript(&quot;lua:My Script:tools&quot;, &quot;lua:My Script:general&quot;);
+app.setApiDocsVisible(true, false); // true = attach left, false = attach right
+</code></pre></div></details>
+<details class="reference-entry" id="ui-custom-product-controls"><summary>Custom product controls<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-custom-product-controls" aria-label="Link to Custom product controls"># Permalink</a><pre><code class="language-lua">local values = {features.get(&quot;aim.common&quot;), features.get(&quot;aim.special&quot;)}
+local changed, selected = ui.multi_combo(&quot;Targets&quot;, values, {&quot;Common infected&quot;, &quot;Special infected&quot;})
+if changed then
+    features.set(&quot;aim.common&quot;, selected[1])
+    features.set(&quot;aim.special&quot;, selected[2])
+end
+</code></pre></div></details>
+<details class="reference-entry" id="ui-entity-colors"><summary>Entity colors<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-entity-colors" aria-label="Link to Entity colors"># Permalink</a><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Signature</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>esp_colors.available()</code></td>
+<td>Returns whether the host registered classification color support.</td>
+</tr>
+<tr>
+<td><code>esp_colors.categories()</code></td>
+<td>Returns the 13 stable category IDs in display order.</td>
+</tr>
+<tr>
+<td><code>esp_colors.enabled([boolean])</code></td>
+<td>Reads or sets the category master. Unsupported hosts return false; writes fail.</td>
+</tr>
+<tr>
+<td><code>esp_colors.get(category)</code></td>
+<td>Returns enabled, color, second_color and tint_fill; returns nil without host support.</td>
+</tr>
+<tr>
+<td><code>esp_colors.set(category, settings)</code></td>
+<td>Atomically applies supplied fields. RGBA arrays require exactly four finite numbers from 0 to 1.</td>
+</tr>
+<tr>
+<td><code>esp_colors.reset([category])</code></td>
+<td>Resets one category, or all categories and the master when omitted.</td>
+</tr>
+<tr>
+<td><code>ui.entity_colors()</code></td>
+<td>Draws the category dropdown inline inside a Filters group. Non-Global categories expose Override global; enabled overrides show a color picker and settings popup. Returns false without host support.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-lua">if esp_colors.available() then
+    esp_colors.set(&quot;npc_friendly&quot;, {
+        enabled = true,
+        color = {0.2, 0.9, 0.4, 1},
+        second_color = {0.1, 0.5, 0.2, 1},
+        tint_fill = false
+    })
+    ui.window(&quot;entity_colors&quot;, &quot;Entity colors&quot;, function()
+        ui.group(&quot;Filters&quot;, function() ui.entity_colors() end)
+    end)
+end
+</code></pre></div></details>
+<details class="reference-entry" id="ui-native-controls"><summary>Native controls<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-native-controls" aria-label="Link to Native controls"># Permalink</a><pre><code class="language-lua">local changed, enabled = imgui.checkbox(&quot;Enabled&quot;, enabled)
+imgui.set_next_item_width(140)
+changed, amount = imgui.slider_float(&quot;Amount&quot;, amount, 0, 1)
+changed, count = imgui.slider_int(&quot;Count&quot;, count, 0, 10)
+changed, choice = imgui.combo(&quot;Mode&quot;, choice, {&quot;First&quot;, &quot;Second&quot;})
+changed, amount = imgui.drag_float(&quot;Drag&quot;, amount, 0, 1, 0.01)
+changed, count = imgui.drag_int(&quot;Count&quot;, count, 0, 100, 1)
+if imgui.radio_button(&quot;Mode A&quot;, choice == 1) then choice = 1 end
+imgui.text_wrapped(&quot;A longer description that wraps within the current layout.&quot;)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-themed-widgets"><summary>Themed widgets<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-themed-widgets" aria-label="Link to Themed widgets"># Permalink</a><pre><code class="language-lua">-- widgets and ui.widgets are the same table. Legacy ui.* names remain compatible.
+local changed, enabled = widgets.toggle(&quot;Enabled&quot;, enabled)
+changed, amount = widgets.slider(&quot;Amount&quot;, amount, 0, 1)
+changed, count = widgets.slider_int(&quot;Count&quot;, count, 0, 10)
+changed, choice = widgets.combo(&quot;Mode&quot;, choice, {&quot;First&quot;, &quot;Second&quot;})
+changed, selected = widgets.multi_combo(&quot;Targets&quot;, selected, {&quot;One&quot;, &quot;Two&quot;})
+if widgets.button(&quot;Apply&quot;) then print(&quot;Applied&quot;) end
+widgets.columns(2, function()
+    widgets.group(&quot;First&quot;, function() widgets.toggle(&quot;Example&quot;, false) end)
+    widgets.next_column()
+    widgets.group(&quot;Second&quot;, function() imgui.text(&quot;Shared theme&quot;) end)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-imgui-table-and-columns"><summary>imgui.table and columns<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-imgui-table-and-columns" aria-label="Link to imgui.table and columns"># Permalink</a><pre><code class="language-lua">imgui.table(&quot;layout&quot;, 2, {borders=false, resizable=true, row_bg=false,
+    width=0, height=0, scroll_y=false}, function()
+    -- Width is a stretch weight unless fixed=true. Setup precedes any rows.
+    imgui.table_setup_column(&quot;Controls&quot;, 1, false)
+    imgui.table_setup_column(&quot;Preview&quot;, 1, false)
+    imgui.table_headers_row()
+    imgui.table_next_row(24) -- optional minimum row height
+    imgui.table_next_column()
+    imgui.text(&quot;Column one&quot;)
+    imgui.table_set_column(2) -- one-based
+    imgui.child(&quot;preview&quot;, 0, 100, function() imgui.text(&quot;Column two&quot;) end,
+        {border=true, horizontal_scroll=true})
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-groups-ids-and-placement"><summary>Groups, IDs and placement<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-groups-ids-and-placement" aria-label="Link to Groups, IDs and placement"># Permalink</a><pre><code class="language-lua">imgui.with_id(&quot;unique_scope&quot;, function()
+    imgui.group(function()
+        local x,y = imgui.cursor_local()
+        imgui.set_cursor(x+8,y)
+        imgui.button(&quot;Repeated label&quot;)
+        imgui.same_line(8)
+        imgui.dummy(12,24)
+    end)
+end)
+local screenX,screenY = imgui.cursor()
+imgui.set_cursor_screen(screenX,screenY)
+local width,height = imgui.available()
+local windowX,windowY = imgui.window_pos()
+local windowWidth,windowHeight = imgui.window_size()
+local textWidth,textHeight = imgui.text_size(&quot;Measure me&quot;)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-imgui-with-font-size"><summary>imgui.with_font_size<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-imgui-with-font-size" aria-label="Link to imgui.with_font_size"># Permalink</a><pre><code class="language-lua">imgui.with_font_size(14, function()
+    imgui.text(&quot;Readable standalone text&quot;)
+    imgui.checkbox(&quot;Enabled&quot;, true)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-imgui-with-style-vars"><summary>imgui.with_style_vars<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-imgui-with-style-vars" aria-label="Link to imgui.with_style_vars"># Permalink</a><pre><code class="language-lua">imgui.with_style_vars({WindowPadding={8,8},FramePadding={4,2},ItemSpacing={5,3},
+    CellPadding={4,3},WindowRounding=3,FrameRounding=0,GrabMinSize=9},function()
+    imgui.button(&quot;Compact&quot;)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-tabs-and-trees"><summary>Tabs and trees<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-tabs-and-trees" aria-label="Link to Tabs and trees"># Permalink</a><pre><code class="language-lua">imgui.tab_bar(&quot;pages&quot;,function()
+    imgui.tab_item(&quot;Main&quot;,function() imgui.text(&quot;Main page&quot;) end)
+    imgui.tab_item(&quot;Settings&quot;,function() imgui.text(&quot;Settings page&quot;) end)
+end)
+imgui.tree(&quot;Details&quot;,function() imgui.text(&quot;Expanded details&quot;) end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-hit-targets-and-input"><summary>Hit targets and input<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-hit-targets-and-input" aria-label="Link to Hit targets and input"># Permalink</a><pre><code class="language-lua">local x,y = imgui.cursor()
+if imgui.invisible_button(&quot;custom_toggle&quot;, 120, 24) then enabled = not enabled end
+local hovered,active = imgui.is_item_hovered(),imgui.is_item_active()
+local x1,y1,x2,y2 = imgui.item_rect()
+local mouseX,mouseY = imgui.mouse_pos()
+local deltaX,deltaY = imgui.mouse_delta()
+local down = imgui.is_mouse_down(0) -- 0 left, 1 right, 2 middle, 3/4 extra
+local clicked,released = imgui.is_mouse_clicked(0),imgui.is_mouse_released(0)
+local itemClicked = imgui.is_item_clicked(0)
+draw.rect(x,y+4,30,16,enabled and {0.5,0.8,0.2,1} or {0.2,0.2,0.2,1},true,8)
+draw.circle(x+(enabled and 22 or 8),y+12,5,{1,1,1,1},true)
+draw.text(x+40,y+5,&quot;Custom toggle&quot;,{1,1,1,1},13)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-window-drawing-and-clipping"><summary>Window drawing and clipping<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-window-drawing-and-clipping" aria-label="Link to Window drawing and clipping"># Permalink</a><pre><code class="language-lua">-- Screen coordinates. draw.* uses the current window&#39;s draw list and clipping.
+-- render.* retains the existing foreground overlay behavior.
+draw.text(x,y,&quot;Label&quot;,{1,1,1,1},13)
+draw.line(x,y,x+100,y,{0.5,0.8,0.2,1},2)
+draw.rect(x,y,100,30,{0.1,0.1,0.1,1},true,4)
+draw.circle(x+12,y+12,8,{1,1,1,1},false,2)
+draw.triangle(x,y,x+12,y,x+6,y+8,{1,1,1,1},true,1)
+imgui.with_clip_rect(x,y,x+100,y+30,function()
+    draw.text(x,y,&quot;Clipped content&quot;,{1,1,1,1},13)
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-custom-dropdowns-and-popups"><summary>Custom dropdowns and popups<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-custom-dropdowns-and-popups" aria-label="Link to Custom dropdowns and popups"># Permalink</a><pre><code class="language-lua">if imgui.button(&quot;Custom dropdown&quot;) then imgui.open_popup(&quot;choices&quot;) end
+imgui.popup(&quot;choices&quot;,function()
+    if imgui.selectable(&quot;First&quot;,choice==1) then choice=1 end
+    if imgui.selectable(&quot;Second&quot;,choice==2) then choice=2 end
+    -- selectable(label, selected [, width, height, keep_open])
+    -- With keep_open=true, Lua can build a multi-select list.
+end)
+imgui.combo_custom(&quot;Custom combo&quot;,tostring(choice),function()
+    if imgui.button(&quot;Use first&quot;) then choice=1;imgui.close_popup() end
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="ui-slim-slider-appearance"><summary>Slim slider appearance<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-slim-slider-appearance" aria-label="Link to Slim slider appearance"># Permalink</a><pre><code class="language-lua">imgui.set_next_item_width(170)
+changed, amount = imgui.slider_float(&quot;Amount&quot;, amount, 0, 1, {style=&quot;track&quot;})
+changed, count = imgui.slider_int(&quot;Count&quot;, count, 0, 100, {style=&quot;track&quot;})
+-- Default / {style=&quot;native&quot;}: standard Dear ImGui slider.
+-- Track: drag to adjust; click the value / Ctrl-click to type.
+-- Arrow adjustment is available when the host enables ImGui keyboard navigation.
+-- Track numeric entry clamps to the supplied range. Colors and sizing use ImGui style.
+</code></pre></div></details>
+<details class="reference-entry" id="ui-compact-example-gui"><summary>Compact example GUI<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-compact-example-gui" aria-label="Link to Compact example GUI"># Permalink</a><pre><code class="language-lua">-- Run ImGui Demo.lua from Lua &gt; Scripts; F10 toggles visibility.
+-- Main: native ImGui widgets aligned in titled panels and responsive columns.
+-- Visuals: Lua-drawn toggles, slider and dropdown contents with a live local preview.
+-- Settings: accent/footer preferences and optional widgets.* controls.
+</code></pre></div></details></section><footer><a href="/docs/tf2/">Script examples</a><a href="/guides/tf2/">Scooby Wiki</a><a href="#main-content">Back to top ↑</a></footer></main></body></html>

@@ -1,0 +1,15 @@
+{
+  "api_revision": "2026.10.1",
+  "runtime": "LuaJIT (existing pinned backend)",
+  "lua54": false,
+  "samurai_drop_in": false,
+  "source_files": {
+    "examples/lua/Vesper.lua": "807b76d4e6ccd72cfc6e95932b5c6c3b9fb774624a58a74da19f3ff6eb030f79",
+    "examples/lua/Vesper/assets.lua": "7c1fba3a569a5a9d3a2a60806f1da17a51b78ea853bb0bfac306f5abf0b79ca7",
+    "examples/lua/Vesper/host.lua": "52fddbf911f0a9fdd791a373a1e258c29f500c8da5a4c10f94acf3f276ff76d4",
+    "examples/lua/Vesper/model.lua": "b7afe2502f4c92d1ce3d295ee6b75d27be2f1410c88b79d8a886ca9f5eddb966",
+    "examples/lua/Vesper/README.md": "b5aeab52e4e6e818e440131fd6614b4facb2bf0ee234fb269d1c6c779494538c",
+    "examples/lua/Vesper/ui.lua": "9e193b4cfba5590d1d11f22d5beae105d416cff425ba2092e63c2f80bb76324b"
+  },
+  "reference_sha256": "93afd80561d20cbeb773f297178c5e2dbb291e59440071c2410a95e6b2551b28"
+}

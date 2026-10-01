@@ -46,28 +46,50 @@
 <a class="entry" href="#host-tf2-capabilities">tf2.capabilities()</a>
 <a class="entry" href="#host-tf2-session">tf2.session()</a>
 <a class="entry" href="#host-tf2-local-player">tf2.local_player()</a>
+<a class="entry" href="#host-tf2-active-weapon">tf2.active_weapon()</a>
+<a class="entry" href="#host-tf2-players-filter">tf2.players([filter])</a>
 <a class="entry" href="#host-tf2-entities-filter">tf2.entities([filter])</a>
 <a class="entry" href="#host-tf2-entity-handle">tf2.entity(handle)</a>
 <a class="entry" href="#host-tf2-bones-handle">tf2.bones(handle)</a>
 <a class="entry" href="#host-tf2-condition-handle-index">tf2.condition(handle, index)</a>
+<a class="entry" href="#host-tf2-conditions-handle">tf2.conditions(handle)</a>
 <a class="entry" href="#host-tf2-camera">tf2.camera()</a>
 <a class="entry" href="#host-tf2-world-to-screen-position">tf2.world_to_screen(position)</a>
 <a class="entry" href="#host-tf2-screen-box-handle">tf2.screen_box(handle)</a>
 <a class="entry" href="#host-tf2-setting-id-field-value">tf2.setting(id, field [, value])</a>
+<a class="entry" href="#host-tf2-feature-info-id">tf2.feature_info(id)</a>
 <a class="entry" href="#host-tf2-has-feature-id">tf2.has_feature(id)</a>
 <a class="entry" href="#host-tf2-keybind-id-action-mode">tf2.keybind(id [, action [, mode]])</a>
-<a class="entry" href="#host-tf2-object-preview-kind-chams">tf2.object_preview(kind, chams)</a>
-<a class="entry" href="#host-tf2-model-preview-chams">tf2.model_preview(chams)</a>
+<a class="entry" href="#host-tf2-object-preview-kind-chams-layer">tf2.object_preview(kind, chams [, layer])</a>
+<a class="entry" href="#host-tf2-model-preview-chams-layer">tf2.model_preview(chams [, layer])</a>
+<a class="entry" href="#host-tf2-chams-preview-controls-layer-player-settings">tf2.chams_preview_controls(layer, player_settings)</a>
 <a class="entry" href="#host-tf2-class-name-id-tf2-team-name-id">tf2.class_name(id), tf2.team_name(id)</a>
+<a class="entry" href="#host-tf2-classes-tf2-teams">tf2.classes(), tf2.teams()</a>
+<a class="entry" href="#host-tf2-angle-forward-angles">tf2.angle_forward(angles)</a>
+<a class="entry" href="#host-tf2-time-to-ticks-seconds-tf2-ticks-to-time-ticks">tf2.time_to_ticks(seconds), tf2.ticks_to_time(ticks)</a>
 <a class="entry" href="#host-tf2-vec">tf2.vec</a>
 <a class="entry" href="#host-tf2-angle-to-eye-point-tf2-angle-fov-from-to">tf2.angle_to(eye, point), tf2.angle_fov(from, to)</a>
 <a class="entry" href="#host-tf2-to-metres-units-tf2-to-units-metres">tf2.to_metres(units), tf2.to_units(metres)</a>
-<a class="entry" href="#host-built-in-feature-families">Built-in feature families</a></div><div class="nav-group" data-section="classified"><a class="sect" href="#classified">Classified additions & overrides</a><a class="entry" href="#classified-built-in-feature-families">Built-in feature families</a>
-<a class="entry" href="#classified-tf2-skins-page-players">tf2.skins_page(players)</a></div><div class="nav-group" data-section="ui"><a class="sect" href="#ui">Shared UI API</a><a class="entry" href="#ui-getting-started">Getting started</a>
+<a class="entry" href="#host-built-in-feature-families">Built-in feature families</a>
+<a class="entry" href="#host-tf2-capture-feature-options-policy">tf2.capture.feature(options, policy)</a>
+<a class="entry" href="#host-tf2-capture-enabled-boolean">tf2.capture.enabled([boolean])</a>
+<a class="entry" href="#host-tf2-capture-status">tf2.capture.status()</a>
+<a class="entry" href="#host-tf2-capture-policy-id">tf2.capture.policy(id)</a>
+<a class="entry" href="#host-events-on-capture-protection-changed-callback">events.on(&#39;capture_protection_changed&#39;, callback)</a>
+<a class="entry" href="#host-tf2-capture-page">tf2.capture_page()</a>
+<a class="entry" href="#host-tf2-capture-scope-feature-id-callback">tf2.capture_scope([feature_id,] callback)</a>
+<a class="entry" href="#host-settings-capture-protection">settings.capture_protection</a>
+<a class="entry" href="#host-features-set-view-thirdperson-enabled"><code>features.set(&quot;view.thirdperson&quot;, enabled)</code></a>
+<a class="entry" href="#host-tf2-setting-view-thirdperson-shoulder-distance-units"><code>tf2.setting(&quot;view.thirdperson_shoulder&quot;, &quot;distance&quot;, units)</code></a>
+<a class="entry" href="#host-features-set-vfx-no-fog-enabled"><code>features.set(&quot;vfx.no_fog&quot;, enabled)</code></a>
+<a class="entry" href="#host-features-set-vfx-remove-lt-effect-gt-enabled"><code>features.set(&quot;vfx.remove.&lt;effect&gt;&quot;, enabled)</code></a>
+<a class="entry" href="#host-features-set-vfx-pure-bypass-enabled"><code>features.set(&quot;vfx.pure_bypass&quot;, enabled)</code></a>
+<a class="entry" href="#host-free-camera-and-movement-assists">Free camera and movement assists</a></div><div class="nav-group" data-section="ui"><a class="sect" href="#ui">Shared UI API</a><a class="entry" href="#ui-getting-started">Getting started</a>
 <a class="entry" href="#ui-localization">Localization</a>
 <a class="entry" href="#ui-lua-console-diagnostics">Lua console diagnostics</a>
 <a class="entry" href="#ui-register-a-feature">Register a feature</a>
 <a class="entry" href="#ui-read-and-change-features">Read and change features</a>
+<a class="entry" href="#ui-capture-protection">Capture Protection</a>
 <a class="entry" href="#ui-independent-health-overlays">Independent health overlays</a>
 <a class="entry" href="#ui-inline-key-capture">Inline key capture</a>
 <a class="entry" href="#ui-tabs-and-sub-tabs">Tabs and sub-tabs</a>
@@ -92,13 +114,14 @@
 <a class="entry" href="#ui-window-drawing-and-clipping">Window drawing and clipping</a>
 <a class="entry" href="#ui-custom-dropdowns-and-popups">Custom dropdowns and popups</a>
 <a class="entry" href="#ui-slim-slider-appearance">Slim slider appearance</a>
-<a class="entry" href="#ui-compact-example-gui">Compact example GUI</a></div><div class="resources"><a href="/docs/tf2/">TF2 scripts &amp; examples ↗</a><a href="/guides/tf2/">TF2 setup guide ↗</a><a href="/products/tf2/">Product page ↗</a><a href="/docs/">All references ↗</a></div></nav></aside><main class="content" id="main-content" tabindex="-1"><header class="page-header"><p class="page-title">Scooby <span>API Reference</span></p><h1>TF2 Lua API</h1><p class="version">Retail &amp; Classified <span>Host API 1.0 · UI API 1.1</span></p><div class="quick-links"><a href="/docs/tf2/">Start scripting</a><a href="/docs/tf2/game-api.md" download>Host contract</a><a href="/docs/tf2/ui-api.md" download>UI contract</a></div></header><p id="no-results" hidden>No matching API entries. Try <code>tf2.entities</code> or clear your search.</p><section class="reference-section lua-reference" id="host"><header><h2>TF2 host API</h2><a class="download-source" href="/docs/tf2/game-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="host-tf2-info"><summary>tf2.info()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-info" aria-label="Link to tf2.info()"># Permalink</a><pre><code class="language-lua">-- -&gt; {api_version, game_id, game, map, preview, sequence, generation,
+<a class="entry" href="#ui-compact-example-gui">Compact example GUI</a></div><div class="resources"><a href="/docs/tf2/">TF2 scripts &amp; examples ↗</a><a href="/guides/tf2/">TF2 setup guide ↗</a><a href="/features-list/tf2-features/">View all features ↗</a><a href="/products/tf2/">Product page ↗</a><a href="/docs/">All references ↗</a></div></nav></aside><main class="content" id="main-content" tabindex="-1"><header class="page-header"><p class="page-title">Scooby <span>API Reference</span></p><h1>TF2 Lua API</h1><p class="version">Retail &amp; Classified <span>Host API 1.2 · UI API 1.1</span></p><div class="quick-links"><a href="/docs/tf2/">Start scripting</a><a href="/docs/tf2/game-api.md" download>Host contract</a><a href="/docs/tf2/ui-api.md" download>UI contract</a></div></header><p id="no-results" hidden>No matching API entries. Try <code>tf2.entities</code> or clear your search.</p><section class="reference-section lua-reference" id="host"><header><h2>TF2 host API</h2><a class="download-source" href="/docs/tf2/game-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="host-tf2-info"><summary>tf2.info()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-info" aria-label="Link to tf2.info()"># Permalink</a><pre><code class="language-lua">-- -&gt; {api_version, game_id, game, map, preview, sequence, generation,
 --     engine_time, tick_interval}
 local info=tf2.info()
 print(info.game,info.map,info.api_version)
 </code></pre></div></details>
 <details class="reference-entry" id="host-tf2-capabilities"><summary>tf2.capabilities()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capabilities" aria-label="Link to tf2.capabilities()"># Permalink</a><pre><code class="language-lua">-- -&gt; {snapshots, projection, settings, shared_ui, four_teams,
---     civilian, mvm, viewmodel_offsets, native_hooks}
+--     civilian, mvm, viewmodel_offsets, native_hooks, entity_filters,
+--     active_weapon, condition_list, feature_info, tick_math, capture_features}
 local caps=tf2.capabilities()
 if caps.civilian then print(tf2.class_name(10)) end
 </code></pre></div></details>
@@ -111,7 +134,22 @@ if state.data_available then print(state.entity_count) end
 local me=tf2.local_player()
 if me then print(me.class_name,me.health,me.speed) end
 </code></pre></div></details>
-<details class="reference-entry" id="host-tf2-entities-filter"><summary>tf2.entities([filter])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-entities-filter" aria-label="Link to tf2.entities([filter])"># Permalink</a><pre><code class="language-lua">-- filter = {kind=&#39;all&#39;, relationship=&#39;all&#39;, max_distance=metres}
+<details class="reference-entry" id="host-tf2-active-weapon"><summary>tf2.active_weapon()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-active-weapon" aria-label="Link to tf2.active_weapon()"># Permalink</a><pre><code class="language-lua">-- -&gt; {handle, item_id, sequence, generation} or nil
+-- Local active weapon from the same snapshot as local_player().
+-- nil without a resolved item ID/handle, or without available game data.
+local weapon=tf2.active_weapon()
+if weapon then print(weapon.handle,weapon.item_id) end
+-- No ammo, attributes, weapon ownership or inventory changes are implied.
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-players-filter"><summary>tf2.players([filter])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-players-filter" aria-label="Link to tf2.players([filter])"># Permalink</a><pre><code class="language-lua">-- Same filters and copied fields as entities(), restricted to player kind.
+-- Local player remains available separately through local_player().
+for _,p in ipairs(tf2.players{team=2,class_id=3,limit=8}) do
+    print(p.class_name,p.name,p.model)
+end
+-- Capture order is preserved; limit does not sort by distance.
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-entities-filter"><summary>tf2.entities([filter])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-entities-filter" aria-label="Link to tf2.entities([filter])"># Permalink</a><pre><code class="language-lua">-- Optional filter fields: kind, relationship, max_distance (metres),
+-- team (integer), class_id (integer), type (exact host type), limit (0..8192).
 for _,entity in ipairs(tf2.entities{kind=&#39;player&#39;,relationship=&#39;enemy&#39;,max_distance=150}) do
     print(entity.handle,entity.name,entity.distance_m)
 end
@@ -127,6 +165,14 @@ if entities[1] then print(#tf2.bones(entities[1].handle)) end
 <details class="reference-entry" id="host-tf2-condition-handle-index"><summary>tf2.condition(handle, index)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-condition-handle-index" aria-label="Link to tf2.condition(handle, index)"># Permalink</a><pre><code class="language-lua">-- index 0..159 -&gt; boolean; false for unavailable/non-player data
 local entities=tf2.entities{kind=&#39;player&#39;}
 if entities[1] then print(tf2.condition(entities[1].handle,4)) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-conditions-handle"><summary>tf2.conditions(handle)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-conditions-handle" aria-label="Link to tf2.conditions(handle)"># Permalink</a><pre><code class="language-lua">-- -&gt; ascending array of active numeric condition indices (0..159).
+-- Empty for missing/non-player data, preview, Stop or an unavailable session.
+local players=tf2.players{limit=1}
+if players[1] then
+    for _,index in ipairs(tf2.conditions(players[1].handle)) do print(index) end
+end
+-- Indices retain each edition&#39;s meaning; no cross-edition names are assumed.
 </code></pre></div></details>
 <details class="reference-entry" id="host-tf2-camera"><summary>tf2.camera()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-camera" aria-label="Link to tf2.camera()"># Permalink</a><pre><code class="language-lua">-- -&gt; {position, angles, width, height} or nil
 local camera=tf2.camera()
@@ -153,25 +199,56 @@ local old=tf2.setting(&#39;view.camera_fov&#39;,&#39;distance&#39;)
 tf2.setting(&#39;view.camera_fov&#39;,&#39;distance&#39;,100)
 features.set(&#39;view.camera_fov&#39;,true)
 </code></pre></div></details>
+<details class="reference-entry" id="host-tf2-feature-info-id"><summary>tf2.feature_info(id)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-feature-info-id" aria-label="Link to tf2.feature_info(id)"># Permalink</a><pre><code class="language-lua">-- -&gt; copied {id,label,category,enabled,independent_activation,style,style_count,
+--            distance,distance_min,distance_max,blocked,blocked_reason} or nil
+-- blocked_reason is absent when unlocked; unknown IDs return nil.
+local f=tf2.feature_info(&#39;view.camera_fov&#39;)
+if f then print(f.distance_min,f.distance_max,f.blocked_reason) end
+-- Host numeric slots use the feature&#39;s own units. Editing this table does not
+-- change settings; setting()/features.set() still enforce host policy locks.
+</code></pre></div></details>
 <details class="reference-entry" id="host-tf2-has-feature-id"><summary>tf2.has_feature(id)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-has-feature-id" aria-label="Link to tf2.has_feature(id)"># Permalink</a><pre><code class="language-lua">-- -&gt; boolean; useful for edition-specific controls
 if tf2.has_feature(&#39;mvm.wave_panel&#39;) then features.set(&#39;mvm.wave_panel&#39;,true) end
 </code></pre></div></details>
 <details class="reference-entry" id="host-tf2-keybind-id-action-mode"><summary>tf2.keybind(id [, action [, mode]])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-keybind-id-action-mode" aria-label="Link to tf2.keybind(id [, action [, mode]])"># Permalink</a><pre><code class="language-lua">-- -&gt; key, mode, capturing, waiting
--- actions: &#39;capture&#39;, &#39;clear&#39;, &#39;mode&#39;; modes: 0 Hold, 1 Toggle, 2 Always
+-- actions: &#39;capture&#39;, &#39;clear&#39;, &#39;mode&#39;; modes: 0 Hold, 1 Toggle, 2 Always, 3 Hold off
 local key,mode=tf2.keybind(&#39;aim.key&#39;)
 print(key,mode)
 </code></pre></div></details>
-<details class="reference-entry" id="host-tf2-object-preview-kind-chams"><summary>tf2.object_preview(kind, chams)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-object-preview-kind-chams" aria-label="Link to tf2.object_preview(kind, chams)"># Permalink</a><pre><code class="language-lua">-- UI callback only. kind: &quot;weapons&quot;, &quot;health&quot;, &quot;ammo&quot;, &quot;items&quot;.
+<details class="reference-entry" id="host-tf2-object-preview-kind-chams-layer"><summary>tf2.object_preview(kind, chams [, layer])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-object-preview-kind-chams-layer" aria-label="Link to tf2.object_preview(kind, chams [, layer])"># Permalink</a><pre><code class="language-lua">-- UI callback only. kind: &quot;weapons&quot;, &quot;health&quot;, &quot;ammo&quot;, &quot;items&quot;.
 -- false uses the selected object&#39;s ESP settings; true uses chams.target.
 ui.subtab(&quot;visuals&quot;, &quot;custom.weapons&quot;, &quot;Weapons&quot;, function()
     tf2.object_preview(&quot;weapons&quot;, false)
 end)
 </code></pre></div></details>
-<details class="reference-entry" id="host-tf2-model-preview-chams"><summary>tf2.model_preview(chams)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-model-preview-chams" aria-label="Link to tf2.model_preview(chams)"># Permalink</a><pre><code class="language-lua">-- UI callback only; draws the product&#39;s actual class model preview
+<details class="reference-entry" id="host-tf2-model-preview-chams-layer"><summary>tf2.model_preview(chams [, layer])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-model-preview-chams-layer" aria-label="Link to tf2.model_preview(chams [, layer])"># Permalink</a><pre><code class="language-lua">-- UI callback only; draws the product&#39;s actual class model preview
 local tab=ui.tab(&#39;model_inspector&#39;,&#39;Model inspector&#39;)
 ui.subtab(tab,&#39;model&#39;,&#39;Model&#39;,function() tf2.model_preview(false) end)
 </code></pre></div></details>
+<details class="reference-entry" id="host-tf2-chams-preview-controls-layer-player-settings"><summary>tf2.chams_preview_controls(layer, player_settings)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-chams-preview-controls-layer-player-settings" aria-label="Link to tf2.chams_preview_controls(layer, player_settings)"># Permalink</a><pre><code class="language-lua">-- UI callback only. 1 = Visible, 2 = Invisible; returns clicked selection.
+layer = tf2.chams_preview_controls(layer, true)
+tf2.model_preview(true, layer)
+-- Object previews accept the same optional layer as their third argument.
+-- Omit layer (or pass 0) for the original combined preview.
+</code></pre></div></details>
 <details class="reference-entry" id="host-tf2-class-name-id-tf2-team-name-id"><summary>tf2.class_name(id), tf2.team_name(id)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-class-name-id-tf2-team-name-id" aria-label="Link to tf2.class_name(id), tf2.team_name(id)"># Permalink</a><pre><code class="language-lua">print(tf2.class_name(1),tf2.team_name(2)) -- Scout, RED
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-classes-tf2-teams"><summary>tf2.classes(), tf2.teams()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-classes-tf2-teams" aria-label="Link to tf2.classes(), tf2.teams()"># Permalink</a><pre><code class="language-lua">-- -&gt; independent arrays of {id,name}, ordered by numeric engine ID.
+-- Classes: retail 1..9; Classified 1..10 (Civilian).
+-- Teams include Unassigned/Spectator: retail 0..3; Classified 0..5.
+for _,c in ipairs(tf2.classes()) do print(c.id,c.name) end
+for _,t in ipairs(tf2.teams()) do print(t.id,t.name) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-angle-forward-angles"><summary>tf2.angle_forward(angles)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-angle-forward-angles" aria-label="Link to tf2.angle_forward(angles)"># Permalink</a><pre><code class="language-lua">-- {x=pitch,y=yaw,z=roll} degrees -&gt; unit Source-space {x,y,z}.
+-- Roll has no effect on the forward vector.
+local forward=tf2.angle_forward({x=0,y=90,z=0}) -- approximately {0,1,0}
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-time-to-ticks-seconds-tf2-ticks-to-time-ticks"><summary>tf2.time_to_ticks(seconds), tf2.ticks_to_time(ticks)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-time-to-ticks-seconds-tf2-ticks-to-time-ticks" aria-label="Link to tf2.time_to_ticks(seconds), tf2.ticks_to_time(ticks)"># Permalink</a><pre><code class="language-lua">-- Uses the current captured tick_interval. Never assumes a fixed tick rate.
+-- Returns nil without live data or a valid positive interval.
+-- seconds must be nonnegative; ticks must be a nonnegative integer.
+-- time_to_ticks rounds to the nearest integer, with half ticks rounded up.
+local ticks=tf2.time_to_ticks(.25)
+if ticks then print(ticks,tf2.ticks_to_time(ticks)) end
 </code></pre></div></details>
 <details class="reference-entry" id="host-tf2-vec"><summary>tf2.vec<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-vec" aria-label="Link to tf2.vec"># Permalink</a><pre><code class="language-lua">local a={x=3,y=4,z=0}
 local b={x=1,y=0,z=0}
@@ -182,6 +259,9 @@ local dot=tf2.vec.dot(a,b)
 local length=tf2.vec.length(a)
 local distance=tf2.vec.distance(a,b)
 local unit=tf2.vec.normalize(a) -- nil for near-zero length
+local cross=tf2.vec.cross(a,b) -- right-handed cross product
+local horizontal=tf2.vec.length2d(a) -- ignores Z
+local between=tf2.vec.lerp(a,b,.5) -- interpolation amount clamps to 0..1
 </code></pre></div></details>
 <details class="reference-entry" id="host-tf2-angle-to-eye-point-tf2-angle-fov-from-to"><summary>tf2.angle_to(eye, point), tf2.angle_fov(from, to)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-angle-to-eye-point-tf2-angle-fov-from-to" aria-label="Link to tf2.angle_to(eye, point), tf2.angle_fov(from, to)"># Permalink</a><pre><code class="language-lua">local angles=tf2.angle_to({x=0,y=0,z=0},{x=100,y=0,z=50})
 local degrees=tf2.angle_fov({x=0,y=0,z=0},angles)
@@ -189,7 +269,7 @@ local degrees=tf2.angle_fov({x=0,y=0,z=0},angles)
 <details class="reference-entry" id="host-tf2-to-metres-units-tf2-to-units-metres"><summary>tf2.to_metres(units), tf2.to_units(metres)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-to-metres-units-tf2-to-units-metres" aria-label="Link to tf2.to_metres(units), tf2.to_units(metres)"># Permalink</a><pre><code class="language-lua">local metres=tf2.to_metres(100)
 print(metres,tf2.to_units(metres))
 </code></pre></div></details>
-<details class="reference-entry" id="host-built-in-feature-families"><summary>Built-in feature families<span class="edition-label">Retail</span></summary><div class="entry-body"><a class="permalink" href="#host-built-in-feature-families" aria-label="Link to Built-in feature families"># Permalink</a><div class="table-wrap"><table>
+<details class="reference-entry" id="host-built-in-feature-families"><summary>Built-in feature families<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-built-in-feature-families" aria-label="Link to Built-in feature families"># Permalink</a><div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Family</th>
@@ -215,52 +295,114 @@ print(metres,tf2.to_units(metres))
 <tr>
 <td>Item ESP</td>
 <td><code>esp.world.health.*</code>, <code>esp.world.ammo.*</code>, <code>esp.world.weapons.*</code></td>
-</tr>
-<tr>
-<td>Chams targets</td>
-<td><code>chams.players</code>, <code>teammates</code>, <code>self</code>, <code>arms</code>, <code>weapon</code>, <code>world_weapon</code>, <code>buildings</code>, <code>items</code>, <code>dropped_weapons</code></td>
-</tr>
-</tbody></table></div></div></details></section>
-<section class="reference-section lua-reference" id="classified"><header><h2>Classified additions & overrides</h2><a class="download-source" href="/docs/tf2/classified-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="classified-built-in-feature-families"><summary>Built-in feature families<span class="edition-label">Classified</span></summary><div class="entry-body"><a class="permalink" href="#classified-built-in-feature-families" aria-label="Link to Built-in feature families"># Permalink</a><div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Family</th>
-<th>IDs</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Aim profiles</td>
-<td><code>aim.*</code>, <code>aim.rage.*</code>, <code>combat.profile</code></td>
-</tr>
-<tr>
-<td>Trigger profiles</td>
-<td><code>trigger.*</code>, <code>trigger.rage.*</code></td>
-</tr>
-<tr>
-<td>Movement/view</td>
-<td><code>movement.bhop</code>, <code>movement.strafe</code>, <code>view.camera_fov</code>, <code>view.model_fov</code></td>
-</tr>
-<tr>
-<td>Player ESP</td>
-<td><code>esp.*</code>, <code>esp.teammate.*</code></td>
-</tr>
-<tr>
-<td>Item ESP</td>
-<td><code>esp.world.health.*</code>, <code>esp.world.ammo.*</code>, <code>esp.world.weapons.*</code></td>
-</tr>
-<tr>
-<td>Class skins</td>
-<td><code>skins.enabled</code>, <code>skins.class</code>, <code>skins.classN.player_NAME</code>, <code>skins.classN.weapon_ITEMID</code></td>
 </tr>
 <tr>
 <td>Chams targets</td>
 <td><code>chams.players</code>, <code>teammates</code>, <code>self</code>, <code>arms</code>, <code>weapon</code>, <code>world_weapon</code>, <code>buildings</code>, <code>items</code>, <code>dropped_weapons</code></td>
 </tr>
 </tbody></table></div></div></details>
-<details class="reference-entry" id="classified-tf2-skins-page-players"><summary>tf2.skins_page(players)<span class="edition-label">Classified</span></summary><div class="entry-body"><a class="permalink" href="#classified-tf2-skins-page-players" aria-label="Link to tf2.skins_page(players)"># Permalink</a><pre><code class="language-lua">local tab=ui.tab(&quot;custom_skins&quot;,&quot;Skins&quot;)
-ui.subtab(tab,&quot;weapons&quot;,&quot;Weapons&quot;,function() tf2.skins_page(false) end)
-ui.subtab(tab,&quot;players&quot;,&quot;Players&quot;,function() tf2.skins_page(true) end)
+<details class="reference-entry" id="host-tf2-capture-feature-options-policy"><summary>tf2.capture.feature(options, policy)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capture-feature-options-policy" aria-label="Link to tf2.capture.feature(options, policy)"># Permalink</a><pre><code class="language-lua">-- Loading only. Same options/ownership as features.add; returns a feature ID.
+-- policy is required: &quot;supported&quot; or &quot;disable&quot;.
+local hud=tf2.capture.feature({id=&#39;hud&#39;,label=&#39;Custom HUD&#39;,default=true},&#39;supported&#39;)
+local effect=tf2.capture.feature({id=&#39;effect&#39;,label=&#39;Scene effect&#39;},&#39;disable&#39;)
+-- &quot;supported&quot; keeps overlay-only features available. It does not hide native
+-- rendering, audio or gameplay effects. Only declare work the overlay can protect.
+-- &quot;disable&quot; turns the feature off and locks UI/writes/actions/hotkeys while enabled.
+-- Unlocking does not turn it back on. Tuning and the declaration survive profiles.
+-- A script can only declare its own new features; built-in locks cannot be changed.
+ui.overlay(&#39;custom_hud&#39;,function()
+    if features.active(hud) then render.text(20,120,&#39;Custom HUD&#39;,{1,1,1,1}) end
+end)
+-- Standard controls automatically show the disabled blur and hover explanation:
+local tab=ui.tab(&#39;custom_capture&#39;,&#39;Custom capture&#39;)
+ui.subtab(tab,&#39;controls&#39;,&#39;Controls&#39;,function() ui.feature(effect) end)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-capture-enabled-boolean"><summary>tf2.capture.enabled([boolean])<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capture-enabled-boolean" aria-label="Link to tf2.capture.enabled([boolean])"># Permalink</a><pre><code class="language-lua">-- No argument: read the requested switch. Boolean: set and enforce immediately.
+-- Also emits the portable capture_protection_changed event on transitions.
+local previous=tf2.capture.enabled()
+-- tf2.capture.enabled(true)
+-- Enabled is not proof that the renderer/recorder supports exclusion.
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-capture-status"><summary>tf2.capture.status()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capture-status" aria-label="Link to tf2.capture.status()"># Permalink</a><pre><code class="language-lua">-- -&gt; {available,enabled,active,preview,renderer_status}
+local state=tf2.capture.status()
+print(state.enabled,state.active,state.renderer_status)
+-- active means the last reported renderer status was &quot;Active: protected overlay&quot;
+-- while enabled; it is always false in preview. This is not recorder verification.
+-- Native render status describes the last completed renderer update.
+-- Portable aliases: capture_protection.status(), .enabled(), .active().
+-- The portable status uses &quot;message&quot; for the renderer_status string.
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-capture-policy-id"><summary>tf2.capture.policy(id)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capture-policy-id" aria-label="Link to tf2.capture.policy(id)"># Permalink</a><pre><code class="language-lua">-- -&gt; &quot;supported&quot;, &quot;disable&quot;, or &quot;unclassified&quot;; unknown IDs raise an error.
+-- This reports TF2 declarations. Plain features.add Lua features are unclassified
+-- here; their portable capture_protection declaration still applies.
+print(tf2.capture.policy(&#39;chams.players.visible&#39;)) -- disable
+-- To inspect the effective current lock, use features.blocked_reason(id).
+</code></pre></div></details>
+<details class="reference-entry" id="host-events-on-capture-protection-changed-callback"><summary>events.on(&#39;capture_protection_changed&#39;, callback)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-events-on-capture-protection-changed-callback" aria-label="Link to events.on('capture_protection_changed', callback)"># Permalink</a><pre><code class="language-lua">local pending={}
+events.on(&#39;capture_protection_changed&#39;,function()
+    if capture_protection.enabled() then
+        pending={} -- Also cancel your own active effects/audio/resources here.
+    end
+end)
+events.on(&#39;shutdown&#39;,function() pending={} end)
+-- Events fire on requested on/off transitions, not every frame or renderer retry.
+-- Update/draw callbacks still run: gate feature work with features.active(id).
+-- Portable alternative to the factory:
+local id=features.add{id=&#39;scene&#39;,label=&#39;Scene effect&#39;,capture_protection=&#39;disable&#39;}
+-- capture_protection=&#39;safe&#39; opts an overlay-only feature in; omission defaults to disable.
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-capture-page"><summary>tf2.capture_page()<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capture-page" aria-label="Link to tf2.capture_page()"># Permalink</a><pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;protection&quot;, &quot;Capture Protection&quot;, function()
+    tf2.capture_page()
+end)
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-capture-scope-feature-id-callback"><summary>tf2.capture_scope([feature_id,] callback)<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-capture-scope-feature-id-callback" aria-label="Link to tf2.capture_scope([feature_id,] callback)"># Permalink</a><pre><code class="language-lua">-- UI drawing callback only; child code still runs to draw disabled controls.
+-- Optional ID uses that feature&#39;s actual policy (including supported features).
+tf2.capture_scope(&quot;chams.players.visible&quot;,function()
+    ui.feature(&quot;chams.players.visible&quot;)
+end)
+-- Legacy capture_scope(callback) always locks the group while protection is on.
+-- Keep effects in gated update callbacks; this is a drawing scope, not a sandbox.
+</code></pre></div></details>
+<details class="reference-entry" id="host-settings-capture-protection"><summary>settings.capture_protection<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-settings-capture-protection" aria-label="Link to settings.capture_protection"># Permalink</a><pre><code class="language-lua">local enabled = features.get(&quot;settings.capture_protection&quot;)
+features.set(&quot;settings.capture_protection&quot;, true)
+
+-- Protected native writes return the host&#39;s disabled-feature explanation.
+local ok, reason = pcall(features.set, &quot;chams.players.visible&quot;, true)
+if not ok then print(reason) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-features-set-view-thirdperson-enabled"><summary><code>features.set(&quot;view.thirdperson&quot;, enabled)</code><span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-features-set-view-thirdperson-enabled" aria-label="Link to features.set(&quot;view.thirdperson&quot;, enabled)"># Permalink</a><pre><code class="language-lua">features.set(&quot;view.thirdperson&quot;, true)
+tf2.setting(&quot;view.thirdperson_distance&quot;, &quot;distance&quot;, 150) -- 30..400
+features.set(&quot;view.thirdperson_collision&quot;, true)
+features.set(&quot;view.thirdperson_scoped&quot;, true) -- first person while scoped
+</code></pre></div></details>
+<details class="reference-entry" id="host-tf2-setting-view-thirdperson-shoulder-distance-units"><summary><code>tf2.setting(&quot;view.thirdperson_shoulder&quot;, &quot;distance&quot;, units)</code><span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-tf2-setting-view-thirdperson-shoulder-distance-units" aria-label="Link to tf2.setting(&quot;view.thirdperson_shoulder&quot;, &quot;distance&quot;, units)"># Permalink</a><pre><code class="language-lua">tf2.setting(&quot;view.thirdperson_shoulder&quot;, &quot;distance&quot;, 24) -- -64..64
+tf2.setting(&quot;view.thirdperson_height&quot;, &quot;distance&quot;, 12)   -- -64..64
+features.set(&quot;view.thirdperson_swap&quot;, true)
+</code></pre></div></details>
+<details class="reference-entry" id="host-features-set-vfx-no-fog-enabled"><summary><code>features.set(&quot;vfx.no_fog&quot;, enabled)</code><span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-features-set-vfx-no-fog-enabled" aria-label="Link to features.set(&quot;vfx.no_fog&quot;, enabled)"># Permalink</a><pre><code class="language-lua">features.set(&quot;vfx.no_fog&quot;, true)
+features.set(&quot;vfx.no_sky_fog&quot;, true)
+</code></pre></div></details>
+<details class="reference-entry" id="host-features-set-vfx-remove-lt-effect-gt-enabled"><summary><code>features.set(&quot;vfx.remove.&lt;effect&gt;&quot;, enabled)</code><span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-features-set-vfx-remove-lt-effect-gt-enabled" aria-label="Link to features.set(&quot;vfx.remove.&amp;lt;effect&amp;gt;&quot;, enabled)"># Permalink</a><pre><code class="language-lua">-- water, invulnerability, milk, jarate, bleeding, stealth, bonk, gas, burning
+features.set(&quot;vfx.remove.jarate&quot;, true)
+local state = tf2.feature_info(&quot;vfx.remove.jarate&quot;)
+if state.blocked then print(state.blocked_reason) end
+</code></pre></div></details>
+<details class="reference-entry" id="host-features-set-vfx-pure-bypass-enabled"><summary><code>features.set(&quot;vfx.pure_bypass&quot;, enabled)</code><span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-features-set-vfx-pure-bypass-enabled" aria-label="Link to features.set(&quot;vfx.pure_bypass&quot;, enabled)"># Permalink</a><pre><code class="language-lua">-- Applies when the engine loads its server material whitelist.
+-- Enable before joining; restart if a whitelist was already loaded.
+features.set(&quot;vfx.pure_bypass&quot;, true)
+</code></pre></div></details>
+<details class="reference-entry" id="host-free-camera-and-movement-assists"><summary>Free camera and movement assists<span class="edition-label">Retail + Classified</span></summary><div class="entry-body"><a class="permalink" href="#host-free-camera-and-movement-assists" aria-label="Link to Free camera and movement assists"># Permalink</a><pre><code class="language-lua">features.set(&quot;view.freecam&quot;, true)
+tf2.setting(&quot;view.freecam_speed&quot;, &quot;distance&quot;, 600) -- units per second, 50..2000
+tf2.setting(&quot;view.freecam_boost&quot;, &quot;distance&quot;, 2) -- Speed key multiplier, 1..5
+features.set(&quot;movement.strafe&quot;, true)
+features.set(&quot;movement.prespeed&quot;, true) -- brief acceleration before a stationary jump
+features.set(&quot;movement.rev_jump&quot;, true) -- Heavy, idle minigun, fresh secondary press
+</code></pre>
+<pre><code class="language-lua">local flight = tf2.feature_info(&quot;view.freecam&quot;)
+-- Capture Protection disables and locks free camera, preserving its tuning.
+features.set(&quot;view.freecam&quot;, false)
 </code></pre></div></details></section>
+
 <section class="reference-section lua-reference" id="ui"><header><h2>Shared UI API</h2><a class="download-source" href="/docs/tf2/ui-api.md" download>Full Markdown reference</a></header><details class="reference-entry" id="ui-getting-started"><summary>Getting started<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-getting-started" aria-label="Link to Getting started"># Permalink</a><pre><code class="language-lua">local enabled = features.add {
     id = &quot;enabled&quot;, label = &quot;My feature&quot;, default = false,
     category = &quot;My Tools&quot;, description = &quot;My custom feature&quot;, key = &quot;F8&quot;
@@ -291,6 +433,7 @@ This callback was disabled. Fix the error and run the script again.
     default = false,                -- initial enabled state
     key = &quot;F8&quot;,                     -- optional key, Toggle mode
     active_list = true,             -- include effective toggles in Active Features
+    capture_protection = &quot;disable&quot;, -- &quot;disable&quot; (default) or &quot;safe&quot;
     kind = &quot;toggle&quot;                 -- &quot;toggle&quot; or &quot;action&quot;
 }
 </code></pre>
@@ -308,7 +451,7 @@ This callback was disabled. Fix the error and run the script again.
 </thead>
 <tbody><tr>
 <td><code>features.get(id)</code></td>
-<td>Returns the saved enabled boolean, or nil for an unknown ID.</td>
+<td>Returns the saved enabled boolean (false while host/capture-blocked), or nil for an unknown ID.</td>
 </tr>
 <tr>
 <td><code>features.set(id, boolean)</code></td>
@@ -331,6 +474,10 @@ This callback was disabled. Fix the error and run the script again.
 <td>Sets RGBA color; components must be 0-1. Alpha defaults to 1.</td>
 </tr>
 <tr>
+<td><code>features.blocked_reason(id)</code></td>
+<td>Returns the host/capture blocking reason or nil. Unknown IDs are rejected.</td>
+</tr>
+<tr>
 <td><code>features.list()</code></td>
 <td>Returns an array of tables with id, label, category, description, kind, enabled.</td>
 </tr>
@@ -343,6 +490,55 @@ This callback was disabled. Fix the error and run the script again.
 <td>Draws shared capture, Clear and activation mode for an existing feature; drawing callbacks only. Label defaults to Key.</td>
 </tr>
 </tbody></table></div></div></details>
+<details class="reference-entry" id="ui-capture-protection"><summary>Capture Protection<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-capture-protection" aria-label="Link to Capture Protection"># Permalink</a><div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>capture_protection.status()</code></td>
+<td>Returns <code>{available, enabled, active, message}</code> from the host. <code>enabled</code> is requested protection; <code>active</code> means the protected surface is ready. A failed or paused surface can be enabled but inactive.</td>
+</tr>
+<tr>
+<td><code>capture_protection.enabled()</code></td>
+<td>Returns the requested protection state, including when the surface fails or the application is in the background.</td>
+</tr>
+<tr>
+<td><code>capture_protection.active()</code></td>
+<td>Returns true only when the host reports an available, enabled and active protected surface.</td>
+</tr>
+<tr>
+<td><code>events.on(&quot;capture_protection_changed&quot;, callback)</code></td>
+<td>Runs when requested protection changes. Read the state inside the callback and restore prior native effects when enabling protection. Register during script loading.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-lua">local hud = features.add {
+    id=&quot;hud&quot;, label=&quot;Protected HUD&quot;, default=true,
+    capture_protection=&quot;safe&quot;
+}
+local world = features.add {
+    id=&quot;world&quot;, label=&quot;World effect&quot;, default=false,
+    capture_protection=&quot;disable&quot;
+}
+ui.tab(&quot;capture&quot;, &quot;Capture Protection&quot;, function()
+    ui.group(&quot;Features&quot;, function()
+        ui.feature(hud)
+        ui.feature(world)
+        ui.keybind(world)
+    end)
+end)
+events.on(&quot;capture_protection_changed&quot;, function()
+    if capture_protection.enabled() then
+        -- Restore any native effects previously applied by this script.
+    end
+end)
+events.on(&quot;update&quot;, function()
+    if not features.active(world) then return end
+    -- Apply host-supported behavior here.
+end)
+</code></pre></div></details>
 <details class="reference-entry" id="ui-independent-health-overlays"><summary>Independent health overlays<span class="edition-label">Shared UI</span></summary><div class="entry-body"><a class="permalink" href="#ui-independent-health-overlays" aria-label="Link to Independent health overlays"># Permalink</a><pre><code class="language-lua">features.set(&quot;esp.health&quot;, true)
 features.set(&quot;esp.health_text&quot;, true)
 features.bind(&quot;esp.health_text&quot;, &quot;F7&quot;, &quot;toggle&quot;)

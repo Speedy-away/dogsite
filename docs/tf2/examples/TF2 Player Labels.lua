@@ -1,4 +1,4 @@
-assert(TF2_API_VERSION == "1.0", "Update the TF2 Lua host")
+assert(type(TF2_API_VERSION) == "string" and TF2_API_VERSION:match("^1%."), "Update the TF2 Lua host")
 local enabled=features.add{id="labels",label="Lua player labels",category="TF2 scripts",default=true}
 ui.overlay("tf2_labels",function()
     if not features.active(enabled) then return end

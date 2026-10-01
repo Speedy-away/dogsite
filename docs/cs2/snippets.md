@@ -22,7 +22,7 @@ end)
 
 ## Choose the correct API
 
-CS2 uses host API 2.4 and UI API 1.1 on Lua 5.4.7. Player snapshots and projections can be unavailable during a map change; check for nil. Settings IDs come from settings.list(). CS2 implements its own ESP color settings; shared esp_colors integration is not available. Aimware CSGO scripts need a manual port to these APIs.
+CS2 uses host API 2.5 and UI API 1.1 on Lua 5.4.7. Player snapshots and projections can be unavailable during a map change; check for nil. Settings IDs come from settings.list(). CS2 implements its own ESP color settings; shared esp_colors integration is not available. Aimware CSGO scripts need a manual port to these APIs.
 
 ## Template controls
 
