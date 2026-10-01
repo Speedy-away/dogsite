@@ -4,7 +4,7 @@
   // Same endpoint and key as the portal (portal/index.html: #apiUrl, #portalKey).
   var API = 'https://proudlyauthentication.com/api/portal/v1/pk_gri2butNfQ28AWQqNTD5xLtQKwer2MNv';
   // Keep in step with the dashboard download dialog in portal/index.html.
-  var LOADER_URL = 'https://filego.at/bucket/f013dc38-3b97-4031-9d51-0c1e023ce713';
+  var LOADER_URL = 'https://raw.githubusercontent.com/Rendererrr/Rendererrr.github.io/main/scooby/loader/ScoobyLoader.exe';
 
   var card = document.getElementById('loader-card');
   var status = document.getElementById('loader-status');
