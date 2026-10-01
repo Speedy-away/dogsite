@@ -505,7 +505,7 @@ end
 
 Shared settings and hotkey popups use the same custom buttons and dropdowns. Native hosts can use `ui::beginCombo`, `ui::comboItem` and `ui::endCombo` for dynamic lists. Negative button widths fill the remaining row, matching the existing layout convention.
 
-`ui.columns(count, draw [, compact])` accepts an optional boolean for tighter columns. The default is unchanged; `true` uses a smaller readable minimum width before reflowing on narrow windows.
+`ui.columns(count, draw [, compact [, fillWidth]])` accepts optional booleans for tighter columns and full-width layouts. `compact=true` uses a smaller readable minimum width before reflowing on narrow windows. `fillWidth=true` lets inspector/preview layouts use the full available width in V1; default settings columns retain their compact maximum width. V2 already fills the available width. Both options retain narrow-window reflow.
 
 ## Entity colors
 
