@@ -221,7 +221,7 @@ end)
 
 `ui.tab(id, label [, draw])` creates a sidebar entry and returns its opaque ID. An optional draw callback becomes its Overview page. A tab without a draw callback selects its first sub-tab.
 
-`ui.subtab(parent, id, label, draw)` creates a sub-tab and returns its ID. Parent can be a tab ID returned by `ui.tab`, or one of the built-in IDs: `"visuals"`, `"lua"`, `"settings"`.
+`ui.subtab(parent, id, label, draw, options?)` creates a sub-tab and returns its ID. Set `options.hidden = true` to keep a route callable without adding a navigation item. Parent can be a tab ID returned by `ui.tab`, or one of the built-in IDs: `"visuals"`, `"lua"`, `"settings"`.
 
 ```lua
 ui.subtab("settings", "my_settings", "My Script", function()

@@ -4346,7 +4346,7 @@ local subtab = ui.subtab(tab, &quot;display&quot;, &quot;Display&quot;, function
 end)
 </code></pre>
 <p><code>ui.tab(id, label [, draw])</code> creates a sidebar entry and returns its opaque ID. An optional draw callback becomes its Overview page. A tab without a draw callback selects its first sub-tab.</p>
-<p><code>ui.subtab(parent, id, label, draw)</code> creates a sub-tab and returns its ID. Parent can be a tab ID returned by <code>ui.tab</code>, or one of the built-in IDs: <code>&quot;visuals&quot;</code>, <code>&quot;lua&quot;</code>, <code>&quot;settings&quot;</code>.</p>
+<p><code>ui.subtab(parent, id, label, draw, options?)</code> creates a sub-tab and returns its ID. Set <code>options.hidden = true</code> to keep a route callable without adding a navigation item. Parent can be a tab ID returned by <code>ui.tab</code>, or one of the built-in IDs: <code>&quot;visuals&quot;</code>, <code>&quot;lua&quot;</code>, <code>&quot;settings&quot;</code>.</p>
 <pre><code class="language-lua">ui.subtab(&quot;settings&quot;, &quot;my_settings&quot;, &quot;My Script&quot;, function()
     imgui.text(&quot;An extra page beside the built-in settings.&quot;)
 end)
