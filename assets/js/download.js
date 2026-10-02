@@ -4,7 +4,7 @@
   // Same endpoint and key as the portal (portal/index.html: #apiUrl, #portalKey).
   var API = 'https://proudlyauthentication.com/api/portal/v1/pk_gri2butNfQ28AWQqNTD5xLtQKwer2MNv';
   // Keep in step with the dashboard download dialog in portal/index.html.
-  var LOADER_URL = 'https://filego.at/bucket/f18a1247-cbb7-4273-a0e1-67228b1dbdd9';
+  var LOADER_URL = 'https://filego.at/bucket/bad3b8b3-4378-4596-8663-f42fedeb1c3c';
 
   var card = document.getElementById('loader-card');
   var status = document.getElementById('loader-status');
