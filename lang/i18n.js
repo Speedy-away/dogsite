@@ -62,6 +62,7 @@
   var dicts = { en: {} };        // lang -> { english: translated }
   var current = DEFAULT_LANG;
   var textOriginals = new WeakMap();   // text node -> original English
+  var textRendered = new WeakMap();
   var attrOriginals = new WeakMap();   // element   -> { attr: original }
   var titleOriginal = null;
   var observer = null;
@@ -138,7 +139,7 @@
 
   // Dictionary files call this.
   function register(code, table) {
-    dicts[code] = table || {};
+    dicts[code] = Object.assign({}, table || {}, (window.__scoobyPortalTranslations || {})[code] || {});
     if (pending[code]) flush(code, null);
   }
 
@@ -158,7 +159,12 @@
   var norm = function (s) { return s.replace(/\s+/g, ' ').trim(); };
 
   function translateText(node, table) {
+    if (skipped(node.parentNode)) return;
     var original = textOriginals.get(node);
+    if (original !== undefined && textRendered.has(node) && node.nodeValue !== textRendered.get(node)) {
+      original = node.nodeValue;
+      textOriginals.set(node, original);
+    }
     if (original === undefined) {
       original = node.nodeValue;
       if (!norm(original) || !/[A-Za-z]/.test(original)) return;
@@ -169,6 +175,7 @@
     var hit = table[key];
     if (hit === undefined) {
       if (node.nodeValue !== original) node.nodeValue = original;   // reverting
+      textRendered.set(node, original);
       return;
     }
     // Keep the surrounding whitespace the layout may depend on.
@@ -176,6 +183,7 @@
     var trail = (original.match(/\s*$/) || [''])[0];
     var next = lead + hit + trail;
     if (node.nodeValue !== next) node.nodeValue = next;
+    textRendered.set(node, next);
   }
 
   function translateAttrs(el, table) {
@@ -226,10 +234,18 @@
   function startObserver() {
     if (observer || !window.MutationObserver) return;
     observer = new MutationObserver(function (records) {
-      if (applying || current === DEFAULT_LANG) return;
+      if (applying) return;
       var table = dicts[current] || {};
+      observer.disconnect();
       applying = true;
       for (var i = 0; i < records.length; i++) {
+        if (records[i].type === 'characterData') translateText(records[i].target, table);
+        if (records[i].type === 'attributes') {
+          var el = records[i].target;
+          var saved = attrOriginals.get(el);
+          if (saved) delete saved[records[i].attributeName];
+          translateAttrs(el, table);
+        }
         var added = records[i].addedNodes;
         for (var j = 0; j < added.length; j++) {
           var node = added[j];
@@ -238,8 +254,13 @@
         }
       }
       applying = false;
+      observe();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
+    observe();
+  }
+
+  function observe() {
+    if (observer) observer.observe(document.body, { childList: true, characterData: true, attributes: true, attributeFilter: ATTRS, subtree: true });
   }
 
   // ------------------------------------------------------------- switching ---
@@ -262,6 +283,7 @@
       if (mySeq !== requestSeq) return;         // superseded by a later switch
       current = code;
       var table = dicts[code] || {};
+      if (observer) observer.disconnect();
       applying = true;
       apply(document.body || document.documentElement, table);
       applyMeta(table);
@@ -275,6 +297,7 @@
       syncUI();
       reveal();
       startObserver();
+      observe();
 
       try {
         window.dispatchEvent(new CustomEvent('scooby:langchange', { detail: { lang: code } }));
@@ -544,21 +567,30 @@
 
     var menu = document.createElement('ul');
     menu.className = 'i18n-menu';
+    menu.id = 'site-language-options';
+    toggle.setAttribute('aria-controls', menu.id);
+    var portalMenu = !!document.querySelector('.portal-modern');
+    if (portalMenu && menu.showPopover) menu.setAttribute('popover', 'manual');
     menu.setAttribute('role', 'listbox');
     menu.setAttribute('aria-label', 'Select language');
 
     LANGS.forEach(function (l) {
       var li = document.createElement('li');
+      li.setAttribute('role', 'presentation');
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'i18n-option';
       btn.setAttribute('role', 'option');
       btn.setAttribute('data-lang', l.code);
       btn.setAttribute('aria-selected', 'false');
+      btn.tabIndex = -1;
+      btn.setAttribute('lang', l.code);
+      btn.setAttribute('dir', l.rtl ? 'rtl' : 'ltr');
       btn.innerHTML = flagHTML(l.code) + '<span class="i18n-badge">' + l.label + '</span>' +
                       '<span>' + l.native + '</span>' + CHECK;
       btn.addEventListener('click', function () {
         close();
+        toggle.focus();
         setLang(l.code);
       });
       li.appendChild(btn);
@@ -568,8 +600,18 @@
     root.appendChild(toggle);
     root.appendChild(menu);
 
-    function open() { root.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); }
-    function close() { root.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+    function open() {
+      root.classList.add('open'); toggle.setAttribute('aria-expanded', 'true');
+      if (menu.hasAttribute('popover')) menu.showPopover();
+      positionMenu();
+      var selected = menu.querySelector('[aria-selected="true"]') || menu.querySelector('button');
+      selected.focus({ preventScroll: true });
+      selected.scrollIntoView({ block: 'nearest' });
+    }
+    function close() {
+      if (menu.hasAttribute('popover')) menu.hidePopover();
+      root.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
+    }
 
     /*
      * Some navbars (the portal's, for one) use overflow-x:auto for horizontal
@@ -586,6 +628,19 @@
     }
 
     function positionMenu() {
+      if (portalMenu) {
+        var rect = toggle.getBoundingClientRect();
+        var width = Math.min(288, window.innerWidth - 24);
+        menu.style.position = 'fixed';
+        menu.style.width = width + 'px';
+        menu.style.minWidth = '0';
+        menu.style.left = Math.max(12, Math.min(rect.left, window.innerWidth - width - 12)) + 'px';
+        menu.style.right = 'auto';
+        menu.style.bottom = 'auto';
+        menu.style.top = (rect.bottom + 10) + 'px';
+        menu.style.maxHeight = Math.max(80, Math.min(440, window.innerHeight - rect.bottom - 24)) + 'px';
+        return;
+      }
       if (!clippedByAncestor()) {
         menu.style.position = menu.style.top = menu.style.left = menu.style.right = '';
         return;
@@ -621,7 +676,23 @@
       if (!root.contains(e.target)) close();
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape' && root.classList.contains('open')) { close(); toggle.focus(); }
+    });
+    toggle.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); open(); }
+    });
+    menu.addEventListener('keydown', function (e) {
+      var options = Array.prototype.slice.call(menu.querySelectorAll('button'));
+      var index = options.indexOf(document.activeElement), next;
+      if (e.key === 'ArrowDown') next = (index + 1) % options.length;
+      if (e.key === 'ArrowUp') next = (index + options.length - 1) % options.length;
+      if (e.key === 'Home') next = 0;
+      if (e.key === 'End') next = options.length - 1;
+      if (next !== undefined) { e.preventDefault(); options[next].focus(); }
+      if (e.key === 'Tab') { close(); toggle.focus(); }
+    });
+    document.addEventListener('focusin', function (e) {
+      if (!root.contains(e.target)) close();
     });
 
     mount(root);
@@ -630,6 +701,15 @@
 
   function mount(el) {
     var host = null;
+    var portalBrand = document.querySelector('.portal-modern .header-top > .portal-logo');
+    if (portalBrand) {
+      var portalLead = document.createElement('div');
+      portalLead.className = 'i18n-lead';
+      portalBrand.parentNode.insertBefore(portalLead, portalBrand);
+      portalLead.appendChild(portalBrand);
+      portalLead.appendChild(el);
+      return;
+    }
     for (var s = 0; s < END_SLOTS.length; s++) {
       host = document.querySelector(END_SLOTS[s]);
       if (host) {
@@ -684,6 +764,8 @@
 
   function syncUI() {
     if (!root) return;
+    root.querySelector('.i18n-toggle').setAttribute('aria-label', window.__scoobyI18n.t('Change language'));
+    root.querySelector('.i18n-menu').setAttribute('aria-label', window.__scoobyI18n.t('Select language'));
     var meta = LANGS.filter(function (l) { return l.code === current; })[0] || LANGS[0];
     var label = root.querySelector('.i18n-current');
     if (label) label.textContent = meta.label;
@@ -792,6 +874,12 @@
   // Exported before boot() so a dictionary that lands early can always register.
   window.__scoobyI18n = {
     register: register,
+    t: function (key, params) {
+      var value = (dicts[current] || {})[key] || key;
+      return value.replace(/\{(\w+)\}/g, function (match, name) {
+        return params && params[name] !== undefined ? String(params[name]) : match;
+      });
+    },
     set: setLang,
     get: function () { return current; },
     langs: LANGS,

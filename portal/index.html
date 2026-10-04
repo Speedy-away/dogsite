@@ -114,12 +114,14 @@
     <link rel="stylesheet" href="portal-refresh.css?v=20260924-account">
     <link rel="stylesheet" href="portal-backgrounds.css?v=20260924-account">
     <link rel="stylesheet" href="portal-messages.css?v=1">
-    <link rel="stylesheet" href="portal-navigation.css?v=20260924-account">
+    <link rel="stylesheet" href="portal-navigation.css?v=20261005-language">
     <link rel="stylesheet" href="portal-account.css?v=20260924-account">
     <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
 <body class="portal-modern auth-mode">
-<script src="/lang/i18n.js"></script>
+<script src="portal-translations.js?v=20261005"></script>
+<script src="/lang/i18n.js?v=20261005"></script>
+<script src="portal-i18n.js?v=20261005"></script>
     <!-- Original loading-screen artwork; decorative and independent of authentication. -->
     <div id="portalBackgrounds" class="portal-backgrounds" aria-hidden="true">
         <div class="portal-background-scene is-active" data-scene="gta-boulevard">
@@ -178,11 +180,11 @@
                 <div class="user-dropdown" id="userDropdown" style="display: none;">
                     <button type="button" class="account-menu-toggle" id="accountMenuToggle" aria-label="Account options" aria-expanded="false" aria-controls="accountMenu">
                         <span class="user-avatar" id="headerAvatar" aria-hidden="true">U</span>
-                        <span class="account-toggle-copy"><span class="account-toggle-label">My account</span><span id="headerUsername">Username</span></span>
+                        <span class="account-toggle-copy"><span class="account-toggle-label">My account</span><span id="headerUsername" data-i18n-skip>Username</span></span>
                         <i class="fas fa-chevron-down account-chevron" aria-hidden="true"></i>
                     </button>
                     <div class="dropdown-menu" id="accountMenu" role="group" aria-label="Account options" hidden>
-                        <div class="account-menu-heading"><span>SIGNED IN AS</span><strong id="accountMenuName">Username</strong></div>
+                        <div class="account-menu-heading"><span>SIGNED IN AS</span><strong id="accountMenuName" data-i18n-skip>Username</strong></div>
                         <button type="button" class="dropdown-item" onclick="showPage('profile')"><i class="far fa-user" aria-hidden="true"></i><span>My profile</span></button>
                         <button type="button" class="dropdown-item" onclick="showRedeemKeyModal()"><i class="fas fa-key" aria-hidden="true"></i><span>Redeem key</span></button>
                         <button type="button" class="dropdown-item" id="navSupport" style="display:none;" onclick="showPage('support')"><i class="fas fa-life-ring" aria-hidden="true"></i><span>Support</span></button>
@@ -1649,7 +1651,7 @@
         </div>
         <div class="portal-download-footer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Downloads open in a new tab.</div>
     </dialog>
-    <script src="portal.js?v=20260924-account"></script>
+    <script src="portal.js?v=20261005-language"></script>
     <script src="portal-refresh.js?v=20260924-account"></script>
     <script src="portal-navigation.js?v=20260924-account"></script>
     <script src="portal-backgrounds.js?v=20260924-account"></script>
@@ -1664,8 +1666,8 @@
         let resetReadyAt = 0;
         let cooldownTimer = null;
 
-        function message(id, text, tone = '') {
-            byId(id).textContent = text;
+        function message(id, text, tone = '', params) {
+            portalText(byId(id), text, params);
             byId(id).dataset.tone = tone;
         }
 
@@ -1706,9 +1708,9 @@
 
         function renderAccount() {
             const signedIn = !!currentUser;
-            byId('dashboardTitle').textContent = signedIn
-                ? `Welcome, ${currentUser.display_name || currentUser.username || 'member'}!`
-                : 'Welcome to Scooby.';
+            portalText(byId('dashboardTitle'), signedIn ? 'Welcome, {name}!' : 'Welcome to Scooby.', {
+                name: currentUser?.display_name || currentUser?.username || 'Scooby'
+            });
             byId('dashboardAccountLabel').textContent = signedIn ? 'My account' : 'Member portal';
             byId('dashboardSignIn').hidden = signedIn;
             byId('dashboardLicenseKey').disabled = !signedIn || redeemBusy;
@@ -1754,12 +1756,12 @@
                 info.className = 'dashboard-product-info';
                 const title = document.createElement('div');
                 title.className = 'dashboard-product-name';
+                title.setAttribute('data-i18n-skip', '');
                 title.textContent = name;
                 const meta = document.createElement('div');
                 meta.className = 'dashboard-product-meta';
-                meta.textContent = validDate
-                    ? `${status === 'expired' ? 'Expired' : 'Expires'}: ${date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}`
-                    : 'Linked to your account';
+                portalText(meta, validDate ? (status === 'expired' ? 'Expired: {date}' : 'Expires: {date}') : 'Linked to your account',
+                    () => ({ date: validDate ? date.toLocaleDateString(window.__scoobyI18n.get(), { month: 'short', day: 'numeric', year: 'numeric' }) : '' }));
                 const badge = document.createElement('span');
                 badge.className = 'dashboard-status' + (status === 'active' ? '' : ' inactive');
                 badge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
@@ -1790,7 +1792,7 @@
             resetAllowed = !!(policy?.enabled && state?.can_reset);
             byId('dashboardResetButton').disabled = !resetAllowed || resetBusy;
             if (!policy?.enabled) {
-                byId('dashboardHwidStatus').textContent = 'Not available';
+                portalText(byId('dashboardHwidStatus'), 'Not available');
                 message('dashboardHwidMessage', 'HWID resets are not enabled for this account.');
             } else if (state?.status === 'cooldown') {
                 resetAllowed = false;
@@ -1798,7 +1800,8 @@
                 resetReadyAt = Date.now() + Math.max(0, Number(state.cooldown_remaining_seconds) || 0) * 1000;
                 const updateCooldown = () => {
                     const remaining = Math.max(0, Math.ceil((resetReadyAt - Date.now()) / 1000));
-                    byId('dashboardHwidStatus').textContent = remaining ? `Available in ${formatDuration(remaining)}` : 'Refresh to check availability';
+                    portalText(byId('dashboardHwidStatus'), remaining ? 'Available in {duration}' : 'Refresh to check availability',
+                        () => ({ duration: portalDuration(Math.max(0, Math.ceil((resetReadyAt - Date.now()) / 1000))) }));
                     if (!remaining) {
                         clearInterval(cooldownTimer);
                         if (resetReadyAt > 0 && Number(state.cooldown_remaining_seconds) > 0) loadDashboard();
@@ -1808,8 +1811,9 @@
                 if (resetReadyAt > Date.now()) cooldownTimer = setInterval(updateCooldown, 1000);
                 message('dashboardHwidMessage', 'Your account has a cooldown between hardware resets.');
             } else {
-                byId('dashboardHwidStatus').textContent = resetAllowed ? 'Ready to reset' : 'Currently unavailable';
-                message('dashboardHwidMessage', state?.manual_reset_count != null ? `Resets used: ${state.manual_reset_count}` : '');
+                portalText(byId('dashboardHwidStatus'), resetAllowed ? 'Ready to reset' : 'Currently unavailable');
+                message('dashboardHwidMessage', state?.manual_reset_count != null ? 'Resets used: {count}' : '', '',
+                    () => ({ count: new Intl.NumberFormat(window.__scoobyI18n.get()).format(state?.manual_reset_count || 0) }));
             }
         }
 
@@ -1822,12 +1826,12 @@
             message('dashboardHwidMessage', '');
             if (!currentUser) {
                 emptyProducts('Your library lives here', 'Sign in to see your products.');
-                byId('dashboardHwidStatus').textContent = 'Sign in to check';
+                portalText(byId('dashboardHwidStatus'), 'Sign in to check');
                 return;
             }
             const token = sessionToken;
             emptyProducts('Loading your products', 'Checking your account...');
-            byId('dashboardHwidStatus').textContent = 'Checking availability...';
+            portalText(byId('dashboardHwidStatus'), 'Checking availability...');
             const [session, subscriptions] = await Promise.all([dashboardRead('/auth/session'), dashboardRead('/subscriptions')]);
             if (version !== loadVersion || token !== sessionToken || !currentUser) return;
             if (!session.ok || !session.data.valid || !session.data.customer) {
@@ -1843,7 +1847,7 @@
                     return;
                 }
                 emptyProducts(expired ? 'Please sign in again' : 'Account unavailable', expired ? 'Your session has expired.' : 'We could not load your account. Please try again.', !expired);
-                byId('dashboardHwidStatus').textContent = expired ? 'Sign in to check' : 'Could not check';
+                portalText(byId('dashboardHwidStatus'), expired ? 'Sign in to check' : 'Could not check');
                 return;
             }
             currentUser = { ...currentUser, ...session.data.customer };

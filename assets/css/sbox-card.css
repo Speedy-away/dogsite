@@ -1,0 +1,2 @@
+.sbox-art { position:relative; }
+.sbox-art::after { content:""; position:absolute; inset:16% 25% 20%; background:url("/assets/images/store/sbox-logo.webp") center/contain no-repeat; pointer-events:none; }

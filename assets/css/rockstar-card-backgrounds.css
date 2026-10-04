@@ -1,0 +1,9 @@
+.catalog-logo-art--gta5::before { background-image:url('/assets/images/store/gta5-background-sunset.webp'); }
+.catalog-logo-art--rdr2::before { background-image:url('/assets/images/store/rdr2-background-manor.jpg'); }
+.game-art-gta5 { --game-art-background:url('/assets/images/store/gta5-background-sunset.webp'); }
+.game-art-rdr2 { --game-art-background:url('/assets/images/store/rdr2-background-manor.jpg'); }
+.catalog-logo-art--gta5::before, .catalog-logo-art--rdr2::before, .game-art-gta5::before, .game-art-rdr2::before { inset:0; filter:brightness(.8); }
+.fivem-card-art, .redm-card-art { position:relative; }
+.fivem-card-art::after, .redm-card-art::after { content:""; position:absolute; inset:15% 25%; background-position:center; background-size:contain; background-repeat:no-repeat; filter:drop-shadow(0 2px 5px #0008); pointer-events:none; }
+.fivem-card-art::after { background-image:url('/assets/images/store/fivem-emblem.png'); }
+.redm-card-art::after { background-image:url('/assets/images/store/redm-logo.png'); }

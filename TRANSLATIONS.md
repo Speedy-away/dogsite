@@ -42,6 +42,22 @@ Dictionaries map exact English strings to translations. Unmatched text stays Eng
 
 To correct runtime text, edit the appropriate `lang/<code>.js` file. To correct a static homepage's main copy, edit `tools/search-locales.json` and regenerate. Keep both in sync when homepage source copy changes.
 
+## Portal and dashboard
+
+The portal loads `portal/portal-translations.js` before the shared runtime. Its 21
+non-English dictionaries supplement the site dictionaries on this page only.
+Dashboard copy, account menu labels, sign-in labels, download dialogs and dashboard
+status messages use these translations. Unknown server messages fall back to their
+original text. Product names, usernames and license input values stay unchanged.
+
+`portal/portal-i18n.js` binds dynamic greetings, dates and reset countdowns to the
+selected language. Dates, counts and duration units use `Intl`. The dropdown stays
+available on authentication screens and supports arrow keys, Home, End and Escape.
+
+Run `node tools/test-portal-i18n.js` for isolated browser verification. Set
+`PLAYWRIGHT_CHANNEL=msedge` to use an installed Edge browser if bundled Chromium
+is unavailable. Tests mock account requests; they do not contact the live API.
+
 ## Browser helpers
 
 Pages loading `lang/i18n.js` expose:

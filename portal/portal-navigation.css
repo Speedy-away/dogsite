@@ -1,4 +1,17 @@
 /* Compact portal navigation and account controls. */
+.portal-modern .i18n-menu { padding:7px; margin:0; border:1px solid #36363d; border-radius:12px; background:#141417; scrollbar-width:thin; scrollbar-color:#555560 transparent; }
+.portal-modern .i18n-option { min-height:44px; padding:10px 11px; font-size:13px; gap:10px; }
+.portal-modern .i18n-option:focus-visible { outline:2px solid #8baef2; outline-offset:-2px; background:#ffffff0a; }
+.portal-modern .i18n-option > span:not([class]) { flex:1; line-height:1.35; }
+.portal-modern .i18n-menu::backdrop { background:transparent; }
+.portal-modern .i18n-lead { gap:18px; }
+html[dir="rtl"] .portal-modern .dashboard-hwid-details strong { text-align:left; }
+html[dir="rtl"] .portal-modern .account-menu-toggle,
+html[dir="rtl"] .portal-modern .dropdown-menu .dropdown-item { text-align:right; }
+@media (max-width:600px) {
+ .portal-modern .i18n-lead { gap:8px; }
+ .portal-modern.auth-mode .header-top { justify-content:space-between; }
+}
 .portal-modern .portal-header { background:#0d0d0ff5; border-bottom:1px solid #ffffff0d; box-shadow:0 8px 28px #0002; backdrop-filter:blur(16px); }
 .portal-modern .header-top { height:78px; padding:12px 28px; gap:24px; }
 .portal-modern .portal-logo { gap:10px; flex-shrink:0; }

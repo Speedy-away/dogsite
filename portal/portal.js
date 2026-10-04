@@ -287,7 +287,7 @@ async function loadPortalInfo() {
         // Update portal name
         if (portal.name) {
             document.getElementById('portalName').textContent = portal.name;
-            document.title = 'Scooby Dashboard';
+            document.title = window.__scoobyI18n ? window.__scoobyI18n.t('Scooby Dashboard') : 'Scooby Dashboard';
         }
 
         // Show banner if configured

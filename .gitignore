@@ -15,3 +15,5 @@ hidden_files/half-life-screenshot-refresh/
 /node_modules/
 /build/tf2-site-validation/
 /build/tf2-free-key/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/

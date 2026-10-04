@@ -1,0 +1,2 @@
+.gmod-card-art { position:relative; }
+.gmod-card-art::after { content:""; position:absolute; inset:19% 25% 20%; background:url("/assets/images/source-games/gmod-logo.png") center/contain no-repeat; pointer-events:none; }
