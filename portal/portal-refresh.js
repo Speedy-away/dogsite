@@ -101,6 +101,7 @@ function portalProductArtwork(...values) {
     const close = document.getElementById('dashboardDownloadClose');
     let previousOverflow = '';
     trigger.addEventListener('click', () => {
+        if (typeof currentUser === 'undefined' || !currentUser) return;
         if (dialog.open) return;
         previousOverflow = document.body.style.overflow;
         dialog.showModal();
