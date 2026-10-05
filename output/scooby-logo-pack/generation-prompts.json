@@ -1,0 +1,61 @@
+{
+  "method": "Built-in image_gen; one image per theme",
+  "basePrompt": "Edit the provided white outline Scooby dog-head logo into one themed variant. Preserve the iconic left-facing muzzle, smile, neck, collar and diamond pendant. Bold clean white outline, colored accessory, transparent dog interiors, smooth clean edges WITHOUT white speckles or noise. Accessories sit snugly on the crown and overlap ears naturally. Square centered composition, consistent scale, all parts fully visible, 7% margins. Actual transparent background and no opaque black rectangle. No words, no lettering, no additional characters, no shield or badge around the whole logo. Readable at 48px. Theme: ",
+  "themes": [
+    {
+      "id": "astronaut",
+      "name": "Astronaut",
+      "prompt": "Pearl-white astronaut helmet with a wide clear face opening leaving Scooby's face visible, a thin cyan glass rim and two tiny blue indicator lights. Friendly space exploration design."
+    },
+    {
+      "id": "lunar",
+      "name": "Lunar Explorer",
+      "prompt": "A silver and charcoal lunar EVA helmet with amber visor raised above the forehead, a small gold crescent-moon emblem and a compact side radio. Keep face visible."
+    },
+    {
+      "id": "alien",
+      "name": "Alien Scout",
+      "prompt": "Playful teal alien-inspired headpiece, two rounded antennae, small violet glowing tips, and smooth green brow band. Scooby remains recognizably the original dog, no extra eyes or altered face."
+    },
+    {
+      "id": "commander",
+      "name": "Star Commander",
+      "prompt": "Navy space-captain peaked cap with a gold rim, small gold four-point star emblem, and minimal cyan trim. Futuristic fleet commander, clean and dignified."
+    },
+    {
+      "id": "nebula",
+      "name": "Nebula Mage",
+      "prompt": "Deep midnight-blue wizard hat with violet-to-cyan color accents inside the hat, a silver crescent and three simple stars. Hat lowered over both ears, face unobscured. Cosmic wizard, no external cloud background."
+    },
+    {
+      "id": "cowboy",
+      "name": "Frontier Cowboy",
+      "prompt": "Warm brown broad-brim cowboy hat with curved sides, a tan band and a small gold buckle. Classic western look, brim low over the ears, no weapon."
+    },
+    {
+      "id": "pirate",
+      "name": "Pirate Captain",
+      "prompt": "Deep burgundy and charcoal tricorn pirate hat with gold edging and a tiny ivory crossed-bones emblem. Small red fabric tie at the side. Face and smile remain visible."
+    },
+    {
+      "id": "ninja",
+      "name": "Shadow Ninja",
+      "prompt": "Charcoal ninja hood framing the face without hiding muzzle or smile, crimson forehead band tied at the back with two short tails. Minimal silver geometric emblem on band, no weapons."
+    },
+    {
+      "id": "cyberpunk",
+      "name": "Neon Runner",
+      "prompt": "Compact purple cyberpunk headphones with cyan glowing ear rings and a slim magenta angular visor resting on forehead above the face. Keep muzzle and smile fully visible. Restrained neon accents, no floating scenery."
+    },
+    {
+      "id": "engineer",
+      "name": "Workshop Engineer",
+      "prompt": "Bright yellow engineer hard hat pulled low over ears, charcoal band with a simple small wrench emblem and orange work goggles resting atop the hard hat. Face clearly visible."
+    },
+    {
+      "id": "diver",
+      "name": "Deep-Sea Diver",
+      "prompt": "Vintage copper and brass diving helmet with a broad open round face window showing original Scooby muzzle and smile, turquoise rim and simple side valves. Small compact helmet, maintain dog neck and collar silhouette."
+    }
+  ]
+}

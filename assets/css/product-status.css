@@ -1,0 +1,6 @@
+[data-availability="online"] { color: #66d9a6 !important; }
+[data-availability="updating"] { color: #f1bf6b !important; }
+[data-availability="offline"], [data-availability="disabled"] { color: #ee9b9b !important; }
+[data-live-status] { display: inline-flex; margin-left: .5rem; font-size: .8rem; font-weight: 600; vertical-align: middle; }
+.availability-message { color: #d5b98a; font-size: .9rem; line-height: 1.6; margin: .75rem 0; }
+[data-status-blocked="true"] { opacity: .55 !important; cursor: not-allowed !important; }

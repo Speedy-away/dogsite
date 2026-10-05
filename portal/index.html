@@ -101,7 +101,7 @@
             .portal-modern .nav-tab i { display: none; }
             .dashboard-heading { align-items: flex-start; margin-bottom: 23px; }
             .dashboard-account-tag { display: none; }
-            .dashboard-grid { grid-template-columns: 1fr; grid-template-areas: "redeem" "products" "hwid" "download"; gap: 14px; }
+            .dashboard-grid { grid-template-columns: 1fr; grid-template-areas: "redeem" "download" "products" "hwid"; gap: 14px; }
             .dashboard-column { display: contents; }
             .dashboard-card[aria-labelledby="dashboardRedeemHeading"] { grid-area: redeem; }
             .dashboard-card[aria-labelledby="dashboardProductsHeading"] { grid-area: products; }
@@ -236,12 +236,10 @@
                             <p class="dashboard-message" id="dashboardRedeemMessage" role="status"></p>
                         </form>
                     </section>
-                    <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
-                        <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
-                        <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
-                        <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
-                        <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
-                        <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
+                    <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
+                        <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
+                        <p class="dashboard-description">Get the latest loader and jump back in.</p>
+                        <button class="dashboard-button" id="dashboardDownloadButton" type="button" aria-haspopup="dialog" aria-controls="dashboardDownloadDialog"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader</button>
                     </section>
                 </div>
                 <div class="dashboard-column">
@@ -252,14 +250,15 @@
                             <div class="dashboard-empty"><i class="fas fa-cube" aria-hidden="true"></i><strong>Your library lives here</strong>Sign in to see your products.</div>
                         </div>
                     </section>
-                    <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
-                        <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
-                        <p class="dashboard-description">Get the latest loader and jump back in.</p>
-                        <button class="dashboard-button" id="dashboardDownloadButton" type="button" aria-haspopup="dialog" aria-controls="dashboardDownloadDialog"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader</button>
+                    <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
+                        <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
+                        <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
+                        <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
+                        <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
+                        <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
                     </section>
                 </div>
             </div>
-            <div class="dashboard-footer"><span class="dashboard-help">Need a hand? <a href="/guides/">Explore the guides <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></span><a href="#support" id="dashboardSupportLink">Contact support <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
         </section>
         <!-- LOGIN PAGE -->
         <div class="page-view active" id="page-login">
@@ -1652,7 +1651,7 @@
         <div class="portal-download-footer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Downloads open in a new tab.</div>
     </dialog>
     <script src="portal.js?v=20261005-language"></script>
-    <script src="portal-refresh.js?v=20260924-account"></script>
+    <script src="portal-refresh.js?v=20261005-game-logos"></script>
     <script src="portal-navigation.js?v=20260924-account"></script>
     <script src="portal-backgrounds.js?v=20260924-account"></script>
     <script>
@@ -1716,7 +1715,6 @@
             byId('dashboardSignIn').hidden = signedIn;
             byId('dashboardLicenseKey').disabled = !signedIn || redeemBusy;
             byId('dashboardRedeemButton').disabled = !signedIn || redeemBusy;
-            byId('dashboardSupportLink').hidden = window.portalSettings?.tickets_enabled === false;
         }
 
         function renderProducts(customer, catalog) {

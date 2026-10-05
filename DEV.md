@@ -128,3 +128,16 @@ Run `node tools/validate-rdr2-docs.js` with Playwright and Edge for local browse
 TF2 release freshness: `node tools/check-tf2-features.js` validates the manually reviewed catalog source hashes, edition labels and required current controls. Review feature descriptions before replacing a changed hash in `tools/features/features-tf2.json`. Root Scooby-Op `release.bat -Product tf2 -NoPublish` invokes this check, regenerates the TF2 feature/API pages locally, builds/tests the matching loader and cleans TF2 temporary build output. It does not publish website or loader changes. Run `node tools/validate-tf2.js` and `node tools/validate-tf2-docs.js` against `python tools/serve.py 8198 --no-lua-sync` for browser verification.
 
 Install the pinned Node tooling once with `npm ci` (Node.js 24 or newer is used for the TF2 generator). `npm run tf2:check` checks catalog/API freshness; `npm run tf2:build` regenerates TF2 pages; `npm run tf2:test` runs the browser suites with Microsoft Edge installed and the preview server running. No Codex-specific `NODE_PATH` is required.
+
+## Product availability
+
+`assets/js/product-status.js` displays the shared product feed and blocks product access actions
+while Updating, Offline or Disabled. Product information and guides remain browsable.
+The release tool in Scooby-Op manages statuses in bulk; see its `ProductStatus/README.md`.
+After this website integration is deployed once, publishing the shared feed updates existing
+pages without redeploying the whole site. The loader must also be updated to enforce the feed.
+Localhost previews read `assets/data/product-status.json`; hosted clients poll the shared raw
+GitHub feed each minute and retain the last valid response on failure. The local JSON is a fallback.
+This UI does not replace authentication or server-side product access checks.
+Run `node tools/test-product-status.cjs` for isolated browser tests with local files and mocked feeds.
+Screenshots are written under `build/product-status`. No publication or live login occurs in tests.

@@ -1,0 +1,4 @@
+.catalog-art:has(img[src*="scooby-spoofer-cleaner"]), .card-art:has(img[src*="scooby-spoofer-cleaner"]){background:#101016;}
+.catalog-art img[src*="scooby-spoofer-cleaner"], .card-art img[src*="scooby-spoofer-cleaner"]{width:100%;height:100%;object-fit:contain;padding:12px;box-sizing:border-box;}
+.spoofer-product-art{background:#101016;cursor:default;aspect-ratio:4/3;}
+.spoofer-product-art img{display:block;width:100%;height:100%;object-fit:contain;padding:24px;box-sizing:border-box;}

@@ -2,15 +2,16 @@
 function portalProductLogo(...values) {
     const names = values.filter(Boolean).map(value => String(value).toLowerCase().replace(/[^a-z0-9]/g, ''));
     const logos = [
-        { pattern:/tf2classified|teamfortress2classified/, id:'tf2-classified', src:'/assets/images/tf2/tf2-classified-logo.png' },
-        { pattern:/teamfortress2|^tf2$/, id:'tf2', src:'/assets/images/tf2/tf2-logo-transparent-v1.png' },
+        { pattern:/tf2classified|teamfortress2classified/, id:'tf2-classified', src:'/portal/images/product-logos/tf2-scooby.png' },
+        { pattern:/teamfortress2|^tf2$/, id:'tf2', src:'/portal/images/product-logos/tf2-scooby.png' },
         { pattern:/fivem/, id:'fivem', src:'/portal/images/product-logos/fivem.png' },
         { pattern:/redm/, id:'redm', src:'/portal/images/product-logos/redm.png' },
         { pattern:/grandtheft|gtalegacy|gtaenhanced|gtabe|gta5|gtav|^gta$/, id:'gta-v', src:'/assets/images/store/gta5-logo-transparent.png' },
         { pattern:/reddead|rdr/, id:'rdr2', src:'/assets/images/store/rdr2-logo-transparent.png' },
-        { pattern:/counterstrike|cs2|csgo/, id:'cs2', src:'/portal/images/product-logos/cs2.png' },
+        { pattern:/counterstrike|cs2|csgo/, id:'cs2', src:'/portal/images/product-logos/cs2-scooby.png' },
+        { pattern:/left4dead|leftfordead|l4d/, id:'l4d', src:'/portal/images/product-logos/l4d-scooby.png' },
         { pattern:/garry|gmod/, id:'gmod', src:'/portal/images/product-logos/gmod.png' },
-        { pattern:/spoofer|hwid/, id:'spoofer', src:'/portal/images/product-logos/spoofer.png' }
+        { pattern:/spoofer|hwid/, id:'spoofer', src:'/portal/images/product-logos/spoofer-scooby-wizard.png?v=3' }
     ];
     const logo = logos.find(item => names.some(name => item.pattern.test(name)));
     return logo ? { id:logo.id, src:logo.src } : null;
@@ -18,6 +19,9 @@ function portalProductLogo(...values) {
 
 function portalProductArtwork(...values) {
     const name = values.filter(Boolean).join(' ').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const themedLogo = portalProductLogo(...values);
+    if (themedLogo && ['tf2', 'tf2-classified', 'cs2', 'l4d'].includes(themedLogo.id)) return themedLogo.src;
+    if (/spoofer|hwid/.test(name)) return '/portal/images/product-logos/spoofer-scooby-wizard.png?v=3';
     const artwork = [
         [/fivem/, 'fivem'], [/redm/, 'redm'],
         [/grandtheft|gtalegacy|gtaenhanced|gtabe|gta5|gtav|^gta$/, 'gta-v'],

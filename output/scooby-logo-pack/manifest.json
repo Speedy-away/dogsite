@@ -1,0 +1,137 @@
+[
+  {
+    "id": "wizard",
+    "name": "Wizard",
+    "category": "Originals",
+    "accent": "#b47aff",
+    "motion": "magic",
+    "png": "png/wizard.png",
+    "animated": "animated/wizard.svg"
+  },
+  {
+    "id": "tf2",
+    "name": "TF2 Soldier",
+    "category": "Games",
+    "accent": "#ffad51",
+    "motion": "nod",
+    "png": "png/tf2.png",
+    "animated": "animated/tf2.svg"
+  },
+  {
+    "id": "cs2",
+    "name": "CS2 Tactical",
+    "category": "Games",
+    "accent": "#ff981c",
+    "motion": "pulse",
+    "png": "png/cs2.png",
+    "animated": "animated/cs2.svg"
+  },
+  {
+    "id": "l4d",
+    "name": "Left 4 Dead Survivor",
+    "category": "Games",
+    "accent": "#95d948",
+    "motion": "sway",
+    "png": "png/l4d.png",
+    "animated": "animated/l4d.svg"
+  },
+  {
+    "id": "astronaut",
+    "name": "Astronaut",
+    "category": "Space",
+    "accent": "#55d9ff",
+    "motion": "float",
+    "png": "png/astronaut.png",
+    "animated": "animated/astronaut.svg"
+  },
+  {
+    "id": "lunar",
+    "name": "Lunar Explorer",
+    "category": "Space",
+    "accent": "#ffc767",
+    "motion": "float",
+    "png": "png/lunar.png",
+    "animated": "animated/lunar.svg"
+  },
+  {
+    "id": "alien",
+    "name": "Alien Scout",
+    "category": "Space",
+    "accent": "#91f870",
+    "motion": "float",
+    "png": "png/alien.png",
+    "animated": "animated/alien.svg"
+  },
+  {
+    "id": "commander",
+    "name": "Star Commander",
+    "category": "Space",
+    "accent": "#6ee7ff",
+    "motion": "nod",
+    "png": "png/commander.png",
+    "animated": "animated/commander.svg"
+  },
+  {
+    "id": "nebula",
+    "name": "Nebula Mage",
+    "category": "Space",
+    "accent": "#a681ff",
+    "motion": "magic",
+    "png": "png/nebula.png",
+    "animated": "animated/nebula.svg"
+  },
+  {
+    "id": "cowboy",
+    "name": "Frontier Cowboy",
+    "category": "Adventure",
+    "accent": "#daa05f",
+    "motion": "nod",
+    "png": "png/cowboy.png",
+    "animated": "animated/cowboy.svg"
+  },
+  {
+    "id": "pirate",
+    "name": "Pirate Captain",
+    "category": "Adventure",
+    "accent": "#efbb5b",
+    "motion": "sway",
+    "png": "png/pirate.png",
+    "animated": "animated/pirate.svg"
+  },
+  {
+    "id": "ninja",
+    "name": "Shadow Ninja",
+    "category": "Adventure",
+    "accent": "#ff4b61",
+    "motion": "sway",
+    "png": "png/ninja.png",
+    "animated": "animated/ninja.svg"
+  },
+  {
+    "id": "cyberpunk",
+    "name": "Neon Runner",
+    "category": "Future",
+    "accent": "#ec59ff",
+    "motion": "pulse",
+    "png": "png/cyberpunk.png",
+    "animated": "animated/cyberpunk.svg"
+  },
+  {
+    "id": "engineer",
+    "name": "Workshop Engineer",
+    "category": "Adventure",
+    "accent": "#ffe057",
+    "motion": "nod",
+    "png": "png/engineer.png",
+    "animated": "animated/engineer.svg"
+  },
+  {
+    "id": "diver",
+    "name": "Deep-Sea Diver",
+    "category": "Adventure",
+    "accent": "#45d3d9",
+    "motion": "float",
+    "png": "png/diver.png",
+    "animated": "animated/diver.svg"
+  }
+]
