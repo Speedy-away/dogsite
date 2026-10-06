@@ -284,6 +284,21 @@ Object.assign(pages, {
     "keywords": "Megabonk feature list, Lua API, languages, configs, hotkeys, pickups, items, unlocks"
   }
 });
+// Cosmetic search terms apply only to games with documented skin/inventory tools.
+const cosmeticKeywords = {
+ cs2: ['CS2 skin changer', 'Counter-Strike 2 skin changer', 'CS2 inventory changer', 'Counter-Strike 2 inventory changer', 'CS2 knife changer', 'CS2 glove changer', 'CS2 agent changer', 'CS2 weapon skins', 'CS2 custom models'],
+ tf2: ['TF2 skin changer', 'Team Fortress 2 skin changer', 'TF2 inventory changer', 'Team Fortress 2 inventory changer', 'TF2 weapon skins', 'TF2 cosmetics', 'TF2 local inventory']
+};
+function appendKeywords(file, keywords) {
+ const meta = pages[file];
+ meta.keywords = [...new Set([...meta.keywords.split(', '), ...keywords])].join(', ');
+}
+for (const [game, keywords] of Object.entries(cosmeticKeywords)) {
+ for (const file of [`products/${game}/index.html`, `features-list/${game}-features/index.html`]) appendKeywords(file, keywords);
+}
+for (const file of ['index.html', 'source-games/index.html', 'products/free/index.html']) {
+ appendKeywords(file, ['CS2 skin changer', 'CS2 inventory changer', 'TF2 skin changer', 'TF2 inventory changer']);
+}
 function applyMetadata(file, html, override) {
  file=file.replace(/\\/g,'/'); const meta=override || pages[file]; if(!meta) return html;
  if (excluded(html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '')) return html;

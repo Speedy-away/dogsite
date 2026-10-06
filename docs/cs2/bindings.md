@@ -54,7 +54,7 @@ if capture_protection.is_enabled() then print('Capture Protection is on') end
 ## capture_protection.set_feature
 
 ```lua
-capture_protection.set_feature(owned_feature_id, 'compatible'|'disable')
+capture_protection.set_feature(owned_feature_id, 'compatible'|'safe'|'disable')
 ```
 
 `owned_feature_id string`; `mode CaptureProtectionMode`

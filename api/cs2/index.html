@@ -876,7 +876,7 @@ print(status.calls,status.bypassed,status.error)
 <p>Use <code>render.theme()</code> for accent, text, muted, panel and border colors. The native widget adapter follows the product palette. <code>ui.theme</code>/<code>reset_theme</code> and <code>imgui.with_style</code> customize standard ImGui controls/windows inside script rendering; they do not replace native product palette tokens. Script-created windows can attach to the left/right of the menu and optionally follow its visibility. Visible interactive Lua windows also receive the cursor when the main menu is closed, using the same Block Input policy as detached product windows. Closing or unloading the last script window releases that ownership; drawing-only overlays do not capture input.</p>
 </div></details>
 <details class="reference-entry" id="host-capture-protection-2-5"><summary>Capture Protection (2.5)</summary><div class="entry-body"><a class="permalink" href="#host-capture-protection-2-5" aria-label="Link to Capture Protection (2.5)"># Permalink</a>
-<p>Custom toggles and actions can declare <code>capture_protection = &quot;compatible&quot;</code> or <code>&quot;disable&quot;</code> in <code>features.add</code>. Omitting it keeps the prior compatible behavior. Use compatible for drawings routed through the protected overlay; use disable for features that change the native scene or play sound. This declaration controls activation; it does not make native calls or audio invisible to capture.</p>
+<p>Custom toggles and actions can declare <code>capture_protection = &quot;compatible&quot;</code>, <code>&quot;safe&quot;</code> or <code>&quot;disable&quot;</code> in <code>features.add</code>. <code>safe</code> is an alias for compatible, as used by canonical Simple-base templates; <code>get_feature</code> returns the canonical <code>compatible</code> value. Omitting it keeps the prior compatible behavior. Use compatible for drawings routed through the protected overlay; use disable for features that change the native scene or play sound. This declaration controls activation; it does not make native calls or audio invisible to capture.</p>
 <p>When protection is requested, disabled features are forced off, <code>features.active</code> returns false for every bind mode, action triggers/hotkeys are blocked, and <code>ui.feature</code>/<code>ui.keybind</code> show the product&#39;s disabled blur and hover reason. Enabling a blocked feature with <code>features.set</code> or <code>base.set</code>, or triggering it, raises the protection reason. Setting a toggle false is allowed. Turning protection off unlocks the feature without restoring its enabled value.</p>
 <p>Policies are owned by the Lua state and removed on stop, reload or failed load. <code>capture_protection.set_feature</code> can reclassify only the current script&#39;s own features; built-in restrictions and other scripts&#39; policies cannot be changed. Reclassifying does not enable the feature. Use <code>capture_protection.get_feature</code> for the policy and current lock, and <code>capture_protection.is_enabled</code> for requested state, including startup/recovery.</p>
 </div></details>
@@ -887,7 +887,7 @@ print(status.calls,status.bypassed,status.error)
 <p><code>capture_protection.get_feature(feature_id) -&gt; &quot;compatible&quot;|&quot;disable&quot;, blocked</code></p>
 </div></details>
 <details class="reference-entry" id="host-capture-protection-set-feature"><summary>capture_protection.set_feature</summary><div class="entry-body"><a class="permalink" href="#host-capture-protection-set-feature" aria-label="Link to capture_protection.set_feature"># Permalink</a>
-<p><code>capture_protection.set_feature(owned_feature_id, &quot;compatible&quot;|&quot;disable&quot;)</code></p>
+<p><code>capture_protection.set_feature(owned_feature_id, &quot;compatible&quot;|&quot;safe&quot;|&quot;disable&quot;)</code></p>
 <pre><code class="language-lua">local effect = features.add {
     id = &quot;effect&quot;, label = &quot;Custom effect&quot;,
     capture_protection = &quot;disable&quot;
@@ -2541,7 +2541,7 @@ local mode,blocked=capture_protection.get_feature(id)
 </code></pre>
 </div></details>
 <details class="reference-entry" id="bindings-capture-protection-set-feature"><summary>capture_protection.set_feature</summary><div class="entry-body"><a class="permalink" href="#bindings-capture-protection-set-feature" aria-label="Link to capture_protection.set_feature"># Permalink</a>
-<pre><code class="language-lua">capture_protection.set_feature(owned_feature_id, &#39;compatible&#39;|&#39;disable&#39;)
+<pre><code class="language-lua">capture_protection.set_feature(owned_feature_id, &#39;compatible&#39;|&#39;safe&#39;|&#39;disable&#39;)
 </code></pre>
 <p><code>owned_feature_id string</code>; <code>mode CaptureProtectionMode</code></p>
 <pre><code class="language-lua">local id=features.add{id=&#39;effect&#39;,capture_protection=&#39;disable&#39;}

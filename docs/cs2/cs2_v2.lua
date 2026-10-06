@@ -1061,7 +1061,7 @@ function base.set(id,value) end
 ---@vararg any
 function base.log(...) end
 features={}
----@alias CaptureProtectionMode "compatible"|"disable"
+---@alias CaptureProtectionMode "compatible"|"safe"|"disable"
 ---@param options {id:string,label?:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,on_trigger?:function,capture_protection?:CaptureProtectionMode}
 ---@return string
 function features.add(options) end

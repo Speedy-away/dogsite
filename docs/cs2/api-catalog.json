@@ -43,7 +43,7 @@
     },
     {
       "name": "capture_protection.set_feature",
-      "signature": "capture_protection.set_feature(owned_feature_id, 'compatible'|'disable')",
+      "signature": "capture_protection.set_feature(owned_feature_id, 'compatible'|'safe'|'disable')",
       "example": "local id=features.add{id='effect',capture_protection='disable'}\ncapture_protection.set_feature(id,'disable')",
       "origin": "host",
       "annotations": "---Only this Lua state's owned features can be reclassified. Does not re-enable the feature.\n---@param owned_feature_id string\n---@param mode CaptureProtectionMode",
@@ -386,7 +386,7 @@
       "op": "features.add",
       "origin": "core",
       "signature": "features.add(options)",
-      "annotations": "---@alias CaptureProtectionMode \"compatible\"|\"disable\"\n---@param options {id:string,label?:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,on_trigger?:function,capture_protection?:CaptureProtectionMode}\n---@return string",
+      "annotations": "---@alias CaptureProtectionMode \"compatible\"|\"safe\"|\"disable\"\n---@param options {id:string,label?:string,description?:string,category?:string,kind?:string,default?:boolean,key?:string,on_trigger?:function,capture_protection?:CaptureProtectionMode}\n---@return string",
       "status": "supported"
     },
     {

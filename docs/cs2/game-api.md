@@ -255,7 +255,7 @@ Use `render.theme()` for accent, text, muted, panel and border colors. The nativ
 
 ## Capture Protection (2.5)
 
-Custom toggles and actions can declare `capture_protection = "compatible"` or `"disable"` in `features.add`. Omitting it keeps the prior compatible behavior. Use compatible for drawings routed through the protected overlay; use disable for features that change the native scene or play sound. This declaration controls activation; it does not make native calls or audio invisible to capture.
+Custom toggles and actions can declare `capture_protection = "compatible"`, `"safe"` or `"disable"` in `features.add`. `safe` is an alias for compatible, as used by canonical Simple-base templates; `get_feature` returns the canonical `compatible` value. Omitting it keeps the prior compatible behavior. Use compatible for drawings routed through the protected overlay; use disable for features that change the native scene or play sound. This declaration controls activation; it does not make native calls or audio invisible to capture.
 
 When protection is requested, disabled features are forced off, `features.active` returns false for every bind mode, action triggers/hotkeys are blocked, and `ui.feature`/`ui.keybind` show the product's disabled blur and hover reason. Enabling a blocked feature with `features.set` or `base.set`, or triggering it, raises the protection reason. Setting a toggle false is allowed. Turning protection off unlocks the feature without restoring its enabled value.
 
@@ -271,7 +271,7 @@ Policies are owned by the Lua state and removed on stop, reload or failed load. 
 
 ### capture_protection.set_feature
 
-`capture_protection.set_feature(owned_feature_id, "compatible"|"disable")`
+`capture_protection.set_feature(owned_feature_id, "compatible"|"safe"|"disable")`
 
 ~~~lua
 local effect = features.add {
