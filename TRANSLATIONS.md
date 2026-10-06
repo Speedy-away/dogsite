@@ -4,11 +4,11 @@ The site supports **22 language options**: English, Spanish, Portuguese, Brazili
 
 ## Searchable homepages
 
-English uses `/`. Each other language has its own static homepage under `lang/`, such as `/lang/es/`, `/lang/pt-br/`, `/lang/th/` or `/lang/ar/`. The old root addresses (`/es/` and so on) forward there through `404.html`. The introduction, navigation and resource text are translated in the HTML, so they work without JavaScript. Game names and product brands remain unchanged.
+English uses `/`. Each other language has its own static homepage under `lang/`, such as `/lang/es/`, `/lang/pt-br/`, `/lang/th/` or `/lang/ar/`. The old root addresses (`/es/` and so on) forward there through `404.html`. Every locale is generated from the complete `index.html` layout, including its hero, artwork, game cards, navigation and interactive controls. The introduction and dictionary-matched text are translated in the HTML, so they work without JavaScript. Game names and product brands remain unchanged.
 
 Each homepage has a localized title and description, a self-canonical URL, and reciprocal hreflang links to all homepages. English is the x-default fallback. The sitemap and site directory include these pages. Arabic and Hebrew use right-to-left layouts.
 
-This does **not** mean every product page, feature list or guide is fully translated. The localized homepages say that some detailed content is in English. Detailed pages continue to use the existing translation dictionaries, with English fallback for unmatched strings.
+This does **not** mean every product page, feature list or guide is fully translated. Detailed pages continue to use the existing translation dictionaries, with English fallback for unmatched strings.
 
 Translation sources:
 
@@ -18,7 +18,7 @@ Translation sources:
 - `assets/js/language-home.js`: remembers a visited language URL for the existing page translator.
 - `assets/css/language-home.css`: responsive language homepage and footer styles.
 
-Run from the repository root after editing translation sources:
+The generator uses Playwright with installed Microsoft Edge for inert HTML parsing; it does not execute homepage scripts. Run from the repository root after editing translation sources or the English homepage:
 
 ```sh
 node tools/seo-locales.js --apply
@@ -34,7 +34,7 @@ Commit page changes, regenerate and commit the sitemap, then deploy as described
 
 ## Language selection on detailed pages
 
-`lang/i18n.js` reads the browser language on a first visit, or a saved choice under `scooby.lang`. A first-visit picker and navigation selector let the visitor choose a language. Explicit non-English choices on the English homepage open the matching translated homepage. Automatic browser detection does not redirect.
+`lang/i18n.js` gives an explicit language URL priority over the saved choice under `scooby.lang` and browser language. Language pages skip the first-visit picker. Switching their language opens the matching full homepage URL (or `/` for English). On the English homepage and detailed pages, the selector translates in place. Automatic browser detection does not redirect.
 
 On product pages and guides, changing language translates matching text in place. Visiting a translated homepage saves its language for these pages. Returning to English through the translated homepage's English link saves English. Storage is optional; static pages work even when it is unavailable.
 

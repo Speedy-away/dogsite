@@ -86,10 +86,14 @@ test('all language homepages contain translated HTML with reciprocal, self-canon
     if (code === 'en') continue;
     assert(html.includes('lang="' + locale.tag + '" dir="' + (locale.rtl ? 'rtl' : 'ltr') + '"'), file);
     const body = plain(html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)[1]);
-    assert(body.includes(locale.intro) && body.includes(locale.about) && body.includes(locale.notice), 'Missing visible translated prose: ' + file);
+    assert(body.includes(locale.intro), 'Missing visible translated prose: ' + file);
+    for (const marker of ['class="hero"', 'id="heroScenes"', 'id="startModal"', '/assets/js/home-features.js', '/assets/js/hero-slideshow.js']) {
+      assert(html.includes(marker), 'Missing full homepage layout: ' + file + ' ' + marker);
+    }
+    assert(!html.includes('/assets/css/site-directory.css'), 'Simplified directory layout: ' + file);
     const data = JSON.parse(head.match(/id="seo-page-structure">\s*([\s\S]*?)<\/script>/)[1]);
     assert.equal(data['@graph'].find(item => item['@type'] === 'WebPage').inLanguage, locale.tag, file);
-    assert(!html.includes('/lang/i18n.js'), 'A saved preference must not rewrite a translated URL');
+    assert(html.includes('/lang/i18n.js'), 'Full homepage needs the language selector: ' + file);
   }
 });
 
