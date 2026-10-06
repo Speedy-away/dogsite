@@ -7,19 +7,24 @@
 <meta name="description" content="Continue to the Scooby free-key system.">
 <meta name="robots" content="noindex, follow">
 <link rel="shortcut icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/assets/css/free-access.css">
+<script src="/assets/js/free-access.js" defer></script>
 <script>
-  // Forward straight to the key system, carrying the product the visitor came
-  // from (product pages link here as ?product=cs2 etc.). A plain meta refresh
-  // would drop that, so it is only the no-JavaScript fallback below.
-  (function () {
+  // Check advertising availability before forwarding, preserving the product.
+  document.addEventListener('DOMContentLoaded', function () {
     var KNOWN = ['gta5', 'fivem', 'rdr2', 'redm', 'cs2', 'gmod', 'spoofer'];
     var dest = new URL('https://whatwhatboy.com/scoobyontop.html');
     var p = (new URLSearchParams(location.search).get('product') || '').trim().toLowerCase();
     if (KNOWN.indexOf(p) !== -1) dest.searchParams.set('product', p);
-    location.replace(dest.toString());
-  })();
+    const proceed = () => location.replace(dest.toString());
+    window.scoobyFreeAccess.onReady(proceed);
+    document.getElementById('continue-key').addEventListener('click', async function (event) {
+      event.preventDefault();
+      if (await window.scoobyFreeAccess.check()) proceed();
+    });
+    window.scoobyFreeAccess.check().then(allowed => { if (allowed) proceed(); });
+  });
 </script>
-<noscript><meta http-equiv="refresh" content="0; url=https://whatwhatboy.com/scoobyontop.html"></noscript>
 <style>
   body {
     margin: 0; min-height: 100vh;
@@ -30,7 +35,7 @@
   }
   .brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
   p { color: #9a9aaa; font-size: .95rem; margin: 0 0 22px; }
-  a {
+  a, button {
     display: inline-block; padding: 11px 22px; border-radius: 50px;
     background: #4f8ef5; color: #fff;
     font-size: .93rem; font-weight: 600; text-decoration: none;
@@ -39,11 +44,12 @@
 </style>
 </head>
 <body>
-  <!-- The redirect above does the work; this is the fallback if it is blocked. -->
+  <!-- The Continue button retries the same access check as the automatic redirect. -->
   <main>
     <div class="brand">scooby</div>
     <p>Taking you to the free key page&hellip;</p>
-    <a href="https://whatwhatboy.com/scoobyontop.html">Continue</a>
+    <button type="button" id="continue-key">Continue</button>
+    <noscript><p>Please enable JavaScript to check free-key access.</p></noscript>
   </main>
 </body>
 </html>

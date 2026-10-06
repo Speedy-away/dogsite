@@ -36,6 +36,7 @@
     return !updatingPurchase;
   }
   function badge(el, status) {
+    if (el.hasAttribute('data-static-status')) return;
     const text = labels[status.state];
     if (el.textContent !== text) el.textContent = text;
     if (el.dataset.availability !== status.state) el.dataset.availability = status.state;
@@ -51,7 +52,7 @@
       for (const el of badges) if (/^(online|updating|offline|disabled|coming soon|released)$/i.test(el.textContent.trim()) || el.hasAttribute('data-availability')) badge(el, status);
     }
     const status = entry(pageId);
-    if (status) {
+    if (status && !document.querySelector('.product-heading [data-static-status]')) {
       const heading = document.querySelector('.product-heading-badges, .product-heading, .download-card, main h1');
       if (heading) {
         let el = heading.querySelector('[data-live-status]');
