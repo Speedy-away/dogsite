@@ -5,7 +5,7 @@ const path=require('node:path');
 const catalog=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../assets/data/source-games.json'),'utf8'));
 const placeholders=catalog.filter(game=>game.status==='placeholder');
 const base=process.env.SOURCE_SITE_URL||'http://127.0.0.1:8195';
-const output=process.argv[2]||path.resolve(__dirname,'../hidden_files/source-games-validation');
+const output=process.argv[2]||path.resolve(__dirname,'../project/build/source-games-validation');
 (async()=>{
  fs.mkdirSync(output,{recursive:true});
  const browser=await chromium.launch({channel:'msedge',headless:true});

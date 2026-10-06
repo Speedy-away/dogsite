@@ -6,7 +6,7 @@ const http = require('http');
 
 (async () => {
   const root = path.resolve(__dirname,'..');
-  const output = path.resolve(process.argv[2] || 'build/cs2-api-validation');
+  const output = path.resolve(process.argv[2] || 'project/build/cs2-api-validation');
   fs.mkdirSync(output,{recursive:true});
   let server;
   let base = process.env.CS2_API_BASE;

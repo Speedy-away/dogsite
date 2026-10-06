@@ -8,6 +8,7 @@ const ROOT = path.resolve(__dirname, '..'), SITE = 'https://scoobymenu.cc';
 const pages = {};
 function add(file, title, description, keywords) { pages[file] = {title, description, keywords: 'Scooby Menu, ' + keywords}; }
 const rows = `
+products/mta-sa/index.html|MTA:SA — Free & Premium · Coming Soon - Scooby|MTA:SA is coming to Scooby with Free and Premium editions. Explore the new artwork; release details, features and pricing will be announced when ready.|MTA:SA, Multi Theft Auto, San Andreas, Scooby MTA, free, premium, coming soon
 products/bodycam/index.html|Bodycam — Free · Coming Soon - Scooby|Bodycam is coming to Scooby with free access. Preview the new dashboard artwork; product details, features and setup information are coming soon.|Bodycam cheat, Bodycam, free access, coming soon, Scooby Bodycam
 products/tf2/index.html|TF2 & TF2 Classified — Free Preview - Scooby|Choose Team Fortress 2 or TF2 Classified in Scooby Launcher. Two Windows x64 editions, free access for signed-in users, and separate game settings.|Team Fortress 2 cheat, Source Games, Team Fortress 2, TF2 teamfortress2
 products/css/index.html|Counter-Strike: Source — Coming Soon - Scooby|Counter-Strike: Source is part of the Scooby Source Games collection. Product details, features and setup information are coming soon.|Counter-Strike Source cheat, Source Games, Counter-Strike: Source, CSS CS:S counter strike source
@@ -332,7 +333,7 @@ function applyMetadata(file, html, override) {
  });
  return structure(file, applyBranding(updated), meta);
 }
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['backup','build','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
+function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['project','backup','build','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
 if(require.main===module){let changed=0,skipped=0;const errors=[],titles=new Set(),descriptions=new Set();
  for(const abs of walk(ROOT)){const file=path.relative(ROOT,abs).replace(/\\/g,'/'),html=fs.readFileSync(abs,'utf8'),head=html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0]||'';if(excluded(head)){skipped++;continue;}if(!pages[file]){errors.push('Missing metadata: '+file);continue;}const meta=pages[file];if(titles.has(meta.title)||descriptions.has(meta.description))errors.push('Duplicate metadata: '+file);titles.add(meta.title);descriptions.add(meta.description);const updated=applyMetadata(file,html);if(updated!==html){changed++;if(process.argv.includes('--apply'))fs.writeFileSync(abs,updated);else console.log('Stale: '+file);}}
  console.log(`${titles.size} indexable pages; ${skipped} excluded pages preserved; ${changed} ${process.argv.includes('--apply')?'updated':'stale'}.`);errors.forEach(e=>console.error(e));if(errors.length||changed&&!process.argv.includes('--apply'))process.exitCode=1;

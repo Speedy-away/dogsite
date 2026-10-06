@@ -26,6 +26,15 @@
     const container = el.closest('[data-product], [data-status-product]');
     return key(el.getAttribute('data-buy') || container?.dataset.statusProduct || container?.dataset.product || pageId);
   }
+  function actionBlocked(el) {
+    const id = productOf(el), status = entry(id);
+    if (!status || status.state === 'online') return false;
+    // FiveM licenses remain purchasable during its update; loading/free access
+    // and loader-wide outages still follow the availability feed.
+    const updatingPurchase = id === 'fivem' && status === current.products.fivem &&
+      status.state === 'updating' && el.matches('[data-buy="fivem"]');
+    return !updatingPurchase;
+  }
   function badge(el, status) {
     const text = labels[status.state];
     if (el.textContent !== text) el.textContent = text;
@@ -64,7 +73,7 @@
       }
     }
     for (const el of document.querySelectorAll(actionSelector)) {
-      const status = entry(productOf(el)); const blocked = status && status.state !== 'online';
+      const status = entry(productOf(el)); const blocked = actionBlocked(el);
       if (blocked) {
         if (!previous.has(el)) previous.set(el, { aria: el.getAttribute('aria-disabled'), title: el.getAttribute('title') });
         el.dataset.statusBlocked = 'true'; el.setAttribute('aria-disabled', 'true');
@@ -78,8 +87,7 @@
   }
   document.addEventListener('click', event => {
     const action = event.target.closest?.(actionSelector); if (!action) return;
-    const status = entry(productOf(action));
-    if (status && status.state !== 'online') { event.preventDefault(); event.stopImmediatePropagation(); }
+    if (actionBlocked(action)) { event.preventDefault(); event.stopImmediatePropagation(); }
   }, true);
   async function fetchStatus(url) {
     const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), 6000);

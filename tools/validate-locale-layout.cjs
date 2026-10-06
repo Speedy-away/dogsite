@@ -33,10 +33,10 @@ const locales = require('./search-locales.json');
   }
   await page.goto('http://127.0.0.1:8199/lang/th/', {waitUntil:'domcontentloaded'});
   await page.waitForFunction(() => window.__scoobyI18n?.get() === 'th');
-  fs.mkdirSync('build/locale-layout', {recursive:true});
-  await page.screenshot({path:'build/locale-layout/th-mobile.png'});
+  fs.mkdirSync('project/build/locale-layout', {recursive:true});
+  await page.screenshot({path:'project/build/locale-layout/th-mobile.png'});
   await page.setViewportSize({width:1440,height:1000});
-  await page.screenshot({path:'build/locale-layout/th-desktop.png'});
+  await page.screenshot({path:'project/build/locale-layout/th-desktop.png'});
   await page.locator('.btn-hero-primary').click();
   assert(await page.locator('#startModal').isVisible());
   await page.evaluate(() => window.__scoobyI18n.set('fr'));

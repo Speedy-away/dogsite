@@ -1,7 +1,7 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const base=process.env.MEGABONK_SITE_BASE||'http://127.0.0.1:8207';
-const out=path.resolve(__dirname,'../build/megabonk-site-validation');
+const out=path.resolve(__dirname,'../project/build/megabonk-site-validation');
 const routes=['/products/megabonk/','/features-list/megabonk-features/','/guides/megabonk/',...['getting-started','menu-settings','languages','lua-scripts','spawner-unlocks','troubleshooting'].map(x=>'/guides/megabonk/'+x+'/')];
 (async()=>{
  fs.mkdirSync(out,{recursive:true});

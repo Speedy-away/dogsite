@@ -1355,6 +1355,8 @@ body:has(dialog[open]) {
 .free-heading>.button { flex-shrink:0; }
 .collection-link { margin-top:22px; font-size:.8rem; color:var(--muted); }
 .collection-link a:hover { color:var(--text); }
+.card-art.tf2-card-art { background:linear-gradient(#0002,#0005),url('/assets/images/tf2/background-v1.webp') center/cover; }
+.card-art.tf2-card-art>img { object-fit:contain; padding:48px 26px; filter:drop-shadow(0 4px 10px #0009); }
 .card-art.logo-art { display:flex; align-items:center; justify-content:center; background:var(--panel); padding:44px 30px 26px; }
 .card-art.logo-art>img { width:100%; height:100%; max-height:128px; object-fit:contain; }
 @media(max-width:620px) { .free-heading { flex-direction:column; align-items:flex-start!important; } .free-heading>.button { align-self:flex-start; } }

@@ -1,7 +1,7 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const base=process.env.TF2_SITE_BASE||'http://127.0.0.1:8198';
-const output=process.env.TF2_SITE_TEST_OUT||path.resolve(__dirname,'../build/tf2-free-key');
+const output=process.env.TF2_SITE_TEST_OUT||path.resolve(__dirname,'../project/build/tf2-free-key');
 (async()=>{
  fs.mkdirSync(output,{recursive:true});const browser=await chromium.launch({channel:'msedge',headless:true});
  try {

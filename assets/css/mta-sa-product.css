@@ -1,0 +1,13 @@
+.mta-product{--product-accent:#e9bd80;--product-accent-hover:#f3d3a7}
+.mta-artwork{margin:0}
+.mta-artwork img{display:block;width:100%;height:auto;aspect-ratio:1672/941;border-radius:10px}
+.mta-artwork figcaption{margin-top:14px;color:#9a9aaa;font-size:12px;line-height:1.6}
+.mta-access-title{font-size:24px;line-height:1.25;letter-spacing:-.035em;color:#f4f5ed;margin:12px 0}
+.mta-edition{padding:20px 0;border-top:1px solid var(--border-color)}
+.mta-edition h3{font-size:18px;color:var(--product-accent);margin:0 0 8px}
+.mta-edition p{font-size:13px;line-height:1.7;color:#b5b5c0;margin:0 0 16px}
+.mta-unavailable{display:block;width:100%;min-height:48px;padding:12px;border:1px solid #e9bd8033;border-radius:8px;background:#e9bd800d;color:#d0bfaa;font:inherit;font-size:13px;font-weight:600;cursor:not-allowed}
+.mta-product .purchase-card>.purchase-btn{margin:0}
+.mta-product #editions{scroll-margin-top:120px}
+.mta-product .footer a{color:var(--product-accent)}
+.mta-product .footer{text-align:center;padding:28px 18px}

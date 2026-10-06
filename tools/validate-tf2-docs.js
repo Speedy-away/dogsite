@@ -1,7 +1,7 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const base=process.env.TF2_SITE_BASE||'http://127.0.0.1:8198';
-const out=process.env.TF2_DOCS_TEST_OUT||path.resolve(__dirname,'../build/tf2-site-validation');
+const out=process.env.TF2_DOCS_TEST_OUT||path.resolve(__dirname,'../project/build/tf2-site-validation');
 const pages=['/products/tf2/','/guides/tf2/','/guides/tf2/getting-started/','/guides/tf2/requirements/','/guides/tf2/editions/','/guides/tf2/menu-settings/','/guides/tf2/lua-scripts/','/guides/tf2/troubleshooting/','/docs/tf2/','/api/tf2/','/features-list/tf2-features/'];
 (async()=>{
  fs.mkdirSync(out,{recursive:true});

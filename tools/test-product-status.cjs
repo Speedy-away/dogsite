@@ -35,10 +35,10 @@ const root = path.resolve(__dirname, '..');
     assert.equal(await action.getAttribute('aria-disabled'), 'true'); checks++;
     await page.evaluate(() => { window.statusClickCount = 0; document.querySelector('.purchase-btn').addEventListener('click', () => window.statusClickCount++); document.querySelector('.purchase-btn').click(); });
     assert.equal(await page.evaluate(() => window.statusClickCount), 0); checks++;
-    fs.mkdirSync(path.join(root, 'build/product-status'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'project/build/product-status'), { recursive: true });
     await page.waitForTimeout(400);
     assert.equal(await page.locator('[data-status-message]').isVisible(), true); checks++;
-    await page.screenshot({ path: path.join(root, 'build/product-status/l4d-disabled.png') });
+    await page.screenshot({ path: path.join(root, 'project/build/product-status/l4d-disabled.png') });
     for (const state of ['offline', 'updating', 'online']) {
       await refresh(state);
       await page.waitForFunction(state => document.querySelector('[data-live-status]')?.dataset.availability === state, state);
@@ -56,6 +56,35 @@ const root = path.resolve(__dirname, '..');
     await page.goto('https://scooby.test/store/');
     await page.waitForFunction(() => document.querySelector('[data-product="l4d"] [data-availability]')?.textContent === 'Disabled'); checks++;
     assert.equal(await page.locator('[data-product="l4d"] [data-free]').getAttribute('data-status-blocked'), 'true'); checks++;
+    // Updating FiveM still sells licenses on both purchase surfaces.
+    feed.products.fivem.state = 'updating';
+    for (const surface of [
+      { url: '/store/', badge: '[data-product="fivem"] [data-availability]', free: '[data-product="fivem"] [data-free]', modal: '#payment-dialog', link: '#card-payment-link' },
+      { url: '/products/fivem/', badge: '[data-live-status]', free: '.free-btn', modal: '#paymentModal', link: '#cardPaymentLink' }
+    ]) {
+      await page.goto('https://scooby.test' + surface.url);
+      await page.waitForFunction(selector => document.querySelector(selector)?.textContent === 'Updating', surface.badge);
+      const buy = page.locator('[data-buy="fivem"]');
+      assert.equal(await buy.getAttribute('data-status-blocked'), null); checks++;
+      assert.equal(await page.locator(surface.free).getAttribute('data-status-blocked'), 'true'); checks++;
+      await buy.click();
+      assert.equal(await page.locator(surface.modal).isVisible(), true); checks++;
+      assert.match(await page.locator(surface.link).getAttribute('href'), /\/products\/scooby-fivem$/); checks++;
+      if (surface.url === '/store/') await page.locator(surface.modal).evaluate(el => el.close());
+      else await page.evaluate(() => closePaymentModal());
+      for (const state of ['offline', 'disabled', 'updating']) {
+        feed.products.fivem.state = state;
+        await refresh();
+        await page.waitForFunction(({ selector, state }) => document.querySelector(selector)?.dataset.availability === state, { selector: surface.badge, state });
+        assert.equal(await buy.getAttribute('data-status-blocked'), state === 'updating' ? null : 'true'); checks++;
+      }
+      feed.products.loader.state = 'updating';
+      await refresh();
+      await page.waitForFunction(() => document.querySelector('[data-buy="fivem"]').dataset.statusBlocked === 'true'); checks++;
+      feed.products.loader.state = 'online';
+      await refresh();
+      await page.waitForFunction(() => !document.querySelector('[data-buy="fivem"]').dataset.statusBlocked); checks++;
+    }
     await page.goto('https://scooby.test/');
     await page.waitForFunction(() => [...document.querySelectorAll('.catalog-card')].some(el => el.getAttribute('href') === '/products/l4d/' && el.querySelector('[data-availability]')?.textContent === 'Disabled')); checks++;
     feed.products['tf2-classified'].state = 'disabled';

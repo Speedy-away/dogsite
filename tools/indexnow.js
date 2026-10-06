@@ -80,8 +80,9 @@ async function main() {
   if (since) {
     const base = git(['rev-parse', '--verify', '--end-of-options', since + '^{commit}']);
     git(['merge-base', '--is-ancestor', base, 'HEAD']);
-    const changed = git(['diff', '--name-only', '--no-renames', '-z', base, 'HEAD', '--']).split('\0').filter(Boolean);
-    const oldSitemap = git(['show', base + ':sitemap.xml']);
+    const changed = git(['diff', '--name-only', '--no-renames', '-z', base, 'HEAD', '--']).split('\0').filter(Boolean).map(file => file.replace(/^site\//, ''));
+    const oldPath = git(['ls-tree', '--name-only', base, '--', 'site/sitemap.xml']) ? 'site/sitemap.xml' : 'sitemap.xml';
+    const oldSitemap = git(['show', base + ':' + oldPath]);
     urls = selectUrls(files, changed, sitemapUrls(oldSitemap));
   }
   console.log(`${args.includes('--submit') ? 'Submitting' : 'Previewing'} ${urls.length} public URLs:`);

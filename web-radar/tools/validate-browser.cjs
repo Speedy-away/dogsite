@@ -5,7 +5,7 @@ const path=require('node:path');
 (async()=>{
   const {createRadarServer}=await import('../relay/server.mjs');
   const root=path.resolve(__dirname,'..');
-  const output=path.resolve(root,'../build/web-radar-validation');fs.mkdirSync(output,{recursive:true});
+  const output=path.resolve(root,'../project/build/web-radar-validation');fs.mkdirSync(output,{recursive:true});
   const app=createRadarServer({root});await new Promise(r=>app.server.listen(0,'127.0.0.1',r));
   const origin=`http://127.0.0.1:${app.server.address().port}`,id='1234567890abcdef1234567890abcdef',token='9'.repeat(64);
   const endpoint=`${origin}/web-radar/api/session/${id}`;

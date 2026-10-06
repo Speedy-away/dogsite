@@ -4,19 +4,16 @@ docs/redm/SCOOBY_NATIVE_EXCLUSIONS.md
 # Local site backup — keep on disk, never publish to GitHub Pages
 backup/
 
-# Local browser validation screenshots and reports
-hidden_files/source-games-validation/
-hidden_files/half-life-screenshot-refresh/
+# Generated screenshots, reports, caches, and optional publishing copies
+/project/build/
+/project/hidden_files/
+/build/
+/hidden_files/
 
-# Local social-preview captures and before-copies
-/build/social-preview/
-
-# Local Node tools and TF2 browser evidence
+# Local Node tools
 /node_modules/
-/build/tf2-site-validation/
-/build/tf2-free-key/
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
 
-# Product availability browser test evidence
-/build/product-status/
+# Python caches
+**/__pycache__/

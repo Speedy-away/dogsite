@@ -1,8 +1,0 @@
-const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{spawn}=require('node:child_process');
-const root=process.cwd(),out=path.join(root,'build/tf2-docs-refresh/validation');fs.mkdirSync(out,{recursive:true});
-const types={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.woff2':'font/woff2','.lua':'text/plain','.md':'text/plain'};
-const server=http.createServer((req,res)=>{try{let file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res);}catch{res.writeHead(404).end();}});
-(async()=>{await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-try{const base='http://127.0.0.1:'+server.address().port;
-await new Promise((resolve,reject)=>{const child=spawn(process.execPath,['tools/validate-tf2-docs.js'],{cwd:root,env:{...process.env,TF2_SITE_BASE:base,TF2_DOCS_TEST_OUT:out},stdio:'pipe'});const log=fs.createWriteStream(path.join(out,'browser-validation.log'));child.stdout.on('data',b=>{process.stdout.write(b);log.write(b);});child.stderr.on('data',b=>{process.stderr.write(b);log.write(b);});child.on('exit',code=>{log.end();code===0?resolve():reject(new Error('Docs validation failed: '+code));});child.on('error',reject);});
-}finally{server.close();}})().catch(e=>{console.error(e);process.exitCode=1;server.close();});

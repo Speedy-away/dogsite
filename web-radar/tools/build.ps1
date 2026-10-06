@@ -2,7 +2,7 @@ param([string]$Configuration='Release', [switch]$Clean)
 $ErrorActionPreference='Stop'
 $siteRoot=Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 if ($Configuration -notin @('Debug','Release')) { throw 'Unsupported configuration' }
-$output=Join-Path $siteRoot "build\x64\$Configuration\web-radar"
+$output=Join-Path $siteRoot "project\build\x64\$Configuration\web-radar"
 $log=Join-Path $output 'validation.log'
 if($Clean) { if(Test-Path -LiteralPath $log){Remove-Item -LiteralPath $log -Force}; exit 0 }
 New-Item -ItemType Directory -Path $output -Force | Out-Null

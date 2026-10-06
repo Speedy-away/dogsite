@@ -16,7 +16,7 @@ This uses outbound HTTPS and server-sent events, not peer-to-peer hosting.
 
 ## Run locally
 
-Use Node 22 or newer. From the dogsite root:
+Use Node 22 or newer. From the repository root:
 
 ```powershell
 node --test web-radar/relay/server.test.mjs

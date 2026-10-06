@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const output = path.join(root, 'output/scooby-logo-pack');
+const output = path.join(root, 'project/output/scooby-logo-pack');
 const generated = 'C:/Users/whatw/.codex/generated_images/01a1084b-2007-7e82-900d-622fe9d497b7';
 const items = [
   ['wizard','Wizard','Originals','spoofer-scooby-wizard.png','#b47aff','magic'],

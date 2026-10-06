@@ -1,6 +1,0 @@
-assert(TF2_API_VERSION == "1.0", "Update the TF2 Lua host")
-local info = tf2.info()
-local caps = tf2.capabilities()
-print(info.game, info.game_id, info.api_version)
-print("Four teams:", caps.four_teams, "Civilian:", caps.civilian)
-print("Game data available:", tf2.session().data_available)

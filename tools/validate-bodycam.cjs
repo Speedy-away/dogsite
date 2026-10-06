@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 (async () => {
- const output=path.resolve(process.argv[2] || 'artifacts/bodycam');fs.mkdirSync(output,{recursive:true});
+ const output=path.resolve(process.argv[2] || 'project/build/bodycam');fs.mkdirSync(output,{recursive:true});
  const base=process.env.BODYCAM_PREVIEW_URL || 'http://127.0.0.1:8195';
  const browser=await chromium.launch({channel:'msedge',headless:true});
  const page=await browser.newPage();const errors=[];const failed=[];let checks=0;

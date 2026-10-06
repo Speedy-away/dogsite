@@ -7,7 +7,7 @@ const crypto = require('node:crypto');
 
 (async () => {
   const root = path.resolve(__dirname,'..');
-  const output = path.resolve(process.argv[2] || 'build/l4d-api-validation');
+  const output = path.resolve(process.argv[2] || 'project/build/l4d-api-validation');
   fs.mkdirSync(output,{recursive:true});
   let server;
   let base = process.env.L4D_API_BASE;

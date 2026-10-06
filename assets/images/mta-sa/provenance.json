@@ -1,0 +1,10 @@
+{
+  "generator": "Built-in image_gen",
+  "prompt": "Use case: ads-marketing. Create a new wide 16:9 product banner for MTA:SA. Input image 1 is the scene reference: preserve its recognizable GTA San Andreas Los Santos skyline, neon-edged art deco tower, palms and sunset atmosphere, while making a polished cinematic game-art composition. Input image 2 is the logo reference: faithfully reproduce the Multi Theft Auto character emblem and white Multi Theft Auto wordmark, large and centered with ample breathing room. Remove the reference's checkerboard and integrate the logo cleanly over the city. Rich amber sunset, subdued teal sky, dark lower foreground, crisp nostalgic game textures. Only text is 'Multi Theft Auto'. No additional slogans, interface, badges or watermark.",
+  "references": [
+    "User-supplied thumb-1920-576754.jpg (city background)",
+    "User-supplied images.jpg (Multi Theft Auto logo)"
+  ],
+  "output": "launch-artwork.png",
+  "note": "Promotional artwork, not a gameplay screenshot. city-background.jpg is the unchanged supplied city image."
+}
