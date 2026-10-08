@@ -635,7 +635,7 @@
     function positionMenu() {
       if (portalMenu) {
         var rect = toggle.getBoundingClientRect();
-        var width = Math.min(288, window.innerWidth - 24);
+        var width = Math.min(244, window.innerWidth - 24);
         menu.style.position = 'fixed';
         menu.style.width = width + 'px';
         menu.style.minWidth = '0';
@@ -643,7 +643,7 @@
         menu.style.right = 'auto';
         menu.style.bottom = 'auto';
         menu.style.top = (rect.bottom + 10) + 'px';
-        menu.style.maxHeight = Math.max(80, Math.min(440, window.innerHeight - rect.bottom - 24)) + 'px';
+        menu.style.maxHeight = Math.max(80, Math.min(336, window.innerHeight - rect.bottom - 24)) + 'px';
         return;
       }
       if (!clippedByAncestor()) {

@@ -639,7 +639,7 @@ async function login() {
     const password = document.getElementById('loginPassword').value;
 
     if (!username || !password) {
-        showAlert('loginAlert', 'Please enter your username or email and password', 'danger');
+        showAlert('loginAlert', 'Please enter your username and password', 'danger');
         return;
     }
 

@@ -1,6 +1,6 @@
 /* Compact portal navigation and account controls. */
-.portal-modern .i18n-menu { padding:7px; margin:0; border:1px solid #36363d; border-radius:12px; background:#141417; scrollbar-width:thin; scrollbar-color:#555560 transparent; }
-.portal-modern .i18n-option { min-height:44px; padding:10px 11px; font-size:13px; gap:10px; }
+.portal-modern .i18n-menu { padding:5px; margin:0; border:1px solid #ffffff18; border-radius:10px; background:#161619; box-shadow:0 12px 32px #0007; scrollbar-width:thin; scrollbar-color:#44444d transparent; }
+.portal-modern .i18n-option { min-height:36px; padding:8px 10px; font-size:12px; gap:10px; border-radius:6px; color:#b8b8c3; }
 .portal-modern .i18n-option:focus-visible { outline:2px solid #8baef2; outline-offset:-2px; background:#ffffff0a; }
 .portal-modern .i18n-option > span:not([class]) { flex:1; line-height:1.35; }
 .portal-modern .i18n-menu::backdrop { background:transparent; }
@@ -110,3 +110,14 @@ html[dir="rtl"] .portal-modern .dropdown-menu .dropdown-item { text-align:right;
  .portal-modern.auth-mode .portal-logo span { display:inline; }
 }
 .portal-modern.auth-mode .header-actions .social-links { display:none !important; }
+
+/* Compact language list: the flag and native name identify each option. */
+.portal-modern .i18n-option .i18n-badge { display:none; }
+.portal-modern .i18n-option .i18n-flag { width:18px; height:13px; border-radius:2px; }
+.portal-modern .i18n-option .i18n-check { width:12px; height:12px; stroke:#b9ccef; }
+.portal-modern .i18n-option:hover { background:#ffffff08; color:#fff; }
+.portal-modern .i18n-option[aria-selected="true"] { background:#252c39; color:#f1f4fa; }
+.portal-modern .i18n-toggle { min-height:30px; padding:6px 8px; gap:6px; }
+@media (pointer:coarse) {
+ .portal-modern .i18n-option { min-height:44px; }
+}
