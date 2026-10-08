@@ -455,7 +455,7 @@
                     <h3>Card &amp; digital wallets</h3>
                     <p>Instant Delivery - Secure Payment</p>
                 </div>
-                <a id="cardPaymentLink" href="https://fusiondash.myshopify.com/products/scooby-rdr2" target="_blank" rel="noopener noreferrer" class="payment-btn card-btn">
+                <a id="cardPaymentLink" href="https://zscooby.myshopify.com/products/scooby-rdr2" target="_blank" rel="noopener noreferrer" class="payment-btn card-btn">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/><path d="M6 15h3"/></svg>
                     Pay with Card
                 </a>
@@ -621,11 +621,9 @@
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
         });
-        // Card link rotation
+        // Card payment link
         (function() {
-            // var stores = ['https://fusiondash.myshopify.com/products/scooby-rdr2','https://zscooby.myshopify.com/products/scooby-rdr2'];
-            // document.getElementById('cardPaymentLink').href = stores[Math.floor(Date.now()/(6*3600000))%2];
-            document.getElementById('cardPaymentLink').href = 'https://fusiondash.myshopify.com/products/scooby-rdr2'; // zscooby commented out
+            document.getElementById('cardPaymentLink').href = 'https://zscooby.myshopify.com/products/scooby-rdr2';
         })();
         // Payment Modal
         function openPaymentModal() {
