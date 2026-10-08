@@ -17,10 +17,7 @@ if ($NewUrl -notmatch '^https?://') {
 $repo = Split-Path -Parent $PSScriptRoot
 
 $targets = @(
-    @{ Path = 'assets/js/download.js';   Pattern = "var LOADER_URL = '([^']+)';";                                                Build = { param($u) "var LOADER_URL = '$u';" } },
-    @{ Path = 'products/l4d/index.html'; Pattern = '<li class="nav-download"><a href="([^"]+)" class="btn-nav-primary">';         Build = { param($u) "<li class=`"nav-download`"><a href=`"$u`" class=`"btn-nav-primary`">" } },
-    @{ Path = 'products/l4d/index.html'; Pattern = '<a href="([^"]+)" id="l4d-download" class="purchase-btn secondary">';         Build = { param($u) "<a href=`"$u`" id=`"l4d-download`" class=`"purchase-btn secondary`">" } },
-    @{ Path = 'portal/index.html';       Pattern = '(<a class="dashboard-button portal-loader-link" href=")([^"]+)(")';           Build = { param($u) "`${1}$u`${3}" } }
+    @{ Path = 'portal/index.html'; Pattern = '(<a class="dashboard-button portal-loader-link" href=")([^"]+)(")'; Build = { param($u) "`${1}$u`${3}" } }
 )
 
 $totalReplacements = 0
