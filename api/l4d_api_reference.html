@@ -1107,7 +1107,7 @@ ui.tab(&quot;health_overlays&quot;, &quot;Health&quot;, function()
     ui.feature(&quot;esp.health_text&quot;)
 end)
 </code></pre>
-<p><code>esp.health</code> is the existing bar; <code>esp.health_text</code> is independent HP text using the same config/hotkey services. Both require authoritative host health. Text can render without a maximum; bars require a valid maximum. See <a href="HEALTH_ESP.md">the host health contract</a>.</p>
+<p><code>esp.health</code> is the existing bar; <code>esp.health_text</code> is independent HP text using the same config/hotkey services. Both require authoritative host health. Text can render without a maximum; bars require a valid maximum. See <a href="/docs/l4d/contracts/HEALTH_ESP.md">the host health contract</a>.</p>
 </article>
 <article class="reference-entry"><h3 id="ui-api-19">Inline key capture <a class="permalink" href="#ui-api-19" aria-label="Link to Inline key capture">#</a></h3>
 <pre><code class="language-lua">ui.tab(&quot;aim_controls&quot;, &quot;Aimbot&quot;, function()
@@ -1117,7 +1117,7 @@ end)
     end)
 end)
 </code></pre>
-<p>Use an existing registered host feature ID. Release initiating inputs before assigning a key or mouse button; Escape cancels and Delete clears. The control edits the same binding as <code>features.bind</code> and Hotkeys. Hosts can opt into separate saved master and transient activation; see <a href="GAME_SIDEBAR.md">the integration contract</a>. Aim behavior modes remain separate from activation modes.</p>
+<p>Use an existing registered host feature ID. Release initiating inputs before assigning a key or mouse button; Escape cancels and Delete clears. The control edits the same binding as <code>features.bind</code> and Hotkeys. Hosts can opt into separate saved master and transient activation; see <a href="/docs/l4d/contracts/GAME_SIDEBAR.md">the integration contract</a>. Aim behavior modes remain separate from activation modes.</p>
 </article>
 <article class="reference-entry"><h3 id="ui-api-8">Tabs and sub-tabs <a class="permalink" href="#ui-api-8" aria-label="Link to Tabs and sub-tabs">#</a></h3>
 <pre><code class="language-lua">local tab = ui.tab(&quot;tools&quot;, &quot;My Tools&quot;)
@@ -1510,7 +1510,7 @@ end
     end)
 end
 </code></pre>
-<p>The host supplies Entity kind and relationship; scripts edit persisted appearance only. Writes survive script stop. Category colors affect enabled ESP features after the user enables the master, and preserve independent health colors and host-palette precedence. See <a href="ENTITY_COLORS.md">entity classification colors</a> for the category mapping and profile migration contract.</p>
+<p>The host supplies Entity kind and relationship; scripts edit persisted appearance only. Writes survive script stop. Category colors affect enabled ESP features after the user enables the master, and preserve independent health colors and host-palette precedence. See <a href="/docs/l4d/contracts/ENTITY_COLORS.md">entity classification colors</a> for the category mapping and profile migration contract.</p>
 </article>
 <article class="reference-entry"><h3 id="ui-api-22">Native controls and optional themed widgets <a class="permalink" href="#ui-api-22" aria-label="Link to Native controls and optional themed widgets">#</a></h3>
 </article>

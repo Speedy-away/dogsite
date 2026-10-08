@@ -8,7 +8,8 @@
     "start": "node tools/preview.cjs",
     "build": "node tools/package-site.cjs",
     "test:site": "node --test tools/site-layout.test.cjs",
-    "test:seo": "node --test tools/seo.test.js"
+    "test:seo": "node --test tools/seo.test.js",
+    "seo:links": "node tools/seo-links.js --apply"
   },
   "devDependencies": {
     "marked": "17.0.5",

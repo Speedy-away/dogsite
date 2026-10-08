@@ -6,6 +6,39 @@ const { selectUrls, submit } = require('./indexnow');
 const SITE = 'https://scoobymenu.cc';
 const meta = { title: 'Test guide - Scooby', description: 'A guide with real navigation.', keywords: 'Scooby guide' };
 
+test('navigation normalization preserves fragments, queries, external URLs and scripts', () => {
+  const { routeMap, normalizeLinks } = require('./seo-links');
+  const routes = routeMap(['index.html', 'guides/index.html', 'products/gta5/index.html']);
+  const html = `<a href="/guides?game=gta5&amp;tab=lua#start">Guide</a><a href="../gta5/index.html#features">Game</a><a href="#local">Local</a><a href="https://example.com/guides">External</a><script>const example = '<a href="/guides">';</script>`;
+  const result = normalizeLinks('products/gta5/index.html', html, routes);
+  assert(result.includes('href="/guides/?game=gta5&amp;tab=lua#start"'));
+  assert(result.includes('href="/products/gta5/#features"'));
+  assert(result.includes('href="#local"'));
+  assert(result.includes('href="https://example.com/guides"'));
+  assert(result.includes(`<script>const example = '<a href="/guides">';</script>`));
+  assert.equal(normalizeLinks('products/gta5/index.html', result, routes), result);
+});
+
+test('public HTML navigation uses canonical routes and has no missing local targets', () => {
+  const path = require('path');
+  const { walk } = require('./seo-metadata');
+  const { pageUrl } = require('./seo-structured');
+  const { routeMap, normalizeLinks } = require('./seo-links');
+  const root = path.resolve(__dirname, '..');
+  const files = walk(root).map(file => path.relative(root, file).replace(/\\/g, '/'));
+  const routes = routeMap(files);
+  for (const file of files) {
+    const html = fs.readFileSync(path.join(root, file), 'utf8');
+    assert.equal(normalizeLinks(file, html, routes), html, 'Run npm run seo:links: ' + file);
+    const markup = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>|<!--[^]*?-->/gi, '');
+    for (const match of markup.matchAll(/<a\b[^>]*\shref=["']([^"']+)["']/gi)) {
+      const url = new URL(match[1], pageUrl(file));
+      if (url.origin !== SITE) continue;
+      assert(fs.existsSync(path.join(root, decodeURIComponent(url.pathname))), file + ' links to missing ' + url.pathname);
+    }
+  }
+});
+
 test('metadata preserves noindex pages and redirect stubs, regardless of attribute order', () => {
   for (const marker of ['<meta content="noindex, follow" name="ROBOTS">', '<meta content="0; url=/" http-equiv="Refresh">']) {
     const html = `<html><head><title>Private</title>${marker}</head><body>Account</body></html>`;

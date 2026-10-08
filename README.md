@@ -25,4 +25,6 @@ Serve or publish the repository root. Public URLs are unchanged; restoring the h
 
 `npm run test:site` verifies packaging and public routes. `npm run test:seo` verifies metadata and sitemap coverage. External documentation/release tools should use the repository root as their site root.
 
+After generating or editing pages, run `npm run seo:links` to align navigation with canonical directory URLs, then `node tools/seo-sitemap.js --apply` and `npm run test:seo`. Keep trailing slashes on directory links (for example, `/products/gta5/`); standalone HTML pages retain their filenames.
+
 More details: [development notes](project/DEV.md).

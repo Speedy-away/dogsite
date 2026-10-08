@@ -34,6 +34,11 @@ for(const name of templates) {
   outputs.set('docs/l4d/templates/'+name,content);
   manifest.files['templates/'+name]=hash(content);
 }
+for (const name of ['HEALTH_ESP.md', 'GAME_SIDEBAR.md', 'ENTITY_COLORS.md']) {
+  const content = fs.readFileSync(path.join(ui, 'docs', name), 'utf8').replace(/\r\n/g, '\n');
+  outputs.set('docs/l4d/contracts/' + name, content);
+  manifest.files['contracts/' + name] = hash(content);
+}
 outputs.set('docs/l4d/sources.json',JSON.stringify(manifest,null,2)+'\n');
 const esc = value => value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const plain = value => value.replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');
@@ -52,7 +57,8 @@ const sources=[['snippets','Code snippets','snippets.md'],['game-api','L4D host 
 let navigation='';
 const sections=sources.map(([id,title,file])=>{
   const md=sourceText[file];
-  const html=marked.parse(md.replace(/^# /gm,'## '));
+  const publicMarkdown = md.replace(/\]\((HEALTH_ESP|GAME_SIDEBAR|ENTITY_COLORS)\.md\)/g, '](/docs/l4d/contracts/$1.md)');
+  const html=marked.parse(publicMarkdown.replace(/^# /gm,'## '));
   const headings=[...html.matchAll(/<h([2-6])>([\s\S]*?)<\/h\1>/g)];
   anchors[id] ||= {};
   let next=Math.max(0,...Object.values(anchors[id]).map(value=>Number(value.split('-').at(-1))))+1;
