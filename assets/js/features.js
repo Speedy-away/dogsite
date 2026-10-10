@@ -1,5 +1,9 @@
 /* Feature explorer: static content, progressively enhanced search and filters. */
 (() => {
+    const gameSelect = document.getElementById('game-select');
+    if (gameSelect) gameSelect.addEventListener('change', () => {
+        window.location.assign(gameSelect.value);
+    });
     const search = document.getElementById('feature-search');
     const clear = document.getElementById('clear-search');
     const select = document.getElementById('category-select');

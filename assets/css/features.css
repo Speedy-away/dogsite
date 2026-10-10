@@ -901,3 +901,9 @@ mark {
     background:var(--panel);
     font-size:.875rem;
 }
+
+/* Keep the complete game list accessible on every feature page. */
+.game-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap;overflow:visible}
+.game-nav label{font-size:14px;font-weight:600}
+.game-nav select{width:280px;max-width:100%;min-height:46px;padding:10px 14px;border:1px solid #35435a;border-radius:8px;background:#1b2637;color:#e7efff;font:inherit;cursor:pointer}
+.game-nav select:focus-visible{outline:2px solid #8ebaff;outline-offset:3px}

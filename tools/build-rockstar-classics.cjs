@@ -8,7 +8,7 @@ const source = fs.readFileSync(path.join(root, 'source-games/index.html'), 'utf8
 const nav = source.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0].replace('/guides/source-games/', '/guides/');
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const released = game => ['beta','released'].includes(game.state) && game.releaseArtifact?.url;
-const label = game => released(game) ? 'Released' : 'Coming soon';
+const label = game => released(game) ? 'Online' : 'Coming soon';
 const href = game => `/products/${game.id}/`;
 function shell(title, route, desc, body, collection = false) {
   return `<!DOCTYPE html><html lang="en" class="source-collection-document"><head>
@@ -34,7 +34,7 @@ const sections = states.map(([state, kicker, title, intro]) => {
   if (!games.length) return '';
   return `<section id="${state}" class="source-catalog-section" data-catalog-section aria-labelledby="${state}-title"><div class="source-section-heading"><div><span class="source-kicker">${kicker}</span><h2 id="${state}-title">${title}</h2><p>${intro}</p></div><span class="source-section-count">${String(games.length).padStart(2,'0')}</span></div><div class="source-grid">${games.map(card).join('\n')}</div></section>`;
 }).join('\n');
-const body = `<header class="collection-hero"><div class="collection-hero-copy"><div class="collection-brand"><span>THE SCOOBY COLLECTION</span></div><h1>Rockstar Classics</h1><p class="collection-tagline">Familiar worlds.<br>A new chapter starts here.</p><p class="collection-intro">From Los Santos to the frontier. Browse released games and see what is coming next.</p><div class="collection-hero-actions"><a href="#released" class="collection-button">Released games ↓</a><a href="#coming-soon" class="collection-button secondary">Coming soon</a></div></div></header>
+const body = `<header class="collection-hero"><div class="collection-hero-copy"><div class="collection-brand"><span>THE SCOOBY COLLECTION</span></div><h1>Rockstar Classics</h1><p class="collection-tagline">Familiar worlds.<br>A new chapter starts here.</p><p class="collection-intro">From Los Santos to the frontier. Browse released games and see what is coming next.</p></div></header>
 <div class="collection-tools" hidden><div class="collection-filters" role="group" aria-label="Filter games by status"><button type="button" data-engine-filter="all" aria-pressed="true">All games</button><button type="button" data-engine-filter="released" aria-pressed="false">Released</button><button type="button" data-engine-filter="coming-soon" aria-pressed="false">Coming soon</button></div><label class="collection-search"><span class="visually-hidden">Search games</span><input id="source-game-search" type="search" placeholder="Search your game…" autocomplete="off"></label></div><p id="collection-results" class="collection-results" role="status" hidden></p>
 ${sections}<div id="collection-empty" class="collection-empty" hidden><h2>No games found</h2><p>Try another title or show the full collection.</p><button type="button" id="collection-reset">Show all games</button></div>
 <section id="requirements" class="source-note classics-requirements" aria-labelledby="requirements-title">

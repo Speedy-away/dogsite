@@ -4,9 +4,9 @@
   "source": "GTA IV title-owned gameplay adapter and menu, 2026-10-10 release inventory; automated checks are separate from live-game acceptance.",
   "website": {
     "features": {
-      "description": "Explore GTA IV lock on, sniper silent aim, Magic bullet, ESP, radar, weapon controls, player and vehicle tools, and searchable vehicle and weapon spawners."
+      "description": "Browse GTA IV combat, ESP, radar, character, weapon, vehicle, world and spawner settings, with supported builds and the status of recent updates."
     },
-    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Includes instant-hit and sniper delayed-hit silent aim. Projectile/explosive silent aim, standalone EFLC and other executable builds are not supported. Feature availability depends on the supported game build and active session."
+    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Includes instant-hit and sniper delayed-hit silent aim. Projectile/explosive silent aim, standalone EFLC and other executable builds are not supported. Feature availability depends on the supported game build and active session. Recent local DLL updates listed below are not yet confirmed in the published loader release. Pickup names and fire/explosive ammo remain unfinished; pickup boxes currently use a small 3D position marker."
   },
   "tabs": [
     {
@@ -1064,6 +1064,61 @@
                   "id": "world.release_weather",
                   "label": "Release weather override",
                   "desc": "Adjust release weather override in the world settings."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Latest local DLL updates",
+      "categories": [
+        {
+          "name": "Built locally — not yet published",
+          "groups": [
+            {
+              "name": "Visuals and spawners",
+              "items": [
+                {
+                  "id": "local.quick_spawn",
+                  "label": "Quick spawn",
+                  "desc": "Optional one-click vehicle spawning and weapon giving using the selected spawn settings."
+                },
+                {
+                  "id": "local.catalog_scroll",
+                  "label": "Scrollable catalogs",
+                  "desc": "Mouse-wheel scrolling and a visible scrollbar for vehicle and weapon lists."
+                },
+                {
+                  "id": "local.vehicle_info",
+                  "label": "Attached vehicle information",
+                  "desc": "A panel attached to the menu lists the selected vehicle name, model, class, episode and spawn name."
+                },
+                {
+                  "id": "local.esp_3d",
+                  "label": "3D vehicle and pickup boxes",
+                  "desc": "Vehicles use rotated model bounds. Pickups use a small 3D marker; actual pickup names are not implemented."
+                },
+                {
+                  "id": "local.esp_preview",
+                  "label": "NPC and Self previews",
+                  "desc": "Civilian NPC and Niko previews reflect the selected ESP profile. Preview health and distance affect only the preview."
+                },
+                {
+                  "id": "local.health",
+                  "label": "Health settings",
+                  "desc": "Smooth health bars with HP text inside Health settings, plus independent weapon and ammunition labels."
+                },
+                {
+                  "id": "local.range",
+                  "label": "Longer default ESP range",
+                  "desc": "Fresh settings default to 1,000 metres for entities available to the game. Existing saved ranges are preserved."
+                },
+                {
+                  "id": "local.self_movement",
+                  "label": "Movement inside Self",
+                  "desc": "Movement controls now sit under Self. Noclip position and camera free-look fixes still require in-game verification."
                 }
               ]
             }
