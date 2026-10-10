@@ -7,11 +7,15 @@
     "src/features/combat/silent_aim/silent_aim.cpp": "835f94ed066f21a3f867b2862a9b4f10f35a9877bce8fcb3f134aaed5d259727",
     "src/features/combat/triggerbot/triggerbot.cpp": "0880c6c9d0d55f8b83e4569bbd9edb680975873ddb8f1cf63395f93f816d2283",
     "src/features/local/self/self.cpp": "f063f6963db12d3f1c2d011911ec2acbfba1020d29d8ef1a4731c4ee6fb634b8",
-    "src/features/local/world/world.cpp": "c8761921b78afc6e3a40f8037ab4f01d2fb2b9b737da39b7503860fb501de3a6",
-    "src/features/local/teleport/teleport.cpp": "5b6e37f5c11b59a59da6f364dfe80f7764231729248c7581ea58c34d4ab2deb6",
-    "README.md": "b4f34ad94b6c35b8a2dfcbd3d6c547f83b8982704c894d5e834c2f0b00218193",
-    "docs/FEATURE_STATUS.md": "8b07b470d815c7bf201f40ff1bbef970b7a066f443d5a1097082b0bd8684c99d",
-    "src/features/visuals/visuals.cpp": "e3c5e53e4a0942c7e11ee0225315d1bf2b07cfe14dccba7315955c5a177e4088"
+    "src/features/local/weapon/weapon.cpp": "ee6053299a70afe5f6734f68f38621bd66c8e0fbe6bc6437d718eb27eb8d8905",
+    "src/features/local/vehicle/vehicle.cpp": "d1531fdcfabfbffe062dcd7b3dcbfa7a51143099852140ce6ba02fc31f36ae6c",
+    "src/features/local/world/world.cpp": "5bb04aa18d9b8d4a2215f1971b01f4090ef066743ca460f65ed46950926c61f8",
+    "src/features/local/teleport/teleport.cpp": "0979caa61c675f12d26ccd38e687dd1a4571d9f7ca0fe4fcf40260a62b46174b",
+    "README.md": "6a9467489ffd7c93ed7415e3e258e6c957fc2948efe407d1bfa734e824ec2352",
+    "docs/FEATURE_STATUS.md": "2cfab208161ce8ba412c5bdb0ecd030cce598e9c137b2e8fd5aee705bc5790d5",
+    "src/features/visuals/visuals.cpp": "7f1f63b325e7efccc9bd1f4087df889a5c045491ba115392023e95cb5339bcfd",
+    "src/features/local/native_features.cpp": "e84fd884e33eec6d33588ad2900d5fb5595c1affde8c0325166808b890017eb4",
+    "src/features/spawner/spawner.cpp": "3c330ca396c84db9ed25be6c1bf5bddeb1f2e3c73cc73c87b21b82743f7f51f7"
   },
   "tabs": [
     {
@@ -30,15 +34,6 @@
                   "settings": [
                     "Aim key",
                     "Hold / Toggle / Always"
-                  ],
-                  "source": "src/features/combat/lock_on/lock_on.cpp"
-                },
-                {
-                  "id": "aim.enabled",
-                  "label": "Lock On",
-                  "desc": "Configure lock on for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
-                  "settings": [
-                    "On / off"
                   ],
                   "source": "src/features/combat/lock_on/lock_on.cpp"
                 },
@@ -420,15 +415,6 @@
                   "source": "src/features/local/self/self.cpp"
                 },
                 {
-                  "id": "input.block",
-                  "label": "Block Input",
-                  "desc": "Configure block input. Availability depends on the supported game build and current session.",
-                  "settings": [
-                    "On / off"
-                  ],
-                  "source": "src/features/local/self/self.cpp"
-                },
-                {
                   "id": "self.regeneration",
                   "label": "Regenerate health",
                   "desc": "Configure regenerate health. Availability depends on the supported game build and current session.",
@@ -451,11 +437,181 @@
           ]
         },
         {
-          "name": "World map",
+          "name": "Weapon",
           "groups": [
             {
               "name": "Controls",
               "items": [
+                {
+                  "id": "weapon.refill",
+                  "label": "Refill current weapon",
+                  "desc": "Next update — not in the current download. Configure refill current weapon. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Action"
+                  ],
+                  "source": "src/features/local/weapon/weapon.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "weapon.ammo",
+                  "label": "Ammo amount",
+                  "desc": "Next update — not in the current download. Configure ammo amount. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/weapon/weapon.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "weapon.infinite_ammo",
+                  "label": "Keep ammo full",
+                  "desc": "Next update — not in the current download. Configure keep ammo full. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/weapon/weapon.cpp",
+                  "availability": "next-update"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vehicle",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "vehicle.repair",
+                  "label": "Repair vehicle",
+                  "desc": "Next update — not in the current download. Configure repair vehicle. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Action"
+                  ],
+                  "source": "src/features/local/vehicle/vehicle.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "vehicle.engine_on",
+                  "label": "Start engine",
+                  "desc": "Next update — not in the current download. Configure start engine. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Action"
+                  ],
+                  "source": "src/features/local/vehicle/vehicle.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "vehicle.engine_off",
+                  "label": "Stop engine",
+                  "desc": "Next update — not in the current download. Configure stop engine. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Action"
+                  ],
+                  "source": "src/features/local/vehicle/vehicle.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "vehicle.god",
+                  "label": "God vehicle",
+                  "desc": "Next update — not in the current download. Configure god vehicle. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/vehicle/vehicle.cpp",
+                  "availability": "next-update"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "World and camera",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "world.weather",
+                  "label": "Override weather",
+                  "desc": "Next update — not in the current download. Configure override weather. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.hour",
+                  "label": "Hour",
+                  "desc": "Next update — not in the current download. Configure hour. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.minute",
+                  "label": "Minute",
+                  "desc": "Next update — not in the current download. Configure minute. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.freeze_time",
+                  "label": "Freeze time",
+                  "desc": "Next update — not in the current download. Configure freeze time. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.set_time",
+                  "label": "Apply time",
+                  "desc": "Next update — not in the current download. Configure apply time. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Action"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.freecam",
+                  "label": "Free camera",
+                  "desc": "Next update — not in the current download. Configure free camera. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.freecam_speed",
+                  "label": "Camera speed",
+                  "desc": "Next update — not in the current download. Configure camera speed. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "world.camera_info",
+                  "label": "Camera telemetry",
+                  "desc": "Next update — not in the current download. Configure camera telemetry. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
+                },
                 {
                   "id": "map.enabled",
                   "label": "Global map",
@@ -577,44 +733,61 @@
                 {
                   "id": "teleport.waypoint",
                   "label": "Teleport to waypoint",
-                  "desc": "Use the menu waypoint first, otherwise the game radar waypoint. Requires the exterior world and a successful ground query. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Use the menu waypoint first, otherwise the game radar waypoint. Requires the exterior world and a successful ground query. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
                 },
                 {
                   "id": "teleport.coordinates",
                   "label": "Teleport to coordinates",
-                  "desc": "Use X, Y and Z coordinates with optional ground snapping. Invalid or unloaded destinations are rejected. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Use X, Y and Z coordinates with optional ground snapping. Invalid or unloaded destinations are rejected. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
                 },
                 {
                   "id": "teleport.back",
                   "label": "Back",
-                  "desc": "Return to the previous teleport position in this session. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Return to the previous teleport position in this session. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
                 },
                 {
                   "id": "teleport.save",
                   "label": "Save current position",
-                  "desc": "Remember your current position for the current session. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Remember your current position for the current session. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
                 },
                 {
                   "id": "teleport.saved",
                   "label": "Teleport to saved position",
-                  "desc": "Return to a saved session position. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Return to a saved session position. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
                 },
                 {
                   "id": "teleport.copy",
                   "label": "Copy current coordinates",
-                  "desc": "Fill the coordinate controls with your current position. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Fill the coordinate controls with your current position. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
                 },
                 {
                   "id": "teleport.set_waypoint",
                   "label": "Set menu waypoint",
-                  "desc": "Choose a menu waypoint; you can also right-click the world map. On-foot only; live gameplay acceptance pending.",
+                  "desc": "Choose a menu waypoint; you can also right-click the world map. On-foot in the current beta. Occupied-vehicle teleport is planned for the next update; in-game verification pending.",
                   "source": "src/features/local/teleport/teleport.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weather selection",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "world.weather_type",
+                  "label": "Weather type",
+                  "desc": "Next update — not in the current download. Choose from 21 weather presets for the weather override.",
+                  "source": "src/features/local/world/world.cpp",
+                  "availability": "next-update"
                 }
               ]
             }
@@ -878,6 +1051,51 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Pickup ESP",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "esp.pickups.enabled",
+                  "label": "Enable pickup ESP",
+                  "desc": "Next update — not in the current download. Display active streamed pickups with verified object and pickup lifetime checks. Live gameplay acceptance pending.",
+                  "source": "src/game/adapter.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "esp.pickups.box",
+                  "label": "Box",
+                  "desc": "Next update — not in the current download. Display active streamed pickups with verified object and pickup lifetime checks. Live gameplay acceptance pending.",
+                  "source": "src/game/adapter.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "esp.pickups.name",
+                  "label": "Name",
+                  "desc": "Next update — not in the current download. Display active streamed pickups with verified object and pickup lifetime checks. Live gameplay acceptance pending.",
+                  "source": "src/game/adapter.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "esp.pickups.distance",
+                  "label": "Distance",
+                  "desc": "Next update — not in the current download. Display active streamed pickups with verified object and pickup lifetime checks. Live gameplay acceptance pending.",
+                  "source": "src/game/adapter.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "esp.pickups.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Next update — not in the current download. Display active streamed pickups with verified object and pickup lifetime checks. Live gameplay acceptance pending.",
+                  "source": "src/game/adapter.cpp",
+                  "availability": "next-update"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -915,6 +1133,150 @@
       ]
     },
     {
+      "name": "Spawner",
+      "categories": [
+        {
+          "name": "Vehicles, weapons and pedestrians",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "spawner.spawn",
+                  "label": "Vehicle spawner",
+                  "desc": "Next update — not in the current download. Search the 212-model catalogue by name, model or ID and choose a class. Ordinary vehicle spawning is implemented; trains and trailers require a dedicated spawner. Live gameplay acceptance pending.",
+                  "source": "src/features/local/native_features.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.weapon.spawn",
+                  "label": "Weapon spawner",
+                  "desc": "Next update — not in the current download. Search 43 weapon/equipment models, set ammo and choose whether to equip. Live gameplay acceptance pending.",
+                  "source": "src/features/local/native_features.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.ped.spawn",
+                  "label": "Pedestrian spawner",
+                  "desc": "Next update — not in the current download. Search 276 pedestrian models; choose count and distance. Live gameplay acceptance pending.",
+                  "source": "src/features/local/native_features.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.settings",
+                  "label": "Vehicle settings",
+                  "desc": "Next update — not in the current download. Spawn inside when on foot, engine state, protection, retained speed, aircraft altitude and replace-last preferences. Live gameplay acceptance pending.",
+                  "source": "src/features/local/native_features.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.delete_all",
+                  "label": "Delete spawned entities",
+                  "desc": "Next update — not in the current download. Delete tracked spawned entities; occupied vehicles are skipped. Live gameplay acceptance pending.",
+                  "source": "src/features/local/native_features.cpp",
+                  "availability": "next-update"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Spawn settings",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "spawner.inside",
+                  "label": "Spawn inside",
+                  "desc": "Next update — not in the current download. Enter a newly spawned vehicle when currently on foot.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.god",
+                  "label": "Protect spawned vehicle",
+                  "desc": "Next update — not in the current download. Apply vehicle protection to the newly spawned vehicle.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.engine",
+                  "label": "Engine on",
+                  "desc": "Next update — not in the current download. Choose the engine state of the spawned vehicle.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.speed",
+                  "label": "Keep vehicle speed",
+                  "desc": "Next update — not in the current download. Carry the validated current vehicle speed into the new vehicle.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.air",
+                  "label": "Aircraft spawn in air",
+                  "desc": "Next update — not in the current download. Spawn planes and helicopters above the player.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.replace",
+                  "label": "Delete last before spawn",
+                  "desc": "Next update — not in the current download. Replace the last tracked unoccupied spawned vehicle.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.info",
+                  "label": "Show vehicle info",
+                  "desc": "Next update — not in the current download. Show the selected model ID and vehicle class.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.delete_last",
+                  "label": "Delete last spawned entity",
+                  "desc": "Next update — not in the current download. Remove the last tracked eligible entity; occupied vehicles are skipped.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.weapon.ammo",
+                  "label": "Weapon ammo",
+                  "desc": "Next update — not in the current download. Choose the ammunition amount when giving a weapon.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.weapon.equip",
+                  "label": "Equip weapon",
+                  "desc": "Next update — not in the current download. Choose whether to equip the given weapon.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.ped.count",
+                  "label": "Pedestrian count",
+                  "desc": "Next update — not in the current download. Choose the number of pedestrians to spawn within the bounded limit.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                },
+                {
+                  "id": "spawner.ped.distance",
+                  "label": "Pedestrian distance",
+                  "desc": "Next update — not in the current download. Choose how far ahead to spawn pedestrians.",
+                  "source": "src/features/spawner/spawner.cpp",
+                  "availability": "next-update"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Not available",
       "categories": [
         {
@@ -924,57 +1286,33 @@
               "name": "Controls",
               "items": [
                 {
-                  "id": "unavailable.pickup",
-                  "label": "Pickup ESP",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.spawner",
-                  "label": "Spawner",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.weapon",
-                  "label": "Local weapon controls",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.vehicle",
-                  "label": "Vehicle controls",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.weather",
-                  "label": "Weather controls",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.time",
-                  "label": "Time controls",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.freecam",
-                  "label": "Free camera",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
-                  "id": "unavailable.vehicle-teleport",
-                  "label": "Vehicle teleport",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
-                  "source": "docs/FEATURE_STATUS.md"
-                },
-                {
                   "id": "unavailable.spectators",
-                  "label": "Spectator telemetry",
-                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "label": "Multiplayer spectator list",
+                  "desc": "Single-player SA does not provide remote spectators. Actual camera telemetry is available in World.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.special-spawners",
+                  "label": "Train and trailer spawners",
+                  "desc": "Dedicated train/trailer native spawning is not implemented.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.tuning",
+                  "label": "Spawn maxed / vehicle tuning",
+                  "desc": "Per-model upgrades are not implemented.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.vehicle-preview",
+                  "label": "3D vehicle preview",
+                  "desc": "The catalogue provides vehicle metadata; a 3D vehicle preview is not implemented.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.no-reload",
+                  "label": "No reload",
+                  "desc": "Ammo refill and maintained ammo are implemented; magazine/no-reload manipulation is not.",
                   "source": "docs/FEATURE_STATUS.md"
                 }
               ]
@@ -983,5 +1321,11 @@
         }
       ]
     }
-  ]
+  ],
+  "website": {
+    "notice": "Current download: free beta.4. Items marked Next update are implemented in development, but are not included in this download. In-game verification and a new release are pending.",
+    "features": {
+      "description": "Browse current and upcoming San Andreas features: ESP, teleport, spawners, weapons, vehicles, weather, time, free camera and Lua. Search controls and check availability."
+    }
+  }
 }
