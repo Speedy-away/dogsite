@@ -2,6 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
+const {pages: metadata} = require('./seo-metadata');
 const catalog = require('../assets/data/rockstar-classics.json');
 const source = fs.readFileSync(path.join(root, 'source-games/index.html'), 'utf8');
 const nav = source.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0].replace('/guides/source-games/', '/guides/');
@@ -13,7 +14,7 @@ function shell(title, route, desc, body, collection = false) {
   return `<!DOCTYPE html><html lang="en" class="source-collection-document"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escape(title)} - Scooby</title><meta name="description" content="${escape(desc)}">
-<meta name="keywords" content="${escape(title)}, GTA, Grand Theft Auto, San Andreas, Vice City, GTA III, GTA IV, Red Dead Redemption, Classic, The Definitive Edition, free, coming soon">
+<meta name="keywords" content="${escape(metadata[route.slice(1)+"index.html"].keywords)}">
 <link rel="canonical" href="https://scoobymenu.cc${route}"><meta name="robots" content="index, follow">
 <meta property="og:type" content="website"><meta property="og:title" content="${escape(title)} - Scooby"><meta property="og:description" content="${escape(desc)}"><meta property="og:url" content="https://scoobymenu.cc${route}">
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="${escape(title)} - Scooby"><meta name="twitter:description" content="${escape(desc)}">
@@ -23,7 +24,7 @@ ${['site-brand','product','product-layout','source-games','source-collection','r
 </head><body class="product-detail source-page source-collection rockstar-classics"><a class="product-skip-link" href="#main-content">Skip to content</a>${nav}
 <main class="main-content" id="main-content">${body}</main><footer class="source-footer"><a href="/rockstar-classics/">Rockstar Classics</a><a href="/source-games/">Source Games</a><a href="/more-games/">More Games</a><a href="/">Home</a><span>Scooby · Make it yours.</span></footer></body></html>\n`;
 }
-const card = game => `<a class="source-card" href="${href(game)}" data-game="${game.id}" data-engine="${released(game) ? 'released' : 'coming-soon'}" data-search="${escape(game.name)} ${game.id} GTA Grand Theft Auto ${game.id === 'rdr1' ? 'RDR1' : ''}"><div class="source-card-art classics-type-art"><span class="source-availability ${released(game) ? 'is-released' : 'is-upcoming'}">${label(game)}</span><img class="classic-scene" src="/assets/images/rockstar-classics/${game.id}-background.${game.id === 'gta3' ? 'png' : 'jpg'}" alt=""><img class="classic-logo" src="/assets/images/rockstar-classics/${game.id}-logo.png" alt=""></div><div class="source-card-copy"><h3>${escape(game.name)}</h3><span class="source-card-link">View product <span aria-hidden="true">→</span></span></div></a>`;
+const card = game => `<a class="source-card" href="${href(game)}" data-game="${game.id}" data-engine="${released(game) ? 'released' : 'coming-soon'}" data-search="${escape(game.name)} ${game.id} GTA Grand Theft Auto ${escape(metadata['products/'+game.id+'/index.html'].keywords)}"><div class="source-card-art classics-type-art"><span class="source-availability ${released(game) ? 'is-released' : 'is-upcoming'}">${label(game)}</span><img class="classic-scene" src="/assets/images/rockstar-classics/${game.id}-background.${game.id === 'gta3' ? 'png' : 'jpg'}" alt=""><img class="classic-logo" src="/assets/images/rockstar-classics/${game.id}-logo.png" alt=""></div><div class="source-card-copy"><h3>${escape(game.name)}</h3><span class="source-card-link">View product <span aria-hidden="true">→</span></span></div></a>`;
 const states = [
   ['released', 'PLAY NOW', 'Released', 'Explore the available Rockstar Classics titles.'],
   ['coming-soon', 'UP NEXT', 'Coming soon', 'More classic worlds are on the way.']
