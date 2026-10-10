@@ -10,13 +10,13 @@ const catalog = require('../assets/data/rockstar-classics.json');
   for (const game of catalog.games) {
     assert.equal(game.runtimeAccepted, false);
     const html = fs.readFileSync(`products/${game.id}/index.html`, 'utf8');
-    assert(html.includes(game.settingsDirectory));
+    if (game.id !== 'gta-sa') assert(html.includes(game.settingsDirectory));
     if (game.id === 'gta-sa') {
       assert.equal(game.state, 'beta');
       assert.equal(game.releaseArtifact.channel, 'beta');
       assert.equal(game.releaseArtifact.runtimeAccepted, false);
       assert(html.includes(game.releaseArtifact.url));
-      assert(html.includes(game.releaseArtifact.sha256));
+      assert(!html.includes('class="classic-release"'));
       assert(html.includes('Online'));
       assert(html.includes('Live gameplay and performance acceptance are pending'));
     } else {

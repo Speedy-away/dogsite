@@ -1,4 +1,5 @@
-.rockstar-classics .collection-hero{background:linear-gradient(120deg,#26211b,#11151c);min-height:490px}
+.rockstar-classics .collection-hero{background:linear-gradient(120deg,#26211b,#11151c);min-height:490px;border:0}
+.rockstar-classics .collection-hero::after{border-radius:inherit}
 .rockstar-classics .collection-hero-copy{max-width:820px}
 .rockstar-classics .collection-hero::before{content:"III / VC / SA";position:absolute;right:24px;bottom:70px;font-size:clamp(45px,8vw,110px);font-weight:800;letter-spacing:-.07em;color:#ffffff05;z-index:-1}
 .rockstar-classics .classics-type-art{display:flex;align-items:center;justify-content:flex-start;padding:28px;background:linear-gradient(135deg,#30271e,#191e27);color:#ddc4a4}
