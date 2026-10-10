@@ -1,0 +1,50 @@
+{
+  "source": "Scooby-Op/MTA/Scooby-MTA/README.md — documented controls reviewed 2026-10-10",
+  "tabs": [
+    {"name":"Combat","categories":[{"name":"Aimbot","groups":[{"name":"Controls","items":[
+      {"label":"Target filters","desc":"Choose players and NPCs independently, with collision visibility checks and a distance limit."},
+      {"label":"Target points","desc":"Select head, chest, pelvis or nearest target points."},
+      {"label":"FOV controls","desc":"Adjust the pixel radius and display a targeting circle."},
+      {"label":"Smoothing and prediction","desc":"Tune frame-rate-independent smoothing and velocity prediction."},
+      {"label":"Target lock and indicators","desc":"Bounded target locking with an optional marker and line."},
+      {"label":"Activation key and mode","desc":"Configure the activation key and mode. Aiming requires a living local player, supported camera, game focus and a closed menu."}
+    ]}]}]},
+    {"name":"Visuals","categories":[{"name":"ESP profiles","groups":[{"name":"Controls","items":[
+      {"label":"Players, NPCs, vehicles and self","desc":"Separate enable, range and appearance settings for each profile."},
+      {"label":"Boxes and appearance","desc":"Full or corner boxes, outlines, fill and stroke/fill gradients."},
+      {"label":"Names, distance and snaplines","desc":"Player names from MTA, model IDs for unnamed entities and configurable label positions and colors."},
+      {"label":"Skeletons and health","desc":"Ped skeletons, health bars and independent HP text."},
+      {"label":"Weapon labels","desc":"Append current weapon names to player and NPC ESP or radar labels."},
+      {"label":"Team classification","desc":"Player classification follows MTA team identity. NPC relationships remain unknown."},
+      {"label":"Interactive CJ preview","desc":"Rotate and zoom the sample model, drag labels and health bars, and open appearance settings from preview elements. The preview does not enable gameplay ESP."}
+    ]}]},{"name":"Radar and world map","groups":[{"name":"Controls","items":[
+      {"label":"Radar","desc":"Shared radar with configurable appearance options."},
+      {"label":"San Andreas terrain map","desc":"Displays the local player and streamed player blips and names. Unstreamed players are not tracked."},
+      {"label":"Map appearance and activation","desc":"Adjust map size, dot size, opacity and activation key/mode. F6 is the default map toggle."}
+    ]}]}]},
+    {"name":"Teleport","categories":[{"name":"On-foot controls","groups":[{"name":"Controls under testing","items":[
+      {"label":"Waypoint and coordinates","desc":"Select a map waypoint or enter coordinates, with optional ground snapping. Requires the supported client, focus and an on-foot local player."},
+      {"label":"Back and saved position","desc":"Return to the last successful origin or save and return to one session position."},
+      {"label":"Coordinate and waypoint tools","desc":"Copy your current coordinates into the fields and set or clear a menu waypoint."}
+    ]}]}]},
+    {"name":"Lua","categories":[{"name":"Scripts and editor","groups":[{"name":"Controls","items":[
+      {"label":"Script manager","desc":"Run and stop text .lua scripts, including bundled Player HUD and Events and timers examples."},
+      {"label":"Lua editor and console","desc":"Edit, save and run scripts, and review errors in the Lua console."},
+      {"label":"API docs and overlays","desc":"Browse the supported API and build custom UI or render overlays."},
+      {"label":"Snapshots, events and timers","desc":"Access supported player, NPC and vehicle snapshots, local player values, local custom events, timers and Vector3 helpers. This is Scooby Lua 5.4, not the native MTA resource runtime."}
+    ]}]}]},
+    {"name":"Settings","categories":[{"name":"Personalization","groups":[{"name":"Controls","items":[
+      {"label":"Profiles and hotkeys","desc":"Save configurations and customize menu and feature bindings. Insert or F1 opens the menu."},
+      {"label":"Themes and backgrounds","desc":"Customize themes and use PNG or GIF backgrounds."},
+      {"label":"Interface scale","desc":"Auto Scale adapts the menu and overlays to the render surface; manual scale settings remain available."},
+      {"label":"Language and overlays","desc":"Choose interface language and overlay settings."}
+    ]}]}]},
+    {"name":"Current limits","categories":[{"name":"Not available","groups":[{"name":"Limitations","items":[
+      {"label":"Pickup ESP","desc":"The tab is present but disabled; pickup enumeration is not supplied by the current adapter."},
+      {"label":"Spawner operations","desc":"Spawner operations remain unavailable."},
+      {"label":"Vehicle teleport and region changes","desc":"Vehicle teleport and changing interior or dimension are not implemented."},
+      {"label":"Spectator telemetry","desc":"The current adapter does not provide spectator telemetry."},
+      {"label":"Full MTA resources","desc":"Native resources, meta.xml, resource exports, remote/server events, engine object creation and compiled Lua are not supported by Scooby's script runtime."}
+    ]}]}]}
+  ]
+}

@@ -21,7 +21,7 @@ const sections = {
   terms: ['SCOOBY TERMS', ['Know the', 'details.'], 'Terms & conditions', 'Read the terms for using Scooby.', '#75adff', 'book'],
 };
 const games = {
-  'mta-sa': ['MTA:SA', 'Free & Premium · Coming soon', '#e9bd80'],
+  'mta-sa': ['MTA:SA', 'Free & Premium · Testing', '#e9bd80'],
   gta5: ['GTA 5', 'Legacy & Enhanced', '#75adff'],
   rdr2: ['Red Dead', 'Redemption 2', '#f39582'],
   fivem: ['FiveM', '', '#ffb16f'],
@@ -58,7 +58,7 @@ for (const [slug, [first, second, accent]] of Object.entries(games)) {
 
 function cardFor(file) {
   file = file.replace(/\\/g, '/');
-  if (file === 'products/mta-sa/index.html') return { ...cards['game-mta-sa'], path: '/assets/images/mta-sa/launch-artwork.png', width: 1672, height: 941, alt: 'Multi Theft Auto logo over Los Santos at sunset. Free and Premium editions coming soon.' };
+  if (file === 'products/mta-sa/index.html') return { ...cards['game-mta-sa'], path: '/assets/images/mta-sa/launch-artwork.png', width: 1672, height: 941, alt: 'Multi Theft Auto logo over Los Santos at sunset. Free and Premium editions in user testing.' };
   let id = 'home';
   if (file.startsWith('guides/general/')) id = 'support';
   else if (file.startsWith('guides/')) id = 'guides';
