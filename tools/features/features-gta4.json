@@ -1,12 +1,12 @@
 {
   "game": "Grand Theft Auto IV",
   "slug": "gta4",
-  "source": "GTA IV 2026.10.10.8 stable release inventory; automated build and package checks are separate from live-game acceptance.",
+  "source": "GTA IV 2026.10.10.9 stable release inventory; automated build and package checks are separate from live-game acceptance.",
   "website": {
     "features": {
       "description": "Explore GTA IV combat, independent ESP profiles, FOV styling, weapon loadouts, vehicle controls, spawners, teleport tools and interface settings."
     },
-    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Standalone EFLC, other builds and projectile/explosive silent aim are unsupported. The latest additions are included in GTA IV 2026.10.10.8 with Scooby Loader 4.81. Live gameplay acceptance remains pending. Bullet impacts, hitmarkers, named pickups, fire/explosive ammo, vehicle/ped guns, vehicle color picking, flying vehicles and shot/crosshair teleport are not included as completed features."
+    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Standalone EFLC, other builds and projectile/explosive silent aim are unsupported. The latest additions are included in GTA IV 2026.10.10.9 with Scooby Loader 4.82. Live gameplay acceptance remains pending. Bullet impacts, hitmarkers, named pickups, fire/explosive ammo, vehicle/ped guns, vehicle color picking, flying vehicles and shot/crosshair teleport are not included as completed features."
   },
   "tabs": [
     {
@@ -1099,7 +1099,7 @@
       ]
     },
     {
-      "name": "Release 2026.10.10.8 additions",
+      "name": "Release 2026.10.10.9 additions",
       "categories": [
         {
           "name": "Release additions",
