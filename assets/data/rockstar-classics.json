@@ -55,11 +55,23 @@
       "id": "gta4",
       "name": "GTA IV",
       "source": "gta/4",
-      "state": "queued",
+      "state": "released",
       "sync": "partial",
       "runtimeAccepted": false,
-      "settingsDirectory": "%LOCALAPPDATA%/Scooby/GTA4",
-      "releaseArtifact": null
+      "settingsDirectory": "C:/scooby/GTA4",
+      "releaseArtifact": {
+        "id": "gta4",
+        "access": "free",
+        "channel": "stable",
+        "version": "2026.10.10.7",
+        "runtimeAccepted": false,
+        "gameplayAvailable": true,
+        "url": "https://raw.githubusercontent.com/Rendererrr/Rendererrr.github.io/main/scooby/rockstar-classics/GTA/IV/2026.10.10.7/ScoobyGTA4.zip",
+        "sha256": "94bd47327510f3cceb2d0c361468e12d567a22f25bf63a4ba1ad64520d97f65b",
+        "bytes": 4839550,
+        "manifest": "2026.10.10.7/manifest.json",
+        "manifestSha256": "44479e21f5f0a1a818aa9a59a3d4f7c2a86dc93bb6c42520f1bffdd6e73b4052"
+      }
     },
     {
       "id": "rdr1",

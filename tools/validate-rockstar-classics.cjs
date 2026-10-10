@@ -19,6 +19,8 @@ const catalog = require('../assets/data/rockstar-classics.json');
       assert(!html.includes('class="classic-release"'));
       assert(html.includes('Online'));
       assert(html.includes('Live gameplay and performance acceptance are pending'));
+    } else if(game.id === 'gta4') {
+      assert.equal(game.state,'released');assert.equal(game.releaseArtifact.channel,'stable');assert(html.includes('View All Features'));
     } else {
       assert.equal(game.releaseArtifact, null);
       assert(!/download=|\.dll|\.exe|data-free|data-product=/.test(html));
@@ -40,10 +42,10 @@ const catalog = require('../assets/data/rockstar-classics.json');
       await page.locator('.collection-tools').waitFor({state:'visible'});
       assert.equal(await page.locator('[data-game]:visible').count(),5);
       await page.getByRole('button',{name:'Released',exact:true}).click();
-      assert.equal(await page.locator('[data-game]:visible').count(),1);
-      assert.equal(await page.locator('[data-game]:visible').getAttribute('data-game'),'gta-sa');
+      assert.equal(await page.locator('[data-game]:visible').count(),2);
+      assert.deepEqual(await page.locator('[data-game]:visible').evaluateAll(nodes=>nodes.map(n=>n.dataset.game)),['gta-sa','gta4']);
       await page.getByRole('button',{name:'Coming soon',exact:true}).click();
-      assert.equal(await page.locator('[data-game]:visible').count(),4);
+      assert.equal(await page.locator('[data-game]:visible').count(),3);
       await page.getByRole('button',{name:'All games',exact:true}).click();
       await page.getByRole('searchbox').fill('Vice City');
       assert.equal(await page.locator('[data-game]:visible').count(),1);
@@ -59,7 +61,7 @@ const catalog = require('../assets/data/rockstar-classics.json');
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
         assert(await page.locator('.classic-art-frame img').evaluateAll(images=>images.length===2 && images.every(image=>image.complete && image.naturalWidth>0)));
         assert.equal(await page.getByRole('heading',{name:game.name,exact:true}).count(),1);
-        if(game.id === 'gta-sa') {
+        if(game.id === 'gta-sa' || game.id === 'gta4') {
           assert.equal(await page.getByRole('link',{name:'Download SA (ZIP)',exact:false}).count(),0);
           await page.screenshot({path:`project/build/rockstar-classics/sa-${width}.png`,fullPage:true});
           await page.getByRole('link',{name:'Get Free Key',exact:true}).click();
@@ -71,8 +73,8 @@ const catalog = require('../assets/data/rockstar-classics.json');
           await page.keyboard.press('Escape');
           assert.equal(await page.locator('#freeKeyModal').isVisible(),false);
           await page.getByRole('link',{name:'View All Features',exact:true}).click();
-          await page.locator('#feature-search').fill('Teleport to waypoint');
-          await page.getByRole('heading',{name:'Teleport to waypoint',exact:true}).waitFor({state:'visible'});
+          await page.locator('#feature-search').fill(game.id==='gta4'?'Magic bullet':'Teleport to waypoint');
+          await page.getByRole('heading',{name:game.id==='gta4'?'Magic bullet':'Teleport to waypoint',exact:true}).waitFor({state:'visible'});
           assert((await page.locator('.feature-item:visible').count()) > 0);
           assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
           await page.screenshot({path:`project/build/rockstar-classics/features-${width}.png`,fullPage:true});

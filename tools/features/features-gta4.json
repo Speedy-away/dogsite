@@ -1,0 +1,1075 @@
+{
+  "game": "Grand Theft Auto IV",
+  "slug": "gta4",
+  "source": "GTA IV title-owned gameplay adapter and menu, 2026-10-10 release inventory; automated checks are separate from live-game acceptance.",
+  "website": {
+    "features": {
+      "description": "Explore GTA IV lock on, sniper silent aim, Magic bullet, ESP, radar, weapon controls, player and vehicle tools, and searchable vehicle and weapon spawners."
+    },
+    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Includes instant-hit and sniper delayed-hit silent aim. Projectile/explosive silent aim, standalone EFLC and other executable builds are not supported. Feature availability depends on the supported game build and active session."
+  },
+  "tabs": [
+    {
+      "name": "Lock On",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "aim.enabled",
+                  "label": "Enable aimbot",
+                  "desc": "Mouse-based aim assistance with activation key, distance, FOV and visibility filters. "
+                },
+                {
+                  "id": "aim.players",
+                  "label": "Players",
+                  "desc": "Configures players for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.npcs",
+                  "label": "NPCs",
+                  "desc": "Configures npcs for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.visible",
+                  "label": "Visible check",
+                  "desc": "Configures visible check for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.lock",
+                  "label": "Keep target",
+                  "desc": "Configures keep target for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.bone",
+                  "label": "Aim bone",
+                  "desc": "Configures aim bone for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.range",
+                  "label": "Max distance",
+                  "desc": "Configures max distance for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.fov",
+                  "label": "FOV radius",
+                  "desc": "Configures fov radius for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.smooth",
+                  "label": "Smoothing",
+                  "desc": "Configures smoothing for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.prediction",
+                  "label": "Prediction",
+                  "desc": "Configures prediction for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.lead",
+                  "label": "Prediction time (ms)",
+                  "desc": "Configures prediction time (ms) for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.circle",
+                  "label": "Show FOV",
+                  "desc": "Configures show fov for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.target",
+                  "label": "Show target",
+                  "desc": "Configures show target for lock on. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "aim.snapline",
+                  "label": "Target snapline",
+                  "desc": "Draw a line from the screen center to the active lock-on target, independently of the target marker."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Silent Aim",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "silent.enabled",
+                  "label": "Enable silent aim",
+                  "desc": "Redirects local instant-hit bullets and sniper delayed-hit shots toward the selected target. Keeps the normal shot and ammo flow."
+                },
+                {
+                  "id": "silent.players",
+                  "label": "Players",
+                  "desc": "Configures players for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.npcs",
+                  "label": "NPCs",
+                  "desc": "Configures npcs for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.visible",
+                  "label": "Visible check",
+                  "desc": "Configures visible check for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.bone",
+                  "label": "Aim bone",
+                  "desc": "Configures aim bone for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.fov",
+                  "label": "FOV radius",
+                  "desc": "Configures fov radius for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.range",
+                  "label": "Max distance",
+                  "desc": "Configures max distance for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.chance",
+                  "label": "Hit chance",
+                  "desc": "Configures hit chance for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.circle",
+                  "label": "Show FOV",
+                  "desc": "Configures show fov for silent aim. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "silent.snapline",
+                  "label": "Target snapline",
+                  "desc": "Draw a separate line to the current silent-aim target."
+                },
+                {
+                  "id": "silent.magic",
+                  "label": "Magic bullet",
+                  "desc": "Starts the bullet near the selected target to reach through intervening walls. Retains FOV, range, activation and hit chance; nearby obstructions may still stop the shot."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Triggerbot",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "trigger.enabled",
+                  "label": "Enable triggerbot",
+                  "desc": "Triggers a bounded click when the game reports a valid aimed-at target."
+                },
+                {
+                  "id": "trigger.players",
+                  "label": "Players",
+                  "desc": "Configures players for triggerbot. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "trigger.npcs",
+                  "label": "NPCs",
+                  "desc": "Configures npcs for triggerbot. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "trigger.visible",
+                  "label": "Visible check",
+                  "desc": "Configures visible check for triggerbot. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "trigger.delay",
+                  "label": "Delay (ms)",
+                  "desc": "Configures delay (ms) for triggerbot. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "trigger.range",
+                  "label": "Max distance",
+                  "desc": "Configures max distance for triggerbot. Gameplay execution requires a connected supported game session."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Self",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "self.god",
+                  "label": "God mode",
+                  "desc": "Configures god mode for self. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "self.heal",
+                  "label": "Heal",
+                  "desc": "Configures heal for self. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "self.armour",
+                  "label": "Give armour",
+                  "desc": "Configures give armour for self. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "self.regeneration",
+                  "label": "Regenerate health",
+                  "desc": "Configures regenerate health for self. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "self.regen_rate",
+                  "label": "Health per second",
+                  "desc": "Configures health per second for self. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "self.clear_wanted",
+                  "label": "Clear wanted level",
+                  "desc": "Configures clear wanted level for self. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "self.never_wanted",
+                  "label": "Never wanted",
+                  "desc": "Configures never wanted for self. Gameplay execution requires a connected supported game session."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "View",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "view.override",
+                  "label": "Override camera",
+                  "desc": "Creates an owned chase camera with FOV and positional offsets; restores the game camera on disable."
+                },
+                {
+                  "id": "view.fov",
+                  "label": "Field of view",
+                  "desc": "Configures field of view for view. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "view.distance",
+                  "label": "Camera distance",
+                  "desc": "Configures camera distance for view. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "view.x",
+                  "label": "Offset X",
+                  "desc": "Configures offset x for view. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "view.y",
+                  "label": "Offset Y",
+                  "desc": "Configures offset y for view. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "view.z",
+                  "label": "Offset Z",
+                  "desc": "Configures offset z for view. Gameplay execution requires a connected supported game session."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weapon",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "weapon.infinite_ammo",
+                  "label": "Infinite ammo",
+                  "desc": "Configures infinite ammo for weapon. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "weapon.no_reload",
+                  "label": "No reload",
+                  "desc": "Configures no reload for weapon. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "weapon.refill",
+                  "label": "Refill ammo",
+                  "desc": "Configures refill ammo for weapon. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "weapon.remove",
+                  "label": "Remove current weapon",
+                  "desc": "Configures remove current weapon for weapon. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "weapon.no_recoil",
+                  "label": "No recoil",
+                  "desc": "Suppresses the stock sustained-fire accuracy penalty while firing. Restores the original weapon task value after each read; does not remove camera shake added by other mods."
+                },
+                {
+                  "id": "weapon.no_spread",
+                  "label": "No spread",
+                  "desc": "Suppresses verified local weapon spread and shotgun accuracy offsets."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehicle",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "vehicle.repair",
+                  "label": "Repair vehicle",
+                  "desc": "Configures repair vehicle for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.clean",
+                  "label": "Clean vehicle",
+                  "desc": "Configures clean vehicle for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.flip",
+                  "label": "Flip upright",
+                  "desc": "Configures flip upright for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.god",
+                  "label": "Invincible vehicle",
+                  "desc": "Configures invincible vehicle for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.engine",
+                  "label": "Keep engine on",
+                  "desc": "Configures keep engine on for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.boost",
+                  "label": "Enable boost",
+                  "desc": "Configures enable boost for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.boost_force",
+                  "label": "Boost strength",
+                  "desc": "Configures boost strength for vehicle. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "vehicle.grip",
+                  "label": "Override grip",
+                  "desc": "Adjusts traction relative to the original value and restores it on disable."
+                },
+                {
+                  "id": "vehicle.grip_amount",
+                  "label": "Grip multiplier",
+                  "desc": "Configures grip multiplier for vehicle. Gameplay execution requires a connected supported game session."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "world.freeze_time",
+                  "label": "Freeze time",
+                  "desc": "Configures freeze time for world. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "world.hour",
+                  "label": "Hour",
+                  "desc": "Configures hour for world. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "world.minute",
+                  "label": "Minute",
+                  "desc": "Configures minute for world. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "world.apply_time",
+                  "label": "Apply time",
+                  "desc": "Configures apply time for world. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "world.weather",
+                  "label": "Weather",
+                  "desc": "Configures weather for world. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "world.apply_weather",
+                  "label": "Apply weather",
+                  "desc": "Configures apply weather for world. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "world.freeze_weather",
+                  "label": "Freeze weather",
+                  "desc": "Configures freeze weather for world. Gameplay execution requires a connected supported game session."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Movement",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "movement.noclip",
+                  "label": "Noclip",
+                  "desc": "Configures noclip for movement. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "movement.noclip_speed",
+                  "label": "Noclip speed",
+                  "desc": "Configures noclip speed for movement. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "movement.super_run",
+                  "label": "Super run",
+                  "desc": "Accelerates forward running while holding W and Shift."
+                },
+                {
+                  "id": "movement.run_speed",
+                  "label": "Run multiplier",
+                  "desc": "Configures run multiplier for movement. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "movement.super_jump",
+                  "label": "Super jump",
+                  "desc": "Adds one upward impulse after the engine starts a jump."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Teleport",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "teleport.waypoint",
+                  "label": "Teleport to waypoint",
+                  "desc": "Moves to a map waypoint only when its ground is loaded."
+                },
+                {
+                  "id": "teleport.save",
+                  "label": "Save current location",
+                  "desc": "Configures save current location for teleport. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "teleport.restore",
+                  "label": "Restore saved location",
+                  "desc": "Configures restore saved location for teleport. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "teleport.x",
+                  "label": "X",
+                  "desc": "Configures x for teleport. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "teleport.y",
+                  "label": "Y",
+                  "desc": "Configures y for teleport. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "teleport.z",
+                  "label": "Z",
+                  "desc": "Configures z for teleport. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "teleport.coordinates",
+                  "label": "Teleport to coordinates",
+                  "desc": "Configures teleport to coordinates for teleport. Gameplay execution requires a connected supported game session."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP / Players",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Independent profile",
+              "items": [
+                {
+                  "label": "Enable ESP",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Box",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Name",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Health bar",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "HP text",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Skeleton",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "Weapon",
+                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP / NPCs",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Independent profile",
+              "items": [
+                {
+                  "label": "Enable ESP",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Box",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Name",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Health bar",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "HP text",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Skeleton",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "Weapon",
+                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP / Self",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Independent profile",
+              "items": [
+                {
+                  "label": "Enable ESP",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Box",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Name",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Health bar",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "HP text",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Skeleton",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "Weapon",
+                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP / Vehicles",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Independent profile",
+              "items": [
+                {
+                  "label": "Enable ESP",
+                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                },
+                {
+                  "label": "Box",
+                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                },
+                {
+                  "label": "Name",
+                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                },
+                {
+                  "label": "Health bar",
+                  "desc": "Vehicle maximum health is not verified; a proportional health bar is not drawn."
+                },
+                {
+                  "label": "HP text",
+                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP / Pickups",
+      "categories": [
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Independent profile",
+              "items": [
+                {
+                  "label": "Enable ESP",
+                  "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                },
+                {
+                  "label": "Box",
+                  "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                },
+                {
+                  "label": "Name",
+                  "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                },
+                {
+                  "label": "Distance",
+                  "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                },
+                {
+                  "label": "Snaplines",
+                  "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Menu and preview",
+      "categories": [
+        {
+          "name": "Availability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Automatic menu startup",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "F1 / Insert menu keys",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Responsive menu layout",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Niko Bellic 3D preview",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Preview rotation and zoom",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "ESP color and placement preview",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Profiles and hotkeys",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Menu Lua pages",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehicle browser",
+      "categories": [
+        {
+          "name": "Availability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Search by name, type or model",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Vehicle class filter",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Base game / episode content filter",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Vehicle selection",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                },
+                {
+                  "label": "Show vehicle info",
+                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehicle spawn settings",
+      "categories": [
+        {
+          "name": "Availability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Spawn inside",
+                  "desc": "Spawn inside control for vehicle spawn settings. Available in supported game sessions."
+                },
+                {
+                  "label": "Engine on",
+                  "desc": "Engine on control for vehicle spawn settings. Available in supported game sessions."
+                },
+                {
+                  "label": "Invincible vehicle",
+                  "desc": "Invincible vehicle control for vehicle spawn settings. Available in supported game sessions."
+                },
+                {
+                  "label": "Keep vehicle speed",
+                  "desc": "Keep vehicle speed control for vehicle spawn settings. Available in supported game sessions."
+                },
+                {
+                  "label": "Replace previous spawn",
+                  "desc": "Replace previous spawn control for vehicle spawn settings. Available in supported game sessions."
+                },
+                {
+                  "label": "Spawn distance",
+                  "desc": "Spawn distance control for vehicle spawn settings. Available in supported game sessions."
+                },
+                {
+                  "label": "Aircraft spawn in air",
+                  "desc": "Aircraft spawn in air control for vehicle spawn settings. Available in supported game sessions."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weapon browser",
+      "categories": [
+        {
+          "name": "Availability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Weapon search",
+                  "desc": "Weapon search control for weapon browser. Available in supported game sessions."
+                },
+                {
+                  "label": "Weapon class filter",
+                  "desc": "Weapon class filter control for weapon browser. Available in supported game sessions."
+                },
+                {
+                  "label": "Content filter",
+                  "desc": "Content filter control for weapon browser. Available in supported game sessions."
+                },
+                {
+                  "label": "Weapon selection",
+                  "desc": "Weapon selection control for weapon browser. Available in supported game sessions."
+                },
+                {
+                  "label": "Ammo amount",
+                  "desc": "Ammo amount control for weapon browser. Available in supported game sessions."
+                },
+                {
+                  "label": "Equip weapon",
+                  "desc": "Equip weapon control for weapon browser. Available in supported game sessions."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spawner actions",
+      "categories": [
+        {
+          "name": "Availability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Spawn selected vehicle",
+                  "desc": "Spawn selected vehicle control for spawner actions. Available in supported game sessions."
+                },
+                {
+                  "label": "Give selected weapon",
+                  "desc": "Give selected weapon control for spawner actions. Available in supported game sessions."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Radar",
+      "categories": [
+        {
+          "name": "Availability",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Radar configuration",
+                  "desc": "Radar configuration control for radar. Available in supported game sessions."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "More Misc controls",
+      "categories": [
+        {
+          "name": "Player, weapon and vehicle",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "self.extinguish",
+                  "label": "Extinguish fire",
+                  "desc": "Adjust extinguish fire in the self settings."
+                },
+                {
+                  "id": "self.auto_extinguish",
+                  "label": "Automatically extinguish fire",
+                  "desc": "Adjust automatically extinguish fire in the self settings."
+                },
+                {
+                  "id": "weapon.refill_clip",
+                  "label": "Refill magazine",
+                  "desc": "Adjust refill magazine in the weapon settings."
+                },
+                {
+                  "id": "weapon.ammo_amount",
+                  "label": "Reserve ammo amount",
+                  "desc": "Adjust reserve ammo amount in the weapon settings."
+                },
+                {
+                  "id": "weapon.set_ammo",
+                  "label": "Set current weapon ammo",
+                  "desc": "Adjust set current weapon ammo in the weapon settings."
+                },
+                {
+                  "id": "weapon.empty_ammo",
+                  "label": "Empty current weapon ammo",
+                  "desc": "Adjust empty current weapon ammo in the weapon settings."
+                },
+                {
+                  "id": "weapon.remove_all",
+                  "label": "Remove all weapons",
+                  "desc": "Adjust remove all weapons in the weapon settings."
+                },
+                {
+                  "id": "vehicle.engine_off",
+                  "label": "Turn engine off",
+                  "desc": "Adjust turn engine off in the vehicle settings."
+                },
+                {
+                  "id": "vehicle.dirt_amount",
+                  "label": "Dirt level",
+                  "desc": "Adjust dirt level in the vehicle settings."
+                },
+                {
+                  "id": "vehicle.set_dirt",
+                  "label": "Apply dirt level",
+                  "desc": "Adjust apply dirt level in the vehicle settings."
+                },
+                {
+                  "id": "vehicle.stop",
+                  "label": "Stop vehicle",
+                  "desc": "Adjust stop vehicle in the vehicle settings."
+                },
+                {
+                  "id": "vehicle.speed",
+                  "label": "Speed (km/h)",
+                  "desc": "Adjust speed (km/h) in the vehicle settings."
+                },
+                {
+                  "id": "vehicle.set_speed",
+                  "label": "Set forward speed",
+                  "desc": "Adjust set forward speed in the vehicle settings."
+                },
+                {
+                  "id": "world.release_weather",
+                  "label": "Release weather override",
+                  "desc": "Adjust release weather override in the world settings."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

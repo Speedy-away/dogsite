@@ -7,7 +7,7 @@ const catalog = require('../assets/data/rockstar-classics.json');
 const source = fs.readFileSync(path.join(root, 'source-games/index.html'), 'utf8');
 const nav = source.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0].replace('/guides/source-games/', '/guides/');
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const released = game => game.state === 'beta' && game.releaseArtifact?.url;
+const released = game => ['beta','released'].includes(game.state) && game.releaseArtifact?.url;
 const label = game => released(game) ? 'Released' : 'Coming soon';
 const href = game => `/products/${game.id}/`;
 function shell(title, route, desc, body, collection = false) {
@@ -47,7 +47,7 @@ ${sections}<div id="collection-empty" class="collection-empty" hidden><h2>No gam
 <ul><li><a href="https://aka.ms/vc14/vc_redist.x64.exe">Download VC Runtimes — x64 (64-bit)</a></li><li><a href="https://aka.ms/vc14/vc_redist.x86.exe">Download VC Runtimes — x86 (32-bit)</a></li></ul>
 </section>
 `;
-const outputs = new Map([['rockstar-classics/index.html', shell('Rockstar Classics', '/rockstar-classics/', 'Explore Rockstar Classics. Browse released San Andreas and upcoming Vice City, GTA III, GTA IV and Red Dead Redemption.', body, true)]]);
+const outputs = new Map([['rockstar-classics/index.html', shell('Rockstar Classics', '/rockstar-classics/', 'Explore Rockstar Classics. Browse released San Andreas and GTA IV, and upcoming Vice City, GTA III and Red Dead Redemption.', body, true)]]);
 const productTemplate = require('./rockstar-product-template.cjs');
 for (const game of catalog.games) {
   outputs.set(`products/${game.id}/index.html`, productTemplate.render(game));

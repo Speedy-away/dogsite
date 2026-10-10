@@ -1,0 +1,7 @@
+const assert=require('node:assert/strict');
+const {createServer}=require('./preview.cjs');
+const {chromium}=require('playwright');
+const fs=require('node:fs');
+(async()=>{const server=createServer();await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;const browser=await chromium.launch({headless:true,channel:"msedge"});try{fs.mkdirSync('build/gta4-site',{recursive:true});for(const width of [1440,390]){const page=await browser.newPage({viewport:{width,height:960}});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(origin+'/products/gta4/');await page.getByRole('link',{name:'View All Features',exact:true}).click();await page.waitForTimeout(600); const language=page.getByText('Continue in English',{exact:true}); if(await language.isVisible())await language.click(); const initial=await page.locator('#result-count').innerText();await page.locator('#feature-search').fill('silent');await page.waitForTimeout(250);const filtered=await page.locator('#result-count').innerText();assert.notEqual(filtered,initial);assert.match(filtered,/[1-9]/);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true);assert.deepEqual(errors,[]);await page.screenshot({path:'build/gta4-site/features-'+width+'.png'});await page.close();}console.log('PASS: desktop/mobile product link, working feature search, overflow and JS errors');}finally{await browser.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exit(1)});
+
+
