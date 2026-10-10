@@ -1,12 +1,12 @@
 {
   "game": "Grand Theft Auto IV",
   "slug": "gta4",
-  "source": "GTA IV title-owned gameplay adapter and menu, 2026-10-10 release inventory; automated checks are separate from live-game acceptance.",
+  "source": "GTA IV 2026.10.10.8 stable release inventory; automated build and package checks are separate from live-game acceptance.",
   "website": {
     "features": {
-      "description": "Browse GTA IV combat, ESP, radar, character, weapon, vehicle, world and spawner settings, with supported builds and the status of recent updates."
+      "description": "Explore GTA IV combat, independent ESP profiles, FOV styling, weapon loadouts, vehicle controls, spawners, teleport tools and interface settings."
     },
-    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Includes instant-hit and sniper delayed-hit silent aim. Projectile/explosive silent aim, standalone EFLC and other executable builds are not supported. Feature availability depends on the supported game build and active session. Recent local DLL updates listed below are not yet confirmed in the published loader release. Pickup names and fire/explosive ammo remain unfinished; pickup boxes currently use a small 3D position marker."
+    "notice": "Released for exact Windows x86 GTA IV 1.0.7.0, 1.0.8.0 and Complete Edition 1.2.0.59 executables. Standalone EFLC, other builds and projectile/explosive silent aim are unsupported. The latest additions are included in GTA IV 2026.10.10.8 with Scooby Loader 4.81. Live gameplay acceptance remains pending. Bullet impacts, hitmarkers, named pickups, fire/explosive ammo, vehicle/ped guns, vehicle color picking, flying vehicles and shot/crosshair teleport are not included as completed features."
   },
   "tabs": [
     {
@@ -41,12 +41,12 @@
                 {
                   "id": "aim.lock",
                   "label": "Keep target",
-                  "desc": "Configures keep target for lock on. Gameplay execution requires a connected supported game session."
+                  "desc": "Keep the current target while it remains eligible for the selected filters."
                 },
                 {
                   "id": "aim.bone",
                   "label": "Aim bone",
-                  "desc": "Configures aim bone for lock on. Gameplay execution requires a connected supported game session."
+                  "desc": "Choose Head, Neck, Chest or Nearest as the targeting point."
                 },
                 {
                   "id": "aim.range",
@@ -61,12 +61,12 @@
                 {
                   "id": "aim.smooth",
                   "label": "Smoothing",
-                  "desc": "Configures smoothing for lock on. Gameplay execution requires a connected supported game session."
+                  "desc": "Adjust how gradually mouse-based lock on follows its target."
                 },
                 {
                   "id": "aim.prediction",
                   "label": "Prediction",
-                  "desc": "Configures prediction for lock on. Gameplay execution requires a connected supported game session."
+                  "desc": "Lead a moving target using its velocity and the configured prediction time."
                 },
                 {
                   "id": "aim.lead",
@@ -76,7 +76,7 @@
                 {
                   "id": "aim.circle",
                   "label": "Show FOV",
-                  "desc": "Configures show fov for lock on. Gameplay execution requires a connected supported game session."
+                  "desc": "Show the lock-on FOV circle. Its settings gear controls line color and thickness, outline, fill opacity, two fill colors, and a vertical or horizontal gradient."
                 },
                 {
                   "id": "aim.target",
@@ -146,7 +146,7 @@
                 {
                   "id": "silent.circle",
                   "label": "Show FOV",
-                  "desc": "Configures show fov for silent aim. Gameplay execution requires a connected supported game session."
+                  "desc": "Style the silent-aim FOV circle independently: line color, thickness, outline, fill opacity and a two-color vertical or horizontal gradient."
                 },
                 {
                   "id": "silent.snapline",
@@ -156,7 +156,7 @@
                 {
                   "id": "silent.magic",
                   "label": "Magic bullet",
-                  "desc": "Starts the bullet near the selected target to reach through intervening walls. Retains FOV, range, activation and hit chance; nearby obstructions may still stop the shot."
+                  "desc": "Move the bullet origin near the selected target to bypass intervening cover. Requires silent aim and a valid target; supports bullet weapons, including sniper delayed-hit shots, rather than explosive projectiles."
                 }
               ]
             }
@@ -256,11 +256,46 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Controls",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "movement.noclip",
+                  "label": "Noclip",
+                  "desc": "Move without collision using camera-relative velocity controls. The updated implementation removes player freezing and repeated teleporting, with bounded altitude correction; in-game shooting and smoothness verification is pending."
+                },
+                {
+                  "id": "movement.noclip_speed",
+                  "label": "Noclip speed",
+                  "desc": "Configures noclip speed for movement. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "movement.super_run",
+                  "label": "Super run",
+                  "desc": "Accelerates forward running while holding W and Shift."
+                },
+                {
+                  "id": "movement.run_speed",
+                  "label": "Run multiplier",
+                  "desc": "Configures run multiplier for movement. Gameplay execution requires a connected supported game session."
+                },
+                {
+                  "id": "movement.super_jump",
+                  "label": "Super jump",
+                  "desc": "Adds one upward impulse after the engine starts a jump."
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "name": "View",
+      "name": "Visuals / View",
       "categories": [
         {
           "name": "Controls",
@@ -271,7 +306,7 @@
                 {
                   "id": "view.override",
                   "label": "Override camera",
-                  "desc": "Creates an owned chase camera with FOV and positional offsets; restores the game camera on disable."
+                  "desc": "Adjust the gameplay camera field of view, distance and offsets while retaining native free-look. Available under Visuals / View."
                 },
                 {
                   "id": "view.fov",
@@ -460,46 +495,6 @@
       ]
     },
     {
-      "name": "Movement",
-      "categories": [
-        {
-          "name": "Controls",
-          "groups": [
-            {
-              "name": "Controls",
-              "items": [
-                {
-                  "id": "movement.noclip",
-                  "label": "Noclip",
-                  "desc": "Configures noclip for movement. Gameplay execution requires a connected supported game session."
-                },
-                {
-                  "id": "movement.noclip_speed",
-                  "label": "Noclip speed",
-                  "desc": "Configures noclip speed for movement. Gameplay execution requires a connected supported game session."
-                },
-                {
-                  "id": "movement.super_run",
-                  "label": "Super run",
-                  "desc": "Accelerates forward running while holding W and Shift."
-                },
-                {
-                  "id": "movement.run_speed",
-                  "label": "Run multiplier",
-                  "desc": "Configures run multiplier for movement. Gameplay execution requires a connected supported game session."
-                },
-                {
-                  "id": "movement.super_jump",
-                  "label": "Super jump",
-                  "desc": "Adds one upward impulse after the engine starts a jump."
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "Teleport",
       "categories": [
         {
@@ -564,7 +559,7 @@
                 },
                 {
                   "label": "Box",
-                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                  "desc": "Full or corner boxes with thickness, outline, fill and gradient controls."
                 },
                 {
                   "label": "Name",
@@ -579,12 +574,8 @@
                   "desc": "Preview/configuration only. Live players telemetry is not connected."
                 },
                 {
-                  "label": "Health bar",
-                  "desc": "Preview/configuration only. Live players telemetry is not connected."
-                },
-                {
-                  "label": "HP text",
-                  "desc": "Preview/configuration only. Live players telemetry is not connected."
+                  "label": "Health",
+                  "desc": "Smooth health bar with optional HP text inside Health settings, plus placement, width, colors and background controls."
                 },
                 {
                   "label": "Skeleton",
@@ -593,6 +584,18 @@
                 {
                   "label": "Weapon",
                   "desc": "Preview/configuration only. Live players telemetry is not connected."
+                },
+                {
+                  "label": "ESP distance",
+                  "desc": "Independent range for this profile: 1,000 m by default, adjustable up to 3,000 m. Only entities available in the game world can be displayed."
+                },
+                {
+                  "label": "Appearance editor",
+                  "desc": "Choose an ESP feature and adjust its applicable color, opacity, thickness, outline, gradient, text size, position and offset settings. Pedestrian boxes also support fill and fill gradients."
+                },
+                {
+                  "label": "Weapon ammo",
+                  "desc": "Magazine and reserve ammunition with independent color, text size, position, offset, outline and gradient settings."
                 }
               ]
             }
@@ -615,7 +618,7 @@
                 },
                 {
                   "label": "Box",
-                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                  "desc": "Full or corner boxes with thickness, outline, fill and gradient controls."
                 },
                 {
                   "label": "Name",
@@ -630,12 +633,8 @@
                   "desc": "Preview/configuration only. Live npcs telemetry is not connected."
                 },
                 {
-                  "label": "Health bar",
-                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
-                },
-                {
-                  "label": "HP text",
-                  "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                  "label": "Health",
+                  "desc": "Smooth health bar with optional HP text inside Health settings, plus placement, width, colors and background controls."
                 },
                 {
                   "label": "Skeleton",
@@ -644,6 +643,18 @@
                 {
                   "label": "Weapon",
                   "desc": "Preview/configuration only. Live npcs telemetry is not connected."
+                },
+                {
+                  "label": "ESP distance",
+                  "desc": "Independent range for this profile: 1,000 m by default, adjustable up to 3,000 m. Only entities available in the game world can be displayed."
+                },
+                {
+                  "label": "Appearance editor",
+                  "desc": "Choose an ESP feature and adjust its applicable color, opacity, thickness, outline, gradient, text size, position and offset settings. Pedestrian boxes also support fill and fill gradients."
+                },
+                {
+                  "label": "Weapon ammo",
+                  "desc": "Magazine and reserve ammunition with independent color, text size, position, offset, outline and gradient settings."
                 }
               ]
             }
@@ -666,7 +677,7 @@
                 },
                 {
                   "label": "Box",
-                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                  "desc": "Full or corner boxes with thickness, outline, fill and gradient controls."
                 },
                 {
                   "label": "Name",
@@ -681,12 +692,8 @@
                   "desc": "Preview/configuration only. Live self telemetry is not connected."
                 },
                 {
-                  "label": "Health bar",
-                  "desc": "Preview/configuration only. Live self telemetry is not connected."
-                },
-                {
-                  "label": "HP text",
-                  "desc": "Preview/configuration only. Live self telemetry is not connected."
+                  "label": "Health",
+                  "desc": "Smooth health bar with optional HP text inside Health settings, plus placement, width, colors and background controls."
                 },
                 {
                   "label": "Skeleton",
@@ -695,6 +702,18 @@
                 {
                   "label": "Weapon",
                   "desc": "Preview/configuration only. Live self telemetry is not connected."
+                },
+                {
+                  "label": "ESP distance",
+                  "desc": "Independent range for this profile: 1,000 m by default, adjustable up to 3,000 m. Only entities available in the game world can be displayed."
+                },
+                {
+                  "label": "Appearance editor",
+                  "desc": "Choose an ESP feature and adjust its applicable color, opacity, thickness, outline, gradient, text size, position and offset settings. Pedestrian boxes also support fill and fill gradients."
+                },
+                {
+                  "label": "Weapon ammo",
+                  "desc": "Magazine and reserve ammunition with independent color, text size, position, offset, outline and gradient settings."
                 }
               ]
             }
@@ -717,7 +736,7 @@
                 },
                 {
                   "label": "Box",
-                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                  "desc": "Projected 3D vehicle bounds."
                 },
                 {
                   "label": "Name",
@@ -732,12 +751,12 @@
                   "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
                 },
                 {
-                  "label": "Health bar",
-                  "desc": "Vehicle maximum health is not verified; a proportional health bar is not drawn."
+                  "label": "ESP distance",
+                  "desc": "Independent range for this profile: 1,000 m by default, adjustable up to 3,000 m. Only entities available in the game world can be displayed."
                 },
                 {
-                  "label": "HP text",
-                  "desc": "Preview/configuration only. Live vehicles telemetry is not connected."
+                  "label": "Appearance editor",
+                  "desc": "Choose an ESP feature and adjust its applicable color, opacity, thickness, outline, gradient, text size, position and offset settings. Pedestrian boxes also support fill and fill gradients."
                 }
               ]
             }
@@ -760,7 +779,7 @@
                 },
                 {
                   "label": "Box",
-                  "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                  "desc": "Small 3D marker around each pickup position."
                 },
                 {
                   "label": "Name",
@@ -773,6 +792,14 @@
                 {
                   "label": "Snaplines",
                   "desc": "Preview/configuration only. Live pickups telemetry is not connected."
+                },
+                {
+                  "label": "ESP distance",
+                  "desc": "Independent range for this profile: 1,000 m by default, adjustable up to 3,000 m. Only entities available in the game world can be displayed."
+                },
+                {
+                  "label": "Appearance editor",
+                  "desc": "Choose an ESP feature and adjust its applicable color, opacity, thickness, outline, gradient, text size, position and offset settings. Pedestrian boxes also support fill and fill gradients."
                 }
               ]
             }
@@ -845,8 +872,8 @@
                   "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
                 },
                 {
-                  "label": "Base game / episode content filter",
-                  "desc": "Implemented UI functionality; physical mouse input in the game still needs acceptance testing."
+                  "label": "Game version filter",
+                  "desc": "Choose Base game, TLAD or TBoGT. An episode selection includes base-game items and that episode’s items; class and game-version filters sit side by side."
                 },
                 {
                   "label": "Vehicle selection",
@@ -923,8 +950,8 @@
                   "desc": "Weapon class filter control for weapon browser. Available in supported game sessions."
                 },
                 {
-                  "label": "Content filter",
-                  "desc": "Content filter control for weapon browser. Available in supported game sessions."
+                  "label": "Game version filter",
+                  "desc": "Choose Base game, TLAD or TBoGT. An episode selection includes base-game items and that episode’s items; class and game-version filters sit side by side."
                 },
                 {
                   "label": "Weapon selection",
@@ -1072,13 +1099,13 @@
       ]
     },
     {
-      "name": "Latest local DLL updates",
+      "name": "Release 2026.10.10.8 additions",
       "categories": [
         {
-          "name": "Built locally — not yet published",
+          "name": "Release additions",
           "groups": [
             {
-              "name": "Visuals and spawners",
+              "name": "Release additions",
               "items": [
                 {
                   "id": "local.quick_spawn",
@@ -1119,6 +1146,61 @@
                   "id": "local.self_movement",
                   "label": "Movement inside Self",
                   "desc": "Movement controls now sit under Self. Noclip position and camera free-look fixes still require in-game verification."
+                },
+                {
+                  "id": "aim.bone_fallback",
+                  "label": "Fallback aim bone",
+                  "desc": "Try another valid head, neck or chest point when the preferred point is unavailable or outside the aim FOV."
+                },
+                {
+                  "id": "silent.magic_offset",
+                  "label": "Magic bullet origin distance",
+                  "desc": "Adjust how close the bullet starts to its target, from 0.05 to 2 m. Shown beneath the enabled Magic bullet toggle in its own group."
+                },
+                {
+                  "id": "silent.magic_extension",
+                  "label": "Magic bullet through-target distance",
+                  "desc": "Adjust the through-target segment from 0.1 to 3 m. Shown when Magic bullet is enabled."
+                },
+                {
+                  "id": "weapon.loadout1",
+                  "label": "Loadout 1 — advanced",
+                  "desc": "Give the advanced eight-weapon set after its models have loaded, with configurable ammunition."
+                },
+                {
+                  "id": "weapon.loadout2",
+                  "label": "Loadout 2 — standard",
+                  "desc": "Give the standard eight-weapon set. Loading cancels if the player or campaign changes or model loading times out."
+                },
+                {
+                  "id": "weapon.loadout_ammo",
+                  "label": "Loadout ammunition",
+                  "desc": "Choose ammunition per weapon in the Loadouts group; each weapon remains limited by its game ammo capacity."
+                },
+                {
+                  "id": "vehicle.never_flip",
+                  "label": "Never flip",
+                  "desc": "Recover a tipped vehicle near loaded ground. Leaves upright vehicles and airborne stunts alone."
+                },
+                {
+                  "id": "local.fov_appearance",
+                  "label": "FOV fill and gradient",
+                  "desc": "Independent Lock On and Silent Aim circles with fill, opacity, two fill colors, vertical/horizontal gradients, line thickness and outlines."
+                },
+                {
+                  "id": "local.weapon_appearance",
+                  "label": "Weapon and ammo label styling",
+                  "desc": "Separate weapon and ammunition labels with independent colors, gradients, outlines, text sizes, positions and offsets."
+                },
+                {
+                  "id": "visual_world.tracers",
+                  "label": "Bullet tracers",
+                  "desc": "Display local shot segments in Visuals / World with a configurable fade duration. These are shot paths, not confirmed impact markers."
+                },
+                {
+                  "id": "visual_world.duration",
+                  "label": "Tracer duration",
+                  "desc": "Keep shot tracers visible for 0.1 to 5 seconds."
                 }
               ]
             }
