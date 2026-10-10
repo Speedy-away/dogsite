@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updatedAt": "2026-10-05T21:19:59.6411360Z",
+  "updatedAt": "2026-10-10T00:33:46.863Z",
   "products": {
     "gta5": {
       "name": "GTA 5",
@@ -96,6 +96,11 @@
       "name": "R6",
       "state": "disabled",
       "message": ""
+    },
+    "gta-sa": {
+      "name": "GTA SA (Classic)",
+      "state": "online",
+      "message": "Free beta; live gameplay and performance acceptance pending."
     }
   }
 }

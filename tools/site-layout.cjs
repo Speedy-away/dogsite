@@ -5,7 +5,7 @@ const repoRoot = siteRoot;
 const publicEntries = [
   'api','assets','best-mod-menu','changelog','docs','download','features-list',
   'fivem-features','guides','lang','more-games','portal','products','resellers',
-  'revolution','scooby-features','sitemap','source-games','store','tos','videos',
+  'revolution','scooby-features','sitemap','rockstar-classics','source-games','store','tos','videos',
   'web-radar','.nojekyll','404.html','background-home.jpg','background-home5.png',
   'changelog.json','changelog.txt','CNAME','discord.html','freekey.html','index.html',
   'indexnow-key.txt','logo.png','playerF.webp','robots.txt','scoobyontop.html','sitemap.xml'
