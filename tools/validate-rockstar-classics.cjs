@@ -59,7 +59,7 @@ const catalog = require('../assets/data/rockstar-classics.json');
       for(const game of catalog.games) {
         assert.equal((await page.goto(base+`/products/${game.id}/`)).status(),200);
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-        assert(await page.locator('.classic-art-frame img').evaluateAll(images=>images.length===2 && images.every(image=>image.complete && image.naturalWidth>0)));
+        assert(await page.locator(game.id === 'gta4' ? '.screenshot-gallery img' : '.classic-art-frame img').evaluateAll((images, count)=>images.length===count && images.every(image=>image.complete && image.naturalWidth>0), game.id === 'gta4' ? 3 : 2));
         assert.equal(await page.getByRole('heading',{name:game.name,exact:true}).count(),1);
         if(game.id === 'gta-sa' || game.id === 'gta4') {
           assert.equal(await page.getByRole('link',{name:'Download SA (ZIP)',exact:false}).count(),0);
