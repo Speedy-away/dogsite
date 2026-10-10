@@ -48,6 +48,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/product.css">
     <style>
+        .screenshot-gallery .screenshot-item { aspect-ratio: 8 / 5; }
         .freekey-modal-overlay {
             position: fixed;
             top: 0;
@@ -269,16 +270,13 @@
 
                 <div class="screenshot-gallery">
                     <div class="screenshot-item main" onclick="openLightbox(0)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-skins-catalog.jpg" alt="Scooby CS2 skins catalog with weapon previews during a match on Dust II">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-chams-20261010-preview.webp" alt="Scooby CS2 chams settings with red lightning player materials, a live character preview and gameplay overlays" width="960" height="600">
                     </div>
                     <div class="screenshot-item" onclick="openLightbox(1)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-m4a1s-visuals.webp" alt="CS2 gameplay on Dust II with colorful M4A1-S and arm effects, player ESP and radar overlays">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-inventory-20261010-preview.webp" alt="Scooby CS2 inventory loadout with an agent preview, weapon skins, knife, gloves and equipment" width="960" height="600">
                     </div>
                     <div class="screenshot-item" onclick="openLightbox(2)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-custom-models.jpg" alt="CS2 custom Homer Simpson player model with matching first-person arms, a knife skin and player ESP">
-                    </div>
-                    <div class="screenshot-item" onclick="openLightbox(3)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-inventory-loadout.webp" alt="Scooby CS2 inventory loadout showing an agent and weapon skins on the Aim Botz map">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-world-presets-20261010-preview.webp" alt="Scooby CS2 world presets with map-specific looks, sky and fog controls, and an ember-colored sky" width="960" height="600">
                     </div>
                 </div>
             </div>
@@ -453,15 +451,15 @@
     </footer>
     <script>
         const images = [
-            '/assets/images/previews/cs2/cs2-skins-catalog.jpg',
-            '/assets/images/previews/cs2/cs2-m4a1s-visuals.webp',
-            '/assets/images/previews/cs2/cs2-custom-models.jpg',
-            '/assets/images/previews/cs2/cs2-inventory-loadout.webp'
+            '/assets/images/previews/cs2/cs2-chams-20261010.webp',
+            '/assets/images/previews/cs2/cs2-inventory-20261010.webp',
+            '/assets/images/previews/cs2/cs2-world-presets-20261010.webp'
         ];
         let currentIndex = 0;
         function openLightbox(index) {
             currentIndex = index;
             document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox-img').alt = document.querySelectorAll('.screenshot-gallery img')[currentIndex].alt;
             document.getElementById('lightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -472,10 +470,12 @@
         function nextImage() {
             currentIndex = (currentIndex + 1) % images.length;
             document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox-img').alt = document.querySelectorAll('.screenshot-gallery img')[currentIndex].alt;
         }
         function prevImage() {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             document.getElementById('lightbox-img').src = images[currentIndex];
+            document.getElementById('lightbox-img').alt = document.querySelectorAll('.screenshot-gallery img')[currentIndex].alt;
         }
         document.getElementById('lightbox').addEventListener('click', function(e) {
             if (e.target === this) closeLightbox();
