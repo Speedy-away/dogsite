@@ -14,7 +14,8 @@ async function get(url) {
 (async () => {
   const release = await (await get(`${base}release.json?site_release=${version}&verified_at=${Date.now()}`)).json();
   if (release.id !== 'gta-sa' || release.version !== version || release.access !== 'free' || release.channel !== 'beta' || release.runtimeAccepted !== false) throw new Error('Release metadata does not match expected free beta');
-  if (release.url !== `${base}Scooby-SA-${version}.zip` || release.manifest !== `${version}/manifest.json`) throw new Error('Unexpected artifact path');
+  const editionPrefix = release.manifest?.startsWith('Classic/') ? 'Classic/' : '';
+  if (release.url !== `${base}${editionPrefix}Scooby-SA-${version}.zip` || release.manifest !== `${editionPrefix}${version}/manifest.json`) throw new Error('Unexpected artifact path');
   if (!/^[a-f0-9]{64}$/.test(release.sha256) || !/^[a-f0-9]{64}$/.test(release.manifestSha256)) throw new Error('Invalid release hashes');
   const manifestBytes = Buffer.from(await (await get(`${base}${release.manifest}?site_release=${version}`)).arrayBuffer());
   if (createHash('sha256').update(manifestBytes).digest('hex') !== release.manifestSha256) throw new Error('Manifest hash mismatch');
