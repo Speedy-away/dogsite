@@ -37,6 +37,15 @@ const sections = states.map(([state, kicker, title, intro]) => {
 const body = `<header class="collection-hero"><div class="collection-hero-copy"><div class="collection-brand"><span>THE SCOOBY COLLECTION</span></div><h1>Rockstar Classics</h1><p class="collection-tagline">Familiar worlds.<br>A new chapter starts here.</p><p class="collection-intro">From Los Santos to the frontier. Browse released games and see what is coming next.</p><div class="collection-hero-actions"><a href="#released" class="collection-button">Released games ↓</a><a href="#coming-soon" class="collection-button secondary">Coming soon</a></div></div></header>
 <div class="collection-tools" hidden><div class="collection-filters" role="group" aria-label="Filter games by status"><button type="button" data-engine-filter="all" aria-pressed="true">All games</button><button type="button" data-engine-filter="released" aria-pressed="false">Released</button><button type="button" data-engine-filter="coming-soon" aria-pressed="false">Coming soon</button></div><label class="collection-search"><span class="visually-hidden">Search games</span><input id="source-game-search" type="search" placeholder="Search your game…" autocomplete="off"></label></div><p id="collection-results" class="collection-results" role="status" hidden></p>
 ${sections}<div id="collection-empty" class="collection-empty" hidden><h2>No games found</h2><p>Try another title or show the full collection.</p><button type="button" id="collection-reset">Show all games</button></div>
+<section id="requirements" class="source-note classics-requirements" aria-labelledby="requirements-title">
+<h2 id="requirements-title">Requirements</h2>
+<h3>Download VC Runtimes</h3>
+<p>Install the <strong>Visual C++ runtimes</strong> before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then <strong>restart your PC</strong>.</p>
+<p><strong>VC Runtimes (all-in-one package):</strong></p>
+<p><a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/">Download the all-in-one VC runtime package</a></p>
+<p><strong>Or install both packages directly from Microsoft:</strong></p>
+<ul><li><a href="https://aka.ms/vc14/vc_redist.x64.exe">Download VC Runtimes — x64 (64-bit)</a></li><li><a href="https://aka.ms/vc14/vc_redist.x86.exe">Download VC Runtimes — x86 (32-bit)</a></li></ul>
+</section>
 `;
 const outputs = new Map([['rockstar-classics/index.html', shell('Rockstar Classics', '/rockstar-classics/', 'Explore Rockstar Classics. Browse released San Andreas and upcoming Vice City, GTA III, GTA IV and Red Dead Redemption.', body, true)]]);
 const productTemplate = require('./rockstar-product-template.cjs');

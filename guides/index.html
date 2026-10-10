@@ -36,6 +36,9 @@
 <meta name="twitter:url" content="https://scoobymenu.cc/guides/">
 <link rel="stylesheet" href="/assets/css/last-of-us-card.css">
 <link rel="stylesheet" href="/assets/css/l4d.css">
+<link rel="stylesheet" href="/assets/css/sbox-card.css">
+<link rel="stylesheet" href="/assets/css/gmod-card.css">
+<link rel="stylesheet" href="/assets/css/rockstar-card-backgrounds.css">
 <script src="/lang/i18n.js"></script>
 <link rel="stylesheet" href="/assets/css/tf2-guides.css"><meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
 <meta property="og:image:type" content="image/png">
@@ -191,6 +194,7 @@
 <details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a><a href="/guides/tf2/">TF2 &amp; Classified</a></details>
 <details data-tf2-nav><summary>TF2 &amp; TF2 Classified</summary><a class="sidebar-overview" href="/guides/tf2/">Overview</a><a href="/guides/tf2/getting-started/">Getting started</a><a href="/guides/tf2/requirements/">Requirements</a><a href="/guides/tf2/editions/">TF2 or TF2 Classified</a><a href="/guides/tf2/menu-settings/">Menu settings and profiles</a><a href="/guides/tf2/lua-scripts/">Lua scripts</a><a href="/guides/tf2/troubleshooting/">Troubleshooting</a></details>
 <details data-megabonk-nav><summary>Megabonk</summary><a class="sidebar-overview" href="/guides/megabonk/">Overview</a><a href="/guides/megabonk/getting-started/">Getting started</a><a href="/guides/megabonk/menu-settings/">Menu settings, configs and hotkeys</a><a href="/guides/megabonk/languages/">Languages and language packs</a><a href="/guides/megabonk/lua-scripts/">Lua scripts and game API</a><a href="/guides/megabonk/spawner-unlocks/">Pickups, items and unlocks</a><a href="/guides/megabonk/troubleshooting/">Troubleshooting</a></details>
+<details data-mta-sa-nav><summary>MTA:SA</summary><a href="/guides/mta-sa/#requirements">Requirements</a></details>
 <div class="sidebar-resources">
 <span>Resources</span>
 <a href="/docs/">Developer documentation ↗</a>
@@ -225,7 +229,7 @@
 <p class="section-intro">Requirements, installation, and help specific to your game.</p>
 <div class="topic-grid game-grid">
 <a class="topic-card game-card" href="/guides/gta5/">
-<div class="game-card-art guide-logo-art guide-logo-art--gta5"><img src="/assets/images/store/gta5-logo-transparent.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+<div class="game-card-art guide-logo-art guide-logo-art--gta5"><img src="/assets/images/store/gta5-logo-transparent-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="game-card-copy">
 <h3>GTA 5 <span aria-hidden="true">→</span>
 </h3>
@@ -233,8 +237,9 @@
 <span>8 topics</span>
 </div>
 </a>
+<a class="topic-card game-card" href="/guides/mta-sa/"><div class="game-card-art"><img src="/assets/images/mta-sa/launch-artwork.png" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>MTA:SA <span aria-hidden="true">→</span></h3><p>Runtime requirements for MTA:SA.</p><span>1 topic</span></div></a>
 <a class="topic-card game-card" href="/guides/fivem/">
-<div class="game-card-art"><img src="/assets/images/store/fivem.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+<div class="game-card-art fivem-card-art"><img src="/assets/images/store/fivem-background-city.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="game-card-copy">
 <h3>FiveM <span aria-hidden="true">→</span>
 </h3>
@@ -243,7 +248,7 @@
 </div>
 </a>
 <a class="topic-card game-card" href="/guides/redm/">
-<div class="game-card-art"><img src="/assets/images/store/redm.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+<div class="game-card-art redm-card-art"><img src="/assets/images/store/redm-background-sunset.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="game-card-copy">
 <h3>RedM <span aria-hidden="true">→</span>
 </h3>
@@ -252,7 +257,7 @@
 </div>
 </a>
 <a class="topic-card game-card" href="/guides/rdr2/">
-<div class="game-card-art guide-logo-art guide-logo-art--rdr2"><img src="/assets/images/store/rdr2-logo-transparent.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+<div class="game-card-art guide-logo-art guide-logo-art--rdr2"><img src="/assets/images/store/rdr2-logo-transparent-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="game-card-copy">
 <h3>Red Dead Redemption 2 <span aria-hidden="true">→</span>
 </h3>
@@ -270,9 +275,9 @@
 </div>
 </a>
 <a class="topic-card game-card" href="/guides/megabonk/"><div class="game-card-art"><img src="/assets/images/store/megabonk.webp" alt="" width="616" height="353" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Megabonk <span aria-hidden="true">→</span></h3><p>Languages, configs, hotkeys, Lua, pickups and unlocks.</p><span>6 guides</span></div></a>
-<a class="topic-card game-card" href="/guides/last-of-us/"><div class="game-card-art tlou-logo-art"><img src="/assets/images/store/last-of-us.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>The Last of Us <span aria-hidden="true">→</span></h3><p>Part I setup, menu settings and troubleshooting. Part II coming soon.</p><span>4 topics</span></div></a>
+<a class="topic-card game-card" href="/guides/last-of-us/"><div class="game-card-art tlou-logo-art"><img src="/assets/images/store/last-of-us-card.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>The Last of Us <span aria-hidden="true">→</span></h3><p>Part I setup, menu settings and troubleshooting. Part II coming soon.</p><span>4 topics</span></div></a>
 <a class="topic-card game-card" href="/guides/sbox/">
-<div class="game-card-art"><img src="/assets/images/store/sbox.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+<div class="game-card-art sbox-art"><img src="/assets/images/store/sbox-background-mountains.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="game-card-copy">
 <h3>S&amp;box (Sandbox) <span aria-hidden="true">→</span>
 </h3>
@@ -280,9 +285,9 @@
 <span>4 topics</span>
 </div>
 </a>
-<a class="topic-card game-card" href="/guides/l4d/"><div class="game-card-art l4d-art"><img src="/assets/images/l4d/background.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Left 4 Dead 1 &amp; 2 →</h3><p>Setup, game selection, menu settings and Lua tools.</p><span>4 topics</span></div></a>
+<a class="topic-card game-card" href="/guides/l4d/"><div class="game-card-art l4d-art"><img src="/assets/images/l4d/background-survivors.jpg" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Left 4 Dead 1 &amp; 2 →</h3><p>Setup, game selection, menu settings and Lua tools.</p><span>4 topics</span></div></a>
 <a class="topic-card game-card" href="/guides/gmod/">
-<div class="game-card-art"><img src="/assets/images/store/gmod.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
+<div class="game-card-art gmod-card-art"><img src="/assets/images/store/gmod-background-desert.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="game-card-copy">
 <h3>Garry's Mod (GMOD) <span aria-hidden="true">→</span>
 </h3>
@@ -291,7 +296,7 @@
 </div>
 </a>
 <a class="topic-card game-card" href="/guides/tf2/"><div class="game-card-art tf2-guide-art"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" alt="" width="739" height="249" loading="lazy"></div><div class="game-card-copy"><h3>TF2 &amp; Classified →</h3><p>Retail and Classified setup, profiles, Lua API, features and troubleshooting.</p><span>6 topics</span></div></a>
-<a class="topic-card game-card" href="/guides/source-games/"><div class="game-card-art" style="background:#251b14"><img src="/assets/images/source-games/half-life-logo.webp" alt="" width="200" height="200" style="object-fit:contain;padding:24px" loading="lazy"></div><div class="game-card-copy"><h3>Source Games →</h3><p>Half-Life 1, TF2, Garry’s Mod and Left 4 Dead guides.</p><span>Choose your game</span></div></a>
+<a class="topic-card game-card" href="/guides/source-games/"><div class="game-card-art guide-logo-art guide-logo-art--source-games"><img src="/assets/images/source-games/source-games-logo-v1-card.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Source Games →</h3><p>Half-Life 1, TF2, Garry’s Mod and Left 4 Dead guides.</p><span>Choose your game</span></div></a>
 <a class="topic-card game-card game-support-card" href="/guides/general/">
 <div class="game-card-art support-art" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="18" y="12" width="44" height="56" rx="6"/><path d="M28 12v56M36 28h16M36 38h16M36 48h10"/></svg><span>THE ESSENTIALS</span></div>
 <div class="game-card-copy">

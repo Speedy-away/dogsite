@@ -35,3 +35,8 @@
 .catalog-art.classics-home-art img{width:34%;height:58%;object-fit:contain;display:block;padding:0;filter:drop-shadow(0 4px 10px #0008)}
 .rockstar-classics .collection-hero::before{content:none}
 .rockstar-classics [data-engine=coming-soon] .classics-type-art{background:#1a202a}
+
+.classics-requirements h3{margin:24px 0 16px;font-size:20px}
+.classics-requirements ul{padding-left:22px;margin:16px 0 0;line-height:1.8}
+.classics-requirements li+li{margin-top:10px}
+.classics-requirements a{overflow-wrap:anywhere}

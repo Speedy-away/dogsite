@@ -15,7 +15,7 @@ const catalog = require('../assets/data/rockstar-classics.json');
       assert.equal(game.state, 'beta');
       assert.equal(game.releaseArtifact.channel, 'beta');
       assert.equal(game.releaseArtifact.runtimeAccepted, false);
-      assert(html.includes(game.releaseArtifact.url));
+      assert(!html.includes('class="classic-download"'));
       assert(!html.includes('class="classic-release"'));
       assert(html.includes('Online'));
       assert(html.includes('Live gameplay and performance acceptance are pending'));
@@ -57,10 +57,10 @@ const catalog = require('../assets/data/rockstar-classics.json');
       for(const game of catalog.games) {
         assert.equal((await page.goto(base+`/products/${game.id}/`)).status(),200);
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-        assert(await page.locator('.classic-artwork img').evaluateAll(images=>images.length===2 && images.every(image=>image.complete && image.naturalWidth>0)));
+        assert(await page.locator('.classic-art-frame img').evaluateAll(images=>images.length===2 && images.every(image=>image.complete && image.naturalWidth>0)));
         assert.equal(await page.getByRole('heading',{name:game.name,exact:true}).count(),1);
         if(game.id === 'gta-sa') {
-          assert.equal(await page.getByRole('link',{name:'Download SA (ZIP)',exact:false}).getAttribute('href'),game.releaseArtifact.url);
+          assert.equal(await page.getByRole('link',{name:'Download SA (ZIP)',exact:false}).count(),0);
           await page.screenshot({path:`project/build/rockstar-classics/sa-${width}.png`,fullPage:true});
           await page.getByRole('link',{name:'Get Free Key',exact:true}).click();
           assert(await page.locator('#freeKeyModal').isVisible());

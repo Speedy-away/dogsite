@@ -1110,8 +1110,8 @@ main:focus {
 /* Keep guide artwork consistent with the homepage game cards. */
 .guide-logo-art { position:relative; isolation:isolate; background:#101319; }
 .guide-logo-art::before { content:""; position:absolute; inset:-12px; z-index:-1; background-position:center; background-size:cover; filter:blur(5px) brightness(.6); }
-.guide-logo-art--gta5::before { background-image:url('/assets/images/games/gta5.webp'); }
-.guide-logo-art--rdr2::before { background-image:url('/assets/images/games/rdr2.webp'); }
+.guide-logo-art--gta5::before { background-image:url('/assets/images/store/gta5-background-sunset.webp'); inset:0; filter:brightness(.8); }
+.guide-logo-art--rdr2::before { background-image:url('/assets/images/store/rdr2-background-manor.jpg'); inset:0; filter:brightness(.8); }
 .guide-logo-art img { object-fit:contain; padding:8% 18%; filter:drop-shadow(0 3px 8px #0008); }
 .guide-logo-art--rdr2 img { padding:12% 10%; }
 
@@ -1119,3 +1119,7 @@ main:focus {
 #vc-runtimes h3 { margin-top:0; }
 #vc-runtimes a + p { margin-top:18px; }
 #vc-runtimes a + a { margin-top:6px; }
+
+.guide-logo-art--source-games::before{background-image:url("/assets/images/source-games/source-games-background-v1.png");inset:-6px;filter:blur(1px) brightness(.8)}
+.guide-logo-art--source-games img{padding:18px}
+.wiki-home .tf2-guide-art{background:linear-gradient(#20190e55,#20190e99),url("/assets/images/tf2/background-v1.webp") center/cover}

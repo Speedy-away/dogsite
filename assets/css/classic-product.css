@@ -30,3 +30,7 @@
 .classic-product .freekey-step{display:flex;align-items:center}.classic-product .freekey-step-num{display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .classic-product .freekey-btn{display:flex;justify-content:center;text-decoration:none}
 @media(max-width:600px){.classic-art-frame{aspect-ratio:16/11}.classic-artwork figcaption{padding:13px 16px}.classic-product .content-grid{gap:20px}.classic-product .product-heading h1{font-size:32px}}
+
+.classic-screenshot{display:block;border-top:1px solid var(--border-color);line-height:0}
+.classic-screenshot img{display:block;width:100%;height:auto}
+.classic-screenshot:focus-visible{outline:3px solid var(--product-accent);outline-offset:-3px}
