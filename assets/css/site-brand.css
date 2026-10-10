@@ -32,3 +32,4 @@
     .scooby-brand { gap: 7px; }
     .scooby-brand > .scooby-emblem { width: 29px; height: 34px; }
 }
+.catalog-card .catalog-art { border-bottom: 0; }
