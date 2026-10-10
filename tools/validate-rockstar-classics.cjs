@@ -57,16 +57,40 @@ const catalog = require('../assets/data/rockstar-classics.json');
       for(const game of catalog.games) {
         assert.equal((await page.goto(base+`/products/${game.id}/`)).status(),200);
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+        assert(await page.locator('.classic-artwork img').evaluateAll(images=>images.length===2 && images.every(image=>image.complete && image.naturalWidth>0)));
         assert.equal(await page.getByRole('heading',{name:game.name,exact:true}).count(),1);
         if(game.id === 'gta-sa') {
-          assert.equal(await page.getByRole('link',{name:'Download SA free beta (ZIP)',exact:true}).getAttribute('href'),game.releaseArtifact.url);
+          assert.equal(await page.getByRole('link',{name:'Download SA free beta (ZIP)',exact:false}).getAttribute('href'),game.releaseArtifact.url);
           await page.screenshot({path:`project/build/rockstar-classics/sa-${width}.png`,fullPage:true});
+          await page.getByRole('link',{name:'Get Free Key',exact:true}).click();
+          assert(await page.locator('#freeKeyModal').isVisible());
+          await page.screenshot({path:`project/build/rockstar-classics/free-key-${width}.png`});
+          assert.equal(await page.locator('#freeKeyBtn').getAttribute('aria-disabled'),'true');
+          await page.waitForFunction(()=>document.querySelector('#freeKeyBtn').getAttribute('aria-disabled')==='false');
+          assert.equal(await page.locator('#freeKeyBtn').getAttribute('href'),'https://scoobymenu.cc/scoobyontop.html');
+          await page.keyboard.press('Escape');
+          assert.equal(await page.locator('#freeKeyModal').isVisible(),false);
+          await page.getByRole('link',{name:'View All Features',exact:true}).click();
+          await page.locator('#feature-search').fill('Teleport to waypoint');
+          await page.getByRole('heading',{name:'Teleport to waypoint',exact:true}).waitFor({state:'visible'});
+          assert((await page.locator('.feature-item:visible').count()) > 0);
+          assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+          await page.screenshot({path:`project/build/rockstar-classics/features-${width}.png`,fullPage:true});
+        } else {
+          assert.equal(await page.getByRole('button',{name:'Coming soon',exact:true}).isDisabled(),true);
+          assert.equal(await page.locator('#getFreeKey').count(),0);
         }
       }
     }
     const noJS=await browser.newPage({javaScriptEnabled:false});
     await noJS.goto(base+'/rockstar-classics/');
     assert.equal(await noJS.locator('[data-game]:visible').count(),5);
+    await noJS.goto(base+'/products/gta-sa/');
+    assert.equal(await noJS.getByRole('link',{name:'Get Free Key',exact:true}).getAttribute('href'),'https://scoobymenu.cc/scoobyontop.html');
+    for (const game of catalog.games) {
+      await page.goto(base+`/rockstar-classics/${game.id}/`);
+      await page.waitForURL(base+`/products/${game.id}/`);
+    }
     assert.equal(errors.length,0,errors.join('\n'));
     console.log('Catalog, availability, desktop/mobile routes, filters, search, empty state and no-JS checks passed.');
   } finally {if(browser)await browser.close();await new Promise(resolve=>server.close(resolve));}

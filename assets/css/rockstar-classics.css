@@ -14,3 +14,20 @@
 .rockstar-classics .source-note a.collection-button{color:#17120c;text-decoration:none}
 .classics-home-art{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#30271e,#191e27);color:#ddc4a4;font-weight:800;font-size:32px;line-height:1.1;letter-spacing:-.04em;padding:28px}
 @media(max-width:580px){.classics-facts{grid-template-columns:1fr}.rockstar-classics .collection-hero{min-height:480px}.rockstar-classics .collection-hero-copy{padding:64px 22px 30px}.rockstar-classics .collection-hero-caption{font-size:9px;right:20px}}
+
+.rockstar-collection .collection-hero{min-height:400px}.rockstar-collection .collection-hero-image{object-position:center}.rockstar-collection .collection-hero::after{background:linear-gradient(90deg,#080d13bd,#080d1318),linear-gradient(0deg,#080d13ce,transparent 70%)}.rockstar-collection .collection-hero-copy{max-width:720px}.rockstar-collection .collection-hero h1{font-size:clamp(36px,5vw,64px)}.rockstar-collection .source-card-art.is-official>img{padding:0;width:100%;height:100%;object-fit:cover;object-position:center}.rockstar-collection .source-card-art.is-official::before{display:none}.classic-status{display:grid;grid-template-columns:230px 1fr;gap:40px;margin:40px 0;padding:32px;background:#12161e;border:1px solid #ffffff18;border-radius:16px}.classic-status-cover{max-width:100%;max-height:300px;object-fit:contain;margin:auto}.classic-status h2{margin:20px 0}.classic-status p{color:#acb5c4;line-height:1.7}.classic-disabled{display:flex;gap:12px;margin-top:24px}.classic-disabled button{padding:12px 22px;border:1px solid #ffffff22;border-radius:8px;color:#89909c;background:#1c2028;cursor:not-allowed}@media(max-width:580px){.rockstar-collection .collection-hero{min-height:480px}.rockstar-collection .collection-hero-image{height:250px;object-position:center}.rockstar-collection .collection-hero-copy{padding:220px 22px 30px}.rockstar-collection .collection-hero::after{background:linear-gradient(0deg,#0b1117 10%,#0b1117eb 43%,transparent 90%)}.classic-status{grid-template-columns:1fr;padding:22px;gap:22px}.classic-status-cover{max-height:220px}.classic-disabled{flex-wrap:wrap}}
+.rockstar-collection .source-card-art.is-official>img.classic-card-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.rockstar-collection .source-card-art.is-official>img.classic-card-logo{position:absolute;left:22%;top:21%;width:56%;height:58%;padding:0;object-fit:contain;filter:drop-shadow(0 2px 5px #0008)}
+
+
+.classic-edition-label{display:block;margin:22px 0 8px;color:#aab3bf}#classic-edition{max-width:100%;width:280px;padding:12px;border-radius:8px;background:#1c2028;color:#fff;border:1px solid #ffffff30}.classic-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.classic-tags span{font-size:12px;background:#ffffff0b;border:1px solid #ffffff20;padding:6px 10px;border-radius:20px}
+
+.rockstar-collection .source-card-art.is-official>img.classic-card-scene{object-position:center}
+
+.rockstar-classics .collection-hero{background:linear-gradient(90deg,#080d13e8,#080d1340),url('/assets/images/rockstar-classics/classics-banner-1920.jpg') center/cover}
+.rockstar-classics .classics-type-art{position:relative;padding:0;overflow:hidden}
+.rockstar-classics .classics-type-art img.classic-scene{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65}
+.rockstar-classics .classics-type-art img.classic-logo{position:absolute;left:22%;top:21%;width:56%;height:58%;object-fit:contain;filter:drop-shadow(0 2px 5px #0008)}
+.classics-home-art{background:linear-gradient(#0005,#0005),url('/assets/images/rockstar-classics/classics-banner-960.jpg') center/cover}
+
+.classics-detail-heading{max-width:none;background-size:cover;background-position:center;padding:90px 28px 30px;border-radius:16px}.classics-home-art img{width:32%;height:56%;object-fit:contain}.classics-home-art{aspect-ratio:16/9;padding:0}

@@ -1,0 +1,987 @@
+{
+  "game": "San Andreas",
+  "slug": "gta-sa",
+  "source": "Reviewed SA feature controls, 2026-10-10. Source inventory is not a claim of live gameplay acceptance.",
+  "provenance": {
+    "src/features/combat/lock_on/lock_on.cpp": "59e841dad8bea69a19e69067af300ad59e1975c7977300157726a87cff10180f",
+    "src/features/combat/silent_aim/silent_aim.cpp": "835f94ed066f21a3f867b2862a9b4f10f35a9877bce8fcb3f134aaed5d259727",
+    "src/features/combat/triggerbot/triggerbot.cpp": "0880c6c9d0d55f8b83e4569bbd9edb680975873ddb8f1cf63395f93f816d2283",
+    "src/features/local/self/self.cpp": "f063f6963db12d3f1c2d011911ec2acbfba1020d29d8ef1a4731c4ee6fb634b8",
+    "src/features/local/world/world.cpp": "c8761921b78afc6e3a40f8037ab4f01d2fb2b9b737da39b7503860fb501de3a6",
+    "src/features/local/teleport/teleport.cpp": "5b6e37f5c11b59a59da6f364dfe80f7764231729248c7581ea58c34d4ab2deb6",
+    "README.md": "b4f34ad94b6c35b8a2dfcbd3d6c547f83b8982704c894d5e834c2f0b00218193",
+    "docs/FEATURE_STATUS.md": "8b07b470d815c7bf201f40ff1bbef970b7a066f443d5a1097082b0bd8684c99d",
+    "src/features/visuals/visuals.cpp": "e3c5e53e4a0942c7e11ee0225315d1bf2b07cfe14dccba7315955c5a177e4088"
+  },
+  "tabs": [
+    {
+      "name": "Combat",
+      "categories": [
+        {
+          "name": "Lock-on aim",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "aim.enabled",
+                  "label": "Enable aimbot",
+                  "desc": "Enable lock-on aiming with the configured key and activation mode. Starts disabled; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Aim key",
+                    "Hold / Toggle / Always"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.enabled",
+                  "label": "Lock On",
+                  "desc": "Configure lock on for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.players",
+                  "label": "Aim on Players",
+                  "desc": "Configure aim on players for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.npcs",
+                  "label": "Aim on NPCs",
+                  "desc": "Configure aim on npcs for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.visible",
+                  "label": "Visible check",
+                  "desc": "Configure visible check for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.lock",
+                  "label": "Aim lock",
+                  "desc": "Configure aim lock for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.target",
+                  "label": "Show target",
+                  "desc": "Configure show target for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.circle",
+                  "label": "Show FOV",
+                  "desc": "Configure show fov for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.prediction",
+                  "label": "Prediction",
+                  "desc": "Configure prediction for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.fov",
+                  "label": "FOV radius",
+                  "desc": "Configure fov radius for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.smooth",
+                  "label": "Smoothing",
+                  "desc": "Configure smoothing for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.range",
+                  "label": "Max distance",
+                  "desc": "Configure max distance for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.lead",
+                  "label": "Prediction time (ms)",
+                  "desc": "Configure prediction time (ms) for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                },
+                {
+                  "id": "aim.bone",
+                  "label": "Aim bone",
+                  "desc": "Configure aim bone for lock-on aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/lock_on/lock_on.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Silent aim",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "silent.enabled",
+                  "label": "Silent Aim",
+                  "desc": "Configure silent aim for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.players",
+                  "label": "Aim on Players",
+                  "desc": "Configure aim on players for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.npcs",
+                  "label": "Aim on NPCs",
+                  "desc": "Configure aim on npcs for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.visible",
+                  "label": "Visible check",
+                  "desc": "Configure visible check for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.lock",
+                  "label": "Target lock",
+                  "desc": "Configure target lock for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.target",
+                  "label": "Show target",
+                  "desc": "Configure show target for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.circle",
+                  "label": "Show FOV",
+                  "desc": "Configure show fov for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.prediction",
+                  "label": "Prediction",
+                  "desc": "Configure prediction for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.magic",
+                  "label": "Magic Bullet",
+                  "desc": "Configure magic bullet for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.fov",
+                  "label": "Silent FOV radius",
+                  "desc": "Configure silent fov radius for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.range",
+                  "label": "Silent max distance",
+                  "desc": "Configure silent max distance for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.chance",
+                  "label": "Hit chance (%)",
+                  "desc": "Configure hit chance (%) for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.lead",
+                  "label": "Silent prediction time (ms)",
+                  "desc": "Configure silent prediction time (ms) for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                },
+                {
+                  "id": "silent.bone",
+                  "label": "Silent aim bone",
+                  "desc": "Configure silent aim bone for silent aim. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/silent_aim/silent_aim.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Triggerbot",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "trigger.enabled",
+                  "label": "Triggerbot",
+                  "desc": "Configure triggerbot for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.players",
+                  "label": "Trigger on Players",
+                  "desc": "Configure trigger on players for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.npcs",
+                  "label": "Trigger on NPCs",
+                  "desc": "Configure trigger on npcs for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.visible",
+                  "label": "Visible check",
+                  "desc": "Configure visible check for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.circle",
+                  "label": "Show FOV",
+                  "desc": "Configure show fov for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.target",
+                  "label": "Show target",
+                  "desc": "Configure show target for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.fov",
+                  "label": "Trigger FOV radius",
+                  "desc": "Configure trigger fov radius for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.range",
+                  "label": "Trigger max distance",
+                  "desc": "Configure trigger max distance for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.delay",
+                  "label": "Trigger delay (ms)",
+                  "desc": "Configure trigger delay (ms) for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.interval",
+                  "label": "Shot interval (ms)",
+                  "desc": "Configure shot interval (ms) for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                },
+                {
+                  "id": "trigger.bone",
+                  "label": "Trigger hitbox",
+                  "desc": "Configure trigger hitbox for triggerbot. Requires a supported single-player session; live gameplay acceptance is pending.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/combat/triggerbot/triggerbot.cpp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Local",
+      "categories": [
+        {
+          "name": "Self",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "self.heal",
+                  "label": "Heal",
+                  "desc": "Request a health refill through the supported game update. Session and player-lifetime checks apply; live gameplay acceptance pending.",
+                  "settings": [
+                    "Heal key"
+                  ],
+                  "source": "src/features/local/self/self.cpp"
+                },
+                {
+                  "id": "input.block",
+                  "label": "Block Input",
+                  "desc": "Configure block input. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/self/self.cpp"
+                },
+                {
+                  "id": "self.regeneration",
+                  "label": "Regenerate health",
+                  "desc": "Configure regenerate health. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/self/self.cpp"
+                },
+                {
+                  "id": "self.regen_rate",
+                  "label": "Health per second",
+                  "desc": "Configure health per second. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/self/self.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "World map",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "map.enabled",
+                  "label": "Global map",
+                  "desc": "Configure global map. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.players",
+                  "label": "Player blips",
+                  "desc": "Configure player blips. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.names",
+                  "label": "Player names",
+                  "desc": "Configure player names. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.self",
+                  "label": "Local blip",
+                  "desc": "Configure local blip. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.local_name",
+                  "label": "Local name",
+                  "desc": "Configure local name. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.size",
+                  "label": "Map size",
+                  "desc": "Configure map size. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.blip_size",
+                  "label": "Blip size",
+                  "desc": "Configure blip size. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                },
+                {
+                  "id": "map.opacity",
+                  "label": "Opacity",
+                  "desc": "Configure opacity. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/world/world.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Teleport",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "teleport.x",
+                  "label": "X",
+                  "desc": "Configure x. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.y",
+                  "label": "Y",
+                  "desc": "Configure y. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.z",
+                  "label": "Z",
+                  "desc": "Configure z. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "Adjustable value"
+                  ],
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.ground",
+                  "label": "Snap coordinates to ground",
+                  "desc": "Configure snap coordinates to ground. Availability depends on the supported game build and current session.",
+                  "settings": [
+                    "On / off"
+                  ],
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.waypoint",
+                  "label": "Teleport to waypoint",
+                  "desc": "Use the menu waypoint first, otherwise the game radar waypoint. Requires the exterior world and a successful ground query. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.coordinates",
+                  "label": "Teleport to coordinates",
+                  "desc": "Use X, Y and Z coordinates with optional ground snapping. Invalid or unloaded destinations are rejected. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.back",
+                  "label": "Back",
+                  "desc": "Return to the previous teleport position in this session. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.save",
+                  "label": "Save current position",
+                  "desc": "Remember your current position for the current session. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.saved",
+                  "label": "Teleport to saved position",
+                  "desc": "Return to a saved session position. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.copy",
+                  "label": "Copy current coordinates",
+                  "desc": "Fill the coordinate controls with your current position. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                },
+                {
+                  "id": "teleport.set_waypoint",
+                  "label": "Set menu waypoint",
+                  "desc": "Choose a menu waypoint; you can also right-click the world map. On-foot only; live gameplay acceptance pending.",
+                  "source": "src/features/local/teleport/teleport.cpp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Visuals",
+      "categories": [
+        {
+          "name": "Players ESP",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "esp.players.enabled",
+                  "label": "Enable ESP",
+                  "desc": "Enable ESP control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.box",
+                  "label": "Box",
+                  "desc": "Box control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.name",
+                  "label": "Name",
+                  "desc": "Name control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.distance",
+                  "label": "Distance",
+                  "desc": "Distance control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.health",
+                  "label": "Health bar",
+                  "desc": "Health bar control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.health_text",
+                  "label": "Health text",
+                  "desc": "Health text control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Snaplines control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.skeleton",
+                  "label": "Skeleton",
+                  "desc": "Skeleton control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.players.weapon",
+                  "label": "Weapon name",
+                  "desc": "Weapon name control for the players ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NPCs ESP",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "esp.npcs.enabled",
+                  "label": "Enable ESP",
+                  "desc": "Enable ESP control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.box",
+                  "label": "Box",
+                  "desc": "Box control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.name",
+                  "label": "Name",
+                  "desc": "Name control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.distance",
+                  "label": "Distance",
+                  "desc": "Distance control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.health",
+                  "label": "Health bar",
+                  "desc": "Health bar control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.health_text",
+                  "label": "Health text",
+                  "desc": "Health text control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Snaplines control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.skeleton",
+                  "label": "Skeleton",
+                  "desc": "Skeleton control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.npcs.weapon",
+                  "label": "Weapon name",
+                  "desc": "Weapon name control for the npcs ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Vehicles ESP",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "esp.vehicles.enabled",
+                  "label": "Enable ESP",
+                  "desc": "Enable ESP control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.vehicles.box",
+                  "label": "Box",
+                  "desc": "Box control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.vehicles.name",
+                  "label": "Name",
+                  "desc": "Name control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.vehicles.distance",
+                  "label": "Distance",
+                  "desc": "Distance control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.vehicles.health",
+                  "label": "Health bar",
+                  "desc": "Health bar control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.vehicles.health_text",
+                  "label": "Health text",
+                  "desc": "Health text control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.vehicles.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Snaplines control for the vehicles ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Self ESP",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "esp.self.enabled",
+                  "label": "Enable ESP",
+                  "desc": "Enable ESP control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.box",
+                  "label": "Box",
+                  "desc": "Box control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.name",
+                  "label": "Name",
+                  "desc": "Name control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.distance",
+                  "label": "Distance",
+                  "desc": "Distance control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.health",
+                  "label": "Health bar",
+                  "desc": "Health bar control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.health_text",
+                  "label": "Health text",
+                  "desc": "Health text control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.snaplines",
+                  "label": "Snaplines",
+                  "desc": "Snaplines control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                },
+                {
+                  "id": "esp.self.skeleton",
+                  "label": "Skeleton",
+                  "desc": "Skeleton control for the self ESP profile. Uses the current game scene; live alignment acceptance is pending.",
+                  "source": "src/features/visuals/visuals.cpp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Radar",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "overlay.radar",
+                  "label": "Radar",
+                  "desc": "Show entities from the current game scene in the radar overlay.",
+                  "source": "src/features/visuals/visuals.cpp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interface & scripts",
+      "categories": [
+        {
+          "name": "Personal settings",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "input.block",
+                  "label": "Block game input",
+                  "desc": "Block game controls while the focused menu is open; close the menu to resume control.",
+                  "source": "README.md"
+                },
+                {
+                  "id": "profiles",
+                  "label": "Configs & keybinds",
+                  "desc": "Keep your SA profiles and keybinds in the separate SA settings directory.",
+                  "source": "README.md"
+                },
+                {
+                  "id": "lua",
+                  "label": "Lua scripting",
+                  "desc": "Use SA feature, UI and event APIs plus the shared typed game API. Capability reporting determines which requests are available.",
+                  "source": "README.md"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Not available",
+      "categories": [
+        {
+          "name": "Current limits",
+          "groups": [
+            {
+              "name": "Controls",
+              "items": [
+                {
+                  "id": "unavailable.pickup",
+                  "label": "Pickup ESP",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.spawner",
+                  "label": "Spawner",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.weapon",
+                  "label": "Local weapon controls",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.vehicle",
+                  "label": "Vehicle controls",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.weather",
+                  "label": "Weather controls",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.time",
+                  "label": "Time controls",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.freecam",
+                  "label": "Free camera",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.vehicle-teleport",
+                  "label": "Vehicle teleport",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                },
+                {
+                  "id": "unavailable.spectators",
+                  "label": "Spectator telemetry",
+                  "desc": "Unavailable through the current SA adapter. A menu category or shared interface does not establish working game support.",
+                  "source": "docs/FEATURE_STATUS.md"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

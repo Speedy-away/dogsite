@@ -1,0 +1,32 @@
+.classic-product{--product-accent:#f59a35;--product-accent-hover:#ffae53}
+.classic-product .classic-artwork{margin:0;padding:0;overflow:hidden}
+.classic-art-frame{position:relative;aspect-ratio:16/10;background:#171b22;overflow:hidden}
+.classic-landscape{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.7)}
+.classic-game-logo{position:absolute;inset:22% 25%;width:50%;height:56%;object-fit:contain;filter:drop-shadow(0 4px 16px #0008)}
+.classic-artwork figcaption{padding:16px 22px;color:var(--text-secondary);font-size:12px}
+.classic-product .price{font-size:clamp(28px,3vw,42px)}
+.classic-access-note{font-size:12px;line-height:1.7;color:var(--text-secondary);margin-top:18px}
+.classic-product .purchase-btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.classic-download{display:block;text-align:center;color:var(--product-accent);font-size:13px;margin:20px 0;text-underline-offset:4px}
+.classic-product .description-section{margin-top:30px}
+.classic-product .section-title{font-size:24px;margin-bottom:22px;letter-spacing:-.025em}
+.classic-product .description-content>p+p{margin-top:18px}
+.classic-product .description-content>p{max-width:85ch}
+.classic-description-link,.classic-edition-note{margin-top:26px}
+.classic-product .product-feature-grid h3{color:var(--text-primary)}
+.classic-release{border-top:1px solid var(--border-color);margin-top:28px;padding-top:20px;font-size:13px}
+.classic-release summary{cursor:pointer;color:var(--text-primary);font-weight:600;padding:6px 0}
+.classic-release dl{display:grid;gap:18px;margin:24px 0}
+.classic-release dt{font-weight:600;color:var(--text-primary);margin-bottom:5px}
+.classic-product code{overflow-wrap:anywhere;font-size:12px}
+.classic-setup{padding-left:22px;line-height:1.9;margin-bottom:22px}.classic-setup li+li{margin-top:10px}
+.classic-return{margin-top:30px}.classic-return a{color:var(--text-secondary);text-decoration:none}
+.classic-settings{margin-top:24px;font-size:13px}
+.classic-product dialog#freeKeyModal{border:0;width:100%;max-width:none;max-height:none;height:100%;margin:0;color:#fff}
+.classic-product dialog#freeKeyModal:not([open]){display:none}
+.classic-product dialog#freeKeyModal[open]{display:flex;align-items:center;justify-content:center}
+.classic-product #freeKeyModal .freekey-modal{position:relative}
+.classic-product #freeKeyModal .freekey-modal-close{position:absolute}
+.classic-product .freekey-step{display:flex;align-items:center}.classic-product .freekey-step-num{display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.classic-product .freekey-btn{display:flex;justify-content:center;text-decoration:none}
+@media(max-width:600px){.classic-art-frame{aspect-ratio:16/11}.classic-artwork figcaption{padding:13px 16px}.classic-product .content-grid{gap:20px}.classic-product .product-heading h1{font-size:32px}}
