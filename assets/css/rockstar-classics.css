@@ -30,7 +30,7 @@
 .classics-home-art{background:linear-gradient(#0005,#0005),url('/assets/images/rockstar-classics/classics-banner-960.jpg') center/cover}
 
 .classics-detail-heading{max-width:none;background-size:cover;background-position:center;padding:90px 28px 30px;border-radius:16px}.classics-home-art img{width:32%;height:56%;object-fit:contain}.classics-home-art{aspect-ratio:16/9;padding:0}
-.classics-home-art{background:#171820;position:relative;padding:0;overflow:hidden}
-.classics-home-art img{width:100%;height:100%;object-fit:cover;display:block;object-position:center}
+.classics-home-art{background:linear-gradient(#0003,#0003),url('/assets/images/rockstar-classics/classics-banner-960.jpg') center/cover;position:relative;padding:0;overflow:hidden}
+.catalog-art.classics-home-art img{width:34%;height:58%;object-fit:contain;display:block;padding:0;filter:drop-shadow(0 4px 10px #0008)}
 .rockstar-classics .collection-hero::before{content:none}
 .rockstar-classics [data-engine=coming-soon] .classics-type-art{background:#1a202a}
