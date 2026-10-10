@@ -9,13 +9,6 @@ const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<'
 const released = game => game.state === 'beta' && game.releaseArtifact?.url;
 const label = game => released(game) ? 'Released' : 'Coming soon';
 const href = game => `/products/${game.id}/`;
-const notes = {
-  'gta-sa': 'Return to Los Santos with visuals, aim controls, on-foot teleports and Lua scripting.',
-  'gta-vc': 'Neon streets, palm-lined beaches and a classic Vice City setting. Coming soon.',
-  'gta3': 'Back to Liberty City. A dedicated classic GTA III experience is on the way.',
-  'gta4': 'Explore the next chapter of Liberty City. GTA IV is coming soon.',
-  'rdr1': 'Head out into the frontier. Red Dead Redemption is coming soon.'
-};
 function shell(title, route, desc, body, collection = false) {
   return `<!DOCTYPE html><html lang="en" class="source-collection-document"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +23,7 @@ ${['site-brand','product','product-layout','source-games','source-collection','r
 </head><body class="product-detail source-page source-collection rockstar-classics"><a class="product-skip-link" href="#main-content">Skip to content</a>${nav}
 <main class="main-content" id="main-content">${body}</main><footer class="source-footer"><a href="/rockstar-classics/">Rockstar Classics</a><a href="/source-games/">Source Games</a><a href="/more-games/">More Games</a><a href="/">Home</a><span>Scooby · Make it yours.</span></footer></body></html>\n`;
 }
-const card = game => `<a class="source-card" href="${href(game)}" data-game="${game.id}" data-engine="${released(game) ? 'released' : 'coming-soon'}" data-search="${escape(game.name)} ${game.id} GTA Grand Theft Auto ${game.id === 'rdr1' ? 'RDR1' : ''}"><div class="source-card-art classics-type-art" aria-hidden="true"><img class="classic-scene" src="/assets/images/rockstar-classics/${game.id}-background.${game.id === 'gta3' ? 'png' : 'jpg'}" alt=""><img class="classic-logo" src="/assets/images/rockstar-classics/${game.id}-logo.png" alt=""></div><div class="source-card-copy"><span class="source-kicker">${label(game)}</span><h3>${escape(game.name)}</h3><p>${escape(notes[game.id])}</p><span class="source-card-link">Game details &amp; status <span aria-hidden="true">↗</span></span></div></a>`;
+const card = game => `<a class="source-card" href="${href(game)}" data-game="${game.id}" data-engine="${released(game) ? 'released' : 'coming-soon'}" data-search="${escape(game.name)} ${game.id} GTA Grand Theft Auto ${game.id === 'rdr1' ? 'RDR1' : ''}"><div class="source-card-art classics-type-art"><span class="source-availability ${released(game) ? 'is-released' : 'is-upcoming'}">${label(game)}</span><img class="classic-scene" src="/assets/images/rockstar-classics/${game.id}-background.${game.id === 'gta3' ? 'png' : 'jpg'}" alt=""><img class="classic-logo" src="/assets/images/rockstar-classics/${game.id}-logo.png" alt=""></div><div class="source-card-copy"><h3>${escape(game.name)}</h3><span class="source-card-link">View product <span aria-hidden="true">→</span></span></div></a>`;
 const states = [
   ['released', 'PLAY NOW', 'Released', 'Explore the available Rockstar Classics titles.'],
   ['coming-soon', 'UP NEXT', 'Coming soon', 'More classic worlds are on the way.']
