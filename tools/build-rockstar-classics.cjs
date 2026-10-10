@@ -7,15 +7,14 @@ const source = fs.readFileSync(path.join(root, 'source-games/index.html'), 'utf8
 const nav = source.match(/<nav class="nav"[\s\S]*?<\/nav>/)[0].replace('/guides/source-games/', '/guides/');
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const released = game => game.state === 'beta' && game.releaseArtifact?.url;
-const label = game => released(game) ? 'Online · Free beta' : 'Free · Coming soon';
+const label = game => released(game) ? 'Released' : 'Coming soon';
 const href = game => `/products/${game.id}/`;
-const description = game => released(game) ? 'Scooby for classic San Andreas is Online as a free beta. Download the release; live gameplay and performance acceptance remain pending.' : `${game.name} is ${game.state === 'development' ? 'a development port' : 'queued'} in Rockstar Classics. No release download or verified compatibility is available.`;
 const notes = {
-  'gta-sa': 'The San Andreas port retains its own SA settings and feature identifiers. Shared development with GTA III and Vice City does not make saved profiles interchangeable.',
-  'gta-vc': 'Vice City is a separate development port with its own game adapter, compatibility profiles, settings and scripts.',
-  'gta3': 'GTA III is a separate development port with its own game adapter, compatibility profiles, settings and scripts.',
-  'gta4': 'GTA IV is queued. Separate current and downgraded profiles are planned when development resumes; neither is verified for release.',
-  'rdr1': 'Red Dead Redemption is queued as an independent port. Only common interface and API conventions are planned to partially sync.'
+  'gta-sa': 'Return to Los Santos with visuals, aim controls, on-foot teleports and Lua scripting.',
+  'gta-vc': 'Neon streets, palm-lined beaches and a classic Vice City setting. Coming soon.',
+  'gta3': 'Back to Liberty City. A dedicated classic GTA III experience is on the way.',
+  'gta4': 'Explore the next chapter of Liberty City. GTA IV is coming soon.',
+  'rdr1': 'Head out into the frontier. Red Dead Redemption is coming soon.'
 };
 function shell(title, route, desc, body, collection = false) {
   return `<!DOCTYPE html><html lang="en" class="source-collection-document"><head>
@@ -31,22 +30,21 @@ ${['site-brand','product','product-layout','source-games','source-collection','r
 </head><body class="product-detail source-page source-collection rockstar-classics"><a class="product-skip-link" href="#main-content">Skip to content</a>${nav}
 <main class="main-content" id="main-content">${body}</main><footer class="source-footer"><a href="/rockstar-classics/">Rockstar Classics</a><a href="/source-games/">Source Games</a><a href="/more-games/">More Games</a><a href="/">Home</a><span>Scooby · Make it yours.</span></footer></body></html>\n`;
 }
-const card = game => `<a class="source-card" href="${href(game)}" data-game="${game.id}" data-engine="${game.state}" data-search="${escape(game.name)} ${game.id} GTA Grand Theft Auto ${game.id === 'rdr1' ? 'RDR1' : ''}"><div class="source-card-art classics-type-art" aria-hidden="true"><img class="classic-scene" src="/assets/images/rockstar-classics/${game.id}-background.${game.id === 'gta3' ? 'png' : 'jpg'}" alt=""><img class="classic-logo" src="/assets/images/rockstar-classics/${game.id}-logo.png" alt=""></div><div class="source-card-copy"><span class="source-kicker">${label(game)}</span><h3>${escape(game.name)}</h3><p>${escape(notes[game.id])}</p><span class="source-card-link">Game details &amp; status <span aria-hidden="true">↗</span></span></div></a>`;
+const card = game => `<a class="source-card" href="${href(game)}" data-game="${game.id}" data-engine="${released(game) ? 'released' : 'coming-soon'}" data-search="${escape(game.name)} ${game.id} GTA Grand Theft Auto ${game.id === 'rdr1' ? 'RDR1' : ''}"><div class="source-card-art classics-type-art" aria-hidden="true"><img class="classic-scene" src="/assets/images/rockstar-classics/${game.id}-background.${game.id === 'gta3' ? 'png' : 'jpg'}" alt=""><img class="classic-logo" src="/assets/images/rockstar-classics/${game.id}-logo.png" alt=""></div><div class="source-card-copy"><span class="source-kicker">${label(game)}</span><h3>${escape(game.name)}</h3><p>${escape(notes[game.id])}</p><span class="source-card-link">Game details &amp; status <span aria-hidden="true">↗</span></span></div></a>`;
 const states = [
-  ['beta', 'AVAILABLE NOW', 'Online · Free beta', 'Released for classic single-player San Andreas. Live gameplay and performance acceptance remain pending.'],
-  ['development', 'THE GTA CLASSICS', 'Development ports', 'Shared development conventions. Separate game settings and scripts.'],
-  ['queued', 'ON THE ROADMAP', 'Queued titles', 'Not currently supported for launch or download.']
+  ['released', 'PLAY NOW', 'Released', 'Explore the available Rockstar Classics titles.'],
+  ['coming-soon', 'UP NEXT', 'Coming soon', 'More classic worlds are on the way.']
 ];
 const sections = states.map(([state, kicker, title, intro]) => {
-  const games = catalog.games.filter(game => game.state === state);
+  const games = catalog.games.filter(game => (released(game) ? 'released' : 'coming-soon') === state);
   if (!games.length) return '';
   return `<section id="${state}" class="source-catalog-section" data-catalog-section aria-labelledby="${state}-title"><div class="source-section-heading"><div><span class="source-kicker">${kicker}</span><h2 id="${state}-title">${title}</h2><p>${intro}</p></div><span class="source-section-count">${String(games.length).padStart(2,'0')}</span></div><div class="source-grid">${games.map(card).join('\n')}</div></section>`;
 }).join('\n');
-const body = `<header class="collection-hero"><div class="collection-hero-copy"><div class="collection-brand"><span>THE SCOOBY COLLECTION</span></div><h1>Rockstar Classics</h1><p class="collection-tagline">Familiar worlds.<br>A new chapter starts here.</p><p class="collection-intro">San Andreas is Online as a free beta. Explore its release, follow the other classic GTA ports, and see the titles queued next.</p><div class="collection-hero-actions"><a href="#beta" class="collection-button">San Andreas free beta ↓</a><a href="#queued" class="collection-button secondary">Queued titles</a></div></div><span class="collection-hero-caption">1 free beta · 2 development ports · 2 queued titles</span></header>
-<div class="collection-tools" hidden><div class="collection-filters" role="group" aria-label="Filter games by status"><button type="button" data-engine-filter="all" aria-pressed="true">All games</button><button type="button" data-engine-filter="beta" aria-pressed="false">Online · Free beta</button><button type="button" data-engine-filter="development" aria-pressed="false">In development</button><button type="button" data-engine-filter="queued" aria-pressed="false">Queued</button></div><label class="collection-search"><span class="visually-hidden">Search games</span><input id="source-game-search" type="search" placeholder="Search your game…" autocomplete="off"></label></div><p id="collection-results" class="collection-results" role="status" hidden></p>
+const body = `<header class="collection-hero"><div class="collection-hero-copy"><div class="collection-brand"><span>THE SCOOBY COLLECTION</span></div><h1>Rockstar Classics</h1><p class="collection-tagline">Familiar worlds.<br>A new chapter starts here.</p><p class="collection-intro">From Los Santos to the frontier. Browse released games and see what is coming next.</p><div class="collection-hero-actions"><a href="#released" class="collection-button">Released games ↓</a><a href="#coming-soon" class="collection-button secondary">Coming soon</a></div></div><span class="collection-hero-caption">1 released · 4 coming soon</span></header>
+<div class="collection-tools" hidden><div class="collection-filters" role="group" aria-label="Filter games by status"><button type="button" data-engine-filter="all" aria-pressed="true">All games</button><button type="button" data-engine-filter="released" aria-pressed="false">Released</button><button type="button" data-engine-filter="coming-soon" aria-pressed="false">Coming soon</button></div><label class="collection-search"><span class="visually-hidden">Search games</span><input id="source-game-search" type="search" placeholder="Search your game…" autocomplete="off"></label></div><p id="collection-results" class="collection-results" role="status" hidden></p>
 ${sections}<div id="collection-empty" class="collection-empty" hidden><h2>No games found</h2><p>Try another title or show the full collection.</p><button type="button" id="collection-reset">Show all games</button></div>
 `;
-const outputs = new Map([['rockstar-classics/index.html', shell('Rockstar Classics', '/rockstar-classics/', 'Explore Rockstar Classics: San Andreas Online as a free beta, Vice City and GTA III development ports, plus queued GTA IV and Red Dead Redemption.', body, true)]]);
+const outputs = new Map([['rockstar-classics/index.html', shell('Rockstar Classics', '/rockstar-classics/', 'Explore Rockstar Classics. Browse released San Andreas and upcoming Vice City, GTA III, GTA IV and Red Dead Redemption.', body, true)]]);
 const productTemplate = require('./rockstar-product-template.cjs');
 for (const game of catalog.games) {
   outputs.set(`products/${game.id}/index.html`, productTemplate.render(game));
