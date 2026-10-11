@@ -7,7 +7,7 @@
   const key = id => aliases[id] || id;
   const routeId = path => key((path.match(/\/products\/([^/]+)/) || [])[1]);
   const pageId = location.pathname.startsWith('/download') ? 'loader' : routeId(location.pathname);
-  const actionSelector = '[data-buy], [data-free], .purchase-btn:not([href^="/guides/"]):not([href^="/features-list/"]):not([href^="/api/"]), #loader-download, [data-product-access]';
+  const actionSelector = '[data-buy], [data-free], .purchase-btn:not([href^="/guides/"]):not([href^="/features-list/"]):not([href="/fivem-features/"]):not([href^="/api/"]), #loader-download, [data-product-access]';
   let current = null, pending = false;
   const previous = new WeakMap();
   function validate(data) {

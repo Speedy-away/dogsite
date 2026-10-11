@@ -145,3 +145,11 @@ GitHub feed each minute and retain the last valid response on failure. The local
 This UI does not replace authentication or server-side product access checks.
 Run `node tools/test-product-status.cjs` for isolated browser tests with local files and mocked feeds.
 Screenshots are written under `project/build/product-status`. No publication or live login occurs in tests.
+
+## FiveM product and feature library
+
+`/products/fivem/` and `/fivem-features/` describe the current `Scooby-Op/FiveM/new` implementation. The reviewed catalog, source hashes, access tiers and exclusions live in `tools/features/features-fivem.json`. Review both registration and runtime consumers before changing claims; registered or previewed controls alone are insufficient. Friendly-player relationships, vehicle previews and unwired ADS/scope camera FOV controls are not advertised as implemented features. ZIP asset preparation does not establish package publication or live runtime acceptance.
+
+Regenerate with `node tools/features/build-features-page.js --only fivem --apply`. Product and feature metadata also have entries in `tools/seo-metadata.js`. Existing gallery images and video are labeled historical. Keep the availability feed authoritative for loading/free access; the feature-library link remains browsable while Updating.
+
+Run `node tools/validate-fivem.cjs` with Playwright and Edge for desktop/mobile product navigation, feature search, tier labels, filters, expansion, reset, anchors and overflow checks. It owns and closes its loopback preview; captures go to `project/build/fivem-validation/`. Run `node tools/test-product-status.cjs` after availability changes. These checks do not exercise FiveM or publish either repository.
