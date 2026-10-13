@@ -3,9 +3,10 @@
   "slug": "fivem",
   "website": {
     "features": {
-      "description": "Explore FiveM visuals, combat, player controls, Lua and resource tools. Search the current feature list and compare free and premium access."
+      "description": "Compare Free and Premium, then search every listed FiveM feature. Free includes ESP, chams, radar, Lock-on and Triggerbot; Premium adds advanced combat, player controls, Lua and resource tools."
     },
-    "notice": "Current FiveM/new implementation, reviewed 11 October 2026. A valid free key or authenticated account is required. Free and Premium labels show access tiers, not runtime certification. Build, fixture and standalone UI checks do not establish live FiveM compatibility or performance; game features require compatible game data and bindings."
+    "notice": "Updated 13 October 2026. Free features are also included in Premium. A valid free key or authenticated account is required; Premium features require paid access. Availability depends on the supported FiveM build and session.",
+    "comparisonHtml": "<section class=\"edition-comparison\" aria-labelledby=\"edition-heading\"><h2 id=\"edition-heading\">Free vs Premium</h2><p>Premium includes everything in Free, plus the paid features below. Use a valid free key for Free access or a paid account for Premium.</p><div class=\"edition-table-wrap\"><table><caption>FiveM edition comparison</caption><thead><tr><th scope=\"col\">Feature group</th><th scope=\"col\">Free</th><th scope=\"col\">Premium</th></tr></thead><tbody><tr><th scope=\"row\">Players, NPCs and Self ESP; chams; radar</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Lock-on, Triggerbot and custom crosshair</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Profiles, hotkeys and interface settings</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Silent Aim and Magic Bullet</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Player and weapon controls; Camera FOV</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Lua editor, execution and console</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Resource browser, dumper and event tools</th><td>Not included</td><td>Included</td></tr></tbody></table></div><p>Feature availability depends on the supported FiveM build and session. Resource tools work with accessible client files; they do not unlock server-only files or decrypt escrow.</p></section>"
   },
   "tabs": [
     {
@@ -120,6 +121,23 @@
                   "desc": "Limit rendered players and NPCs and set a maximum display distance.",
                   "type": "Free",
                   "settings": []
+                },
+                {
+                  "id": "chams",
+                  "label": "Players, NPCs and Self chams",
+                  "desc": "Configure separate target profiles with visible and occluded colors, styles, gradients, outlines, glow and fill opacity.",
+                  "type": "Free",
+                  "settings": [
+                    "ESP synchronization",
+                    "Visible, Occluded and Split preview modes"
+                  ]
+                },
+                {
+                  "id": "radar",
+                  "label": "Radar",
+                  "desc": "Show nearby entities in the radar overlay through Visuals > World.",
+                  "type": "Free",
+                  "settings": []
                 }
               ]
             }
@@ -142,7 +160,7 @@
                   "id": "camera-fov",
                   "label": "Camera FOV",
                   "desc": "Adjust the main camera field of view. Separate ADS and scope camera FOV controls are not implemented.",
-                  "type": "Free",
+                  "type": "Premium",
                   "settings": []
                 }
               ]
@@ -335,14 +353,14 @@
                 {
                   "id": "resource-list",
                   "label": "Resource and file browser",
-                  "desc": "Enumerate mounted resources and their accessible files, with file metadata.",
+                  "desc": "Browse running resources, filter the resource list, explore file trees and preview accessible source files.",
                   "type": "Premium",
                   "settings": []
                 },
                 {
                   "id": "resource-dump",
                   "label": "Resource dumper",
-                  "desc": "Export accessible resource files, including a client-only variant. This does not provide arbitrary server-only files or escrow decryption.",
+                  "desc": "Dump selected resources or all accessible resources, follow export progress, cancel a running export and open the output folder. Exports accessible client files, not arbitrary server-only files or escrow decryption.",
                   "type": "Premium",
                   "settings": []
                 }
@@ -390,7 +408,7 @@
     }
   ],
   "review": {
-    "date": "2026-10-11",
+    "date": "2026-10-13",
     "source": "Scooby-Op/FiveM/new",
     "runtime_acceptance": "Pending; no blanket live FiveM or performance acceptance.",
     "excluded": [
@@ -420,6 +438,7 @@
       "UPDATING.md": "5d71fd72c4117fcd62bf69035f6f961c7647ddd3fe39fb4765844fdb83902a54",
       "host/ui_options.hpp": "ced5bdd64c9928be8e462083beaef84473b182a743a2230680314dc6f531c721",
       "features/combat/combat_tab.cpp": "d45a7521c639197ed47ee847b3f47652a741ffdb0bf1507187fa7f6dde6d796f"
-    }
+    },
+    "update": "Reviewed access policy, Camera FOV runtime gate, chams UI and runtime, resource tools and supplied in-game screenshots. Existing source hashes record the earlier baseline."
   }
 }

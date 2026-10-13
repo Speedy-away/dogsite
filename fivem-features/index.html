@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://scoobymenu.cc/assets/images/social/features-v2.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/features-v2.png">
+<link rel="stylesheet" href="/assets/css/fivem-editions.css">
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
 <link rel="stylesheet" href="/assets/css/features.css">
 <script src="/assets/js/features.js" defer>
@@ -99,10 +100,10 @@
 <h1>FiveM<br>
 <span>Every detail, explored.</span>
 </h1>
-<p>Explore FiveM visuals, combat, player controls, Lua and resource tools. Search the current feature list and compare free and premium access.</p>
+<p>Compare Free and Premium, then search every listed FiveM feature. Free includes ESP, chams, radar, Lock-on and Triggerbot; Premium adds advanced combat, player controls, Lua and resource tools.</p>
 <div class="feature-stats">
 <div>
-<strong>37</strong>
+<strong>39</strong>
 <span>listed features</span>
 </div>
 <div>
@@ -116,7 +117,61 @@
 </div>
 </div>
 </section>
-<aside class="feature-notice">Current FiveM/new implementation, reviewed 11 October 2026. A valid free key or authenticated account is required. Free and Premium labels show access tiers, not runtime certification. Build, fixture and standalone UI checks do not establish live FiveM compatibility or performance; game features require compatible game data and bindings.</aside>
+<section class="edition-comparison" aria-labelledby="edition-heading">
+<h2 id="edition-heading">Free vs Premium</h2>
+<p>Premium includes everything in Free, plus the paid features below. Use a valid free key for Free access or a paid account for Premium.</p>
+<div class="edition-table-wrap">
+<table>
+<caption>FiveM edition comparison</caption>
+<thead>
+<tr>
+<th scope="col">Feature group</th>
+<th scope="col">Free</th>
+<th scope="col">Premium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Players, NPCs and Self ESP; chams; radar</th>
+<td>Included</td>
+<td>Included</td>
+</tr>
+<tr>
+<th scope="row">Lock-on, Triggerbot and custom crosshair</th>
+<td>Included</td>
+<td>Included</td>
+</tr>
+<tr>
+<th scope="row">Profiles, hotkeys and interface settings</th>
+<td>Included</td>
+<td>Included</td>
+</tr>
+<tr>
+<th scope="row">Silent Aim and Magic Bullet</th>
+<td>Not included</td>
+<td>Included</td>
+</tr>
+<tr>
+<th scope="row">Player and weapon controls; Camera FOV</th>
+<td>Not included</td>
+<td>Included</td>
+</tr>
+<tr>
+<th scope="row">Lua editor, execution and console</th>
+<td>Not included</td>
+<td>Included</td>
+</tr>
+<tr>
+<th scope="row">Resource browser, dumper and event tools</th>
+<td>Not included</td>
+<td>Included</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Feature availability depends on the supported FiveM build and session. Resource tools work with accessible client files; they do not unlock server-only files or decrypt escrow.</p>
+</section>
+<aside class="feature-notice">Updated 13 October 2026. Free features are also included in Premium. A valid free key or authenticated account is required; Premium features require paid access. Availability depends on the supported FiveM build and session.</aside>
 
 
 <div class="explorer-layout" id="explorer">
@@ -126,11 +181,11 @@
 <nav class="category-nav" aria-label="Feature sections">
 <a href="#explorer" data-section="all" aria-current="true">
 <span>All features</span>
-<span>37</span>
+<span>39</span>
 </a>
 <a href="#tab-0" data-section="visuals">
 <span>Visuals</span>
-<span>16</span>
+<span>18</span>
 </a>
 <a href="#section-combat" data-section="combat">
 <span>Combat</span>
@@ -180,7 +235,7 @@
 </select>
 </label>
 <div class="results-row">
-<p id="result-count" role="status">37 features across 5 sections</p>
+<p id="result-count" role="status">39 features across 5 sections</p>
 <div class="result-actions">
 <button id="expand-all">Expand all</button>
 <button id="collapse-all">Collapse all</button>
@@ -191,13 +246,13 @@
 <section class="feature-section" id="tab-0" data-section="visuals">
 <div class="section-heading">
 <h2>Visuals</h2>
-<span>16 features</span>
+<span>18 features</span>
 </div>
 <details class="feature-category" id="subtab-0-0" >
 <summary>
 <span class="category-chevron" aria-hidden="true">›</span>
 <h3>ESP and overlays</h3>
-<span class="category-count" data-total="14">14</span>
+<span class="category-count" data-total="16">16</span>
 </summary>
 <div class="category-content">
 <a class="category-permalink" href="#subtab-0-0">Link to this section ↗</a>
@@ -306,6 +361,24 @@
 </div>
 <p>Limit rendered players and NPCs and set a maximum display distance.</p>
 </article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Players, NPCs and Self chams</h5>
+<span class="feature-type">Free</span>
+</div>
+<p>Configure separate target profiles with visible and occluded colors, styles, gradients, outlines, glow and fill opacity.</p>
+<ul class="feature-settings">
+<li>ESP synchronization</li>
+<li>Visible, Occluded and Split preview modes</li>
+</ul>
+</article>
+<article class="feature-item">
+<div class="feature-name-row">
+<h5>Radar</h5>
+<span class="feature-type">Free</span>
+</div>
+<p>Show nearby entities in the radar overlay through Visuals &gt; World.</p>
+</article>
 </div>
 </section>
 </div>
@@ -330,7 +403,7 @@
 <article class="feature-item">
 <div class="feature-name-row">
 <h5>Camera FOV</h5>
-<span class="feature-type">Free</span>
+<span class="feature-type">Premium</span>
 </div>
 <p>Adjust the main camera field of view. Separate ADS and scope camera FOV controls are not implemented.</p>
 </article>
@@ -553,14 +626,14 @@
 <h5>Resource and file browser</h5>
 <span class="feature-type">Premium</span>
 </div>
-<p>Enumerate mounted resources and their accessible files, with file metadata.</p>
+<p>Browse running resources, filter the resource list, explore file trees and preview accessible source files.</p>
 </article>
 <article class="feature-item">
 <div class="feature-name-row">
 <h5>Resource dumper</h5>
 <span class="feature-type">Premium</span>
 </div>
-<p>Export accessible resource files, including a client-only variant. This does not provide arbitrary server-only files or escrow decryption.</p>
+<p>Dump selected resources or all accessible resources, follow export progress, cancel a running export and open the output folder. Exports accessible client files, not arbitrary server-only files or escrow decryption.</p>
 </article>
 </div>
 </section>
