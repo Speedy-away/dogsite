@@ -6,9 +6,6 @@ function renderComparison() {
     ['BattlEye mode', 'Disabled', 'Disabled · session host required', 'Enabled'],
     ['Free features', 'Included', 'Included', 'Included'],
     ['Premium features', 'Not included', 'Included', 'Included'],
-    ['Instant heist finishes & business sales', 'Not included', 'Included', 'Included'],
-    ['Advanced vehicle flight, tricks & tire lights', 'Not included', 'Included', 'Included'],
-    ['Black hole, tornado & alien invasion', 'Not included', 'Included', 'Included'],
     ['Price', '$0 · free key', '$15 · Lifetime access', '$25 · Lifetime access'],
   ];
   return `<section class="gta-editions" id="compare-editions" aria-labelledby="gta-editions-title">
