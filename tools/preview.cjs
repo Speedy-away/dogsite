@@ -32,6 +32,8 @@ function createServer(root = siteRoot) {
   });
 }
 if (require.main === module) {
+  require('./build-reseller-media.cjs').build();
+  require('./watch-reseller-media.cjs').watchMedia();
   const port = Number(process.argv[2] || 8080);
   const server = createServer();
   server.on('error', error => { console.error(error.code === 'EADDRINUSE' ? `Port ${port} is in use. Try npm start -- ${port + 1}` : error.message); process.exitCode = 1; });

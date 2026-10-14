@@ -9,7 +9,10 @@
     "build": "node tools/package-site.cjs",
     "test:site": "node --test tools/site-layout.test.cjs",
     "test:seo": "node --test tools/seo.test.js",
-    "seo:links": "node tools/seo-links.js --apply"
+    "seo:links": "node tools/seo-links.js --apply",
+    "media:build": "node tools/build-reseller-media.cjs",
+    "media:banners": "node tools/render-reseller-banners.cjs",
+    "test:reseller": "node --test tools/reseller-program.test.cjs"
   },
   "devDependencies": {
     "marked": "17.0.5",

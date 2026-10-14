@@ -3,6 +3,7 @@ const path = require('node:path');
 const { siteRoot, repoRoot, publicEntries, isPublic } = require('./site-layout.cjs');
 const publishRoot = path.join(repoRoot, 'project', 'build', 'publish');
 function build() {
+  require('./build-reseller-media.cjs').build();
   // Validate the fixed output and all source entries before replacing output.
   if (path.resolve(publishRoot) !== path.resolve(repoRoot, 'project/build/publish')) throw Error('Unexpected output path');
   for (const ancestor of [path.dirname(publishRoot), publishRoot]) {
