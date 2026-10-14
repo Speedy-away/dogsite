@@ -2,16 +2,18 @@
  * READ-ONLY extractor for the GTA 5 menu.
  *
  * Walks the submenu .cpp files for the Category / Group / *CommandItem tree and
- * joins each command id to its label + description from base_english.json.
+ * joins commands to current source registrations, labels and access gates.
  * Writes a manifest; touches nothing in the source project.
  */
 const fs = require('fs'), path = require('path');
 
-const SRC = 'C:/Users/whatw/OneDrive/Documents/GitHub/Scooby-Op/GTA5/EE/GTA - Main Src/src/game/frontend/submenus';
-const LABELS = 'C:/scooby/GTA5/Labels/base_english.json';
+const ROOT = process.env.GTA5_SOURCE || path.resolve(__dirname, '../../../Scooby-Op/GTA5/EE/GTA - Main Src');
+const SRC = path.join(ROOT, 'src/game/frontend/submenus');
 const OUT = path.join(__dirname, 'features-gta5.json');
 
-const labels = JSON.parse(fs.readFileSync(LABELS, 'utf8'));
+const source = require('./gta5-source.cjs').readSource(ROOT);
+const {labels} = source;
+const {stripComments} = require('./gta5-source.cjs');
 const label = id => (labels['command.' + id + '.label'] || '').trim();
 const desc = id => (labels['command.' + id + '.description'] || '').trim();
 
@@ -52,7 +54,7 @@ const seen = new Set();
 let orphans = 0;
 
 for (const file of files) {
-  const text = fs.readFileSync(file, 'utf8');
+  const text = stripComments(fs.readFileSync(file, 'utf8'));
   const tabKey = tabOf(file);
   const tabName = TAB_NAMES[tabKey] || tabKey;
 
@@ -96,76 +98,31 @@ const allLabelled = [...new Set(Object.keys(labels)
   .map(k => k.split('.')[1]))].filter(id => label(id));
 const missing = new Set(allLabelled.filter(id => !seen.has(id)));
 
-if (fs.existsSync(FEATURES)) {
-  for (const file of walk(FEATURES)) {
-    if (!missing.size) break;
-    const text = fs.readFileSync(file, 'utf8');
-    const rel = path.relative(FEATURES, file).replace(/\\/g, '/');
-    const parts = rel.split('/');
-    const area = parts[0].toLowerCase();
-    const tabName = AREA_TAB[area] || TAB_NAMES[parts[0]] || 'Misc';
-    // second path segment makes a decent category, else the file name
-    const catName = (parts.length > 2 ? parts[1] : path.basename(file, '.cpp'))
-      .replace(/([a-z])([A-Z])/g, '$1 $2');
-
-    for (const m2 of text.matchAll(/"([A-Za-z0-9_]{3,})"/g)) {
-      const id = m2[1];
-      if (!missing.has(id)) continue;
-      missing.delete(id);
-      seen.add(id);
-      if (!tabs.has(tabName)) tabs.set(tabName, new Map());
-      const cats2 = tabs.get(tabName);
-      if (!cats2.has(catName)) cats2.set(catName, new Map());
-      const grps2 = cats2.get(catName);
-      const gName = 'More';
-      if (!grps2.has(gName)) grps2.set(gName, []);
-      grps2.get(gName).push({ id, label: label(id), desc: desc(id), type: 'CommandItem' });
-    }
-  }
+// Place remaining controls by their actual registration file. A mention in a
+// comment, legacy menu, or unrelated feature must not decide its section.
+for (const id of missing) {
+  const file = source.locations.get(id);
+  const relative = path.relative(path.join(ROOT, 'src'), file).replace(/\\/g, '/');
+  const parts = relative.split('/').filter(part => !['game','features','frontend','submenus','core'].includes(part));
+  const tabName = AREA_TAB[(parts[0] || '').toLowerCase()] || TAB_NAMES[parts[0]] || 'Misc';
+  const catName = (parts.length > 2 ? parts[1] : path.basename(file).replace(/\.(cpp|hpp|inl)$/, ''))
+    .replace(/([a-z])([A-Z])/g, '$1 $2');
+  if (!tabs.has(tabName)) tabs.set(tabName, new Map());
+  const categories = tabs.get(tabName);
+  if (!categories.has(catName)) categories.set(catName, new Map());
+  const groups = categories.get(catName);
+  if (!groups.has('More')) groups.set('More', []);
+  groups.get('More').push({id, label:label(id), desc:desc(id), type:'CommandItem'});
+  seen.add(id);
 }
-// ---- pass 3: anything left, anywhere in src ---------------------------------
-if (missing.size) {
-  const ALLSRC = path.resolve(SRC, '../../..');            // src/
-  for (const file of walk(ALLSRC)) {
-    if (!missing.size) break;
-    const text = fs.readFileSync(file, 'utf8');
-    const rel = path.relative(ALLSRC, file).replace(/\\/g, '/');
-    const seg = rel.split('/').filter(s => !/^(game|frontend|features|core)$/.test(s));
-    const tabName = AREA_TAB[(seg[0] || '').toLowerCase()] || 'Misc';
-    const catName = (seg.length > 1 ? seg[seg.length - 2] : path.basename(file, '.cpp'))
-      .replace(/([a-z])([A-Z])/g, '$1 $2');
-    for (const m3 of text.matchAll(/"([A-Za-z0-9_]{3,})"/g)) {
-      const id = m3[1];
-      if (!missing.has(id)) continue;
-      missing.delete(id); seen.add(id);
-      if (!tabs.has(tabName)) tabs.set(tabName, new Map());
-      const c3 = tabs.get(tabName);
-      if (!c3.has(catName)) c3.set(catName, new Map());
-      const g3 = c3.get(catName);
-      if (!g3.has('More')) g3.set('More', []);
-      g3.get('More').push({ id, label: label(id), desc: desc(id), type: 'CommandItem' });
-    }
-  }
-}
-// Anything still unplaced is referenced only from headers or generated code.
-// It is still a real, labelled, described feature - keep it rather than drop it.
-if (missing.size) {
-  if (!tabs.has('Misc')) tabs.set('Misc', new Map());
-  const c4 = tabs.get('Misc');
-  if (!c4.has('Additional')) c4.set('Additional', new Map());
-  const g4 = c4.get('Additional');
-  if (!g4.has('More')) g4.set('More', []);
-  for (const id of missing) {
-    g4.get('More').push({ id, label: label(id), desc: desc(id), type: 'CommandItem' });
-    seen.add(id);
-  }
-  missing.clear();
-}
+missing.clear();
+console.log('Unregistered menu references excluded:', source.unresolved.join(', '));
 console.log('labelled commands :', allLabelled.length, '| unplaced:', missing.size);
 
 // ---- shape + report ---------------------------------------------------------
 const manifest = {
   game: 'GTA 5', slug: 'gta5',
+  sourceDate: new Date().toLocaleDateString('en-CA', {timeZone:'Asia/Bangkok'}),
   tabs: [...tabs.entries()].map(([tab, cats]) => ({
     name: tab,
     categories: [...cats.entries()].map(([cat, grps]) => ({
@@ -174,6 +131,12 @@ const manifest = {
     })),
   })),
 };
+
+for (const tab of manifest.tabs) for (const category of tab.categories) for (const group of category.groups) for (const item of group.items) {
+  item.access = source.premium.has(item.id) ? 'premium' : 'free';
+  const editions = source.editions.get(item.id);
+  if (editions?.size === 1) item.edition = [...editions][0];
+}
 
 let total = 0, withDesc = 0, cats = 0, groups = 0;
 for (const t of manifest.tabs) for (const c of t.categories) {

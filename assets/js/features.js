@@ -7,6 +7,8 @@
     const search = document.getElementById('feature-search');
     const clear = document.getElementById('clear-search');
     const select = document.getElementById('category-select');
+    const accessSelect = document.getElementById('access-select');
+    let access = 'all';
     const sectionLinks = [...document.querySelectorAll('.category-nav a')];
     const blocks = [...document.querySelectorAll('.feature-section')];
     const categories = [...document.querySelectorAll('.feature-category')];
@@ -26,11 +28,14 @@
         const params = new URLSearchParams(location.search);
         const requested = params.get('category') || 'all';
         active = blocks.some(block => block.dataset.section === requested) ? requested : 'all';
+        access = accessSelect && ['free', 'premium', 'plus', 'paid'].includes(params.get('plan')) ? params.get('plan') : 'all';
+        if (accessSelect) accessSelect.value = access;
         search.value = (params.get('q') || '').slice(0, 200);
     };
     const saveUrl = push => {
         const url = new URL(location.href);
         if (active === 'all') url.searchParams.delete('category'); else url.searchParams.set('category', active);
+        if (accessSelect) { if (access === 'all') url.searchParams.delete('plan'); else url.searchParams.set('plan', access); }
         if (search.value.trim()) url.searchParams.set('q', search.value.trim()); else url.searchParams.delete('q');
         url.hash = '';
         if (url.href !== location.href) history[push ? 'pushState' : 'replaceState'](null, '', url);
@@ -49,7 +54,8 @@
         const totals = new Map();
         let shown = 0;
         records.forEach(record => {
-            const visible = (active === 'all' || record.block.dataset.section === active) && words.every(word => record.text.includes(word));
+            const matchesAccess = !accessSelect || access === 'all' || access === 'premium' || access === 'plus' || record.el.dataset.access === (access === 'paid' ? 'premium' : 'free');
+            const visible = matchesAccess && (active === 'all' || record.block.dataset.section === active) && words.every(word => record.text.includes(word));
             record.el.hidden = !visible;
             if (visible) {
                 shown++;
@@ -78,8 +84,9 @@
         if (document.getElementById('explorer').getBoundingClientRect().top < 0) document.getElementById('explorer').scrollIntoView();
     }));
     select.addEventListener('change', () => filter(select.value));
+    if (accessSelect) accessSelect.addEventListener('change', () => { clearTimeout(timer); access = accessSelect.value; apply(); saveUrl(true); });
     search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => { apply(); saveUrl(false); }, 120); });
-    const reset = () => { clearTimeout(timer); search.value = ''; active = 'all'; apply(); saveUrl(false); search.focus(); };
+    const reset = () => { clearTimeout(timer); search.value = ''; active = 'all'; access = 'all'; if (accessSelect) accessSelect.value = access; apply(); saveUrl(false); search.focus(); };
     clear.addEventListener('click', () => { clearTimeout(timer); search.value = ''; apply(); saveUrl(false); search.focus(); });
     document.getElementById('reset-search').addEventListener('click', reset);
     document.getElementById('expand-all').addEventListener('click', () => categories.filter(el => !el.hidden).forEach(el => { el.open = true; expanded.set(el, true); }));
@@ -95,7 +102,7 @@
         if (!id) return;
         const target = document.getElementById(id);
         if (!target || !target.closest('#feature-results')) return;
-        active = 'all'; search.value = ''; apply();
+        active = 'all'; access = 'all'; if (accessSelect) accessSelect.value = access; search.value = ''; apply();
         const category = target.closest('.feature-category');
         if (category) { category.open = true; expanded.set(category, true); }
         requestAnimationFrame(() => target.scrollIntoView());

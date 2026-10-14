@@ -1,0 +1,105 @@
+.gta-editions { margin: 30px 0 36px; padding: clamp(18px, 2.5vw, 30px); border: 0; border-radius: 20px; background: #10151df2; color: #eaf0fa; }
+.gta-editions-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+.gta-tier-free, .product-heading-badges .gta-tier-free { color: #8edbb5; }
+.gta-tier-premium, .product-heading-badges .gta-tier-premium { color: #edc586; }
+.gta-tier-plus, .product-heading-badges .gta-tier-plus { color: #bfafff; }
+.gta-eyebrow { color: #9eb9e4; font-size: 11px; letter-spacing: .14em; font-weight: 700; }
+.gta-editions h2 { margin: 8px 0 0; font-size: clamp(24px, 3vw, 34px); line-height: 1.2; letter-spacing: -.035em; }
+.gta-editions-heading p { max-width: 260px; margin: 0; color: #aebace; font-size: 14px; line-height: 1.6; }
+.gta-table-scroll { overflow-x: auto; border-radius: 8px; padding: 22px 10px 14px; margin: -10px; }
+.gta-comparison-wrap { position: relative; min-width: 720px; isolation: isolate; }
+.gta-plan-outlines { position: absolute; inset: 0 0 0 34%; display: grid; grid-template-columns: repeat(3, 1fr); pointer-events: none; z-index: -1; }
+.gta-plan-outlines > div { position: relative; margin: 0 5px; border: 1px solid #8edbb54d; border-radius: 18px; background: #8edbb503; }
+.gta-plan-outlines > div:nth-child(2) { border-color: #edc58655; background: #edc58603; }
+.gta-plan-outlines > div:nth-child(3) { border: 2px solid #b293ff; background: linear-gradient(160deg, #9670e51f, #bfafff08 60%, #9670e518); box-shadow: 0 0 18px #a47bed26; }
+.gta-plan-outlines span { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); padding: 4px 12px; border-radius: 7px; background: #bd9aff; color: #211332; font-size: 10px; font-weight: 750; white-space: nowrap; }
+.gta-comparison { position: relative; width: 100%; min-width: 720px; table-layout: fixed; border-collapse: separate; border-spacing: 0; text-align: left; font-size: 13px; line-height: 1.65; }
+.gta-comparison th, .gta-comparison td { padding: 9px 18px; border: 0; vertical-align: top; }
+.gta-comparison thead th { padding-top: 20px; padding-bottom: 12px; font-size: 22px; letter-spacing: -.035em; line-height: 1.25; }
+.gta-comparison thead th:nth-child(2), .gta-comparison .gta-price-row td:nth-child(2), .gta-comparison tfoot td:nth-child(2) a { color: #8edbb5; }
+.gta-comparison thead th:nth-child(3), .gta-comparison .gta-price-row td:nth-child(3), .gta-comparison tfoot td:nth-child(3) a { color: #edc586; }
+.gta-comparison thead th:nth-child(4), .gta-comparison .gta-price-row td:nth-child(4), .gta-comparison tfoot td:nth-child(4) a { color: #bfafff; }
+.gta-comparison thead th:first-child { font-size: 12px; color: #aebace; vertical-align: bottom; }
+.gta-comparison th:first-child { width: 34%; font-weight: 500; color: #d6deec; }
+.gta-comparison td { width: 22%; color: #c2cddd; }
+.gta-comparison thead span { display: block; margin-top: 5px; font-size: 11px; font-weight: 400; letter-spacing: 0; color: #aebace; }
+.gta-comparison .gta-plus { background: transparent; }
+.gta-comparison thead .gta-plus { border-radius: 18px 18px 0 0; }
+.gta-comparison thead .gta-plan-mode { margin-top: 10px; color: inherit; font-size: 10px; font-weight: 600; line-height: 1.5; }
+.gta-comparison thead .gta-plus .gta-plan-mode { color: #ddceff; }
+.gta-comparison tbody .gta-plus .gta-included::before { color: #bfafff; }
+.gta-comparison .gta-price-row .gta-plus { border-radius: 0; }
+.gta-comparison tfoot .gta-plus { border-radius: 0 0 18px 18px; }
+.gta-comparison .gta-price-row th, .gta-comparison .gta-price-row td { padding-top: 20px; padding-bottom: 6px; vertical-align: middle; }
+.gta-plan-price { display: block; font-size: 28px; letter-spacing: -.04em; font-weight: 650; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.gta-plan-term { display: block; margin-top: 7px; font-size: 12px; font-weight: 500; color: #c1cbdb; }
+.gta-included::before { content: '✓'; margin-right: 8px; color: #8edbb5; }
+.gta-unavailable { color: #8a96aa; }
+.gta-comparison tfoot th, .gta-comparison tfoot td { padding-top: 12px; padding-bottom: 14px; vertical-align: top; }
+.gta-comparison tfoot a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 10px 17px; border: 1px solid #ffffff25; border-radius: 13px; background: #141a22; font-size: 12px; font-weight: 650; white-space: nowrap; transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.gta-comparison tfoot td:nth-child(2) a { border-color: #8edbb547; }
+.gta-comparison tfoot td:nth-child(3) a { border-color: #edc58647; }
+.gta-comparison tfoot td:nth-child(4) a { width: 100%; max-width: 160px; box-sizing: border-box; border-color: #c8abff; background: #bd9aff; color: #211332; box-shadow: 0 4px 18px #a47bed26; }
+.gta-comparison tfoot td:nth-child(4) a:hover { background: #d0b6ff; color: #211332; box-shadow: 0 5px 22px #a47bed45; }
+.gta-plus-value { display: block; margin-top: 10px; max-width: 180px; color: #bcb0d4; font-size: 10px; line-height: 1.5; }
+.gta-comparison tfoot a:hover { border-color: currentColor; background: #202733; box-shadow: 0 4px 16px #0002; transform: translateY(-2px); text-decoration: none; }
+.gta-comparison tfoot a:active { transform: translateY(0); }
+.gta-comparison tfoot a::after { content: '↗'; font-size: 14px; opacity: .75; }
+.gta-comparison tfoot td a.gta-upgrade-link { width: auto; min-height: 28px; padding: 2px 0; border: 0; border-radius: 3px; background: transparent; color: #d1bdff; box-shadow: none; font-size: 11px; }
+.gta-comparison tfoot td a.gta-upgrade-link:hover { color: #eee5ff; background: transparent; text-decoration: underline; transform: none; }
+.gta-comparison tfoot td a.gta-upgrade-link::after { content: none; }
+.gta-comparison a, .gta-library-link { color: #b7d2ff; text-decoration: none; font-weight: 600; }
+.gta-comparison a:hover, .gta-library-link:hover { color: #fff; text-decoration: underline; }
+.gta-editions-note { max-width: 900px; margin: 22px 0 16px; color: #aebace; font-size: 12px; line-height: 1.8; }
+.gta-library-link { font-size: 13px; display: inline-flex; gap: 16px; }
+.gta-table-hint { display: none; color: #aebace; font-size: 12px; }
+.gta-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.feature-access { display: inline-block; flex: 0 0 auto; border: 1px solid #ffffff20; border-radius: 4px; padding: 2px 7px; font-size: 10px; font-weight: 600; color: #b6c3d5; white-space: nowrap; }
+.feature-access.is-free { color: #8edbb5; border-color: transparent; background: #8edbb510; }
+.feature-access.is-premium { color: #edc586; border-color: transparent; background: #edc58610; }
+.feature-edition { color: #aebace; font-size: 11px; }
+.gta-access-filter { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 14px; font-size: 12px; color: #aebace; }
+.gta-access-filter select { font: inherit; color: #edf3fd; background: #18202d; border: 1px solid #ffffff25; border-radius: 6px; padding: 9px 28px 9px 12px; }
+.gta-access-filter p { margin: 0; }
+.gta-editions a:focus-visible, .gta-table-scroll:focus-visible, .gta-access-filter select:focus-visible { outline: 2px solid #adc8ff; outline-offset: 4px; }
+.gta-product-updates { margin: 30px 0; }
+.gta-product-updates .feature-access { margin-bottom: 12px; }
+@media (max-width: 760px) {
+  .gta-editions-heading { display: block; }
+  .gta-editions-heading p { margin-top: 14px; }
+  .gta-editions { margin: 26px 0; padding: 24px 12px; }
+  .feature-name-row { flex-wrap: wrap; }
+  .gta-table-scroll { overflow: visible; padding: 12px 0 0; margin: 0; }
+  .gta-comparison-wrap, .gta-comparison { min-width: 0; }
+  .gta-plan-outlines { display: none; }
+  .gta-comparison, .gta-comparison thead, .gta-comparison tbody, .gta-comparison tfoot { display: block; }
+  .gta-comparison tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 6px; }
+  .gta-comparison th, .gta-comparison td { width: auto; min-width: 0; padding: 9px 7px; text-align: center; font-size: 12px; line-height: 1.5; overflow-wrap: break-word; }
+  .gta-comparison th:first-child { width: auto; grid-column: 1 / -1; padding: 16px 2px 8px; text-align: left; font-size: 13px; font-weight: 600; }
+  .gta-comparison thead th:first-child { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .gta-comparison thead th { position: relative; padding: 20px 5px 14px; border: 1px solid #8edbb54d; border-radius: 12px; font-size: clamp(15px, 4vw, 21px); background: #8edbb506; }
+  .gta-comparison thead th:nth-child(3) { border-color: #edc58655; background: #edc58606; }
+  .gta-comparison thead th.gta-plus { border: 2px solid #b293ff; border-radius: 12px; background: #9670e51f; box-shadow: 0 0 14px #a47bed20; }
+  .gta-comparison thead th.gta-plus::before { content: 'Recommended'; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); padding: 3px 5px; border-radius: 5px; background: #bd9aff; color: #211332; font-size: 8px; font-weight: 750; letter-spacing: 0; white-space: nowrap; }
+  .gta-comparison thead span { font-size: 10px; }
+  .gta-comparison thead .gta-plan-mode { font-size: 10px; text-wrap: balance; }
+  .gta-comparison tbody td { border-radius: 8px; background: #8edbb506; }
+  .gta-comparison tbody td:nth-child(3) { background: #edc58606; }
+  .gta-comparison tbody td.gta-plus { background: #bfafff10; color: #e1d6ff; }
+  .gta-included::before { display: none; }
+  .gta-comparison .gta-price-row th { padding: 24px 2px 10px; }
+  .gta-comparison .gta-price-row td { padding: 16px 5px 12px; border-radius: 10px 10px 0 0; }
+  .gta-comparison .gta-price-row .gta-plus { border-radius: 10px 10px 0 0; }
+  .gta-plan-price { font-size: 26px; }
+  .gta-plan-term { font-size: 10px; }
+  .gta-comparison tfoot th { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .gta-comparison tfoot td { padding: 4px 5px 12px; background: #8edbb506; border-radius: 0 0 10px 10px; }
+  .gta-comparison tfoot td:nth-child(3) { background: #edc58606; }
+  .gta-comparison tfoot td.gta-plus { border-radius: 0 0 10px 10px; background: #bfafff10; }
+  .gta-comparison tfoot a { width: 100%; box-sizing: border-box; min-height: 44px; padding: 7px 3px; font-size: 11px; line-height: 1.3; border-radius: 9px; white-space: normal; }
+  .gta-comparison tfoot a::after { display: none; }
+  .gta-comparison tfoot td a.gta-upgrade-link { min-height: 44px; }
+  .gta-plus-value { font-size: 10px; text-wrap: balance; }
+  .gta-editions-note { margin-top: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .gta-comparison tfoot a { transition: none; transform: none; } }
