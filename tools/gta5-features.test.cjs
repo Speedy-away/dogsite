@@ -42,3 +42,18 @@ test('generated product and library share the same comparison', () => {
     assert.ok(normalize(html).includes(normalize(renderComparison())), file);
   }
 });
+
+test('menu grouping follows ownership links even when groups are declared before tabs',()=>{
+ const {menuPaths}=require('./features/gta5-hierarchy.cjs');
+ const menus=[{file:'Self.cpp',text:`auto health=std::make_shared<Group>("Health"); auto move=std::make_shared<Group>("Movement"); health->AddItem(std::make_shared<BoolCommandItem>("godmode"_J)); move->AddItem(std::make_shared<BoolCommandItem>("superjump"_J)); auto tab=std::make_shared<TabItem>("Main"); tab->AddItem(std::move(health)); tab->AddItem(std::move(move)); auto cat=std::make_shared<Category>("Self"); cat->AddItem(std::move(tab));`}];
+ const paths=menuPaths(menus);
+ assert.deepEqual(paths.get('godmode').path,['Self','Main','Health']);
+ assert.deepEqual(paths.get('superjump').path,['Self','Main','Movement']);
+});
+test('GTA navigation has purposeful categories and preserves source/access metadata',()=>{
+ assert.deepEqual(manifest.tabs.slice(0,4).map(t=>t.name),['Self','Weapons','Visuals','Vehicles']);
+ assert.ok(manifest.tabs.some(t=>t.name==='Silent Night'));
+ assert.ok(manifest.tabs.every(t=>t.categories.every(c=>!['General','More'].includes(c.name))));
+ assert.ok(items.every(i=>i.sourcePath));
+ for(const [id,tab] of [['godmode','Self'],['vehiclefly','Vehicles'],['blackhole','World']]) assert.ok(manifest.tabs.find(t=>t.name===tab).categories.some(c=>c.groups.some(g=>g.items.some(i=>i.id===id)))) ;
+});

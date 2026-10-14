@@ -138,6 +138,8 @@ for (const tab of manifest.tabs) for (const category of tab.categories) for (con
   if (editions?.size === 1) item.edition = [...editions][0];
 }
 
+manifest.tabs = require('./gta5-hierarchy.cjs').organize(source, manifest.tabs.flatMap(t=>t.categories.flatMap(c=>c.groups.flatMap(g=>g.items))));
+
 let total = 0, withDesc = 0, cats = 0, groups = 0;
 for (const t of manifest.tabs) for (const c of t.categories) {
   cats++;
@@ -157,10 +159,7 @@ console.log('features          :', total);
 console.log('with description  :', withDesc, '(' + Math.round(withDesc / total * 100) + '%)');
 console.log('skipped (no label):', orphans);
 console.log('');
-manifest.tabs.sort((a, b) => {
-  const n = x => x.categories.reduce((s, c) => s + c.groups.reduce((t, g) => t + g.items.length, 0), 0);
-  return n(b) - n(a);
-});
+// Keep the curated navigation order: Self, Weapons, Visuals, Vehicles, etc.
 for (const t of manifest.tabs) {
   const n = t.categories.reduce((s, c) => s + c.groups.reduce((x, g) => x + g.items.length, 0), 0);
   console.log('  ' + String(n).padStart(5), t.name, '(' + t.categories.length + ' categories)');
