@@ -3,10 +3,10 @@
   "slug": "fivem",
   "website": {
     "features": {
-      "description": "Compare Free and Premium and search every FiveM feature, including Streamer Mode: stay hidden in OBS desktop capture, Discord screenshare, screenshots and more."
+      "description": "Compare Free and Premium, explore Streamer Mode, player names and server IDs, expanded combat settings and upcoming Vehicle ESP. Search every listed FiveM feature."
     },
-    "notice": "Updated 13 October 2026. Free features are also included in Premium. A valid free key or authenticated account is required; Premium features require paid access. Availability depends on the supported FiveM build and session.",
-    "comparisonHtml": "<section class=\"edition-comparison\" aria-labelledby=\"edition-heading\"><h2 id=\"edition-heading\">Free vs Premium</h2><p>Premium includes everything in Free, plus the paid features below. Use a valid free key for Free access or a paid account for Premium.</p><div class=\"edition-table-wrap\"><table><caption>FiveM edition comparison</caption><thead><tr><th scope=\"col\">Feature group</th><th scope=\"col\">Free</th><th scope=\"col\">Premium</th></tr></thead><tbody><tr><th scope=\"row\">Players, NPCs and Self ESP; chams; radar</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Lock-on, Triggerbot and custom crosshair</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Profiles, hotkeys and interface settings</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Silent Aim and Magic Bullet</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Player and weapon controls; Camera FOV</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Lua editor, execution and console</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Resource browser, dumper and event tools</th><td>Not included</td><td>Included</td></tr></tbody></table></div><p>Feature availability depends on the supported FiveM build and session. Resource tools work with accessible client files; they do not unlock server-only files or decrypt escrow.</p></section>"
+    "notice": "Updated 15 October 2026. Free features are also included in Premium. A valid free key or authenticated account is required; Premium features require paid access. Vehicle ESP is an upcoming local-build feature awaiting release and in-game validation. Availability depends on the supported FiveM build and session.",
+    "comparisonHtml": "<section class=\"edition-comparison\" aria-labelledby=\"edition-heading\"><h2 id=\"edition-heading\">Free vs Premium</h2><p>Premium includes everything in Free, plus the paid features below. Use a valid free key for Free access or a paid account for Premium.</p><div class=\"edition-table-wrap\"><table><caption>FiveM edition comparison</caption><thead><tr><th scope=\"col\">Feature group</th><th scope=\"col\">Free</th><th scope=\"col\">Premium</th></tr></thead><tbody><tr><th scope=\"row\">Players, NPCs and Self ESP; chams; radar</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Lock-on, Triggerbot and custom crosshair</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Streamer Mode, profiles, hotkeys and diagnostics</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Silent Aim and Magic Bullet</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Player and weapon controls; Camera FOV</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Lua editor, execution and console</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Resource browser, dumper and event tools</th><td>Not included</td><td>Included</td></tr></tbody></table></div><p>Feature availability depends on the supported FiveM build and session. Resource tools work with accessible client files; they do not unlock server-only files or decrypt escrow.</p></section>"
   },
   "tabs": [
     {
@@ -54,10 +54,14 @@
                 },
                 {
                   "id": "esp-name",
-                  "label": "Player and Self names",
-                  "desc": "Place labels around the entity with colors, backgrounds, shadows and offsets. NPC name controls are omitted.",
+                  "label": "Player names and optional server IDs",
+                  "desc": "Show player names with an optional server ID suffix, such as Player (42). Toggle the ID independently and customize label placement, colors, backgrounds, shadows and offsets. Unknown IDs are omitted; NPC name controls are omitted.",
                   "type": "Free",
-                  "settings": []
+                  "settings": [
+                    "Show server ID toggle",
+                    "Name unavailable: display the known ID only",
+                    "Local/self ID shown only when available"
+                  ]
                 },
                 {
                   "id": "esp-distance",
@@ -138,6 +142,16 @@
                   "desc": "Show nearby entities in the radar overlay through Visuals > World.",
                   "type": "Free",
                   "settings": []
+                },
+                {
+                  "id": "esp-line-of-sight",
+                  "label": "Line of sight",
+                  "desc": "Draw a forward-facing direction guide with adjustable length, thickness and color. Add an optional arrow at the end.",
+                  "type": "Free",
+                  "settings": [
+                    "Arrow at end is off by default",
+                    "Saved with profiles and player category overrides"
+                  ]
                 }
               ]
             }
@@ -166,6 +180,30 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Vehicle ESP — upcoming",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "id": "vehicle-esp",
+                  "label": "Vehicle ESP",
+                  "desc": "Upcoming: independent vehicle overlays with 3D boxes, model names, hexadecimal model hashes and distance labels. Implemented in the local build; release and in-game validation are pending.",
+                  "type": "Free · Upcoming",
+                  "settings": [
+                    "Full or corner 3D boxes; outline, thickness, fill and horizontal/vertical gradients",
+                    "Toggle model name and hash separately",
+                    "Four-side label placement, offsets, colors, text size and backgrounds",
+                    "Maximum distance and vehicle count; nearest vehicles first",
+                    "Independent saved settings and hotkeys; disabled by default",
+                    "Known model name lookup; custom models fall back to Unknown vehicle and their hash"
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -183,7 +221,9 @@
                   "label": "Lock-on aimbot",
                   "desc": "Camera aiming with a configurable aim key, FOV radius, distance, target priority, smoothing and movement prediction.",
                   "type": "Free",
-                  "settings": []
+                  "settings": [
+                    "Per-bone visible check"
+                  ]
                 },
                 {
                   "id": "hitboxes",
@@ -204,7 +244,11 @@
                   "label": "Triggerbot",
                   "desc": "Target-based attack input with hold-key and ADS gates, target filters, hitboxes, distance limits, reaction delay, burst and weapon-aware timing.",
                   "type": "Free",
-                  "settings": []
+                  "settings": [
+                    "Visible check for selected hitboxes",
+                    "Multiple hitbox groups",
+                    "Minimum and maximum target range"
+                  ]
                 }
               ]
             }
@@ -219,14 +263,14 @@
                 {
                   "id": "silent-aim",
                   "label": "Silent Aim",
-                  "desc": "Redirects an actual local weapon shot. Includes target bone, FOV, distance, priority, sticky target, prediction and ADS settings. Requires the matching shot and aiming bindings.",
+                  "desc": "Redirects an actual local weapon shot. Select multiple hitbox groups and use the nearest selected valid bone, with visible check, dynamic FOV, hit chance, distance, priority, sticky target, prediction and ADS settings. Requires matching shot and aiming bindings.",
                   "type": "Premium",
                   "settings": []
                 },
                 {
                   "id": "magic-bullet",
                   "label": "Magic Bullet",
-                  "desc": "Actual-shot redirection with manual firing or Auto Fire. Shares Silent Aim target bone, priority, prediction, FOV, distance, ADS and damage settings, with target marker and line visuals. Requires compatible shot and attack-input bindings.",
+                  "desc": "Actual-shot redirection with manual firing or Auto Fire. Shares Silent Aim multi-select hitboxes, priority, prediction, FOV, distance, ADS and damage settings, with target marker and line visuals. Requires compatible shot and attack-input bindings.",
                   "type": "Premium",
                   "settings": []
                 }
@@ -409,7 +453,15 @@
                     "OBS proof / OBS-proof",
                     "Discord screenshare protection",
                     "Screenshot protection"
-                  ]
+                  ],
+                  "type": "Free"
+                },
+                {
+                  "id": "performance-overlay",
+                  "label": "Performance overlay",
+                  "desc": "Inspect frame timing and the time spent by individual menu features from Settings > General > Diagnostics.",
+                  "type": "Free",
+                  "settings": []
                 }
               ]
             }
@@ -419,7 +471,7 @@
     }
   ],
   "review": {
-    "date": "2026-10-13",
+    "date": "2026-10-15",
     "source": "Scooby-Op/FiveM/new",
     "runtime_acceptance": "Pending; no blanket live FiveM or performance acceptance.",
     "excluded": [
@@ -450,6 +502,14 @@
       "host/ui_options.hpp": "ced5bdd64c9928be8e462083beaef84473b182a743a2230680314dc6f531c721",
       "features/combat/combat_tab.cpp": "d45a7521c639197ed47ee847b3f47652a741ffdb0bf1507187fa7f6dde6d796f"
     },
-    "update": "Reviewed access policy, Camera FOV runtime gate, chams UI and runtime, resource tools and supplied in-game screenshots. Existing source hashes record the earlier baseline."
+    "update": "Compared current registration, access policy, ESP vehicle implementation, name/server-ID documentation, combat changes and diagnostics with the website. Vehicle ESP remains an upcoming local-build feature per UPDATING.md; no new live-game acceptance or release is claimed.",
+    "current_sources": {
+      "UPDATING.md": "2b20d3dc3ac317d04e7ff74e1bd22e2294bbd8c5f19f2ba55427971f3b7f6b88",
+      "auth/access.hpp": "f97bf3453eeed0df9ecaed7904fa3aa6a12766edd127dd40b5584f3a249ac5db",
+      "gui/feature_registry.cpp": "766413f46479c65697480bf9077bd0eeb539daa7123575031934169a870499ff",
+      "features/registration.cpp": "739bdb001afa2b50853393177dc045b6fd1ee78789b772478924c1044bc29789",
+      "features/esp/vehicles/vehicles.cpp": "d4ac720e12859c78d1b16af86bc5303269e05913ffb33b1923f8f0d43d60905a",
+      "features/esp/line_of_sight.cpp": "c243c49f3a3499fd6c6b4e3b03693df7cd94e64d726e1f0da8b6521db1cf65d0"
+    }
   }
 }
