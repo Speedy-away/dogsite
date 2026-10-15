@@ -3,7 +3,7 @@
   "slug": "fivem",
   "website": {
     "features": {
-      "description": "Compare Free and Premium, then search every listed FiveM feature. Free includes ESP, chams, radar, Lock-on and Triggerbot; Premium adds advanced combat, player controls, Lua and resource tools."
+      "description": "Compare Free and Premium and search every FiveM feature, including Streamer Mode: stay hidden in OBS desktop capture, Discord screenshare, screenshots and more."
     },
     "notice": "Updated 13 October 2026. Free features are also included in Premium. A valid free key or authenticated account is required; Premium features require paid access. Availability depends on the supported FiveM build and session.",
     "comparisonHtml": "<section class=\"edition-comparison\" aria-labelledby=\"edition-heading\"><h2 id=\"edition-heading\">Free vs Premium</h2><p>Premium includes everything in Free, plus the paid features below. Use a valid free key for Free access or a paid account for Premium.</p><div class=\"edition-table-wrap\"><table><caption>FiveM edition comparison</caption><thead><tr><th scope=\"col\">Feature group</th><th scope=\"col\">Free</th><th scope=\"col\">Premium</th></tr></thead><tbody><tr><th scope=\"row\">Players, NPCs and Self ESP; chams; radar</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Lock-on, Triggerbot and custom crosshair</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Profiles, hotkeys and interface settings</th><td>Included</td><td>Included</td></tr><tr><th scope=\"row\">Silent Aim and Magic Bullet</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Player and weapon controls; Camera FOV</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Lua editor, execution and console</th><td>Not included</td><td>Included</td></tr><tr><th scope=\"row\">Resource browser, dumper and event tools</th><td>Not included</td><td>Included</td></tr></tbody></table></div><p>Feature availability depends on the supported FiveM build and session. Resource tools work with accessible client files; they do not unlock server-only files or decrypt escrow.</p></section>"
@@ -399,6 +399,17 @@
                   "desc": "Inspect application messages and missing game-data dependencies.",
                   "type": "Free",
                   "settings": []
+                },
+                {
+                  "id": "streamer-mode",
+                  "label": "Streamer Mode",
+                  "desc": "Keep the menu and overlays hidden while sharing or recording. OBS desktop capture, Discord screenshare, screenshots and more are fully supported while Streamer Mode is enabled.",
+                  "settings": [
+                    "Stream proof / stream-proof",
+                    "OBS proof / OBS-proof",
+                    "Discord screenshare protection",
+                    "Screenshot protection"
+                  ]
                 }
               ]
             }
