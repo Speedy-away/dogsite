@@ -1,0 +1,35 @@
+/* A single game shelf, shared artwork with the main catalog. */
+.free-page .included-products {
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:thin;
+    scrollbar-color:#52564a transparent;
+    padding:4px 2px 16px;
+    margin:0;
+}
+.free-page .included-products > .included-product-card {
+    flex:0 0 min(280px, 82%);
+    min-width:0;
+    overflow:hidden;
+    scroll-snap-align:start;
+    background:#111314;
+}
+.free-page .included-products .card-image { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
+.free-page .included-products .card-body { padding:16px; }
+.free-page .included-products h3 { margin:0 0 12px; font-size:15px; line-height:1.5; }
+.free-page .included-products .card-link { padding-top:12px; font-size:12px; }
+.free-page .free-catalog-art .free-catalog-logo { position:absolute; inset:16% 25%; width:50%; height:68%; object-fit:contain; filter:drop-shadow(0 3px 8px #0008); }
+.free-page .free-catalog-art.is-gta5 .card-image,
+.free-page .free-catalog-art.is-rdr2 .card-image { filter:brightness(.8); }
+.free-page .free-catalog-art.is-gta5 .free-catalog-logo { inset:8% 18%; width:64%; height:84%; }
+.free-page .free-catalog-art.is-rdr2 .free-catalog-logo { inset:12% 10%; width:80%; height:76%; }
+.free-page .product-section-heading { flex-direction:row; flex-wrap:wrap; align-items:center; gap:16px; }
+.free-game-controls { display:flex; gap:6px; align-items:center; }
+.free-game-controls[hidden] { display:none; }
+.free-game-controls button { display:grid; place-items:center; min-width:36px; min-height:36px; padding:7px 10px; border:1px solid #ffffff26; border-radius:9px; background:#ffffff05; color:#dce0cf; font:500 12px/1.2 system-ui,sans-serif; cursor:pointer; }
+.free-game-controls button:hover { border-color:var(--product-accent); background:#ffffff0c; }
+.free-game-controls [data-game-toggle] { min-width:58px; font-size:11px; }
+@media(max-width:600px) { .free-game-controls button { min-height:44px; min-width:40px; } }

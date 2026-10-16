@@ -488,6 +488,8 @@
 <script src="/assets/js/product-status.js" defer></script>
 <link rel="stylesheet" href="/assets/css/free-access.css">
 <script src="/assets/js/free-access.js" defer></script>
+<link rel="stylesheet" href="/assets/css/free-games.css">
+<script src="/assets/js/free-games.js" defer></script>
 </head>
 <body class="free-page product-detail" data-product-scene="city">
     <picture class="product-backdrop" aria-hidden="true">
@@ -513,8 +515,8 @@
 
     <!-- Main Content -->
     <main class="main-content" id="main-content">
-        <header class="product-heading"><h1>Scooby Free Version</h1><div class="product-heading-badges"><span class="product-status">100% Free</span><span class="product-status neutral">10 Products Included</span></div></header>
-        <p class="product-intro">Explore ten free products, including Half-Life 1, Left 4 Dead 1 &amp; 2, Garry’s Mod, The Last of Us Part I and S&amp;box. Choose your game, follow its setup guide, and get started with a valid free key. Free keys reset automatically every 24 hours.</p>
+        <header class="product-heading"><h1>Scooby Free Version</h1><div class="product-heading-badges"><span class="product-status">100% Free</span><span class="product-status neutral">11 Products Included</span></div></header>
+        <p class="product-intro">Explore eleven free products, including GTA 5, RDR2, CS2, Garry’s Mod and Half-Life 1. Choose your game, follow its setup guide, and get started with a valid free key. Free keys reset automatically every 24 hours.</p>
         <aside class="free-safety-notice" aria-label="Ad download warning"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5m0 3v1"/></svg><p><strong>DO NOT DOWNLOAD ANY AD POPUP</strong><span>Close ad popups. Only use the official Scooby download links.</span></p></div></aside>
         <!-- Keep the target in the DOM before the async native-banner script runs. -->
         <aside class="scooby-ad-slot free-ad-slot" aria-label="Advertisement" data-i18n-skip>
@@ -529,11 +531,11 @@
         <div class="content-grid">
             <!-- Products Included Section -->
             <div class="screenshots-section">
-                <div class="product-section-heading"><div><span class="product-eyebrow">CHOOSE YOUR GAME</span><h2 class="section-title">Included products.</h2></div></div>
-                <div class="included-products" id="included-products">
+                <div class="product-section-heading"><div><span class="product-eyebrow">CHOOSE YOUR GAME</span><h2 class="section-title" id="free-games-heading">Included products.</h2></div><div class="free-game-controls" hidden><button type="button" data-game-previous aria-label="Previous games" aria-controls="included-products">&#8592;</button><button type="button" data-game-toggle aria-label="Pause automatic scrolling" aria-pressed="false">Pause</button><button type="button" data-game-next aria-label="Next games" aria-controls="included-products">&#8594;</button></div></div>
+                <div class="included-products" id="included-products" role="region" aria-labelledby="free-games-heading" aria-roledescription="carousel" tabindex="0">
                     <!-- GTA 5 -->
                     <div class="included-product-card">
-                        <img src="../images/gta5.webp" alt="GTA 5" class="card-image">
+                        <div class="free-game-art free-catalog-art is-gta5"><img loading="lazy" decoding="async" src="/assets/images/store/gta5-background-sunset.webp" alt="" class="card-image"><img loading="lazy" decoding="async" src="/assets/images/store/gta5-logo-transparent-card.webp" alt="" class="free-catalog-logo"></div>
                         <div class="card-body">
                             <h3>GTA 5</h3>
                             <a href="/products/gta5/" class="card-link">View Details &rarr;</a>
@@ -542,7 +544,7 @@
 
                     <!-- RDR2 -->
                     <div class="included-product-card">
-                        <img loading="lazy" decoding="async" src="../images/rdr2.webp" alt="RDR2" class="card-image">
+                        <div class="free-game-art free-catalog-art is-rdr2"><img loading="lazy" decoding="async" src="/assets/images/store/rdr2-background-manor.jpg" alt="" class="card-image"><img loading="lazy" decoding="async" src="/assets/images/store/rdr2-logo-transparent-card.webp" alt="" class="free-catalog-logo"></div>
                         <div class="card-body">
                             <h3>RDR2</h3>
                             <a href="/products/rdr2/" class="card-link">View Details &rarr;</a>
@@ -551,17 +553,17 @@
 
                     <!-- CS2 -->
                     <div class="included-product-card">
-                        <img loading="lazy" decoding="async" src="../images/CS2.jpg" alt="CS2" class="card-image">
+                        <img loading="lazy" decoding="async" src="/assets/images/store/cs2.webp" alt="CS2" class="card-image">
                         <div class="card-body">
                             <h3>CS2</h3>
                             <a href="/products/cs2/" class="card-link">View Details &rarr;</a>
                         </div>
                     </div>
 
-<div class="included-product-card" data-product="half-life-1"><img loading="lazy" decoding="async" src="/assets/images/source-games/half-life-logo.webp" alt="Half-Life Lambda logo" class="card-image" width="200" height="200" style="object-fit:contain;padding:28px;background:#14151e"><div class="card-body"><h3>Half-Life 1</h3><a href="/products/half-life-1/" class="card-link">View Details →</a></div></div>
+
                     <!-- Garry's Mod (GMOD) -->
                     <div class="included-product-card" data-product="gmod">
-                        <img loading="lazy" decoding="async" src="/assets/images/store/gmod.webp" alt="Garry's Mod (GMOD)" class="card-image">
+                        <div class="free-game-art free-catalog-art "><img loading="lazy" decoding="async" src="/assets/images/store/gmod-background-desert.jpg" alt="" class="card-image"><img loading="lazy" decoding="async" src="/assets/images/source-games/gmod-logo.png" alt="" class="free-catalog-logo"></div>
                         <div class="card-body">
                             <h3>Garry's Mod (GMOD) <span class="free-online">Online</span></h3>
                             <a href="/products/gmod/" class="card-link">View Details &rarr;</a>
@@ -570,7 +572,7 @@
 
                     <!-- FiveM -->
                     <div class="included-product-card">
-                        <img loading="lazy" decoding="async" src="../images/fivem.webp" alt="FiveM" class="card-image">
+                        <div class="free-game-art free-catalog-art "><img loading="lazy" decoding="async" src="/assets/images/store/fivem-background-city.jpg" alt="" class="card-image"><img loading="lazy" decoding="async" src="/assets/images/store/fivem-emblem.png" alt="" class="free-catalog-logo"></div>
                         <div class="card-body">
                             <h3>FiveM</h3>
                             <a href="/products/fivem/" class="card-link">View Details &rarr;</a>
@@ -579,7 +581,7 @@
 
                     <!-- S&box -->
                     <div class="included-product-card" data-product="sbox">
-                        <img loading="lazy" decoding="async" src="/assets/images/store/sbox.png" alt="S&amp;box" class="card-image">
+                        <div class="free-game-art free-catalog-art "><img loading="lazy" decoding="async" src="/assets/images/store/sbox-background-mountains.png" alt="" class="card-image"><img loading="lazy" decoding="async" src="/assets/images/store/sbox-logo.webp" alt="" class="free-catalog-logo"></div>
                         <div class="card-body">
                             <h3>S&amp;box <span class="free-online">Online</span></h3>
                             <a href="/products/sbox/" class="card-link">View Details &rarr;</a>
@@ -589,7 +591,7 @@
                     <!-- Left 4 Dead 1 & 2 -->
                     <div class="included-product-card" data-product="l4d">
                         <div class="free-game-art">
-                            <img loading="lazy" decoding="async" src="/assets/images/l4d/background.webp" alt="Left 4 Dead 1 &amp; 2" class="card-image" width="1672" height="941">
+                            <img loading="lazy" decoding="async" src="/assets/images/l4d/background-survivors.jpg" alt="Left 4 Dead 1 &amp; 2" class="card-image" width="1672" height="941">
                             <img loading="lazy" decoding="async" src="/assets/images/l4d/logo.png" alt="" aria-hidden="true" class="free-game-logo is-l4d">
                         </div>
                         <div class="card-body">
@@ -613,8 +615,7 @@
                     <!-- The Last of Us Part I -->
                     <div class="included-product-card" data-product="last-of-us">
                         <div class="free-game-art">
-                            <img loading="lazy" decoding="async" src="/assets/images/store/last-of-us.webp" alt="The Last of Us Part I" class="card-image" width="1672" height="941">
-                            <img loading="lazy" decoding="async" src="/assets/images/store/last-of-us-logo.png" alt="" aria-hidden="true" class="free-game-logo">
+                            <img loading="lazy" decoding="async" src="/assets/images/store/last-of-us-card.webp" alt="The Last of Us Part I" class="card-image" width="1672" height="941">
                         </div>
                         <div class="card-body">
                             <h3>The Last of Us Part I <span class="free-online">Online</span></h3>
@@ -624,14 +625,15 @@
 
                     <!-- Spoofer + Cleaner -->
                     <div class="included-product-card">
-                        <img loading="lazy" decoding="async" src="/assets/images/games/spoofer.webp" alt="Spoofer + Cleaner" class="card-image">
+                        <img loading="lazy" decoding="async" src="/assets/images/games/scooby-spoofer-cleaner.png" alt="Spoofer + Cleaner" class="card-image">
                         <div class="card-body">
                             <h3>Spoofer + Cleaner</h3>
                             <a href="/products/spoofer/" class="card-link">View Details &rarr;</a>
                         </div>
                     </div>
+                    <div class="included-product-card" data-product="half-life-1"><img loading="lazy" decoding="async" src="/assets/images/source-games/half-life-logo.webp" alt="Half-Life Lambda logo" class="card-image" width="200" height="200" style="object-fit:contain;padding:28px;background:#14151e"><div class="card-body"><h3>Half-Life 1</h3><a href="/products/half-life-1/" class="card-link">View Details →</a></div></div>
                 </div>
-                <section class="bodycam-upcoming" aria-labelledby="upcoming-free-heading"><h2 id="upcoming-free-heading">Coming soon to free access</h2><article class="included-product-card" data-product="bodycam"><div class="bodycam-art"><img class="bodycam-scene" src="/assets/images/bodycam/background-v1.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"><img class="bodycam-mark" src="/assets/images/bodycam/logo.webp" alt="" width="1280" height="720" loading="lazy" decoding="async"></div><div class="card-body"><h3>Bodycam</h3><p>Free Scooby access is on the way. Features and setup details are coming soon.</p><a href="/products/bodycam/" class="card-link">Preview Bodycam →</a></div></article></section>
+                <section class="bodycam-upcoming" aria-labelledby="upcoming-free-heading"><h2 id="upcoming-free-heading">Coming soon to free access</h2><article class="included-product-card" data-product="bodycam"><div class="bodycam-art"><img class="bodycam-scene" src="/assets/images/bodycam/background-v1.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"><img class="bodycam-mark" src="/assets/images/bodycam/logo-card.webp" alt="" width="1280" height="720" loading="lazy" decoding="async"></div><div class="card-body"><h3>Bodycam</h3><p>Free Scooby access is on the way. Features and setup details are coming soon.</p><a href="/products/bodycam/" class="card-link">Preview Bodycam →</a></div></article></section>
             </div>
 
             <!-- Sidebar -->
@@ -655,7 +657,6 @@
                     </a>
 
                     <ul class="features-list">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Half-Life 1 &amp; supported editions</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>GTA 5 Mod Menu</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>RDR2 Mod Menu</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>CS2 Cheat</li>
@@ -665,6 +666,8 @@
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Left 4 Dead 1 &amp; 2</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>The Last of Us Part I</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>HWID Spoofer + Cleaner</li>
+
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Half-Life 1 &amp; supported editions</li>
                     </ul>
                 </div>
             </div>

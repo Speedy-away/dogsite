@@ -1,0 +1,12 @@
+/* Keep the additional reseller link comfortable in the floating homepage nav. */
+.nav.scrolled .nav-inner { max-width: 1060px; }
+.nav-links { gap: 20px; }
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1100px) {
+  .nav-links, .nav-actions .btn-nav-ghost { display: none; }
+  .hamburger { display: flex; }
+  .nav-links { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: rgba(8,8,8,.97); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); padding: 8px 24px 16px; transform: translateY(-10px); opacity: 0; pointer-events: none; transition: .25s; }
+  .nav-links.open { display: flex; transform: none; opacity: 1; pointer-events: auto; }
+  .nav-links a { display: block; width: 100%; padding: 13px 0; font-size: .98rem; white-space: normal; }
+  .nav.scrolled .nav-inner { border-radius: 16px; margin: 8px; max-width: none; }
+}
