@@ -1,4 +1,4 @@
-# Scooby website
+# 
 
 This is a static website. **`index.html` lives at the repository root**, alongside the public URL folders and assets. No compilation or Visual Studio project is needed to serve it.
 
