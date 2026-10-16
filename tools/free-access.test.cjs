@@ -30,6 +30,10 @@ test('free access: clean, network-blocked, cosmetic-blocked, retry and redirect'
             blocked = true;
             assert.equal(await page.evaluate(() => window.scoobyFreeAccess.check()), false);
             assert.equal(await page.locator('.free-access-dialog').isVisible(), true);
+            assert.match(await page.locator('.free-access-help').textContent(), /uBlock Origin Lite/);
+            assert.match(await page.locator('.free-access-help').textContent(), /Brave Shields/);
+            assert.match(await page.locator('.free-access-status').textContent(), /could not be reached/);
+            assert.equal(await page.locator('#free-access-title').textContent(), 'Allow ads to continue');
             await page.keyboard.press('Escape');
             assert.equal(await page.locator('.free-access-dialog').isVisible(), true);
             assert.equal(await page.locator('.free-access-dialog').evaluate(el => el.scrollWidth <= el.clientWidth), true);
@@ -39,6 +43,7 @@ test('free access: clean, network-blocked, cosmetic-blocked, retry and redirect'
             const style = await page.addStyleTag({ content: '.adsbox { display:none !important; }' });
             assert.equal(await page.evaluate(() => window.scoobyFreeAccess.check()), false);
             assert.match(await page.locator('.free-access-status').textContent(), /still active/);
+            assert.equal(await page.locator('#free-access-title').textContent(), 'Turn off your ad blocker');
             await style.evaluate(el => el.remove());
             await page.getByRole('button', { name: 'I turned it off' }).click();
             await page.waitForFunction(() => !document.querySelector('.free-access-dialog').open);

@@ -8,9 +8,13 @@
     dialog.setAttribute('aria-describedby', 'free-access-message');
     dialog.setAttribute('data-i18n-skip', '');
     dialog.innerHTML = '<h2 id="free-access-title">Turn off your ad blocker</h2>' +
-        '<p id="free-access-message">Ads help support free keys. Please allow ads on this site to continue.</p>' +
-        '<p>Brave: open the lion icon and turn Shields off for this site.<br>uBlock Origin / AdBlock: open the extension and disable blocking for this site.</p>' +
-        '<p>Then retry below. If needed, reload this page after changing your settings.</p>' +
+        '<p id="free-access-message">Ads help support free keys. Allow ads on this website, then retry to continue.</p>' +
+        '<ul class="free-access-help">' +
+        '<li><strong>uBlock Origin / uBlock Origin Lite</strong><span>Open the extension from your browser toolbar and turn off filtering for this site.</span></li>' +
+        '<li><strong>Brave Shields</strong><span>Click the lion icon beside the address bar, then turn Shields off for this site.</span></li>' +
+        '<li><strong>AdBlock, Adblock Plus, AdGuard or other blockers</strong><span>Open your blocker and choose to pause blocking or allow ads on this site.</span></li>' +
+        '</ul>' +
+        '<p>Reload this page if your browser asks, then select retry. You only need to allow this website.</p>' +
         '<p class="free-access-status" role="status" aria-live="polite"></p>' +
         '<button type="button">I turned it off — retry</button><a href="/">Back to home</a>';
     document.body.appendChild(dialog);
@@ -59,6 +63,9 @@
             status.textContent = result === 'blocked'
                 ? 'Ad blocking is still active. Allow ads on this site, then try again.'
                 : 'Advertising could not be reached. Check your blocker settings and connection, then retry.';
+            dialog.querySelector('h2').textContent = result === 'blocked'
+                ? 'Turn off your ad blocker'
+                : 'Allow ads to continue';
             if (!dialog.open) dialog.showModal();
             return false;
         }).finally(() => { pending = null; });
