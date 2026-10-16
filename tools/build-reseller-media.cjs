@@ -1,13 +1,10 @@
 /* Rebuildable media packs: product descriptions and screenshots only. */
 const fs=require('node:fs'),path=require('node:path'),zlib=require('node:zlib'),crypto=require('node:crypto');
+const {describeProduct}=require('./reseller-description.cjs');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'assets/downloads'),bannerDir=path.join(out,'product-banners');
 const imageRE=/\.(png|jpe?g|webp|svg|gif|avif)$/i;
 const hash=data=>crypto.createHash('sha256').update(data).digest('hex');
 const escape=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
-const plainText=s=>s.replace(/<[^>]+>/g,'').replace(/&(#x[\da-f]+|#\d+|amp|quot|apos|lt|gt|nbsp);/gi,(all,entity)=>{
- if(entity[0]==='#'){const code=entity[1].toLowerCase()==='x'?parseInt(entity.slice(2),16):Number(entity.slice(1));return code>0&&code<=0x10ffff?String.fromCodePoint(code):all;}
- return {amp:'&',quot:'"',apos:"'",lt:'<',gt:'>',nbsp:' '}[entity.toLowerCase()];
-}).replace(/\s+/g,' ').trim();
 function files(dir){if(!fs.existsSync(dir))return[];return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]).sort();}
 const table=Array.from({length:256},(_,i)=>{for(let n=0;n<8;n++)i=i&1?0xedb88320^(i>>>1):i>>>1;return i>>>0;});
 function crc32(data){let c=0xffffffff;for(const b of data)c=table[(c^b)&255]^(c>>>8);return(c^0xffffffff)>>>0;}
@@ -21,10 +18,8 @@ function build(){
  for(const slug of products){
   const html=fs.readFileSync(path.join(root,'products',slug,'index.html'),'utf8');
   const title=(html.match(/<h1[^>]*>(.*?)<\/h1>/s)?.[1]||slug).replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/\s+(?:Cheats?|Mod Menu|Mods|Premium|External|Internal)\b.*$/i,'').trim();
-  const descriptionTag=[...html.matchAll(/<meta\b[^>]*>/gi)].map(match=>Object.fromEntries([...match[0].matchAll(/([\w:-]+)\s*=\s*(["'])(.*?)\2/g)].map(attr=>[attr[1].toLowerCase(),attr[3]]))).find(attrs=>attrs.name?.toLowerCase()==='description');
-  if(!descriptionTag?.content)throw Error('Missing product description: '+slug);
   const descriptionName='products/'+slug+'/description.txt';
-  const description=Buffer.from(plainText(title)+'\n\n'+plainText(descriptionTag.content)+'\n\nhttps://scoobymenu.cc/products/'+slug+'/\n');
+  const description=Buffer.from(describeProduct(slug,html));
   entries.set(descriptionName,description);manifest.push({path:descriptionName,source:'products/'+slug+'/index.html',sha256:hash(description)});
   const media=new Set(files(path.join(root,'assets/images/previews',slug)).filter(f=>imageRE.test(f)));
   for(const match of html.matchAll(/(?:src|srcset|content)=["']([^"']+)["']/g)){
