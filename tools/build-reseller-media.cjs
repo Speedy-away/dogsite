@@ -36,7 +36,19 @@ function build(){
  entries.set('README.txt',Buffer.from('SCOOBY RESELLER MEDIA PACK\n\nbrand/ — Scooby logos and mark\nproducts/<game>/screenshots/ — game screenshots\nproducts/<game>/artwork/ — product artwork and existing social banners\nproducts/<game>/banners/ — new self-contained 1600x900 SVG banners and current PNG exports\n\nUse these assets for Scooby product listings. Keep product claims and prices current; check the official product pages.\nThe pack contains images only, plus this guide and an asset manifest.\nRebuilt from the current website assets. Replaced or deleted source files are not retained.\n'));
  const digest=hash(Buffer.from(JSON.stringify(manifest)));entries.set('manifest.json',Buffer.from(JSON.stringify({sourceDigest:digest,products,assets:manifest},null,2)));
  const archive=zip([...entries].sort(([a],[b])=>a.localeCompare(b)));fs.writeFileSync(path.join(out,'scooby-reseller-media.zip'),archive);
- fs.writeFileSync(path.join(out,'reseller-media.json'),JSON.stringify({products:products.length,files:entries.size,bytes:archive.length,sourceDigest:digest}));
+ // Individual packs share the same source assets and rebuild with the full pack.
+ const packDir=path.join(out,'reseller-packs');fs.mkdirSync(packDir,{recursive:true});
+ const freeGames=['cs2','gmod','l4d','tf2','sbox','last-of-us','half-life-1'];
+ const packs=[];
+ for(const [slug,included] of [...products.map(slug=>[slug,[slug]]),['free-games',freeGames]]) {
+  const selected=[...entries].filter(([name])=>name.startsWith('brand/')||included.some(game=>name.startsWith('products/'+game+'/')));
+  selected.push(['README.txt',entries.get('README.txt')]);
+  selected.push(['manifest.json',Buffer.from(JSON.stringify({sourceDigest:digest,products:included,assets:manifest.filter(asset=>asset.path.startsWith('brand/')||included.some(game=>asset.path.startsWith('products/'+game+'/')))},null,2))]);
+  const data=zip(selected.sort(([a],[b])=>a.localeCompare(b)));
+  fs.writeFileSync(path.join(packDir,slug+'.zip'),data);
+  packs.push({slug,url:'/assets/downloads/reseller-packs/'+slug+'.zip',bytes:data.length,files:selected.length});
+ }
+ fs.writeFileSync(path.join(out,'reseller-media.json'),JSON.stringify({products:products.length,files:entries.size,bytes:archive.length,sourceDigest:digest,packs}));
  console.log(`Media pack: ${products.length} products, ${entries.size} files, ${(archive.length/1048576).toFixed(1)} MB`);return {entries,products,bytes:archive.length};
 }
 if(require.main===module)build();module.exports={build,zip,crc32};

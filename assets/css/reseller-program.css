@@ -86,3 +86,28 @@ footer { display:flex; justify-content:space-between; gap:20px; padding:20px 0; 
  footer nav { gap:16px; }
 }
 @media(prefers-reduced-motion:reduce) { .button { transition:none; } }
+/* Regional pricing, visible profit and product downloads. */
+.pricing-options { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+select { width:100%; min-width:0; min-height:42px; padding:9px 10px; border:1px solid #ffffff29; border-radius:7px; background:#0d1012; color:var(--text); font:inherit; font-size:12px; }
+select:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+#market-note { margin:10px 0 22px; }
+.order-summary .profit-totals { border-top:1px solid var(--line); padding-top:12px; }
+.profit-totals #order-profit { font-size:20px; line-height:1.2; }
+.order-instruction a { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+.existing-resellers { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:20px 0 28px; }
+.existing-resellers h2 { font-size:15px; }
+.existing-resellers p { margin:5px 0 0; font-size:12px; color:var(--muted); }
+#media-dialog { margin:auto; width:min(580px,calc(100% - 32px)); max-height:calc(100dvh - 32px); overflow:auto; padding:24px; border:1px solid #ffffff29; border-radius:16px; background:var(--surface); color:var(--text); }
+#media-dialog::backdrop { background:#050709c9; }
+#media-dialog header { display:flex; align-items:start; justify-content:space-between; gap:16px; }
+#media-dialog h2 { font-size:21px; }
+#media-dialog header p { font-size:12px; color:var(--muted); margin:7px 0 0; }
+#close-media-pack { flex-shrink:0; width:40px; height:40px; border:1px solid var(--line); border-radius:8px; background:transparent; color:var(--text); font-size:25px; cursor:pointer; }
+#media-dialog h3 { font-size:12px; color:var(--muted); margin:22px 0 10px; }
+.media-links { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.media-links a { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px; min-height:44px; border:1px solid var(--line); border-radius:8px; font-size:12px; }
+.media-links a:hover { background:#ffffff08; border-color:var(--accent); text-decoration:none; }
+.media-links span { color:var(--accent); }
+#media-dialog footer { width:100%; margin:22px 0 0; padding:18px 0 0; flex-wrap:wrap; gap:10px; }
+#media-dialog footer .button { flex:1; }
+@media(max-width:480px) { .pricing-options { grid-template-columns:1fr; gap:12px; } .existing-resellers .button { width:100%; } #media-dialog { padding:18px; } .media-links a { font-size:11px; padding:10px; } }

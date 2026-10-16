@@ -19,9 +19,9 @@ Run tools from the repository root. Use `npm ci` to install dependencies for gen
 
 ## Publish and validate
 
-Serve or publish the repository root. Public URLs are unchanged; restoring the homepage does not require a new GitHub Actions publishing setup.
+Serve the repository root for local previews. Production must publish the generated site so that the reseller media ZIP is included.
 
-`npm run build` is optional packaging, not website compilation. It copies public files into `project/build/publish/`. A Pages workflow example is saved in `project/pages-workflow.example.yml`; it is not active.
+`.github/workflows/pages.yml` builds and publishes `project/build/publish/` on pushes to `main` or manual runs. Set **Settings → Pages → Build and deployment → Source → GitHub Actions** once in GitHub, then push/run the workflow. It rebuilds the reseller ZIP from current images, verifies that the packaged download returns HTTP 200, and deploys it with the website. No large ZIP needs to be committed to Git. For other hosts, run `npm run build` and upload `project/build/publish/`.
 
 `npm run test:site` verifies packaging and public routes. `npm run test:seo` verifies metadata and sitemap coverage. External documentation/release tools should use the repository root as their site root.
 
@@ -31,12 +31,4 @@ More details: [development notes](project/DEV.md).
 
 ## Reseller page and media pack
 
-`/resellers/become/` contains the GBP bulk calculator. GTA 5 Premium is £15 and Plus is £25 before discount. The shared order minimum is 10 keys. Discount is `30 + (min(keys, 1000) - 10) * 35 / 990` percent for eligible orders, capped at 65%. Customers can enter their own resale prices; these do not alter the bulk cost. Payments are BTC/LTC only, arranged via Discord.
-
-- `npm run media:build` rebuilds the ZIP from current public product images and generates 1600×900 SVG product banners.
-- `npm run media:banners` also exports PNG banners using Playwright (Edge on Windows, installed Chromium elsewhere).
-- `npm start` builds the pack and watches product pages and image folders for additions, edits and deletions.
-- `npm run build` refreshes the pack before copying the complete site into `project/build/publish/`. **Deploy this built output for the reseller download to be available.** Generated downloads are ignored by Git because the complete original-image pack exceeds GitHub's per-file limit. A raw repository upload without running the build will not include the pack.
-- Banners are self-contained SVGs. PNG exports are included only when they match the current SVG; rerun `media:banners` after changing banner artwork to refresh raster versions.
-- The ZIP uses `brand/` and `products/<game>/{screenshots,artwork,banners}/`, plus a SHA-256 manifest. New builds do not retain removed source images.
-- `npm run test:reseller` checks pricing and ZIP encoding. `node tools/validate-reseller.cjs` checks the page and download in Edge.
+`/resellers/become/` contains the GBP bulk calculator for GTA 5 Premium (£15), GTA 5 Plus (£25), RDR2 (£10), FiveM (£15) and RedM (£25). The shared minimum is 10 keys. Discounts increase linearly from 25% at 10 keys to 40% at 50, then linearly to 65% at 1,000; larger orders keep 65%. Brazil's base prices are 20% lower before the bulk discount. Other countries use standard pricing. Selling-price presets add 10% or 25% to the selected market's base; custom prices are also available. Gross profit is sales revenue minus bulk cost, excluding fees and taxes. Orders are arranged on Discord or Telegram @whatwhatboy; payment is BTC/LTC only.

@@ -7,19 +7,31 @@
     {id:'fivem',name:'FiveM',base:1500},
     {id:'redm',name:'RedM',base:2500}
   ];
-  const BASE = PRODUCTS.map(product=>product.base);
-  function calculate(quantities,sellPence){
+  const MARKETS = { standard:{name:'Standard / other countries',reduction:0}, brazil:{name:'Brazil',reduction:20} };
+  function basePrices(market='standard') {
+    if(!MARKETS[market]) throw new RangeError('Unknown market');
+    return PRODUCTS.map(product=>Math.round(product.base*(100-MARKETS[market].reduction)/100));
+  }
+  function sellingPrices(market,markup) {
+    if(![0,10,25].includes(markup)) throw new RangeError('Unknown selling preset');
+    return basePrices(market).map(base=>Math.round(base*(100+markup)/100));
+  }
+  function calculate(quantities,sellPence,market='standard'){
+    const BASE=basePrices(market);
     if(quantities.length!==PRODUCTS.length || sellPence.length!==PRODUCTS.length || ![...quantities,...sellPence].every(Number.isSafeInteger) || quantities.some(n=>n<0||n>1000000) || sellPence.some(n=>n<0||n>100000000)) throw new RangeError('Invalid quantity or selling price');
     const count=quantities.reduce((a,b)=>a+b,0), eligible=count>=10;
-    const discount=eligible ? 30 + (Math.min(count,1000)-10)*35/990 : 0;
-    // Integer ratio avoids floating-point drift at penny boundaries.
-    const numerator=eligible ? 69300-(Math.min(count,1000)-10)*35 : 99000;
-    const lines=quantities.map((qty,i)=>({qty,unit:BASE[i]*numerator/99000,subtotal:Math.round(BASE[i]*qty*numerator/99000)}));
+    // 25% at 10, 40% at 50, then smoothly to 65% at 1,000.
+    // Ratios keep the discounted line rounding consistent at penny boundaries.
+    const denominator=count<=50 ? 4000 : 95000;
+    const discountNumerator=!eligible ? 0 : count<=50 ? 1000+(count-10)*15 : 38000+(Math.min(count,1000)-50)*25;
+    const discount=100*discountNumerator/denominator;
+    const numerator=denominator-discountNumerator;
+    const lines=quantities.map((qty,i)=>({qty,unit:BASE[i]*numerator/denominator,subtotal:Math.round(BASE[i]*qty*numerator/denominator)}));
     const base=quantities.reduce((total,n,i)=>total+n*BASE[i],0), total=lines.reduce((sum,line)=>sum+line.subtotal,0);
     const revenue=quantities.reduce((sum,n,i)=>sum+n*sellPence[i],0);
     return {count,eligible,discount,lines,base,total,revenue,savings:base-total,profit:revenue-total};
   }
-  if(typeof module==='object'&&module.exports) module.exports={calculate,PRODUCTS};
+  if(typeof module==='object'&&module.exports) module.exports={calculate,PRODUCTS,MARKETS,basePrices,sellingPrices};
   if(!root.document) return;
   const $=id=>document.getElementById(id), ids=PRODUCTS.map(product=>product.id);
   const money=pence=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(pence/100);
@@ -37,11 +49,12 @@
     }
     const quantities=ids.map(id=>Number($(id+'-qty').value));
     const sell=ids.map(id=>Math.round(Number($(id+'-sell').value)*100));
-    const result=calculate(quantities,sell);
+    const market=$('market').value;
+    const result=calculate(quantities,sell,market);
     $('discount-label').textContent=percentage(result.discount)+' discount';
     $('discount-progress').value=result.discount;
     $('key-count').textContent=result.count.toLocaleString('en-GB')+' keys';
-    ids.forEach((id,i)=>{ $(id+'-unit').textContent=money(result.lines[i].unit); $(id+'-subtotal').textContent=money(result.lines[i].subtotal); });
+    ids.forEach((id,i)=>{ $(id+'-base').textContent=money(basePrices(market)[i])+' base · Lifetime'; $(id+'-unit').textContent=money(result.lines[i].unit); $(id+'-subtotal').textContent=money(result.lines[i].subtotal); });
     for(const [id,key] of Object.entries({'order-total':'total','retail-total':'base','order-savings':'savings','sales-total':'revenue','order-profit':'profit'})) $(id).textContent=money(result[key]);
     $('order-profit').classList.toggle('negative',result.profit<0);
     $('order-status').textContent=result.eligible?(result.count>=1000?'Maximum 65% discount reached. Larger orders keep this rate.':'Your order qualifies for bulk pricing.'):`Add ${10-result.count} more ${10-result.count===1?'key':'keys'} to reach the 10-key minimum.`;
@@ -49,17 +62,29 @@
     $('copy-order').disabled=!result.eligible;
     $('order-text').value=result.eligible?[
       'Scooby reseller order — GBP',
+      `Market: ${MARKETS[market].name} (${MARKETS[market].reduction}% regional base reduction)`,
       ...PRODUCTS.flatMap((product,i)=>quantities[i] ? [`${product.name}: ${quantities[i]} keys | subtotal ${money(result.lines[i].subtotal)} | my selling price ${money(sell[i])}/key`] : []),
       `Total keys: ${result.count}`,`Bulk discount: ${percentage(result.discount)} (rounded for display)`,`Estimated order total: ${money(result.total)} GBP`,
       'Payment: BTC or LTC only. Please confirm the crypto amount and payment details.',
       `Potential sales revenue: ${money(result.revenue)}`,`Estimated gross profit before fees and taxes: ${money(result.profit)}`
     ].join('\n'):'Minimum order: 10 keys. Add more keys to prepare your order summary.';
   }
-  ids.forEach(id=>['qty','sell'].forEach(suffix=>$(id+'-'+suffix).addEventListener('input',update)));
+  function applyPreset() {
+    const preset=$('selling-preset').value;
+    if(preset!=='custom') sellingPrices($('market').value,Number(preset)).forEach((price,i)=>$(ids[i]+'-sell').value=(price/100).toFixed(2));
+    $('market-note').textContent=$('market').value==='brazil' ? 'Brazil: 20% lower base prices, then the bulk discount. Selling presets use the lower base. All amounts are GBP.' : 'Standard base prices. Selling presets add 10–25% to the base price, before bulk discounts. All amounts are GBP.';
+    update();
+  }
+  $('market').addEventListener('change',applyPreset);
+  $('selling-preset').addEventListener('change',()=>{ if($('selling-preset').value==='custom') document.querySelector('.selling-options').open=true; applyPreset(); });
+  ids.forEach(id=>{
+    $(id+'-qty').addEventListener('input',update);
+    $(id+'-sell').addEventListener('input',()=>{ $('selling-preset').value='custom'; update(); });
+  });
   $('copy-order').addEventListener('click',async()=>{
     if($('copy-order').disabled) return;
     try{await navigator.clipboard.writeText($('order-text').value);$('copy-status').textContent='Copied. Send your order summary to us on Discord.';}
     catch{ $('order-text-details').open=true; $('order-text').focus(); $('order-text').select(); $('copy-status').textContent='Select and copy the order summary below.'; }
   });
-  update();
+  applyPreset();
 })(typeof window==='undefined'?globalThis:window);
