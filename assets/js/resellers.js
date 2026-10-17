@@ -17,10 +17,10 @@
   let opener = null;
   let selectedGame = null;
   const games = {
-    gta5: { name: 'Grand Theft Auto V', description: 'Scooby for GTA 5', image: '/assets/images/store/gta5-logo-transparent.png' },
-    rdr2: { name: 'Red Dead Redemption 2', description: 'Scooby for RDR2', image: '/assets/images/store/rdr2-logo-transparent.png' },
-    fivem: { name: 'FiveM', description: 'Scooby for FiveM', image: '/assets/images/store/fivem.webp' },
-    redm: { name: 'RedM', description: 'Scooby for RedM', image: '/assets/images/store/redm.webp' }
+    gta5: { name: 'Grand Theft Auto V', description: 'Scooby for GTA 5', art: 'gta5', image: '/assets/images/store/gta5-background-sunset.webp', logo: '/assets/images/store/gta5-logo-transparent-card.webp' },
+    rdr2: { name: 'Red Dead Redemption 2', description: 'Scooby for RDR2', art: 'rdr2', image: '/assets/images/store/rdr2-background-manor.jpg', logo: '/assets/images/store/rdr2-logo-transparent-card.webp' },
+    fivem: { name: 'FiveM', description: 'Scooby for FiveM', art: 'fivem', image: '/assets/images/store/fivem-background-city.jpg', logo: '/assets/images/store/fivem-emblem.png' },
+    redm: { name: 'RedM', description: 'Scooby for RedM', art: 'redm', image: '/assets/images/store/redm-background-sunset.jpg', logo: '/assets/images/store/redm-logo.png' }
   };
   const iconPaths = {
     arrow: 'M5 12h14M13 6l6 6-6 6',
@@ -42,7 +42,14 @@
     return node;
   }
   function image(game) {
-    const img = element('img', 'product-art'); img.src = game.image; img.alt = ''; img.width = 96; img.height = 60; return img;
+    const art = element('span', 'product-art product-art--' + game.art);
+    art.setAttribute('aria-hidden', 'true');
+    const scene = element('img', 'product-art-scene');
+    scene.src = game.image; scene.alt = ''; scene.width = 96; scene.height = 60;
+    const logo = element('img', 'product-art-logo');
+    logo.src = game.logo; logo.alt = '';
+    art.append(scene, logo);
+    return art;
   }
   function outbound(url) {
     const link = document.createElement('a'); link.href = url; link.target = '_blank'; link.rel = 'noopener';
