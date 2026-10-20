@@ -52,6 +52,8 @@ Style/input: `GetStyle()` and `GetIO()` return snapshots, not writable pointers.
 
 The shared enum surface is generated from public constants common to both games' pinned ImGui versions, including typed key, direction and sorting enums. Declarations sharing one source line are included. Do not persist raw enum numbers between game versions. Prefer the adapter's enum tables. `GetCapabilities().functions` enumerates available calls; host-specific inherited helpers can differ.
 
+Mouse queries use `IsMouseDown(button=0)`, `IsMouseClicked(button=0, repeat=false)` and `IsMouseReleased(button=0)`. Call them during rendering; valid button indices are 0..4. Invalid indices are rejected.
+
 ## Explicit limits
 
 This is broad UI-porting support, not a promise that arbitrary C++ compiles as Lua. Context/frame creation, render backends, writable IO/style pointers, raw textures, font-atlas mutation, docking/multiple OS windows, custom native input callbacks, drag/drop payload callbacks, ImGuiListClipper, and draw-list path/channel/primitive internals are not part of the portable adapter. Managed images continue to use GTA5's existing `texture` API; an equivalent portable RDR2 texture API is not provided here. The API does not manufacture these missing capabilities. `GetCapabilities().unsupported` reports the boundaries.

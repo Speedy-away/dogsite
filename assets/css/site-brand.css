@@ -1,4 +1,4 @@
-/* The supplied Scooby mark, prepared as a clear alpha mask for small UI sizes. */
+/* The supplied Scooby mark traced as vector paths for sharp small-size rendering. */
 .scooby-brand {
     display: inline-flex;
     align-items: center;
@@ -11,7 +11,6 @@
     color: inherit !important;
     background-clip: border-box !important;
     -webkit-background-clip: border-box !important;
-    filter: drop-shadow(0 0 .3px currentColor);
     flex: 0 0 auto;
     width: 36px;
     height: 42px;

@@ -1,115 +1,249 @@
 [
   {
-    "file": "defender-overview.png",
-    "image_url": "https://support.microsoft.com/en-us/windows/media/virus-and-threat-protection.png",
-    "source_url": "https://support.microsoft.com/en-us/windows/security/threat-malware-protection/virus-and-threat-protection-in-the-windows-security-app",
-    "checked": "2026-10-20",
-    "type": "Official vendor screenshot; original asset unchanged"
-  },
-  {
-    "file": "avg-file-shield.png",
-    "image_url": "https://static.avg.com/support/kb/images/v2021/disable_avg_antivirus/v1_disable_file_shield.png",
-    "source_url": "https://support.avg.com/SupportArticleView?l=en&urlName=Disable-AVG-Antivirus",
-    "checked": "2026-10-20",
-    "type": "Official vendor screenshot; original asset unchanged"
-  },
-  {
-    "file": "avg-pause-duration.png",
-    "image_url": "https://static.avg.com/support/kb/images/v2021/disable_avg_antivirus/v1_time_options.png",
-    "source_url": "https://support.avg.com/SupportArticleView?l=en&urlName=Disable-AVG-Antivirus",
-    "checked": "2026-10-20",
-    "type": "Official vendor screenshot; original asset unchanged"
-  },
-  {
     "file": "avast-exceptions.webp",
     "image_url": "https://static.avast.com/support/kb/images/v2025/avkb168/en/v1_general_exceptions_add.webp",
     "source_url": "https://support.avast.com/en-us/article/antivirus-scan-exclusions/",
     "checked": "2026-10-20",
-    "type": "Official vendor screenshot; original asset unchanged"
+    "type": "Official vendor screenshot; original asset unchanged",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "avast-manage-shields.png",
+    "image_url": "https://avast.file.force.com/sfc/dist/version/download/?oid=00Db0000000Z3Sf&ids=068Qu00000Xsv37&d=%2Fa%2FQu000006f7rh%2FqeX1LOkEvIrHwvDLJBsrSLtBNVZHOOw8j2CGJlK3Y70&asPdf=false",
+    "source_url": "https://support.avast.com/en-nz/article/disable-avast-antivirus",
+    "credit": "Avast Support; Manage Shields tray menu",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "avast-pause-duration.png",
+    "image_url": "https://avast.file.force.com/sfc/dist/version/download/?oid=00Db0000000Z3Sf&ids=068Qu00000Xsqcw&d=%2Fa%2FQu000006f3rJ%2Fp92Vo5K4h6gZW7gR_d4cnLjqYzFSnhcZh_OlmhiEacs&asPdf=false",
+    "source_url": "https://support.avast.com/en-nz/article/disable-avast-antivirus",
+    "credit": "Avast Support; duration menu",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
     "file": "avast-uninstall.webp",
     "image_url": "https://static.avast.com/support/kb/images/v2023/avkb14/en/v1_setup_uninstall.webp",
     "source_url": "https://support.avast.com/en-us/article/uninstall-antivirus/",
     "checked": "2026-10-20",
-    "type": "Official vendor screenshot; original asset unchanged"
+    "type": "Official vendor screenshot; original asset unchanged",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "defender-exclusions.svg",
+    "file": "avg-exceptions.webp",
+    "image_url": "https://static.avg.com/support/kb/images/v2024/avg_antivirus_scan_exclusions/v2_general_exceptions_add_exception.webp",
+    "source_url": "https://support.avg.com/SupportArticleView?l=en&supportType=home&urlName=avg-antivirus-scan-exclusions",
+    "credit": "AVG Support; annotated product screenshot",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "avg-file-shield.png",
+    "image_url": "https://static.avg.com/support/kb/images/v2021/disable_avg_antivirus/v1_disable_file_shield.png",
+    "source_url": "https://support.avg.com/SupportArticleView?l=en&urlName=Disable-AVG-Antivirus",
+    "checked": "2026-10-20",
+    "type": "Official vendor screenshot; original asset unchanged",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "avg-file-tab.webp",
+    "image_url": "https://static.avg.com/support/kb/images/v2024/avg_antivirus_scan_exclusions/v2_file_tab.webp",
+    "source_url": "https://support.avg.com/SupportArticleView?l=en&supportType=home&urlName=avg-antivirus-scan-exclusions",
+    "credit": "AVG Support; File / Folder tab",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "avg-pause-duration.png",
+    "image_url": "https://static.avg.com/support/kb/images/v2021/disable_avg_antivirus/v1_time_options.png",
+    "source_url": "https://support.avg.com/SupportArticleView?l=en&urlName=Disable-AVG-Antivirus",
+    "checked": "2026-10-20",
+    "type": "Official vendor screenshot; original asset unchanged",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "avg-uninstall.webp",
+    "image_url": "https://static.avg.com/support/kb/images/v2023/uninstall_avg_antivirus/v2_win_setup_uninstall.webp",
+    "source_url": "https://support.avg.com/SupportArticleView?l=en&urlname=Uninstall-AVG-Antivirus",
+    "credit": "AVG Support; annotated product screenshot",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "bitdefender-add-exception.png",
+    "image_url": "https://www.bitdefender.com/media/uploads/2018/07/add-bitdefender-antivirus-exception.png",
+    "source_url": "https://www.bitdefender.com/consumer/support/answer/13427/",
+    "credit": "Bitdefender Support; annotated product screenshot",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "bitdefender-settings.png",
+    "image_url": "https://www.bitdefender.com/media/uploads/2018/07/bitdefender-manage-exceptions.png",
+    "source_url": "https://www.bitdefender.com/consumer/support/answer/13427/",
+    "credit": "Bitdefender Support; annotated product screenshot",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "defender-exclusions-menu.jpg",
+    "image_url": "https://cdn.mos.cms.futurecdn.net/Tzs9EVcbhmKMv6ZBfgvUGF.jpg",
+    "source_url": "https://www.windowscentral.com/software-apps/windows-11/how-to-get-started-with-microsoft-defender-antivirus-on-windows-11",
+    "credit": "Mauro Huculak / Windows Central; original screenshot",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "defender-exclusions-settings.jpg",
+    "image_url": "https://cdn.mos.cms.futurecdn.net/RRchL8NTFNPwjEaVDEiBHV.jpg",
+    "source_url": "https://www.windowscentral.com/software-apps/windows-11/how-to-get-started-with-microsoft-defender-antivirus-on-windows-11",
+    "credit": "Mauro Huculak / Windows Central; original screenshot",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "defender-overview.png",
+    "image_url": "https://support.microsoft.com/en-us/windows/media/virus-and-threat-protection.png",
     "source_url": "https://support.microsoft.com/en-us/windows/security/threat-malware-protection/virus-and-threat-protection-in-the-windows-security-app",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Official vendor screenshot; original asset unchanged",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "defender-pause.svg",
-    "source_url": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-security-center-antivirus",
+    "file": "defender-real-time.jpg",
+    "image_url": "https://cdn.mos.cms.futurecdn.net/i4zcXSL2w4MRcdA4DCKkL8.jpg",
+    "source_url": "https://www.windowscentral.com/software-apps/windows-11/how-to-get-started-with-microsoft-defender-antivirus-on-windows-11",
+    "credit": "Mauro Huculak / Windows Central; original screenshot",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "norton-exclusions.svg",
-    "source_url": "https://support.norton.com/sp/en/us/home/current/solutions/v20240108162522348",
-    "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
-  },
-  {
-    "file": "avg-exclusions.svg",
-    "source_url": "https://support.avg.com/SupportArticleView?l=en&supportType=home&urlName=avg-antivirus-scan-exclusions",
-    "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
-  },
-  {
-    "file": "avast-pause.svg",
-    "source_url": "https://support.avast.com/en-nz/article/disable-avast-antivirus",
-    "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
-  },
-  {
-    "file": "mcafee-exclusions.svg",
-    "source_url": "https://www.mcafee.com/support/s/article/000001661?language=en_US",
-    "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
-  },
-  {
-    "file": "bitdefender-exclusions.svg",
-    "source_url": "https://www.bitdefender.com/consumer/support/answer/13427/",
-    "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
-  },
-  {
-    "file": "malwarebytes-allow-list.svg",
-    "source_url": "https://help.malwarebytes.com/hc/en-us/articles/31589453538075-Add-or-remove-items-from-Malwarebytes-Allow-list",
-    "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
-  },
-  {
-    "file": "eset-exclusions.svg",
+    "file": "eset-add-exclusion.png",
+    "image_url": "https://support.eset.com/storage/IMAGES/en/4288_KB2769/ESU/KB2769Fig1-2i.png",
     "source_url": "https://support.eset.com/en/kb2769-exclude-files-or-folders-from-scanning-in-eset-windows-home-products",
+    "credit": "ESET Support; annotated product screenshot",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "uninstall-norton.svg",
-    "source_url": "https://support.norton.com/sp/en/us/home/current/solutions/v15972972",
+    "file": "eset-computer-protection.png",
+    "image_url": "https://support.eset.com/storage/IMAGES/en/3405_KB548/KB548Fig1-1e.png",
+    "source_url": "https://support.eset.com/en/kb548-disable-protection-in-eset-windows-home-products",
+    "credit": "ESET Support; Computer protection",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "uninstall-avg.svg",
-    "source_url": "https://support.avg.com/SupportArticleView?l=en&urlname=Uninstall-AVG-Antivirus",
+    "file": "eset-pause-duration.png",
+    "image_url": "https://support.eset.com/storage/IMAGES/en/3405_KB548/KB548Fig1-3f.png",
+    "source_url": "https://support.eset.com/en/kb548-disable-protection-in-eset-windows-home-products",
+    "credit": "ESET Support; pause duration",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "uninstall-avast.svg",
-    "source_url": "https://support.avast.com/en-us/article/uninstall-antivirus/",
+    "file": "eset-scan-settings.png",
+    "image_url": "https://support.eset.com/storage/IMAGES/en/4288_KB2769/KB2769Fig1-1j.png",
+    "source_url": "https://support.eset.com/en/kb2769-exclude-files-or-folders-from-scanning-in-eset-windows-home-products",
+    "credit": "ESET Support; annotated product screenshot",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   },
   {
-    "file": "uninstall-mcafee.svg",
-    "source_url": "https://www.mcafee.com/support/s/article/000001616?language=en_US",
+    "file": "malwarebytes-add-item.png",
+    "image_url": "https://support.surfshark.com/hc/article_attachments/21876219587730",
+    "source_url": "https://support.surfshark.com/hc/en-us/articles/360020561080-How-to-make-an-exception-for-Surfshark-in-Malwarebytes-on-Windows",
+    "credit": "Surfshark Support; older Malwarebytes layout",
     "checked": "2026-10-20",
-    "type": "Scooby Wiki vector step diagram; not a product screenshot"
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "malwarebytes-allow-list.png",
+    "image_url": "https://support.surfshark.com/hc/article_attachments/21876196700050",
+    "source_url": "https://support.surfshark.com/hc/en-us/articles/360020561080-How-to-make-an-exception-for-Surfshark-in-Malwarebytes-on-Windows",
+    "credit": "Surfshark Support; Malwarebytes interface",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "malwarebytes-detection-history.png",
+    "image_url": "https://support.surfshark.com/hc/article_attachments/21876196698258",
+    "source_url": "https://support.surfshark.com/hc/en-us/articles/360020561080-How-to-make-an-exception-for-Surfshark-in-Malwarebytes-on-Windows",
+    "credit": "Surfshark Support; Malwarebytes interface",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "malwarebytes-quit.png",
+    "image_url": "https://help.malwarebytes.com/hc/article_attachments/36524170423323",
+    "source_url": "https://help.malwarebytes.com/hc/en-us/articles/31589423465115-Malwarebytes-interfering-with-software-on-Windows-devices",
+    "credit": "Malwarebytes Support; product tray menu",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "mcafee-add-file.png",
+    "image_url": "https://support.surfshark.com/hc/article_attachments/21879247677586",
+    "source_url": "https://support.surfshark.com/hc/en-us/articles/360012987280-How-to-make-an-exception-for-Surfshark-in-McAfee-antivirus-on-Windows",
+    "credit": "Surfshark Support; classic McAfee interface",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "mcafee-settings.png",
+    "image_url": "https://support.surfshark.com/hc/article_attachments/21879247674514",
+    "source_url": "https://support.surfshark.com/hc/en-us/articles/360012987280-How-to-make-an-exception-for-Surfshark-in-McAfee-antivirus-on-Windows",
+    "credit": "Surfshark Support; classic McAfee interface",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "norton-auto-protect.png",
+    "image_url": "https://community-uploads-production.s3.dualstack.us-east-1.amazonaws.com/original/3X/d/5/d5702e85aa9e50fe01c5a9ff6c8dd80dc8fe07de.png",
+    "source_url": "https://community.norton.com/t/how-do-i-disabled-norton-360/498260",
+    "credit": "Norton Community; Norton 25.12 tray menu",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "norton-exclusions.jpeg",
+    "image_url": "https://community-uploads-production.s3.dualstack.us-east-1.amazonaws.com/original/2X/4/4f2003d096dcb02645940518b2516de82637e16d.jpeg",
+    "source_url": "https://community.norton.com/t/how-do-i-add-file-exclusions-to-360-ultra/250388",
+    "credit": "Norton Community; Norton 24.x interface",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
+  },
+  {
+    "file": "norton-scans.jpeg",
+    "image_url": "https://community-uploads-production.s3.dualstack.us-east-1.amazonaws.com/original/2X/7/7abaded3dc1faabd989a23f7fe1110a9ce2db5ce.jpeg",
+    "source_url": "https://community.norton.com/t/how-do-i-add-file-exclusions-to-360-ultra/250388",
+    "credit": "Norton Community; Norton 24.x interface",
+    "checked": "2026-10-20",
+    "type": "Real product screenshot; original raster unchanged; click outlines rendered separately in HTML",
+    "click_outlines": "Vendor/original callouts plus separate SVG overlays in the guide HTML; source screenshot pixels unchanged."
   }
 ]

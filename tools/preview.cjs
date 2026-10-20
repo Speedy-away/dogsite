@@ -5,6 +5,8 @@ const { siteRoot, isPublic } = require('./site-layout.cjs');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css', '.js':'text/javascript', '.mjs':'text/javascript', '.json':'application/json', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.xml':'application/xml', '.txt':'text/plain', '.md':'text/plain', '.pdf':'application/pdf', '.zip':'application/zip' };
 function createServer(root = siteRoot) {
   return http.createServer((req, res) => {
+    // Always read current assets during local editing, including after a reload.
+    res.setHeader('Cache-Control', 'no-store');
     const error = code => {
       const body = code === 404 ? fs.readFileSync(path.join(root, '404.html')) : Buffer.from('Bad request');
       res.writeHead(code, { 'Content-Type':'text/html; charset=utf-8', 'Content-Length':body.length });

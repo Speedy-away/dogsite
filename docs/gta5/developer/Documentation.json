@@ -57890,84 +57890,6 @@
     }
   },
   "ImGuiCpp": {
-    "AddCircle": {
-      "Signature": "ImGuiCpp.AddCircle(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddCircleFilled": {
-      "Signature": "ImGuiCpp.AddCircleFilled(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddImage": {
-      "Signature": "ImGuiCpp.AddImage(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddImageQuad": {
-      "Signature": "ImGuiCpp.AddImageQuad(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddImageRotated": {
-      "Signature": "ImGuiCpp.AddImageRotated(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddImageRounded": {
-      "Signature": "ImGuiCpp.AddImageRounded(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddLine": {
-      "Signature": "ImGuiCpp.AddLine(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddRect": {
-      "Signature": "ImGuiCpp.AddRect(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddRectFilled": {
-      "Signature": "ImGuiCpp.AddRectFilled(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddRectFilledMultiColor": {
-      "Signature": "ImGuiCpp.AddRectFilledMultiColor(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddText": {
-      "Signature": "ImGuiCpp.AddText(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddTriangle": {
-      "Signature": "ImGuiCpp.AddTriangle(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "AddTriangleFilled": {
-      "Signature": "ImGuiCpp.AddTriangleFilled(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "AlignTextToFramePadding": {
       "Signature": "ImGuiCpp.AlignTextToFramePadding(...)",
       "Example": "",
@@ -57993,12 +57915,6 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
-    "BeginChildFrame": {
-      "Signature": "ImGuiCpp.BeginChildFrame(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "BeginCombo": {
       "Signature": "ImGuiCpp.BeginCombo(...)",
       "Example": "",
@@ -58019,6 +57935,7 @@
     },
     "BeginListBox": {
       "Signature": "ImGuiCpp.BeginListBox(id,size)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -58046,120 +57963,32 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "BeginPopupContextItem": {
-      "Signature": "ImGuiCpp.BeginPopupContextItem(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BeginPopupContextVoid": {
-      "Signature": "ImGuiCpp.BeginPopupContextVoid(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BeginPopupContextWindow": {
-      "Signature": "ImGuiCpp.BeginPopupContextWindow(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "BeginPopupModal": {
       "Signature": "ImGuiCpp.BeginPopupModal(label,open,flags)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
+    "BeginTabBar": {
+      "Signature": "ImGuiCpp.BeginTabBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "BeginTabItem": {
       "Signature": "ImGuiCpp.BeginTabItem(label,open,flags)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "BeginTable": {
       "Signature": "ImGuiCpp.BeginTable(id,columns,flags,size)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "BeginTooltip": {
       "Signature": "ImGuiCpp.BeginTooltip(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddCircle": {
-      "Signature": "ImGuiCpp.BgAddCircle(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddCircleFilled": {
-      "Signature": "ImGuiCpp.BgAddCircleFilled(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddImage": {
-      "Signature": "ImGuiCpp.BgAddImage(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddImageQuad": {
-      "Signature": "ImGuiCpp.BgAddImageQuad(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddImageRotated": {
-      "Signature": "ImGuiCpp.BgAddImageRotated(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddImageRounded": {
-      "Signature": "ImGuiCpp.BgAddImageRounded(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddLine": {
-      "Signature": "ImGuiCpp.BgAddLine(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddRect": {
-      "Signature": "ImGuiCpp.BgAddRect(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddRectFilled": {
-      "Signature": "ImGuiCpp.BgAddRectFilled(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddRectFilledMultiColor": {
-      "Signature": "ImGuiCpp.BgAddRectFilledMultiColor(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddText": {
-      "Signature": "ImGuiCpp.BgAddText(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddTriangle": {
-      "Signature": "ImGuiCpp.BgAddTriangle(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "BgAddTriangleFilled": {
-      "Signature": "ImGuiCpp.BgAddTriangleFilled(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58194,32 +58023,14 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "CaptureKeyboardFromApp": {
-      "Signature": "ImGuiCpp.CaptureKeyboardFromApp(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "CaptureMouseFromApp": {
-      "Signature": "ImGuiCpp.CaptureMouseFromApp(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "Checkbox": {
       "Signature": "ImGuiCpp.Checkbox(label: string, ref: table) -> boolean",
-      "Example": "local enabled = ImGuiCpp.Ref(false)\nscript.register_render(function() ImGuiCpp.Checkbox('Enabled', enabled) end)",
+      "Example": "local I = ImGuiCpp\nlocal enabled = I.Ref(false)\nscript.register_render(function()\n if I.Begin('Tools') then I.Checkbox('Enabled', enabled) end\n I.End()\nend)",
       "Description": "",
       "Available": true
     },
     "CheckboxFlags": {
       "Signature": "ImGuiCpp.CheckboxFlags(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "ClearActiveId": {
-      "Signature": "ImGuiCpp.ClearActiveId(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58250,12 +58061,6 @@
     },
     "ColorConvertHSVtoRGB": {
       "Signature": "ImGuiCpp.ColorConvertHSVtoRGB(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "ColorConvertRGBAToU32": {
-      "Signature": "ImGuiCpp.ColorConvertRGBAToU32(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58368,12 +58173,6 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "EndChildFrame": {
-      "Signature": "ImGuiCpp.EndChildFrame(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "EndCombo": {
       "Signature": "ImGuiCpp.EndCombo(...)",
       "Example": "",
@@ -58388,6 +58187,12 @@
     },
     "EndGroup": {
       "Signature": "ImGuiCpp.EndGroup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndListBox": {
+      "Signature": "ImGuiCpp.EndListBox(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58416,6 +58221,24 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "EndTabBar": {
+      "Signature": "ImGuiCpp.EndTabBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndTabItem": {
+      "Signature": "ImGuiCpp.EndTabItem(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndTable": {
+      "Signature": "ImGuiCpp.EndTable(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "EndTooltip": {
       "Signature": "ImGuiCpp.EndTooltip(...)",
       "Example": "",
@@ -58431,6 +58254,7 @@
     },
     "GetBackgroundDrawList": {
       "Signature": "ImGuiCpp.GetBackgroundDrawList()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -58440,12 +58264,6 @@
       "Description": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
-    },
-    "GetClipboardText": {
-      "Signature": "ImGuiCpp.GetClipboardText(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "GetColorU32": {
       "Signature": "ImGuiCpp.GetColorU32(...)",
@@ -58479,12 +58297,6 @@
     },
     "GetContentRegionAvail": {
       "Signature": "ImGuiCpp.GetContentRegionAvail(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "GetContentRegionMax": {
-      "Signature": "ImGuiCpp.GetContentRegionMax(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58525,20 +58337,8 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "GetFont": {
-      "Signature": "ImGuiCpp.GetFont(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "GetFontSize": {
       "Signature": "ImGuiCpp.GetFontSize(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "GetFontTexUvWhitePixel": {
-      "Signature": "ImGuiCpp.GetFontTexUvWhitePixel(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58551,6 +58351,7 @@
     },
     "GetForegroundDrawList": {
       "Signature": "ImGuiCpp.GetForegroundDrawList()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -58670,11 +58471,18 @@
     },
     "GetStyle": {
       "Signature": "ImGuiCpp.GetStyle()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "GetStyleColorName": {
       "Signature": "ImGuiCpp.GetStyleColorName(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetStyleColorU32": {
+      "Signature": "ImGuiCpp.GetStyleColorU32(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58709,38 +58517,8 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "GetTreeNodeToLabelSpacing": {
-      "Signature": "ImGuiCpp.GetTreeNodeToLabelSpacing(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "GetVersion": {
       "Signature": "ImGuiCpp.GetVersion(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "GetWindowContentRegionMax": {
-      "Signature": "ImGuiCpp.GetWindowContentRegionMax(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "GetWindowContentRegionMin": {
-      "Signature": "ImGuiCpp.GetWindowContentRegionMin(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "GetWindowContentRegionWidth": {
-      "Signature": "ImGuiCpp.GetWindowContentRegionWidth(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "GetWindowDpiScale": {
-      "Signature": "ImGuiCpp.GetWindowDpiScale(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58798,12 +58576,6 @@
     },
     "Indent": {
       "Signature": "ImGuiCpp.Indent(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "InputDouble": {
-      "Signature": "ImGuiCpp.InputDouble(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -58898,12 +58670,6 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "IsAnyMouseDown": {
-      "Signature": "ImGuiCpp.IsAnyMouseDown(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "IsItemActivated": {
       "Signature": "ImGuiCpp.IsItemActivated(...)",
       "Example": "",
@@ -58983,22 +58749,16 @@
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "IsMouseClicked": {
-      "Signature": "ImGuiCpp.IsMouseClicked(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "IsMouseDoubleClicked": {
-      "Signature": "ImGuiCpp.IsMouseDoubleClicked(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+      "Signature": "ImGuiCpp.IsMouseClicked(button: integer = 0, repeat: boolean = false) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseClicked(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
     },
     "IsMouseDown": {
-      "Signature": "ImGuiCpp.IsMouseDown(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+      "Signature": "ImGuiCpp.IsMouseDown(button: integer = 0) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseDown(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
     },
     "IsMouseDragging": {
       "Signature": "ImGuiCpp.IsMouseDragging(...)",
@@ -59013,10 +58773,10 @@
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "IsMouseReleased": {
-      "Signature": "ImGuiCpp.IsMouseReleased(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+      "Signature": "ImGuiCpp.IsMouseReleased(button: integer = 0) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseReleased(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
     },
     "IsPopupOpen": {
       "Signature": "ImGuiCpp.IsPopupOpen(...)",
@@ -59066,62 +58826,8 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "ListBoxFooter": {
-      "Signature": "ImGuiCpp.ListBoxFooter(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "ListBoxHeader": {
-      "Signature": "ImGuiCpp.ListBoxHeader(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "LogButtons": {
-      "Signature": "ImGuiCpp.LogButtons(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "LogFinish": {
-      "Signature": "ImGuiCpp.LogFinish(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "LogText": {
-      "Signature": "ImGuiCpp.LogText(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "LogToClipboard": {
-      "Signature": "ImGuiCpp.LogToClipboard(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "LogToFile": {
-      "Signature": "ImGuiCpp.LogToFile(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "LogToTTY": {
-      "Signature": "ImGuiCpp.LogToTTY(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "MenuItem": {
       "Signature": "ImGuiCpp.MenuItem(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "NAME": {
-      "Signature": "ImGuiCpp.NAME(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59138,12 +58844,6 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "OpenPopupOnItemClick": {
-      "Signature": "ImGuiCpp.OpenPopupOnItemClick(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "PlotHistogram": {
       "Signature": "ImGuiCpp.PlotHistogram(...)",
       "Example": "",
@@ -59152,12 +58852,6 @@
     },
     "PlotLines": {
       "Signature": "ImGuiCpp.PlotLines(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "PopAllowKeyboardFocus": {
-      "Signature": "ImGuiCpp.PopAllowKeyboardFocus(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59192,6 +58886,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "PopStyleColor": {
+      "Signature": "ImGuiCpp.PopStyleColor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "PopStyleVar": {
       "Signature": "ImGuiCpp.PopStyleVar(...)",
       "Example": "",
@@ -59206,12 +58906,6 @@
     },
     "ProgressBar": {
       "Signature": "ImGuiCpp.ProgressBar(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "PushAllowKeyboardFocus": {
-      "Signature": "ImGuiCpp.PushAllowKeyboardFocus(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59248,6 +58942,7 @@
     },
     "PushStyleColor": {
       "Signature": "ImGuiCpp.PushStyleColor(index,value)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -59282,6 +58977,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "SameLine": {
+      "Signature": "ImGuiCpp.SameLine(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "Selectable": {
       "Signature": "ImGuiCpp.Selectable(...)",
       "Example": "",
@@ -59294,20 +58995,14 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "SetClipboardText": {
-      "Signature": "ImGuiCpp.SetClipboardText(...)",
+    "SeparatorText": {
+      "Signature": "ImGuiCpp.SeparatorText(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "SetColumnOffset": {
       "Signature": "ImGuiCpp.SetColumnOffset(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "SetColumnWidth": {
-      "Signature": "ImGuiCpp.SetColumnWidth(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59332,12 +59027,6 @@
     },
     "SetCursorScreenPos": {
       "Signature": "ImGuiCpp.SetCursorScreenPos(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "SetItemAllowOverlap": {
-      "Signature": "ImGuiCpp.SetItemAllowOverlap(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59504,12 +59193,6 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "SliderAngle": {
-      "Signature": "ImGuiCpp.SliderAngle(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "SliderFloat": {
       "Signature": "ImGuiCpp.SliderFloat(label, ref, min, max, format?, flags?) -> changed",
       "Example": "local UI=ImGuiCpp\nlocal value=UI.Ref(0.5)\nscript.register_render(function() UI.SliderFloat(\"Amount\",value,0,1,\"%.2f\") end)",
@@ -59582,8 +59265,20 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "TableGetColumnCount": {
+      "Signature": "ImGuiCpp.TableGetColumnCount(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "TableGetColumnFlags": {
       "Signature": "ImGuiCpp.TableGetColumnFlags(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetColumnIndex": {
+      "Signature": "ImGuiCpp.TableGetColumnIndex(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59612,6 +59307,18 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "TableHeadersRow": {
+      "Signature": "ImGuiCpp.TableHeadersRow(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableNextColumn": {
+      "Signature": "ImGuiCpp.TableNextColumn(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "TableNextRow": {
       "Signature": "ImGuiCpp.TableNextRow(...)",
       "Example": "",
@@ -59630,6 +59337,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "TableSetColumnIndex": {
+      "Signature": "ImGuiCpp.TableSetColumnIndex(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "TableSetupColumn": {
       "Signature": "ImGuiCpp.TableSetupColumn(...)",
       "Example": "",
@@ -59638,6 +59351,12 @@
     },
     "TableSetupScrollFreeze": {
       "Signature": "ImGuiCpp.TableSetupScrollFreeze(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Text": {
+      "Signature": "ImGuiCpp.Text(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59672,20 +59391,8 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
-    "TreeNodeEx": {
-      "Signature": "ImGuiCpp.TreeNodeEx(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
     "TreePop": {
       "Signature": "ImGuiCpp.TreePop(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "TreePush": {
-      "Signature": "ImGuiCpp.TreePush(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -59704,12 +59411,6 @@
     },
     "VSliderInt": {
       "Signature": "ImGuiCpp.VSliderInt(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "Value": {
-      "Signature": "ImGuiCpp.Value(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"

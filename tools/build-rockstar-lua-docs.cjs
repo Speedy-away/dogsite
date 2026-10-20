@@ -36,6 +36,7 @@ for(const g of games){
  const python=flag('--python',cache.match(/^_Python3_EXECUTABLE:INTERNAL=(.*)$/m)?.[1]?.trim()||'python');
  cp.execFileSync(python,[path.join(root,'tools/generate_lua_developer_files.py'),'--root',root,'--output',generated],{stdio:'inherit'});
  read('tools/generate_lua_developer_files.py');
+ for(const file of ['src/core/scripting/LuaHostFeatures.hpp','src/core/scripting/LuaFeaturePagesBinding.hpp','src/core/scripting/LuaImGuiPortNative.hpp','src/core/scripting/LuaImGuiPortScript.hpp',g.game==='GTA5'?'src/game/gta/Natives.hpp':'src/game/rdr/Natives.hpp',g.game==='GTA5'?'src/game/scripting/libraries/HostFeatures.cpp':'src/core/scripting/bindings/LuaHostUI.cpp'])read(file);
  const docs=fs.readFileSync(path.join(generated,'Documentation.json')),catalog=JSON.parse(docs),rows=[];
  if(catalog._meta.game!==g.game||!catalog._meta.references_only)throw Error('Wrong game catalog');
  for(const [ns,members]of Object.entries(catalog).sort(([a],[b])=>a.localeCompare(b))){if(ns.startsWith('_')||!members||Array.isArray(members)||typeof members!=='object')continue;
@@ -46,6 +47,9 @@ for(const g of games){
  const native=rows.filter(r=>r[7]==='native'),stats={entries:rows.length,available:rows.filter(r=>r[5]).length,native_declarations:generatedManifest.native_total,native_supported:native.filter(r=>r[5]).length};
  const data={schema:1,game:g.game,revision:'2026.10.20',runtime:g.runtime,source_sha256:sha(docs),stats,rows};
  put(base+'/catalog.json',JSON.stringify(data)+'\n');
+ if(g.game==='GTA5')put(base+'/lua-api-additions.json',JSON.stringify(Object.fromEntries(['gui','menu','imgui','script','compat','compat.yim.ImGui','compat.yim_v2.ImGui','YimDrawList','features','ui_theme','ImGuiCpp'].filter(n=>catalog[n]).map(n=>[n,catalog[n]])),null,2)+'\n');
+ cp.execFileSync(python,[path.join(root,'tools/update_lua_reference_docs.py'),'--catalog',path.join(generated,'Documentation.json'),'--output',path.join(generated,'lua-api.html')],{stdio:'inherit'});
+ read('tools/update_lua_reference_docs.py');put(base+'/lua-api.html',fs.readFileSync(path.join(generated,'lua-api.html')));
  const references=[];
  for(const name of ['Documentation.json','DataNodes.lua','natives.lua']){const b=fs.readFileSync(path.join(generated,name));if(b.toString().toLowerCase().includes('cherax'))throw Error('Unexpected source branding in developer export');put(base+'/developer/'+name,b);references.push([name,b]);}
  put(base+'/developer-files.zip',zip(references));
@@ -55,6 +59,7 @@ for(const g of games){
  const guides=[['LUA_CUSTOM_UI.md','custom-ui','ListUI, ClickUI and custom interfaces'],['lua-imgui-porting.md','imgui-porting','Porting C++ ImGui interfaces'],['LUA_DEVELOPER_FILES.md','developer-files','Generated developer references']];
  for(const [file,slug,title]of guides){const md=read('docs/'+file).toString().replace(/\r\n?/g,'\n');put(base+'/'+file,md);
   let html=marked.parse(md);for(const [target,targetSlug]of guides)html=html.replaceAll(`href="${target}"`,`href="/docs/${g.slug}/${targetSlug}/"`);
+  html=html.replaceAll('href="lua-api.html"',`href="/docs/${g.slug}/lua-api.html"`);
   put(base+'/'+slug+'/index.html',guide(g,title,`/docs/${g.slug}/${slug}/`,html));
   searchRows.push({game:g.label,title,href:`/docs/${g.slug}/${slug}/`,text:md.replace(/[`#*]/g,'').slice(0,9000),tags:['Lua','ListUI','ClickUI','ImGuiCpp']});
  }
@@ -88,9 +93,12 @@ for(const g of games){const route=g.route.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
  hub=hub.replace(new RegExp(`(<a class="topic-card docs-card" href="${route}">)[\\s\\S]*?(</a>)`),match=>match
   .replace(/(<p>)[\s\S]*?(<\/p>)/,'$1ListUI, ClickUI, native themes, shared feature state, ImGuiCpp and game-specific references.$2')
   .replace(/(<span class="docs-card-foot">)[^<]*/,'$1'+stats.available.toLocaleString('en-US')+' available entries'))}
+if(!hub.includes('<a href="/api/rdr2/">RDR2</a>'))hub=hub.replace('<a href="/api/gta5_api_reference.html">GTA 5</a>','<a href="/api/gta5_api_reference.html">GTA 5</a>\n<a href="/api/rdr2/">RDR2</a>');
+hub=hub.replaceAll('GTA 5, FiveM, RedM, CS2','GTA 5, RDR2, FiveM, RedM, CS2');
 put('docs/index.html',hub);
 const changed=[];
 for(const [relative,data]of outputs){const target=path.join(site,relative),current=fs.existsSync(target)?fs.readFileSync(target):null;
- if(current?.equals(data))continue;changed.push(relative);if(!check){fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,data)}}
+ const sameSearch=b=>JSON.stringify(JSON.parse(b).filter(owned).sort((a,b)=>(a.href+' '+a.title).localeCompare(b.href+' '+b.title)));
+ if(current&&(relative==='assets/data/docs-search.json'?sameSearch(current)===sameSearch(data):current.equals(data)))continue;changed.push(relative);if(!check){fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,data)}}
 console.log(JSON.stringify({localOnly:true,games:summaries,changed},null,2));
 if(check&&changed.length)process.exitCode=1;

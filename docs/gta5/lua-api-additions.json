@@ -1,285 +1,3188 @@
 {
   "gui": {
     "add_always_draw_imgui": {
-      "Example": "int gui.add_always_draw_imgui(callback: function)\nlocal render = gui.add_always_draw_imgui(function() end)",
-      "Description": "Draw independently of the Scooby menu; returns a removable render handle."
+      "Example": "local render = gui.add_always_draw_imgui(function() end)",
+      "Description": "Draw independently of the Scooby menu; returns a removable render handle.",
+      "Signature": "gui.add_always_draw_imgui(callback: function) -> integer",
+      "Available": true
     },
     "add_imgui": {
       "Example": "int gui.add_imgui(callback: function)",
-      "Description": "Draw only while the Scooby menu is open."
-    },
-    "remove_imgui": {
-      "Example": "bool gui.remove_imgui(handle: int)",
-      "Description": "Remove a draw callback by handle."
+      "Description": "Draw only while the Scooby menu is open.",
+      "Signature": "gui.add_imgui(callback: function) -> integer",
+      "Available": true
     },
     "is_open": {
       "Example": "bool gui.is_open()",
-      "Description": "Return whether the Scooby menu is open."
+      "Description": "Return whether the Scooby menu is open.",
+      "Signature": "gui.is_open() -> boolean",
+      "Available": true
+    },
+    "menu.set_open": {
+      "Signature": "gui.menu.set_open(open: bool) -> boolean",
+      "Example": "menu.set_open(false)",
+      "Description": "Set visibility; false closes both menu modes.",
+      "Available": true
+    },
+    "remove_imgui": {
+      "Example": "bool gui.remove_imgui(handle: int)",
+      "Description": "Remove a draw callback by handle.",
+      "Signature": "gui.remove_imgui(handle: int) -> boolean",
+      "Available": true
     },
     "toggle": {
-      "Example": "bool gui.toggle(open?: bool)\ngui.toggle(false)",
-      "Description": "No argument toggles ClickUI; true/false explicitly sets visibility."
+      "Example": "gui.toggle(false)",
+      "Description": "No argument toggles ClickUI; true/false explicitly sets visibility.",
+      "Signature": "gui.toggle(open: bool = optional) -> boolean",
+      "Available": true
     }
   },
   "menu": {
+    "add_button": {
+      "Signature": "menu.add_button(parent: Tab/Subtab/Category, name: string, callback: function) -> Button",
+      "Description": "Add button feature",
+      "Available": true
+    },
+    "add_category": {
+      "Signature": "menu.add_category(parent: Tab/Subtab, name: string) -> Category",
+      "Description": "Add category/group header",
+      "Available": true
+    },
+    "add_click_slider": {
+      "Signature": "menu.add_click_slider(parent: Tab/Subtab/Category, name: string, min: int, max: int, callback: function, default: int = min, step: int = 1) -> Slider",
+      "Description": "Add an integer slider whose callback fires only when the value is CONFIRMED, not on every step. Use it for anything expensive (spawning, stat writes) that must not run once per step while scrolling",
+      "Available": true
+    },
+    "add_color": {
+      "Signature": "menu.add_color(parent: Tab/Subtab/Category, name: string, callback: function, default_r: int = 255, default_g: int = 255, default_b: int = 255, default_a: int = 255) -> Color",
+      "Description": "Add color picker",
+      "Available": true
+    },
+    "add_combo": {
+      "Signature": "menu.add_combo(parent: Tab/Subtab/Category, name: string, options: table, callback: function, default: int = 1) -> Combo",
+      "Description": "Add dropdown/combo box. Holds a selection; the callback receives the 1-based index",
+      "Available": true
+    },
+    "add_group": {
+      "Signature": "menu.add_group(parent: Tab/Subtab/Category, name: string, items_per_row: int = 7) -> Group",
+      "Description": "Add a button grid. Button/hyperlink children flow into items_per_row columns in ClickUI; List UI gives the group its own page",
+      "Available": true
+    },
+    "add_hyperlink": {
+      "Signature": "menu.add_hyperlink(parent: Tab/Subtab/Category, name: string, url: string, description: string = \"\") -> Hyperlink",
+      "Description": "Add a row that opens a URL in the default browser",
+      "Available": true
+    },
+    "add_input_float": {
+      "Signature": "menu.add_input_float(parent: Tab/Subtab/Category, name: string, callback: function, default: float = 0) -> Input",
+      "Description": "Add float input",
+      "Available": true
+    },
+    "add_input_int": {
+      "Signature": "menu.add_input_int(parent: Tab/Subtab/Category, name: string, callback: function, default: int = 0) -> Input",
+      "Description": "Add integer input",
+      "Available": true
+    },
+    "add_input_text": {
+      "Signature": "menu.add_input_text(parent: Tab/Subtab/Category, name: string, callback: function, default: string = \"\") -> Input",
+      "Description": "Add text input",
+      "Available": true
+    },
+    "add_list_action": {
+      "Signature": "menu.add_list_action(parent: Tab/Subtab/Category, name: string, options: table, callback: function) -> ListAction",
+      "Description": "Add a menu of one-shot actions. Holds NO selection: picking an option calls callback(value, name). options is an array of strings, or of { value, name } / { value = , name = } tables",
+      "Available": true
+    },
+    "add_readonly": {
+      "Signature": "menu.add_readonly(parent: Tab/Subtab/Category, name: string, value: string = \"\") -> Readonly",
+      "Description": "Add a row with the name on the left and a script-owned value on the right. Drive it with menu.set_value from a script.run_in_callback loop for live stats",
+      "Available": true
+    },
+    "add_separator": {
+      "Signature": "menu.add_separator(parent: Tab/Subtab/Category)",
+      "Description": "Add horizontal separator",
+      "Available": true
+    },
+    "add_slider_float": {
+      "Signature": "menu.add_slider_float(parent: Tab/Subtab/Category, name: string, min: float, max: float, callback: function, default: float = min, precision: int = 2) -> Slider",
+      "Description": "Add float slider",
+      "Available": true
+    },
+    "add_slider_int": {
+      "Signature": "menu.add_slider_int(parent: Tab/Subtab/Category, name: string, min: int, max: int, callback: function, default: int = min) -> Slider",
+      "Description": "Add integer slider",
+      "Available": true
+    },
+    "add_subtab": {
+      "Signature": "menu.add_subtab(tab: Tab, name: string) -> Subtab",
+      "Description": "Add subtab to a tab",
+      "Available": true
+    },
+    "add_text": {
+      "Signature": "menu.add_text(parent: Tab/Subtab/Category, text: string)",
+      "Description": "Add info text/label",
+      "Available": true
+    },
+    "add_toggle": {
+      "Signature": "menu.add_toggle(parent: Tab/Subtab/Category, name: string, callback: function, default: bool = false) -> Toggle",
+      "Description": "Add toggle feature",
+      "Available": true
+    },
+    "add_value_replacement": {
+      "Signature": "menu.add_value_replacement(feature: any, value: int, text: string)",
+      "Description": "Show a word INSTEAD of one specific numeric value, e.g. 0 -> \"Off\". Re-adding the same value replaces its text",
+      "Available": true
+    },
+    "clear": {
+      "Signature": "menu.clear(feature: any)",
+      "Description": "Remove every child of a container, keeping the container itself so ids handed out earlier stay valid",
+      "Available": true
+    },
+    "clear_hotkey": {
+      "Signature": "menu.clear_hotkey(feature: any)",
+      "Description": "Remove a feature's hotkey",
+      "Available": true
+    },
+    "clear_value_replacements": {
+      "Signature": "menu.clear_value_replacements(feature: any)",
+      "Description": "Remove every value replacement from a feature",
+      "Available": true
+    },
+    "focus": {
+      "Signature": "menu.focus(feature: any) -> boolean",
+      "Description": "Navigate ClickUI to where an element lives — the native tab a menu.attach mount sits in, or Lua > Lua Content for a root Lua tab",
+      "Available": true
+    },
+    "get_children": {
+      "Signature": "menu.get_children(parent: any) -> table",
+      "Description": "Child element ids of a container, in creation order",
+      "Available": true
+    },
+    "get_format": {
+      "Signature": "menu.get_format(feature: any) -> string|nil",
+      "Description": "Read a feature's display format",
+      "Available": true
+    },
+    "get_hotkey": {
+      "Signature": "menu.get_hotkey(feature: any) -> string, table",
+      "Description": "A feature's hotkey label (\"CTRL + F5\") and its virtual-key chain",
+      "Available": true
+    },
+    "get_icon": {
+      "Signature": "menu.get_icon(feature: any) -> string|nil",
+      "Description": "Read an element's icon glyph",
+      "Available": true
+    },
+    "get_mode": {
+      "Signature": "menu.get_mode() -> string",
+      "Description": "Which UI is up: \"clickui\", \"listui\" or \"closed\"",
+      "Available": true
+    },
+    "get_mounts": {
+      "Signature": "menu.get_mounts() -> table",
+      "Description": "List this session's active mounts as { path = ..., id = ..., name = ... }",
+      "Available": true
+    },
+    "get_name": {
+      "Signature": "menu.get_name(feature: any) -> string|nil",
+      "Description": "Read the current name of a Lua-created menu element",
+      "Available": true
+    },
+    "get_options": {
+      "Signature": "menu.get_options(feature: any) -> table",
+      "Description": "Read a combo or list_action's option names",
+      "Available": true
+    },
+    "get_parent": {
+      "Signature": "menu.get_parent(feature: any) -> int|nil",
+      "Description": "Parent element id, or nil for root tabs and mounts",
+      "Available": true
+    },
+    "get_position": {
+      "Signature": "menu.get_position() -> number, number",
+      "Description": "ClickUI window position in pixels",
+      "Available": true
+    },
+    "get_range": {
+      "Signature": "menu.get_range(feature: any) -> number, number",
+      "Description": "Read a slider or numeric input's bounds",
+      "Available": true
+    },
+    "get_selected_player": {
+      "Signature": "menu.get_selected_player() -> int|nil, string",
+      "Description": "The currently selected player id (nil when none) and its name",
+      "Available": true
+    },
+    "get_size": {
+      "Signature": "menu.get_size() -> number, number",
+      "Description": "ClickUI window size in pixels",
+      "Available": true
+    },
+    "get_step": {
+      "Signature": "menu.get_step(feature: any) -> number|nil",
+      "Description": "Read a feature's step size",
+      "Available": true
+    },
+    "get_style": {
+      "Signature": "menu.get_style(feature: any) -> string|nil",
+      "Description": "Read a feature's style name (\"auto\" when it follows the theme)",
+      "Available": true
+    },
+    "get_styles": {
+      "Signature": "menu.get_styles() -> table",
+      "Description": "Every accepted menu.set_style name",
+      "Available": true
+    },
+    "get_tabs": {
+      "Signature": "menu.get_tabs() -> table",
+      "Description": "Ids of every root tab this session created",
+      "Available": true
+    },
+    "get_type": {
+      "Signature": "menu.get_type(feature: any) -> string|nil",
+      "Description": "Element type as a string: tab, subtab, category, group, toggle, button, slider_int, slider_float, click_slider, input_text, input_int, input_float, combo, list_action, color, separator, text, readonly, hyperlink",
+      "Available": true
+    },
+    "get_value": {
+      "Signature": "menu.get_value(feature: Toggle/Slider/Input/Combo/Color/Readonly) -> any",
+      "Description": "Get current feature value",
+      "Available": true
+    },
+    "get_visible": {
+      "Signature": "menu.get_visible(feature: any) -> boolean",
+      "Description": "Read a feature's visibility",
+      "Available": true
+    },
+    "is_disabled": {
+      "Signature": "menu.is_disabled(feature: any) -> boolean",
+      "Description": "Check whether a feature is greyed out",
+      "Available": true
+    },
+    "is_open": {
+      "Signature": "menu.is_open() -> boolean",
+      "Description": "Whether ClickUI or List UI is currently showing. Use it to hide an overlay while the user is in the menu",
+      "Available": true
+    },
+    "is_player_feature": {
+      "Signature": "menu.is_player_feature(feature: any) -> boolean",
+      "Description": "Whether a widget is flagged as acting on the selected player",
+      "Available": true
+    },
+    "is_saveable": {
+      "Signature": "menu.is_saveable(feature: any) -> bool, string",
+      "Description": "Whether a feature persists, and the key it uses",
+      "Available": true
+    },
+    "mount_targets": {
+      "Signature": "menu.mount_targets() -> table",
+      "Description": "List every native path menu.attach accepts in this build, as { path = \"self>main\", label = \"Self > Main\" }",
+      "Available": true
+    },
+    "on_player_change": {
+      "Signature": "menu.on_player_change(callback: function) -> integer",
+      "Description": "Run a callback whenever the selected player changes: callback(player_id, player_name), with player_id nil when the selection was cleared. Fires once per change, not per frame. Returns a handler id for menu.remove_handler",
+      "Available": true
+    },
+    "on_tick_in_view": {
+      "Signature": "menu.on_tick_in_view(feature: any, callback: function) -> boolean",
+      "Description": "Run a callback every frame the element is ACTUALLY drawn — cheaper than a script-wide polling loop for live readonly rows. Registering again replaces the previous handler",
+      "Available": true
+    },
+    "remove": {
+      "Signature": "menu.remove(feature: any)",
+      "Description": "Remove feature from menu",
+      "Available": true
+    },
+    "remove_handler": {
+      "Signature": "menu.remove_handler(handler_or_feature: int) -> boolean",
+      "Description": "Remove an on_player_change handler by its id, or an element's on_tick_in_view handler by passing the element",
+      "Available": true
+    },
+    "reset": {
+      "Signature": "menu.reset(feature: any) -> boolean",
+      "Description": "Restore a feature to its default and fire its callback",
+      "Available": true
+    },
+    "save_state": {
+      "Signature": "menu.save_state(feature: any = nil)",
+      "Description": "Force a write now. Omit the id to flush every saveable widget this script owns",
+      "Available": true
+    },
+    "set_accent": {
+      "Signature": "menu.set_accent(feature: any, r: number = nil, g: number = nil, b: number = nil, a: number = 255)",
+      "Description": "Recolour the active part of a widget - a toggle's on state, a slider's fill, a button's body. Components above 1 are read as 0-255, otherwise as 0-1. Call with no colour to restore the theme accent",
+      "Available": true
+    },
+    "set_confirm": {
+      "Signature": "menu.set_confirm(feature: Button, message: string)",
+      "Description": "Make a button ask for confirmation before firing. Pass \"\" to clear it",
+      "Available": true
+    },
+    "set_default": {
+      "Signature": "menu.set_default(feature: any, value: any)",
+      "Description": "Overwrite the value menu.reset restores. Every add_* already records its starting value as the default, so this is only needed to change it",
+      "Available": true
+    },
+    "set_description": {
+      "Signature": "menu.set_description(feature: any, desc: string)",
+      "Description": "Set feature description",
+      "Available": true
+    },
+    "set_disabled": {
+      "Signature": "menu.set_disabled(feature: any, disabled: bool, reason: string = \"\")",
+      "Description": "Grey a feature out without hiding it. The reason shows as its tooltip/description",
+      "Available": true
+    },
+    "set_fast_step": {
+      "Signature": "menu.set_fast_step(feature: any, step: number)",
+      "Description": "Coarse increment for numeric inputs (ImGui's ctrl-click / held +- step)",
+      "Available": true
+    },
+    "set_format": {
+      "Signature": "menu.set_format(feature: any, format: string)",
+      "Description": "printf format for the value shown next to a numeric widget, e.g. \"%d%%\" or \"%.1f m/s\". Pass \"\" to restore the default",
+      "Available": true
+    },
+    "set_hotkey": {
+      "Signature": "menu.set_hotkey(feature: any, key: int | table) -> boolean",
+      "Description": "Bind a key (or a chord) to a feature. Accepts one input.keys value, or a table where every entry but the last must be HELD and the last must be freshly PRESSED. The binding is shown next to the feature in both UIs, appears automatically in the HOTKEYS overlay and Hotkeys page while the script is loaded, and fires exactly as a click would",
+      "Available": true
+    },
+    "set_icon": {
+      "Signature": "menu.set_icon(feature: any, icon: string)",
+      "Description": "Set the icon glyph shown before an element's name. Works on any element, not just main tabs",
+      "Available": true
+    },
+    "set_name": {
+      "Signature": "menu.set_name(feature: any, name: string)",
+      "Description": "Rename a Lua-created tab, subtab, category or widget at runtime",
+      "Available": true
+    },
     "set_open": {
       "Example": "bool menu.set_open(open: bool)\nmenu.set_open(false)",
-      "Description": "Set menu visibility. False closes ClickUI and ListUI; repeated calls are idempotent."
+      "Description": "Set menu visibility. False closes ClickUI and ListUI; repeated calls are idempotent.",
+      "Available": true,
+      "Signature": "bool menu.set_open(open: bool)\nmenu.set_open(false)"
+    },
+    "set_options": {
+      "Signature": "menu.set_options(feature: any, options: table)",
+      "Description": "Replace a combo or list_action's options at runtime. Same table shapes as add_list_action; a stale combo selection is clamped",
+      "Available": true
+    },
+    "set_parent": {
+      "Signature": "menu.set_parent(feature: any, parent: any) -> boolean",
+      "Description": "Move an element and its whole subtree under a different parent. Refuses to create a cycle",
+      "Available": true
+    },
+    "set_precision": {
+      "Signature": "menu.set_precision(feature: any, digits: int)",
+      "Description": "Decimal places shown on a float widget (0-9)",
+      "Available": true
+    },
+    "set_rainbow": {
+      "Signature": "menu.set_rainbow(feature: Color, enabled: bool = true)",
+      "Description": "Cycle a colour picker's hue every frame. The change callback does NOT fire while cycling — read the live colour with menu.get_value instead",
+      "Available": true
+    },
+    "set_range": {
+      "Signature": "menu.set_range(feature: any, min: number, max: number)",
+      "Description": "Retune a slider or numeric input's min/max at runtime. The current value is clamped into the new range",
+      "Available": true
+    },
+    "set_size": {
+      "Signature": "menu.set_size(feature: any, width: number, height: number = 0)",
+      "Description": "Width (and optional height) in unscaled pixels for a widget's interactive part. The frontend applies the user's UI scale, so a script never needs to know it. 0 restores auto-sizing",
+      "Available": true
+    },
+    "set_step": {
+      "Signature": "menu.set_step(feature: any, step: number)",
+      "Description": "How far one left/right press moves the value. Applies to sliders and numeric inputs in both UIs",
+      "Available": true
+    },
+    "set_style": {
+      "Signature": "menu.set_style(feature: any, style: string) -> string",
+      "Description": "Pick the widget presentation instead of following the menu theme. Toggles: \"switch\", \"checkbox\", \"box\", \"radio\", \"text\", \"button_toggle\". Sliders: \"bar\", \"modern\", \"drag\", \"input\", \"stepper\". Combos: \"dropdown\", \"stepper\", \"radio\", \"buttons\". Buttons: \"plain\", \"accent\", \"danger\", \"link\". \"auto\" restores the theme default. A name that does not apply to the element's kind is ignored, so one style is safe to set across a mixed group. List UI honours the toggle looks and draws \"stepper\"/\"input\"/\"drag\" as value-only rows",
+      "Available": true
+    },
+    "set_text_color": {
+      "Signature": "menu.set_text_color(feature: any, r: number = nil, g: number = nil, b: number = nil, a: number = 255)",
+      "Description": "Recolour a feature's label. Same colour conventions as set_accent; no colour restores the theme",
+      "Available": true
+    },
+    "set_value": {
+      "Signature": "menu.set_value(feature: any, value: any)",
+      "Description": "Set feature value. On a Readonly this sets the right-hand text; on a Text element it sets the label",
+      "Available": true
+    },
+    "set_visible": {
+      "Signature": "menu.set_visible(feature: any, visible: bool)",
+      "Description": "Set feature visibility",
+      "Available": true
+    },
+    "toggle": {
+      "Signature": "menu.toggle() -> boolean",
+      "Description": "Open/close ClickUI, returning the new state",
+      "Available": true
+    },
+    "trigger": {
+      "Signature": "menu.trigger(feature: any) -> boolean",
+      "Description": "Fire an element's callback from script, as if it had been clicked",
+      "Available": true
     }
   },
   "imgui": {
-    "begin_value": {
-      "Example": "visible: bool, open: bool imgui.begin_value(name: string, open?: bool, flags: int = 0)",
-      "Description": "Begin with an optional close button; always pair with end_."
+    "begin": {
+      "Signature": "imgui.begin(name: string, flags: int = 0) -> visible: bool, open: bool",
+      "Description": "Begin a window. Always call end_() once, even when visible is false.",
+      "Available": true
     },
-    "input_text_value": {
-      "Example": "changed: bool, text: string imgui.input_text_value(label: string, text: string, capacity: int = 256, flags: int = 0)",
-      "Description": "Edit Lua-owned text; buffer includes NUL, clamped to 1..65536. Callback flags raise an error."
+    "begin_child": {
+      "Signature": "imgui.begin_child(name: string, w: float = 0, h: float = 0, border: bool = false) -> visible: bool",
+      "Description": "Begin child region",
+      "Available": true
     },
-    "input_text_multiline_value": {
-      "Example": "changed: bool, text: string imgui.input_text_multiline_value(label: string, text: string, capacity: int = 256, width: float = 0, height: float = 0, flags: int = 0)",
-      "Description": "Edit Lua-owned multiline text."
+    "begin_closable": {
+      "Signature": "imgui.begin_closable(name: string, id: string, flags: int = 0) -> visible: bool, open: bool",
+      "Description": "Begin a persistent closable window. Always call end_() once; use visible only to skip contents.",
+      "Available": true
     },
-    "input_text_with_hint_value": {
-      "Example": "changed: bool, text: string imgui.input_text_with_hint_value(label: string, hint: string, text: string, capacity: int = 256, flags: int = 0)",
-      "Description": "Edit Lua-owned text with placeholder."
-    },
-    "input_int_value": {
-      "Example": "changed: bool, value: int imgui.input_int_value(label: string, value: int, step: int = 1, fast_step: int = 100, flags: int = 0)",
-      "Description": "Edit a Lua-owned integer."
-    },
-    "input_float_value": {
-      "Example": "changed: bool, value: float imgui.input_float_value(label: string, value: float, step: float = 0, fast_step: float = 0, format: string = \"%.3f\", flags: int = 0)",
-      "Description": "Edit a Lua-owned float."
-    },
-    "combo_value": {
-      "Example": "changed: bool, index: int imgui.combo_value(label: string, index: int, items: table, count?: int, height: int = -1)",
-      "Description": "Edit a zero-based selection from a string array."
-    },
-    "listbox_value": {
-      "Example": "changed: bool, index: int imgui.listbox_value(label: string, index: int, items: table, count?: int, height: int = -1)",
-      "Description": "Edit a zero-based list selection from a string array."
+    "begin_combo": {
+      "Signature": "imgui.begin_combo(label: string, preview: string, flags: int = 0) -> boolean",
+      "Description": "Begin a combo popup",
+      "Available": true
     },
     "begin_list_box": {
       "Example": "bool imgui.begin_list_box(label: string, width: float = 0, height: float = 0)",
-      "Description": "Open a list region. Pair with end_list_box only when true."
+      "Description": "Open a list region. Pair with end_list_box only when true.",
+      "Signature": "imgui.begin_list_box(label: string, width: float = 0, height: float = 0) -> boolean",
+      "Available": true
     },
-    "end_list_box": {
-      "Example": "void imgui.end_list_box()",
-      "Description": "Close the Lua-owned list region."
-    },
-    "separator_text": {
-      "Example": "void imgui.separator_text(text: string)",
-      "Description": "Draw a labeled separator."
-    },
-    "get_font_size": {
-      "Example": "float imgui.get_font_size()",
-      "Description": "Render-callback ImGui helper."
-    },
-    "get_cursor_pos_x": {
-      "Example": "float imgui.get_cursor_pos_x()",
-      "Description": "Render-callback ImGui helper."
-    },
-    "get_cursor_pos_y": {
-      "Example": "float imgui.get_cursor_pos_y()",
-      "Description": "Render-callback ImGui helper."
-    },
-    "get_window_width": {
-      "Example": "float imgui.get_window_width()",
-      "Description": "Render-callback ImGui helper."
-    },
-    "get_window_height": {
-      "Example": "float imgui.get_window_height()",
-      "Description": "Render-callback ImGui helper."
-    },
-    "set_cursor_screen_pos": {
-      "Example": "void imgui.set_cursor_screen_pos(x: float, y: float)",
-      "Description": "Render-callback ImGui helper."
-    },
-    "set_keyboard_focus_here": {
-      "Example": "void imgui.set_keyboard_focus_here(offset: int = 0)",
-      "Description": "Render-callback ImGui helper."
-    },
-    "is_any_item_hovered": {
-      "Example": "bool imgui.is_any_item_hovered()",
-      "Description": "Render-callback ImGui helper."
-    },
-    "is_popup_open": {
-      "Example": "bool imgui.is_popup_open(id: string, flags: int = 0)",
-      "Description": "Render-callback ImGui helper."
-    },
-    "set_scroll_here_y": {
-      "Example": "void imgui.set_scroll_here_y(ratio: float = 0.5)",
-      "Description": "Render-callback ImGui helper."
-    },
-    "begin_tab_item_value": {
-      "Example": "visible: bool, open: bool imgui.begin_tab_item_value(name: string, open?: bool, flags: int = 0)"
+    "begin_popup": {
+      "Signature": "imgui.begin_popup(id: string) -> open: bool",
+      "Description": "Begin popup content",
+      "Available": true
     },
     "begin_popup_modal_value": {
-      "Example": "visible: bool, open: bool imgui.begin_popup_modal_value(name: string, open?: bool, flags: int = 0)"
+      "Example": "visible: bool, open: bool imgui.begin_popup_modal_value(name: string, open?: bool, flags: int = 0)",
+      "Signature": "imgui.begin_popup_modal_value(name: string, open?: bool, flags: int = 0) -> visible: bool, open: bool",
+      "Description": "Closable modal. End only when visible is true.",
+      "Available": true
     },
-    "color_edit3_value": {
-      "Example": "changed: bool, r, g, b imgui.color_edit3_value(label: string, r, g, b, flags: int = 0)"
+    "begin_tab_bar": {
+      "Signature": "imgui.begin_tab_bar(id: string, flags: int = 0) -> boolean",
+      "Description": "Begin tab bar",
+      "Available": true
     },
-    "get_display_size": {
-      "Example": "width: number, height: number imgui.get_display_size()",
-      "Description": "Render callback only; current viewport size in pixels."
+    "begin_tab_item": {
+      "Signature": "imgui.begin_tab_item(label: string, flags: int = 0) -> selected: bool",
+      "Description": "Begin tab item",
+      "Available": true
     },
-    "get_frame_rate": {
-      "Example": "number imgui.get_frame_rate()",
-      "Description": "Render callback only; ImGui smoothed frame rate, not a separate game benchmark."
+    "begin_tab_item_value": {
+      "Example": "visible: bool, open: bool imgui.begin_tab_item_value(name: string, open?: bool, flags: int = 0)",
+      "Signature": "imgui.begin_tab_item_value(label: string, open?: bool, flags: int = 0) -> visible: bool, open: bool",
+      "Description": "Closable tab. End only when visible is true.",
+      "Available": true
     },
-    "get_frame_count": {
-      "Example": "int imgui.get_frame_count()",
-      "Description": "Current ImGui frame index; render callback only."
+    "begin_table": {
+      "Signature": "imgui.begin_table(id: string, columns: int, flags: int = 0, width: float = 0, height: float = 0) -> boolean",
+      "Description": "Begin a table layout",
+      "Available": true
     },
-    "get_window_id": {
-      "Example": "number imgui.get_window_id()",
-      "Description": "Current ImGui window ID; render callback only."
+    "begin_value": {
+      "Example": "visible: bool, open: bool imgui.begin_value(name: string, open?: bool, flags: int = 0)",
+      "Description": "Begin with an optional close button; always pair with end_.",
+      "Signature": "imgui.begin_value(name: string, open?: bool, flags: int = 0) -> visible: bool, open: bool",
+      "Available": true
     },
-    "is_any_item_active": {
-      "Example": "bool imgui.is_any_item_active()",
-      "Description": "Whether an ImGui item is active; render callback only."
+    "button": {
+      "Signature": "imgui.button(label: string, w: float = 0, h: float = 0) -> clicked: bool",
+      "Description": "Create button",
+      "Available": true
+    },
+    "checkbox": {
+      "Signature": "imgui.checkbox(label: string, id: string) -> changed: bool, value: bool",
+      "Description": "Create checkbox with storage",
+      "Available": true
+    },
+    "checkbox_value": {
+      "Signature": "imgui.checkbox_value(label: string, value: bool) -> changed: bool, new_value: bool",
+      "Description": "Create checkbox with value",
+      "Available": true
+    },
+    "collapsing_header": {
+      "Signature": "imgui.collapsing_header(label: string, flags: int = 0) -> open: bool",
+      "Description": "Create collapsing header",
+      "Available": true
     },
     "color_convert_float4_to_u32": {
       "Example": "number imgui.color_convert_float4_to_u32(r: number, g: number, b: number, a: number)",
-      "Description": "Finite components are clamped to 0..1 and packed for draw-list colors; render callback only."
+      "Description": "Finite components are clamped to 0..1 and packed for draw-list colors; render callback only.",
+      "Signature": "imgui.color_convert_float4_to_u32(r: number, g: number, b: number, a: number) -> number",
+      "Available": true
+    },
+    "color_edit": {
+      "Signature": "imgui.color_edit(label: string, r: float, g: float, b: float, a: float = 1.0, flags: int = 0) -> changed: bool, r: float, g: float, b: float, a: float",
+      "Description": "A colour swatch that opens a picker when clicked. Components are 0-1. Value in, value out - color_button only DISPLAYS a colour, this is the one that changes it, which any ESP/chams/theme section needs",
+      "Available": true
+    },
+    "color_edit3_value": {
+      "Example": "changed: bool, r, g, b imgui.color_edit3_value(label: string, r, g, b, flags: int = 0)",
+      "Signature": "imgui.color_edit3_value(label: string, r: float, g: float, b: float, flags: int = 0) -> changed: bool, r: float, g: float, b: float",
+      "Description": "Edit a Lua-owned RGB color.",
+      "Available": true
+    },
+    "color_edit4": {
+      "Signature": "imgui.color_edit4(label: string, id: string) -> changed, r, g, b, a",
+      "Description": "RGBA color picker",
+      "Available": true
+    },
+    "color_picker": {
+      "Signature": "imgui.color_picker(label: string, r: float, g: float, b: float, a: float = 1.0, flags: int = 0) -> changed: bool, r: float, g: float, b: float, a: float",
+      "Description": "The full inline picker (wheel or square plus sliders) rather than a popup swatch. Same value-in/value-out shape as color_edit",
+      "Available": true
+    },
+    "combo": {
+      "Signature": "imgui.combo(label, id, items_table) -> changed: bool, index: int",
+      "Description": "Dropdown combo with storage",
+      "Available": true
+    },
+    "combo_value": {
+      "Example": "changed: bool, index: int imgui.combo_value(label: string, index: int, items: table, count?: int, height: int = -1)",
+      "Description": "Edit a zero-based selection from a string array.",
+      "Signature": "imgui.combo_value(label: string, index: int, items: table, count?: int, height: int = -1) -> changed: bool, index: int",
+      "Available": true
+    },
+    "end_": {
+      "Signature": "imgui.end_()",
+      "Description": "End the Lua-owned window. Extra calls are rejected before touching host UI state.",
+      "Available": true
+    },
+    "end_child": {
+      "Signature": "imgui.end_child()",
+      "Description": "End child region",
+      "Available": true
+    },
+    "end_combo": {
+      "Signature": "imgui.end_combo()",
+      "Description": "End combo popup",
+      "Available": true
+    },
+    "end_list_box": {
+      "Example": "void imgui.end_list_box()",
+      "Description": "Close the Lua-owned list region.",
+      "Signature": "imgui.end_list_box()",
+      "Available": true
+    },
+    "end_popup": {
+      "Signature": "imgui.end_popup()",
+      "Description": "End popup",
+      "Available": true
+    },
+    "end_tab_bar": {
+      "Signature": "imgui.end_tab_bar()",
+      "Description": "End tab bar",
+      "Available": true
+    },
+    "end_tab_item": {
+      "Signature": "imgui.end_tab_item()",
+      "Description": "End tab item",
+      "Available": true
+    },
+    "end_table": {
+      "Signature": "imgui.end_table()",
+      "Description": "End table layout",
+      "Available": true
+    },
+    "get_cursor_pos_x": {
+      "Example": "float imgui.get_cursor_pos_x()",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.get_cursor_pos_x() -> number",
+      "Available": true
+    },
+    "get_cursor_pos_y": {
+      "Example": "float imgui.get_cursor_pos_y()",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.get_cursor_pos_y() -> number",
+      "Available": true
+    },
+    "get_display_size": {
+      "Example": "width: number, height: number imgui.get_display_size()",
+      "Description": "Render callback only; current viewport size in pixels.",
+      "Signature": "imgui.get_display_size() -> width: number, height: number",
+      "Available": true
+    },
+    "get_font_size": {
+      "Example": "float imgui.get_font_size()",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.get_font_size() -> number",
+      "Available": true
+    },
+    "get_frame_count": {
+      "Example": "int imgui.get_frame_count()",
+      "Description": "Current ImGui frame index; render callback only.",
+      "Signature": "imgui.get_frame_count() -> integer",
+      "Available": true
+    },
+    "get_frame_rate": {
+      "Example": "number imgui.get_frame_rate()",
+      "Description": "Render callback only; ImGui smoothed frame rate, not a separate game benchmark.",
+      "Signature": "imgui.get_frame_rate() -> number",
+      "Available": true
+    },
+    "get_mouse_drag_delta": {
+      "Signature": "imgui.get_mouse_drag_delta(button: int = 0, lock_threshold: float = -1.0) -> dx: float, dy: float",
+      "Description": "How far the mouse has moved since the drag began",
+      "Available": true
     },
     "get_style_color_u32": {
       "Example": "number imgui.get_style_color_u32(index: ImGuiCol)",
-      "Description": "Validated style color including global style alpha; render callback only."
+      "Description": "Validated style color including global style alpha; render callback only.",
+      "Signature": "imgui.get_style_color_u32(index: ImGuiCol) -> number",
+      "Available": true
+    },
+    "get_value": {
+      "Signature": "imgui.get_value(id: string) -> any",
+      "Description": "Retrieve value by ID",
+      "Available": true
+    },
+    "get_window_draw_list_add_bezier_cubic": {
+      "Signature": "imgui.get_window_draw_list_add_bezier_cubic(x1, y1, x2, y2, x3, y3, x4, y4, col_u32: int, thickness: float = 1.0, segments: int = 0)",
+      "Description": "Cubic bezier curve, for curved connectors and curve previews",
+      "Available": true
+    },
+    "get_window_draw_list_add_quad_filled": {
+      "Signature": "imgui.get_window_draw_list_add_quad_filled(x1, y1, x2, y2, x3, y3, x4, y4, col_u32: int)",
+      "Description": "Filled quad, for skewed panels and custom shapes",
+      "Available": true
+    },
+    "get_window_draw_list_add_rect_filled_multi_color": {
+      "Signature": "imgui.get_window_draw_list_add_rect_filled_multi_color(x1, y1, x2, y2, col_upper_left: int, col_upper_right: int, col_bottom_right: int, col_bottom_left: int)",
+      "Description": "Four-corner gradient fill. The only way to draw a gradient panel, slider track or colour ramp from Lua - add_rect_filled is flat only. Colours are packed ImU32 (ABGR)",
+      "Available": true
+    },
+    "get_window_draw_list_add_triangle_filled": {
+      "Signature": "imgui.get_window_draw_list_add_triangle_filled(x1, y1, x2, y2, x3, y3, col_u32: int)",
+      "Description": "Filled triangle - chevrons, arrows and pointers without faking them out of two lines",
+      "Available": true
+    },
+    "get_window_height": {
+      "Example": "float imgui.get_window_height()",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.get_window_height() -> number",
+      "Available": true
+    },
+    "get_window_id": {
+      "Example": "number imgui.get_window_id()",
+      "Description": "Current ImGui window ID; render callback only.",
+      "Signature": "imgui.get_window_id() -> number",
+      "Available": true
+    },
+    "get_window_width": {
+      "Example": "float imgui.get_window_width()",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.get_window_width() -> number",
+      "Available": true
+    },
+    "input_float": {
+      "Signature": "imgui.input_float(label, id, step, step_fast, format) -> changed: bool, value: float",
+      "Description": "Float input with storage",
+      "Available": true
+    },
+    "input_float_value": {
+      "Example": "changed: bool, value: float imgui.input_float_value(label: string, value: float, step: float = 0, fast_step: float = 0, format: string = \"%.3f\", flags: int = 0)",
+      "Description": "Edit a Lua-owned float.",
+      "Signature": "imgui.input_float_value(label: string, value: float, step: float = 0, fast_step: float = 0, format: string = \"%.3f\", flags: int = 0) -> changed: bool, value: float",
+      "Available": true
+    },
+    "input_int": {
+      "Signature": "imgui.input_int(label: string, id: string) -> changed: bool, value: int",
+      "Description": "Integer input with storage",
+      "Available": true
+    },
+    "input_int_value": {
+      "Example": "changed: bool, value: int imgui.input_int_value(label: string, value: int, step: int = 1, fast_step: int = 100, flags: int = 0)",
+      "Description": "Edit a Lua-owned integer.",
+      "Signature": "imgui.input_int_value(label: string, value: int, step: int = 1, fast_step: int = 100, flags: int = 0) -> changed: bool, value: int",
+      "Available": true
+    },
+    "input_text": {
+      "Signature": "imgui.input_text(label, id, max_len, flags) -> changed: bool, value: string",
+      "Description": "Text input with storage",
+      "Available": true
+    },
+    "input_text_multiline_value": {
+      "Example": "changed: bool, text: string imgui.input_text_multiline_value(label: string, text: string, capacity: int = 256, width: float = 0, height: float = 0, flags: int = 0)",
+      "Description": "Edit Lua-owned multiline text.",
+      "Signature": "imgui.input_text_multiline_value(label: string, text: string, capacity: int = 256, width: float = 0, height: float = 0, flags: int = 0) -> changed: bool, text: string",
+      "Available": true
+    },
+    "input_text_value": {
+      "Example": "changed: bool, text: string imgui.input_text_value(label: string, text: string, capacity: int = 256, flags: int = 0)",
+      "Description": "Edit Lua-owned text; buffer includes NUL, clamped to 1..65536. Callback flags raise an error.",
+      "Signature": "imgui.input_text_value(label: string, text: string, capacity: int = 256, flags: int = 0) -> changed: bool, text: string",
+      "Available": true
+    },
+    "input_text_with_hint_value": {
+      "Example": "changed: bool, text: string imgui.input_text_with_hint_value(label: string, hint: string, text: string, capacity: int = 256, flags: int = 0)",
+      "Description": "Edit Lua-owned text with placeholder.",
+      "Signature": "imgui.input_text_with_hint_value(label: string, hint: string, text: string, capacity: int = 256, flags: int = 0) -> changed: bool, text: string",
+      "Available": true
+    },
+    "is_any_item_active": {
+      "Example": "bool imgui.is_any_item_active()",
+      "Description": "Whether an ImGui item is active; render callback only.",
+      "Signature": "imgui.is_any_item_active() -> boolean",
+      "Available": true
+    },
+    "is_any_item_hovered": {
+      "Example": "bool imgui.is_any_item_hovered()",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.is_any_item_hovered() -> boolean",
+      "Available": true
+    },
+    "is_item_clicked": {
+      "Signature": "imgui.is_item_clicked(button: int = 0) -> boolean",
+      "Description": "Check if last item clicked",
+      "Available": true
+    },
+    "is_item_hovered": {
+      "Signature": "imgui.is_item_hovered() -> boolean",
+      "Description": "Check if last item hovered",
+      "Available": true
+    },
+    "is_mouse_dragging": {
+      "Signature": "imgui.is_mouse_dragging(button: int = 0, lock_threshold: float = -1.0) -> boolean",
+      "Description": "True while a drag is in progress. For hand-built draggable things: a custom slider grab, a movable panel, a colour-wheel cursor",
+      "Available": true
+    },
+    "is_popup_open": {
+      "Example": "bool imgui.is_popup_open(id: string, flags: int = 0)",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.is_popup_open(id: string, flags: int = 0) -> boolean",
+      "Available": true
+    },
+    "listbox": {
+      "Signature": "imgui.listbox(label, id, items_table, height_items) -> changed: bool, index: int",
+      "Description": "Listbox with storage",
+      "Available": true
+    },
+    "listbox_value": {
+      "Example": "changed: bool, index: int imgui.listbox_value(label: string, index: int, items: table, count?: int, height: int = -1)",
+      "Description": "Edit a zero-based list selection from a string array.",
+      "Signature": "imgui.listbox_value(label: string, index: int, items: table, count?: int, height: int = -1) -> changed: bool, index: int",
+      "Available": true
+    },
+    "open_popup": {
+      "Signature": "imgui.open_popup(id: string)",
+      "Description": "Open popup by ID",
+      "Available": true
+    },
+    "pop_clip_rect": {
+      "Signature": "imgui.pop_clip_rect()",
+      "Description": "Pop the clip rect pushed by push_clip_rect",
+      "Available": true
+    },
+    "pop_id": {
+      "Signature": "imgui.pop_id()",
+      "Description": "Pop an ImGui ID scope",
+      "Available": true
+    },
+    "pop_style_color": {
+      "Signature": "imgui.pop_style_color(count: int = 1)",
+      "Description": "Pop style color",
+      "Available": true
+    },
+    "pop_style_var": {
+      "Signature": "imgui.pop_style_var(count: int = 1)",
+      "Description": "Pop style variable",
+      "Available": true
+    },
+    "progress_bar": {
+      "Signature": "imgui.progress_bar(fraction, w, h, overlay)",
+      "Description": "Display progress bar",
+      "Available": true
+    },
+    "push_clip_rect": {
+      "Signature": "imgui.push_clip_rect(x1: float, y1: float, x2: float, y2: float, intersect_with_current: bool = true)",
+      "Description": "Clip subsequent draw-list output to a rectangle. Needed for a scroll region you draw yourself - without it hand-drawn content spills past the panel it belongs to. Must be paired with pop_clip_rect",
+      "Available": true
+    },
+    "push_id": {
+      "Signature": "imgui.push_id(id: string|int)",
+      "Description": "Push an ImGui ID scope",
+      "Available": true
+    },
+    "push_style_color": {
+      "Signature": "imgui.push_style_color(index: int, r, g, b, a)",
+      "Description": "Push style color",
+      "Available": true
+    },
+    "push_style_var": {
+      "Signature": "imgui.push_style_var(index: int, value or x, y)",
+      "Description": "Push style variable",
+      "Available": true
+    },
+    "reset_mouse_drag_delta": {
+      "Signature": "imgui.reset_mouse_drag_delta(button: int = 0)",
+      "Description": "Zero the drag delta after consuming it, so the next frame reports movement since now rather than since the drag started",
+      "Available": true
+    },
+    "same_line": {
+      "Signature": "imgui.same_line(offset: float = 0, spacing: float = -1)",
+      "Description": "Place next item on same line",
+      "Available": true
+    },
+    "selectable": {
+      "Signature": "imgui.selectable(label: string, selected: bool = false, flags: int = 0, width: float = 0, height: float = 0) -> boolean",
+      "Description": "Create selectable item",
+      "Available": true
+    },
+    "separator": {
+      "Signature": "imgui.separator()",
+      "Description": "Draw horizontal separator",
+      "Available": true
+    },
+    "separator_text": {
+      "Example": "void imgui.separator_text(text: string)",
+      "Description": "Draw a labeled separator.",
+      "Signature": "imgui.separator_text(text: string)",
+      "Available": true
+    },
+    "set_cursor_screen_pos": {
+      "Example": "void imgui.set_cursor_screen_pos(x: float, y: float)",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.set_cursor_screen_pos(x: float, y: float)",
+      "Available": true
+    },
+    "set_keyboard_focus_here": {
+      "Example": "void imgui.set_keyboard_focus_here(offset: int = 0)",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.set_keyboard_focus_here(offset: int = 0)",
+      "Available": true
+    },
+    "set_next_item_width": {
+      "Signature": "imgui.set_next_item_width(width: float)",
+      "Description": "Set the next item width",
+      "Available": true
+    },
+    "set_scroll_here_y": {
+      "Example": "void imgui.set_scroll_here_y(ratio: float = 0.5)",
+      "Description": "Render-callback ImGui helper.",
+      "Signature": "imgui.set_scroll_here_y(ratio: float = 0.5)",
+      "Available": true
+    },
+    "set_value": {
+      "Signature": "imgui.set_value(id: string, value: any)",
+      "Description": "Store value by ID",
+      "Available": true
+    },
+    "slider_float": {
+      "Signature": "imgui.slider_float(label, id, min, max, format) -> changed: bool, value: float",
+      "Description": "Float slider whose value lives in imgui's own id-keyed storage. Prefer slider_float_value when your script already owns the number",
+      "Available": true
+    },
+    "slider_float_value": {
+      "Signature": "imgui.slider_float_value(label: string, value: float, min: float, max: float, format: string = \"%.3f\") -> changed: bool, new_value: float",
+      "Description": "Float slider that takes the current value and hands back the new one, leaving your script the single owner of the state (same shape as checkbox_value)",
+      "Available": true
+    },
+    "slider_int": {
+      "Signature": "imgui.slider_int(label, id, min, max, format) -> changed: bool, value: int",
+      "Description": "Integer slider whose value lives in imgui's own id-keyed storage. Prefer slider_int_value when your script already owns the number",
+      "Available": true
+    },
+    "slider_int_value": {
+      "Signature": "imgui.slider_int_value(label: string, value: int, min: int, max: int, format: string = \"%d\") -> changed: bool, new_value: int",
+      "Description": "Integer slider that takes the current value and hands back the new one, leaving your script the single owner of the state (same shape as checkbox_value)",
+      "Available": true
+    },
+    "spacing": {
+      "Signature": "imgui.spacing()",
+      "Description": "Add vertical spacing",
+      "Available": true
+    },
+    "table_headers_row": {
+      "Signature": "imgui.table_headers_row()",
+      "Description": "Render table headers",
+      "Available": true
+    },
+    "table_next_column": {
+      "Signature": "imgui.table_next_column() -> boolean",
+      "Description": "Advance to the next table column",
+      "Available": true
+    },
+    "table_next_row": {
+      "Signature": "imgui.table_next_row(row_flags: int = 0, min_height: float = 0)",
+      "Description": "Advance to the next table row",
+      "Available": true
+    },
+    "table_set_column_index": {
+      "Signature": "imgui.table_set_column_index(column: int) -> boolean",
+      "Description": "Select a table column",
+      "Available": true
+    },
+    "table_setup_column": {
+      "Signature": "imgui.table_setup_column(label: string, flags: int = 0, width: float = 0, user_id: int = 0)",
+      "Description": "Configure a table column",
+      "Available": true
+    },
+    "text": {
+      "Signature": "imgui.text(text: string)",
+      "Description": "Display text",
+      "Available": true
+    },
+    "text_colored": {
+      "Signature": "imgui.text_colored(r, g, b, a, text: string)",
+      "Description": "Display colored text",
+      "Available": true
+    },
+    "text_wrapped": {
+      "Signature": "imgui.text_wrapped(text: string)",
+      "Description": "Display wrapped text",
+      "Available": true
+    },
+    "tree_node": {
+      "Signature": "imgui.tree_node(label: string) -> open: bool",
+      "Description": "Create tree node",
+      "Available": true
+    },
+    "tree_pop": {
+      "Signature": "imgui.tree_pop()",
+      "Description": "End tree node",
+      "Available": true
     }
   },
   "script": {
+    "cancel_callback": {
+      "Signature": "script.cancel_callback(handle: int) -> boolean",
+      "Description": "Cancel and release a callback by handle. Safe while callbacks are being processed.",
+      "Available": true
+    },
+    "checkpoint": {
+      "Signature": "script.checkpoint(reserve_ms: int = 10)",
+      "Description": "Yield for one frame only when the current guarded call is close to its time limit. Use inside long queued loops.",
+      "Available": true
+    },
+    "get_budget_remaining": {
+      "Signature": "script.get_budget_remaining() -> integer",
+      "Description": "Milliseconds remaining in the active guarded Lua call; -1 outside a guarded host-to-Lua call.",
+      "Available": true
+    },
+    "get_continue_on_error": {
+      "Signature": "script.get_continue_on_error() -> boolean",
+      "Description": "Return this script's Continue On Error setting.",
+      "Available": true
+    },
+    "get_error_count": {
+      "Signature": "script.get_error_count() -> integer",
+      "Description": "Return the number of runtime errors reported by this script.",
+      "Available": true
+    },
+    "is_inside_callback": {
+      "Signature": "script.is_inside_callback() -> boolean",
+      "Description": "Check if currently inside a script callback coroutine",
+      "Available": true
+    },
+    "on_unload": {
+      "Signature": "script.on_unload(func: function)",
+      "Description": "Register a cleanup function called before the script state closes.",
+      "Available": true
+    },
+    "register_event_handler": {
+      "Signature": "script.register_event_handler(event: string|int, callback: function) -> integer",
+      "Description": "Register a handler for a named event and return its removable handle.",
+      "Available": true
+    },
     "register_looped": {
-      "Example": "int script.register_looped(name?: string, callback: function(context))\nlocal job = script.register_looped(\"demo\", function(s) s:sleep(500) end)",
-      "Description": "Register a named or anonymous loop; returning false stops it. Reusing a name replaces the old loop."
+      "Example": "local job = script.register_looped(\"demo\", function(s) s:sleep(500) end)",
+      "Description": "Register a named or anonymous loop; returning false stops it. Reusing a name replaces the old loop.",
+      "Signature": "script.register_looped(name?: string, callback: function(context)) -> integer",
+      "Available": true
+    },
+    "register_render": {
+      "Signature": "script.register_render(func: function) -> integer",
+      "Description": "Register an isolated ImGui render callback and return its handle. Every Begin/Push must be paired in the same callback.",
+      "Available": true
+    },
+    "run_in_callback": {
+      "Signature": "script.run_in_callback(func: function) -> integer",
+      "Description": "Register a coroutine callback on the game script thread and return a cancellable handle. Long work must yield or call checkpoint periodically.",
+      "Available": true
+    },
+    "run_in_fiber": {
+      "Example": "local job = script.run_in_fiber(function(s) s:sleep(100) end)",
+      "Description": "Queue one yielding job and return a cancellable handle. Errors follow the script error policy.",
+      "Signature": "script.run_in_fiber(callback: function(context)) -> integer",
+      "Available": true
+    },
+    "set_continue_on_error": {
+      "Signature": "script.set_continue_on_error(enabled: bool)",
+      "Description": "Keep the script loaded after a runtime callback fails. The failing render/thread callback is stopped.",
+      "Available": true
+    },
+    "unregister_event_handler": {
+      "Signature": "script.unregister_event_handler(handle: int) -> boolean",
+      "Description": "Disable and release an event handler by handle. A handler removed during dispatch is not called again.",
+      "Available": true
     },
     "unregister_looped": {
-      "Example": "bool script.unregister_looped(name_or_handle: string|int)\nscript.unregister_looped(\"demo\")",
-      "Description": "Cancel a loop by name or callback handle."
+      "Example": "script.unregister_looped(\"demo\")",
+      "Description": "Cancel a loop by name or callback handle.",
+      "Signature": "script.unregister_looped(name_or_handle: string|int) -> boolean",
+      "Available": true
+    },
+    "unregister_render": {
+      "Signature": "script.unregister_render(handle: int) -> boolean",
+      "Description": "Disable and release a render callback by handle. Safe while callbacks are being processed.",
+      "Available": true
     },
     "unregister_tick": {
       "Example": "bool script.unregister_tick(name_or_handle: string|int)",
-      "Description": "Alias of cancel_callback; accepts loop name or handle."
+      "Description": "Alias of cancel_callback; accepts loop name or handle.",
+      "Signature": "script.unregister_tick(name_or_handle: string|int) -> boolean",
+      "Available": true
     },
-    "run_in_fiber": {
-      "Example": "int script.run_in_fiber(callback: function(context))\nlocal job = script.run_in_fiber(function(s) s:sleep(100) end)",
-      "Description": "Queue one yielding job and return a cancellable handle. Errors follow the script error policy."
+    "yield": {
+      "Signature": "script.yield(ms: int = 0)",
+      "Description": "Yield execution for ms (must be called inside run_in_callback). Zero or a negative value resumes on the next frame; very large values are clamped safely.",
+      "Available": true
     }
   },
   "compat": {
-    "use_yim": {
-      "Example": "table compat.use_yim(edition: string = \"legacy\")",
-      "Description": "Choose legacy or enhanced Yim GUI overloads in this script."
+    "Citizen.CreateThread / CreateThread": {
+      "Signature": "compat.Citizen.CreateThread / CreateThread(callback: function) -> boolean",
+      "Description": "FiveM-style script-thread callback wrapper",
+      "Available": true
     },
-    "yim.ImGui": {
-      "Example": "table compat.yim.ImGui()\nlocal ImGui = compat.yim.ImGui",
-      "Description": "Yim-style GUI adapter; edited values precede changed flags, selections are zero-based."
+    "Citizen.SetTimeout / SetTimeout": {
+      "Signature": "compat.Citizen.SetTimeout / SetTimeout(ms: int, callback: function) -> int|bool",
+      "Description": "Run a callback after a delay using thread.set_timeout when available",
+      "Available": true
+    },
+    "Citizen.Wait / Wait": {
+      "Signature": "compat.Citizen.Wait / Wait(ms: int = 0)",
+      "Description": "FiveM-style wait alias backed by script.yield",
+      "Available": true
+    },
+    "ClickGUI.AddTab / RenderFeature / RenderPlayerFeature / BeginCustomChildWindow": {
+      "Signature": "compat.ClickGUI.AddTab / RenderFeature / RenderPlayerFeature / BeginCustomChildWindow(title: string, callback: function) -> bool|void",
+      "Description": "Custom GUI tab compatibility shim; tabs render in their own Lua windows through script.register_render",
+      "Available": true
+    },
+    "ClickGUI.RegisterTab / SetTabVisible": {
+      "Signature": "compat.ClickGUI.RegisterTab / SetTabVisible(title: string, visible: bool = true) -> boolean",
+      "Description": "Additional ClickGUI compatibility aliases for scripts that register or hide custom tabs",
+      "Available": true
+    },
+    "Compatibility.GetBuild / GetEdition / GetVersion": {
+      "Signature": "compat.Compatibility.GetBuild / GetEdition / GetVersion() -> int|string",
+      "Description": "Compatibility metadata helpers backed by Scooby game/version data where available",
+      "Available": true
+    },
+    "EventMgr.RegisterHandler / TriggerEvent / RemoveHandler": {
+      "Signature": "compat.EventMgr.RegisterHandler / TriggerEvent / RemoveHandler(event: eLuaEvent, callback: function) -> int|bool",
+      "Description": "Event manager compatibility layer; ON_PRESENT/ON_POST_PRESENT and ON_UNLOAD are wired to Scooby callbacks, other events can be registered or manually triggered safely",
+      "Available": true
+    },
+    "FeatAdd / PlayerFeatAdd / FeatGet / PlayerFeatGet": {
+      "Signature": "compat.FeatAdd / PlayerFeatAdd / FeatGet / PlayerFeatGet(name/hash, type, desc, callback) -> Feature|table",
+      "Description": "Global compatibility helper aliases for adding and retrieving normal/player features",
+      "Available": true
+    },
+    "Feature.Value / Enabled / List / Callback": {
+      "Signature": "compat.Feature.Value / Enabled / List / Callback() -> any",
+      "Description": "Feature property aliases mapped to Scooby compatibility feature state",
+      "Available": true
+    },
+    "Feature:RegisterCallbackTrigger / TriggerCallback": {
+      "Signature": "compat.Feature:RegisterCallbackTrigger / TriggerCallback(trigger: eCallbackTrigger, callback: function) -> Feature|bool",
+      "Description": "Feature callback triggers for OnClick, OnRender, OnTick and value/list changes",
+      "Available": true
+    },
+    "Feature:SetNoCallbackOnPress / GetNoCallbackOnPress": {
+      "Signature": "compat.Feature:SetNoCallbackOnPress / GetNoCallbackOnPress(enabled: bool) -> Feature|bool",
+      "Description": "Compatibility button behavior alias for features that should fire registered trigger callbacks without also calling the base callback on press",
+      "Available": true
+    },
+    "FeatureMgr.AddFeature / AddPlayerFeature / GetFeatureByName": {
+      "Signature": "compat.FeatureMgr.AddFeature / AddPlayerFeature / GetFeatureByName(hash/name/type/desc/callback) -> Feature|table",
+      "Description": "Feature manager compatibility shim for scripts that add their own features or render their own ClickGUI tabs. Supports canonical hash/name/type/desc/callback and simpler name/type/desc/callback forms",
+      "Available": true
+    },
+    "FeatureMgr.GetFeatureByHash / GetFeatureById / ForEachFeature": {
+      "Signature": "compat.FeatureMgr.GetFeatureByHash / GetFeatureById / ForEachFeature(hashOrId: int, callback: function = nil) -> Feature|bool",
+      "Description": "Extra Compatibility feature lookup/iteration aliases used by menu scripts",
+      "Available": true
+    },
+    "FileMgr": {
+      "Signature": "compat.FileMgr() -> table",
+      "Description": "Alias/wrapper for file helpers, including GetMenuRootPath, DoesFileExist, ReadFileContent, WriteFileContent, DeleteFile, CreateFolder and FindFiles",
+      "Available": true
+    },
+    "GTA.GetLocalPed / GetLocalVehicle / PointerToHandle / WorldToScreen": {
+      "Signature": "compat.GTA.GetLocalPed / GetLocalVehicle / PointerToHandle / WorldToScreen(...) -> any",
+      "Description": "Compatibility GTA helper wrappers for local handles, pointer-to-handle conversion and normalized world-to-screen coordinates",
+      "Available": true
+    },
+    "GUI.AddToast / Logger.Log / Logger.LogInfo / LogWarn / LogError": {
+      "Signature": "compat.GUI.AddToast / Logger.Log / Logger.LogInfo / LogWarn / LogError(title/tag: string, message: string)",
+      "Description": "Notification and logging aliases mapped to Scooby notify/log",
+      "Available": true
+    },
+    "ImGui.BeginTable / TableNextRow / TableSetColumnIndex": {
+      "Signature": "compat.ImGui.BeginTable / TableNextRow / TableSetColumnIndex(...) -> bool|void",
+      "Description": "Compatibility uppercase ImGui aliases; table helpers are compatibility stubs when the underlying renderer does not expose real tables",
+      "Available": true
+    },
+    "ImGui.GetDisplaySize / BgAddText / BgAddLine / BgAddCircle": {
+      "Signature": "compat.ImGui.GetDisplaySize / BgAddText / BgAddLine / BgAddCircle(...) -> void|number",
+      "Description": "Compatibility background draw helpers routed through Scooby draw helpers when available",
+      "Available": true
+    },
+    "ListGUI.AddTab / Tab.New / ListWidget.New": {
+      "Signature": "compat.ListGUI.AddTab / Tab.New / ListWidget.New(title: string, callback/widget: function|table) -> Tab|ListWidget",
+      "Description": "List UI compatibility shim; tabs/widgets/sub-tabs render through the compatibility window instead of the old native ListUI",
+      "Available": true
+    },
+    "MPX / stats.get_mp_prefix": {
+      "Signature": "compat.MPX / stats.get_mp_prefix(character: int = current) -> string",
+      "Description": "Current-character MP stat prefix helper used by SilentNight/2Take1-style recovery scripts",
+      "Available": true
+    },
+    "Memory.AllocInt / AllocFloat / AllocBool / AllocVector3": {
+      "Signature": "compat.Memory.AllocInt / AllocFloat / AllocBool / AllocVector3(initialValue: any = 0) -> pointer|int",
+      "Description": "Compatibility allocation helpers backed by Scooby's memory.allocate/free/read/write APIs",
+      "Available": true
+    },
+    "MenuNode:add_button": {
+      "Signature": "compat.MenuNode:add_button(idOrLabel: string, labelOrDescription: string, descriptionOrCallback: string|function, callback: function) -> MenuNode",
+      "Description": "Object-style button helper; accepts 2Take1/Yim-style argument shapes",
+      "Available": true
+    },
+    "MenuNode:add_category": {
+      "Signature": "compat.MenuNode:add_category(name: string) -> MenuNode",
+      "Description": "Object-style menu category helper used by older Lua scripts",
+      "Available": true
+    },
+    "MenuNode:add_group": {
+      "Signature": "compat.MenuNode:add_group(name: string, columns: int = ignored) -> MenuNode",
+      "Description": "Object-style group helper; maps to a Scooby category",
+      "Available": true
+    },
+    "MenuNode:add_input_text / add_input_int / add_input_float / add_color": {
+      "Signature": "compat.MenuNode:add_input_text / add_input_int / add_input_float / add_color(name: string, default: any = nil, callback: function = nil) -> MenuNode",
+      "Description": "Object-style input/color helpers for older menu APIs",
+      "Available": true
+    },
+    "MenuNode:add_submenu": {
+      "Signature": "compat.MenuNode:add_submenu(name: string) -> MenuNode",
+      "Description": "Object-style submenu helper; maps to a Scooby category",
+      "Available": true
+    },
+    "MenuNode:add_toggle": {
+      "Signature": "compat.MenuNode:add_toggle(name: string, description: string = nil, default: bool = false, callback: function = nil) -> MenuNode",
+      "Description": "Object-style toggle helper",
+      "Available": true
+    },
+    "Natives.InvokeVoid / InvokeInt / InvokeBool / InvokeFloat / InvokeString / InvokeV3": {
+      "Signature": "compat.Natives.InvokeVoid / InvokeInt / InvokeBool / InvokeFloat / InvokeString / InvokeV3(hash: int, ...) -> any",
+      "Description": "Native invoker compatibility aliases; raw native hashes are resolved through Scooby's crossmap before calling _I",
+      "Available": true
+    },
+    "Players.Get / GetById / GetByIndex / GetCPed": {
+      "Signature": "compat.Players.Get / GetById / GetByIndex / GetCPed(playerId: int = nil) -> table|object",
+      "Description": "Player and CPed wrapper helpers for scripts that iterate player objects instead of raw ids",
+      "Available": true
+    },
+    "PoolMgr.GetRenderedObjects / GetRenderedVehicles / GetRenderedPeds": {
+      "Signature": "compat.PoolMgr.GetRenderedObjects / GetRenderedVehicles / GetRenderedPeds() -> table",
+      "Description": "Best-effort pool iteration wrappers backed by Scooby entities scans",
+      "Available": true
+    },
+    "ScriptGlobal(...) / ScriptLocal(...)": {
+      "Signature": "compat.ScriptGlobal(...) / ScriptLocal(...)(index: int OR script: string|hash, index: int) -> ScriptGlobal|ScriptLocal",
+      "Description": "Callable aliases for ScriptGlobal.new(index) and ScriptLocal.new(script, index)",
+      "Available": true
+    },
+    "Tab:AddButton / AddToggle / AddSliderInt / AddSliderFloat / AddCombo / AddInputText": {
+      "Signature": "compat.Tab:AddButton / AddToggle / AddSliderInt / AddSliderFloat / AddCombo / AddInputText(name: string, ...) -> Feature",
+      "Description": "ListGUI compatibility widget builders that create compatibility Feature objects and add them to the tab/widget",
+      "Available": true
+    },
+    "Texture.LoadTexture / LoadTextureAsync / IsTextureValid": {
+      "Signature": "compat.Texture.LoadTexture / LoadTextureAsync / IsTextureValid(pathOrId) -> int|bool",
+      "Description": "Compatibility texture helper aliases backed by Scooby's texture module when available",
+      "Available": true
+    },
+    "Time.Get / GetEpoche / GetEpocheMs / GetEpocheNs": {
+      "Signature": "compat.Time.Get / GetEpoche / GetEpocheMs / GetEpocheNs() -> integer",
+      "Description": "Compatibility time helpers using the Lua runtime clock",
+      "Available": true
+    },
+    "Utils.GetSelectedPlayer / GetLocalPlayerId / GetLocalPed / SetSelectedPlayer / IsKeyDown / IsKeyPressed": {
+      "Signature": "compat.Utils.GetSelectedPlayer / GetLocalPlayerId / GetLocalPed / SetSelectedPlayer / IsKeyDown / IsKeyPressed(playerIdOrKey) -> any",
+      "Description": "Compatibility utility helpers mapped to Scooby player/input modules when available",
+      "Available": true
+    },
+    "V2.New / V3.New / V4.New": {
+      "Signature": "compat.V2.New / V3.New / V4.New(x: number, y: number, z: number = nil, w: number = nil) -> V2|V3|V4",
+      "Description": "Lightweight compatibility vector tables with x/y/z/w fields and basic add/subtract/multiply helpers",
+      "Available": true
+    },
+    "alias": {
+      "Signature": "compat.alias(alias: string, source: string) -> table|nil",
+      "Description": "Create a guarded global table alias when the source table exists",
+      "Available": true
+    },
+    "entities.delete / entities.request_control": {
+      "Signature": "compat.entities.delete / entities.request_control(entity: int) -> void|bool",
+      "Description": "Entity helper aliases backed by Entity.* functions when available",
+      "Available": true
+    },
+    "entities.get_all_*_as_handles": {
+      "Signature": "compat.entities.get_all_*_as_handles() -> table",
+      "Description": "ScoobyOPMenu-style entity list aliases backed by esp entity scanners",
+      "Available": true
+    },
+    "fs / filesystem": {
+      "Signature": "compat.fs / filesystem() -> table",
+      "Description": "Aliases for the sandboxed file API",
+      "Available": true
+    },
+    "globals.at / memory.script_global": {
+      "Signature": "compat.globals.at / memory.script_global(index: int) -> ScriptGlobal",
+      "Description": "Create a ScriptGlobal object from a raw global index",
+      "Available": true
+    },
+    "globals.get_int / set_int / get_float / set_float / get_bool / set_bool": {
+      "Signature": "compat.globals.get_int / set_int / get_float / set_float / get_bool / set_bool(index: int, value: any = nil) -> any",
+      "Description": "ScriptGlobal shortcuts for ported Lua scripts",
+      "Available": true
+    },
+    "install_aliases": {
+      "Signature": "compat.install_aliases() -> boolean",
+      "Description": "Re-install compatibility aliases if another script overwrote them",
+      "Available": true
     },
     "is_supported": {
-      "Example": "bool compat.is_supported(namespace: string, member: string)\ncompat.is_supported(\"compat.yim.ImGui\", \"InputText\")",
-      "Description": "Check that a namespace member exists and is not marked unsupported. Nested namespaces are supported."
+      "Example": "compat.is_supported(\"compat.yim.ImGui\", \"InputText\")",
+      "Description": "Check that a namespace member exists and is not marked unsupported. Nested namespaces are supported.",
+      "Signature": "compat.is_supported(namespace: string, member: string) -> boolean",
+      "Available": true
     },
-    "yim_v2.ImGui": {
-      "Example": "local ImGui = compat.yim_v2.ImGui"
+    "json.load_file / json.save_file": {
+      "Signature": "compat.json.load_file / json.save_file(path: string, value: table = nil, pretty: bool = false) -> table|bool",
+      "Description": "Convenience JSON file helpers inside the Lua sandbox",
+      "Available": true
+    },
+    "json.stringify / json.parse / json.encode_pretty": {
+      "Signature": "compat.json.stringify / json.parse / json.encode_pretty(valueOrText: any) -> string|table",
+      "Description": "Common JSON aliases backed by Scooby json.encode/json.decode",
+      "Available": true
+    },
+    "locals.at / memory.script_local": {
+      "Signature": "compat.locals.at / memory.script_local(script: string|hash, index: int) -> ScriptLocal",
+      "Description": "Create a ScriptLocal object from script name/hash and local index",
+      "Available": true
+    },
+    "locals.get_int / set_int / get_float / set_float / get_bool / set_bool": {
+      "Signature": "compat.locals.get_int / set_int / get_float / set_float / get_bool / set_bool(script: string|hash, index: int, value: any = nil) -> any",
+      "Description": "ScriptLocal shortcuts for ported Lua scripts; returns default values if the script is not running",
+      "Available": true
+    },
+    "menu.action / menu.toggle / menu.slider / menu.slider_float / menu.combo / menu.list": {
+      "Signature": "compat.menu.action / menu.toggle / menu.slider / menu.slider_float / menu.combo / menu.list(parent: int|MenuNode, name: string, ...) -> MenuNode",
+      "Description": "ScoobyOPMenu/Stand-style menu aliases backed by Scooby menu widgets",
+      "Available": true
+    },
+    "menu.add_feature": {
+      "Signature": "compat.menu.add_feature(name: string, type: string, parent: int|MenuNode, callback: function) -> MenuNode",
+      "Description": "Minimal 2Take1-style feature adapter for action/toggle/value scripts",
+      "Available": true
+    },
+    "menu.get_submenu": {
+      "Signature": "compat.menu.get_submenu() -> MenuNode",
+      "Description": "Create/get a default Lua menu root and return an object-style node",
+      "Available": true
+    },
+    "menu.toggle_loop": {
+      "Signature": "compat.menu.toggle_loop(parent: int|MenuNode, name: string, description: string, callback: function) -> MenuNode",
+      "Description": "Toggle that runs a callback every script tick while enabled",
+      "Available": true
+    },
+    "native / Native": {
+      "Signature": "compat.native / Native() -> table",
+      "Description": "Alias of natives. Call native.load_natives() or natives.load_natives() before using GTA native namespaces",
+      "Available": true
+    },
+    "notification / notify": {
+      "Signature": "compat.notification / notify() -> table",
+      "Description": "Notification table aliases for scripts that use either naming style",
+      "Available": true
+    },
+    "players.user / players.user_ped / players.list": {
+      "Signature": "compat.players.user / players.user_ped / players.list() -> int|table",
+      "Description": "Yim/Stand-style player helper aliases backed by Scooby players",
+      "Available": true
+    },
+    "pointer.new / memory.ptr": {
+      "Signature": "compat.pointer.new / memory.ptr(address: int) -> pointer",
+      "Description": "Small pointer object wrapper with add/sub/rip/read/write helpers for byte/short/int/long/float/double/string",
+      "Available": true
     },
     "runtime": {
-      "Example": "table compat.runtime"
+      "Example": "table compat.runtime",
+      "Signature": "compat.runtime() -> table",
+      "Description": "Runtime metadata; lua54 is false for this LuaJIT host.",
+      "Available": true
+    },
+    "safe_call": {
+      "Signature": "compat.safe_call(scope: string = 'safe_call', callback: function, ...) -> any|nil, string|nil",
+      "Description": "Run a Lua callback through pcall and route errors to the Scooby Lua log",
+      "Available": true
+    },
+    "script.register_looped": {
+      "Signature": "compat.script.register_looped(name?: string, callback: function) -> integer",
+      "Description": "Register a cancellable named or anonymous loop",
+      "Available": true
+    },
+    "scripts.is_active / scripts.is_running": {
+      "Signature": "compat.scripts.is_active / scripts.is_running(script: string) -> boolean",
+      "Description": "Script-thread guards for ported Lua scripts; use before script-local writes",
+      "Available": true
+    },
+    "targets": {
+      "Signature": "compat.targets() -> table",
+      "Description": "Table of script ecosystems this bridge intentionally supports",
+      "Available": true
+    },
+    "targets.compatibility_feature_properties": {
+      "Signature": "compat.targets.compatibility_feature_properties() -> boolean",
+      "Description": "Compatibility property bridge is enabled for Feature.Value, Feature.Enabled, Feature.List, Feature.Callback and related aliases",
+      "Available": true
+    },
+    "targets.compatibility_lua": {
+      "Signature": "compat.targets.compatibility_lua() -> boolean",
+      "Description": "Lua compatibility is enabled; scripts can use the compatibility aliases for Texture, Time, Utils, Natives, Script, FeatureMgr, ClickGUI, ListGUI, EventMgr, GUI, Logger, eFeatureType, eCallbackTrigger, eLuaEvent, eGuiMode and eLogColor aliases",
+      "Available": true
+    },
+    "targets.compatibility_official_examples": {
+      "Signature": "compat.targets.compatibility_official_examples() -> boolean",
+      "Description": "Extra compatibility example-script aliases are enabled for Utils.GetTimeEpocheMs, Logger.LogInfo, SetNoCallbackOnPress and player feature iteration",
+      "Available": true
+    },
+    "targets.compatibility_runtime_wrappers": {
+      "Signature": "compat.targets.compatibility_runtime_wrappers() -> boolean",
+      "Description": "Compatibility runtime wrappers are enabled for Memory allocation helpers, Players/GTA/PoolMgr wrappers and ImGui background draw helpers",
+      "Available": true
+    },
+    "targets.compatibility_widget_controls": {
+      "Signature": "compat.targets.compatibility_widget_controls() -> boolean",
+      "Description": "Compatibility Tab/ListWidget builder controls are enabled for AddButton, AddToggle, AddSliderInt, AddSliderFloat, AddCombo and AddInputText",
+      "Available": true
+    },
+    "use_yim": {
+      "Example": "compat.use_yim(\"enhanced\")",
+      "Description": "Choose legacy or enhanced Yim GUI overloads in this script.",
+      "Signature": "compat.use_yim(edition: string = \"legacy\") -> table",
+      "Available": true
+    },
+    "util.create_thread": {
+      "Signature": "compat.util.create_thread(callback: function) -> integer",
+      "Description": "Queue one cancellable yielding callback",
+      "Available": true
+    },
+    "util.create_tick_handler": {
+      "Signature": "compat.util.create_tick_handler(callback: function) -> integer",
+      "Description": "Run a cancellable callback every tick; false or an error stops it",
+      "Available": true
+    },
+    "util.joaat / joaat": {
+      "Signature": "compat.util.joaat / joaat(name: string) -> integer",
+      "Description": "Hash helper aliases for ported scripts",
+      "Available": true
+    },
+    "util.require_natives": {
+      "Signature": "compat.util.require_natives() -> boolean",
+      "Description": "Load generated natives if they are not already loaded",
+      "Available": true
+    },
+    "util.toast": {
+      "Signature": "compat.util.toast(message: string, title: string = \"Lua\")",
+      "Description": "Show a Scooby notification from Yim/Stand/2Take1-style scripts",
+      "Available": true
+    },
+    "util.yield / util.wait / system.wait": {
+      "Signature": "compat.util.yield / util.wait / system.wait(ms: int = 0)",
+      "Description": "Yield inside a script callback using Scooby's scheduler",
+      "Available": true
+    },
+    "version": {
+      "Signature": "compat.version() -> string",
+      "Description": "Compatibility bridge version string",
+      "Available": true
+    },
+    "yim.ImGui": {
+      "Example": "local ImGui = compat.yim.ImGui",
+      "Description": "Yim-style GUI adapter; edited values precede changed flags, selections are zero-based.",
+      "Signature": "compat.yim.ImGui() -> table",
+      "Available": true
+    },
+    "yim_v2.ImGui": {
+      "Example": "local ImGui = compat.yim_v2.ImGui",
+      "Signature": "compat.yim_v2.ImGui() -> table",
+      "Description": "Enhanced Yim widget adapter; text inputs take flags instead of a capacity.",
+      "Available": true
     }
   },
   "compat.yim.ImGui": {
-    "GetWindowDrawList": {
-      "Example": "DrawList compat.yim.ImGui.GetWindowDrawList()\nlocal ui = compat.yim.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
-      "Description": "Frame/window-bound Lua drawing object. Obtain a fresh object inside each window/frame; use colon calls with scalar coordinates."
+    "ColorConvertFloat4ToU32": {
+      "Example": "number compat.yim.ImGui.ColorConvertFloat4ToU32(r, g, b, a)",
+      "Description": "Convert finite 0..1 RGBA components into a packed draw-list color.",
+      "Available": true,
+      "Signature": "number compat.yim.ImGui.ColorConvertFloat4ToU32(r, g, b, a)"
     },
     "GetDisplaySize": {
       "Example": "width: number, height: number compat.yim.ImGui.GetDisplaySize()",
-      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding.",
+      "Available": true,
+      "Signature": "width: number, height: number compat.yim.ImGui.GetDisplaySize()"
     },
     "GetFrameRate": {
       "Example": "number compat.yim.ImGui.GetFrameRate()",
-      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
-    },
-    "IsAnyItemActive": {
-      "Example": "bool compat.yim.ImGui.IsAnyItemActive()",
-      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
-    },
-    "ColorConvertFloat4ToU32": {
-      "Example": "number compat.yim.ImGui.ColorConvertFloat4ToU32(r, g, b, a)",
-      "Description": "Convert finite 0..1 RGBA components into a packed draw-list color."
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding.",
+      "Available": true,
+      "Signature": "number compat.yim.ImGui.GetFrameRate()"
     },
     "GetStyleColorU32": {
       "Example": "number compat.yim.ImGui.GetStyleColorU32(index: ImGuiCol)",
-      "Description": "Read a validated style color and return its packed value."
+      "Description": "Read a validated style color and return its packed value.",
+      "Available": true,
+      "Signature": "number compat.yim.ImGui.GetStyleColorU32(index: ImGuiCol)"
+    },
+    "GetWindowDrawList": {
+      "Example": "DrawList compat.yim.ImGui.GetWindowDrawList()\nlocal ui = compat.yim.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
+      "Description": "Frame/window-bound Lua drawing object. Obtain a fresh object inside each window/frame; use colon calls with scalar coordinates.",
+      "Available": true,
+      "Signature": "DrawList compat.yim.ImGui.GetWindowDrawList()\nlocal ui = compat.yim.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)"
+    },
+    "IsAnyItemActive": {
+      "Example": "bool compat.yim.ImGui.IsAnyItemActive()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding.",
+      "Available": true,
+      "Signature": "bool compat.yim.ImGui.IsAnyItemActive()"
     }
   },
   "compat.yim_v2.ImGui": {
-    "GetWindowDrawList": {
-      "Example": "DrawList compat.yim_v2.ImGui.GetWindowDrawList()\nlocal ui = compat.yim_v2.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
-      "Description": "Frame/window-bound Lua drawing object. Obtain a fresh object inside each window/frame; use colon calls with scalar coordinates."
+    "ColorConvertFloat4ToU32": {
+      "Example": "number compat.yim_v2.ImGui.ColorConvertFloat4ToU32(r, g, b, a)",
+      "Description": "Convert finite 0..1 RGBA components into a packed draw-list color.",
+      "Available": true,
+      "Signature": "number compat.yim_v2.ImGui.ColorConvertFloat4ToU32(r, g, b, a)"
     },
     "GetDisplaySize": {
       "Example": "width: number, height: number compat.yim_v2.ImGui.GetDisplaySize()",
-      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding.",
+      "Available": true,
+      "Signature": "width: number, height: number compat.yim_v2.ImGui.GetDisplaySize()"
     },
     "GetFrameRate": {
       "Example": "number compat.yim_v2.ImGui.GetFrameRate()",
-      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
-    },
-    "IsAnyItemActive": {
-      "Example": "bool compat.yim_v2.ImGui.IsAnyItemActive()",
-      "Description": "Render callback only; shared with the corresponding lowercase imgui binding."
-    },
-    "ColorConvertFloat4ToU32": {
-      "Example": "number compat.yim_v2.ImGui.ColorConvertFloat4ToU32(r, g, b, a)",
-      "Description": "Convert finite 0..1 RGBA components into a packed draw-list color."
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding.",
+      "Available": true,
+      "Signature": "number compat.yim_v2.ImGui.GetFrameRate()"
     },
     "GetStyleColorU32": {
       "Example": "number compat.yim_v2.ImGui.GetStyleColorU32(index: ImGuiCol)",
-      "Description": "Read a validated style color and return its packed value."
+      "Description": "Read a validated style color and return its packed value.",
+      "Available": true,
+      "Signature": "number compat.yim_v2.ImGui.GetStyleColorU32(index: ImGuiCol)"
+    },
+    "GetWindowDrawList": {
+      "Example": "DrawList compat.yim_v2.ImGui.GetWindowDrawList()\nlocal ui = compat.yim_v2.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
+      "Description": "Frame/window-bound Lua drawing object. Obtain a fresh object inside each window/frame; use colon calls with scalar coordinates.",
+      "Available": true,
+      "Signature": "DrawList compat.yim_v2.ImGui.GetWindowDrawList()\nlocal ui = compat.yim_v2.ImGui\nlocal draw = ui.GetWindowDrawList()\ndraw:AddLine(20, 20, 120, 20, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)"
+    },
+    "IsAnyItemActive": {
+      "Example": "bool compat.yim_v2.ImGui.IsAnyItemActive()",
+      "Description": "Render callback only; shared with the corresponding lowercase imgui binding.",
+      "Available": true,
+      "Signature": "bool compat.yim_v2.ImGui.IsAnyItemActive()"
     }
   },
   "YimDrawList": {
-    "AddLine": {
-      "Example": "void draw:AddLine(x1, y1, x2, y2, color, thickness=1)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
-    },
-    "AddRect": {
-      "Example": "void draw:AddRect(x1, y1, x2, y2, color, rounding=0, flags=0, thickness=1)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
-    },
-    "AddRectFilled": {
-      "Example": "void draw:AddRectFilled(x1, y1, x2, y2, color, rounding=0, flags=0)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    "AddBezierCubic": {
+      "Example": "void draw:AddBezierCubic(x1, y1, x2, y2, x3, y3, x4, y4, color, thickness=1, segments=0)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddBezierCubic(x1, y1, x2, y2, x3, y3, x4, y4, color, thickness=1, segments=0)"
     },
     "AddCircle": {
       "Example": "void draw:AddCircle(x, y, radius, color, segments=0, thickness=1)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddCircle(x, y, radius, color, segments=0, thickness=1)"
     },
     "AddCircleFilled": {
       "Example": "void draw:AddCircleFilled(x, y, radius, color, segments=0)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddCircleFilled(x, y, radius, color, segments=0)"
     },
-    "AddText": {
-      "Example": "void draw:AddText(x, y, color, text)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
-    },
-    "AddTriangleFilled": {
-      "Example": "void draw:AddTriangleFilled(x1, y1, x2, y2, x3, y3, color)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    "AddLine": {
+      "Example": "void draw:AddLine(x1, y1, x2, y2, color, thickness=1)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddLine(x1, y1, x2, y2, color, thickness=1)"
     },
     "AddQuadFilled": {
       "Example": "void draw:AddQuadFilled(x1, y1, x2, y2, x3, y3, x4, y4, color)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddQuadFilled(x1, y1, x2, y2, x3, y3, x4, y4, color)"
     },
-    "AddBezierCubic": {
-      "Example": "void draw:AddBezierCubic(x1, y1, x2, y2, x3, y3, x4, y4, color, thickness=1, segments=0)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+    "AddRect": {
+      "Example": "void draw:AddRect(x1, y1, x2, y2, color, rounding=0, flags=0, thickness=1)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddRect(x1, y1, x2, y2, color, rounding=0, flags=0, thickness=1)"
+    },
+    "AddRectFilled": {
+      "Example": "void draw:AddRectFilled(x1, y1, x2, y2, color, rounding=0, flags=0)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Signature": "YimDrawList.AddRectFilled(x1, y1, x2, y2, color, rounding=0, flags=0)",
+      "Available": true
     },
     "AddRectFilledMultiColor": {
       "Example": "void draw:AddRectFilledMultiColor(x1, y1, x2, y2, upper_left, upper_right, lower_right, lower_left)",
-      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error."
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddRectFilledMultiColor(x1, y1, x2, y2, upper_left, upper_right, lower_right, lower_left)"
+    },
+    "AddText": {
+      "Example": "void draw:AddText(x, y, color, text)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Signature": "YimDrawList.AddText(x, y, color, text)",
+      "Available": true
+    },
+    "AddTriangleFilled": {
+      "Example": "void draw:AddTriangleFilled(x1, y1, x2, y2, x3, y3, color)",
+      "Description": "Use within the frame and window that created this object. It contains no native pointer. Drawing from another frame/window raises a Lua error.",
+      "Available": true,
+      "Signature": "void draw:AddTriangleFilled(x1, y1, x2, y2, x3, y3, color)"
+    },
+    "GetWindowDrawList": {
+      "Signature": "YimDrawList.GetWindowDrawList() -> table",
+      "Example": "local ui = compat.yim.ImGui; local draw = ui.GetWindowDrawList(); draw:AddLine(10, 10, 90, 10, ui.ColorConvertFloat4ToU32(1, 1, 1, 1), 2)",
+      "Description": "Get a drawing lease for this frame and window; use scalar coordinates and colon calls.",
+      "Available": true
+    }
+  },
+  "features": {
+    "add_page": {
+      "Signature": "features.add_page(label: string, ids: string[]) -> integer | nil, error: string?",
+      "Description": "Game callback. Register a script-owned native feature page in BOTH ClickUI and ListUI Lua Content. Uses the actual command widgets and active native theme. Up to 64 pages per script, 256 exact IDs per page. Unload removes the owning script's pages.",
+      "Example": "local page = assert(features.add_page('My Self Tools', {'godmode'}))\n-- Visible in ClickUI and ListUI Lua Content.\n-- features.remove_page(page) removes it early.",
+      "Available": true
+    },
+    "call": {
+      "Signature": "features.call(id: string) -> boolean | nil, error: string?",
+      "Description": "Game callback only. Executes an action through the main menu's Command.Call access checks. Value commands use features.set. IDs come from features.list, independently for each game.",
+      "Example": "script.run_in_fiber(function()\n for _, feature in ipairs(assert(features.list())) do\n  if feature.type == 'action' then log.info(feature.id) end\n end\nend)",
+      "Available": true
+    },
+    "get": {
+      "Signature": "features.get(id: string) -> Feature | nil, error: string?",
+      "Description": "Game callback only. Fresh snapshot of the same command used by the main GUI and hotkeys. No raw pointers or private copied setting.",
+      "Example": "script.run_in_fiber(function()\n local feature, err = features.get('godmode')\n if feature then log.info(tostring(feature.value)) else log.info(err) end\nend)",
+      "Available": true
+    },
+    "list": {
+      "Signature": "features.list(filter: string = '') -> Feature[] | nil, error: string?",
+      "Description": "Game callback only. Sorted snapshots of registered host commands, with exact IDs, type, value, label, description, account availability, numeric bounds and list options. Case-sensitive substring filter matches ID or label. Runtime permission controls are excluded.",
+      "Example": "script.run_in_fiber(function()\n for _, feature in ipairs(assert(features.list('godmode'))) do\n  log.info(feature.id .. ': ' .. tostring(feature.value))\n end\nend)",
+      "Available": true
+    },
+    "remove_page": {
+      "Signature": "features.remove_page(pageId: integer) -> boolean | nil, error: string?",
+      "Description": "Game callback. Remove only a page owned by this Lua state. Returns false if missing or owned by another state. Retained native-page snapshots become inactive on removal or unload.",
+      "Example": "local page = assert(features.add_page('My Tools', {'godmode'}))\nfeatures.remove_page(page)",
+      "Available": true
+    },
+    "set": {
+      "Signature": "features.set(id: string, value: boolean|number|string|table) -> Feature | nil, error: string?",
+      "Description": "Game callback only. Calls the actual typed setter, preserving callbacks and persistence. Validates type, finite numbers, integer bounds and real list option values; color/vector tables use x,y,z,w fields (colors 0..1). Preserves account restrictions. Returns the resulting snapshot, or nil and an error.",
+      "Example": "script.run_in_fiber(function()\n local state, err = features.set('godmode', true)\n if not state then log.info(err) end\nend)",
+      "Available": true
+    }
+  },
+  "ui_theme": {
+    "apply": {
+      "Signature": "ui_theme.apply(theme: table) -> boolean",
+      "Description": "Game callback. Apply a captured native theme. Omit a surface to leave it alone. RDR2 listui is the complete active style profile, including its version/profileStyle; keep its identity and layout validation intact. Native settings handle persistence.",
+      "Available": true,
+      "Example": "script.run_in_fiber(function()\n local snapshot = ui_theme.get()\n ui_theme.apply({clickui = snapshot.clickui})\nend)"
+    },
+    "get": {
+      "Signature": "ui_theme.get() -> table {clickui: table, listui: table}",
+      "Description": "Game callback. Capture this game's current native ClickUI and ListUI settings. Snapshot schemas are game/style specific; edit captured fields rather than copying another game's raw values.",
+      "Available": true,
+      "Example": "script.run_in_fiber(function()\n local savedTheme = ui_theme.get()\n ui_theme.set_accent(80, 160, 240)\n -- Restore later with ui_theme.apply(savedTheme).\nend)"
+    },
+    "image_folder": {
+      "Signature": "ui_theme.image_folder(surface: string) -> string",
+      "Description": "Return the managed image folder for listui, clickui, overlays, notifications or player_info",
+      "Available": true
+    },
+    "patch": {
+      "Signature": "ui_theme.patch(surface: clickui|listui|notifications|overlays|player_info, values: table) -> boolean",
+      "Description": "Merge a partial table into one native UI surface without replacing unrelated settings",
+      "Available": true
+    },
+    "reload_images": {
+      "Signature": "ui_theme.reload_images()",
+      "Description": "Invalidate UI image and GIF caches after a Lua script changes assets",
+      "Available": true
+    },
+    "set": {
+      "Signature": "ui_theme.set(path: string, value: any) -> boolean",
+      "Description": "Set one value using a dotted path such as listui.navigation.showMainTabs or notifications.notificationWidth",
+      "Available": true
+    },
+    "set_accent": {
+      "Signature": "ui_theme.set_accent(r: integer, g: integer, b: integer, a: integer = 255) -> boolean",
+      "Description": "Game callback. Apply an accent through the actual ClickUI and ListUI appearance APIs. Channels are clamped to 0..255. Custom window colors use scoped ImGuiCpp.PushStyleColor/PopStyleColor.",
+      "Example": "script.run_in_fiber(function() ui_theme.set_accent(80, 160, 240, 255) end)",
+      "Available": true
+    }
+  },
+  "ImGuiCpp": {
+    "AlignTextToFramePadding": {
+      "Signature": "ImGuiCpp.AlignTextToFramePadding(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ArrowButton": {
+      "Signature": "ImGuiCpp.ArrowButton(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Begin": {
+      "Signature": "ImGuiCpp.Begin(name: string, openRef?: table, flags?: integer) -> boolean",
+      "Example": "local open = ImGuiCpp.Ref(true)\nscript.register_render(function()\n if ImGuiCpp.Begin('Tools', open) then ImGuiCpp.Text('Hello') end\n ImGuiCpp.End()\nend)",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "BeginChild": {
+      "Signature": "ImGuiCpp.BeginChild(id,size,childFlags,windowFlags)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "BeginCombo": {
+      "Signature": "ImGuiCpp.BeginCombo(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginDisabled": {
+      "Signature": "ImGuiCpp.BeginDisabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginGroup": {
+      "Signature": "ImGuiCpp.BeginGroup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginListBox": {
+      "Signature": "ImGuiCpp.BeginListBox(id,size)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "BeginMainMenuBar": {
+      "Signature": "ImGuiCpp.BeginMainMenuBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginMenu": {
+      "Signature": "ImGuiCpp.BeginMenu(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginMenuBar": {
+      "Signature": "ImGuiCpp.BeginMenuBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginPopup": {
+      "Signature": "ImGuiCpp.BeginPopup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginPopupModal": {
+      "Signature": "ImGuiCpp.BeginPopupModal(label,open,flags)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "BeginTabBar": {
+      "Signature": "ImGuiCpp.BeginTabBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginTabItem": {
+      "Signature": "ImGuiCpp.BeginTabItem(label,open,flags)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "BeginTable": {
+      "Signature": "ImGuiCpp.BeginTable(id,columns,flags,size)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "BeginTooltip": {
+      "Signature": "ImGuiCpp.BeginTooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Bullet": {
+      "Signature": "ImGuiCpp.Bullet(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BulletText": {
+      "Signature": "ImGuiCpp.BulletText(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Button": {
+      "Signature": "ImGuiCpp.Button(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "CalcItemWidth": {
+      "Signature": "ImGuiCpp.CalcItemWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "CalcTextSize": {
+      "Signature": "ImGuiCpp.CalcTextSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Checkbox": {
+      "Signature": "ImGuiCpp.Checkbox(label: string, ref: table) -> boolean",
+      "Example": "local I = ImGuiCpp\nlocal enabled = I.Ref(false)\nscript.register_render(function()\n if I.Begin('Tools') then I.Checkbox('Enabled', enabled) end\n I.End()\nend)",
+      "Description": "",
+      "Available": true
+    },
+    "CheckboxFlags": {
+      "Signature": "ImGuiCpp.CheckboxFlags(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "CloseCurrentPopup": {
+      "Signature": "ImGuiCpp.CloseCurrentPopup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "CollapsingHeader": {
+      "Signature": "ImGuiCpp.CollapsingHeader(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorButton": {
+      "Signature": "ImGuiCpp.ColorButton(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorConvertFloat4ToU32": {
+      "Signature": "ImGuiCpp.ColorConvertFloat4ToU32(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorConvertHSVtoRGB": {
+      "Signature": "ImGuiCpp.ColorConvertHSVtoRGB(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorConvertRGBtoHSV": {
+      "Signature": "ImGuiCpp.ColorConvertRGBtoHSV(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorConvertU32ToFloat4": {
+      "Signature": "ImGuiCpp.ColorConvertU32ToFloat4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorEdit3": {
+      "Signature": "ImGuiCpp.ColorEdit3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorEdit4": {
+      "Signature": "ImGuiCpp.ColorEdit4(label, colorVector, flags?) -> changed",
+      "Example": "local color=ImGuiCpp.ImVec4(0,0.8,1,1)\nscript.register_render(function() ImGuiCpp.ColorEdit4(\"Color\",color) end)",
+      "Description": "",
+      "Available": true
+    },
+    "ColorPicker3": {
+      "Signature": "ImGuiCpp.ColorPicker3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ColorPicker4": {
+      "Signature": "ImGuiCpp.ColorPicker4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Combo": {
+      "Signature": "ImGuiCpp.Combo(label, selectionRef, items, visibleItems?) -> changed",
+      "Example": "local selected=ImGuiCpp.Ref(0)\nscript.register_render(function() ImGuiCpp.Combo(\"Mode\",selected,{\"First\",\"Second\"}) end)",
+      "Description": "",
+      "Available": true
+    },
+    "DragFloat": {
+      "Signature": "ImGuiCpp.DragFloat(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "DragFloat2": {
+      "Signature": "ImGuiCpp.DragFloat2(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "DragFloat3": {
+      "Signature": "ImGuiCpp.DragFloat3(label, array, speed?, min?, max?, format?, flags?) -> changed",
+      "Example": "local position={0,0,0}\nscript.register_render(function() ImGuiCpp.DragFloat3(\"Position\",position,0.1) end)",
+      "Description": "",
+      "Available": true
+    },
+    "DragFloat4": {
+      "Signature": "ImGuiCpp.DragFloat4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "DragInt": {
+      "Signature": "ImGuiCpp.DragInt(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "DragInt2": {
+      "Signature": "ImGuiCpp.DragInt2(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "DragInt3": {
+      "Signature": "ImGuiCpp.DragInt3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "DragInt4": {
+      "Signature": "ImGuiCpp.DragInt4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Dummy": {
+      "Signature": "ImGuiCpp.Dummy(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "End": {
+      "Signature": "ImGuiCpp.End(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndChild": {
+      "Signature": "ImGuiCpp.EndChild(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndCombo": {
+      "Signature": "ImGuiCpp.EndCombo(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndDisabled": {
+      "Signature": "ImGuiCpp.EndDisabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndGroup": {
+      "Signature": "ImGuiCpp.EndGroup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndListBox": {
+      "Signature": "ImGuiCpp.EndListBox(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndMainMenuBar": {
+      "Signature": "ImGuiCpp.EndMainMenuBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndMenu": {
+      "Signature": "ImGuiCpp.EndMenu(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndMenuBar": {
+      "Signature": "ImGuiCpp.EndMenuBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndPopup": {
+      "Signature": "ImGuiCpp.EndPopup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndTabBar": {
+      "Signature": "ImGuiCpp.EndTabBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndTabItem": {
+      "Signature": "ImGuiCpp.EndTabItem(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndTable": {
+      "Signature": "ImGuiCpp.EndTable(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "EndTooltip": {
+      "Signature": "ImGuiCpp.EndTooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Flags": {
+      "Signature": "ImGuiCpp.Flags(...)",
+      "Example": "local flags = ImGuiCpp.Flags(ImGuiCpp.ImGuiWindowFlags.NoResize, ImGuiCpp.ImGuiWindowFlags.NoCollapse)",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetBackgroundDrawList": {
+      "Signature": "ImGuiCpp.GetBackgroundDrawList()",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetCapabilities": {
+      "Signature": "ImGuiCpp.GetCapabilities()",
+      "Example": "local api=ImGuiCpp.GetCapabilities()\nfor _,name in ipairs(api.functions) do log(name) end",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetColorU32": {
+      "Signature": "ImGuiCpp.GetColorU32(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetColumnIndex": {
+      "Signature": "ImGuiCpp.GetColumnIndex(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetColumnOffset": {
+      "Signature": "ImGuiCpp.GetColumnOffset(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetColumnWidth": {
+      "Signature": "ImGuiCpp.GetColumnWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetColumnsCount": {
+      "Signature": "ImGuiCpp.GetColumnsCount(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetContentRegionAvail": {
+      "Signature": "ImGuiCpp.GetContentRegionAvail(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetCursorPos": {
+      "Signature": "ImGuiCpp.GetCursorPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetCursorPosX": {
+      "Signature": "ImGuiCpp.GetCursorPosX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetCursorPosY": {
+      "Signature": "ImGuiCpp.GetCursorPosY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetCursorScreenPos": {
+      "Signature": "ImGuiCpp.GetCursorScreenPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetCursorStartPos": {
+      "Signature": "ImGuiCpp.GetCursorStartPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetDisplaySize": {
+      "Signature": "ImGuiCpp.GetDisplaySize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFontSize": {
+      "Signature": "ImGuiCpp.GetFontSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFonts": {
+      "Signature": "ImGuiCpp.GetFonts(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetForegroundDrawList": {
+      "Signature": "ImGuiCpp.GetForegroundDrawList()",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetFrameCount": {
+      "Signature": "ImGuiCpp.GetFrameCount(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFrameHeight": {
+      "Signature": "ImGuiCpp.GetFrameHeight(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFrameHeightWithSpacing": {
+      "Signature": "ImGuiCpp.GetFrameHeightWithSpacing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFrameRate": {
+      "Signature": "ImGuiCpp.GetFrameRate(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetID": {
+      "Signature": "ImGuiCpp.GetID(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetIO": {
+      "Signature": "ImGuiCpp.GetIO(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetItemRectMax": {
+      "Signature": "ImGuiCpp.GetItemRectMax(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetItemRectMin": {
+      "Signature": "ImGuiCpp.GetItemRectMin(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetItemRectSize": {
+      "Signature": "ImGuiCpp.GetItemRectSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetKeyName": {
+      "Signature": "ImGuiCpp.GetKeyName(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetMainViewport": {
+      "Signature": "ImGuiCpp.GetMainViewport(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetMouseCursor": {
+      "Signature": "ImGuiCpp.GetMouseCursor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetMouseDragDelta": {
+      "Signature": "ImGuiCpp.GetMouseDragDelta(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetMousePos": {
+      "Signature": "ImGuiCpp.GetMousePos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetMousePosOnOpeningCurrentPopup": {
+      "Signature": "ImGuiCpp.GetMousePosOnOpeningCurrentPopup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetScrollMaxX": {
+      "Signature": "ImGuiCpp.GetScrollMaxX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetScrollMaxY": {
+      "Signature": "ImGuiCpp.GetScrollMaxY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetScrollX": {
+      "Signature": "ImGuiCpp.GetScrollX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetScrollY": {
+      "Signature": "ImGuiCpp.GetScrollY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetStyle": {
+      "Signature": "ImGuiCpp.GetStyle()",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetStyleColorName": {
+      "Signature": "ImGuiCpp.GetStyleColorName(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetStyleColorU32": {
+      "Signature": "ImGuiCpp.GetStyleColorU32(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetStyleColorVec4": {
+      "Signature": "ImGuiCpp.GetStyleColorVec4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetStyleVar": {
+      "Signature": "ImGuiCpp.GetStyleVar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetTextLineHeight": {
+      "Signature": "ImGuiCpp.GetTextLineHeight(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetTextLineHeightWithSpacing": {
+      "Signature": "ImGuiCpp.GetTextLineHeightWithSpacing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetTime": {
+      "Signature": "ImGuiCpp.GetTime(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetVersion": {
+      "Signature": "ImGuiCpp.GetVersion(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetWindowDrawList": {
+      "Signature": "ImGuiCpp.GetWindowDrawList()",
+      "Example": "local UI=ImGuiCpp\nscript.register_render(function()\n local p=UI.GetCursorScreenPos()\n UI.GetWindowDrawList():AddLine(p,UI.ImVec2(p.x+100,p.y),0xffffffff,2)\nend)",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetWindowHeight": {
+      "Signature": "ImGuiCpp.GetWindowHeight(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetWindowID": {
+      "Signature": "ImGuiCpp.GetWindowID(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetWindowPos": {
+      "Signature": "ImGuiCpp.GetWindowPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetWindowSize": {
+      "Signature": "ImGuiCpp.GetWindowSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetWindowWidth": {
+      "Signature": "ImGuiCpp.GetWindowWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImVec2": {
+      "Signature": "ImGuiCpp.ImVec2(x,y)",
+      "Example": "local size = ImGuiCpp.ImVec2(200, 40)",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "ImVec4": {
+      "Signature": "ImGuiCpp.ImVec4(x,y,z,w)",
+      "Example": "local color = ImGuiCpp.ImVec4(0, 0.8, 1, 1)",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "Indent": {
+      "Signature": "ImGuiCpp.Indent(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputFloat": {
+      "Signature": "ImGuiCpp.InputFloat(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputFloat2": {
+      "Signature": "ImGuiCpp.InputFloat2(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputFloat3": {
+      "Signature": "ImGuiCpp.InputFloat3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputFloat4": {
+      "Signature": "ImGuiCpp.InputFloat4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputInt": {
+      "Signature": "ImGuiCpp.InputInt(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputInt2": {
+      "Signature": "ImGuiCpp.InputInt2(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputInt3": {
+      "Signature": "ImGuiCpp.InputInt3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputInt4": {
+      "Signature": "ImGuiCpp.InputInt4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputText": {
+      "Signature": "ImGuiCpp.InputText(label, ref, flags?, capacity?) -> changed",
+      "Example": "local text=ImGuiCpp.Ref(\"Hello\")\nscript.register_render(function() ImGuiCpp.InputText(\"Text\",text) end)",
+      "Description": "",
+      "Available": true
+    },
+    "InputTextMultiline": {
+      "Signature": "ImGuiCpp.InputTextMultiline(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InputTextWithHint": {
+      "Signature": "ImGuiCpp.InputTextWithHint(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "InvisibleButton": {
+      "Signature": "ImGuiCpp.InvisibleButton(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsAnyItemActive": {
+      "Signature": "ImGuiCpp.IsAnyItemActive(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsAnyItemFocused": {
+      "Signature": "ImGuiCpp.IsAnyItemFocused(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsAnyItemHovered": {
+      "Signature": "ImGuiCpp.IsAnyItemHovered(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemActivated": {
+      "Signature": "ImGuiCpp.IsItemActivated(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemActive": {
+      "Signature": "ImGuiCpp.IsItemActive(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemClicked": {
+      "Signature": "ImGuiCpp.IsItemClicked(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemDeactivated": {
+      "Signature": "ImGuiCpp.IsItemDeactivated(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemDeactivatedAfterEdit": {
+      "Signature": "ImGuiCpp.IsItemDeactivatedAfterEdit(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemEdited": {
+      "Signature": "ImGuiCpp.IsItemEdited(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemFocused": {
+      "Signature": "ImGuiCpp.IsItemFocused(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemHovered": {
+      "Signature": "ImGuiCpp.IsItemHovered(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemToggledOpen": {
+      "Signature": "ImGuiCpp.IsItemToggledOpen(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsItemVisible": {
+      "Signature": "ImGuiCpp.IsItemVisible(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsKeyDown": {
+      "Signature": "ImGuiCpp.IsKeyDown(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsKeyPressed": {
+      "Signature": "ImGuiCpp.IsKeyPressed(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsKeyReleased": {
+      "Signature": "ImGuiCpp.IsKeyReleased(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsMouseClicked": {
+      "Signature": "ImGuiCpp.IsMouseClicked(button: integer = 0, repeat: boolean = false) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseClicked(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
+    },
+    "IsMouseDown": {
+      "Signature": "ImGuiCpp.IsMouseDown(button: integer = 0) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseDown(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
+    },
+    "IsMouseDragging": {
+      "Signature": "ImGuiCpp.IsMouseDragging(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsMouseHoveringRect": {
+      "Signature": "ImGuiCpp.IsMouseHoveringRect(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsMouseReleased": {
+      "Signature": "ImGuiCpp.IsMouseReleased(button: integer = 0) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseReleased(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
+    },
+    "IsPopupOpen": {
+      "Signature": "ImGuiCpp.IsPopupOpen(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsRectVisible": {
+      "Signature": "ImGuiCpp.IsRectVisible(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsWindowAppearing": {
+      "Signature": "ImGuiCpp.IsWindowAppearing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsWindowCollapsed": {
+      "Signature": "ImGuiCpp.IsWindowCollapsed(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsWindowFocused": {
+      "Signature": "ImGuiCpp.IsWindowFocused(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsWindowHovered": {
+      "Signature": "ImGuiCpp.IsWindowHovered(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "LabelText": {
+      "Signature": "ImGuiCpp.LabelText(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ListBox": {
+      "Signature": "ImGuiCpp.ListBox(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "MenuItem": {
+      "Signature": "ImGuiCpp.MenuItem(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "NewLine": {
+      "Signature": "ImGuiCpp.NewLine(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "OpenPopup": {
+      "Signature": "ImGuiCpp.OpenPopup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PlotHistogram": {
+      "Signature": "ImGuiCpp.PlotHistogram(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PlotLines": {
+      "Signature": "ImGuiCpp.PlotLines(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopButtonRepeat": {
+      "Signature": "ImGuiCpp.PopButtonRepeat(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopClipRect": {
+      "Signature": "ImGuiCpp.PopClipRect(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopFont": {
+      "Signature": "ImGuiCpp.PopFont(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopID": {
+      "Signature": "ImGuiCpp.PopID(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopItemWidth": {
+      "Signature": "ImGuiCpp.PopItemWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopStyleColor": {
+      "Signature": "ImGuiCpp.PopStyleColor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopStyleVar": {
+      "Signature": "ImGuiCpp.PopStyleVar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopTextWrapPos": {
+      "Signature": "ImGuiCpp.PopTextWrapPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ProgressBar": {
+      "Signature": "ImGuiCpp.ProgressBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PushButtonRepeat": {
+      "Signature": "ImGuiCpp.PushButtonRepeat(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PushClipRect": {
+      "Signature": "ImGuiCpp.PushClipRect(min,max,intersect)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "PushFont": {
+      "Signature": "ImGuiCpp.PushFont(zeroBasedIndex); PopFont()",
+      "Example": "script.register_render(function() ImGuiCpp.PushFont(0); ImGuiCpp.Text(\"Font\"); ImGuiCpp.PopFont() end)",
+      "Description": "",
+      "Available": true
+    },
+    "PushID": {
+      "Signature": "ImGuiCpp.PushID(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PushItemWidth": {
+      "Signature": "ImGuiCpp.PushItemWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PushStyleColor": {
+      "Signature": "ImGuiCpp.PushStyleColor(index,value)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "PushStyleVar": {
+      "Signature": "ImGuiCpp.PushStyleVar(index,value)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "PushTextWrapPos": {
+      "Signature": "ImGuiCpp.PushTextWrapPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "RadioButton": {
+      "Signature": "ImGuiCpp.RadioButton(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Ref": {
+      "Signature": "ImGuiCpp.Ref(value)",
+      "Example": "local enabled = ImGuiCpp.Ref(true)",
+      "Description": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "ResetMouseDragDelta": {
+      "Signature": "ImGuiCpp.ResetMouseDragDelta(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SameLine": {
+      "Signature": "ImGuiCpp.SameLine(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Selectable": {
+      "Signature": "ImGuiCpp.Selectable(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Separator": {
+      "Signature": "ImGuiCpp.Separator(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SeparatorText": {
+      "Signature": "ImGuiCpp.SeparatorText(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetColumnOffset": {
+      "Signature": "ImGuiCpp.SetColumnOffset(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetCursorPos": {
+      "Signature": "ImGuiCpp.SetCursorPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetCursorPosX": {
+      "Signature": "ImGuiCpp.SetCursorPosX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetCursorPosY": {
+      "Signature": "ImGuiCpp.SetCursorPosY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetCursorScreenPos": {
+      "Signature": "ImGuiCpp.SetCursorScreenPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetItemDefaultFocus": {
+      "Signature": "ImGuiCpp.SetItemDefaultFocus(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetItemTooltip": {
+      "Signature": "ImGuiCpp.SetItemTooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetKeyboardFocusHere": {
+      "Signature": "ImGuiCpp.SetKeyboardFocusHere(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetMouseCursor": {
+      "Signature": "ImGuiCpp.SetMouseCursor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextItemAllowOverlap": {
+      "Signature": "ImGuiCpp.SetNextItemAllowOverlap(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextItemOpen": {
+      "Signature": "ImGuiCpp.SetNextItemOpen(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextItemWidth": {
+      "Signature": "ImGuiCpp.SetNextItemWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowBgAlpha": {
+      "Signature": "ImGuiCpp.SetNextWindowBgAlpha(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowCollapsed": {
+      "Signature": "ImGuiCpp.SetNextWindowCollapsed(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowContentSize": {
+      "Signature": "ImGuiCpp.SetNextWindowContentSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowFocus": {
+      "Signature": "ImGuiCpp.SetNextWindowFocus(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowPos": {
+      "Signature": "ImGuiCpp.SetNextWindowPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowSize": {
+      "Signature": "ImGuiCpp.SetNextWindowSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetNextWindowSizeConstraints": {
+      "Signature": "ImGuiCpp.SetNextWindowSizeConstraints(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollFromPosX": {
+      "Signature": "ImGuiCpp.SetScrollFromPosX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollFromPosY": {
+      "Signature": "ImGuiCpp.SetScrollFromPosY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollHereX": {
+      "Signature": "ImGuiCpp.SetScrollHereX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollHereY": {
+      "Signature": "ImGuiCpp.SetScrollHereY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollX": {
+      "Signature": "ImGuiCpp.SetScrollX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollY": {
+      "Signature": "ImGuiCpp.SetScrollY(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetTabItemClosed": {
+      "Signature": "ImGuiCpp.SetTabItemClosed(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetTooltip": {
+      "Signature": "ImGuiCpp.SetTooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetWindowCollapsed": {
+      "Signature": "ImGuiCpp.SetWindowCollapsed(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetWindowFocus": {
+      "Signature": "ImGuiCpp.SetWindowFocus(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetWindowFontScale": {
+      "Signature": "ImGuiCpp.SetWindowFontScale(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetWindowPos": {
+      "Signature": "ImGuiCpp.SetWindowPos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetWindowSize": {
+      "Signature": "ImGuiCpp.SetWindowSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderFloat": {
+      "Signature": "ImGuiCpp.SliderFloat(label, ref, min, max, format?, flags?) -> changed",
+      "Example": "local UI=ImGuiCpp\nlocal value=UI.Ref(0.5)\nscript.register_render(function() UI.SliderFloat(\"Amount\",value,0,1,\"%.2f\") end)",
+      "Description": "",
+      "Available": true
+    },
+    "SliderFloat2": {
+      "Signature": "ImGuiCpp.SliderFloat2(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderFloat3": {
+      "Signature": "ImGuiCpp.SliderFloat3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderFloat4": {
+      "Signature": "ImGuiCpp.SliderFloat4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderInt": {
+      "Signature": "ImGuiCpp.SliderInt(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderInt2": {
+      "Signature": "ImGuiCpp.SliderInt2(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderInt3": {
+      "Signature": "ImGuiCpp.SliderInt3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SliderInt4": {
+      "Signature": "ImGuiCpp.SliderInt4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SmallButton": {
+      "Signature": "ImGuiCpp.SmallButton(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Spacing": {
+      "Signature": "ImGuiCpp.Spacing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TabItemButton": {
+      "Signature": "ImGuiCpp.TabItemButton(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableClearSortSpecsDirty": {
+      "Signature": "ImGuiCpp.TableClearSortSpecsDirty(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetColumnCount": {
+      "Signature": "ImGuiCpp.TableGetColumnCount(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetColumnFlags": {
+      "Signature": "ImGuiCpp.TableGetColumnFlags(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetColumnIndex": {
+      "Signature": "ImGuiCpp.TableGetColumnIndex(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetColumnName": {
+      "Signature": "ImGuiCpp.TableGetColumnName(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetRowIndex": {
+      "Signature": "ImGuiCpp.TableGetRowIndex(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableGetSortSpecs": {
+      "Signature": "ImGuiCpp.TableGetSortSpecs() -> copied sort specs",
+      "Example": "local UI=ImGuiCpp\nscript.register_render(function()\n if UI.BeginTable(\"Values\",2,UI.ImGuiTableFlags.Sortable) then\n  UI.TableSetupColumn(\"Name\"); UI.TableSetupColumn(\"Value\"); UI.TableHeadersRow()\n  local sort=UI.TableGetSortSpecs()\n  UI.TableClearSortSpecsDirty(); UI.EndTable()\n end\nend)",
+      "Description": "",
+      "Available": true
+    },
+    "TableHeader": {
+      "Signature": "ImGuiCpp.TableHeader(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableHeadersRow": {
+      "Signature": "ImGuiCpp.TableHeadersRow(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableNextColumn": {
+      "Signature": "ImGuiCpp.TableNextColumn(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableNextRow": {
+      "Signature": "ImGuiCpp.TableNextRow(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableSetBgColor": {
+      "Signature": "ImGuiCpp.TableSetBgColor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableSetColumnEnabled": {
+      "Signature": "ImGuiCpp.TableSetColumnEnabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableSetColumnIndex": {
+      "Signature": "ImGuiCpp.TableSetColumnIndex(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableSetupColumn": {
+      "Signature": "ImGuiCpp.TableSetupColumn(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TableSetupScrollFreeze": {
+      "Signature": "ImGuiCpp.TableSetupScrollFreeze(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Text": {
+      "Signature": "ImGuiCpp.Text(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TextColored": {
+      "Signature": "ImGuiCpp.TextColored(color,format,...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "TextDisabled": {
+      "Signature": "ImGuiCpp.TextDisabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TextUnformatted": {
+      "Signature": "ImGuiCpp.TextUnformatted(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TextWrapped": {
+      "Signature": "ImGuiCpp.TextWrapped(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TreeNode": {
+      "Signature": "ImGuiCpp.TreeNode(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "TreePop": {
+      "Signature": "ImGuiCpp.TreePop(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Unindent": {
+      "Signature": "ImGuiCpp.Unindent(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "VSliderFloat": {
+      "Signature": "ImGuiCpp.VSliderFloat(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "VSliderInt": {
+      "Signature": "ImGuiCpp.VSliderInt(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     }
   }
 }

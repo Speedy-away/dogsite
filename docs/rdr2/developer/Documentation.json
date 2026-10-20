@@ -46468,11 +46468,18 @@
     },
     "BeginListBox": {
       "Signature": "ImGuiCpp.BeginListBox(id,size)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "BeginMainMenuBar": {
       "Signature": "ImGuiCpp.BeginMainMenuBar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginMenu": {
+      "Signature": "ImGuiCpp.BeginMenu(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -46485,6 +46492,18 @@
     },
     "BeginPopup": {
       "Signature": "ImGuiCpp.BeginPopup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginPopupContextItem": {
+      "Signature": "ImGuiCpp.BeginPopupContextItem(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "BeginPopupContextWindow": {
+      "Signature": "ImGuiCpp.BeginPopupContextWindow(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -46557,7 +46576,7 @@
     },
     "Checkbox": {
       "Signature": "ImGuiCpp.Checkbox(label: string, ref: table) -> boolean",
-      "Example": "local enabled = ImGuiCpp.Ref(false)\nscript.register_render(function() ImGuiCpp.Checkbox('Enabled', enabled) end)",
+      "Example": "local I = ImGuiCpp\nlocal enabled = I.Ref(false)\nscript.register_render(function()\n if I.Begin('Tools') then I.Checkbox('Enabled', enabled) end\n I.End()\nend)",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
@@ -46629,6 +46648,12 @@
     },
     "ColorPicker4": {
       "Signature": "ImGuiCpp.ColorPicker4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "Columns": {
+      "Signature": "ImGuiCpp.Columns(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -46779,18 +46804,27 @@
     },
     "Flags": {
       "Signature": "ImGuiCpp.Flags(...)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "GetBackgroundDrawList": {
       "Signature": "ImGuiCpp.GetBackgroundDrawList()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "GetCapabilities": {
       "Signature": "ImGuiCpp.GetCapabilities()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "GetClipboardText": {
+      "Signature": "ImGuiCpp.GetClipboardText(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "GetColorU32": {
       "Signature": "ImGuiCpp.GetColorU32(...)",
@@ -46876,6 +46910,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "GetFontSize": {
+      "Signature": "ImGuiCpp.GetFontSize(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "GetFonts": {
       "Signature": "ImGuiCpp.GetFonts(...)",
       "Example": "",
@@ -46884,11 +46924,24 @@
     },
     "GetForegroundDrawList": {
       "Signature": "ImGuiCpp.GetForegroundDrawList()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "GetFrameCount": {
       "Signature": "ImGuiCpp.GetFrameCount(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFrameHeight": {
+      "Signature": "ImGuiCpp.GetFrameHeight(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetFrameHeightWithSpacing": {
+      "Signature": "ImGuiCpp.GetFrameHeightWithSpacing(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -46995,6 +47048,18 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "GetTextLineHeight": {
+      "Signature": "ImGuiCpp.GetTextLineHeight(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "GetTextLineHeightWithSpacing": {
+      "Signature": "ImGuiCpp.GetTextLineHeightWithSpacing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "GetTime": {
       "Signature": "ImGuiCpp.GetTime(...)",
       "Example": "",
@@ -47009,6 +47074,7 @@
     },
     "GetWindowDrawList": {
       "Signature": "ImGuiCpp.GetWindowDrawList()",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -47042,15 +47108,77 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "ImDrawListAddCircle": {
+      "Signature": "ImGuiCpp.ImDrawListAddCircle(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddCircleFilled": {
+      "Signature": "ImGuiCpp.ImDrawListAddCircleFilled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddLine": {
+      "Signature": "ImGuiCpp.ImDrawListAddLine(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddRect": {
+      "Signature": "ImGuiCpp.ImDrawListAddRect(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddRectFilled": {
+      "Signature": "ImGuiCpp.ImDrawListAddRectFilled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddRectFilledMultiColor": {
+      "Signature": "ImGuiCpp.ImDrawListAddRectFilledMultiColor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddText": {
+      "Signature": "ImGuiCpp.ImDrawListAddText(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddTriangle": {
+      "Signature": "ImGuiCpp.ImDrawListAddTriangle(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "ImDrawListAddTriangleFilled": {
+      "Signature": "ImGuiCpp.ImDrawListAddTriangleFilled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "ImVec2": {
       "Signature": "ImGuiCpp.ImVec2(x,y)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "ImVec4": {
       "Signature": "ImGuiCpp.ImVec4(x,y,z,w)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+    },
+    "Indent": {
+      "Signature": "ImGuiCpp.Indent(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "InputFloat": {
       "Signature": "ImGuiCpp.InputFloat(...)",
@@ -47136,6 +47264,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "IsAnyItemHovered": {
+      "Signature": "ImGuiCpp.IsAnyItemHovered(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "IsItemActivated": {
       "Signature": "ImGuiCpp.IsItemActivated(...)",
       "Example": "",
@@ -47214,11 +47348,29 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "IsMouseClicked": {
+      "Signature": "ImGuiCpp.IsMouseClicked(button: integer = 0, repeat: boolean = false) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseClicked(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
+    },
+    "IsMouseDown": {
+      "Signature": "ImGuiCpp.IsMouseDown(button: integer = 0) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseDown(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
+    },
     "IsMouseHoveringRect": {
       "Signature": "ImGuiCpp.IsMouseHoveringRect(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsMouseReleased": {
+      "Signature": "ImGuiCpp.IsMouseReleased(button: integer = 0) -> boolean",
+      "Description": "Render callback only. Queries the current ImGui mouse state. Button indices are 0 (left), 1 (right), 2 (middle), 3 and 4; other indices are rejected.",
+      "Example": "local I = ImGuiCpp\nscript.register_render(function()\n if I.Begin('Mouse input') then\n  I.TextUnformatted(I.IsMouseReleased(0) and 'Active' or 'Inactive')\n end\n I.End()\nend)",
+      "Available": true
     },
     "IsPopupOpen": {
       "Signature": "ImGuiCpp.IsPopupOpen(...)",
@@ -47228,6 +47380,18 @@
     },
     "IsRectVisible": {
       "Signature": "ImGuiCpp.IsRectVisible(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsWindowAppearing": {
+      "Signature": "ImGuiCpp.IsWindowAppearing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "IsWindowCollapsed": {
+      "Signature": "ImGuiCpp.IsWindowCollapsed(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -47252,12 +47416,6 @@
     },
     "MenuItem": {
       "Signature": "ImGuiCpp.MenuItem(...)",
-      "Example": "",
-      "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
-    },
-    "NAME": {
-      "Signature": "ImGuiCpp.NAME(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -47292,6 +47450,24 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "PopButtonRepeat": {
+      "Signature": "ImGuiCpp.PopButtonRepeat(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopClipRect": {
+      "Signature": "ImGuiCpp.PopClipRect(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopFont": {
+      "Signature": "ImGuiCpp.PopFont(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "PopID": {
       "Signature": "ImGuiCpp.PopID(...)",
       "Example": "",
@@ -47300,6 +47476,24 @@
     },
     "PopItemWidth": {
       "Signature": "ImGuiCpp.PopItemWidth(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopStyleColor": {
+      "Signature": "ImGuiCpp.PopStyleColor(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopStyleVar": {
+      "Signature": "ImGuiCpp.PopStyleVar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "PopTextWrapPos": {
+      "Signature": "ImGuiCpp.PopTextWrapPos(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -47348,6 +47542,7 @@
     },
     "PushStyleVar": {
       "Signature": "ImGuiCpp.PushStyleVar(index,value)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -47365,6 +47560,7 @@
     },
     "Ref": {
       "Signature": "ImGuiCpp.Ref(value)",
+      "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
@@ -47428,8 +47624,20 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "SetItemDefaultFocus": {
+      "Signature": "ImGuiCpp.SetItemDefaultFocus(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "SetItemTooltip": {
       "Signature": "ImGuiCpp.SetItemTooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetKeyboardFocusHere": {
+      "Signature": "ImGuiCpp.SetKeyboardFocusHere(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -47508,6 +47716,12 @@
     },
     "SetScrollHereX": {
       "Signature": "ImGuiCpp.SetScrollHereX(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "SetScrollHereY": {
+      "Signature": "ImGuiCpp.SetScrollHereY(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
@@ -47728,6 +47942,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "TextUnformatted": {
+      "Signature": "ImGuiCpp.TextUnformatted(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "TextWrapped": {
       "Signature": "ImGuiCpp.TextWrapped(...)",
       "Example": "",
@@ -47746,6 +47966,12 @@
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
+    "Unindent": {
+      "Signature": "ImGuiCpp.Unindent(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
     "VSliderFloat": {
       "Signature": "ImGuiCpp.VSliderFloat(...)",
       "Example": "",
@@ -47754,6 +47980,660 @@
     },
     "VSliderInt": {
       "Signature": "ImGuiCpp.VSliderInt(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin": {
+      "Signature": "ImGuiCpp.begin(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_child": {
+      "Signature": "ImGuiCpp.begin_child(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_combo": {
+      "Signature": "ImGuiCpp.begin_combo(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_disabled": {
+      "Signature": "ImGuiCpp.begin_disabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_group": {
+      "Signature": "ImGuiCpp.begin_group(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_list_box": {
+      "Signature": "ImGuiCpp.begin_list_box(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_main_menu_bar": {
+      "Signature": "ImGuiCpp.begin_main_menu_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_menu": {
+      "Signature": "ImGuiCpp.begin_menu(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_menu_bar": {
+      "Signature": "ImGuiCpp.begin_menu_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_popup": {
+      "Signature": "ImGuiCpp.begin_popup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_popup_context_item": {
+      "Signature": "ImGuiCpp.begin_popup_context_item(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_popup_context_window": {
+      "Signature": "ImGuiCpp.begin_popup_context_window(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_popup_modal": {
+      "Signature": "ImGuiCpp.begin_popup_modal(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_tab_bar": {
+      "Signature": "ImGuiCpp.begin_tab_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_tab_item": {
+      "Signature": "ImGuiCpp.begin_tab_item(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_table": {
+      "Signature": "ImGuiCpp.begin_table(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "begin_tooltip": {
+      "Signature": "ImGuiCpp.begin_tooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "bullet": {
+      "Signature": "ImGuiCpp.bullet(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "bullet_text": {
+      "Signature": "ImGuiCpp.bullet_text(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "button": {
+      "Signature": "ImGuiCpp.button(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "button_ex": {
+      "Signature": "ImGuiCpp.button_ex(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "checkbox": {
+      "Signature": "ImGuiCpp.checkbox(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "close_current_popup": {
+      "Signature": "ImGuiCpp.close_current_popup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "collapsing_header": {
+      "Signature": "ImGuiCpp.collapsing_header(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "color_edit3": {
+      "Signature": "ImGuiCpp.color_edit3(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "color_edit4": {
+      "Signature": "ImGuiCpp.color_edit4(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "columns": {
+      "Signature": "ImGuiCpp.columns(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "drag_float": {
+      "Signature": "ImGuiCpp.drag_float(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "drag_int": {
+      "Signature": "ImGuiCpp.drag_int(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "dummy": {
+      "Signature": "ImGuiCpp.dummy(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_child": {
+      "Signature": "ImGuiCpp.end_child(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_combo": {
+      "Signature": "ImGuiCpp.end_combo(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_disabled": {
+      "Signature": "ImGuiCpp.end_disabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_group": {
+      "Signature": "ImGuiCpp.end_group(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_list_box": {
+      "Signature": "ImGuiCpp.end_list_box(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_main_menu_bar": {
+      "Signature": "ImGuiCpp.end_main_menu_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_menu": {
+      "Signature": "ImGuiCpp.end_menu(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_menu_bar": {
+      "Signature": "ImGuiCpp.end_menu_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_popup": {
+      "Signature": "ImGuiCpp.end_popup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_tab_bar": {
+      "Signature": "ImGuiCpp.end_tab_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_tab_item": {
+      "Signature": "ImGuiCpp.end_tab_item(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_table": {
+      "Signature": "ImGuiCpp.end_table(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_tooltip": {
+      "Signature": "ImGuiCpp.end_tooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "end_window": {
+      "Signature": "ImGuiCpp.end_window(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_content_region_avail": {
+      "Signature": "ImGuiCpp.get_content_region_avail(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_cursor_pos": {
+      "Signature": "ImGuiCpp.get_cursor_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_cursor_screen_pos": {
+      "Signature": "ImGuiCpp.get_cursor_screen_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_frame_count": {
+      "Signature": "ImGuiCpp.get_frame_count(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_scroll_max_y": {
+      "Signature": "ImGuiCpp.get_scroll_max_y(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_scroll_y": {
+      "Signature": "ImGuiCpp.get_scroll_y(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_time": {
+      "Signature": "ImGuiCpp.get_time(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_window_height": {
+      "Signature": "ImGuiCpp.get_window_height(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_window_pos": {
+      "Signature": "ImGuiCpp.get_window_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_window_size": {
+      "Signature": "ImGuiCpp.get_window_size(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "get_window_width": {
+      "Signature": "ImGuiCpp.get_window_width(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "indent": {
+      "Signature": "ImGuiCpp.indent(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "input_float": {
+      "Signature": "ImGuiCpp.input_float(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "input_int": {
+      "Signature": "ImGuiCpp.input_int(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "input_text": {
+      "Signature": "ImGuiCpp.input_text(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "input_text_multiline": {
+      "Signature": "ImGuiCpp.input_text_multiline(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "invisible_button": {
+      "Signature": "ImGuiCpp.invisible_button(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_item_active": {
+      "Signature": "ImGuiCpp.is_item_active(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_item_clicked": {
+      "Signature": "ImGuiCpp.is_item_clicked(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_item_edited": {
+      "Signature": "ImGuiCpp.is_item_edited(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_item_focused": {
+      "Signature": "ImGuiCpp.is_item_focused(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_item_hovered": {
+      "Signature": "ImGuiCpp.is_item_hovered(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_window_focused": {
+      "Signature": "ImGuiCpp.is_window_focused(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "is_window_hovered": {
+      "Signature": "ImGuiCpp.is_window_hovered(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "menu_item": {
+      "Signature": "ImGuiCpp.menu_item(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "new_line": {
+      "Signature": "ImGuiCpp.new_line(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "next_column": {
+      "Signature": "ImGuiCpp.next_column(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "open_popup": {
+      "Signature": "ImGuiCpp.open_popup(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "pop_item_width": {
+      "Signature": "ImGuiCpp.pop_item_width(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "pop_style_color": {
+      "Signature": "ImGuiCpp.pop_style_color(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "pop_style_var": {
+      "Signature": "ImGuiCpp.pop_style_var(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "progress_bar": {
+      "Signature": "ImGuiCpp.progress_bar(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "push_item_width": {
+      "Signature": "ImGuiCpp.push_item_width(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "push_style_color": {
+      "Signature": "ImGuiCpp.push_style_color(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "push_style_var": {
+      "Signature": "ImGuiCpp.push_style_var(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "radio_button": {
+      "Signature": "ImGuiCpp.radio_button(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "same_line": {
+      "Signature": "ImGuiCpp.same_line(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "selectable": {
+      "Signature": "ImGuiCpp.selectable(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "separator": {
+      "Signature": "ImGuiCpp.separator(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_cursor_pos": {
+      "Signature": "ImGuiCpp.set_cursor_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_cursor_screen_pos": {
+      "Signature": "ImGuiCpp.set_cursor_screen_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_keyboard_focus_here": {
+      "Signature": "ImGuiCpp.set_keyboard_focus_here(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_next_window_pos": {
+      "Signature": "ImGuiCpp.set_next_window_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_next_window_size": {
+      "Signature": "ImGuiCpp.set_next_window_size(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_scroll_here_y": {
+      "Signature": "ImGuiCpp.set_scroll_here_y(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_scroll_y": {
+      "Signature": "ImGuiCpp.set_scroll_y(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_tooltip": {
+      "Signature": "ImGuiCpp.set_tooltip(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_window_pos": {
+      "Signature": "ImGuiCpp.set_window_pos(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "set_window_size": {
+      "Signature": "ImGuiCpp.set_window_size(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "slider_float": {
+      "Signature": "ImGuiCpp.slider_float(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "slider_int": {
+      "Signature": "ImGuiCpp.slider_int(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "small_button": {
+      "Signature": "ImGuiCpp.small_button(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "spacing": {
+      "Signature": "ImGuiCpp.spacing(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "table_headers_row": {
+      "Signature": "ImGuiCpp.table_headers_row(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "table_next_column": {
+      "Signature": "ImGuiCpp.table_next_column(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "table_next_row": {
+      "Signature": "ImGuiCpp.table_next_row(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "table_set_column_index": {
+      "Signature": "ImGuiCpp.table_set_column_index(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "table_setup_column": {
+      "Signature": "ImGuiCpp.table_setup_column(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "text": {
+      "Signature": "ImGuiCpp.text(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "text_colored": {
+      "Signature": "ImGuiCpp.text_colored(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "text_disabled": {
+      "Signature": "ImGuiCpp.text_disabled(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "text_wrapped": {
+      "Signature": "ImGuiCpp.text_wrapped(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "tree_node": {
+      "Signature": "ImGuiCpp.tree_node(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "tree_pop": {
+      "Signature": "ImGuiCpp.tree_pop(...)",
+      "Example": "",
+      "Available": true,
+      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+    },
+    "unindent": {
+      "Signature": "ImGuiCpp.unindent(...)",
       "Example": "",
       "Available": true,
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"

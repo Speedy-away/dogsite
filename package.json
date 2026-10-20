@@ -12,7 +12,10 @@
     "seo:links": "node tools/seo-links.js --apply",
     "media:build": "node tools/build-reseller-media.cjs",
     "media:banners": "node tools/render-reseller-banners.cjs",
-    "test:reseller": "node --test tools/reseller-program.test.cjs"
+    "test:reseller": "node --test tools/reseller-program.test.cjs",
+    "docs:rockstar": "node tools/build-rockstar-lua-docs.cjs",
+    "docs:rockstar:check": "node tools/build-rockstar-lua-docs.cjs --check",
+    "docs:rockstar:test": "node tools/validate-rockstar-lua-docs.cjs"
   },
   "devDependencies": {
     "marked": "17.0.5",
