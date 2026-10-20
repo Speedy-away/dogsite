@@ -19973,6 +19973,98 @@
       "Source": "src/core/scripting/bindings/LuaDecor.cpp"
     }
   },
+  "DrawList": {
+    "AddBezierCubic": {
+      "Signature": "DrawList:AddBezierCubic(p1: ImVec2, p2: ImVec2, p3: ImVec2, p4: ImVec2, color: integer, thickness: number = 1, segments: integer = 0) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddBezierCubic(p, q, r, s, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddBezierQuadratic": {
+      "Signature": "DrawList:AddBezierQuadratic(p1: ImVec2, p2: ImVec2, p3: ImVec2, color: integer, thickness: number = 1, segments: integer = 0) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddBezierQuadratic(p, q, r, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddCircle": {
+      "Signature": "DrawList:AddCircle(center: ImVec2, radius: number, color: integer, segments: integer = 0, thickness: number = 1) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddCircle(p, 12, color, 24, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddCircleFilled": {
+      "Signature": "DrawList:AddCircleFilled(center: ImVec2, radius: number, color: integer, segments: integer = 0) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddCircleFilled(p, 12, color)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddLine": {
+      "Signature": "DrawList:AddLine(from: ImVec2, to: ImVec2, color: integer, thickness: number = 1) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddLine(p, q, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddNgon": {
+      "Signature": "DrawList:AddNgon(center: ImVec2, radius: number, color: integer, segments: integer = 6, thickness: number = 1) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddNgon(p, 12, color, 6, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddNgonFilled": {
+      "Signature": "DrawList:AddNgonFilled(center: ImVec2, radius: number, color: integer, segments: integer = 6) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddNgonFilled(p, 12, color, 6)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddQuad": {
+      "Signature": "DrawList:AddQuad(a: ImVec2, b: ImVec2, c: ImVec2, d: ImVec2, color: integer, thickness: number = 1) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddQuad(p, q, r, s, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddQuadFilled": {
+      "Signature": "DrawList:AddQuadFilled(a: ImVec2, b: ImVec2, c: ImVec2, d: ImVec2, color: integer) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddQuadFilled(p, q, r, s, color)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddRect": {
+      "Signature": "DrawList:AddRect(min: ImVec2, max: ImVec2, color: integer, rounding: number = 0, flags: integer = 0, thickness: number = 1) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddRect(p, q, color, 4, 0, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddRectFilled": {
+      "Signature": "DrawList:AddRectFilled(min: ImVec2, max: ImVec2, color: integer, rounding: number = 0, flags: integer = 0) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddRectFilled(p, q, color, 4)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddRectFilledMultiColor": {
+      "Signature": "DrawList:AddRectFilledMultiColor(min: ImVec2, max: ImVec2, upperLeft: integer, upperRight: integer, lowerRight: integer, lowerLeft: integer) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddRectFilledMultiColor(p, q, color, color, 0xff00ffff, 0xff00ffff)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddText": {
+      "Signature": "DrawList:AddText(pos: ImVec2, color: integer, text: string) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddText(p, color, 'Hello')\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddTriangle": {
+      "Signature": "DrawList:AddTriangle(a: ImVec2, b: ImVec2, c: ImVec2, color: integer, thickness: number = 1) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddTriangle(p, q, r, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    },
+    "AddTriangleFilled": {
+      "Signature": "DrawList:AddTriangleFilled(a: ImVec2, b: ImVec2, c: ImVec2, color: integer) -> nil",
+      "Description": "Render callback only. Returned by ImGuiCpp.GetWindowDrawList, GetBackgroundDrawList or GetForegroundDrawList. Use colon calls and ImVec2 coordinates. Reacquire every frame; window lists also belong to their creating window.",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddTriangleFilled(p, q, r, color)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
+      "Available": true
+    }
+  },
   "ENTITY": {
     "APPLY_FORCE_TO_ENTITY": {
       "Signature": "ENTITY.APPLY_FORCE_TO_ENTITY(EntityIndex: integer, ApplyType: integer, vForceX: number, vForceY: number, vForceZ: number, vOffsetX: number, vOffsetY: number, vOffsetZ: number, Component: integer, LocalForce: boolean, LocalOffset: boolean, ScaleByMass: boolean, triggerAudio: boolean, ScaleByTimeWarp: boolean)",
@@ -46576,9 +46668,8 @@
     },
     "Checkbox": {
       "Signature": "ImGuiCpp.Checkbox(label: string, ref: table) -> boolean",
-      "Example": "local I = ImGuiCpp\nlocal enabled = I.Ref(false)\nscript.register_render(function()\n if I.Begin('Tools') then I.Checkbox('Enabled', enabled) end\n I.End()\nend)",
       "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
+      "Example": "local I = ImGuiCpp\nlocal enabled = I.Ref(false)\nscript.register_render(function()\n if I.Begin('Tools') then I.Checkbox('Enabled', enabled) end\n I.End()\nend)"
     },
     "CheckboxFlags": {
       "Signature": "ImGuiCpp.CheckboxFlags(...)",
@@ -46809,10 +46900,11 @@
       "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
     },
     "GetBackgroundDrawList": {
-      "Signature": "ImGuiCpp.GetBackgroundDrawList()",
-      "Example": "",
+      "Signature": "ImGuiCpp.GetBackgroundDrawList() -> DrawList",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddLine(p, q, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
       "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp",
+      "Description": "Render callback only. Reacquire each frame; window lists also expire when the window changes. Methods use colon calls and ImVec2 coordinates."
     },
     "GetCapabilities": {
       "Signature": "ImGuiCpp.GetCapabilities()",
@@ -46923,10 +47015,11 @@
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "GetForegroundDrawList": {
-      "Signature": "ImGuiCpp.GetForegroundDrawList()",
-      "Example": "",
+      "Signature": "ImGuiCpp.GetForegroundDrawList() -> DrawList",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddLine(p, q, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
       "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp",
+      "Description": "Render callback only. Reacquire each frame; window lists also expire when the window changes. Methods use colon calls and ImVec2 coordinates."
     },
     "GetFrameCount": {
       "Signature": "ImGuiCpp.GetFrameCount(...)",
@@ -47073,10 +47166,11 @@
       "Source": "src/core/scripting/LuaImGuiPortNative.hpp"
     },
     "GetWindowDrawList": {
-      "Signature": "ImGuiCpp.GetWindowDrawList()",
-      "Example": "",
+      "Signature": "ImGuiCpp.GetWindowDrawList() -> DrawList",
+      "Example": "local UI = ImGuiCpp\nscript.register_render(function()\n if UI.Begin('Drawing') then\n  local p = UI.GetCursorScreenPos()\n  local q = UI.ImVec2(p.x + 80, p.y + 40)\n  local r = UI.ImVec2(p.x + 40, p.y + 80)\n  local s = UI.ImVec2(p.x, p.y + 40)\n  local color = 0xffffffff\n  local draw = UI.GetWindowDrawList()\n  draw:AddLine(p, q, color, 2)\n  UI.Dummy(UI.ImVec2(100, 100))\n end\n UI.End()\nend)",
       "Available": true,
-      "Source": "src/core/scripting/LuaImGuiPortScript.hpp"
+      "Source": "src/core/scripting/LuaImGuiPortScript.hpp",
+      "Description": "Render callback only. Reacquire each frame; window lists also expire when the window changes. Methods use colon calls and ImVec2 coordinates."
     },
     "GetWindowHeight": {
       "Signature": "ImGuiCpp.GetWindowHeight(...)",
@@ -159457,10 +159551,6 @@
     "require": {
       "Signature": "compat.require(requirements: table)",
       "Example": "compat.require{api='2.1.0', game='RDR2', capabilities={'modules','custom_gui'}}",
-      "Available": true
-    },
-    "use": {
-      "Signature": "compat.use('scooby')",
       "Available": true
     }
   },

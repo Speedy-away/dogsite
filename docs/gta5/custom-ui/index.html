@@ -92,10 +92,8 @@ conventions. Replace native command checkboxes with <code>features.get/set</code
 feature page. Replace the C++ renderer callback with <code>script.register_render</code>,
 and queue engine work onto the script scheduler. The host owns frames, input
 capture, renderer backends and context lifetime.</p>
-<p><a href="https://github.com/Mr-X-GTA/YimMenu/blob/master/src/gui.cpp">The supplied C++ interface reference</a>
-uses ImGui style fields and scoped colors; those concepts map to the adapter&#39;s
-style pushes and custom window rendering. This is a porting workflow, not an
-automatic translator or a completed port of that repository. Arbitrary C++
+<p>Existing C++ interfaces use ImGui style fields and scoped colors; map these
+to scoped style pushes and custom window rendering. Arbitrary C++
 pointers, backend/atlas mutation, docking/multiple OS windows, raw GPU resources
 and internal draw-list machinery remain outside the portable API.
 <code>ImGuiCpp.GetCapabilities()</code> lists supported calls and explicit limits. Managed

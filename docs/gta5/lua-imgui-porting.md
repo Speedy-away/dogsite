@@ -8,6 +8,10 @@ GTA5 and RDR2 expose `ImGuiCpp`, an opt-in C++-style adapter over the games' pin
 
 See `ImGuiCppDemo.lua` in this project's Lua examples for the same working UI on both games.
 
+Drawing methods are documented once under `DrawList` in the [API browser](lua-api.html).
+Acquire an object through `ImGuiCpp.GetWindowDrawList()`,
+`GetBackgroundDrawList()` or `GetForegroundDrawList()` and call methods with a colon.
+
 ## Mechanical translation
 
 | C++ | Lua |

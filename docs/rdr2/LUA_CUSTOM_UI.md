@@ -113,10 +113,8 @@ feature page. Replace the C++ renderer callback with `script.register_render`,
 and queue engine work onto the script scheduler. The host owns frames, input
 capture, renderer backends and context lifetime.
 
-[The supplied C++ interface reference](https://github.com/Mr-X-GTA/YimMenu/blob/master/src/gui.cpp)
-uses ImGui style fields and scoped colors; those concepts map to the adapter's
-style pushes and custom window rendering. This is a porting workflow, not an
-automatic translator or a completed port of that repository. Arbitrary C++
+Existing C++ interfaces use ImGui style fields and scoped colors; map these
+to scoped style pushes and custom window rendering. Arbitrary C++
 pointers, backend/atlas mutation, docking/multiple OS windows, raw GPU resources
 and internal draw-list machinery remain outside the portable API.
 `ImGuiCpp.GetCapabilities()` lists supported calls and explicit limits. Managed

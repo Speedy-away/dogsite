@@ -1,5 +1,21 @@
 # RDR2 Lua developer references
 
+## Attached API browser placement
+
+The in-menu documentation browser remains on the editor's right, aligned with
+its top edge. Dragging the editor beyond any screen edge carries the browser
+with it; it does not clamp to the viewport or switch sides. Its height follows
+the editor with the existing 380-pixel minimum, including oversized editors.
+The existing theme, API content and Editor-tab visibility remain in use.
+
+From an MSVC x64 developer environment, run GTA5's
+`tools/test_lua_documentation_attachment.py` to exercise both games' production
+window functions against their own ImGui versions. Movement across all four
+edges, viewport changes, scaling, resizing and visibility are covered. Logs and
+draw-data previews are under `build/lua-docs-attachment-20261020/` in each game.
+Run both supported Release wrappers with all mandatory guards after native
+changes. These fixtures do not establish live-game input acceptance.
+
 For ListUI/ClickUI themes, script-created native feature pages and standalone
 interfaces sharing built-in commands, see [custom Lua UI](LUA_CUSTOM_UI.md).
 The offline [searchable API browser](lua-api.html) is generated from the same
@@ -93,3 +109,22 @@ Evidence for this change is under `build/lua-developer-files/`. Game/native,
 graphics/input, network and foreground-performance acceptance require the exact
 built artifact and separate in-game evidence. Translation/font packaging checks
 remain mandatory; no translation catalogs or language fonts are added here.
+
+## Canonical custom UI reference
+
+The generated catalog and offline browser document `ImGuiCpp` and one `DrawList`
+object type. All 15 drawing methods use colon calls, `ImVec2` coordinates and
+packed integer colors. Acquire a fresh list from `GetWindowDrawList`,
+`GetBackgroundDrawList` or `GetForegroundDrawList` while rendering. Older script
+aliases retain their runtime behavior without separate branded API categories.
+
+`tools/test_lua_developer_generation.py --generated <output> --check-repeat`
+checks the drawing inventory against registered native methods, getter return
+types, examples, duplicate free functions and public metadata. GTA5's
+`tools/test_lua_doc_catalog.ps1` also compiles the actual browser merge and checks
+its final categories, tooltips, signatures and examples. This prevents stale
+handwritten entries from reappearing beside generated `ImGuiCpp` entries.
+
+Evidence for the canonical reference update belongs under
+`build/lua-docs-canonical/`; local website browser/download checks live in the
+website project's `build/` tree. Keep live game acceptance separate.

@@ -73,9 +73,8 @@ Both builds supply `table.pack/unpack`, global `unpack`, and
 `tobit/tohex/bnot/band/bor/bxor/lshift/rshift/arshift/rol/ror/bswap`; LuaJIT uses its
 native module. `require('json')` resolves to the host JSON API.
 
-`compat.use('yim-legacy')` switches this script's global `ImGui` to the Yim adapter.
-`compat.use('scooby')` restores Scooby return order. Call this before importing
-modules that capture `ImGui`. `log` remains callable and also provides
+Use `local UI = ImGuiCpp` for C++-style widget contracts without replacing
+the global `ImGui` table. `log` remains callable and also provides
 `info/debug/warning/error`. File aliases include `filesystem.get_scripts_dir`,
 `get_script_dir`, `exists`, `is_regular_file`, `is_directory`,
 `create_directory/create_directories`, and `get_files` (sorted file paths).
@@ -180,20 +179,21 @@ invalid combination of Dear ImGui flags or arguments.
 Existing Scooby widgets retain **`changed, value`** return order. For a port:
 
 ```lua
-local UI = compat.yim_imgui
-local value, changed = UI.Checkbox('Yim convention', false)
+local UI = ImGuiCpp
+local enabled = UI.Ref(false)
+script.register_render(function()
+ if UI.Begin('Tools') then UI.Checkbox('Enabled', enabled) end
+ UI.End()
+end)
 ```
 
-The explicit adapter covers Checkbox, SliderInt/Float, InputInt/Float/Text,
-DragInt/Float, RadioButton, ColorEdit3/4, and InputTextMultiline. It is a subset,
-not a replacement for all Yim ImGui overloads. `ImGui.Begin(name, open, flags)`
+For the existing scalar API, `ImGui.Begin(name, open, flags)`
 returns `open, visible`; the name/flags form returns only `visible`.
 
 InputText accepts `(label, text, capacity=4096, flags=0)`. Multiline accepts
 `(label, text, width, height, capacity=65536, flags=0)`. Capacity includes the
 terminator and ranges from 2 bytes to 1 MiB; oversized initial text produces an
 error rather than silently truncating it. Input callback flags are unsupported.
-The Yim multiline adapter uses `(label,text,capacity,width,height,flags)`.
 
 Extended bindings include window/child/table/tab flags, PushID/PopID, text
 measurement, display/mouse positions, clipboard access, and draw lists.

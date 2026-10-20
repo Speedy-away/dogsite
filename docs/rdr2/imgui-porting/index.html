@@ -4,6 +4,9 @@ pages to <strong>both ListUI and ClickUI</strong>, sharing built-in command stat
 both native themes and a complete custom feature-browser example.</p>
 <p>GTA5 and RDR2 expose <code>ImGuiCpp</code>, an opt-in C++-style adapter over the games&#39; pinned ImGui versions. Existing <code>imgui</code>, <code>ImGui</code>, and compatibility profiles retain their original return conventions. Start a port with <code>local ImGui = ImGuiCpp</code> and draw inside <code>script.register_render(function() ... end)</code>. Do not replace the global <code>ImGui</code> table.</p>
 <p>See <code>ImGuiCppDemo.lua</code> in this project&#39;s Lua examples for the same working UI on both games.</p>
+<p>Drawing methods are documented once under <code>DrawList</code> in the <a href="/docs/rdr2/lua-api.html">API browser</a>.
+Acquire an object through <code>ImGuiCpp.GetWindowDrawList()</code>,
+<code>GetBackgroundDrawList()</code> or <code>GetForegroundDrawList()</code> and call methods with a colon.</p>
 <h2>Mechanical translation</h2>
 <table>
 <thead>

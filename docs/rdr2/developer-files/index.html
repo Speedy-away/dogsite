@@ -1,4 +1,17 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Generated developer references | Scooby</title><meta name="description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><link rel="canonical" href="https://scoobymenu.cc/docs/rdr2/developer-files/"><link rel="icon" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="Generated developer references"><meta property="og:description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><meta property="og:url" content="https://scoobymenu.cc/docs/rdr2/developer-files/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"></head><body class="game-rdr2 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand" href="/docs/">Scooby <span>Docs</span></a><nav><a href="/docs/rdr2/">RDR2 Lua</a><a href="/api/rdr2/">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">RDR2 / LUA</p><h1>RDR2 Lua developer references</h1>
+<h2>Attached API browser placement</h2>
+<p>The in-menu documentation browser remains on the editor&#39;s right, aligned with
+its top edge. Dragging the editor beyond any screen edge carries the browser
+with it; it does not clamp to the viewport or switch sides. Its height follows
+the editor with the existing 380-pixel minimum, including oversized editors.
+The existing theme, API content and Editor-tab visibility remain in use.</p>
+<p>From an MSVC x64 developer environment, run GTA5&#39;s
+<code>tools/test_lua_documentation_attachment.py</code> to exercise both games&#39; production
+window functions against their own ImGui versions. Movement across all four
+edges, viewport changes, scaling, resizing and visibility are covered. Logs and
+draw-data previews are under <code>build/lua-docs-attachment-20261020/</code> in each game.
+Run both supported Release wrappers with all mandatory guards after native
+changes. These fixtures do not establish live-game input acceptance.</p>
 <p>For ListUI/ClickUI themes, script-created native feature pages and standalone
 interfaces sharing built-in commands, see <a href="/docs/rdr2/custom-ui/">custom Lua UI</a>.
 The offline <a href="/docs/rdr2/lua-api.html">searchable API browser</a> is generated from the same
@@ -73,4 +86,19 @@ candidate counts do not establish compatibility.</p>
 graphics/input, network and foreground-performance acceptance require the exact
 built artifact and separate in-game evidence. Translation/font packaging checks
 remain mandatory; no translation catalogs or language fonts are added here.</p>
+<h2>Canonical custom UI reference</h2>
+<p>The generated catalog and offline browser document <code>ImGuiCpp</code> and one <code>DrawList</code>
+object type. All 15 drawing methods use colon calls, <code>ImVec2</code> coordinates and
+packed integer colors. Acquire a fresh list from <code>GetWindowDrawList</code>,
+<code>GetBackgroundDrawList</code> or <code>GetForegroundDrawList</code> while rendering. Older script
+aliases retain their runtime behavior without separate branded API categories.</p>
+<p><code>tools/test_lua_developer_generation.py --generated &lt;output&gt; --check-repeat</code>
+checks the drawing inventory against registered native methods, getter return
+types, examples, duplicate free functions and public metadata. GTA5&#39;s
+<code>tools/test_lua_doc_catalog.ps1</code> also compiles the actual browser merge and checks
+its final categories, tooltips, signatures and examples. This prevents stale
+handwritten entries from reappearing beside generated <code>ImGuiCpp</code> entries.</p>
+<p>Evidence for the canonical reference update belongs under
+<code>build/lua-docs-canonical/</code>; local website browser/download checks live in the
+website project&#39;s <code>build/</code> tree. Keep live game acceptance separate.</p>
 <footer><a href="/api/rdr2/">API reference</a><a href="/docs/rdr2/custom-ui/">ListUI, ClickUI &amp; custom GUI</a><a href="/docs/rdr2/imgui-porting/">C++ ImGui porting</a><a href="/docs/rdr2/developer-files/">Developer files</a><a href="/docs/rdr2/examples.zip" download>Lua examples</a><a href="/docs/rdr2/developer-files.zip" download>Developer references</a></footer></main></body></html>

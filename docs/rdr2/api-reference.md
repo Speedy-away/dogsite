@@ -33,7 +33,7 @@ compat.has(name) -> boolean
 compat.is_api_compatible(version) -> boolean
 compat.require{api='2.1.0', game='RDR2', runtime={'Lua54','LuaJIT'},
     capabilities={'modules','custom_gui','input_bindings'}}
-compat.use('scooby') -- or 'yim-legacy'; select before capturing ImGui
+local UI = ImGuiCpp -- C++-style Ref widgets; keep the global ImGui table intact
 ```
 
 ## Lifecycle and tasks
@@ -129,8 +129,8 @@ ImGui.InputTextMultiline(label, text, width, height, capacity=65536, flags=0) ->
 ImGui.ProgressBar(fraction, width, height, overlay)
 ImGui.BeginCombo(label, preview) -> visible
 ImGui.EndCombo()
--- The explicit Yim adapter reverses value widgets:
-compat.yim_imgui.Checkbox(label, value) -> value, changed
+-- The C++-style adapter updates Ref.value and returns changed:
+ImGuiCpp.Checkbox(label, ref) -> changed
 ```
 
 ## ImGui tables, tabs and drawing
