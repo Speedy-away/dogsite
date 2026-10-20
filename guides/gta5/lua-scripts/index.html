@@ -12,12 +12,12 @@
 <meta property="og:url" content="https://scoobymenu.cc/guides/gta5/lua-scripts/">
 <meta property="og:title" content="GTA 5 Lua Scripts: Install &amp; Run in Scooby - Scooby Guide">
 <meta property="og:description" content="Install GTA 5 Lua scripts in Scooby, run or reload them in Lua Editor, manage auto-run, and troubleshoot missing files or compatibility errors.">
-<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/wiki-game-gta5-v3.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GTA 5 Lua Scripts: Install &amp; Run in Scooby - Scooby Guide">
 <meta name="twitter:description" content="Install GTA 5 Lua scripts in Scooby, run or reload them in Lua Editor, manage auto-run, and troubleshoot missing files or compatibility errors.">
-<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/wiki-game-gta5-v3.png">
 <meta name="keywords" content="Scooby Menu, GTA 5 cheat guide, Scooby Lua scripts, install GTA 5 Lua, Lua Editor, Getting Luas">
 
 <!-- DNS Prefetch for external resources -->
@@ -37,12 +37,12 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="twitter:url" content="https://scoobymenu.cc/guides/gta5/lua-scripts/">
 <script src="/lang/i18n.js"></script>
-<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/wiki-game-gta5-v3.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SCOOBY WIKI: Setup guides. Answers here. Installation · Settings · Troubleshooting.">
-<meta name="twitter:image:alt" content="SCOOBY WIKI: Setup guides. Answers here. Installation · Settings · Troubleshooting.">
+<meta property="og:image:alt" content="GAME GUIDE: GTA 5 Legacy &amp; Enhanced Loading, menu controls &amp; troubleshooting..">
+<meta name="twitter:image:alt" content="GAME GUIDE: GTA 5 Legacy &amp; Enhanced Loading, menu controls &amp; troubleshooting..">
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -89,6 +89,8 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
+<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 </head>
 <body class="wiki-article wiki-topic-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -153,11 +155,11 @@
 <a class="sidebar-guide-link" href="/guides/gta5/host-public/" aria-label="Public session hosting (BattlEye disabled)"><span class="sidebar-link-label">Public session hosting</span><span class="sidebar-link-note">BattlEye disabled</span></a>
 </div>
 <details class="sidebar-customization" open><summary>Customization</summary>
-<a class="sidebar-guide-link" href="/guides/gta5/dlcs/" aria-label="DLCs &amp; models"><span class="sidebar-link-label">DLCs &amp; models</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/dlcs/" aria-label="Addons"><span class="sidebar-link-label">Addons</span></a>
 <a class="sidebar-guide-link" href="/guides/gta5/lua-scripts/" aria-current="page" aria-label="Lua scripts"><span class="sidebar-link-label">Lua scripts</span></a>
 <a class="sidebar-guide-link" href="/guides/gta5/outfits/" aria-label="Outfits"><span class="sidebar-link-label">Outfits</span></a>
 <a class="sidebar-guide-link" href="/guides/gta5/themes/" aria-label="Themes"><span class="sidebar-link-label">Themes</span></a>
-<a class="sidebar-guide-link" href="/guides/gta5/vehicles/" aria-label="Modded vehicles"><span class="sidebar-link-label">Modded vehicles</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/vehicles/" aria-label="Vehicles"><span class="sidebar-link-label">Vehicles</span></a>
 </details>
 <div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
 <a class="sidebar-guide-link" href="/guides/gta5/troubleshooting/" aria-label="Game troubleshooting"><span class="sidebar-link-label">Game troubleshooting</span></a>
@@ -179,12 +181,12 @@
 <div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><a href="/guides/gta5/#customization">Customization</a></div>
 <h1>Getting Luas</h1>
 <p class="article-intro">Install a Lua script, run it in Scooby&#x27;s Lua Editor, and manage reloads and automatic startup.</p>
-<div class="guide-card" id="lua-scripts">
+<div class="guide-card general-guide" id="lua-scripts">
 <h2 class="sr-only">Getting Luas</h2>
 <p>Lua scripts add tools and custom interfaces to Scooby. Choose a script written for Scooby GTA 5, or a port that explicitly supports your menu version and GTA 5 edition. You can find shared scripts in the <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby community</a> or get them directly from their author.</p>
 <div class="requirements-box"><h4>Lua folder and menu</h4><p><code>C:\scooby\GTA5\lua</code><br><strong>Settings → Lua Editor → Scripts</strong><br>Older builds may label the screen <strong>Lua Scripts</strong>.</p></div>
-<nav class="guide-contents" aria-label="On this page"><a href="#install-lua">Install</a><a href="#run-lua">Run and stop</a><a href="#other-luas">Other-menu scripts</a><a href="#lua-help">Troubleshooting</a></nav>
-<h3 id="install-lua">Install a downloaded script</h3>
+<nav class="guide-contents help-quick-links" aria-label="On this page"><a href="#install-lua">Install</a><a href="#run-lua">Run and stop</a><a href="#other-luas">Other-menu scripts</a><a href="#lua-help">Troubleshooting</a></nav>
+<figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/previews/gta5/GTA5_Enhanced_TTjtWhhQKQ.webp" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/previews/gta5/GTA5_Enhanced_TTjtWhhQKQ.webp" width="1920" height="1080" alt="ClickUI gear and ListUI Settings entry points outlined" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 1920 1080" aria-hidden="true"><rect x="280" y="846" width="398" height="31"/><rect x="1644" y="216" width="31" height="30"/></svg></span><span class="help-image-enlarge">Enlarge image ↗</span></a><figcaption>Start in <strong>Settings</strong>: use the ClickUI gear or the ListUI Settings row. Then follow <strong>Lua Editor → Scripts</strong> in the steps below. This capture shows the Settings entry points, not the Lua Editor screen.</figcaption></figure><figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/gta5/customization/lua-folder.svg" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/guides/gta5/customization/lua-folder.svg" width="1000" height="480" alt="Illustrated Lua folder layout with the script and supporting files" loading="lazy" decoding="async"></span><span class="help-image-enlarge">Enlarge image ↗</span></a><figcaption>Folder-layout illustration, not a product screenshot. Keep a downloaded script’s dependencies in the author’s required locations.</figcaption></figure><h3 id="install-lua">Install a downloaded script</h3>
 <ol>
 <li>Download the script and extract it if it is inside a ZIP or other archive. Check the author's requirements and keep any supplied libraries, configuration, and assets.</li>
 <li>Open <strong>Settings → Lua Editor</strong> and select <strong>Open Lua Folder</strong>. You can also paste <code>C:\scooby\GTA5\lua</code> into File Explorer's address bar.</li>
@@ -215,7 +217,7 @@
 <li><strong>Problems on every startup:</strong> untick auto-run and stop the script. If you cannot reach the menu, close the game and move that script out of the Lua folder before starting again.</li>
 </ul>
 </div>
-<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/dlcs/"><span>← Previous guide</span><strong>DLCs (Vehicles and Peds)</strong></a><a href="/guides/gta5/outfits/"><span>Next guide →</span><strong>Outfits</strong></a></nav>
+<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/dlcs/"><span>← Previous guide</span><strong>Addons</strong></a><a href="/guides/gta5/outfits/"><span>Next guide →</span><strong>Outfits</strong></a></nav>
 <footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>

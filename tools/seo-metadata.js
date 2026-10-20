@@ -134,19 +134,19 @@ general|free-key|How to Get & Use a Scooby Free Key|Get one Scooby free key for 
 general|hwid|How to Reset Your Scooby HWID|Reset your Scooby HWID from the portal dashboard. Each reset has a 7-day cooldown; support will not reset it manually or bypass the waiting period.|Scooby HWID reset, Scooby hardware ID mismatch, Scooby portal dashboard, 7-day cooldown
 general|linux-mac|Scooby on Linux & Mac: Compatibility Setup|Follow simple Scooby setup steps for Linux, Steam Deck and Mac. Choose your setup, copy launch commands and find fixes for common problems.|Scooby Linux, Scooby Steam Deck, Scooby Proton, Scooby Mac, Scooby Wine, Scooby Lutris, Scooby CrossOver
 general|universal|Scooby Loader & Injection Troubleshooting|Find Scooby troubleshooting help for injection failures, loader errors, crashes and Windows permissions. Browse fixes by the error you encounter.|Scooby injection failed, Scooby loader error, Scooby not injecting
-gta5|dlcs|GTA 5 DLCs: Vehicles, Peds & Custom Models|Browse GTA 5 DLC vehicles and peds in Scooby. Learn the difference between saved presets and custom model packs, plus fixes for unavailable models.|GTA 5 cheat guide, GTA 5 DLC vehicles, GTA 5 peds, Scooby model changer, custom DLC packs
+gta5|dlcs|GTA 5 Addons: Vehicles, Peds & Edition Compatibility|Find addon vehicles and peds for GTA 5. Check Legacy or Enhanced compatibility, asset-conversion guidance and how addons differ from saved presets.|GTA 5 addons, addon vehicles, addon peds, add-on downloads, Legacy Enhanced conversion, GTA5-Mods, Scooby model changer, custom DLC packs
 gta5|lua-scripts|GTA 5 Lua Scripts: Install & Run in Scooby|Install GTA 5 Lua scripts in Scooby, run or reload them in Lua Editor, manage auto-run, and troubleshoot missing files or compatibility errors.|GTA 5 cheat guide, Scooby Lua scripts, install GTA 5 Lua, Lua Editor, Getting Luas
 gta5|themes|GTA 5 Themes: Install & Customize Scooby|Install Scooby GTA 5 themes, load ClickUI or ListUI settings, keep bundled images together, and save or share your own theme folders.|GTA 5 cheat guide, Scooby themes, GTA 5 menu themes, install themes, ClickUI, ListUI
 gta5|first-time|GTA 5 Mod Menu: First-Time Setup|Install and launch Scooby for GTA 5. Follow the first-time guide for downloading the loader, installing runtimes, injecting and opening the menu.|GTA 5 cheat guide, GTA 5 mod menu installation, Scooby GTA 5 setup, open Scooby menu
 gta5|plus-setup|GTA 5 Plus Setup Guide|Set up Scooby GTA 5 Plus: UEFI bootloader requirements, Windows and BIOS settings, BitLocker preparation, and loading with BattlEye enabled.|GTA 5 Plus, Plus Setup Guide, Secure Boot, VBS, HVCI, kernel protection
-gta5|premium-free-setup|GTA 5 Premium and Free Setup|Premium and Free Setup for GTA 5 in the Scooby Wiki.|GTA 5, Premium and Free Setup, Scooby Wiki
+gta5|premium-free-setup|GTA 5 Premium and Free Setup|Set up Scooby GTA 5 Premium or Free: redeem a license or use a 24-hour free key, select Legacy or Enhanced, choose BattlEye Disabled and load the menu.|GTA 5 Premium setup, GTA 5 Free setup, Scooby login, redeem license key, 24-hour free key, Legacy, Enhanced, BattlEye Disabled, ClickUI F1 Insert, ListUI F2
 gta5|hypervisor-vbs|GTA 5 Hypervisor / VBS Troubleshooting|Diagnose the Scooby Plus Hypervisor / VBS is running banner. Download check_vbs.bat, read VBS and HVCI results, and troubleshoot settings returning after reboot.|GTA 5 Plus, Hypervisor / VBS Troubleshooting, Secure Boot, VBS, HVCI, kernel protection
 gta5|free-setup|Free GTA 5 Menu Setup: Legacy & Enhanced|Set up the free Scooby menu for GTA 5 Legacy and Enhanced. Follow the launch sequence and understand invite-only sessions and free-version limits.|GTA 5 cheat guide, free GTA 5 mod menu setup, GTA 5 Legacy free menu, GTA 5 Enhanced free menu
 gta5|host-public|GTA Online Session Hosting: NAT & Matchmaking|Read Scooby’s GTA Online hosting guide covering NAT type, aim settings, region and timing, with explanations of connectivity and matchmaking limits.|GTA 5 cheat guide, GTA Online session hosting, GTA Online NAT type, GTA Online matchmaking
 gta5|introduction|GTA 5 Mod Menu Guide: Getting Started|Start with the Scooby GTA 5 guide. Find setup steps, outfit and vehicle imports, Lua scripts, themes, DLC models, online sessions and troubleshooting.|GTA 5 cheat guide, Scooby GTA 5 introduction, GTA 5 mod menu guide, getting started Scooby
 gta5|money|GTA 5 Money Tools: Heists, Casino & Businesses|Read the Scooby GTA 5 money tools guide covering heist settings, casino options and business supplies, with menu locations for each method.|GTA 5 cheat guide, Scooby GTA 5 money tools, GTA 5 heist editor guide, GTA 5 business supplies
-gta5|outfits|GTA 5 Outfits: Install, Import & Save|Install and save Scooby GTA 5 outfits. Find native and other-menu import folders, supported formats, menu steps, and fixes for missing or mismatched clothing.|GTA 5 cheat guide, GTA 5 outfit editor, install Scooby outfits, import outfits, saved outfits
-gta5|vehicles|GTA 5 Modded Vehicles: Install, Import & Save|Install shared vehicles in Scooby GTA 5, import compatible menu exports, save JSON, XML or INI presets, and troubleshoot missing models or vehicle files.|GTA 5 cheat guide, GTA 5 modded vehicles, install Scooby vehicles, saved vehicles, Menyoo XML
+gta5|outfits|GTA 5 Outfits: Download, Import & Save|Download outfits from Nenyoo, install supported presets in Scooby GTA 5 and save your own clothing. Follow outlined pictures and check character and edition compatibility.|GTA 5 outfits, Nenyoo outfits, download outfits, GTA 5 outfit editor, install Scooby outfits, import outfits, saved outfits, Legacy Enhanced clothing
+gta5|vehicles|GTA 5 Vehicles: Download, Import & Save|Download shared vehicle presets, import supported files into Scooby GTA 5 and save your own vehicles. Includes Nenyoo links and Legacy / Enhanced compatibility help.|GTA 5 vehicles, Nenyoo vehicles, download vehicles, install Scooby vehicles, saved vehicles, JSON XML INI, Menyoo XML
 gta5|troubleshooting|GTA 5 Menu Errors & Injection Troubleshooting|Troubleshoot Scooby GTA 5 injection errors, black screens and launch problems. Find explanations for common messages and links to further support.|GTA 5 cheat guide, Scooby GTA 5 errors, GTA 5 failed to allocate memory, Scooby GTA 5 black screen
 rdr2|vehicles-peds|RDR2 Vehicles, Peds & Animals: Spawner Guide|Use Scooby RDR2's vehicle, ped and animal libraries. Learn the spawn controls, preview models, change your character, and troubleshoot missing entries.|RDR2 cheat guide, RDR2 wagon spawner, RDR2 ped spawner, animal spawner, model changer
 rdr2|lua-scripts|RDR2 Lua Scripts: Install & Run in Scooby|Install Scooby RDR2 Lua scripts, run or stop them in Lua Editor, understand refresh behavior, and troubleshoot script errors with the console.|RDR2 cheat guide, Scooby RDR2 Lua, install RDR2 scripts, Lua Editor, Getting Luas
@@ -320,6 +320,43 @@ for (const [game, keywords] of Object.entries(cosmeticKeywords)) {
 for (const file of ['index.html', 'source-games/index.html', 'products/free/index.html']) {
  appendKeywords(file, ['CS2 skin changer', 'CS2 inventory changer', 'TF2 skin changer', 'TF2 inventory changer']);
 }
+// Keep guide discovery terms specific to the instructions on each page.
+const helpGuideKeywords = {
+ 'guides/general/index.html': ['Scooby help', 'Scooby account login', 'free key help', 'redeem Premium license', 'loader troubleshooting', 'website connection help'],
+ 'guides/general/free-key/index.html': ['Scooby free key', 'get a free key', 'free key every 24 hours', '24-hour key reset', 'renew Scooby free key', 'all Scooby Free versions', 'copy free key', 'loader Free login', 'BSTLAR ScoobyKEY', 'free key website not opening', 'VPN connection help'],
+ 'guides/general/connection/index.html': ['website not opening', 'server not found', 'loader cannot connect', 'backend outage', 'server hosting issues', 'hosting provider outage', 'connection timeout', 'site cannot be reached', 'ISP blocking', 'country restrictions', 'DNS troubleshooting', 'VPN', 'proxy', 'Cloudflare WARP', 'Proton VPN'],
+ 'guides/general/faq/index.html': ['Microsoft Defender', 'Windows Security', 'antivirus screenshots', 'file exclusions', 'download blocked', 'Norton', 'AVG', 'Avast', 'McAfee', 'Bitdefender', 'ESET', 'Malwarebytes'],
+ 'guides/general/crashing/index.html': ['loader crash', 'game crash', 'settings backup', 'Visual C++ runtimes', 'graphics drivers'],
+ 'guides/general/universal/index.html': ['Scooby login failed', 'authentication error', 'key expired', 'game not detected', 'loader status', 'loading failed'],
+ 'guides/general/hwid/index.html': ['reset hardware ID', 'HWID cooldown', '7-day HWID reset', 'Reset HWID button', 'portal account'],
+ 'guides/general/linux-mac/index.html': ['operating system compatibility', 'Windows loader', 'Wine setup', 'Proton compatibility'],
+ 'guides/loading/index.html': ['Scooby sign in', 'Premium account login', 'Free key login', 'redeem license key', 'activate Scooby license', 'portal dashboard', 'choose game', 'loading progress', 'loaded confirmation', 'outlined loader screenshots'],
+ 'guides/index.html': ['Scooby Wiki', 'game loading guides', 'Free and Premium setup', 'Plus setup', 'general help', 'loader screenshots'],
+ 'guides/gta5/plus-setup/index.html': ['Scooby Plus bootloader', 'UEFI BIOS setup', 'motherboard screenshots', 'ASUS BIOS', 'MSI BIOS', 'Gigabyte BIOS', 'ASRock BIOS', 'Load Driver At Next Boot', 'Memory Integrity', 'ClickUI F1 Insert', 'ListUI F2'],
+ 'guides/gta5/hypervisor-vbs/index.html': ['check_vbs.bat download', 'VBS diagnostic', 'Hypervisor is running', 'Memory Integrity', 'HVCI', 'Device Guard', 'Credential Guard', 'virtualization settings']
+};
+for (const [file, keywords] of Object.entries(helpGuideKeywords)) appendKeywords(file, keywords);
+const loadingGuidePages = {
+ 'guides/gta5/free-setup/index.html': 'GTA 5',
+ 'guides/gta5/premium-free-setup/index.html': 'GTA 5',
+ 'guides/rdr2/rdr2-launch/index.html': 'RDR2',
+ 'guides/fivem/fivem-inject/index.html': 'FiveM',
+ 'guides/redm/redm-inject/index.html': 'RedM',
+ 'guides/cs2/cs2-inject/index.html': 'CS2',
+ 'guides/l4d/getting-started/index.html': 'Left 4 Dead',
+ 'guides/gmod/getting-started/index.html': 'GMOD',
+ 'guides/half-life-1/getting-started/index.html': 'Half-Life 1',
+ 'guides/megabonk/getting-started/index.html': 'Megabonk',
+ 'guides/sbox/getting-started/index.html': 'S&box',
+ 'guides/tf2/getting-started/index.html': 'TF2',
+ 'guides/last-of-us/getting-started/index.html': 'The Last of Us Part I'
+};
+for (const [file, game] of Object.entries(loadingGuidePages)) {
+ appendKeywords(file, [`${game} loading guide`, 'Scooby loader screenshots', 'Free key sign in', 'Premium account login', 'game selection', 'loading progress', 'completion message']);
+}
+pages['guides/loading/index.html'].description = 'Sign in to Scooby with a Free key or Premium account, redeem a license and choose your game. Follow outlined screenshots for loading progress and completion.';
+pages['guides/general/connection/index.html'].description = 'Troubleshoot Scooby website and loader connection errors, ISP restrictions and backend or hosting outages. Find network checks and free VPN options.';
+pages['guides/general/free-key/index.html'].description = 'Get one Scooby free key for all Free versions and renew it every 24 hours. Follow access steps, copy your key, use Free login and troubleshoot website errors.';
 function applyMetadata(file, html, override) {
  file=file.replace(/\\/g,'/'); const meta=override || pages[file]; if(!meta) return html;
  if (excluded(html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '')) return html;

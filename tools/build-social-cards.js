@@ -5,6 +5,7 @@ const { chromium } = require('playwright');
 const { cards, VERSION, WIDTH, HEIGHT } = require('./social-cards');
 const { logosFor } = require('./social-logos');
 const { buildBrandMask } = require('./build-brand-assets');
+const { renderWikiCard } = require('./wiki-social-design');
 const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'assets/images/social');
 const escape = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -34,6 +35,7 @@ function logoImage(logo) {
   return '<img class="game-logo' + (logo.white ? ' game-logo--white' : '') + '" src="' + assetUrl(logo.src) + '" alt="' + escape(logo.alt) + '">';
 }
 function render(card) {
+  if (card.layout === 'wiki') return renderWikiCard(card);
   const logos = logosFor(card);
   const collage = logos.length > 2;
   const art = collage ? '<div class="logo-collage">' + logos.map(logo => '<div class="logo-tile">' + logoImage(logo) + '</div>').join('') + '</div>'
@@ -82,7 +84,8 @@ async function main() {
   const browser = await chromium.launch({ channel: process.env.SOCIAL_CARD_BROWSER || 'msedge', headless: true });
   try {
     const page = await browser.newPage({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: 1 });
-    for (const card of Object.values(cards)) {
+    const selected = Object.values(cards).filter(card => !process.argv.includes('--wiki-only') || card.layout === 'wiki');
+    for (const card of selected) {
       await page.setContent(render(card));
       await page.evaluate(async () => {
         await document.fonts.ready;
@@ -90,9 +93,9 @@ async function main() {
       });
       const fits = await page.evaluate(() => [...document.querySelectorAll('h1 span,.subtitle')].every(el => el.scrollWidth <= el.clientWidth));
       if (!fits) throw new Error('Social card text overflows: ' + card.id);
-      await page.screenshot({ path: path.join(OUT, `${card.id}-${VERSION}.png`) });
+      await page.screenshot({ path: path.join(OUT, `${card.id}-${card.version || VERSION}.png`) });
     }
-    console.log(`Rendered ${Object.keys(cards).length} Scooby social cards at ${WIDTH} × ${HEIGHT}.`);
+    console.log(`Rendered ${selected.length} Scooby social cards at ${WIDTH} × ${HEIGHT}.`);
   } finally { await browser.close(); }
 }
 if (require.main === module) main().catch(error => { console.error(error); process.exitCode = 1; });

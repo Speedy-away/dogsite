@@ -12,7 +12,18 @@
       "spawner",
       "unlocks",
       "languages",
-      "hotkeys"
+      "hotkeys",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -126,7 +137,18 @@
       "retail",
       "tf2c",
       "Lua",
-      "TF2 cheat"
+      "TF2 cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -212,7 +234,18 @@
       "Opposing Force",
       "Blue Shift",
       "Half-Life cheat",
-      "HL1 cheat"
+      "HL1 cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -287,7 +320,18 @@
       "L4D1 cheat",
       "L4D2 cheat",
       "Left 4 Dead cheat",
-      "Left 4 Dead 2 cheat"
+      "Left 4 Dead 2 cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -366,7 +410,18 @@
       "Part I",
       "Part 1",
       "The Last of Us cheat",
-      "TLOU cheat"
+      "TLOU cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -419,8 +474,8 @@
   },
   {
     "game": "GTA 5",
-    "title": "DLCs (Vehicles and Peds)",
-    "text": "DLCs (Vehicles and Peds) Scooby can browse vehicles and peds (character models) from GTA 5 title updates. A downloaded vehicle preset, outfit, and custom DLC pack are different kinds of content. Start by checking what the download contains. Identify your download DLC vehicles DLC peds Troubleshooting What are you trying to install? A saved vehicle: a compatible .json , .xml , or .ini preset belongs in the saved-vehicle library. Follow Modded Vehicles . A saved outfit: a native .json or supported .xml clothing preset belongs in Saved Outfits. Follow Outfits . A custom vehicle or ped model: a download containing dlc.rpf , .yft , .ydd , or .ytd is a model/asset package. The outfit and vehicle preset folders do not install these game assets. Custom DLC packs There is no verified drop-in DLC-pack installation workflow for Scooby in this guide. Use the pack author's installation instructions for your exact GTA 5 edition and required loader. Copying an RPF into C:\\scooby\\GTA5\\vehicles , or renaming it to JSON, will not install it. A preset can only use a model that the game can already load. Find and spawn a built-in DLC vehicle Open Scooby's Vehicle menu, then Open Vehicle Spawner . Use the DLC filter to select a title update, or choose All to search across releases. Use Class and the name search to narrow the list. Clear these filters if a vehicle seems to be missing. Select an available vehicle to spawn it. If you customize it and want a reusable file, follow the vehicle saving steps . Built-in DLC models come from your installed game files; you do not need to download a shared vehicle save just to browse them. Choose a DLC ped or character model Open Self → Outfit Editor → Model Changer . Search by name and choose a Category and DLC . Set the DLC filter to All to widen the results. Select a model to apply it. Save your current outfit first if you want to return to its clothing later. Use an outfit made for the selected model. Clothing components and props can differ between male and female freemode characters and other peds. If a model is missing or will not load Nothing in the list: clear the search, category/class, and DLC filters. A favorites-only view can also hide models. Model unavailable: check that it exists in your installed GTA 5 edition and build. A name in a catalog or shared preset does not add the model to your game. Custom pack does not appear: check the pack author's edition requirements and installation steps. Refreshing Saved Vehicles only rescans presets. Wrong clothing after changing ped: switch to the model the outfit was created for, then load the outfit again.",
+    "title": "Addons",
+    "text": "Addons Scooby can browse vehicles and peds (character models) from GTA 5 title updates. A downloaded vehicle preset, outfit, and custom DLC pack are different kinds of content. Start by checking what the download contains. Downloads Legacy / Enhanced Identify your download DLC vehicles DLC peds Troubleshooting Download addons Download addon vehicles ↗ Download addon peds ↗ Read the author’s description for your edition, required tools, installation steps and model spawn name. These are addon asset packages; saved vehicles and outfits have separate guides. Legacy and Enhanced use different addon asset formats Download the version made for your GTA 5 edition . A Legacy addon vehicle, ped or texture may need conversion to Enhanced’s asset format before it works in Enhanced. An Enhanced asset is not automatically compatible with Legacy either. Prefer the author’s release for your edition. If conversion is needed, use the author’s instructions or the Sollumz Legacy → Enhanced asset-conversion guide . Its CodeWalker workflow covers supported model and texture assets. Renaming a file extension does not convert it. Saved vehicle and outfit presets are different: a JSON / XML preset references models, clothing and settings. It does not convert or install the underlying assets. Check the preset’s model, character and edition requirements too. What are you trying to install? A saved vehicle: a compatible .json , .xml , or .ini preset belongs in the saved-vehicle library. Follow Vehicles . A saved outfit: a native .json or supported .xml clothing preset belongs in Saved Outfits. Follow Outfits . A custom vehicle or ped model: a download containing dlc.rpf , .yft , .ydd , or .ytd is a model/asset package. The outfit and vehicle preset folders do not install these game assets. Install the addon’s assets first Use the pack author’s instructions and a compatible asset loader for your exact GTA 5 edition. Scooby’s saved-vehicle and outfit folders store presets; copying dlc.rpf into them does not install an addon. A preset or model selection can only use assets the game can load. Find and spawn a built-in DLC vehicle Open Scooby's Vehicle menu, then Open Vehicle Spawner . Use the DLC filter to select a title update, or choose All to search across releases. Use Class and the name search to narrow the list. Clear these filters if a vehicle seems to be missing. Select an available vehicle to spawn it. If you customize it and want a reusable file, follow the vehicle saving steps . Enlarge image ↗ The Class and DLC filters narrow built-in models. These filters do not install an addon package. Built-in DLC models come from your installed game files; you do not need to download a shared vehicle save just to browse them. Choose a DLC ped or character model Open Self → Outfit Editor → Model Changer . Search by name and choose a Category and DLC . Set the DLC filter to All to widen the results. Select a model to apply it. Save your current outfit first if you want to return to its clothing later. Use an outfit made for the selected model. Clothing components and props can differ between male and female freemode characters and other peds. Enlarge image ↗ Use Model Changer to select an available ped. An addon ped must be installed for your game edition before that custom model can load. If a model is missing or will not load Nothing in the list: clear the search, category/class, and DLC filters. A favorites-only view can also hide models. Model unavailable: check that it exists in your installed GTA 5 edition and build. A name in a catalog or shared preset does not add the model to your game. Custom pack does not appear: check the pack author's edition requirements and installation steps. Refreshing Saved Vehicles only rescans presets. Wrong clothing after changing ped: switch to the model the outfit was created for, then load the outfit again.",
     "href": "/guides/gta5/dlcs/",
     "tags": [
       "gta5",
@@ -430,7 +485,18 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "Addons",
+      "add-on",
+      "addon vehicles",
+      "addon peds",
+      "DLCs",
+      "DLC models",
+      "GTA5-Mods",
+      "Legacy Enhanced",
+      "asset conversion",
+      "CodeWalker",
+      "Sollumz"
     ]
   },
   {
@@ -446,7 +512,18 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -478,7 +555,15 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "check_vbs.bat",
+      "VBS diagnostic",
+      "hypervisor is running",
+      "HVCI",
+      "Device Guard",
+      "Credential Guard",
+      "virtualization",
+      "download script"
     ]
   },
   {
@@ -500,7 +585,7 @@
   {
     "game": "GTA 5",
     "title": "Getting Luas",
-    "text": "Getting Luas Lua scripts add tools and custom interfaces to Scooby. Choose a script written for Scooby GTA 5, or a port that explicitly supports your menu version and GTA 5 edition. You can find shared scripts in the Scooby community or get them directly from their author. Lua folder and menu C:\\scooby\\GTA5\\lua Settings → Lua Editor → Scripts Older builds may label the screen Lua Scripts . Install Run and stop Other-menu scripts Troubleshooting Install a downloaded script Download the script and extract it if it is inside a ZIP or other archive. Check the author's requirements and keep any supplied libraries, configuration, and assets. Open Settings → Lua Editor and select Open Lua Folder . You can also paste C:\\scooby\\GTA5\\lua into File Explorer's address bar. For a standalone script, copy its .lua file directly into that folder. For a package, follow the author's folder layout so its supporting files stay in the expected locations. Open the Scripts tab and select Refresh Scripts . Select the script file in the library. Select Run / Reload . Check the running-script list and the Console tab for its status or any startup error. C:\\scooby\\GTA5\\lua\\ MyScript.lua Keep the real .lua extension. A file named MyScript.lua.txt or a downloaded web page will not load as a Lua script. Enable file-name extensions in File Explorer if you cannot see the ending. Reload, stop, and enable auto-run Run / Reload: starts the selected script, or reloads it after an edit. Reload / Stop: use the controls beside a running script. Stop All Scripts stops the entire running list. Auto-run: tick the checkbox beside a script in the library to run it when the menu starts. Test it manually first. Untick it to disable automatic startup. Remove a script: stop it, disable its auto-run checkbox, then remove its file from the Lua folder and refresh. Keep any settings you want to back up. A script may add its own menu or window. Look at its instructions if it is running but you cannot find its controls. Scripts made for another menu Sharing the .lua extension does not guarantee compatibility. Scooby has compatibility helpers, but a script that relies on another menu's API may still need changes. Prefer a Scooby version supplied by the author. Some builds expose Lua Scripts → Other Menus Luas for compatible imports from C:\\scooby\\GTA5\\lua\\other-menus-luas . If that screen is available, keep the package structure, refresh its list, and use Load . The current Lua Editor interface uses the Scripts tab described above; do not look for a separate tab if your build does not show one. For creating or porting a script, open the Scooby GTA 5 Lua API reference . If a script does not work Missing from Scripts: check the folder, extract the archive, confirm the .lua extension, clear the search, and refresh. Start with a standalone script directly in the Lua folder. Missing module or asset: restore the full package and follow its original directory layout. Error immediately after running: read the first error in Console . Confirm Scooby support and the correct Legacy/Enhanced edition with the author. Problems on every startup: untick auto-run and stop the script. If you cannot reach the menu, close the game and move that script out of the Lua folder before starting again.",
+    "text": "Getting Luas Lua scripts add tools and custom interfaces to Scooby. Choose a script written for Scooby GTA 5, or a port that explicitly supports your menu version and GTA 5 edition. You can find shared scripts in the Scooby community or get them directly from their author. Lua folder and menu C:\\scooby\\GTA5\\lua Settings → Lua Editor → Scripts Older builds may label the screen Lua Scripts . Install Run and stop Other-menu scripts Troubleshooting Enlarge image ↗ Start in Settings : use the ClickUI gear or the ListUI Settings row. Then follow Lua Editor → Scripts in the steps below. This capture shows the Settings entry points, not the Lua Editor screen. Enlarge image ↗ Folder-layout illustration, not a product screenshot. Keep a downloaded script’s dependencies in the author’s required locations. Install a downloaded script Download the script and extract it if it is inside a ZIP or other archive. Check the author's requirements and keep any supplied libraries, configuration, and assets. Open Settings → Lua Editor and select Open Lua Folder . You can also paste C:\\scooby\\GTA5\\lua into File Explorer's address bar. For a standalone script, copy its .lua file directly into that folder. For a package, follow the author's folder layout so its supporting files stay in the expected locations. Open the Scripts tab and select Refresh Scripts . Select the script file in the library. Select Run / Reload . Check the running-script list and the Console tab for its status or any startup error. C:\\scooby\\GTA5\\lua\\ MyScript.lua Keep the real .lua extension. A file named MyScript.lua.txt or a downloaded web page will not load as a Lua script. Enable file-name extensions in File Explorer if you cannot see the ending. Reload, stop, and enable auto-run Run / Reload: starts the selected script, or reloads it after an edit. Reload / Stop: use the controls beside a running script. Stop All Scripts stops the entire running list. Auto-run: tick the checkbox beside a script in the library to run it when the menu starts. Test it manually first. Untick it to disable automatic startup. Remove a script: stop it, disable its auto-run checkbox, then remove its file from the Lua folder and refresh. Keep any settings you want to back up. A script may add its own menu or window. Look at its instructions if it is running but you cannot find its controls. Scripts made for another menu Sharing the .lua extension does not guarantee compatibility. Scooby has compatibility helpers, but a script that relies on another menu's API may still need changes. Prefer a Scooby version supplied by the author. Some builds expose Lua Scripts → Other Menus Luas for compatible imports from C:\\scooby\\GTA5\\lua\\other-menus-luas . If that screen is available, keep the package structure, refresh its list, and use Load . The current Lua Editor interface uses the Scripts tab described above; do not look for a separate tab if your build does not show one. For creating or porting a script, open the Scooby GTA 5 Lua API reference . If a script does not work Missing from Scripts: check the folder, extract the archive, confirm the .lua extension, clear the search, and refresh. Start with a standalone script directly in the Lua folder. Missing module or asset: restore the full package and follow its original directory layout. Error immediately after running: read the first error in Console . Confirm Scooby support and the correct Legacy/Enhanced edition with the author. Problems on every startup: untick auto-run and stop the script. If you cannot reach the menu, close the game and move that script out of the Lua folder before starting again.",
     "href": "/guides/gta5/lua-scripts/",
     "tags": [
       "gta5",
@@ -510,7 +595,14 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "Lua scripts",
+      "Lua Editor",
+      "Scripts",
+      "Open Lua Folder",
+      "Refresh Scripts",
+      "Run Reload",
+      "dependencies"
     ]
   },
   {
@@ -532,7 +624,7 @@
   {
     "game": "GTA 5",
     "title": "Outfits",
-    "text": "Outfits Saved Outfits lets you keep clothing components, textures, and props in portable files. Use a preset made for the same ped or freemode character model as your character. Outfit folder and menu C:\\scooby\\GTA5\\outfits Self → Outfit Editor → Saved Outfits in ClickUI and ListUI. Native saves use .json ; supported .xml outfits can also be loaded. Install Other-menu imports Save and share Troubleshooting Install and wear a shared outfit Download the outfit from its author or the Scooby community . Extract the download if it is an archive. Open Saved Outfits and use Open Folder / Open in Explorer , or paste C:\\scooby\\GTA5\\outfits into File Explorer. Copy the compatible .json or .xml outfit into that folder. You can organize native saves in your own subfolders. Return to Saved Outfits , select Refresh , and open the folder containing the file. Select the outfit to apply it. If clothing looks wrong, switch to the character model it was made for and load it again. C:\\scooby\\GTA5\\outfits\\ MyOutfit.json Favorites\\ AnotherOutfit.xml Import an outfit from another menu Keep the original export format and place it in the matching import folder: Stand: C:\\scooby\\GTA5\\other-menu-addons\\stand-outfits Cherax: C:\\scooby\\GTA5\\other-menu-addons\\cherax-outfits Other supported exports: C:\\scooby\\GTA5\\other-menu-addons\\other-menus-outfits Open the Other Menu / Other Menus outfit library, refresh, then select the import. Compatible .json , .txt , .ini , and .xml exports can be scanned; the file's internal structure must also be supported. Keep imports directly in the matching folder to make them easy to find. For the format notes included with your installation, read C:\\scooby\\GTA5\\other-menu-addons\\OUTFITS-GUIDE.txt . Create, save, and share your own outfit Use Outfit Editor to choose the clothing components, textures, and props you want. Open Saved Outfits . Browse to your destination or select New Folder . Select Save Current Outfit and enter a filename without an extension. Scooby adds .json automatically. Use Open Folder to find the saved file. Copy it to a backup or share it together with the character model it was created for. Wardrobe Manager manages GTA's in-game wardrobe slots. Use Saved Outfits when you want a portable file. If an outfit is missing or looks wrong Missing file: check its extension and folder, open the correct subfolder, and refresh. Other-menu exports may need the import library instead. Refuses to load: restore the original file or ask for a supported export. Renaming a file extension does not convert it. Wrong clothing: component and prop indexes differ by model. Use the same ped and male/female freemode model as the original outfit. Downloaded model assets: .ydd , .ytd , and RPF packs are not outfit presets. See DLCs (Vehicles and Peds) . Back up the outfits folder and any import folders while Scooby is closed. In ListUI, pressing Right on a local saved outfit deletes its file permanently.",
+    "text": "Outfits Saved Outfits lets you keep clothing components, textures, and props in portable files. Use a preset made for the same ped or freemode character model as your character. Outfit folder and menu C:\\scooby\\GTA5\\outfits Self → Outfit Editor → Saved Outfits in ClickUI and ListUI. Native saves use .json ; supported .xml outfits can also be loaded. Downloads Legacy / Enhanced Install Other-menu imports Save and share Troubleshooting Download outfits Browse and download outfits from Nenyoo ↗ Match the outfit to your character model, clothing availability and game edition. Keep its original file format. Check Legacy / Enhanced compatibility Choose a download made for your game edition and a format Scooby supports. Addon models and textures may need conversion between Legacy and Enhanced; a saved preset does not perform that conversion. See addon edition and conversion help . Enlarge image ↗ Open Saved Outfits , use Open Folder to install your file, then Refresh and select it in the list. This is an existing Enhanced interface example. Install and wear a shared outfit Download the outfit from Nenyoo outfits , its author or the Scooby community . Extract the download if it is an archive. Open Saved Outfits and use Open Folder / Open in Explorer , or paste C:\\scooby\\GTA5\\outfits into File Explorer. Copy the compatible .json or .xml outfit into that folder. You can organize native saves in your own subfolders. Return to Saved Outfits , select Refresh , and open the folder containing the file. Select the outfit to apply it. If clothing looks wrong, switch to the character model it was made for and load it again. C:\\scooby\\GTA5\\outfits\\ MyOutfit.json Favorites\\ AnotherOutfit.xml Import an outfit from another menu Keep the original export format and place it in the matching import folder: Stand: C:\\scooby\\GTA5\\other-menu-addons\\stand-outfits Cherax: C:\\scooby\\GTA5\\other-menu-addons\\cherax-outfits Other supported exports: C:\\scooby\\GTA5\\other-menu-addons\\other-menus-outfits Open the Other Menu / Other Menus outfit library, refresh, then select the import. Compatible .json , .txt , .ini , and .xml exports can be scanned; the file's internal structure must also be supported. Keep imports directly in the matching folder to make them easy to find. For the format notes included with your installation, read C:\\scooby\\GTA5\\other-menu-addons\\OUTFITS-GUIDE.txt . Create, save, and share your own outfit Use Outfit Editor to choose the clothing components, textures, and props you want. Open Saved Outfits . Browse to your destination or select New Folder . Select Save Current Outfit and enter a filename without an extension. Scooby adds .json automatically. Use Open Folder to find the saved file. Copy it to a backup or share it together with the character model it was created for. Wardrobe Manager manages GTA's in-game wardrobe slots. Use Saved Outfits when you want a portable file. If an outfit is missing or looks wrong Missing file: check its extension and folder, open the correct subfolder, and refresh. Other-menu exports may need the import library instead. Refuses to load: restore the original file or ask for a supported export. Renaming a file extension does not convert it. Wrong clothing: component and prop indexes differ by model. Use the same ped and male/female freemode model as the original outfit. Downloaded model assets: .ydd , .ytd , and RPF packs are not outfit presets. See Addons . Back up the outfits folder and any import folders while Scooby is closed. In ListUI, pressing Right on a local saved outfit deletes its file permanently.",
     "href": "/guides/gta5/outfits/",
     "tags": [
       "gta5",
@@ -542,7 +634,16 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "Outfits",
+      "saved outfits",
+      "Nenyoo",
+      "download outfits",
+      "clothing presets",
+      "character model",
+      "JSON",
+      "XML",
+      "Legacy Enhanced"
     ]
   },
   {
@@ -558,13 +659,32 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "Plus",
+      "bootloader",
+      "UEFI",
+      "BIOS",
+      "motherboard",
+      "ASUS",
+      "MSI",
+      "Gigabyte",
+      "AORUS",
+      "ASRock",
+      "Secure Boot",
+      "Fast Boot",
+      "Memory Integrity",
+      "Load Driver At Next Boot",
+      "ClickUI",
+      "ListUI",
+      "F1",
+      "Insert",
+      "F2"
     ]
   },
   {
     "game": "GTA 5",
-    "title": "Premium and Free Setup",
-    "text": "Premium and Free Setup",
+    "title": "GTA 5 Premium and Free Setup",
+    "text": "GTA 5 Premium and Free Setup Before starting Premium login Free login Choose GTA 5 BattlEye mode Load & menu keys Online access Need help? Using Plus with BattlEye enabled? Follow the Plus Setup Guide for its bootloader and reboot steps. This page covers Premium and Free with BattlEye disabled . Before you start Install GTA 5 Legacy or Enhanced and confirm which edition you will launch. Download the current Scooby loader from the Scooby portal . Sign in to the website with your normal account if asked. A free key only works inside the loader. Install the required Visual C++ runtimes if needed, then restart Windows. Use the Microsoft x64 package and Microsoft x86 package . Pictures below show the real native loader with example access and status values. Click a picture to enlarge it; use Zoom in for small labels. 1. Sign in — Premium or Free Choose the login method that matches your access. Premium — use the account you created Choose Premium in the loader. Enter your Scooby account’s username and password . Choose Sign in . Your GTA 5 Premium license must be activated on that same account. Enlarge screenshot ↗ Choose Premium → enter your existing account username and password → Sign in. Use Register if you have not created an account. Purchased a license key? Redeem it first Sign in to the portal with the account you will use in the loader. Open Dashboard → Redeem license key . Paste your purchased license key, choose Redeem key , and wait for the success message. Check that GTA 5 Premium appears on your account. Return to the loader and sign in using Premium with that account’s username and password. Sign out and back in if access needs refreshing. Enlarge screenshot ↗ Paste the purchased license in the outlined field, then choose Redeem key. Current portal interface shown with an example account; no key was submitted. A purchased license key activates your account; it is not your loader password. More account and activation help → Free — paste a current free key Get a free key , complete the access steps and choose Copy Scooby key . In the loader, choose Free . Paste the copied key into Free key and choose Sign in . One free key supports all Scooby Free versions. Free keys reset every 24 hours ; get a new key every 24 hours and repeat the Free login. Free keys do not sign in to the portal/dashboard and cannot be redeemed as Premium licenses. Enlarge screenshot ↗ Choose Free → paste the copied free key → Sign in. Get a free key opens the access page. 2. Choose GTA 5 and match your edition Open Games in the loader and select GTA 5 . On the GTA 5 dashboard, set Edition to Legacy or Enhanced , matching the game you will start. Read your access and availability status. Resolve a Locked , Paused or unsupported-build message before loading. Enlarge screenshot ↗ Outlined selection in the game library. Locked / Testers badges are example access states: if your card is locked, resolve your sign-in or access before loading. Enlarge loader screenshot ↗ Choose Legacy or Enhanced in Edition, then use Load at the point described in your setup steps. This is a Free interface example; Plus has its own setup steps. 3. Choose BattlEye Disabled For the Premium and Free path on this page, choose BattlEye Disabled in the loader’s mode picker and select Continue . Launch GTA 5 with BattlEye disabled as required for that mode. Use the loader’s built-in BattlEye guide or the Legacy & Enhanced setup instructions for your launcher. Enlarge screenshot ↗ Choose BattlEye Disabled , then Continue . This native interface example shows Free access; your account badge and available options may differ. The BattlEye-enabled Plus path has its own setup guide. If you want the BattlEye Enabled option, use your eligible Plus access and complete the Plus Setup Guide before loading. 4. Load Scooby and open the menu Start the matching GTA 5 Legacy or Enhanced edition and wait at its main menu / landing page . Return to the Scooby GTA 5 dashboard and choose Load once. Keep the loader open while it prepares files and loads the module. Wait for the completion message ; a download percentage alone is not completion. Return to GTA 5 and enter Story Mode . Open Scooby using the key for your interface below. If the menu does not appear, keep the exact loader message and follow the troubleshooting links. Show the loading-progress example Enlarge screenshot ↗ This is an in-progress example. Wait for the next completion screen; do not press Load again. Open the menu ClickUI: F1 or Insert ListUI: F2 5. Follow the online rules for your access Free Use solo / invite-only sessions with other Scooby users , with BattlEye disabled. Free does not support normal public lobbies or sessions with non-modders. Read the Free online-access rules before joining a session. Premium Premium uses BattlEye disabled for this loading path. Public-session hosting and playing with friends require you to remain the session host . Follow the Premium public-session hosting guide for the session requirements. Plus / Premium Plus The BattlEye-enabled path uses separate access and setup requirements. Continue with the Plus Setup Guide . If something goes wrong Website or loader cannot connect: use connection help . A backend or hosting outage may require waiting for service to recover. Free key expired or rejected: get a current key and check that you chose Free . Premium still locked: check that you redeemed the license on the same account used for Premium login. File blocked or removed: follow antivirus & download help . Crash, edition mismatch or no menu: use GTA 5 troubleshooting and keep the exact error text.",
     "href": "/guides/gta5/premium-free-setup/",
     "tags": [
       "gta5",
@@ -574,13 +694,24 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
     "game": "GTA 5",
     "title": "Themes",
-    "text": "Themes Scooby themes can include colors, layout settings, backgrounds, and other image layers. A theme may be a single JSON file or a folder containing its settings and images. Theme folder and menu C:\\scooby\\GTA5\\themes Settings → Appearance → Themes Use Open Themes Folder to open the correct location. Install Apply Save and share Troubleshooting Install a downloaded theme Get a Scooby GTA 5 theme from its author or the Scooby community . Extract the archive first. Open Settings → Appearance → Themes → Open Themes Folder . For a single-file theme, copy the .json file directly into C:\\scooby\\GTA5\\themes . For a theme bundle, copy the entire theme folder into themes . Keep its JSON and image files together, with the author's filenames and relative paths unchanged. Return to the menu and select Refresh Library . Example layouts (the image filenames in your download may be different): C:\\scooby\\GTA5\\themes\\ SimpleTheme.json MyTheme\\ MyTheme.json background.png The theme JSON should sit at the top of its bundle folder. Avoid accidentally adding an extra wrapper folder when extracting a ZIP. Apply a theme to the interface you use Select the theme in the library. Choose Save / Load Scope : Both , ClickUI , or ListUI . Select Load Selected Theme . Check the status message and the chosen interface. Both applies the available settings for both interfaces. ClickUI or ListUI applies that interface and its shared appearance settings. The theme must contain settings for the scope you choose; a ClickUI-only theme cannot supply a ListUI design. Save, back up, and share your design Adjust the appearance settings and choose the scope you want to save. Enter a new custom theme name and select Save Current Theme . Scooby creates C:\\scooby\\GTA5\\themes\\YourTheme\\YourTheme.json and bundles referenced images into the theme folder. Use Open Selected Folder to find the result. Back up or ZIP the entire folder when sharing it. Quick Save updates the selected custom theme. Use a new name when you want to keep the previous version. Built-in themes are protected from overwriting and deletion; save a custom copy to edit them. If the theme does not look right Not listed: extract the archive, check that the JSON is directly in themes or directly inside its bundle folder, clear the search, and refresh. Missing background or images: copy the complete bundle again. Sharing only its JSON can leave referenced images behind. Only one interface changes: check Save / Load Scope and the interfaces included in the theme. Load fails: restore the original JSON and confirm the theme supports your Scooby version. A theme from another menu is not automatically compatible. Want to undo a change: load a previously saved theme or a built-in theme from the library. Save your current design before experimenting if you want to keep it.",
+    "text": "Themes Scooby themes can include colors, layout settings, backgrounds, and other image layers. A theme may be a single JSON file or a folder containing its settings and images. Theme folder and menu C:\\scooby\\GTA5\\themes Settings → Appearance → Themes Use Open Themes Folder to open the correct location. Install Apply Save and share Troubleshooting Enlarge image ↗ Open Settings , then follow Appearance → Themes . The highlighted gear / Settings row is the starting point; the theme controls are described below. Enlarge image ↗ Folder-layout illustration, not a product screenshot. Copy the entire bundle; the filenames in your theme may differ. Install a downloaded theme Get a Scooby GTA 5 theme from its author or the Scooby community . Extract the archive first. Open Settings → Appearance → Themes → Open Themes Folder . For a single-file theme, copy the .json file directly into C:\\scooby\\GTA5\\themes . For a theme bundle, copy the entire theme folder into themes . Keep its JSON and image files together, with the author's filenames and relative paths unchanged. Return to the menu and select Refresh Library . Example layouts (the image filenames in your download may be different): C:\\scooby\\GTA5\\themes\\ SimpleTheme.json MyTheme\\ MyTheme.json background.png The theme JSON should sit at the top of its bundle folder. Avoid accidentally adding an extra wrapper folder when extracting a ZIP. Apply a theme to the interface you use Select the theme in the library. Choose Save / Load Scope : Both , ClickUI , or ListUI . Select Load Selected Theme . Check the status message and the chosen interface. Both applies the available settings for both interfaces. ClickUI or ListUI applies that interface and its shared appearance settings. The theme must contain settings for the scope you choose; a ClickUI-only theme cannot supply a ListUI design. Save, back up, and share your design Adjust the appearance settings and choose the scope you want to save. Enter a new custom theme name and select Save Current Theme . Scooby creates C:\\scooby\\GTA5\\themes\\YourTheme\\YourTheme.json and bundles referenced images into the theme folder. Use Open Selected Folder to find the result. Back up or ZIP the entire folder when sharing it. Quick Save updates the selected custom theme. Use a new name when you want to keep the previous version. Built-in themes are protected from overwriting and deletion; save a custom copy to edit them. If the theme does not look right Not listed: extract the archive, check that the JSON is directly in themes or directly inside its bundle folder, clear the search, and refresh. Missing background or images: copy the complete bundle again. Sharing only its JSON can leave referenced images behind. Only one interface changes: check Save / Load Scope and the interfaces included in the theme. Load fails: restore the original JSON and confirm the theme supports your Scooby version. A theme from another menu is not automatically compatible. Want to undo a change: load a previously saved theme or a built-in theme from the library. Save your current design before experimenting if you want to keep it.",
     "href": "/guides/gta5/themes/",
     "tags": [
       "gta5",
@@ -590,7 +721,15 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "themes",
+      "Appearance",
+      "Open Themes Folder",
+      "theme bundle",
+      "ClickUI",
+      "ListUI",
+      "Save Load Scope",
+      "background image"
     ]
   },
   {
@@ -611,8 +750,8 @@
   },
   {
     "game": "GTA 5",
-    "title": "Modded Vehicles",
-    "text": "Modded Vehicles Saved Vehicles stores reusable vehicle presets. These files describe a vehicle and its saved settings; the underlying model must already be available in your game. Vehicle folder and menu C:\\scooby\\GTA5\\vehicles Vehicle → Saved Vehicles → Browse in ClickUI and ListUI. Supported preset formats include .json , .xml , and .ini . Install Other-menu imports Save and share Troubleshooting Install and spawn a shared vehicle Download a compatible vehicle preset and extract it if it is inside an archive. Open Vehicle → Saved Vehicles and select Open Folder , or paste C:\\scooby\\GTA5\\vehicles into File Explorer. Copy the preset into the vehicles folder or your own subfolder. Keep the original extension. Open Browse , select Refresh , and open the folder containing the vehicle. Select the vehicle to spawn it. Enable Spawn Inside if you want to enter it automatically. 3D Preview shows a preview when one is available. C:\\scooby\\GTA5\\vehicles\\ MyVehicle.json Favorites\\ SharedVehicle.xml Keep personal saves in the parent folder or your own subfolders. vehicles\\PresetVehicles is used for bundled presets. Import a vehicle from another menu Place the original export in the matching folder: Stand: C:\\scooby\\GTA5\\other-menu-addons\\stand-vehicles Cherax: C:\\scooby\\GTA5\\other-menu-addons\\cherax-vehicles Other supported exports: C:\\scooby\\GTA5\\other-menu-addons\\other-menus-vehicles Open Other Menu / Other Menus in Saved Vehicles, refresh, and choose the import. Compatible .json , .txt , .ini , and .xml exports can be scanned. Keep files directly in the matching folder and preserve their original structure; an extension alone does not guarantee support. The installed format notes are in C:\\scooby\\GTA5\\other-menu-addons\\VEHICLES-GUIDE.txt . Save and share your own vehicle Enter the vehicle you want to save and finish customizing it. Open Vehicle → Saved Vehicles → Save Vehicle , or browse to the subfolder where you want to save. Choose JSON [SCOOBY] for a native Scooby save, XML [Menyoo] for a Menyoo-compatible export, or INI [Other Menus] for a supported INI export. Select Save Current Vehicle and enter a filename without an extension. Scooby adds the selected extension. Use Open Folder to copy, back up, or share the file. Include any model or edition requirements when sharing. Save as Personal Vehicle opens the garage registration flow. Use Save Current Vehicle when you want a portable file; saving a preset is separate from registering a personal vehicle. If a vehicle will not appear or spawn Missing preset: check the folder and extension, clear the search, open the correct subfolder, and refresh. Cannot save: enter a valid vehicle first and use a simple filename. Cannot spawn: the model may be unavailable in your game build, or the preset may use an unsupported structure. Restore the original download or ask for a compatible export. Wrong format: select the intended save format before saving. Changing .xml to .json does not convert the file. Downloaded an RPF or model assets: follow DLCs (Vehicles and Peds) . The saved-vehicle folder does not install custom game assets. Back up the vehicles folder and import folders while Scooby is closed. In ListUI, pressing Right on a local library entry permanently deletes that file.",
+    "title": "Vehicles",
+    "text": "Vehicles Saved Vehicles stores reusable vehicle presets. These files describe a vehicle and its saved settings; the underlying model must already be available in your game. Vehicle folder and menu C:\\scooby\\GTA5\\vehicles Vehicle → Saved Vehicles → Browse in ClickUI and ListUI. Supported preset formats include .json , .xml , and .ini . Downloads Legacy / Enhanced Install Other-menu imports Save and share Troubleshooting Download vehicles Browse and download vehicles from Nenyoo ↗ Check the download’s file format and edition requirements before importing it. Extract the archive first, then use the installation steps below. Check Legacy / Enhanced compatibility Choose a download made for your game edition and a format Scooby supports. Addon models and textures may need conversion between Legacy and Enhanced; a saved preset does not perform that conversion. See addon edition and conversion help . Enlarge image ↗ Open Vehicle , then Saved Vehicles for downloaded presets. This Enhanced screenshot shows the spawner; the Saved Vehicles tab is outlined. Layouts can differ by menu version. Install and spawn a shared vehicle Download a compatible vehicle preset from Nenyoo vehicles or its author, and extract it if it is inside an archive. Open Vehicle → Saved Vehicles and select Open Folder , or paste C:\\scooby\\GTA5\\vehicles into File Explorer. Copy the preset into the vehicles folder or your own subfolder. Keep the original extension. Open Browse , select Refresh , and open the folder containing the vehicle. Select the vehicle to spawn it. Enable Spawn Inside if you want to enter it automatically. 3D Preview shows a preview when one is available. C:\\scooby\\GTA5\\vehicles\\ MyVehicle.json Favorites\\ SharedVehicle.xml Keep personal saves in the parent folder or your own subfolders. vehicles\\PresetVehicles is used for bundled presets. Import a vehicle from another menu Place the original export in the matching folder: Stand: C:\\scooby\\GTA5\\other-menu-addons\\stand-vehicles Cherax: C:\\scooby\\GTA5\\other-menu-addons\\cherax-vehicles Other supported exports: C:\\scooby\\GTA5\\other-menu-addons\\other-menus-vehicles Open Other Menu / Other Menus in Saved Vehicles, refresh, and choose the import. Compatible .json , .txt , .ini , and .xml exports can be scanned. Keep files directly in the matching folder and preserve their original structure; an extension alone does not guarantee support. The installed format notes are in C:\\scooby\\GTA5\\other-menu-addons\\VEHICLES-GUIDE.txt . Save and share your own vehicle Enter the vehicle you want to save and finish customizing it. Open Vehicle → Saved Vehicles → Save Vehicle , or browse to the subfolder where you want to save. Choose JSON [SCOOBY] for a native Scooby save, XML [Menyoo] for a Menyoo-compatible export, or INI [Other Menus] for a supported INI export. Select Save Current Vehicle and enter a filename without an extension. Scooby adds the selected extension. Use Open Folder to copy, back up, or share the file. Include any model or edition requirements when sharing. Save as Personal Vehicle opens the garage registration flow. Use Save Current Vehicle when you want a portable file; saving a preset is separate from registering a personal vehicle. If a vehicle will not appear or spawn Missing preset: check the folder and extension, clear the search, open the correct subfolder, and refresh. Cannot save: enter a valid vehicle first and use a simple filename. Cannot spawn: the model may be unavailable in your game build, or the preset may use an unsupported structure. Restore the original download or ask for a compatible export. Wrong format: select the intended save format before saving. Changing .xml to .json does not convert the file. Downloaded an RPF or model assets: follow Addons . The saved-vehicle folder does not install custom game assets. Back up the vehicles folder and import folders while Scooby is closed. In ListUI, pressing Right on a local library entry permanently deletes that file.",
     "href": "/guides/gta5/vehicles/",
     "tags": [
       "gta5",
@@ -622,7 +761,18 @@
       "GTA 5 cheat",
       "GTA5 cheat",
       "GTA V cheats",
-      "GTA Online cheats"
+      "GTA Online cheats",
+      "Vehicles",
+      "modded vehicles",
+      "saved vehicles",
+      "Nenyoo",
+      "download vehicles",
+      "Menyoo",
+      "JSON",
+      "XML",
+      "INI",
+      "import",
+      "Legacy Enhanced"
     ]
   },
   {
@@ -632,7 +782,18 @@
     "href": "/guides/fivem/fivem-inject/",
     "tags": [
       "fivem",
-      "FiveM cheat"
+      "FiveM cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -672,7 +833,18 @@
     "href": "/guides/redm/redm-inject/",
     "tags": [
       "redm",
-      "RedM cheat"
+      "RedM cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -787,7 +959,18 @@
       "RDR2 mod menu",
       "RDR2 cheat",
       "Red Dead Redemption 2 cheats",
-      "Red Dead Online cheats"
+      "Red Dead Online cheats",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -845,7 +1028,18 @@
       "CS2",
       "Counter-Strike 2",
       "CS2 cheat",
-      "Counter-Strike 2 cheat"
+      "Counter-Strike 2 cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -899,7 +1093,18 @@
       "Sandbox",
       "S&box cheat",
       "Sbox cheat",
-      "Sandbox cheat"
+      "Sandbox cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -958,7 +1163,18 @@
       "Garry's Mod",
       "Garrys Mod",
       "GMOD cheat",
-      "Garry's Mod cheat"
+      "Garry's Mod cheat",
+      "loading guide",
+      "loader screenshots",
+      "sign in",
+      "signin",
+      "login",
+      "Free key",
+      "Premium account",
+      "choose game",
+      "loading progress",
+      "loaded",
+      "completion"
     ]
   },
   {
@@ -1006,10 +1222,33 @@
   {
     "game": "General help",
     "title": "Connection & SSL errors",
-    "text": "Connection & SSL errors Connection checks SSL / certificate errors Test another network Still stuck? Work through these in order Check that other websites open. If everything is offline, fix your network connection first. Retry the official Scooby website and loader after a short wait. An outage or maintenance can affect both. Open Windows Settings → Time & language → Date & time . Correct the date, time and time zone; use Sync now if available. Restart the browser or loader. Finish a hotel, school or public Wi-Fi sign-in page in the browser if one is required. If a VPN or proxy is already enabled, disconnect it briefly and test again. Restore your normal setting afterward. If the error mentions SSL or a certificate A certificate error is not proof that your ISP blocks Scooby. A wrong clock, outdated Windows, a sign-in portal, security software inspecting HTTPS or a server problem can all cause it. Correct the clock, apply Windows updates, then restart. Check antivirus history for a named web-protection block. Follow the vendor’s official help for that detection. Do not bypass certificate warnings, install an unknown root certificate or disable the firewall to make the message disappear. Check whether the network is the problem If the error remains, try a trusted alternative connection, such as your phone’s hotspot. If it works there, the original network may be filtering the connection. A VPN can help diagnose routing or filtering problems on your own network, but it cannot fix every SSL or authentication error. If you already use one, test another server or test with it disconnected. On a work or school network, ask the administrator about its access rules. If you still need help Include the exact error text, whether it happens in the browser or loader, your Windows version, antivirus name, and whether the hotspot test changed anything. Hide passwords, keys and other private details. If the network works but sign-in fails, follow authentication troubleshooting . For an HWID mismatch, use the portal reset guide ; resets have a 7-day cooldown.",
+    "text": "Connection & SSL errors Connection checks Backend / hosting issues SSL / certificate errors Test another network Free connection options Still stuck? Work through these in order Check that other websites open. If everything is offline, fix your network connection first. Retry the official Scooby website and loader after a short wait. An outage or maintenance can affect both. Open Windows Settings → Time & language → Date & time . Correct the date, time and time zone; use Sync now if available. Restart the browser or loader. Finish a hotel, school or public Wi-Fi sign-in page in the browser if one is required. If a VPN or proxy is already enabled, disconnect it briefly and test again. Restore your normal setting afterward. The backend or hosting provider may be having issues If the loader cannot connect or keeps timing out even on a different network, the backend service or its server-hosting provider may be unavailable . Hosting-provider outages can be outside Scooby’s direct control ; they are not something you can fix on your PC. Check for official service updates, wait for the service to recover, and try again later. A VPN or proxy can help with network restrictions, but it cannot fix a backend or hosting outage . If the error mentions SSL or a certificate A certificate error is not proof that your ISP blocks Scooby. A wrong clock, outdated Windows, a sign-in portal, security software inspecting HTTPS or a server problem can all cause it. Correct the clock, apply Windows updates, then restart. Check antivirus history for a named web-protection block. Follow the vendor’s official help for that detection. Do not bypass certificate warnings, install an unknown root certificate or disable the firewall to make the message disappear. Check whether the network is the problem If the error remains, try a trusted alternative connection, such as your phone’s hotspot. If it works there, the original network may be filtering the connection. Your ISP or country may restrict access to some websites. “Server not found” or “This site can’t be reached” can also mean a DNS problem or temporary website outage. A VPN can help diagnose routing or filtering problems on your own network, but it cannot fix every SSL or authentication error. If you already use one, test another server or test with it disconnected. On a work or school network, ask the administrator about its access rules. Try a free connection option If you suspect network filtering, connect through a VPN or trusted proxy and retry the website or restart the loader and try connecting again. These providers offer free options: Cloudflare 1.1.1.1 with WARP — free app . Enable WARP in the app, then retry the website or loader. Proton VPN — free plan available . Connect using the free plan, then retry the website or loader. If the free-key website opens afterward, continue its normal access steps. A VPN does not replace those steps. If you still need help Include the exact error text, whether it happens in the browser or loader, your Windows version, antivirus name, and whether the hotspot test changed anything. Hide passwords, keys and other private details. If the network works but sign-in fails, follow authentication troubleshooting . For an HWID mismatch, use the portal reset guide ; resets have a 7-day cooldown.",
     "href": "/guides/general/connection/",
     "tags": [
-      "general"
+      "general",
+      "website not opening",
+      "site not found",
+      "connection not found",
+      "server not found",
+      "site cannot be reached",
+      "loader cannot connect",
+      "loader connection issues",
+      "timeout",
+      "backend outage",
+      "server hosting",
+      "hosting provider",
+      "server down",
+      "DNS",
+      "ISP blocking",
+      "country block",
+      "country restrictions",
+      "network filtering",
+      "VPN",
+      "proxy",
+      "Cloudflare",
+      "1.1.1.1",
+      "WARP",
+      "Proton VPN"
     ]
   },
   {
@@ -1018,7 +1257,13 @@
     "text": "Crashes & loading errors Start here Missing runtimes Reset settings Still crashing? Try these first Close Scooby and the game. Restart the PC if they will not close normally. Launch the game without Scooby once. If it still crashes, repair the game first using its launcher’s Verify / Repair option. Download the current loader from Scooby’s website and follow your game’s setup guide . Use the correct edition and account tier. Read any antivirus alert before changing settings. A missing or quarantined file belongs in antivirus & download help . Apply pending Windows updates and get graphics drivers from your GPU maker. Test again after restarting. Missing DLL or Visual C++ error? Install or repair the current Microsoft Visual C++ Redistributable packages. On a 64-bit Windows gaming PC, install both packages below, then restart. Microsoft Visual C++ · x64 ↗ Microsoft Visual C++ · x86 ↗ Use Microsoft installers rather than downloading individual DLL files from a DLL website. For DirectX errors, repair the game’s prerequisites through its launcher. Test with fresh settings without losing your backup Close both Scooby and the game. Open File Explorer with Win + E . Check C:\\scooby and your Documents\\Scooby folder; use the one that actually contains your settings. Press Alt + D to enter a folder path in the address bar. Select the Scooby data folder and press F2 , or right-click it and choose the Rename icon. Enter an unused backup name, such as scooby-backup , then press Enter . Keep its scripts, outfits and presets in the backup. Do not rename a whole Documents folder or the loader executable. Open Scooby so it can create fresh settings. Test without imported scripts, themes or presets. If it works, restore your saved items gradually to find the cause. If it does not, close Scooby before restoring the original folder name. Enlarge screenshot ↗ Choose Rename, or press F2. Microsoft’s Windows 11 reference shows a file menu; the same Rename icon works on folders. Apply it to your Scooby data folder, then use a backup name. Microsoft screenshot and instructions ↗ . Still crashing? Check the exact loader error and your game’s troubleshooting page. If asking for help, include the game and edition, where the crash happens, the exact error and the steps you already tried. A screenshot is more useful than “it does not work”. For GTA 5, keep the Free Version Setup and Plus Setup instructions separate: their BattlEye requirements differ.",
     "href": "/guides/general/crashing/",
     "tags": [
-      "general"
+      "general",
+      "crash",
+      "settings backup",
+      "rename folder",
+      "VC runtime",
+      "Visual C++",
+      "graphics driver"
     ]
   },
   {
@@ -1027,16 +1272,44 @@
     "text": "Antivirus & download help Download help Find my antivirus Choose antivirus Uninstall & use Defender Start here A security warning needs checking. A mod menu can trigger detections because of what it does, but that does not prove every warning is a false positive. Check the exact detection and download source before changing protection. Download or file missing? Start at scoobymenu.cc and use its loader download. Avoid reuploads, adverts and files sent by strangers. If your browser blocks the official loader download, open Downloads and choose Allow (called Keep or Keep anyway in some browsers). If the file disappears, open your antivirus detection history or quarantine. In Windows Security, this is Protection history . Write down the file path and detection name. If you believe a detection is incorrect, request a review through the antivirus vendor. Only consider a narrow exclusion for a file you have independently verified and decided to trust. Which antivirus is protecting my PC? Open Start, type Windows Security , and open it. Select Virus & threat protection → Manage providers under “Who’s protecting me?”. Read the active antivirus name, then choose it below. Changing Defender settings will not change another antivirus. Enlarge image ↗ Microsoft screenshot: Manage providers identifies the active antivirus; Manage settings opens Defender settings. Official instructions ↗ Choose your antivirus Open only the product you use. These instructions cover Windows. All examples below are real product screenshots with click targets outlined. Compare the layout with your app; versions and translations can change the labels. Personal devices need an administrator account. If settings are managed by your organization, contact its administrator. Microsoft Defender Norton AVG Avast McAfee Bitdefender Malwarebytes ESET Keep changes small An exclusion skips security checks for the selected item. Use an exact file path, not an entire drive, Downloads folder or every .exe . Temporary pauses reduce protection too: use them only to diagnose a trusted app, then turn protection back on. Leave the firewall enabled. Microsoft Defender Windows Security / Windows Defender + Add or remove an exclusion Open Windows Security → Virus & threat protection → Manage settings . Scroll to Exclusions → Add or remove exclusions . Choose Add an exclusion → File and select the exact trusted file. Check the saved path. To undo the exception, select it and choose Remove . Enlarge screenshot ↗ 1. Scroll down and click Add or remove exclusions. Mauro Huculak / Windows Central; original screenshot. Screenshot source ↗ Enlarge screenshot ↗ 2. Click Add an exclusion, then File for a single trusted loader file. Mauro Huculak / Windows Central; original screenshot. Screenshot source ↗ Temporarily pause real-time protection On the same Manage settings page, switch Real-time protection off and approve the prompt. Run only the short diagnostic you intended. Return here and switch it On afterward; Defender can also turn itself back on automatically. If the control is unavailable, check the active provider or administrator policy. Use Microsoft’s current guidance ↗ for your version; do not use registry hacks or third-party “Defender disabler” tools. Enlarge screenshot ↗ Click the Real-time protection switch. This example shows Off; switch it back On after testing. Mauro Huculak / Windows Central; original screenshot. Screenshot source ↗ Norton Norton 360 / Norton AntiVirus + Add or remove an exclusion Open Norton, then Security → Scans → Open → Exclusions . Choose Add / Add Exclusion , browse to the specific trusted file and confirm with OK → Add . Remove an old exception using the X beside it. If your layout differs, follow Norton’s exclusions guide ↗ . Older Norton 24.x layout shown below: antivirus exclusions are under Security → Advanced → Antivirus → Exclusions. Scans also has its own Exclusions tab. Use the path that matches your version. Norton 24.x screenshot examples Enlarge screenshot ↗ Norton 24.x: click the antivirus Exclusions tab, then Add. Norton Community; Norton 24.x interface. Screenshot source ↗ Enlarge screenshot ↗ Norton 24.x scan exclusions: click Exclusions, then Add. Norton Community; Norton 24.x interface. Screenshot source ↗ Temporarily pause Auto-Protect In the taskbar notification area, right-click the Norton icon. You may need the hidden-icons arrow. Choose Disable Auto-Protect , pick the shortest suitable duration and confirm. Leave Firewall enabled. When finished, right-click the icon and select Enable Auto-Protect . Official Norton pause instructions ↗ · Uninstall Norton instead → The Auto-Protect switch may also appear in the antivirus Real-Time Protection tab. Turning it off does not disable every Norton component. Enlarge screenshot ↗ Norton 25.12: Auto-Protect is the top switch. It is shown Off here; switch it back On after testing. Norton Community; Norton 25.12 tray menu. Screenshot source ↗ AVG AVG AntiVirus FREE / Internet Security + Add or remove an exception Open AVG and select Menu → Settings → General → Exceptions → Add exception . Review the risk notice, then choose File / Folder . Browse to the trusted file and save with Add . To remove it later, return to Exceptions and use the X beside the entry. Enlarge screenshot ↗ 1. Open General → Exceptions, then click Add exception. AVG Support; annotated product screenshot. Screenshot source ↗ Enlarge screenshot ↗ 2. Choose File / Folder, use the folder icon to select the exact trusted file, then Add. AVG Support; File / Folder tab. Screenshot source ↗ Temporarily pause File Shield Open AVG and select Computer . Switch File Shield off, select a short duration and confirm with OK, stop . Switch File Shield back on when your check is complete. This pauses one component; other shields still work. Enlarge screenshot ↗ Click File Shield in the Computer screen to pause that component; restore it after testing. Official vendor support screenshot. Screenshot source ↗ Enlarge screenshot ↗ Choose a brief pause interval. Turn File Shield back on after the diagnostic. Official vendor support screenshot. Screenshot source ↗ Official AVG exceptions instructions ↗ · Uninstall AVG instead → Avast Free Antivirus / Premium Security / Avast One + Add or remove an exception Open Avast and choose Menu → Settings → General → Exceptions → Add exception . Read the notice, select File / Folder , browse to the trusted file and choose Add . Remove an exception later with the X beside it. Avast One can use different menus; use the Avast One link in the official article. Enlarge screenshot ↗ Open General → Exceptions and click Add exception. Official vendor support screenshot. Screenshot source ↗ Temporarily pause shields Right-click the Avast tray icon and open Manage Shields (older releases may call it Avast shields control ). Choose the shortest suitable interval, confirm, then restore the shields immediately afterward. Avoid the permanent-off option. Enlarge screenshot ↗ 1. Right-click the Avast tray icon and click Manage Shields. Avast Support; Manage Shields tray menu. Screenshot source ↗ Enlarge screenshot ↗ 2. Choose a short interval, such as Disable for 10 minutes. Re-enable protection after the check. Avast Support; duration menu. Screenshot source ↗ Official Avast pause instructions ↗ · Uninstall Avast instead → McAfee LiveSafe / Total Protection + Add a file exclusion Open McAfee and go to My Protection → Device → Real-Time Scanning . Under Excluded Files , choose Add file , then select the specific trusted file. McAfee checks it before allowing the exception. Review this list after an app update: a changed file can lose its exclusion. To undo an entry, use its removal option. Classic McAfee layout shown below: use the top-right Settings gear → PC Security → Real-Time Scanning. Newer versions may use My Protection instead. Classic McAfee exclusion screenshots Enlarge screenshot ↗ 1. In the classic Settings menu, click Real-Time Scanning under PC Security. Surfshark Support; classic McAfee interface. Screenshot source ↗ Enlarge screenshot ↗ 2. Expand Excluded Files and click Add file. Select your own trusted file. Surfshark Support; classic McAfee interface. Screenshot source ↗ Temporarily pause scanning In versions that expose the control, open Real-Time Scanning → Turn off , choose a brief automatic resume time, and confirm. Turn it back on immediately afterward. Newer plans can differ; follow the instructions for your installed version. McAfee’s real-time scanning reference (older interface) ↗ · Current file-exclusion help ↗ · Uninstall McAfee instead → Enlarge screenshot ↗ Classic McAfee: Turn Off pauses real-time scanning. Choose a brief resume time, then restore protection. Surfshark Support; classic McAfee interface. Screenshot source ↗ Bitdefender Antivirus Plus / Internet Security / Total Security + Add a file exception Open Protection → Antivirus → Open → Settings → Manage Exceptions . Select Add an Exception , browse to the specific trusted file, choose the Antivirus scope and save. Review the scope; other modules can still block the app. Remove unused entries from Manage Exceptions. Enlarge screenshot ↗ 1. In Antivirus, click Settings → Manage exceptions. Bitdefender Support; annotated product screenshot. Screenshot source ↗ Enlarge screenshot ↗ 2. Click Add an Exception and select the specific trusted file. Bitdefender Support; annotated product screenshot. Screenshot source ↗ Temporarily pause antivirus Under Protection → Antivirus → Open → Advanced , switch Bitdefender Shield off. Choose Until system restart rather than permanently, then turn it back on manually after the check. This does not pause every Bitdefender module. Official exceptions guide ↗ · Official pause guide ↗ Malwarebytes Device Protection & Antivirus + Add an item to the Allow list Open Malwarebytes and select Detection History → Allow list → Add item . Choose the trusted file or app, review the notice and save. Remove unused rules using the trash icon in the same list. Older Malwarebytes layout shown below: open the Settings gear → Allow List → Add. Newer releases place the Allow list under Detection History and use Add item. Older Malwarebytes Settings / Allow List screenshots Enlarge screenshot ↗ 1. In this older layout, click the top-right Settings gear. Surfshark Support; Malwarebytes interface. Screenshot source ↗ Enlarge screenshot ↗ 2. Open the Allow List tab. Surfshark Support; Malwarebytes interface. Screenshot source ↗ Enlarge screenshot ↗ 3. Click Add (Add item in newer versions), then choose your trusted file. Surfshark Support; older Malwarebytes layout. Screenshot source ↗ Temporarily stop Malwarebytes For a brief diagnostic of a trusted app, right-click the Malwarebytes tray icon and choose Quit Malwarebytes . Approve the Windows prompt if shown. Reopen Malwarebytes as soon as the test finishes and verify that protection is active. Official Allow list guide ↗ · Official troubleshooting guide ↗ Enlarge screenshot ↗ Right-click the Malwarebytes tray icon, then click Quit Malwarebytes. Reopen the app when finished. Malwarebytes Support; product tray menu. Screenshot source ↗ ESET Home and small office Windows products + Add a file exclusion Open ESET and press F5 for Advanced setup. Open Scan → Performance Exclusions → Edit (some versions use Scans → Exclusions ). Choose Add , browse to the exact trusted file, and confirm the dialogs. Remove it later from the same list. Enlarge screenshot ↗ 1. Press F5, open Scans, then click Edit beside Performance exclusions. ESET Support; annotated product screenshot. Screenshot source ↗ Enlarge screenshot ↗ 2. Click Add, then the three-dot browse button to choose the exact file. ESET Support; annotated product screenshot. Screenshot source ↗ Temporarily pause protection Open Setup → Computer protection → Pause Antivirus and antispyware protection . Choose a short interval and apply it. Finish the diagnostic, then choose Enable Antivirus and antispyware protection . Official exclusions guide ↗ · Official pause guide ↗ Enlarge screenshot ↗ Pause setup: click Setup → Computer protection. ESET Support; Computer protection. Screenshot source ↗ Enlarge screenshot ↗ Select a short pause interval and click Apply. Re-enable protection after the check. ESET Support; pause duration. Screenshot source ↗ Prefer Microsoft Defender? For a simpler Windows setup, you can use the built-in Microsoft Defender Antivirus instead of keeping a separate consumer security suite. Uninstall software you no longer need, restart, then verify Defender is active. Keep Windows and its security updates current. Resource use depends on the product, hardware, enabled features and current scan activity. Check Task Manager → Processes for CPU, Memory and Disk usage before deciding; removing an antivirus does not guarantee an FPS improvement. Use the normal uninstaller first. Save your work and close the antivirus window. On Windows 11, go to Settings → Apps → Installed apps ; on Windows 10, use Settings → Apps → Apps & features . Microsoft’s uninstall help ↗ Uninstall Norton Windows · remove, restart, check Defender + Press Win + R , enter appwiz.cpl , select Norton 360 , then choose Remove / Uninstall . In the Norton removal window, choose Uninstall / Remove , confirm, and let it finish. Choose removal rather than repair or reinstall. Restart Windows, then complete the Defender check below . If normal removal fails, use the Norton 360 Remover linked in Norton’s instructions. Select removal only. Norton Private Browser is a separate app. Official Norton removal instructions ↗ Uninstall AVG Windows · remove, restart, check Defender + Find AVG in the installed-apps list and choose Uninstall . Approve the Windows permission prompt. In the AVG removal window, choose Uninstall / Remove , confirm, and let it finish. Choose removal rather than repair or reinstall. Restart Windows, then complete the Defender check below . Enlarge screenshot ↗ In the AVG removal window, click Uninstall. AVG Support; annotated product screenshot. Screenshot source ↗ If normal removal fails, follow AVG’s official Uninstall Tool instructions; the tool may require Safe Mode. Official AVG removal instructions ↗ Uninstall Avast Windows · remove, restart, check Defender + Find Avast in the installed-apps list and choose Uninstall . Approve the Windows permission prompt. In the Avast removal window, choose Uninstall / Remove , confirm, and let it finish. Choose removal rather than repair or reinstall. Restart Windows, then complete the Defender check below . Enlarge screenshot ↗ In Avast Setup, click Uninstall to remove the app. Official vendor support screenshot. Screenshot source ↗ If normal removal fails, use the official Avast Uninstall Tool instructions, which can use Safe Mode. Official Avast removal instructions ↗ Uninstall McAfee Windows · remove, restart, check Defender + Find McAfee in the installed-apps list and choose Uninstall . Approve the Windows permission prompt. In the McAfee removal window, choose Uninstall / Remove , confirm, and let it finish. Choose removal rather than repair or reinstall. Restart Windows, then complete the Defender check below . If normal removal fails, follow McAfee’s MCPR removal instructions. WebAdvisor or other separately listed apps may need their own uninstall. Official McAfee removal instructions ↗ Uninstalling does not cancel a subscription Check renewal and billing settings separately in the vendor account. Do not download removal utilities from adverts, mirrors or “PC cleaner” sites. Use the official instructions linked above. After uninstalling: check your protection Open Windows Security → Virus & threat protection → Manage providers . Confirm Microsoft Defender Antivirus is the active antivirus. Go back to Manage settings and check Real-time protection is on. Update protection definitions and run a Quick scan. If Defender stays off, restart again and check for another installed antivirus. Use the removed vendor’s official removal help if it still appears. On managed devices, ask the administrator. Microsoft: check the active provider ↗ . Defender normally returns to active mode after the other antivirus is removed. Still blocked or unsure? Stop and keep the detection details rather than repeatedly bypassing protection. For a suspected false positive, ask the antivirus vendor to review the file. For a loader error, include its exact wording and your antivirus name when asking for help. Never share a key, password or recovery code. Read loader troubleshooting or connection & SSL help for the next steps.",
     "href": "/guides/general/faq/",
     "tags": [
-      "general"
+      "general",
+      "antivirus",
+      "AV",
+      "Defender",
+      "Windows Security",
+      "exclusion",
+      "exception",
+      "quarantine",
+      "blocked download",
+      "Norton",
+      "AVG",
+      "Avast",
+      "McAfee",
+      "Bitdefender",
+      "ESET",
+      "Malwarebytes",
+      "uninstall antivirus"
     ]
   },
   {
     "game": "General help",
     "title": "Get a free key",
-    "text": "Get a free key Access steps Copy key Free login Premium & redeem Key-page problems Free version limits 1. Complete the access steps Choose Get a free key . Complete each action shown on that page, then return to check its Unlock progress . Actions may change; follow the current page. When all required actions are complete, choose Unlock Link . You will be taken to the Scooby key page. Enlarge screenshot ↗ Complete the actions, check progress, then use Unlock Link when it becomes available. User-supplied screenshot; the exact actions can change. You must complete the steps Trying to skip or bypass the access steps can block key issuance. If you see “You found the page. Not the bypass.”, use Alright, I’ll do the steps and complete the access flow again. Enlarge screenshot ↗ This is the access-required screen, not a key. The outlined button returns you to the required steps. 2. Copy your free key On the Your free key page, wait for a key to be issued and any required verification to finish. Choose Copy Scooby key . Keep the copied key private. Free keys reset every 24 hours . Return through the access steps and copy a new free key every 24 hours. The same key supports all Scooby Free versions . Enlarge screenshot ↗ Use Copy Scooby key once the key is issued. The key is hidden in this supplied screenshot. This image shows where to copy; its expiry wording may differ. Free keys reset every 24 hours and support all Scooby Free versions. 3. Sign in using the loader’s Free tab Complete the free-key access steps and copy your key . In the loader, choose Free and paste it into Free key . Choose Sign in . Free keys work only in the loader’s Free login. They cannot sign in to the portal/dashboard or be redeemed there as a Premium license. One free key supports all Scooby Free versions. Free keys reset every 24 hours , so you need to get a new free key every 24 hours. Complete the access steps again, copy the new key and use it in the loader’s Free tab. You do not need a separate key for each game. Enlarge screenshot ↗ Choose Free → paste the copied free key → Sign in. Get a free key opens the access page. Download the loader from the Scooby portal using your normal website account if asked. Your website account and your loader free key are different login methods; the free key does not sign you in to the website. Once signed in, choose your game’s loading guide and follow the screenshots. Have a purchased Premium license instead? Redeem it on your Scooby account , then use Premium in the loader with that account’s username and password. Having trouble on the key page? Try an up-to-date Edge, Chrome or Firefox browser if the page does not complete. Close advert pop-ups. The key is text, never an executable or a separate installer . Get the loader from Scooby’s main website, not from an advert on the key page. Paste the full key without extra spaces. If it has expired, generate a new one. Keep your key private. Support does not need your password or key to read an error message. Check the free version’s limits For GTA Online, the free version supports invite-only / solo play or compatible sessions with other modders. It does not support normal public lobbies; joining one can crash the game. Read GTA 5 Free Version Setup for the current game-edition and online-access instructions. If old settings cause a crash after an update, follow the settings-backup steps instead of deleting your files immediately.",
+    "text": "Get a free key Access steps Copy key Free login Premium & redeem Website won’t open? Key-page problems Free version limits 1. Complete the access steps Choose Get a free key . Complete each action shown on that page, then return to check its Unlock progress . Actions may change; follow the current page. When all required actions are complete, choose Unlock Link . You will be taken to the Scooby key page. Enlarge screenshot ↗ Complete the actions, check progress, then use Unlock Link when it becomes available. User-supplied screenshot; the exact actions can change. You must complete the steps Trying to skip or bypass the access steps can block key issuance. If you see “You found the page. Not the bypass.”, use Alright, I’ll do the steps and complete the access flow again. Enlarge screenshot ↗ This is the access-required screen, not a key. The outlined button returns you to the required steps. 2. Copy your free key On the Your free key page, wait for a key to be issued and any required verification to finish. Choose Copy Scooby key . Keep the copied key private. Free keys reset every 24 hours . Return through the access steps and copy a new free key every 24 hours. The same key supports all Scooby Free versions . Enlarge screenshot ↗ Use Copy Scooby key once the key is issued. The key is hidden in this supplied screenshot. This image shows where to copy; its expiry wording may differ. Free keys reset every 24 hours and support all Scooby Free versions. 3. Sign in using the loader’s Free tab Complete the free-key access steps and copy your key . In the loader, choose Free and paste it into Free key . Choose Sign in . Free keys work only in the loader’s Free login. They cannot sign in to the portal/dashboard or be redeemed there as a Premium license. One free key supports all Scooby Free versions. Free keys reset every 24 hours , so you need to get a new free key every 24 hours. Complete the access steps again, copy the new key and use it in the loader’s Free tab. You do not need a separate key for each game. Enlarge screenshot ↗ Choose Free → paste the copied free key → Sign in. Get a free key opens the access page. Download the loader from the Scooby portal using your normal website account if asked. Your website account and your loader free key are different login methods; the free key does not sign you in to the website. Once signed in, choose your game’s loading guide and follow the screenshots. Have a purchased Premium license instead? Redeem it on your Scooby account , then use Premium in the loader with that account’s username and password. Website or loader won’t connect? If you see “This site can’t be reached” , “Server not found” or a connection timeout , or the loader cannot connect , your ISP or country may be blocking the connection. DNS problems or a temporary service outage can also cause these errors. Check the address and try refreshing the page. Try a different connection, such as your phone’s hotspot. If it still will not open, try a VPN or trusted proxy , then reopen the original free-key link or restart the loader and retry. Free connection options: Cloudflare 1.1.1.1 with WARP — free app . Enable WARP in the app, then retry the website or loader. Proton VPN — free plan available . Connect using the free plan, then retry the website or loader. A VPN can help with network restrictions, but it will not fix every website or loader connection error. You still need to complete the free-key access steps. For more checks, see Connection & SSL errors . It may be the backend or server hosting If the loader still cannot connect on another network, the backend or hosting provider may be having an outage. Hosting issues can be outside Scooby’s direct control. Wait for service to return and retry later; a VPN cannot fix a server-side outage. See backend & hosting connection help . Having trouble on the key page? Try an up-to-date Edge, Chrome or Firefox browser if the page does not complete. Close advert pop-ups. The key is text, never an executable or a separate installer . Get the loader from Scooby’s main website, not from an advert on the key page. Paste the full key without extra spaces. If it has expired, generate a new one. Keep your key private. Support does not need your password or key to read an error message. Check the free version’s limits For GTA Online, the free version supports invite-only / solo play or compatible sessions with other modders. It does not support normal public lobbies; joining one can crash the game. Read GTA 5 Free Version Setup for the current game-edition and online-access instructions. If old settings cause a crash after an update, follow the settings-backup steps instead of deleting your files immediately.",
     "href": "/guides/general/free-key/",
     "tags": [
-      "general"
+      "general",
+      "free key",
+      "freekey",
+      "ScoobyKEY",
+      "BSTLAR",
+      "24 hours",
+      "24h",
+      "24-hour reset",
+      "daily key",
+      "renew key",
+      "all free versions",
+      "copy key",
+      "Free login"
     ]
   },
   {
@@ -1045,7 +1318,13 @@
     "text": "Resetting Your HWID 7-day cooldown after every reset After resetting your HWID, you must wait 7 full days before you can reset it again. Do not open a support ticket to request a reset. Support will not reset your HWID for you or shorten the cooldown. If you are on cooldown, wait until it ends, then use the portal. If you have changed hardware or see an HWID mismatch, use the Reset HWID card on the portal dashboard. You can do this once your reset is available. Reset from the dashboard Open scoobymenu.cc/portal and sign in to your account. Select Dashboard and find the Reset HWID card. On a phone, scroll down to it. Read Reset availability . If it says Ready to reset , you can continue. If it says Available in… , wait for the remaining time to end. Click Reset HWID . Read the confirmation, then select Reset HWID again when you are ready. Select Cancel if you do not want to reset. These screenshots show the current portal with an example account. Your account name, products and remaining wait time will differ. Enlarge screenshot ↗ 1. Open Dashboard, check Ready to reset, then choose Reset HWID in the outlined card. Confirm the reset The confirmation opens before the reset is submitted. Check that you want to reset now: completing it starts the 7-day cooldown for your next reset. Enlarge screenshot ↗ 2. Choose Reset HWID to confirm, or Cancel to leave without resetting. If the button is unavailable Available in… means your reset is on cooldown. The button stays disabled while you wait. After the full 7 days have passed since your last reset, refresh the dashboard to check availability again. Enlarge screenshot ↗ Cooldown example: read the remaining time in Reset availability. Your account may show a shorter time. Support will not reset your HWID for you or bypass the cooldown. Do not create a ticket to request an early reset. Can I still use My profile? Yes. Open My account in the top right → My profile → Hardware ID . The same reset availability and 7-day cooldown apply. The dashboard is the shorter route.",
     "href": "/guides/general/hwid/",
     "tags": [
-      "general"
+      "general",
+      "hardware ID",
+      "HWID mismatch",
+      "reset HWID",
+      "7 days",
+      "7-day cooldown",
+      "portal dashboard"
     ]
   },
   {
@@ -1054,16 +1333,31 @@
     "text": "Use Scooby on Linux & Mac Get ready Steam on Linux Steam Deck / Flatpak Wine / Lutris Mac Troubleshooting Compatibility preview. Game support is still being tested. What works and what to expect . 1. Get ready Download and extract Scooby. Get Scooby-compatibility.zip from Scooby downloads and extract the whole ZIP. Keep all the files together. If you only see the Windows installer, ask support for the compatibility preview . Check your game works first. Open the Windows version of your game through its usual launcher at least once. It needs to work on its own before you add Scooby. Open a terminal in the extracted folder. Open the folder containing linux , right-click an empty area and choose Open in Terminal , if your file manager offers it. New to the terminal? Start here A terminal lets you run the short commands in this guide. On Steam Deck, use Desktop Mode and open Konsole . Paste a command with Ctrl + Shift + V , then press Enter . Keep the terminal in the extracted folder that contains linux . If you opened it elsewhere, type cd followed by that folder's full path in quotes, then press Enter. Run Scooby as your normal user, without sudo . The launch scripts need Python 3.10 or newer . Check with this command: python3 --version A result such as Python 3.12.3 is fine. If Python is missing or older than 3.10, install it using your system's supported package manager. 2. Choose your setup Open the option that matches how you start your game. You only need to follow one. Linux with Steam I launch my game from my Steam library. Install Protontricks. Follow the official installation instructions . Installed it through Discover or as a Flatpak? Use the Steam Deck / Flatpak steps instead. Start your game once with Proton. In Steam, open the game's Properties → Compatibility , select the Proton version you use for the Windows game, then launch it. Find your game number. Run this command. Look for your game in the list; the number next to it is its App ID . protontricks -l Your game's App ID Paste the number next to your game. Your launch command will update below. Replace APPID in the command below with the number next to your game. Open Scooby. Copy the command below into your terminal and press Enter. sh linux/launch.sh --runner proton --appid APPID The Scooby sign-in window should open. Then continue to Start playing . Keep using your game's usual Steam entry. Adding Scooby as a separate non-Steam game can put it in the wrong Windows environment. Advanced: I use a custom Steam data folder Only use this if you changed the game's Steam compatdata location. Replace the path with the folder containing pfx , not pfx itself. sh linux/launch.sh --runner proton --appid APPID --compat-data \"/path/to/compatdata/APPID\" The App ID field fills in the game number. You still need to replace the example folder path. Steam Deck / Flatpak I use a Steam Deck, or installed Protontricks through Flatpak. Use Desktop Mode. On Steam Deck, open Discover , search for Protontricks and install it. Leave SteamOS in its normal read-only state. Start the Windows game once through Steam. Use its usual Proton version. Keep the extracted Scooby folder open in your terminal. Find your game's App ID. Run this command and find the number next to your game. flatpak run com.github.Matoking.protontricks -l Your game's App ID Paste the number next to your game. Your launch command will update below. Replace APPID in the command below with the number next to your game. Open Scooby. Copy this command into the terminal and press Enter. sh linux/launch.sh --runner proton --flatpak --appid APPID When the sign-in window appears, continue to Start playing . Use Desktop Mode with a mouse or trackpad for now. Game Mode, controller navigation and suspend/resume are not yet verified. My game is on an SD card or another drive Protontricks may need permission to access that Steam library. Follow its Flatpak access instructions . The Scooby launcher already grants access to its own bin folder for each run. Linux with Lutris / Wine I use Lutris, Rockstar Games Launcher or another Wine setup. Using Lutris? You can set up a shortcut. Scooby needs the same Windows folder and Wine version as your game. Open your game's configuration in Lutris. Note the Wine prefix and Wine version . The prefix is the folder containing the game's Windows files. Add a locally installed game. Name it Scooby, choose the Wine runner, and select linux/bin/ScoobyLoader.exe from your extracted package. Match the two settings. Use the exact same Wine prefix and Wine version as your game. Leave the bundled DLL files beside ScoobyLoader.exe . Save and launch Scooby. Once the sign-in window opens, continue to Start playing . I use Wine directly, without Lutris Replace both paths with your game's Wine executable and existing prefix folder. Keep the quotes around the paths. sh linux/launch.sh --runner wine --wine \"/path/to/wine\" --prefix \"/path/to/game-prefix\" The prefix is the folder containing drive_c . It must already be set up and support 64-bit Windows apps. The launcher does not create or repair it. Do not use plain Wine on a Steam Proton prefix. Mac I have a Mac-compatible Wine setup for my Windows game. Mac support is unverified . You need Python 3.10+ and a Mac-compatible Wine version that runs Windows x64 apps. On Apple silicon, that Wine distribution must also provide the required translation and graphics support. Confirm your Windows game works first. Find the Wine executable and prefix used by that game. Open Terminal in the extracted Scooby folder. Replace both example paths, then run: sh linux/mac/launch.command --wine \"/absolute/path/to/wine\" --prefix \"/absolute/path/to/game-prefix\" Continue to Start playing if the sign-in window opens. Using CrossOver? Follow its instructions to run Scooby in the same bottle as your game. This script does not configure CrossOver bottles automatically. Double-clicking the script without the paths above will not set it up. Proton is Linux-only. 3. Start playing Sign in to Scooby. Use your account or follow the free-key guide . Open your game as usual. Use the Steam or Lutris entry you set up above. Follow your game's loading steps. Open its Scooby guide to check when to load the menu. Timing and game support vary. Next time: use the same launch command or Lutris shortcut. Close both the game and Scooby before changing Wine or Proton versions. Something not working? Pick the problem you see. “File not found” or the launch script will not open Open the extracted folder that contains linux , then open a terminal there. Check that linux/bin/ScoobyLoader.exe exists. Extract the whole compatibility ZIP again if files are missing; the standard Windows installer does not include these scripts. “Python not found” or “Runner not found” Check python3 --version ; you need 3.10 or newer. For Steam, install Protontricks. If you installed it through Discover or Flatpak, follow the Flatpak steps . For Wine, check the Wine executable path. Scooby cannot find my game Run the Windows version of the game and check your App ID. In Lutris, Scooby and the game must share the exact same Wine prefix and Wine version . A native Linux game cannot load the Windows menu. If these match, the game may still be incompatible with this preview. The window is blank, or text is missing Keep all the runtime DLLs beside the loader and check that your game works with the selected runner. For missing Segoe UI text, add a licensed copy of segoeui.ttf to the same prefix's drive_c/windows/Fonts folder, then restart Scooby. A graphics error may need help with your Wine/Proton setup. I need to update Scooby or find my settings Close Scooby, then download and extract the latest compatibility package. Updates are manual; an old package can be blocked by a required minimum version. Your settings are inside the game's prefix at drive_c/scooby (the Windows path C:\\scooby ). Each prefix has separate data. If changing prefixes causes an HWID mismatch, follow the HWID reset guide . The game is running slowly Compare the game with and without Scooby using the same settings. Performance depends on your graphics drivers, Wine/Proton version and enabled menu features. Close both apps before testing a different runner, and keep the game and loader on the same version. I need more help / want to check my setup Add --diagnose to the end of your launch command. It prints a setup report without opening Scooby. This checks local files and launch options; it does not prove that login, graphics, Steam/Flatpak access or game loading will work. Send Scooby support your OS, game, Wine/Proton version and exact error. Remove private details from reports and never share passwords or license keys. What works and what to expect This package runs the Windows x64 loader through Wine or Proton. Login, graphics and in-game loading still need testing on real Linux, Steam Deck and Mac systems. No game is certified yet; the loader opening does not guarantee that its menu will work. Windows-only cleaner, identifier and kernel-driver tools are unavailable. Native Linux/Mac games cannot load Windows DLLs. Game and anti-cheat restrictions still apply.",
     "href": "/guides/general/linux-mac/",
     "tags": [
-      "general"
+      "general",
+      "Linux",
+      "Mac",
+      "macOS",
+      "Steam Deck",
+      "Wine",
+      "Lutris",
+      "CrossOver",
+      "Proton compatibility"
     ]
   },
   {
     "game": "General help",
     "title": "Loader troubleshooting",
-    "text": "Loader troubleshooting Loader will not open Failed to inject Failed to find patterns Auth / connection Files & scripts GTA Online Loader will not open or closes straight away Close old loader processes, restart Windows and download the current loader from scoobymenu.cc . Read antivirus history and download help if the file is missing or blocked. For missing-runtime or DLL errors, use the Microsoft runtime installers . If Windows says access is denied, use a folder owned by your Windows account. If your game guide requires elevation, right-click the verified loader and choose Run as administrator. “Failed to inject module” or “Not injecting” Check the selected game and edition, then follow the loading order in its setup guide . Do not use one game’s loading steps for another. For GTA 5, follow the BattlEye setting for your tier: Free Version Setup or Plus Setup . Read the antivirus detection history. An exclusion is a deliberate exception for a verified file; do not exclude the whole C:\\ drive. See your antivirus instructions . Close both apps and try fresh settings with a backup . If the error names a folder-access problem, check the actual save path and free disk space. A OneDrive path alone does not prove it is the cause. “Failed to Find Patterns” or trouble after a game update Check that the loader and your game build are supported together. A game update can change files the menu expects. Use the current loader and check Scooby’s update announcements before trying repeated loads. Keep the exact error text and game build for support. Turning off more Windows settings will not repair an unsupported game build. “Auth Failed”, connection or sign-in errors Confirm you are using the right account or a current free key . Check your clock and use the connection & SSL checklist . Do not repeatedly reset your HWID for a network error. If the loader specifically reports an HWID mismatch, follow Reset your HWID . Each reset starts a 7-day cooldown; support will not reset it manually. Scooby folder or subscribed scripts missing? Check both C:\\scooby and Documents\\Scooby . Documents may be redirected to OneDrive; check the actual location instead of uninstalling OneDrive. For subscribed scripts, verify you are signed in to the expected account and the loader can connect. Restart it after checking your subscription. Test with a clean settings backup before reimporting scripts. Use the game-specific Lua guide for installation and reload steps. GTA Online errors or BattlEye kicks Online access and BattlEye requirements differ between Free, Premium and Plus. Read the tier comparison and public-session guide for the mode you use. If the game reports a graphics or fatal error, note its exact code, verify game files and test the game without Scooby. A kick or error message by itself does not establish its cause or a guaranteed waiting period. Avoid broad “fixes” Do not give Everyone full control of your C: drive, uninstall OneDrive or delete all settings as a first step. Use the exact error to identify the file or folder involved. For Windows corruption messages, use Microsoft’s repair guidance or ask for help before changing system permissions.",
+    "text": "Loader troubleshooting Loader will not open Failed to inject Failed to find patterns Auth / connection Files & scripts GTA Online Loader will not open or closes straight away Close old loader processes, restart Windows and download the current loader from scoobymenu.cc . Read antivirus history and download help if the file is missing or blocked. For missing-runtime or DLL errors, use the Microsoft runtime installers . If Windows says access is denied, use a folder owned by your Windows account. If your game guide requires elevation, right-click the verified loader and choose Run as administrator. “Failed to inject module” or “Not injecting” Check the selected game and edition, then follow the loading order in its setup guide . Do not use one game’s loading steps for another. For GTA 5, follow the BattlEye setting for your tier: Free Version Setup or Plus Setup . Read the antivirus detection history. An exclusion is a deliberate exception for a verified file; do not exclude the whole C:\\ drive. See your antivirus instructions . Close both apps and try fresh settings with a backup . If the error names a folder-access problem, check the actual save path and free disk space. A OneDrive path alone does not prove it is the cause. “Failed to Find Patterns” or trouble after a game update Check that the loader and your game build are supported together. A game update can change files the menu expects. Use the current loader and check Scooby’s update announcements before trying repeated loads. Keep the exact error text and game build for support. Turning off more Windows settings will not repair an unsupported game build. “Auth Failed”, connection or sign-in errors Confirm you are using the right account or a current free key . Check your clock and use the connection & SSL checklist . Do not repeatedly reset your HWID for a network error. If connection attempts time out across different networks, the backend or its hosting provider may be having issues . Hosting outages can be outside Scooby’s direct control. Wait for the service to recover, then try again; a VPN cannot repair a server-side outage. If the loader specifically reports an HWID mismatch, follow Reset your HWID . Each reset starts a 7-day cooldown; support will not reset it manually. Scooby folder or subscribed scripts missing? Check both C:\\scooby and Documents\\Scooby . Documents may be redirected to OneDrive; check the actual location instead of uninstalling OneDrive. For subscribed scripts, verify you are signed in to the expected account and the loader can connect. Restart it after checking your subscription. Test with a clean settings backup before reimporting scripts. Use the game-specific Lua guide for installation and reload steps. GTA Online errors or BattlEye kicks Online access and BattlEye requirements differ between Free, Premium and Plus. Read the tier comparison and public-session guide for the mode you use. If the game reports a graphics or fatal error, note its exact code, verify game files and test the game without Scooby. A kick or error message by itself does not establish its cause or a guaranteed waiting period. Avoid broad “fixes” Do not give Everyone full control of your C: drive, uninstall OneDrive or delete all settings as a first step. Use the exact error to identify the file or folder involved. For Windows corruption messages, use Microsoft’s repair guidance or ask for help before changing system permissions.",
     "href": "/guides/general/universal/",
     "tags": [
-      "general"
+      "general",
+      "login failed",
+      "authentication",
+      "expired key",
+      "invalid key",
+      "game not detected",
+      "loading failed",
+      "injection failed"
     ]
   },
   {
@@ -1078,7 +1372,12 @@
       "setup",
       "screenshots",
       "all games",
-      "sign in"
+      "sign in",
+      "signin",
+      "login",
+      "game selection",
+      "progress",
+      "completion"
     ]
   },
   {
@@ -1088,15 +1387,88 @@
     "text": "Sign in to the Scooby portal with the account you created. Dashboard, Redeem license key, paste purchased license, Redeem key. In the loader use Premium, username and password. Free keys work only in the loader's Free login, not the portal or dashboard.",
     "tags": [
       "Premium",
-      "redeem",
+      "redeem key",
+      "redeem code",
       "license",
+      "licence",
+      "activation code",
       "activate",
       "account",
       "login",
+      "signin",
       "sign in",
       "password",
       "portal",
       "dashboard"
+    ]
+  },
+  {
+    "game": "General help",
+    "title": "Free key reset: renew every 24 hours",
+    "href": "/guides/general/free-key/#copy-free-key",
+    "text": "One free key supports all Scooby Free versions. Get a new key every 24 hours, complete the access steps, copy the key and enter it in the loader's Free tab. Free keys do not sign in to the portal or dashboard.",
+    "tags": [
+      "free key",
+      "freekey",
+      "ScoobyKEY",
+      "BSTLAR",
+      "24 hours",
+      "24h",
+      "24-hour reset",
+      "daily key",
+      "renew key",
+      "all free versions",
+      "copy key",
+      "Free login"
+    ]
+  },
+  {
+    "game": "General help",
+    "title": "Website or loader won't connect: VPN & network help",
+    "href": "/guides/general/free-key/#key-site-connection",
+    "text": "The website or loader says server not found, site cannot be reached or connection timed out. Check the address, try a hotspot, or test a VPN or trusted proxy. ISP or country restrictions, DNS problems and temporary outages are possible causes. Free options: Cloudflare 1.1.1.1 with WARP and Proton VPN. Backend or hosting-provider outages can be outside Scooby's direct control; wait and retry later. A VPN cannot fix a server outage.",
+    "tags": [
+      "website not opening",
+      "site not found",
+      "connection not found",
+      "server not found",
+      "site cannot be reached",
+      "loader cannot connect",
+      "loader connection issues",
+      "timeout",
+      "backend outage",
+      "server hosting",
+      "hosting provider",
+      "server down",
+      "DNS",
+      "ISP blocking",
+      "country block",
+      "country restrictions",
+      "network filtering",
+      "VPN",
+      "proxy",
+      "Cloudflare",
+      "1.1.1.1",
+      "WARP",
+      "Proton VPN",
+      "BSTLAR",
+      "free key website"
+    ]
+  },
+  {
+    "game": "General help",
+    "title": "Loader connection: backend & hosting outages",
+    "href": "/guides/general/connection/#server-outage",
+    "text": "The loader cannot connect or keeps timing out across different networks. Backend services or server-hosting providers may be having an outage outside Scooby's direct control. Wait for recovery and retry later. A VPN or proxy cannot fix a server-side outage.",
+    "tags": [
+      "loader connection issues",
+      "backend outage",
+      "server hosting",
+      "hosting provider",
+      "server down",
+      "timeout",
+      "cannot connect",
+      "service unavailable"
     ]
   },
   {

@@ -5,7 +5,7 @@ const path = require('path');
 const { applyMetadata, pages, excluded } = require('./seo-metadata');
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://scoobymenu.cc';
-const { VERSION } = require('./social-cards');
+const { VERSION, GUIDE_VERSION } = require('./social-cards');
 function metaTags(html) {
   const head = html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '';
   return [...head.matchAll(/<meta\b[^>]*>/gi)].map(([tag]) => Object.fromEntries(
@@ -50,7 +50,7 @@ test('legacy image metadata is replaced and duplicates cannot leak into a previe
     <meta property="og:image:type" content="image/jpeg"><meta name="twitter:image" content="${SITE}/old.jpg">
     </head><body><h1>Wiki</h1></body></html>`;
   const updated = applyMetadata('guides/index.html', html), tags = metaTags(updated);
-  assert.equal(value(tags, 'og:image'), SITE + '/assets/images/social/guides-' + VERSION + '.png');
+  assert.equal(value(tags, 'og:image'), SITE + '/assets/images/social/guides-' + GUIDE_VERSION + '.png');
   assert.equal(value(tags, 'og:image:width'), '1200');
   assert.equal(value(tags, 'og:image:height'), '630');
   assert(!updated.includes('background-home.jpg') && !updated.includes('old.jpg'));
@@ -60,8 +60,8 @@ test('legacy image metadata is replaced and duplicates cannot leak into a previe
 
 test('wiki, API, store and product links have distinct relevant preview cards', () => {
   const expected = {
-    'guides/index.html': 'guides', 'guides/tf2/index.html': 'guides',
-    'guides/general/connection/index.html': 'support', 'docs/index.html': 'docs',
+    'guides/index.html': 'guides', 'guides/tf2/index.html': 'wiki-game-tf2',
+    'guides/general/connection/index.html': 'wiki-connection', 'docs/index.html': 'docs',
     'api/cs2/index.html': 'docs', 'api/tf2/index.html': 'docs',
     'store/index.html': 'store', 'source-games/index.html': 'source',
     'products/tf2/index.html': 'game-tf2', 'products/gta5/index.html': 'game-gta5',
@@ -69,6 +69,6 @@ test('wiki, API, store and product links have distinct relevant preview cards', 
   };
   for (const [file, card] of Object.entries(expected)) {
     assert.equal(value(metaTags(fs.readFileSync(path.join(ROOT, file), 'utf8')), 'og:image'),
-      `${SITE}/assets/images/social/${card}-${VERSION}.png`, file);
+      `${SITE}/assets/images/social/${card}-${file.startsWith('guides/') ? GUIDE_VERSION : VERSION}.png`, file);
   }
 });
