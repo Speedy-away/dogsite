@@ -1,15 +1,31 @@
 {
-  "api_revision": "2026.10.1",
-  "runtime": "LuaJIT (existing pinned backend)",
-  "lua54": false,
-  "samurai_drop_in": false,
-  "source_files": {
-    "examples/lua/Vesper.lua": "807b76d4e6ccd72cfc6e95932b5c6c3b9fb774624a58a74da19f3ff6eb030f79",
-    "examples/lua/Vesper/assets.lua": "7c1fba3a569a5a9d3a2a60806f1da17a51b78ea853bb0bfac306f5abf0b79ca7",
-    "examples/lua/Vesper/host.lua": "52fddbf911f0a9fdd791a373a1e258c29f500c8da5a4c10f94acf3f276ff76d4",
-    "examples/lua/Vesper/model.lua": "b7afe2502f4c92d1ce3d295ee6b75d27be2f1410c88b79d8a886ca9f5eddb966",
-    "examples/lua/Vesper/README.md": "b5aeab52e4e6e818e440131fd6614b4facb2bf0ee234fb269d1c6c779494538c",
-    "examples/lua/Vesper/ui.lua": "9e193b4cfba5590d1d11f22d5beae105d416cff425ba2092e63c2f80bb76324b"
+  "schema": 2,
+  "game": "GTA5",
+  "revision": "2026.10.20",
+  "runtime": "LuaJIT · Lua 5.1 syntax",
+  "source_catalog_sha256": "641e63da559dd06334af81aaee328ebb7785f8d4d3f1c14b03ff045ece22064e",
+  "entries": 15969,
+  "available": 13421,
+  "native_declarations": 6692,
+  "native_supported": 6681,
+  "inputs": {
+    "tools/generate_lua_developer_files.py": "1b12e7f4af05dc9b6e37aad990a82c88a3575af98f347e1cef364bf388ca2a4e",
+    "examples/lua/SharedFeatureUI.lua": "1ec878d9296e72f5c8ef5ac67b951157cb6e39e5a987554cde79e8d1afa53121",
+    "examples/lua/NativeFeaturePage.lua": "d0c49cc508d4a286f1e6c166c4f9e19e7bc57958f1732f495f542b78ff6474c9",
+    "examples/lua/ImGuiCppDemo.lua": "b26b20e551830c59b8880636012f19f0041d6a2ef565fe7b3deb59178a240fd7",
+    "docs/LUA_CUSTOM_UI.md": "007e6fe79a259bcf7cf3f3652b8abc979e7175f44672d19d7bd45671af78e45c",
+    "docs/lua-imgui-porting.md": "47b2e48e77107990160ed7cb6904894768409b735969852e244eaf3b2c64022d",
+    "docs/LUA_DEVELOPER_FILES.md": "fd50a9f731ec02fb87b94dacaa02f74afddb6b9c4c9ae4192c1a215300c1e261"
   },
-  "reference_sha256": "93afd80561d20cbeb773f297178c5e2dbb291e59440071c2410a95e6b2551b28"
+  "exports": {
+    "Documentation.json": "641e63da559dd06334af81aaee328ebb7785f8d4d3f1c14b03ff045ece22064e",
+    "DataNodes.lua": "dc1e71b5b00e7a57e1908771269fd07ceaf772638d5580516980e1b633a8adc6",
+    "natives.lua": "e49643ed6ffecacd6d1ad2ae153eb0ee4013824c4a4b800f50f4d682101f8478"
+  },
+  "examples": {
+    "SharedFeatureUI.lua": "1ec878d9296e72f5c8ef5ac67b951157cb6e39e5a987554cde79e8d1afa53121",
+    "NativeFeaturePage.lua": "d0c49cc508d4a286f1e6c166c4f9e19e7bc57958f1732f495f542b78ff6474c9",
+    "ImGuiCppDemo.lua": "b26b20e551830c59b8880636012f19f0041d6a2ef565fe7b3deb59178a240fd7"
+  },
+  "runtime_acceptance": "Not established by documentation generation"
 }

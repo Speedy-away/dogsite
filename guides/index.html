@@ -26,10 +26,12 @@
 
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
 <link rel="stylesheet" href="/assets/css/guides.css">
+<link rel="stylesheet" href="/assets/css/guide-directory.css">
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer>
 </script>
+<script src="/assets/js/guide-directory.js" defer></script>
 <link rel="canonical" href="https://scoobymenu.cc/guides/">
 <noscript><style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style></noscript>
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -98,103 +100,210 @@
 <aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
 <nav>
 <a class="sidebar-home current" href="/guides/" aria-current="page">Wiki overview</a>
-<details >
-<summary>General help</summary>
-<a class="sidebar-overview " href="/guides/general/" >Overview</a>
-<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
-<a href="/guides/general/free-key/">Getting a Free Key</a>
-<a href="/guides/general/crashing/">Crashing Solutions</a>
-<a href="/guides/general/universal/">Universal Troubleshooting</a>
-<a href="/guides/general/connection/">Connection or SSL Errors</a>
-<a href="/guides/general/hwid/">Resetting Your HWID</a>
-<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+<details class="sidebar-game sidebar-general">
+<summary><span class="sidebar-game-title">General help<span class="sidebar-game-subtitle">Downloads, accounts &amp; fixes</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/general/"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Downloads &amp; keys"><p class="sidebar-section-label">Downloads &amp; keys</p>
+<a class="sidebar-guide-link" href="/guides/general/faq/"><span class="sidebar-link-label">Antivirus &amp; downloads</span></a>
+<a class="sidebar-guide-link" href="/guides/general/free-key/"><span class="sidebar-link-label">Get a free key</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Fix a problem"><p class="sidebar-section-label">Fix a problem</p>
+<a class="sidebar-guide-link" href="/guides/general/crashing/"><span class="sidebar-link-label">Crashes &amp; loading errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/connection/"><span class="sidebar-link-label">Connection &amp; SSL errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
+<a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
+</div>
 </details>
-<details >
-<summary>GTA 5</summary>
-<a class="sidebar-overview " href="/guides/gta5/" >Overview</a>
-<a href="/guides/gta5/introduction/">Introduction</a>
-<a href="/guides/gta5/first-time/">First Time Setup</a>
-<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
-<a href="/guides/gta5/money/">Money Making Methods</a>
-<a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
-<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
-<details class="sidebar-customization">
-<summary>Customization</summary>
-<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
-<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
-<a href="/guides/gta5/outfits/">Outfits</a>
-<a href="/guides/gta5/themes/">Themes</a>
-<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
+<details class="sidebar-game sidebar-gta5">
+<summary><span class="sidebar-game-title">GTA 5<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/gta5/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a class="sidebar-guide-link" href="/guides/gta5/introduction/" aria-label="Introduction"><span class="sidebar-link-label">Introduction</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/premium-free-setup/" aria-label="Premium and Free Setup"><span class="sidebar-link-label">Premium and Free Setup</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/plus-setup/" aria-label="Plus Setup"><span class="sidebar-link-label">Plus Setup</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/free-setup/" aria-label="Free Version Setup (Legacy &amp; Enhanced)"><span class="sidebar-link-label">Free Version Setup</span><span class="sidebar-link-note">Legacy &amp; Enhanced</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Playing online"><p class="sidebar-section-label">Playing online</p>
+<a class="sidebar-guide-link" href="/guides/gta5/money/" aria-label="Money methods"><span class="sidebar-link-label">Money methods</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/host-public/" aria-label="Public session hosting (BattlEye disabled)"><span class="sidebar-link-label">Public session hosting</span><span class="sidebar-link-note">BattlEye disabled</span></a>
+</div>
+<details class="sidebar-customization"><summary>Customization</summary>
+<a class="sidebar-guide-link" href="/guides/gta5/dlcs/" aria-label="DLCs &amp; models"><span class="sidebar-link-label">DLCs &amp; models</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/lua-scripts/" aria-label="Lua scripts"><span class="sidebar-link-label">Lua scripts</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/outfits/" aria-label="Outfits"><span class="sidebar-link-label">Outfits</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/themes/" aria-label="Themes"><span class="sidebar-link-label">Themes</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/vehicles/" aria-label="Modded vehicles"><span class="sidebar-link-label">Modded vehicles</span></a>
 </details>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a class="sidebar-guide-link" href="/guides/gta5/troubleshooting/" aria-label="Game troubleshooting"><span class="sidebar-link-label">Game troubleshooting</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/hypervisor-vbs/" aria-label="Hypervisor / VBS"><span class="sidebar-link-label">Hypervisor / VBS</span></a>
+</div>
 </details>
-<details >
-<summary>FiveM</summary>
-<a class="sidebar-overview " href="/guides/fivem/" >Overview</a>
-<a href="/guides/fivem/fivem-requirements/">Requirements</a>
-<a href="/guides/fivem/fivem-inject/">How to Inject</a>
-<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
+<details class="sidebar-game sidebar-fivem" >
+<summary><span class="sidebar-game-title">FiveM<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/fivem/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/fivem/fivem-requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/fivem/fivem-inject/" class="sidebar-guide-link" aria-label="Load the menu"><span class="sidebar-link-label">Load the menu</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="In-game tools"><p class="sidebar-section-label">In-game tools</p>
+<a href="/guides/fivem/money-items-weapons/" class="sidebar-guide-link" aria-label="Money, items &amp; weapons"><span class="sidebar-link-label">Money, items &amp; weapons</span></a>
+</div>
 </details>
-<details >
-<summary>RedM</summary>
-<a class="sidebar-overview " href="/guides/redm/" >Overview</a>
-<a href="/guides/redm/redm-requirements/">Requirements</a>
-<a href="/guides/redm/redm-inject/">How to Inject</a>
-<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
+<details class="sidebar-game sidebar-redm" >
+<summary><span class="sidebar-game-title">RedM<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/redm/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/redm/redm-requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/redm/redm-inject/" class="sidebar-guide-link" aria-label="Load the menu"><span class="sidebar-link-label">Load the menu</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="In-game tools"><p class="sidebar-section-label">In-game tools</p>
+<a href="/guides/redm/money-items-weapons/" class="sidebar-guide-link" aria-label="Money, items &amp; weapons"><span class="sidebar-link-label">Money, items &amp; weapons</span></a>
+</div>
 </details>
-<details>
-<summary>Red Dead Redemption 2</summary>
-<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
-<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
-<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
-<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
-<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
-<details class="sidebar-customization" data-guide-game="rdr2">
-<summary>Customization</summary>
-<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
-<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
-<a href="/guides/rdr2/outfits/">Outfits</a>
-<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
-<a href="/guides/rdr2/themes/">Themes</a>
-<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
+<details class="sidebar-game sidebar-rdr2">
+<summary><span class="sidebar-game-title">Red Dead Redemption 2<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/rdr2/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/rdr2/rdr2-before/" class="sidebar-guide-link" aria-label="Before you launch"><span class="sidebar-link-label">Before you launch</span></a>
+<a href="/guides/rdr2/rdr2-launch/" class="sidebar-guide-link" aria-label="Launch Scooby"><span class="sidebar-link-label">Launch Scooby</span></a>
+</div>
+<details class="sidebar-customization" data-guide-game="rdr2"><summary>Customization</summary>
+<a href="/guides/rdr2/vehicles-peds/" class="sidebar-guide-link" aria-label="Vehicles, peds &amp; animals"><span class="sidebar-link-label">Vehicles, peds &amp; animals</span></a>
+<a href="/guides/rdr2/lua-scripts/" class="sidebar-guide-link" aria-label="Lua scripts"><span class="sidebar-link-label">Lua scripts</span></a>
+<a href="/guides/rdr2/outfits/" class="sidebar-guide-link" aria-label="Outfits"><span class="sidebar-link-label">Outfits</span></a>
+<a href="/guides/rdr2/horse-outfits/" class="sidebar-guide-link" aria-label="Horse outfits"><span class="sidebar-link-label">Horse outfits</span></a>
+<a href="/guides/rdr2/themes/" class="sidebar-guide-link" aria-label="Themes"><span class="sidebar-link-label">Themes</span></a>
+<a href="/guides/rdr2/configs/" class="sidebar-guide-link" aria-label="Configs &amp; backups"><span class="sidebar-link-label">Configs &amp; backups</span></a>
 </details>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/rdr2/rdr2-crashing/" class="sidebar-guide-link" aria-label="Crash fixes (DirectX 12 setup)"><span class="sidebar-link-label">Crash fixes</span><span class="sidebar-link-note">DirectX 12 setup</span></a>
+<a href="/guides/rdr2/rdr2-more-help/" class="sidebar-guide-link" aria-label="More support"><span class="sidebar-link-label">More support</span></a>
+</div>
 </details>
-<details >
-<summary>Counter-Strike 2</summary>
-<a class="sidebar-overview " href="/guides/cs2/" >Overview</a>
-<a href="/guides/cs2/cs2-requirements/">Requirements</a>
-<a href="/guides/cs2/cs2-inject/">How to Inject</a>
-<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
-<a href="/guides/cs2/custom-models/">Custom Models</a>
+<details class="sidebar-game sidebar-cs2" >
+<summary><span class="sidebar-game-title">Counter-Strike 2<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/cs2/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/cs2/cs2-requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/cs2/cs2-inject/" class="sidebar-guide-link" aria-label="Load the menu"><span class="sidebar-link-label">Load the menu</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/cs2/custom-models/" class="sidebar-guide-link" aria-label="Custom models"><span class="sidebar-link-label">Custom models</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/cs2/cs2-updates/" class="sidebar-guide-link" aria-label="Feature troubleshooting (After game updates)"><span class="sidebar-link-label">Feature troubleshooting</span><span class="sidebar-link-note">After game updates</span></a>
+</div>
 </details>
-<details>
-<summary>S&amp;box (Sandbox)</summary>
-<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
-<a href="/guides/sbox/requirements/">Requirements</a>
-<a href="/guides/sbox/getting-started/">Getting started</a>
-<a href="/guides/sbox/menu-settings/">Menu settings</a>
-<a href="/guides/sbox/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-game sidebar-sbox">
+<summary><span class="sidebar-game-title">S&amp;box (Sandbox)<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/sbox/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/sbox/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/sbox/getting-started/" class="sidebar-guide-link" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/sbox/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings"><span class="sidebar-link-label">Menu settings</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/sbox/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
+</div>
 </details>
-<details>
-<summary>Garry's Mod (GMOD)</summary>
-<a class="sidebar-overview" href="/guides/gmod/">Overview</a>
-<a href="/guides/gmod/requirements/">Requirements</a>
-<a href="/guides/gmod/getting-started/">Getting started</a>
-<a href="/guides/gmod/menu-settings/">Menu settings</a>
-<a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-game sidebar-gmod">
+<summary><span class="sidebar-game-title">Garry&#x27;s Mod (GMOD)<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/gmod/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/gmod/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/gmod/getting-started/" class="sidebar-guide-link" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/gmod/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings"><span class="sidebar-link-label">Menu settings</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/gmod/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
+</div>
 </details>
-<details>
-<summary>The Last of Us</summary>
-<a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
-<a href="/guides/last-of-us/requirements/">Requirements</a>
-<a href="/guides/last-of-us/getting-started/">Getting started</a>
-<a href="/guides/last-of-us/menu-settings/">Menu settings</a>
-<a href="/guides/last-of-us/troubleshooting/">Troubleshooting</a>
+<details class="sidebar-game sidebar-last-of-us">
+<summary><span class="sidebar-game-title">The Last of Us<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/last-of-us/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/last-of-us/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/last-of-us/getting-started/" class="sidebar-guide-link" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/last-of-us/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings"><span class="sidebar-link-label">Menu settings</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/last-of-us/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
+</div>
 </details>
-<details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
-<details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a><a href="/guides/tf2/">TF2 &amp; Classified</a></details>
-<details data-tf2-nav><summary>TF2 &amp; TF2 Classified</summary><a class="sidebar-overview" href="/guides/tf2/">Overview</a><a href="/guides/tf2/getting-started/">Getting started</a><a href="/guides/tf2/requirements/">Requirements</a><a href="/guides/tf2/editions/">TF2 or TF2 Classified</a><a href="/guides/tf2/menu-settings/">Menu settings and profiles</a><a href="/guides/tf2/lua-scripts/">Lua scripts</a><a href="/guides/tf2/troubleshooting/">Troubleshooting</a></details>
-<details data-megabonk-nav><summary>Megabonk</summary><a class="sidebar-overview" href="/guides/megabonk/">Overview</a><a href="/guides/megabonk/getting-started/">Getting started</a><a href="/guides/megabonk/menu-settings/">Menu settings, configs and hotkeys</a><a href="/guides/megabonk/languages/">Languages and language packs</a><a href="/guides/megabonk/lua-scripts/">Lua scripts and game API</a><a href="/guides/megabonk/spawner-unlocks/">Pickups, items and unlocks</a><a href="/guides/megabonk/troubleshooting/">Troubleshooting</a></details>
-<details data-mta-sa-nav><summary>MTA:SA</summary><a href="/guides/mta-sa/#requirements">Requirements</a></details>
+<details class="sidebar-game sidebar-l4d">
+<summary><span class="sidebar-game-title">Left 4 Dead 1 &amp; 2<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/l4d/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/l4d/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/l4d/getting-started/" class="sidebar-guide-link" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/l4d/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings"><span class="sidebar-link-label">Menu settings</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/l4d/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
+</div>
+</details>
+<details class="sidebar-game sidebar-source-games" data-source-games-nav>
+<summary><span class="sidebar-game-title">Source Games<span class="sidebar-game-subtitle">Guide collection</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/source-games/" aria-label="All Source Games"><span class="sidebar-link-label">All Source Games</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Choose a game"><p class="sidebar-section-label">Choose a game</p>
+<a href="/guides/half-life-1/" class="sidebar-guide-link" aria-label="Half-Life 1"><span class="sidebar-link-label">Half-Life 1</span></a>
+<a href="/guides/gmod/" class="sidebar-guide-link" aria-label="Garry’s Mod"><span class="sidebar-link-label">Garry’s Mod</span></a>
+<a href="/guides/l4d/" class="sidebar-guide-link" aria-label="Left 4 Dead 1 &amp; 2"><span class="sidebar-link-label">Left 4 Dead 1 &amp; 2</span></a>
+<a href="/guides/tf2/" class="sidebar-guide-link" aria-label="TF2 &amp; Classified"><span class="sidebar-link-label">TF2 &amp; Classified</span></a>
+</div>
+</details>
+<details class="sidebar-game sidebar-tf2" data-tf2-nav>
+<summary><span class="sidebar-game-title">TF2 &amp; TF2 Classified<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/tf2/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/tf2/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/tf2/getting-started/" class="sidebar-guide-link" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+<a href="/guides/tf2/editions/" class="sidebar-guide-link" aria-label="TF2 / Classified (Choose your game)"><span class="sidebar-link-label">TF2 / Classified</span><span class="sidebar-link-note">Choose your game</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Menu &amp; scripts"><p class="sidebar-section-label">Menu &amp; scripts</p>
+<a href="/guides/tf2/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings (Settings &amp; profiles)"><span class="sidebar-link-label">Menu settings</span><span class="sidebar-link-note">Settings &amp; profiles</span></a>
+<a href="/guides/tf2/lua-scripts/" class="sidebar-guide-link" aria-label="Lua scripts"><span class="sidebar-link-label">Lua scripts</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/tf2/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
+</div>
+</details>
+<details class="sidebar-game sidebar-megabonk" data-megabonk-nav>
+<summary><span class="sidebar-game-title">Megabonk<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/megabonk/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/megabonk/getting-started/" class="sidebar-guide-link" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/megabonk/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings (Configs &amp; hotkeys)"><span class="sidebar-link-label">Menu settings</span><span class="sidebar-link-note">Configs &amp; hotkeys</span></a>
+<a href="/guides/megabonk/languages/" class="sidebar-guide-link" aria-label="Languages"><span class="sidebar-link-label">Languages</span></a>
+<a href="/guides/megabonk/lua-scripts/" class="sidebar-guide-link" aria-label="Lua scripts (Scripts &amp; game API)"><span class="sidebar-link-label">Lua scripts</span><span class="sidebar-link-note">Scripts &amp; game API</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="In-game tools"><p class="sidebar-section-label">In-game tools</p>
+<a href="/guides/megabonk/spawner-unlocks/" class="sidebar-guide-link" aria-label="Pickups &amp; unlocks"><span class="sidebar-link-label">Pickups &amp; unlocks</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/megabonk/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
+</div>
+</details>
+<details class="sidebar-game sidebar-mta-sa" data-mta-sa-nav>
+<summary><span class="sidebar-game-title">MTA:SA<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/mta-sa/#requirements" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+</div>
+</details>
 <div class="sidebar-resources">
 <span>Resources</span>
 <a href="/docs/">Developer documentation ↗</a>
@@ -203,221 +312,108 @@
 </div>
 </nav>
 </aside>
-<main id="main-content" class="wiki-home-main" tabindex="-1">
-<section class="wiki-hero">
-<div>
-<span class="eyebrow">THE SCOOBY KNOWLEDGE BASE</span>
-<h1>Scooby Wiki</h1>
-<p>Your guide to getting set up, finding your way around, and solving the common problems.</p>
-<div class="hero-actions">
-<a class="primary-button" href="#game-guides">Get started <span aria-hidden="true">→</span>
+<main id="main-content" class="wiki-home-main guide-directory" tabindex="-1">
+<header class="guide-directory-intro">
+<p class="guide-directory-kicker">Scooby Wiki</p>
+<h1>Choose your game</h1>
+<p>Setup instructions, menu controls and fixes. Start with the game you play.</p>
+</header>
+<section class="guide-game-picker" id="game-guides" aria-label="Find your game guide">
+<form class="guide-game-search" role="search" aria-label="Find a game" data-game-search-form hidden>
+<label for="game-filter">Find a game</label>
+<div class="guide-game-input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><input id="game-filter" type="search" placeholder="Search games — GTA, TF2, Half-Life…" autocomplete="off" aria-controls="game-directory-list" aria-describedby="game-filter-status"><button type="button" data-game-clear aria-label="Clear game search" hidden>Clear</button></div>
+</form>
+<div class="guide-game-toolbar">
+<div class="guide-game-categories" role="group" aria-label="Filter games by collection" data-game-categories hidden>
+<button type="button" data-game-category="all" aria-pressed="true">All games</button>
+<button type="button" data-game-category="rockstar" aria-pressed="false">GTA &amp; Red Dead</button>
+<button type="button" data-game-category="source" aria-pressed="false">Source games</button>
+<button type="button" data-game-category="other" aria-pressed="false">More games</button>
+</div>
+<p id="game-filter-status" role="status" aria-live="polite">13 games</p>
+</div>
+<div class="guide-game-list" id="game-directory-list">
+<a class="guide-game-link" href="/guides/gta5/" data-game-name="GTA 5" data-game-category="rockstar" data-game-aliases="GTA5 GTA V Grand Theft Auto 5 Grand Theft Auto V Legacy Enhanced premium plus free">
+<span class="guide-game-art guide-logo-art guide-logo-art--gta5"><img src="/assets/images/store/gta5-logo-transparent-card.webp" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">GTA 5</span><span class="guide-game-description">Free, Premium &amp; Plus setup</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
 </a>
-<a href="/guides/general/">Troubleshooting <span aria-hidden="true">→</span>
+<a class="guide-game-link" href="/guides/rdr2/" data-game-name="Red Dead Redemption 2" data-game-category="rockstar" data-game-aliases="RDR RDR2 RDR 2 RDO Red Dead Online">
+<span class="guide-game-art guide-logo-art guide-logo-art--rdr2"><img src="/assets/images/store/rdr2-logo-transparent-card.webp" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">Red Dead Redemption 2</span><span class="guide-game-description">Setup, customization &amp; fixes</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/fivem/" data-game-name="FiveM" data-game-category="rockstar" data-game-aliases="Five M fivem roleplay RP">
+<span class="guide-game-art fivem-card-art"><img src="/assets/images/store/fivem-background-city.jpg" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">FiveM</span><span class="guide-game-description">Requirements &amp; loading</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/redm/" data-game-name="RedM" data-game-category="rockstar" data-game-aliases="Red M roleplay RP">
+<span class="guide-game-art redm-card-art"><img src="/assets/images/store/redm-background-sunset.jpg" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">RedM</span><span class="guide-game-description">Requirements &amp; loading</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/cs2/" data-game-name="Counter-Strike 2" data-game-category="source" data-game-aliases="CS2 CS 2 counter strike counterstrike">
+<span class="guide-game-art "><img src="/assets/images/store/cs2.webp" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">Counter-Strike 2</span><span class="guide-game-description">Requirements, loading &amp; custom models</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/l4d/" data-game-name="Left 4 Dead 1 &amp; 2" data-game-category="source" data-game-aliases="L4D L4D1 L4D2 Left4Dead Left4Dead2 left four dead">
+<span class="guide-game-art l4d-art"><img src="/assets/images/l4d/background-survivors.jpg" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">Left 4 Dead 1 &amp; 2</span><span class="guide-game-description">Game selection, menus &amp; Lua</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/gmod/" data-game-name="Garry’s Mod" data-game-category="source" data-game-aliases="Gmod garrys mod garry mod">
+<span class="guide-game-art gmod-card-art"><img src="/assets/images/store/gmod-background-desert.jpg" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">Garry’s Mod</span><span class="guide-game-description">Setup, menu settings &amp; fixes</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/half-life-1/" data-game-name="Half-Life 1" data-game-category="source" data-game-aliases="HL1 half life half-life GoldSrc Blue Shift Opposing Force Half-Life Source">
+<span class="guide-game-art "><img src="/assets/images/source-games/half-life-logo.webp" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">Half-Life 1</span><span class="guide-game-description">HL1, expansions &amp; Source edition</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/megabonk/" data-game-name="Megabonk" data-game-category="other" data-game-aliases="Mega Bonk">
+<span class="guide-game-art "><img src="/assets/images/store/megabonk.webp" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">Megabonk</span><span class="guide-game-description">Menus, Lua, pickups &amp; unlocks</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/mta-sa/" data-game-name="MTA:SA" data-game-category="rockstar" data-game-aliases="MTA MTA SA Multi Theft Auto San Andreas">
+<span class="guide-game-art "><img src="/assets/images/mta-sa/launch-artwork.png" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">MTA:SA</span><span class="guide-game-description">Visual C++ runtime requirements</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/sbox/" data-game-name="S&amp;box" data-game-category="source" data-game-aliases="Sbox S box Sandbox Source 2">
+<span class="guide-game-art sbox-art"><img src="/assets/images/store/sbox-background-mountains.png" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">S&amp;box</span><span class="guide-game-description">Setup, menu settings &amp; fixes</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/tf2/" data-game-name="TF2 &amp; Classified" data-game-category="source" data-game-aliases="Team Fortress 2 TeamFortress TF2c TF 2 Classified">
+<span class="guide-game-art tf2-guide-art"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">TF2 &amp; Classified</span><span class="guide-game-description">Retail TF2 and TF2 Classified</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
+</a>
+<a class="guide-game-link" href="/guides/last-of-us/" data-game-name="The Last of Us" data-game-category="other" data-game-aliases="TLOU TLOU1 Last Of Us Part I Part 1">
+<span class="guide-game-art tlou-logo-art"><img src="/assets/images/store/last-of-us-card.webp" alt="" width="96" height="80" loading="lazy" decoding="async"></span>
+<span class="guide-game-copy"><span class="guide-game-name">The Last of Us</span><span class="guide-game-description">Part I setup, menus &amp; fixes</span></span>
+<span class="guide-game-arrow" aria-hidden="true">↗</span>
 </a>
 </div>
-</div>
-<div class="hero-logo">
-<span class="hero-mark" role="img" aria-label="Scooby"></span>
+<div class="guide-game-empty" data-game-empty hidden><h2>No games found</h2><p>Try another game name, or reset the filters to see every guide.</p><button type="button" data-game-reset>Show all games</button></div>
+<p class="guide-collection-link">Browse the <a href="/guides/source-games/">Source &amp; GoldSrc guide collection <span aria-hidden="true">→</span></a></p>
+</section>
+<section class="guide-directory-help" id="general-help" aria-labelledby="general-help-title">
+<div class="guide-help-intro"><h2 id="general-help-title">Help with the launcher?</h2><p>Keys, account access and common errors.</p><a href="/guides/general/">All general help <span aria-hidden="true">→</span></a></div>
+<div class="guide-help-links">
+<a href="/guides/general/free-key/"><span>Get a free key</span><span aria-hidden="true">→</span></a>
+<a href="/guides/general/hwid/"><span>Reset your HWID</span><span aria-hidden="true">→</span></a>
+<a href="/guides/general/faq/"><span>Antivirus &amp; downloads</span><span aria-hidden="true">→</span></a>
+<a href="/guides/general/crashing/"><span>Crashes &amp; loading errors</span><span aria-hidden="true">→</span></a>
+<a href="/guides/general/connection/"><span>Connection &amp; SSL errors</span><span aria-hidden="true">→</span></a>
+<a href="/guides/general/universal/"><span>Loader troubleshooting</span><span aria-hidden="true">→</span></a>
 </div>
 </section>
-<aside class="wiki-note">
-<strong>Everything you need to get started</strong>
-<p>Choose your game below for setup instructions. For downloads, free keys, or account questions, visit <a href="/guides/general/">General help</a>. Building scripts? Head to the <a href="/docs/">developer documentation</a>.</p>
-</aside>
-<section class="hub-section" id="game-guides">
-<h2>Choose your game</h2>
-<p class="section-intro">Requirements, installation, and help specific to your game.</p>
-<div class="topic-grid game-grid">
-<a class="topic-card game-card" href="/guides/gta5/">
-<div class="game-card-art guide-logo-art guide-logo-art--gta5"><img src="/assets/images/store/gta5-logo-transparent-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>GTA 5 <span aria-hidden="true">→</span>
-</h3>
-<p>Setup, customization, and playing online.</p>
-<span>8 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/mta-sa/"><div class="game-card-art"><img src="/assets/images/mta-sa/launch-artwork.png" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>MTA:SA <span aria-hidden="true">→</span></h3><p>Runtime requirements for MTA:SA.</p><span>1 topic</span></div></a>
-<a class="topic-card game-card" href="/guides/fivem/">
-<div class="game-card-art fivem-card-art"><img src="/assets/images/store/fivem-background-city.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>FiveM <span aria-hidden="true">→</span>
-</h3>
-<p>Requirements and installation for FiveM.</p>
-<span>2 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/redm/">
-<div class="game-card-art redm-card-art"><img src="/assets/images/store/redm-background-sunset.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>RedM <span aria-hidden="true">→</span>
-</h3>
-<p>Requirements and installation for RedM.</p>
-<span>2 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/rdr2/">
-<div class="game-card-art guide-logo-art guide-logo-art--rdr2"><img src="/assets/images/store/rdr2-logo-transparent-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>Red Dead Redemption 2 <span aria-hidden="true">→</span>
-</h3>
-<p>Setup, outfits, horses, Lua scripts, themes, and troubleshooting.</p>
-<span>10 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/cs2/">
-<div class="game-card-art"><img src="/assets/images/store/cs2.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>Counter-Strike 2 <span aria-hidden="true">→</span>
-</h3>
-<p>Setup, injection, and fixes after updates.</p>
-<span>3 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/megabonk/"><div class="game-card-art"><img src="/assets/images/store/megabonk.webp" alt="" width="616" height="353" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Megabonk <span aria-hidden="true">→</span></h3><p>Languages, configs, hotkeys, Lua, pickups and unlocks.</p><span>6 guides</span></div></a>
-<a class="topic-card game-card" href="/guides/last-of-us/"><div class="game-card-art tlou-logo-art"><img src="/assets/images/store/last-of-us-card.webp" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>The Last of Us <span aria-hidden="true">→</span></h3><p>Part I setup, menu settings and troubleshooting. Part II coming soon.</p><span>4 topics</span></div></a>
-<a class="topic-card game-card" href="/guides/sbox/">
-<div class="game-card-art sbox-art"><img src="/assets/images/store/sbox-background-mountains.png" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>S&amp;box (Sandbox) <span aria-hidden="true">→</span>
-</h3>
-<p>Loader setup, menu controls, and troubleshooting.</p>
-<span>4 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/l4d/"><div class="game-card-art l4d-art"><img src="/assets/images/l4d/background-survivors.jpg" alt="" width="1672" height="941" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Left 4 Dead 1 &amp; 2 →</h3><p>Setup, game selection, menu settings and Lua tools.</p><span>4 topics</span></div></a>
-<a class="topic-card game-card" href="/guides/gmod/">
-<div class="game-card-art gmod-card-art"><img src="/assets/images/store/gmod-background-desert.jpg" alt="" width="640" height="360" loading="lazy" decoding="async"></div>
-<div class="game-card-copy">
-<h3>Garry's Mod (GMOD) <span aria-hidden="true">→</span>
-</h3>
-<p>64-bit setup, menu settings, and troubleshooting.</p>
-<span>4 topics</span>
-</div>
-</a>
-<a class="topic-card game-card" href="/guides/tf2/"><div class="game-card-art tf2-guide-art"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" alt="" width="739" height="249" loading="lazy"></div><div class="game-card-copy"><h3>TF2 &amp; Classified →</h3><p>Retail and Classified setup, profiles, Lua API, features and troubleshooting.</p><span>6 topics</span></div></a>
-<a class="topic-card game-card" href="/guides/source-games/"><div class="game-card-art guide-logo-art guide-logo-art--source-games"><img src="/assets/images/source-games/source-games-logo-v1-card.webp" alt="" width="1254" height="1254" loading="lazy" decoding="async"></div><div class="game-card-copy"><h3>Source Games →</h3><p>Half-Life 1, TF2, Garry’s Mod and Left 4 Dead guides.</p><span>Choose your game</span></div></a>
-<a class="topic-card game-card game-support-card" href="/guides/general/">
-<div class="game-card-art support-art" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2"><rect x="18" y="12" width="44" height="56" rx="6"/><path d="M28 12v56M36 28h16M36 38h16M36 48h10"/></svg><span>THE ESSENTIALS</span></div>
-<div class="game-card-copy">
-<h3>General help <span aria-hidden="true">→</span>
-</h3>
-<p>Downloads, free keys, account help, and common fixes.</p>
-<span>7 topics</span>
-</div>
-</a>
-</div>
-</section>
-<section class="hub-section">
-<h2>Getting started &amp; account help</h2>
-<div class="topic-grid">
-<a class="topic-card" href="/guides/gta5/first-time/">
-<h3>First Time Setup <span aria-hidden="true">→</span>
-</h3>
-<p>Set up the launcher and follow the first-time installation steps.</p>
-<span>GTA 5</span>
-</a>
-<a class="topic-card" href="/guides/general/free-key/">
-<h3>Getting a Free Key <span aria-hidden="true">→</span>
-</h3>
-<p>Find out how free keys work and what the free version includes.</p>
-<span>General help</span>
-</a>
-<a class="topic-card" href="/guides/gta5/free-setup/">
-<h3>Free Version Setup (Legacy &amp; Enhanced) <span aria-hidden="true">→</span>
-</h3>
-<p>Choose the instructions for GTA 5 Legacy or Enhanced.</p>
-<span>GTA 5</span>
-</a>
-<a class="topic-card" href="/guides/general/hwid/">
-<h3>Resetting Your HWID <span aria-hidden="true">→</span>
-</h3>
-<p>Reset your hardware ID when you need to change devices.</p>
-<span>General help</span>
-</a>
-</div>
-</section>
-<section class="hub-section">
-<h2>Customization &amp; playing online</h2>
-<div class="topic-grid">
-<a class="topic-card" href="/guides/gta5/dlcs/"><h3>DLCs (Vehicles and Peds) <span aria-hidden="true">→</span></h3><p>Find vehicles and character models by DLC, and understand which downloads need more than a saved preset.</p><span>GTA 5</span></a>
-<a class="topic-card" href="/guides/gta5/lua-scripts/"><h3>Getting Luas <span aria-hidden="true">→</span></h3><p>Install a Lua script, run it in Scooby&#x27;s Lua Editor, and manage reloads and automatic startup.</p><span>GTA 5</span></a>
-<a class="topic-card" href="/guides/gta5/outfits/"><h3>Outfits <span aria-hidden="true">→</span></h3><p>Install shared outfits, import supported exports, and save your own clothing presets.</p><span>GTA 5</span></a>
-<a class="topic-card" href="/guides/gta5/themes/"><h3>Themes <span aria-hidden="true">→</span></h3><p>Install a shared theme, keep its images together, and save the look of ClickUI, ListUI, or both.</p><span>GTA 5</span></a>
-<a class="topic-card" href="/guides/gta5/vehicles/"><h3>Modded Vehicles <span aria-hidden="true">→</span></h3><p>Install shared vehicles, import compatible menu exports, and save your own customized rides.</p><span>GTA 5</span></a>
-<a class="topic-card" href="/guides/gta5/host-public/">
-<h3>How To Host Public Sessions with Scooby (BE Disabled) <span aria-hidden="true">→</span>
-</h3>
-<p>Understand session settings and connection requirements.</p>
-<span>GTA 5</span>
-</a>
-<a class="topic-card" href="/guides/gta5/money/">
-<h3>Money Making Methods <span aria-hidden="true">→</span>
-</h3>
-<p>Explore the available in-game methods.</p>
-<span>GTA 5</span>
-</a>
-</div>
-</section>
-<section class="hub-section">
-<h2>CS2 customization</h2>
-<div class="topic-grid"><a class="topic-card" href="/guides/cs2/custom-models/"><h3>Custom Models <span aria-hidden="true">→</span></h3><p>Find the game install folder and set up player models, your own arms and hands, and weapon replacements.</p><span>Counter-Strike 2</span></a></div>
-</section>
-<section class="hub-section">
-<h2>RDR2 customization</h2>
-<div class="topic-grid">
-<a class="topic-card" href="/guides/rdr2/vehicles-peds/"><h3>Vehicles, Peds &amp; Animals <span aria-hidden="true">→</span></h3><p>Use the model libraries to spawn wagons, characters, and animals, or change your own character model.</p><span>Red Dead Redemption 2</span></a>
-<a class="topic-card" href="/guides/rdr2/lua-scripts/"><h3>Getting Luas <span aria-hidden="true">→</span></h3><p>Install RDR2 Lua scripts, run them from the editor, and use the console to resolve loading errors.</p><span>Red Dead Redemption 2</span></a>
-<a class="topic-card" href="/guides/rdr2/outfits/"><h3>Outfits <span aria-hidden="true">→</span></h3><p>Install shared JSON outfits, edit your wardrobe, and save clothing presets for your RDR2 character.</p><span>Red Dead Redemption 2</span></a>
-<a class="topic-card" href="/guides/rdr2/horse-outfits/"><h3>Horse Outfits <span aria-hidden="true">→</span></h3><p>Customize your horse&#x27;s equipment, install saved horse outfits, and keep a reusable JSON preset.</p><span>Red Dead Redemption 2</span></a>
-<a class="topic-card" href="/guides/rdr2/themes/"><h3>Themes <span aria-hidden="true">→</span></h3><p>Install saved appearance settings, add ListUI image themes, and save your own RDR2 menu design.</p><span>Red Dead Redemption 2</span></a>
-<a class="topic-card" href="/guides/rdr2/configs/"><h3>Configs &amp; Backups <span aria-hidden="true">→</span></h3><p>Save settings profiles, load shared RDR2 configs, and back up outfits, Lua scripts, and themes.</p><span>Red Dead Redemption 2</span></a>
-</div>
-</section>
-<section class="hub-section">
-<h2>Fix a problem</h2>
-<div class="topic-grid">
-<a class="topic-card" href="/guides/general/crashing/">
-<h3>Crashing Solutions <span aria-hidden="true">→</span>
-</h3>
-<p>Work through common reasons for a crash.</p>
-<span>General help</span>
-</a>
-<a class="topic-card" href="/guides/general/connection/">
-<h3>Connection or SSL Errors <span aria-hidden="true">→</span>
-</h3>
-<p>Get help with connection and SSL errors.</p>
-<span>General help</span>
-</a>
-<a class="topic-card" href="/guides/general/universal/">
-<h3>Universal Troubleshooting <span aria-hidden="true">→</span>
-</h3>
-<p>A checklist for common loader and setup problems.</p>
-<span>General help</span>
-</a>
-<a class="topic-card" href="/guides/cs2/cs2-updates/">
-<h3>Features Not Working <span aria-hidden="true">→</span>
-</h3>
-<p>Understand issues that appear after a game update.</p>
-<span>Counter-Strike 2</span>
-</a>
-</div>
-</section>
-<section class="hub-section home-faq">
-<h2>Frequently asked questions</h2>
-<details>
-<summary>Where should I start?</summary>
-<p>Choose your game above and follow its setup instructions in order. GTA 5 users can begin with <a href="/guides/gta5/first-time/">First Time Setup</a>.</p>
-</details>
-<details>
-<summary>Where can I find help with my key or account?</summary>
-<p>See <a href="/guides/general/free-key/">Getting a Free Key</a> and <a href="/guides/general/hwid/">Resetting Your HWID</a>, or access your account through the <a href="/portal/">portal</a>.</p>
-</details>
-<details>
-<summary>What if my problem is not covered?</summary>
-<p>Visit the <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby community</a>. Share your game, the exact error, and the steps you have tried.</p>
-</details>
-</section>
+<div class="guide-directory-resources"><p>Looking for a specific error or feature? <button type="button" data-directory-search hidden>Search all guides</button><noscript><a href="/guides/general/">Browse general help</a></noscript></p><a href="/docs/">Developer documentation <span aria-hidden="true">↗</span></a></div>
 <footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>

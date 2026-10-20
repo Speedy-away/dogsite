@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Generated developer references | Scooby</title><meta name="description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><link rel="canonical" href="https://scoobymenu.cc/docs/rdr2/developer-files/"><link rel="icon" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="Generated developer references"><meta property="og:description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><meta property="og:url" content="https://scoobymenu.cc/docs/rdr2/developer-files/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"></head><body class="game-rdr2 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand" href="/docs/">Scooby <span>Docs</span></a><nav><a href="/docs/rdr2/">RDR2 Lua</a><a href="/api/rdr2/">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">RDR2 / LUA</p><h1>RDR2 Lua developer references</h1>
+<p>For ListUI/ClickUI themes, script-created native feature pages and standalone
+interfaces sharing built-in commands, see <a href="/docs/rdr2/custom-ui/">custom Lua UI</a>.
+The offline <a href="lua-api.html">searchable API browser</a> is generated from the same
+catalog as the in-menu reference. Regenerate after updating the source catalog:</p>
+<pre><code class="language-powershell">python tools/generate_lua_developer_files.py --output build/lua-developer-files/generated
+python tools/update_lua_reference_docs.py --catalog build/lua-developer-files/generated/Documentation.json --output docs/lua-api.html
+</code></pre>
+<p>The Lua workspace automatically creates <code>Documentation.json</code>, <code>DataNodes.lua</code> and
+<code>natives.lua</code> in its Lua root. They are editor references. Use the host bindings
+directly; loading these files does not install an API. Script discovery omits the
+reserved filenames, the module/file loaders reject them, and the generated Lua
+files raise an error if executed directly or copied under another name.</p>
+<h2>Generation and ownership</h2>
+<p><code>tools/generate_lua_developer_files.py</code> reads this game&#39;s native declarations,
+explicit Lua binding registrations, <code>docs/lua-api-reference.md</code> and the reviewed
+signatures/examples in <code>docs/lua-developer-api.json</code>. CMake generates the three
+files and <code>LuaDeveloperPayload.hpp</code> under <code>build/x64/vs2022/generated/lua/</code> (or the
+corresponding LuaJIT build tree). The API browser consumes the same generated
+entries, using the existing UI theme and expandable signatures/examples.</p>
+<p>The supported build stages the references beside the DLL in <code>lua-developer/</code>.
+The DLL installs them when the Lua workspace initializes. Missing owned files are
+repaired; changed generated files are replaced through a temporary file and an
+atomic rename. Unrelated user files, symlinks, failed writes and a conflicting
+temporary file preserve the previous destination and report the conflict. Keep
+custom scripts under other filenames. Restart after resolving a conflict.</p>
+<p><code>Documentation.json</code> retains the namespace/member format, with explicit
+<code>Signature</code>, <code>Example</code>, <code>Available</code>, parameter and source information where
+known. <code>_meta</code> identifies the game, generator and availability basis. <code>Available</code>
+records source exposure; it does not certify an engine handler, argument meaning,
+network replication or behavior on a particular game build.</p>
+<h2>Native and entity contracts</h2>
+<p>Named RDR2 natives are already installed in every script state. Both
+<code>PLAYER.PLAYER_PED_ID()</code> and <code>RDR2.PLAYER.PLAYER_PED_ID()</code> use the same table.
+Existing high-level HUD helpers share that table with the HUD native functions.
+Native work belongs on the game callback, never inside a render callback.</p>
+<p>Only the signatures accepted by the production typed native marshaller are
+advertised as available. Pointer/unknown <code>Any</code> signatures require explicit typed
+wrappers. <code>BUILTIN.WAIT</code> remains unavailable; use <code>script.yield(ms)</code>. All source
+declarations, including unavailable ones and their reason, remain in the JSON.
+Native handles are integers; <code>Self.getPed()</code> instead returns a <code>Ped</code> object.
+Entity instance methods use <code>:</code> and native namespace functions use <code>.</code>.</p>
+<p><code>DataNodes.lua</code> describes bound entity/vector types. No raw RDR2 network-data-node
+Lua binding has been verified. GTA5&#39;s layouts, enum hashes and memory fields are
+not RDR2 contracts and are not copied into this game. The reference file does not
+invent constructors or write access to those structures.</p>
+<p>The corrected examples use integer model hashes for <code>Ped.create</code>, a <code>Player</code>
+object for <code>Self.getPlayer</code>, and the actual <code>{hour, minute, second}</code> return table
+from <code>World.getTime</code>. Cooperative model loading remains in the production asset
+adapter. See <code>scripts/examples/FrontierWorkbench</code> for a complete modular custom
+window, and <code>docs/lua-imgui-porting.md</code> for the opt-in C++ style UI adapter.</p>
+<h2>Maintenance and verification</h2>
+<p>Build through the root solution or <code>tools/build.ps1 -Configuration Release</code>.
+Run <code>LuaApiContracts</code> on both Lua54 and LuaJIT after changing runtime bindings.
+The regression suite covers reference installation/repair, custom-file
+preservation, interrupted replacement, module/loadfile/dofile/direct execution
+rejection, script discovery and preservation of HUD helpers during native setup.
+<code>tools/test_lua_contracts.ps1 -LuaRuntime Lua54</code> (or <code>LuaJIT</code>) can also compile
+these production contracts into an isolated <code>build/lua-developer-files/contracts/</code>
+folder using the existing pinned dependencies. This does not replace the full
+supported Release build or its translation/font packaging guard.</p>
+<pre><code class="language-powershell">powershell -File tools/build.ps1 -Configuration Release
+ctest --test-dir build/x64/vs2022 -C Release -R LuaApiContracts --output-on-failure
+powershell -File tools/build.ps1 -Configuration Release -LuaRuntime LuaJIT
+ctest --test-dir build/x64/vs2022-luajit -C Release -R LuaApiContracts --output-on-failure
+</code></pre>
+<p>For a read-only audit of another documentation catalog and example tree, run
+<code>tools/audit_lua_developer_reference.py --documentation &lt;json&gt; --scripts &lt;folder&gt; --host &lt;generated-Documentation.json&gt; --output build/&lt;evidence&gt;/audit.json</code>.
+It hashes every Lua file and inventories direct call candidates without running
+the scripts. Script-defined helpers and indirect calls require manual review;
+candidate counts do not establish compatibility.</p>
+<p>Evidence for this change is under <code>build/lua-developer-files/</code>. Game/native,
+graphics/input, network and foreground-performance acceptance require the exact
+built artifact and separate in-game evidence. Translation/font packaging checks
+remain mandatory; no translation catalogs or language fonts are added here.</p>
+<footer><a href="/api/rdr2/">API reference</a><a href="/docs/rdr2/custom-ui/">ListUI, ClickUI &amp; custom GUI</a><a href="/docs/rdr2/imgui-porting/">C++ ImGui porting</a><a href="/docs/rdr2/developer-files/">Developer files</a><a href="/docs/rdr2/examples.zip" download>Lua examples</a><a href="/docs/rdr2/developer-files.zip" download>Developer references</a></footer></main></body></html>

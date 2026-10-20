@@ -1,0 +1,20 @@
+/* Existing Scooby API palette and typography; bounded, searchable source catalogs. */
+.game-gta5{--bg:#1a1a1a;--panel:#202024;--text:#e6e6e6;--muted:#9a9a9a;--accent:#8b5cf6;--border:#2e2e34;--code:#141418}
+#sidebar-nav>a{display:block;padding:7px 12px;color:var(--muted,#a5a2b5);overflow-wrap:anywhere}
+#sidebar-nav>a:hover{color:var(--text,#eee);background:var(--panel,#202024)}
+.catalog-filters{border:1px solid var(--border,#333);background:var(--panel,#202024);padding:16px;border-radius:7px;margin:24px 0 10px}
+.catalog-filters>label{display:block;margin-bottom:8px;font-size:13px;color:var(--muted,#aaa)}
+.catalog-filters input[type=search]{width:100%;font:inherit;background:var(--bg,#17171b);color:inherit;border:1px solid var(--border,#333);border-radius:4px;padding:10px}
+.catalog-selects{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px;font-size:13px}
+.catalog-selects select,.catalog-selects button,#show-more{font:inherit;background:var(--bg,#17171b);color:inherit;border:1px solid var(--border,#333);border-radius:4px;padding:8px 10px}
+.catalog-selects select{max-width:100%;min-width:150px}.availability{display:flex;align-items:center;gap:6px}.availability input{accent-color:var(--accent,#8b5cf6)}
+#api-entries summary{display:flex;align-items:center;gap:16px;justify-content:space-between;overflow-wrap:anywhere}#api-entries summary code{white-space:normal}
+#api-entries h3{font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin:20px 0 8px;color:var(--muted,#aaa)}
+.entry-body pre{position:relative;white-space:pre-wrap;overflow-wrap:anywhere;padding:38px 14px 14px!important;min-width:0;max-width:100%}
+.entry-body pre code{white-space:pre-wrap;overflow-wrap:anywhere}
+.copy-code{position:absolute;right:8px;top:7px;padding:3px 8px;background:var(--panel,#25252a);color:inherit;border:1px solid var(--border,#444);border-radius:4px;cursor:pointer}
+.unavailable{color:#dfbb75;font-size:12px}.reference-entry{scroll-margin-top:24px}#show-more{width:100%;cursor:pointer;margin:14px 0 30px}
+#search-status{color:var(--muted,#aaa);font-size:13px}.guide-content pre{white-space:pre-wrap;overflow-wrap:anywhere}.guide-content table{display:block;overflow:auto;max-width:100%}.guide-content img{max-width:100%}
+.guide-content footer,.content footer{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}.quick-links{flex-wrap:wrap}#host-topics{margin-top:50px}
+[hidden]{display:none!important}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent,#8b5cf6);outline-offset:3px}
+@media(max-width:800px){#api-entries summary{display:block}.unavailable{display:block;margin-top:5px}.catalog-filters{padding:12px}.catalog-selects{gap:8px}.content{min-width:0}.reference-entry{scroll-margin-top:160px}}

@@ -25,11 +25,15 @@ through `package.loadlib` remains disabled; FFI is not a C-module loader.
 ```powershell
 # Default artifact: build/Release/scoobyRDR2.dll
 powershell -File tools/build.ps1 -Configuration Release -LuaRuntime Lua54
-# Separate artifact: build/LuaJIT/Release/scoobyRDR2.dll
+# Replace the same build/Release package with LuaJIT (package.json identifies it)
 powershell -File tools/build.ps1 -Configuration Release -LuaRuntime LuaJIT
 # Root solution supports the same choice:
 MSBuild ScoobyRDR2.sln /p:Configuration=Release /p:Platform=x64 /p:LuaRuntime=LuaJIT
 ```
+
+Independent compiler copies remain in `build/x64/vs2022/package/Release` and
+`build/x64/vs2022-luajit/package/Release`. Only the selected runtime is staged in
+the visible `build/Release` folder. The `x64` cache directory is hidden in Explorer.
 
 Use these optional declarations in the first 64 lines of the entry point. The
 manager checks them before executing script code:
@@ -344,3 +348,11 @@ remains separate from its `FrontierStandalone` fixture test.
 ### Vesper custom interface
 
 The RDR2 standalone package displays the name Vesper (1.1.0). Its existing `RDR2/Lua/Frontier` folder and internal module/config keys remain stable for saved preferences and bookmarks. Custom vector icons, outlined buttons, pill switches and slider drawing use the existing API 2.1.0; native ImGui input preserves activation and focus. The Lua54 and LuaJIT fixture checks are recorded in `build/vesper-ui-evidence`. In-game renderer, controller and performance acceptance remains outstanding.
+
+## Recorded stats editor
+
+The Stats.readRecorded, Stats.writeRecorded, Stats.undoRecorded and Stats.getRecordedStatus functions use the same bounded game-fiber queue as Recovery > Stats. They support integer, float and boolean values on Lua54 and LuaJIT in a ready online session only. Story requests are rejected and pending edits/undo are invalidated when leaving the session. See [signatures and request semantics](lua-api-reference.md#recorded-statistics) and [coverage, validation and maintenance](STATS_EDITOR.md).
+
+## Iron Man host powers
+
+The queued `IronMan` module is shared with **Self > Main > Iron Man**. `setEnabled(bool)` and `action(name)` schedule host work; `status()` returns a copied snapshot. They can be called from custom UI callbacks without invoking game natives on the render thread. Wait for `status().active` before requesting actions; a context change can discard an accepted action. See [Iron Man controls and maintenance](IRON_MAN.md) for action names, ownership, inputs and untested runtime acceptance.

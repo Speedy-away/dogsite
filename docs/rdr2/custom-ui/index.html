@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ListUI, ClickUI and custom interfaces | Scooby</title><meta name="description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><link rel="canonical" href="https://scoobymenu.cc/docs/rdr2/custom-ui/"><link rel="icon" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="ListUI, ClickUI and custom interfaces"><meta property="og:description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><meta property="og:url" content="https://scoobymenu.cc/docs/rdr2/custom-ui/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"></head><body class="game-rdr2 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand" href="/docs/">Scooby <span>Docs</span></a><nav><a href="/docs/rdr2/">RDR2 Lua</a><a href="/api/rdr2/">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">RDR2 / LUA</p><h1>Lua interfaces and themes</h1>
+<p>Both <strong>ListUI and ClickUI</strong> consume native feature pages registered by Lua.
+<code>features.add_page</code> builds each row from the existing command and each frontend
+uses its own controls, active style, hotkeys and access checks. Find the page in
+Lua Content (GTA5 ClickUI: Settings &gt; Lua Content; RDR2 ClickUI: Lua &gt; Lua Content).
+Reopen Lua Content after adding a page if that view was already open.</p>
+<pre><code class="language-lua">local page = assert(features.add_page(&#39;My Self Tools&#39;, {&#39;godmode&#39;}))
+-- Later: features.remove_page(page)
+</code></pre>
+<p>Pages belong to their Lua state. Reload/stop/unload expires them, even if an old
+native-page snapshot is open. Scripts can remove only their own pages. Each
+script can register up to 64 pages with up to 256 IDs per page. IDs are exact,
+case-sensitive command names, obtained from <code>features.list()</code> independently in
+each game. Permission/capability settings are excluded from this API.</p>
+<h2>Shared feature state in a standalone interface</h2>
+<p><code>features.list(filter)</code> and <code>features.get(id)</code> return snapshots with <code>id</code>, <code>label</code>,
+<code>description</code>, <code>type</code>, <code>value</code> and <code>available</code>. Numeric bounds are <code>min</code>/<code>max</code> when
+defined. List entries provide <code>options = {{value=10,label=&#39;Example&#39;}, ...}</code>; write
+the option&#39;s actual value, not its array index. Types are <code>boolean</code>, <code>integer</code>,
+<code>number</code>, <code>list</code>, <code>string</code>, <code>color</code>, <code>vector3</code> and <code>action</code>.</p>
+<p><code>features.set(id, value)</code> uses the real command setter and returns its resulting
+snapshot. <code>features.call(id)</code> calls an action and returns true. Invalid input,
+unknown IDs, unavailable access or calls made during rendering return <strong>nil,
+error message</strong>. Bounds are rejected rather than silently changing the requested
+value. Colors use <code>{x=r,y=g,z=b,w=a}</code> in 0..1; vectors use <code>{x,y,z}</code>. Strings are
+limited to 65,536 bytes. Existing command callbacks and settings remain in charge
+of applying and saving changes. An action result means it was dispatched; engine
+work and asynchronous feature callbacks can finish later.</p>
+<p>Read/update commands in game callbacks. Keep ordinary Lua snapshots for rendering
+and queue writes with <code>script.run_in_fiber</code>. The host serializes access to a
+script state. Refreshing a snapshot also picks up changes made in the main UI or
+by hotkeys; do not repeatedly force an old local boolean onto the host.</p>
+<pre><code class="language-lua">local I = ImGuiCpp
+local write = type(log) == &#39;function&#39; and log or log.info
+local god = I.Ref(false)
+script.register_looped(&#39;sync-godmode&#39;, function(task)
+    local feature = features.get(&#39;godmode&#39;)
+    if feature then god.value = feature.value end
+    task:sleep(100)
+end)
+script.register_render(function()
+    if I.Begin(&#39;My Self UI&#39;) then
+        if I.Checkbox(&#39;God Mode&#39;, god) then
+            local desired = god.value
+            script.run_in_fiber(function()
+                local result, err = features.set(&#39;godmode&#39;, desired)
+                if not result then write(err) end
+            end)
+        end
+    end
+    I.End()
+end)
+</code></pre>
+<p>The complete <code>SharedFeatureUI.lua</code> example adds search, native command controls,
+custom window styling, a theme editor and F7 visibility. <code>NativeFeaturePage.lua</code>
+shows the native frontend extension. They are ordinary scripts, unlike the three
+generated developer reference files.</p>
+<p>GTA5 keeps these examples under <code>examples/lua/</code>; RDR2 keeps them under
+<code>scripts/examples/</code>. Copy the chosen <code>.lua</code> example into that game&#39;s Lua scripts
+folder, refresh the script list and enable it. The custom window uses F7 to
+show/hide itself. The native-page example needs no separate window or mouse
+override.</p>
+<h2>Theme both native frontends</h2>
+<p><code>ui_theme.set_accent(r,g,b,a=255)</code> applies the native accent to <strong>ClickUI and
+ListUI</strong>. <code>ui_theme.get()</code> captures <code>{clickui=...,listui=...}</code>.
+<code>ui_theme.apply(snapshot)</code> restores captured surfaces through their existing
+settings serializers. Omit a surface to leave it alone. Run these calls from
+game callbacks, using <code>script.run_in_fiber</code> for buttons in a custom window.</p>
+<pre><code class="language-lua">script.run_in_fiber(function()
+    local original = ui_theme.get()
+    ui_theme.set_accent(80, 160, 240, 255)
+    -- Keep original in this script, then restore on an explicit user action:
+    -- ui_theme.apply(original)
+end)
+</code></pre>
+<p>The raw snapshot schema belongs to the current game and native style. RDR2&#39;s
+<code>listui</code> value is a complete active-style profile, including <code>version</code> and
+<code>profileStyle</code>; preserve those fields and its validated layout. GTA5 additionally
+has the existing <code>ui_theme.patch</code>, <code>set</code>, <code>image_folder</code> and <code>reload_images</code>
+helpers. Discover/edit captured fields instead of copying raw settings between
+games or renderer styles. Native themes remain saved by the host after a script
+stops; only script-owned pages and render callbacks are automatically removed.</p>
+<p>Standalone windows use <code>ImGuiCpp.PushStyleColor/PopStyleColor</code> and
+<code>PushStyleVar/PopStyleVar</code> around their own drawing, with balanced stacks. They
+can have wholly different navigation, windows, tabs, tables, drawing, colors and
+controls while sharing host feature state. These scoped styles do not replace
+the native theme. Reuse loaded fonts through <code>GetFonts</code>/<code>PushFont</code>/<code>PopFont</code>.</p>
+<h2>Porting an existing C++ interface</h2>
+<p>Start with <a href="/docs/rdr2/imgui-porting/">the C++ ImGui adapter</a>: Refs replace output
+pointers, tables replace vectors/arrays, and <code>ImGuiCpp</code> retains C++ widget return
+conventions. Replace native command checkboxes with <code>features.get/set</code> or a native
+feature page. Replace the C++ renderer callback with <code>script.register_render</code>,
+and queue engine work onto the script scheduler. The host owns frames, input
+capture, renderer backends and context lifetime.</p>
+<p><a href="https://github.com/Mr-X-GTA/YimMenu/blob/master/src/gui.cpp">The supplied C++ interface reference</a>
+uses ImGui style fields and scoped colors; those concepts map to the adapter&#39;s
+style pushes and custom window rendering. This is a porting workflow, not an
+automatic translator or a completed port of that repository. Arbitrary C++
+pointers, backend/atlas mutation, docking/multiple OS windows, raw GPU resources
+and internal draw-list machinery remain outside the portable API.
+<code>ImGuiCpp.GetCapabilities()</code> lists supported calls and explicit limits. Managed
+image APIs remain game specific. Game features require that game&#39;s command or
+native implementations; a GTA5 layout does not implement its gameplay in RDR2.</p>
+<h2>Verification</h2>
+<p>Run <code>tools/test_lua_host_ui.ps1 -LuaRuntime LuaJIT</code> in each project; RDR2 also
+supports <code>-LuaRuntime Lua54</code>. The shared production headers are tested for all
+value types, host-to-Lua changes, invalid input, bounds, account restrictions,
+render-phase rejection, native row construction, per-script removal and unload.
+Normal supported Release builds compile both actual adapters and frontend routes.
+Use the existing Lua API contracts for real ImGui scope/input behavior. In-game
+appearance, controller interaction and foreground performance require separate
+testing with the exact DLL; these fixtures do not establish those results.</p>
+<footer><a href="/api/rdr2/">API reference</a><a href="/docs/rdr2/custom-ui/">ListUI, ClickUI &amp; custom GUI</a><a href="/docs/rdr2/imgui-porting/">C++ ImGui porting</a><a href="/docs/rdr2/developer-files/">Developer files</a><a href="/docs/rdr2/examples.zip" download>Lua examples</a><a href="/docs/rdr2/developer-files.zip" download>Developer references</a></footer></main></body></html>

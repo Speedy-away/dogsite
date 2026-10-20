@@ -114,9 +114,12 @@ class GuideParser(HTMLParser):
         self.heading = False
         self.topic = None
         self.topics = []
+        self.noindex = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "meta" and attrs.get("name", "").lower() == "robots":
+            self.noindex = "noindex" in [token.strip().lower() for token in attrs.get("content", "").split(",")]
         if tag == "div":
             if "guide-card" in attrs.get("class", "").split() and attrs.get("id"):
                 self.topic = {"game": self.name, "title": [], "text": [],
@@ -151,6 +154,8 @@ if __name__ == "__main__":
         for article in sorted((ROOT / "guides" / slug).glob("*/index.html")):
             parser = GuideParser(slug, name)
             parser.feed(article.read_text(encoding="utf-8"))
+            if parser.noindex:
+                continue
             for topic in parser.topics:
                 topic["href"] = f"/guides/{slug}/{article.parent.name}/"
                 topic["tags"] = [slug] + SEARCH_ALIASES.get(slug, [])

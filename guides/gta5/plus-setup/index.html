@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>GTA 5 Plus Setup Guide - Scooby Guide</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Set up Scooby GTA 5 Plus: UEFI bootloader requirements, Windows and BIOS settings, BitLocker preparation, and loading with BattlEye enabled.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/gta5/plus-setup/">
+<meta property="og:title" content="GTA 5 Plus Setup Guide - Scooby Guide">
+<meta property="og:description" content="Set up Scooby GTA 5 Plus: UEFI bootloader requirements, Windows and BIOS settings, BitLocker preparation, and loading with BattlEye enabled.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GTA 5 Plus Setup Guide - Scooby Guide">
+<meta name="twitter:description" content="Set up Scooby GTA 5 Plus: UEFI bootloader requirements, Windows and BIOS settings, BitLocker preparation, and loading with BattlEye enabled.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+<meta name="keywords" content="Scooby Menu, GTA 5 Plus, Plus Setup Guide, Secure Boot, VBS, HVCI, kernel protection">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<script src="/assets/js/plus-setup.js" defer></script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/gta5/plus-setup/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/gta5/plus-setup/">
+<script src="/lang/i18n.js"></script>
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/guides-v2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SCOOBY WIKI: Setup guides. Answers here. Installation · Settings · Troubleshooting.">
+<meta name="twitter:image:alt" content="SCOOBY WIKI: Setup guides. Answers here. Installation · Settings · Troubleshooting.">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/guides/gta5/plus-setup/#webpage",
+      "url": "https://scoobymenu.cc/guides/gta5/plus-setup/",
+      "name": "GTA 5 Plus Setup Guide - Scooby Guide",
+      "description": "Set up Scooby GTA 5 Plus: UEFI bootloader requirements, Windows and BIOS settings, BitLocker preparation, and loading with BattlEye enabled.",
+      "keywords": "Scooby Menu, GTA 5 Plus, Plus Setup Guide, Secure Boot, VBS, HVCI, kernel protection",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://scoobymenu.cc/guides/gta5/plus-setup/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Guides",
+          "item": "https://scoobymenu.cc/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "GTA 5",
+          "item": "https://scoobymenu.cc/guides/gta5/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Plus Setup Guide",
+          "item": "https://scoobymenu.cc/guides/gta5/plus-setup/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand scooby-brand" href="/guides/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details class="sidebar-game sidebar-general">
+<summary><span class="sidebar-game-title">General help<span class="sidebar-game-subtitle">Downloads, accounts &amp; fixes</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/general/"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Downloads &amp; keys"><p class="sidebar-section-label">Downloads &amp; keys</p>
+<a class="sidebar-guide-link" href="/guides/general/faq/"><span class="sidebar-link-label">Antivirus &amp; downloads</span></a>
+<a class="sidebar-guide-link" href="/guides/general/free-key/"><span class="sidebar-link-label">Get a free key</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Fix a problem"><p class="sidebar-section-label">Fix a problem</p>
+<a class="sidebar-guide-link" href="/guides/general/crashing/"><span class="sidebar-link-label">Crashes &amp; loading errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/connection/"><span class="sidebar-link-label">Connection &amp; SSL errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
+<a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
+</div>
+</details>
+<details class="sidebar-game sidebar-gta5" open>
+<summary><span class="sidebar-game-title">GTA 5<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/gta5/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a class="sidebar-guide-link" href="/guides/gta5/introduction/" aria-label="Introduction"><span class="sidebar-link-label">Introduction</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/premium-free-setup/" aria-label="Premium and Free Setup"><span class="sidebar-link-label">Premium and Free Setup</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/plus-setup/" aria-current="page" aria-label="Plus Setup"><span class="sidebar-link-label">Plus Setup</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/free-setup/" aria-label="Free Version Setup (Legacy &amp; Enhanced)"><span class="sidebar-link-label">Free Version Setup</span><span class="sidebar-link-note">Legacy &amp; Enhanced</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Playing online"><p class="sidebar-section-label">Playing online</p>
+<a class="sidebar-guide-link" href="/guides/gta5/money/" aria-label="Money methods"><span class="sidebar-link-label">Money methods</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/host-public/" aria-label="Public session hosting (BattlEye disabled)"><span class="sidebar-link-label">Public session hosting</span><span class="sidebar-link-note">BattlEye disabled</span></a>
+</div>
+<details class="sidebar-customization" open><summary>Customization</summary>
+<a class="sidebar-guide-link" href="/guides/gta5/dlcs/" aria-label="DLCs &amp; models"><span class="sidebar-link-label">DLCs &amp; models</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/lua-scripts/" aria-label="Lua scripts"><span class="sidebar-link-label">Lua scripts</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/outfits/" aria-label="Outfits"><span class="sidebar-link-label">Outfits</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/themes/" aria-label="Themes"><span class="sidebar-link-label">Themes</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/vehicles/" aria-label="Modded vehicles"><span class="sidebar-link-label">Modded vehicles</span></a>
+</details>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a class="sidebar-guide-link" href="/guides/gta5/troubleshooting/" aria-label="Game troubleshooting"><span class="sidebar-link-label">Game troubleshooting</span></a>
+<a class="sidebar-guide-link" href="/guides/gta5/hypervisor-vbs/" aria-label="Hypervisor / VBS"><span class="sidebar-link-label">Hypervisor / VBS</span></a>
+</div>
+</details>
+
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><span>Plus Setup Guide</span></div><h1>Plus Setup Guide</h1><p class="article-intro">GTA 5 · Scooby Wiki · Plus</p>
+
+<div class="guide-card" id="plus-setup">
+<h2 class="sr-only">Plus Setup Guide</h2>
+<p>Scooby Plus uses a bootloader that loads its kernel driver when your PC restarts. Complete every setup step in order before selecting <strong>Load Driver At Next Boot</strong>. Take your time and do not skip the checks.</p>
+<div class="plus-guide-tools"><button type="button" data-plus-print hidden>Print / save as PDF</button><a href="#loader-status">Find your loader message</a></div>
+<p class="plus-feedback" data-plus-feedback role="status" aria-live="polite"></p>
+<div class="warning-banner"><strong>Before changing Windows or firmware settings:</strong> Secure Boot, VBS and Memory Integrity provide security protections. Turning them off reduces those protections. Disabling virtualization also affects virtual machines, WSL2, Windows Sandbox and some Docker configurations. Keep your BitLocker recovery key available before changing boot settings. <a href="https://support.microsoft.com/en-us/windows/security/windows-security/device-security-in-the-windows-security-app" target="_blank" rel="noopener">Microsoft: device security</a>.</div>
+<div class="plus-setup-overview" aria-label="Setup overview">
+<p><strong>The setup in three parts</strong></p>
+<ol>
+<li><strong>Prepare Windows.</strong> Save your recovery key, then complete the encryption, hypervisor and VBS checks in <a href="#requirements">steps 1–3</a>.</li>
+<li><strong>Change BIOS settings.</strong> Keep UEFI boot mode. Turn off Secure Boot, Fast Boot and the relevant virtualization settings. Follow <a href="#enter-uefi">step 4</a>, then <a href="#firmware-settings">step 5 and the outlined pictures</a>.</li>
+<li><strong>Restart and load.</strong> Arm the driver, restart, then load Scooby and launch GTA V with BattlEye enabled. <a href="#load-scooby">Step 6</a> has the full sequence.</li>
+</ol>
+<p><strong>Menu keys:</strong> ClickUI <kbd>F1</kbd> / <kbd>Insert</kbd> · ListUI <kbd>F2</kbd>.</p>
+</div>
+<details class="faq plus-page-index"><summary>Jump to a step or find help</summary>
+<nav class="wiki-note" aria-label="On this page"><strong>Follow the setup in order</strong><ol>
+<li><a href="#requirements">Check the required settings</a></li>
+<li><a href="#bitlocker">Prepare BitLocker / Device Encryption</a></li>
+<li><a href="#windows-settings">Turn off the hypervisor, VBS and Memory Integrity</a></li>
+<li><a href="#enter-uefi">Enter UEFI firmware settings</a></li>
+<li><a href="#firmware-settings">Change Secure Boot, Fast Boot and virtualization</a></li>
+<li><a href="#load-scooby">Verify and load Scooby Plus</a></li>
+</ol><p>Hardware help: <a href="#bios-pictures">outlined BIOS pictures</a> · <a href="#hardware-details">identify your PC</a> · <a href="#setting-names">setting-name reference</a> · <a href="#after-reboot-checks">final checks</a> · <a href="#setup-help">missing options and support</a>.</p><p>Seeing a red banner? Read <a href="/guides/gta5/hypervisor-vbs/">Fix “Hypervisor / VBS is running”</a>.</p></nav>
+</details>
+
+<h3 id="hardware-details">Before you begin: identify your hardware</h3>
+<p>Keep this guide open on your phone while you are in BIOS. Take photos of the settings before changing them so you can restore the original values if needed.</p>
+<p>Press <kbd>Win + R</kbd>, type <code>msinfo32</code>, and note these fields in <strong>System Summary</strong>:</p>
+<ul>
+<li><strong>Processor:</strong> tells you whether to look for Intel or AMD setting names.</li>
+<li><strong>System Manufacturer / System Model:</strong> use these for a laptop or branded prebuilt PC.</li>
+<li><strong>BaseBoard Manufacturer / BaseBoard Product:</strong> use these to identify the motherboard in a custom desktop.</li>
+<li><strong>BIOS Version/Date</strong> and <strong>OS Name / Version:</strong> useful when a menu differs from a tutorial. You can also run <code>winver</code> for the Windows build.</li>
+</ul>
+<p>Find the manual on the manufacturer’s support site using the <strong>exact model</strong>, and board revision if applicable. Two PCs from the same brand can have different menus. If a field is blank or generic, use the model label or purchase details rather than guessing.</p>
+
+<h3 id="requirements">1. Check the required settings</h3>
+<p>This is the required configuration for the Plus bootloader setup described here:</p>
+<ul>
+<li><strong>Hypervisor:</strong> off.</li>
+<li><strong>Secure Boot:</strong> disabled.</li>
+<li><strong>Firmware Fast Boot:</strong> disabled.</li>
+<li><strong>Virtualization-Based Security (VBS):</strong> not running.</li>
+<li><strong>Core isolation → Memory integrity (HVCI):</strong> off.</li>
+<li><strong>BIOS virtualization:</strong> off, including Intel VT-x / VT-d or AMD SVM / IOMMU where present.</li>
+<li><strong>BitLocker / Device Encryption:</strong> off for this Plus setup; see the distinction between decryption and suspension below.</li>
+<li><strong>BIOS Mode:</strong> UEFI.</li>
+</ul>
+<p>Press <kbd>Win + R</kbd>, enter <code>msinfo32</code>, and check <strong>BIOS Mode</strong>, <strong>Secure Boot State</strong> and <strong>Virtualization-based security</strong>. If BIOS Mode says Legacy, contact support before changing boot mode: switching an existing installation to UEFI may require disk conversion or other preparation.</p>
+
+<h3 id="bitlocker">2. Prepare BitLocker / Device Encryption</h3>
+<p>Save your <strong>48-digit recovery key</strong> somewhere accessible from another device before changing Secure Boot or other boot settings. Open <strong>Manage BitLocker</strong> (or <strong>Settings → Device encryption</strong>, depending on your Windows edition). For the BitLocker-off requirement above, select <strong>Turn off BitLocker</strong> / turn Device encryption off, and wait until decryption finishes.</p>
+<p>If you need to locate the key, follow <a href="https://support.microsoft.com/en-us/windows/security/encryption/find-your-bitlocker-recovery-key" target="_blank" rel="noopener">Microsoft’s recovery-key instructions</a>. It may be saved to the Microsoft account or work/school account used to set up the PC. Keep the key private; support screenshots should not include it.</p>
+<div class="wiki-note"><strong>Suspension is different from turning BitLocker off.</strong><p>For a temporary firmware change on an encrypted PC, the supplied notes describe suspending protectors from an administrator terminal before the change:</p><pre><code>manage-bde -protectors -disable C:</code></pre><p>After returning to Windows, resume protection:</p><pre><code>manage-bde -protectors -enable C:</code></pre><p>Suspension leaves the drive encrypted and does not meet the BitLocker-off requirement. These commands are for the temporary suspension workflow only. See <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-client/windows-security/suspend-bitlocker-protection-non-microsoft-updates" target="_blank" rel="noopener">Microsoft’s BitLocker suspension guidance</a>.</p></div>
+
+<h3 id="windows-settings">3. Turn off the hypervisor, VBS and Memory Integrity</h3>
+<ol>
+<li>Open <strong>PowerShell as administrator</strong> and run:<pre><code>bcdedit /set hypervisorlaunchtype off</code></pre></li>
+<li>Open <strong>Windows Security → Device security → Core isolation details</strong> and set <strong>Memory integrity</strong> to <strong>Off</strong>.</li>
+<li>If VBS is enabled, press <kbd>Win + R</kbd>, enter <code>regedit</code>, and open this path (you can paste it into Registry Editor’s address bar):<pre><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard</code></pre>Set <code>EnableVirtualizationBasedSecurity</code> to <code>0</code>. If the value is missing or managed by your organization, use the <a href="/guides/gta5/hypervisor-vbs/">VBS troubleshooting guide</a> rather than guessing at other registry settings.</li>
+<li><strong>Restart your PC</strong> to apply the changes. If you are completing the VBS registry step too, you can do both Windows changes before this restart.</li>
+</ol>
+<p>If VBS still runs after restarting, complete the firmware steps below and use the <a href="/guides/gta5/hypervisor-vbs/">VBS/HVCI diagnostic</a> to identify the remaining trigger. HVCI is a Windows security feature; it is not a standard BIOS virtualization toggle.</p>
+
+<h3 id="enter-uefi">4. Enter UEFI firmware settings</h3>
+<ol>
+<li>Open <strong>Start → Power</strong>.</li>
+<li>Hold <strong>Shift</strong> and select <strong>Restart</strong>. Keep holding Shift until the blue <strong>Choose an option</strong> screen appears.</li>
+<li>Select <strong>Troubleshoot → Advanced options → UEFI Firmware Settings → Restart</strong>.</li>
+</ol>
+<p>If that option is unavailable, use your device’s setup key at power-on. Common keys include <strong>Delete / F2</strong> on desktop motherboards, <strong>F2</strong> on Dell, <strong>Esc / F10</strong> on HP, and <strong>F1 / F2</strong> on Lenovo. Check your model’s manual for the exact key. Surface devices commonly use <strong>Volume Up + Power</strong>.</p>
+<p>You can also reach Advanced startup through <strong>Windows 11: Settings → System → Recovery → Advanced startup → Restart now</strong>, or <strong>Windows 10: Settings → Update &amp; Security → Recovery → Advanced startup</strong>. Save your work first. If you miss the setup key, restart and try again; a wired keyboard or the laptop’s built-in keyboard may help before Windows loads.</p>
+
+<h3 id="firmware-settings">5. Change Secure Boot, Fast Boot and virtualization</h3>
+<p>Secure Boot checks boot software against trusted signatures and can block the Plus bootloader. Find <strong>Secure Boot</strong> under Boot, Security, Authentication, BIOS Features, Advanced or System Configuration. Names vary by model and firmware version; use your model’s manual if these examples do not match.</p>
+<ol>
+<li>Set <strong>Secure Boot</strong> to <strong>Disabled</strong>. If it is greyed out, consult your model’s instructions or open a support ticket. Some models require an administrator/supervisor password or a mode change; do not clear Secure Boot keys or change to Custom mode unless your manufacturer specifically requires it.</li>
+<li>Set firmware <strong>Fast Boot</strong> to <strong>Disabled</strong> so it does not skip the bootloader. This is a firmware setting; Windows Fast Startup is a separate option.</li>
+<li>Find the CPU / virtualization options, usually under <strong>Advanced</strong> or <strong>Security</strong>. Disable the relevant virtualization settings: <strong>Intel Virtualization Technology / VT-x, VT-d, AMD SVM</strong> and <strong>IOMMU</strong>, where available. If a label is unfamiliar, open a support ticket with a screenshot so staff can confirm it.</li>
+<li>Confirm the system remains in <strong>UEFI</strong> boot mode.</li>
+<li>Once all changes are complete, choose <strong>Save Changes and Exit</strong> (often <strong>F10</strong>), confirm, and let Windows restart.</li>
+</ol>
+<section class="plus-bios-gallery" aria-labelledby="bios-pictures">
+<h4 id="bios-pictures">BIOS pictures: find the outlined setting</h4>
+<p>Open the example closest to your screen. The outline shows where to look; the <strong>“Set this”</strong> line tells you the required choice. These ASUS and MSI examples show common layouts. For other brands and models, match the setting name using the reference below.</p>
+<p class="plus-image-hint">Tap a picture to enlarge it. Some examples show Enabled before the change; follow the target written above the picture.</p>
+<details class="plus-bios-example" id="bios-secure-boot" open>
+<summary>Secure Boot — ASUS notebook</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> Secure Boot Control → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-secure-boot-control.png" target="_blank" rel="noopener" aria-label="Enlarge Secure Boot — ASUS notebook" data-bios-title="Secure Boot — ASUS notebook">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-secure-boot-control.png" alt="Secure Boot — ASUS notebook. Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting." width="2079" height="1169" loading="lazy"></span>
+</a>
+<figcaption>Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting. <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">Source: ASUS Secure Boot instructions</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-os-type">
+<summary>Secure Boot — ASUS desktop</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> OS Type → Other OS</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-secure-boot-os-type.png" target="_blank" rel="noopener" aria-label="Enlarge Secure Boot — ASUS desktop" data-bios-title="Secure Boot — ASUS desktop">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-secure-boot-os-type.png" alt="Secure Boot — ASUS desktop. On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control." width="1024" height="768" loading="lazy"></span>
+</a>
+<figcaption>On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control. <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">Source: ASUS Secure Boot instructions</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-fast-boot">
+<summary>Fast Boot — ASUS UEFI</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> Fast Boot → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-fast-boot.png" target="_blank" rel="noopener" aria-label="Enlarge Fast Boot — ASUS UEFI" data-bios-title="Fast Boot — ASUS UEFI">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-fast-boot.png" alt="Fast Boot — ASUS UEFI. Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup." width="1920" height="1080" loading="lazy"></span>
+</a>
+<figcaption>Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup. <a href="https://www.asus.com/uk/support/faq/1044641/" target="_blank" rel="noopener">Source: ASUS Fast Boot instructions</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-intel">
+<summary>Intel virtualization — ASUS motherboard</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> Intel (VMX) Virtualization Technology → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-intel-vmx.jpg" target="_blank" rel="noopener" aria-label="Enlarge Intel virtualization — ASUS motherboard" data-bios-title="Intel virtualization — ASUS motherboard">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-intel-vmx.jpg" alt="Intel virtualization — ASUS motherboard. The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch." width="1024" height="768" loading="lazy"></span>
+</a>
+<figcaption>The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch. <a href="https://www.asus.com/uk/support/faq/1043786/" target="_blank" rel="noopener">Source: ASUS Intel VMX instructions</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-msi">
+<summary>Intel CPU + VT-d — MSI Click BIOS X</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> Intel Virtualization Tech + Intel VT-D Tech → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/msi-intel-virtualization.jpg" target="_blank" rel="noopener" aria-label="Enlarge Intel CPU + VT-d — MSI Click BIOS X" data-bios-title="Intel CPU + VT-d — MSI Click BIOS X">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/msi-intel-virtualization.jpg" alt="Intel CPU + VT-d — MSI Click BIOS X. The outlines mark two separate controls. Choose Disabled for Intel Virtualization Tech, then change Intel VT-D Tech separately. The open dropdown in this reference image covers the VT-d value; check both controls on your own PC." width="1280" height="720" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1280 720" aria-hidden="true"><rect x="266" y="147" width="632" height="29"/><rect x="266" y="182" width="316" height="31"/><rect x="679" y="177" width="216" height="23"/></svg></span>
+</a>
+<figcaption>The outlines mark two separate controls. Choose Disabled for Intel Virtualization Tech, then change Intel VT-D Tech separately. The open dropdown in this reference image covers the VT-d value; check both controls on your own PC. <a href="https://www.msi.com/Landing/msi-click-bios-intel-amd-motherboard" target="_blank" rel="noopener">Source: MSI Click BIOS guide</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-amd">
+<summary>AMD virtualization — ASUS notebook</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> SVM Mode → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-amd-svm.jpg" target="_blank" rel="noopener" aria-label="Enlarge AMD virtualization — ASUS notebook" data-bios-title="AMD virtualization — ASUS notebook">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-amd-svm.jpg" alt="AMD virtualization — ASUS notebook. The red outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual." width="746" height="395" loading="lazy"></span>
+</a>
+<figcaption>The red outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual. <a href="https://www.asus.com/support/faq/1043992/" target="_blank" rel="noopener">Source: ASUS AMD SVM instructions</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-save">
+<summary>Save changes — ASUS notebook</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> F10 → confirm Save &amp; reset</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-save-exit.png" target="_blank" rel="noopener" aria-label="Enlarge Save changes — ASUS notebook" data-bios-title="Save changes — ASUS notebook">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-save-exit.png" alt="Save changes — ASUS notebook. After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit." width="1039" height="585" loading="lazy"></span>
+</a>
+<figcaption>After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit. <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">Source: ASUS save-and-exit example</a>.</figcaption>
+</figure></details>
+</section>
+<h4 id="setting-names">Names and locations for other BIOS layouts</h4>
+<details class="faq plus-bios-reference"><summary>Show setting names and manufacturer menu locations</summary>
+<p>Match the setting to your CPU and its purpose. Intel CPU virtualization and Intel I/O virtualization are separate controls; AMD SVM and IOMMU are separate too. A setting on <strong>Auto</strong> is not confirmation that it is off.</p>
+<div class="plus-settings-reference" role="region" aria-labelledby="setting-names" tabindex="0">
+<table class="plus-settings-table">
+<caption>Firmware labels you may encounter</caption>
+<thead><tr><th scope="col">Setting</th><th scope="col">Names to look for</th><th scope="col">For this setup</th></tr></thead>
+<tbody>
+<tr><th scope="row">Intel CPU virtualization</th><td>Intel Virtualization Technology, Intel (VMX) Virtualization Technology, Intel Virtualization Tech, VT-x, VMX</td><td>Disabled</td></tr>
+<tr><th scope="row">Intel I/O virtualization</th><td>VT-d, Intel VT-D Tech, VT for Direct I/O, Virtualization Technology for Directed I/O</td><td>Disabled</td></tr>
+<tr><th scope="row">AMD CPU virtualization</th><td>SVM Mode, SVM, Secure Virtual Machine, AMD-V</td><td>Disabled</td></tr>
+<tr><th scope="row">AMD I/O virtualization</th><td>IOMMU (may be separate from SVM)</td><td>Disabled where available</td></tr>
+<tr><th scope="row">Secure Boot</th><td>Secure Boot, Secure Boot Control, Secure Boot Enable; some ASUS models use OS Type</td><td>Disabled; see ASUS note below</td></tr>
+<tr><th scope="row">Firmware fast boot</th><td>Fast Boot; some boards offer a Fast Boot mode called Ultra Fast</td><td>Disabled, rather than Fast or Ultra Fast</td></tr>
+</tbody></table>
+</div>
+<p>Examples: <a href="https://www.asus.com/uk/support/faq/1043786/" target="_blank" rel="noopener">ASUS Intel VMX</a>, <a href="https://www.asus.com/support/faq/1043992/" target="_blank" rel="noopener">ASUS AMD SVM</a>, <a href="https://www.dell.com/support/manuals/en-us/vostro-3690-desktop/vostro_3690_sff_sm/virtualization?guid=guid-3ccb6819-a652-44c8-a5ce-cb63987d7cff&amp;lang=en-us" target="_blank" rel="noopener">Dell’s separate VT / Direct I/O controls</a>, <a href="https://download.asrock.com/Manual/X300TM-ITX.pdf" target="_blank" rel="noopener">ASRock SVM / IOMMU example (PDF)</a>, and <a href="https://www.asrock.com/support/faq.asp?k=boot" target="_blank" rel="noopener">ASRock Fast Boot modes</a>.</p>
+<details class="faq"><summary>Where to look for virtualization controls</summary><ul>
+<li><strong>ASUS Intel motherboards:</strong> Advanced Mode → Advanced → CPU Configuration → Intel (VMX) Virtualization Technology. ASUS documents <strong>F7</strong> for switching to Advanced Mode on applicable boards.</li>
+<li><strong>MSI Click BIOS:</strong> Advanced Mode → Overclocking → CPU Features → Intel Virtualization Tech / Intel VT-D Tech. MSI identifies the AMD equivalent as <strong>SVM Mode</strong>. Follow your model’s manual if the layout differs. <a href="https://www.msi.com/Landing/msi-click-bios-intel-amd-motherboard" target="_blank" rel="noopener">MSI’s BIOS guide</a>.</li>
+<li><strong>Dell:</strong> look for a Virtualization or Virtualization Support page; CPU virtualization and Direct I/O may have separate switches.</li>
+<li><strong>Lenovo:</strong> some ThinkPad models place these under Security → Virtualization. <a href="https://pcsupport.lenovo.com/us/en/solutions/ht500006-how-to-enable-virtualization-technology-on-lenovo-computers" target="_blank" rel="noopener">Lenovo’s virtualization guide</a>.</li>
+<li><strong>Other models:</strong> check Advanced, Security, Configuration or CPU Configuration. <a href="https://enterprisesecurity.hp.com/support/s/article/Verifying-that-VT-and-EPT-are-enabled?language=en_US" target="_blank" rel="noopener">HP’s firmware-navigation guidance</a> describes these common locations.</li>
+</ul><p>The manufacturer pages explain how to find or enable virtualization. Use them to identify the control; the Plus setup here calls for it to be <strong>Disabled</strong>.</p></details>
+<div class="wiki-note"><strong>ASUS: “Other OS” can be the Secure Boot control.</strong><p>On models covered by <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">ASUS’s Secure Boot guide</a>, Boot → Secure Boot → OS Type set to <strong>Other OS</strong> deactivates Secure Boot. This is not an instruction to switch the system to Legacy/CSM. Keep UEFI boot mode and verify <strong>Secure Boot State: Off</strong> in Windows after saving. A greyed-out state display may be read-only; look for the actual control.</p></div>
+<details class="faq"><summary>Common Secure Boot menu locations</summary><ul>
+<li><strong>ASUS:</strong> Advanced Mode (F7) → Boot → Secure Boot.</li>
+<li><strong>MSI:</strong> Settings → Advanced → Windows OS Configuration → Secure Boot.</li>
+<li><strong>Gigabyte / Aorus:</strong> Boot → Secure Boot, or BIOS → Secure Boot.</li>
+<li><strong>ASRock:</strong> Security → Secure Boot.</li>
+<li><strong>Dell:</strong> Boot / Boot Sequence → Secure Boot.</li>
+<li><strong>HP:</strong> Advanced → Secure Boot Configuration.</li>
+<li><strong>Lenovo:</strong> Security → Secure Boot.</li>
+<li><strong>Acer:</strong> Boot → Secure Boot.</li>
+<li><strong>Surface / Framework:</strong> Security → Secure Boot.</li>
+</ul></details>
+</details>
+
+<div class="wiki-note"><strong>These are different settings:</strong><p><strong>Hyper-Threading / SMT</strong> is not VT-x / SVM. <strong>TPM, Intel PTT and AMD fTPM</strong> are not virtualization switches. This setup does not call for clearing the TPM, deleting Secure Boot keys, changing storage settings such as AHCI / RAID / VMD, or loading BIOS defaults.</p></div>
+<h4 id="restart-vs-shutdown">Use Restart when applying the setup</h4>
+<p><strong>Firmware Fast Boot</strong> and <strong>Windows Fast Startup</strong> are different. Windows Fast Startup can preserve the kernel session after Shut down; <strong>Start → Power → Restart</strong> performs a full boot cycle. Use Restart after arming the driver or changing the Windows settings, rather than Shut down followed by power-on. See <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/fast-startup-causes-system-hibernation-shutdown-fail" target="_blank" rel="noopener">Microsoft’s explanation of Restart and Fast Startup</a>.</p>
+
+<h3 id="load-scooby">6. Verify and load Scooby Plus</h3>
+<ol>
+<li>Back in Windows, open <code>msinfo32</code>. Confirm <strong>BIOS Mode: UEFI</strong>, <strong>Secure Boot State: Off</strong>, and VBS is not running. Confirm Memory Integrity is off and BitLocker decryption has completed.</li>
+<li>Open the Scooby loader and select <strong>GTA 5</strong>.</li>
+<li>In <strong>Kernel protection</strong>, select <strong>Load Driver At Next Boot</strong>, then <strong>restart your PC</strong>.</li>
+<li>The supplied setup describes a <strong>Scooby bootloader / logo</strong> appearing during startup. A missing logo is a reason to check the driver status and setup, rather than proof of one specific failure.</li>
+<li>Sign back into Windows and open the Scooby loader.</li>
+<li>Press <strong>Load</strong>, then launch GTA V with <strong>BattlEye enabled</strong>.</li>
+<li>Open your menu interface: <strong>ClickUI:</strong> <kbd>F1</kbd> / <kbd>Insert</kbd>. <strong>ListUI:</strong> <kbd>F2</kbd>.</li>
+</ol>
+<h4 id="after-reboot-checks">Final checks after restarting</h4>
+<ul>
+<li><strong>System Information:</strong> <code>msinfo32</code> should show <strong>BIOS Mode: UEFI</strong>, <strong>Secure Boot State: Off</strong>, and VBS not running. <strong>Unsupported</strong> is not the same result as Off; check the boot mode and ask support if that is what you see.</li>
+<li><strong>CPU virtualization:</strong> open <strong>Task Manager → Performance → CPU</strong> and look for <strong>Virtualization: Disabled</strong>. This checks CPU virtualization; it does not separately confirm VT-d / IOMMU or Secure Boot. Confirm those in firmware.</li>
+<li><strong>Memory Integrity:</strong> recheck Windows Security → Device security → Core isolation details after the restart.</li>
+<li><strong>VBS / HVCI:</strong> run <a href="/guides/gta5/hypervisor-vbs/#download">check_vbs.bat</a> as administrator. A successful WMI result should report <code>VBS running: 0</code> and <code>HVCI running: 0</code>. If the source is REGISTRY or settings return, use the <a href="/guides/gta5/hypervisor-vbs/">VBS troubleshooting guide</a>.</li>
+<li><strong>Encryption:</strong> an administrator terminal can run <code>manage-bde -status C:</code> to inspect conversion status and encryption percentage. For a fully decrypted Windows drive, look for <strong>Fully Decrypted</strong> and <strong>0.0%</strong>; <strong>Protection Off</strong> alone can mean suspension. Replace <code>C:</code> if Windows uses another drive letter. <a href="https://learn.microsoft.com/windows-server/administration/windows-commands/manage-bde-status" target="_blank" rel="noopener">Microsoft’s status-command reference</a>.</li>
+</ul>
+<figure class="plus-loader-figure"><a href="/assets/images/guides/gta5/plus-kernel-protection.png" target="_blank" rel="noopener"><img src="/assets/images/guides/gta5/plus-kernel-protection.png" alt="Scooby GTA V loader with Kernel protection showing EFI not armed and Driver offline; red arrows highlight Load Driver At Next Boot." width="930" height="519" loading="lazy"></a><figcaption>The Kernel protection panel and Load Driver At Next Boot button. This reference image shows the driver before it is armed. Older loader wording may show a different launch order; use the current setup sequence above.</figcaption></figure>
+<div class="error-card"><h4>Windows logo, boot hang or blue screen?</h4><p>Check the required settings and loader driver status. A hang or BSOD can also indicate a compatibility issue; do not assume every failure means the setup was done incorrectly. Open a <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">support ticket</a> with the exact error or stop code, Windows version, motherboard model and settings you changed. If Windows cannot boot, restore the previous firmware settings and use your recovery key if requested.</p></div>
+<p>For the red <strong>“Hypervisor / VBS is running”</strong> banner, continue to the <a href="/guides/gta5/hypervisor-vbs/">diagnostic and troubleshooting guide</a>.</p>
+<h3 id="setup-help">Missing settings or a different BIOS screen?</h3>
+<h4 id="loader-status">Find your loader message</h4>
+<p>Use the exact message or status shown by your current loader to choose the next step:</p>
+<dl class="plus-loader-status">
+<dt>EFI not armed</dt><dd>Complete the <a href="#requirements">requirements</a> and <a href="#after-reboot-checks">final checks</a>, then follow <a href="#load-scooby">Load Driver At Next Boot and restart</a>.</dd>
+<dt>Driver offline after restarting</dt><dd>Recheck Secure Boot, firmware Fast Boot and virtualization, then capture the Kernel protection panel for support. The boot logo alone does not confirm the driver is available.</dd>
+<dt>Hypervisor / VBS is running</dt><dd>Use the <a href="/guides/gta5/hypervisor-vbs/">VBS/HVCI diagnostic guide</a>. Include the full output when asking for help.</dd>
+<dt>The game opens, but the menu does not open</dt><dd>Confirm the loader completed loading and click back into the game. Use <strong>F1 / Insert for ClickUI</strong> or <strong>F2 for ListUI</strong>. On keyboards that use F1 or F2 for media functions, check the keyboard’s Fn / function-key mode.</dd>
+<dt>The loader itself will not open or shows a runtime error</dt><dd>Start with the <a href="/guides/gta5/first-time/#vc-runtimes">Visual C++ runtime downloads</a> and <a href="/guides/gta5/troubleshooting/">launcher troubleshooting</a>. Record the exact error rather than changing more BIOS settings.</dd>
+</dl>
+<details class="faq"><summary>I can only see an EZ / simplified screen</summary><p>Look for Advanced Mode or an on-screen mode-switch hint. Use the key shown by your firmware; F7 is common on the ASUS boards described above, but it is not universal. If the BIOS offers search, try the exact names in the <a href="#setting-names">setting-name reference</a>.</p></details>
+<details class="faq"><summary>My AMD PC has no VT-x, or my Intel PC has no SVM</summary><p>That is expected: these labels belong to different CPU families. Use the Intel or AMD rows that match your processor. Not every device exposes a separate I/O virtualization switch, and a missing switch does not prove the feature is off.</p></details>
+<details class="faq"><summary>A setting is missing, locked or greyed out</summary><p>First confirm the exact PC / motherboard model and BIOS version. Check its manual and any dependency described there. Laptops, prebuilts and managed PCs can expose different controls from retail motherboards. Ask the manufacturer or support about a missing control rather than using an unrelated model’s instructions, unofficial BIOS unlocks or a guessed supervisor password. Do not flash a BIOS just because a tutorial’s menu looks different.</p></details>
+<details class="faq"><summary>The setting was changed, but Windows still reports the old value</summary><p>Re-enter firmware and confirm the change was saved. Use Save Changes and Exit, read the confirmation list, then restart and check Windows again. If firmware retains the change but VBS returns, check the <a href="/guides/gta5/hypervisor-vbs/#returns">Windows features and policy troubleshooting</a>. If this begins after a BIOS update or reset, recheck the required settings before arming the driver again.</p></details>
+<details class="faq"><summary>I want to restore my usual security settings later</summary><p>Use the loader’s supported bootloader / driver removal procedure, or ask support for the current instructions, before restoring Secure Boot and the other recorded settings. Restart and verify Windows boots normally. Restore your usual encryption and security protections when you finish using this setup.</p></details>
+<h4>What to include in a support ticket</h4>
+<p>Send the exact PC or motherboard model, Intel/AMD processor, BIOS version, Windows version/build, a photo of the relevant BIOS screen, the loader’s Kernel protection status and any error or BSOD stop code. Include the diagnostic output if VBS is involved, and say which step you reached. Crop out recovery keys, passwords, account details and serial numbers before sharing.</p>
+<details class="faq"><summary>Copy a support-ticket template</summary><p>Fill in what you can check. Write “unknown” for anything you cannot confirm, and attach the relevant screenshots or diagnostic output separately.</p><pre data-copy-label="Copy template"><code>PC / motherboard model:
+Processor (Intel / AMD + model):
+BIOS version:
+Windows version / build:
+GTA V edition (Legacy / Enhanced):
+Scooby loader version, if shown:
+Last setup step completed:
+Exact loader message / BSOD stop code:
+Kernel protection status after restart:
+BIOS Mode / Secure Boot State (msinfo32):
+VBS / HVCI verdict and source (WMI / REGISTRY):
+Settings changed and checks already tried:
+Did this work before? What changed since then?</code></pre></details>
+</div>
+
+<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/premium-free-setup/"><span>← Previous guide</span><strong>Premium and Free Setup</strong></a><a href="/guides/gta5/hypervisor-vbs/"><span>Next guide →</span><strong>Hypervisor / VBS Troubleshooting</strong></a></nav><footer class="wiki-footer">
+<span>Scooby Wiki · Guides &amp; support</span>
+<div>
+<a href="/">Main site</a>
+<a href="/docs/">Developer docs</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+</div>
+</footer></main>
+
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+</body>
+</html>

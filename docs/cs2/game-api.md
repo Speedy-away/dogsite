@@ -4,9 +4,9 @@ Open **Other → Scripts**. The visible tabs are Scripts, Lua Editor and Console
 
 ## Getting started
 
-Scripts live in `C:\scooby\CS2-v2\scripts`. First use installs the CS2 examples: **Welcome**, **Player labels**, **Session monitor**, **Saved preferences**, and **Geometry HUD**, **Crosshair**, and **Speed HUD**, plus **Capture Protection**, **Command framework**, **Download asset**, **Inventory studio**, **Framework - Player ESP** and **Framework - Asset downloads**. The **Native hooks** template demonstrates pattern discovery, a typed hook, shared values and a custom page; it stays inactive until its pattern is configured. It also installs canonical **Custom UI** and CS2 adaptations of the Simple-base UI-v2 **Standalone Menu** and **ImGui Demo** layouts. Builds refresh the shared docs/templates automatically. Startup upgrades untouched bundled examples and preserves user-edited scripts.
+Scripts live in `C:\scooby\CS2-v2\scripts`. New installations start with an empty script list. Startup removes untouched bundled examples from older installations using the previous-default ledger or current bundled source. User-created and edited scripts are preserved.
 
-1. Open an example in Editor or choose New script.
+1. Choose New script, or open one of your saved scripts in Editor.
 2. Save with a simple filename, without `.lua` or a path. Names allow Unicode letters, numbers, spaces, underscores and hyphens, up to 64 UTF-8 bytes.
 3. Use Run Lua (or Ctrl+Enter) to execute the current editor buffer. While that script is running, the action becomes Unload; use it to stop the script, then Run again to apply edited code. Ctrl+S saves it. Run in the script manager runs the saved file, and becomes Unload for that running script.
 4. Use Script UI above the file list to select a script's custom page. Overlays render every frame. Autoload is opt-in per saved script.

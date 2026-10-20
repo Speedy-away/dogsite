@@ -1,0 +1,91 @@
+/* General help follows the same compact, grouped navigation as game guides. */
+.help-page-intro h1 { margin-bottom:14px; }
+.help-page-intro .article-intro { max-width:48ch; margin-bottom:34px; }
+.help-topic-group { margin:0 0 32px; }
+.help-topic-group>h2 { font-size:1rem; font-weight:600; color:var(--muted); margin:0 0 10px; }
+.help-topic-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.help-topic-link { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px; border-radius:8px; background:var(--panel); color:var(--text); text-decoration:none; transition:background-color .15s,color .15s; scroll-margin-top:100px; }
+.help-topic-link:hover { background:var(--soft); color:var(--accent); }
+.help-topic-link:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.help-topic-link h3 { font-size:1.05rem; line-height:1.4; margin:0 0 8px; letter-spacing:-.015em; }
+.help-topic-link p { font-size:.88rem; line-height:1.65; color:var(--muted); margin:0; }
+.help-topic-arrow { color:var(--accent); flex-shrink:0; }
+.help-game-note { margin:36px 0 16px; }
+.help-game-note h2 { font-size:1.15rem; margin:0 0 8px; }
+.help-game-note p { font-size:.9rem; color:var(--muted); margin:0 0 12px; }
+.help-game-note a { font-size:.9rem; }
+.general-help-index .wiki-footer { border-top:0; }
+@media(max-width:1100px) { .help-topic-list { grid-template-columns:1fr; } }
+@media(max-width:600px) { .help-topic-link { padding:20px 18px; } .help-topic-group { margin-bottom:28px; } }
+@media(prefers-reduced-motion:reduce) { .help-topic-link { transition:none; } }
+
+/* Readable instructions and version-aware antivirus walkthroughs. */
+.general-guide { max-width:760px; }
+.general-guide .help-section { margin:34px 0; scroll-margin-top:90px; }
+.general-guide .help-section>h3 { margin-top:0; font-size:1.23rem; letter-spacing:-.02em; }
+.help-quick-links { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 28px; }
+.help-quick-links a,.help-brand-picker a { padding:8px 12px; border-radius:5px; background:var(--panel); color:var(--accent); font-size:.83rem; line-height:1.5; text-decoration:none; }
+.help-quick-links a:hover,.help-brand-picker a:hover { background:var(--soft); }
+.help-quick-links a:focus-visible,.help-brand-picker a:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.general-guide .help-steps { padding-left:26px; }
+.general-guide .help-steps li { padding-left:6px; margin:14px 0; }
+.general-guide .help-steps li::marker { font-weight:650; color:var(--accent); }
+.general-guide .help-note { margin:24px 0; padding:20px 22px; background:var(--panel); border-radius:7px; }
+.general-guide .help-note h3 { font-size:1rem; margin:0 0 8px; }
+.general-guide .help-note p { margin:0; font-size:.91rem; }
+.help-brand-picker { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0; }
+.help-brand { margin:12px 0; border:1px solid var(--border); border-radius:8px; scroll-margin-top:90px; }
+.help-brand>summary { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; cursor:pointer; list-style:none; }
+.help-brand>summary::-webkit-details-marker { display:none; }
+.help-brand>summary:focus-visible { outline:2px solid var(--accent); outline-offset:3px; border-radius:8px; }
+.help-brand>summary:hover { background:var(--panel); border-radius:8px; }
+.help-brand summary strong { display:block; font-size:1.07rem; }
+.help-brand summary strong+span { display:block; margin-top:5px; color:var(--muted); font-size:.8rem; line-height:1.6; }
+.help-disclosure-icon { color:var(--accent); font-size:1.5rem; transition:transform .15s; }
+.help-brand[open]>summary .help-disclosure-icon { transform:rotate(45deg); }
+.help-brand[open]>summary { background:var(--panel); border-radius:8px 8px 0 0; }
+.help-brand-body { padding:0 22px 24px; }
+.general-guide .help-brand-body h4 { font-size:1.05rem; margin:26px 0 12px; }
+.help-figure { margin:24px 0; }
+.help-image-link { display:block; text-decoration:none; }
+.help-image-link:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+.help-image-frame { display:block; position:relative; }
+.help-figure img { display:block; width:100%; height:auto; border-radius:7px; }
+.help-image-outline { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.help-image-outline rect { fill:none; stroke:#dd573f; stroke-width:5px; }
+.help-image-enlarge { display:block; color:var(--accent); margin-top:8px; font-size:.78rem; }
+.help-figure figcaption { color:var(--muted); font-size:.78rem; line-height:1.7; margin-top:8px; }
+.help-figure figcaption a { white-space:normal; }
+.help-download-links { display:flex; flex-wrap:wrap; gap:12px 24px; margin:20px 0; }
+.help-download-links a { font-size:.9rem; }
+.help-print { display:flex; justify-content:flex-end; margin:0 0 18px; }
+.help-quick-links .help-print { margin:0 0 0 auto; }
+.help-print button { padding:7px 12px; font-size:.8rem; color:var(--accent); background:var(--panel); border:1px solid var(--border); border-radius:5px; cursor:pointer; }
+.help-print button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.help-image-dialog { width:min(1200px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); padding:18px; border:1px solid var(--border); border-radius:10px; background:var(--bg); color:var(--text); }
+.help-image-dialog::backdrop { background:#080b14d9; }
+.help-image-dialog header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px; }
+.help-image-dialog header p { margin:0; font-size:.9rem; font-weight:600; }
+.help-image-dialog button { padding:6px 12px; background:var(--panel); color:var(--text); border:1px solid var(--border); border-radius:5px; cursor:pointer; }
+.help-image-dialog button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.help-image-dialog-content { overflow:auto; max-height:72dvh; }
+.help-image-dialog-content img { display:block; width:100%; height:auto; }
+.help-image-dialog footer { margin-top:12px; font-size:.8rem; }
+@media(max-width:600px) {
+ .general-guide .help-section { margin:28px 0; }
+ .help-quick-links { gap:6px; }
+ .help-quick-links a,.help-brand-picker a { font-size:.77rem; padding:7px 10px; }
+ .help-brand>summary { padding:16px; }
+ .help-brand-body { padding:0 16px 20px; }
+ .help-brand summary strong+span { font-size:.74rem; }
+ .general-guide .help-note { padding:18px; }
+ .help-image-dialog { padding:12px; }
+}
+@media(prefers-reduced-motion:reduce) { .help-disclosure-icon { transition:none; } }
+@media print {
+ .help-quick-links,.help-brand-picker,.help-image-enlarge,.help-print,.help-image-dialog { display:none!important; }
+ .help-brand { border:0; }
+ .help-brand>summary { padding:12px 0; }
+ .help-brand-body { padding:0; }
+ .help-figure { break-inside:avoid; }
+}

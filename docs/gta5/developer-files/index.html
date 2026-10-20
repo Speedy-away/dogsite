@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Generated developer references | Scooby</title><meta name="description" content="GTA 5 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><link rel="canonical" href="https://scoobymenu.cc/docs/gta5/developer-files/"><link rel="icon" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="Generated developer references"><meta property="og:description" content="GTA 5 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><meta property="og:url" content="https://scoobymenu.cc/docs/gta5/developer-files/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"></head><body class="game-gta5 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand" href="/docs/">Scooby <span>Docs</span></a><nav><a href="/docs/gta5/">GTA 5 Lua</a><a href="/api/gta5_api_reference.html">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">GTA 5 / LUA</p><h1>GTA5 Lua developer references</h1>
+<p>See <a href="/docs/gta5/custom-ui/">custom Lua UI</a> for ListUI/ClickUI themes, native feature
+pages and standalone interfaces sharing built-in commands. The offline
+<a href="lua-api.html">searchable API browser</a> consumes the same generated catalog as
+the in-menu reference. Refresh it after changing bindings or reviewed docs:</p>
+<pre><code class="language-powershell">python tools/generate_lua_developer_files.py --output build/lua-developer-files/generated
+python tools/update_lua_reference_docs.py --catalog build/lua-developer-files/generated/Documentation.json --output docs/lua-api.html
+</code></pre>
+<p>The Lua workspace creates Documentation.json, DataNodes.lua and natives.lua in
+its Lua root automatically. The files provide editor help and are not runnable
+scripts. The script manager excludes their reserved filenames, the production
+module resolver rejects them, and the Lua files fail immediately if executed
+under another name. Normal scripts retain their opt-in Auto-Run settings.</p>
+<h2>Catalog and build contract</h2>
+<p>The generator tools/generate_lua_developer_files.py reads the maintained Scooby
+API JSON, this project&#39;s game/gta/Natives.hpp and its compiled NativeDefs.cpp
+wrapper table. Native definitions come from this game and build, not from another
+menu&#39;s wrapper file. Use natives.load_natives() once per script state before
+calling the named namespaces. The native capability setting still applies.</p>
+<p>CMake generates the references and LuaDeveloperPayload.hpp under
+build/x64-MSVC/generated/lua-developer/. The supported wrapper stages the three
+reference files beside the DLL under lua-developer/. Startup installs them in
+the Lua folder. Missing generated files are repaired, owned files update by
+atomic replacement, and unrelated user files/symlinks or failed/interrupted
+writes preserve the old destination and report a conflict. Keep custom scripts
+under other names; resolve a conflict before the next startup.</p>
+<p>The API browser uses the same generated entries and existing UI theme. JSON
+namespaces/members include Signature, Example, Available and native parameter
+information. _meta records the game and source availability basis. Availability
+means an exposed source binding; it does not certify a handler or behavior on
+every Legacy/Enhanced game version. Pointer arguments retain the native invoker&#39;s
+existing capability, argument and lifetime requirements.</p>
+<h2>Data-node schemas</h2>
+<p>DataNodes.lua retains the documented GTA5 raw node field schemas for editor use.
+These classes have no verified raw Lua bindings in this host and are marked
+unavailable in the JSON. They are omitted from the executable API browser.
+Older placeholder eSyncDataNode values are also not advertised as a verified
+engine contract. No constructor, arbitrary structure writer or fake successful
+implementation is generated from annotations. Existing compatibility globals
+are preserved for existing scripts. RDR2 has its own entity/native reference
+files and must not use GTA5 memory layouts or enum hashes.</p>
+<p>Use the existing modular Vesper package and examples/lua/ImGuiCppDemo.lua for
+custom windows, callbacks and native actions. The documentation catalog and
+sample scripts are design/porting inputs, not an instruction to execute them or
+proof of unchanged cross-host compatibility.</p>
+<h2>Verification</h2>
+<p>Build with _build_run.bat (Release) or the root Visual Studio solution. The
+Release, Test, solution and Lua API test wrappers share a named build mutex so
+concurrent configure/build operations cannot replace each other&#39;s CMake scratch
+targets or Ninja logs. Existing toolset arguments remain supported. The
+ScoobyProjectRules self-test/source scan and post-link binary/map scan remain
+mandatory, including zero TLS callbacks and zero dynamic-CRT imports. Do not
+change their baselines to accept new regressions.</p>
+<p>Run tools/test_lua_api.cmd for the existing LuaJIT/ImGui/Studio contracts plus
+reference installation, regeneration, custom-file preservation, interrupted
+replacement recovery and direct execution rejection. Production module and
+script-manager changes also require game acceptance. Keep evidence under
+build/lua-developer-files/.</p>
+<p>The generic read-only audit tool accepts --documentation, --scripts, --host and
+--output. It reads every source file, hashes the inventory and reports direct
+call candidates without executing any code. Dynamic calls, script-defined
+helpers and actual return/argument behavior need further validation.</p>
+<p>Runtime acceptance uses the exact candidate DLL for each game edition, checks
+reference creation, editor/browser content, normal script load/Auto-Run,
+module rejection, reload and shutdown, and records foreground performance per
+the shared guide. Build/fixture results alone do not establish game acceptance.
+Nothing in this workflow commits, pushes, publishes or updates changelogs.</p>
+<footer><a href="/api/gta5_api_reference.html">API reference</a><a href="/docs/gta5/custom-ui/">ListUI, ClickUI &amp; custom GUI</a><a href="/docs/gta5/imgui-porting/">C++ ImGui porting</a><a href="/docs/gta5/developer-files/">Developer files</a><a href="/docs/gta5/examples.zip" download>Lua examples</a><a href="/docs/gta5/developer-files.zip" download>Developer references</a></footer></main></body></html>

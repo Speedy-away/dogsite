@@ -1,5 +1,26 @@
 # RDR2 Lua API reference
 
+See [ListUI/ClickUI and custom interfaces](LUA_CUSTOM_UI.md) for native feature
+pages, shared command state, both native themes and complete examples. The
+[searchable offline reference](lua-api.html) includes current game-specific
+native availability, signatures and examples from the generated source catalog.
+
+```lua
+features.list(filter: string = '') -> Feature[] | nil, error
+features.get(id: string) -> Feature | nil, error
+features.set(id: string, value) -> Feature | nil, error
+features.call(id: string) -> boolean | nil, error
+features.add_page(label: string, ids: string[]) -> integer | nil, error
+features.remove_page(pageId: integer) -> boolean | nil, error
+ui_theme.get() -> {clickui: table, listui: table}
+ui_theme.apply(snapshot: table) -> boolean
+ui_theme.set_accent(r: integer, g: integer, b: integer, a: integer = 255) -> boolean
+```
+
+These calls run in game callbacks. Custom render callbacks use Lua snapshots
+and schedule writes with `script.run_in_fiber`. Native feature pages use each
+frontend's actual command controls and are removed with their Lua state.
+
 Version **2.1.0**. Signatures use Lua types; optional arguments show defaults.
 See the runtime guide for execution phases, lifetimes and runtime compatibility.
 
@@ -296,3 +317,35 @@ end
 The generated native catalog records every source declaration, its typed
 signature and whether it is exposed. Its unsupported reasons are part of the
 contract; the API browser does not turn pointer/Any signatures into callable APIs.
+
+## Recorded statistics
+
+```lua
+Stats.RecordedTypes -- AUTO=0, INT=1, FLOAT=2, BOOL=3
+Stats.readRecorded(name: string, context: string = '', type: integer = 0) -> boolean
+Stats.getRecordedStatus() -> table
+Stats.writeRecorded(token: integer, value: string) -> boolean
+Stats.undoRecorded() -> boolean
+```
+
+Requests share the Recovery > Stats editor queue and undo slot. A true return means queued, not successfully changed. Poll `getRecordedStatus()` on later ticks. It returns `busy`, `ready`, `online`, `readable`, `nameHash`, `contextHash`, `type`, `token`, `canUndo`, `message`, and a `value` string after a successful read. Check both hashes and type before writing: another script or the UI may have selected a different stat. Use the returned token; stale tokens/reads, changed game values and loading transitions are rejected. Values are decimal strings or `true`/`false`, consistent across Lua54 and LuaJIT. Invalid hashes/types/values fail without writing.
+
+```lua
+-- Queue a read; inspect Stats.getRecordedStatus() on a subsequent tick.
+Stats.readRecorded('DEATHS', '', Stats.RecordedTypes.INT)
+-- Alternatively, read a contextual stat after the previous request finishes:
+-- Stats.readRecorded('KILLS', 'ANIMAL', Stats.RecordedTypes.INT)
+```
+
+Recorded-stat read/write/undo operations require a ready online session and reject Story Mode. Switching modes invalidates pending edits and undo. Only one operation can be pending. See [Recovery stats contracts and limits](STATS_EDITOR.md) for online-only catalog coverage and persistence limits. Feature-detect `Stats.readRecorded` on older API 2.1 hosts.
+## Iron Man powers
+
+```lua
+IronMan.setEnabled(enabled) -- queue suit preference on the game fiber
+IronMan.action(name) -> boolean -- active, fresh suit required; queues an action
+IronMan.status() -> table -- copied status, safe from render callbacks
+```
+
+Actions: `flight`, `repulsor`, `unibeam`, `missiles`, `pulse`, `slam`, `land`, `target`.
+Status fields: `enabled`, `active`, `flying`, `locked`, `speed`, `altitude`, `health`, `charge`, `cooldown`, `missiles`, `repulsor`, `message`.
+See [controls and lifecycle](IRON_MAN.md). The menu and all scripts share one suit; script stop does not disable it. Both Lua54 and LuaJIT expose the module. `action` acknowledges queueing, not game execution or network replication.

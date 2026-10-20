@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Porting C++ ImGui interfaces | Scooby</title><meta name="description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><link rel="canonical" href="https://scoobymenu.cc/docs/rdr2/imgui-porting/"><link rel="icon" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="Porting C++ ImGui interfaces"><meta property="og:description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><meta property="og:url" content="https://scoobymenu.cc/docs/rdr2/imgui-porting/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"></head><body class="game-rdr2 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand" href="/docs/">Scooby <span>Docs</span></a><nav><a href="/docs/rdr2/">RDR2 Lua</a><a href="/api/rdr2/">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">RDR2 / LUA</p><h1>Porting C++ ImGui interfaces to Lua</h1>
+<p>See <a href="/docs/rdr2/custom-ui/">native pages and custom interfaces</a> for adding feature
+pages to <strong>both ListUI and ClickUI</strong>, sharing built-in command state, changing
+both native themes and a complete custom feature-browser example.</p>
+<p>GTA5 and RDR2 expose <code>ImGuiCpp</code>, an opt-in C++-style adapter over the games&#39; pinned ImGui versions. Existing <code>imgui</code>, <code>ImGui</code>, and compatibility profiles retain their original return conventions. Start a port with <code>local ImGui = ImGuiCpp</code> and draw inside <code>script.register_render(function() ... end)</code>. Do not replace the global <code>ImGui</code> table.</p>
+<p>See <code>ImGuiCppDemo.lua</code> in this project&#39;s Lua examples for the same working UI on both games.</p>
+<h2>Mechanical translation</h2>
+<table>
+<thead>
+<tr>
+<th>C++</th>
+<th>Lua</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ImGui::Button(&quot;Run&quot;, ImVec2(100, 30))</code></td>
+<td><code>ImGui.Button(&quot;Run&quot;, ImGui.ImVec2(100, 30))</code></td>
+</tr>
+<tr>
+<td><code>bool enabled = true; Checkbox(&quot;Enabled&quot;, &amp;enabled)</code></td>
+<td>Persist <code>enabled = ImGui.Ref(true)</code>; call <code>ImGui.Checkbox(&quot;Enabled&quot;, enabled)</code></td>
+</tr>
+<tr>
+<td>Read <code>enabled</code></td>
+<td>Read <code>enabled.value</code>; widgets mutate it and return <code>changed</code></td>
+</tr>
+<tr>
+<td><code>float position[3]</code></td>
+<td>Persist a regular <code>{0, 0, 0}</code> table; <code>DragFloat3</code> mutates its 1-based elements</td>
+</tr>
+<tr>
+<td><code>ImVec4(r,g,b,a)</code></td>
+<td><code>ImGui.ImVec4(r,g,b,a)</code> with <code>.x/.y/.z/.w</code>; color editors mutate it</td>
+</tr>
+<tr>
+<td><code>ImGuiWindowFlags_NoResize</code></td>
+<td><code>ImGui.ImGuiWindowFlags.NoResize</code> (flat C++ constant names are also exposed)</td>
+</tr>
+<tr>
+<td>`flagsA</td>
+<td>flagsB`</td>
+</tr>
+<tr>
+<td><code>draw-&gt;AddLine(a,b,col)</code></td>
+<td><code>draw:AddLine(a,b,col)</code></td>
+</tr>
+<tr>
+<td><code>Begin(title, &amp;open, flags)</code></td>
+<td><code>Begin(title, openRef, flags)</code> returns visibility and updates <code>openRef.value</code></td>
+</tr>
+</tbody></table>
+<p>Keep persistent Refs/arrays outside the render callback. Widget selection indices, table columns and font indices are <strong>zero-based</strong>; Lua item arrays are <strong>one-based</strong>. <code>Begin</code>/<code>BeginChild</code> always need their End calls. Other conditional Begin calls only need End when they return true. Do not yield or call game natives from a render callback; queue gameplay work with the existing script callback API.</p>
+<h2>Portable additions and signatures</h2>
+<p><code>Ref(value)</code>, <code>ImVec2(x,y)</code>, <code>ImVec4(x,y,z,w)</code>, <code>Flags(...)</code>, and <code>GetCapabilities()</code> are available at script initialization. Vector getters return <code>{x,y}</code>; <code>ImVec2</code> also supports addition, subtraction and scalar multiplication. Draw-list handles belong to the frame (and, for window lists, window) that created them.</p>
+<p>All widgets below return <code>changed</code> and mutate their Ref/array except buttons and boolean Selectable/MenuItem overloads, which return activation:</p>
+<ul>
+<li><code>Checkbox(label, ref)</code>, <code>CheckboxFlags(label, ref, bits)</code>, <code>RadioButton(label, ref, buttonValue)</code> or <code>(label, selectedBool)</code>.</li>
+<li><code>SliderFloat/Int(label, ref, min, max, format?, flags?)</code>; <code>SliderFloat2/3/4</code> and <code>SliderInt2/3/4</code> take arrays.</li>
+<li><code>DragFloat/Int(label, ref, speed?, min?, max?, format?, flags?)</code>; the 2/3/4 variants take arrays.</li>
+<li><code>InputFloat(label, ref, step?, fastStep?, format?, flags?)</code>, <code>InputInt(label, ref, step?, fastStep?, flags?)</code>. <code>InputFloat2/3/4(label, array, format?, flags?)</code>; <code>InputInt2/3/4(label, array, flags?)</code>.</li>
+<li><code>VSliderFloat/Int(label, size, ref, min, max, format?, flags?)</code>.</li>
+<li><code>InputText(label, ref, flags?, capacity?)</code>, <code>InputTextWithHint(label, hint, ref, flags?, capacity?)</code>, <code>InputTextMultiline(label, ref, size?, flags?, capacity?)</code>. Capacity defaults to 4096 bytes including the terminator; maximum 1 MiB. Callback flags are rejected.</li>
+<li><code>ColorEdit3/4</code> and <code>ColorPicker3/4(label, colorVector, flags?)</code>.</li>
+<li><code>Combo/ListBox(label, selectionRef, stringArray, visibleItems?)</code>.</li>
+<li><code>Button(label, size?)</code>, <code>InvisibleButton(label, size, flags?)</code>, <code>Selectable(label, selectedBool?, flags?, size?)</code>, <code>MenuItem(label, shortcut?, selectedBool?, enabled?)</code>.</li>
+<li><code>ColorButton(id, colorVector, flags?, size?)</code>, <code>ProgressBar(fraction, size?, overlay?)</code>.</li>
+<li><code>PlotLines/PlotHistogram(label, valuesArray, offset?, overlay?, min?, max?, size?)</code>; at most 65,536 points. Omit min/max for automatic range.</li>
+</ul>
+<p>Windows, children, tabs, popups, list boxes, tables, menus, trees, tooltips, disabled regions, IDs, styling and layout use the existing guarded host scope implementation. The adapter normalizes vector arguments for <code>BeginChild</code>, <code>BeginTable</code>, <code>BeginListBox</code>, <code>PushStyleVar</code>, <code>PushStyleColor</code>, <code>PushClipRect</code>, cursor/window setters, <code>CalcTextSize</code> and <code>TextColored</code>. <code>BeginTabItem</code> and <code>BeginPopupModal</code> accept optional open Refs. Text formatting uses Lua <code>string.format</code>, not C varargs; <code>TextUnformatted</code> is available for literal user text.</p>
+<p>Table additions: <code>TableGetRowIndex</code>, <code>TableGetColumnFlags/Name(column?)</code>, <code>TableSetColumnEnabled</code>, <code>TableSetBgColor</code>, <code>TableHeader</code>, <code>TableSetupScrollFreeze</code>, and <code>TableGetSortSpecs()</code>. Sort specs are copied into a 1-based array of <code>{ColumnUserID, ColumnIndex, SortOrder, SortDirection}</code> plus <code>SpecsDirty</code>; acknowledge sorting with <code>TableClearSortSpecsDirty()</code>.</p>
+<p>Style/input: <code>GetStyle()</code> and <code>GetIO()</code> return snapshots, not writable pointers. Style colors are indexed by <code>ImGuiCol</code> values. Apply temporary styles through Push/Pop. <code>GetMainViewport()</code> returns position/size/work-area vectors. <code>GetFonts()</code> lists loaded font names; <code>PushFont(zeroBasedIndex)</code>/<code>PopFont()</code> select an existing font. Named <code>ImGuiKey</code> values are accepted by <code>IsKeyDown/Pressed/Released</code> and <code>GetKeyName</code>. Additional mouse, item state, color conversion, cursor and scrolling queries are included.</p>
+<p><code>GetWindowDrawList</code>, <code>GetBackgroundDrawList</code>, and <code>GetForegroundDrawList</code> support vector-based <code>AddLine</code>, <code>AddRect</code>, <code>AddRectFilled</code>, <code>AddRectFilledMultiColor</code>, <code>AddCircle/Filled</code>, <code>AddNgon/Filled</code>, <code>AddTriangle/Filled</code>, <code>AddQuad/Filled</code>, <code>AddText</code>, <code>AddBezierCubic</code>, and <code>AddBezierQuadratic</code>. These follow ImGui&#39;s parameter order, without native pointer overloads. Circle/curve segment counts are bounded. Use <code>Dummy</code> to reserve layout space for custom drawing.</p>
+<p>The shared enum surface is generated from public constants common to both games&#39; pinned ImGui versions, including typed key, direction and sorting enums. Declarations sharing one source line are included. Do not persist raw enum numbers between game versions. Prefer the adapter&#39;s enum tables. <code>GetCapabilities().functions</code> enumerates available calls; host-specific inherited helpers can differ.</p>
+<h2>Explicit limits</h2>
+<p>This is broad UI-porting support, not a promise that arbitrary C++ compiles as Lua. Context/frame creation, render backends, writable IO/style pointers, raw textures, font-atlas mutation, docking/multiple OS windows, custom native input callbacks, drag/drop payload callbacks, ImGuiListClipper, and draw-list path/channel/primitive internals are not part of the portable adapter. Managed images continue to use GTA5&#39;s existing <code>texture</code> API; an equivalent portable RDR2 texture API is not provided here. The API does not manufacture these missing capabilities. <code>GetCapabilities().unsupported</code> reports the boundaries.</p>
+<h2>Maintaining the bridge</h2>
+<p>Canonical native template and generator are GTA5 <code>tools/imgui_port_native.in.hpp</code> and <code>tools/generate_imgui_port.py</code>. Run the generator after changing the template or pinned ImGui headers; it updates both projects&#39; <code>LuaImGuiPortNative.hpp</code> files using the common public enum intersection. <code>LuaImGuiPortScript.hpp</code> and the portable contract/example must remain synchronized. Never hand-edit the generated native headers. C callbacks use Lua-owned temporary buffers so Lua error unwinding cannot cross owning C++ local objects.</p>
+<p>Run GTA5 <code>tools/test_lua_api.cmd</code> and RDR2&#39;s <code>LuaApiTests</code> target followed by <code>ctest --test-dir build/x64/vs2022 -C Release -R LuaApiContracts --output-on-failure</code>. Build each project&#39;s normal Release target after the contracts. Logs stay under <code>build/</code>; RDR2&#39;s external-translation/font guard remains mandatory. Fixture checks do not establish live game input, visuals or FPS performance.</p>
+<footer><a href="/api/rdr2/">API reference</a><a href="/docs/rdr2/custom-ui/">ListUI, ClickUI &amp; custom GUI</a><a href="/docs/rdr2/imgui-porting/">C++ ImGui porting</a><a href="/docs/rdr2/developer-files/">Developer files</a><a href="/docs/rdr2/examples.zip" download>Lua examples</a><a href="/docs/rdr2/developer-files.zip" download>Developer references</a></footer></main></body></html>

@@ -32,6 +32,7 @@
     let scheduled = false;
     const markSection = () => {
         scheduled = false;
+        if (!sections.length) return;
         let current = '';
         sections.forEach(section => { if (section.getBoundingClientRect().top <= 155) current = section.id; });
         sectionLinks.forEach(link => {

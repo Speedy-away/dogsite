@@ -6,17 +6,17 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Scooby Crashing: Settings, Runtimes &amp; Drivers - Scooby Guide</title>
 <link rel="stylesheet" href="/assets/css/site-brand.css">
-<meta name="description" content="Troubleshoot Scooby crashes with checks for old settings, required runtimes, graphics drivers, system time and Windows account permissions.">
+<meta name="description" content="Troubleshoot Scooby crashes, repair Microsoft Visual C++ runtimes and test fresh settings with a backup. Find checks for the game, loader and drivers.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/general/crashing/">
 <meta property="og:title" content="Scooby Crashing: Settings, Runtimes &amp; Drivers - Scooby Guide">
-<meta property="og:description" content="Troubleshoot Scooby crashes with checks for old settings, required runtimes, graphics drivers, system time and Windows account permissions.">
+<meta property="og:description" content="Troubleshoot Scooby crashes, repair Microsoft Visual C++ runtimes and test fresh settings with a backup. Find checks for the game, loader and drivers.">
 <meta property="og:image" content="https://scoobymenu.cc/assets/images/social/support-v2.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Scooby Crashing: Settings, Runtimes &amp; Drivers - Scooby Guide">
-<meta name="twitter:description" content="Troubleshoot Scooby crashes with checks for old settings, required runtimes, graphics drivers, system time and Windows account permissions.">
+<meta name="twitter:description" content="Troubleshoot Scooby crashes, repair Microsoft Visual C++ runtimes and test fresh settings with a backup. Find checks for the game, loader and drivers.">
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/support-v2.png">
 <meta name="keywords" content="Scooby Menu, Scooby crashing, Scooby crash fix, Scooby runtimes">
 
@@ -26,6 +26,7 @@
 
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
 <link rel="stylesheet" href="/assets/css/guides.css">
+<link rel="stylesheet" href="/assets/css/guide-help.css">
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer="">
@@ -43,6 +44,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SCOOBY SUPPORT: A little help. A better start. Loader · Account · Troubleshooting.">
 <meta name="twitter:image:alt" content="SCOOBY SUPPORT: A little help. A better start. Loader · Account · Troubleshooting.">
+<script src="/assets/js/general-help.js" defer></script>
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -52,7 +54,7 @@
       "@id": "https://scoobymenu.cc/guides/general/crashing/#webpage",
       "url": "https://scoobymenu.cc/guides/general/crashing/",
       "name": "Scooby Crashing: Settings, Runtimes & Drivers - Scooby Guide",
-      "description": "Troubleshoot Scooby crashes with checks for old settings, required runtimes, graphics drivers, system time and Windows account permissions.",
+      "description": "Troubleshoot Scooby crashes, repair Microsoft Visual C++ runtimes and test fresh settings with a backup. Find checks for the game, loader and drivers.",
       "keywords": "Scooby Menu, Scooby crashing, Scooby crash fix, Scooby runtimes",
       "inLanguage": "en",
       "isPartOf": {
@@ -81,7 +83,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Crashing Solutions",
+          "name": "Crashes & loading errors",
           "item": "https://scoobymenu.cc/guides/general/crashing/"
         }
       ]
@@ -120,103 +122,24 @@
 </header>
 <aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
 <nav>
-<a class="sidebar-home" href="/guides/">Wiki overview</a>
-<details open="">
-<summary>General help</summary>
-<a class="sidebar-overview" href="/guides/general/">Overview</a>
-<a href="/guides/general/faq/">Antivirus &amp; Download FAQ</a>
-<a href="/guides/general/free-key/">Getting a Free Key</a>
-<a href="/guides/general/crashing/" aria-current="page">Crashing Solutions</a>
-<a href="/guides/general/universal/">Universal Troubleshooting</a>
-<a href="/guides/general/connection/">Connection or SSL Errors</a>
-<a href="/guides/general/hwid/">Resetting Your HWID</a>
-<a href="/guides/general/linux-mac/">Use Scooby on Linux &amp; Mac</a>
+<a class="sidebar-home" href="/guides/">← All game guides</a>
+<details class="sidebar-game sidebar-general" open>
+<summary><span class="sidebar-game-title">General help<span class="sidebar-game-subtitle">Downloads, accounts &amp; fixes</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/general/"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Downloads &amp; keys"><p class="sidebar-section-label">Downloads &amp; keys</p>
+<a class="sidebar-guide-link" href="/guides/general/faq/"><span class="sidebar-link-label">Antivirus &amp; downloads</span></a>
+<a class="sidebar-guide-link" href="/guides/general/free-key/"><span class="sidebar-link-label">Get a free key</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Fix a problem"><p class="sidebar-section-label">Fix a problem</p>
+<a class="sidebar-guide-link" href="/guides/general/crashing/" aria-current="page"><span class="sidebar-link-label">Crashes &amp; loading errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/connection/"><span class="sidebar-link-label">Connection &amp; SSL errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
+<a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
+</div>
 </details>
-<details>
-<summary>GTA 5</summary>
-<a class="sidebar-overview" href="/guides/gta5/">Overview</a>
-<a href="/guides/gta5/introduction/">Introduction</a>
-<a href="/guides/gta5/first-time/">First Time Setup</a>
-<a href="/guides/gta5/free-setup/">Free Version Setup (Legacy &amp; Enhanced)</a>
-<a href="/guides/gta5/money/">Money Making Methods</a>
-<a href="/guides/gta5/host-public/">How To Host Public Sessions with Scooby (BE Disabled)</a>
-<a href="/guides/gta5/troubleshooting/">Troubleshooting</a>
-<details class="sidebar-customization">
-<summary>Customization</summary>
-<a href="/guides/gta5/dlcs/">DLCs (Vehicles and Peds)</a>
-<a href="/guides/gta5/lua-scripts/">Getting Luas</a>
-<a href="/guides/gta5/outfits/">Outfits</a>
-<a href="/guides/gta5/themes/">Themes</a>
-<a href="/guides/gta5/vehicles/">Modded Vehicles</a>
-</details>
-</details>
-<details>
-<summary>FiveM</summary>
-<a class="sidebar-overview" href="/guides/fivem/">Overview</a>
-<a href="/guides/fivem/fivem-requirements/">Requirements</a>
-<a href="/guides/fivem/fivem-inject/">How to Inject</a>
-<a href="/guides/fivem/money-items-weapons/">Money, items &amp; weapons</a>
-</details>
-<details>
-<summary>RedM</summary>
-<a class="sidebar-overview" href="/guides/redm/">Overview</a>
-<a href="/guides/redm/redm-requirements/">Requirements</a>
-<a href="/guides/redm/redm-inject/">How to Inject</a>
-<a href="/guides/redm/money-items-weapons/">Money, items &amp; weapons</a>
-</details>
-<details>
-<summary>Red Dead Redemption 2</summary>
-<a class="sidebar-overview" href="/guides/rdr2/">Overview</a>
-<a href="/guides/rdr2/rdr2-before/">Before Launching Scooby</a>
-<a href="/guides/rdr2/rdr2-launch/">How to Launch Scooby</a>
-<a href="/guides/rdr2/rdr2-crashing/">Crashing? Switch to DX12</a>
-<a href="/guides/rdr2/rdr2-more-help/">Still Stuck?</a>
-<details class="sidebar-customization" data-guide-game="rdr2">
-<summary>Customization</summary>
-<a href="/guides/rdr2/vehicles-peds/">Vehicles, Peds &amp; Animals</a>
-<a href="/guides/rdr2/lua-scripts/">Getting Luas</a>
-<a href="/guides/rdr2/outfits/">Outfits</a>
-<a href="/guides/rdr2/horse-outfits/">Horse Outfits</a>
-<a href="/guides/rdr2/themes/">Themes</a>
-<a href="/guides/rdr2/configs/">Configs &amp; Backups</a>
-</details>
-</details>
-<details>
-<summary>Counter-Strike 2</summary>
-<a class="sidebar-overview" href="/guides/cs2/">Overview</a>
-<a href="/guides/cs2/cs2-requirements/">Requirements</a>
-<a href="/guides/cs2/cs2-inject/">How to Inject</a>
-<a href="/guides/cs2/cs2-updates/">Features Not Working</a>
-<a href="/guides/cs2/custom-models/">Custom Models</a>
-</details>
-<details>
-<summary>S&amp;box (Sandbox)</summary>
-<a class="sidebar-overview" href="/guides/sbox/">Overview</a>
-<a href="/guides/sbox/requirements/">Requirements</a>
-<a href="/guides/sbox/getting-started/">Getting started</a>
-<a href="/guides/sbox/menu-settings/">Menu settings</a>
-<a href="/guides/sbox/troubleshooting/">Troubleshooting</a>
-</details>
-<details>
-<summary>Garry's Mod (GMOD)</summary>
-<a class="sidebar-overview" href="/guides/gmod/">Overview</a>
-<a href="/guides/gmod/requirements/">Requirements</a>
-<a href="/guides/gmod/getting-started/">Getting started</a>
-<a href="/guides/gmod/menu-settings/">Menu settings</a>
-<a href="/guides/gmod/troubleshooting/">Troubleshooting</a>
-</details>
-<details>
-<summary>The Last of Us</summary>
-<a class="sidebar-overview" href="/guides/last-of-us/">Overview</a>
-<a href="/guides/last-of-us/requirements/">Requirements</a>
-<a href="/guides/last-of-us/getting-started/">Getting started</a>
-<a href="/guides/last-of-us/menu-settings/">Menu settings</a>
-<a href="/guides/last-of-us/troubleshooting/">Troubleshooting</a>
-</details>
-<details><summary>Left 4 Dead 1 &amp; 2</summary><a class="sidebar-overview" href="/guides/l4d/">Overview</a><a href="/guides/l4d/getting-started/">Getting started</a><a href="/guides/l4d/requirements/">Requirements</a><a href="/guides/l4d/menu-settings/">Menu settings</a><a href="/guides/l4d/troubleshooting/">Troubleshooting</a></details>
-<details data-source-games-nav><summary>Source Games</summary><a class="sidebar-overview" href="/guides/source-games/">All Source Games</a><a href="/guides/half-life-1/">Half-Life 1</a><a href="/guides/gmod/">Garry’s Mod</a><a href="/guides/l4d/">Left 4 Dead 1 &amp; 2</a><a href="/guides/tf2/">TF2 &amp; Classified</a></details>
-<details data-tf2-nav><summary>TF2 &amp; TF2 Classified</summary><a class="sidebar-overview" href="/guides/tf2/">Overview</a><a href="/guides/tf2/getting-started/">Getting started</a><a href="/guides/tf2/requirements/">Requirements</a><a href="/guides/tf2/editions/">TF2 or TF2 Classified</a><a href="/guides/tf2/menu-settings/">Menu settings and profiles</a><a href="/guides/tf2/lua-scripts/">Lua scripts</a><a href="/guides/tf2/troubleshooting/">Troubleshooting</a></details>
-<details data-megabonk-nav><summary>Megabonk</summary><a class="sidebar-overview" href="/guides/megabonk/">Overview</a><a href="/guides/megabonk/getting-started/">Getting started</a><a href="/guides/megabonk/menu-settings/">Menu settings, configs and hotkeys</a><a href="/guides/megabonk/languages/">Languages and language packs</a><a href="/guides/megabonk/lua-scripts/">Lua scripts and game API</a><a href="/guides/megabonk/spawner-unlocks/">Pickups, items and unlocks</a><a href="/guides/megabonk/troubleshooting/">Troubleshooting</a></details>
 <div class="sidebar-resources">
 <span>Resources</span>
 <a href="/docs/">Developer documentation ↗</a>
@@ -226,35 +149,27 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/general/">General help</a><span>/</span><span>Guide</span></div><h1>Crashing Solutions</h1><p class="article-intro">General help · Scooby Wiki</p><div class="guide-card" id="crashing">
-                    <h2 class="sr-only">Crashing Solutions</h2>
-<div class="requirements-box" id="vc-runtimes">
-<h3>Download VC Runtimes</h3>
-<p>Install the <strong>Visual C++ runtimes</strong> before launching Scooby. Choose the all-in-one package or install both Microsoft packages below, then <strong>restart your PC</strong>.</p>
-<p><strong>VC Runtimes (all-in-one package):</strong></p>
-<a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener">Download the all-in-one VC runtime package</a>
-<p><strong>Or install both packages directly from Microsoft:</strong></p>
-<a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">Download VC Runtimes — x64 (64-bit)</a>
-<a href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank" rel="noopener">Download VC Runtimes — x86 (32-bit)</a>
-</div>
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/general/">General help</a><span>/</span><span>Crashes &amp; loading errors</span></div><h1>Crashes &amp; loading errors</h1><p class="article-intro">Start with a few simple checks. Change one thing at a time so you can tell what helped.</p><div class="guide-card general-guide" id="crashing"><h2 class="sr-only">Crashes &amp; loading errors</h2><nav class="help-quick-links" aria-label="On this page"><a href="#quick-check">Start here</a><a href="#vc-runtimes">Missing runtimes</a><a href="#reset-settings">Reset settings</a><a href="#more-help">Still crashing?</a></nav>
 
-                    <p>Work through these in order - they resolve the overwhelming majority of crashes:</p>
-                    <ul>
-                        <li>Delete <code>C:\scooby</code>. Do this <strong>after every Scooby update</strong> to avoid conflicts with your old settings</li>
-                        <li>
-<strong>Do not use third-party antivirus</strong> software (Norton, Avast, Malwarebytes, etc.)</li>
-                        <li>Make sure <strong>DirectX runtimes</strong> and <strong>C++ runtimes</strong> are installed</li>
-                        <li>Make sure your <strong>graphics drivers</strong> are up to date</li>
-                        <li>Try using a <strong>VPN</strong>, and make sure it has no built-in antivirus or anti-malware settings. Cloudflare works for most users</li>
-                        <li>Make sure <strong>Date &amp; Time is synced</strong> in Windows settings</li>
-                        <li>If all of the above fails and you are still crashing, it is probably your <strong>user permissions</strong> - create a new Windows user with admin rights</li>
-                    </ul>
-                    <img loading="lazy" decoding="async" src="/assets/images/guides/crashing-fix.png" alt="Windows File Explorer showing Local Disk (C:) with the scooby folder highlighted for deletion" class="guide-image">
-                    <div class="error-card">
-                        <h4>Free users</h4>
-                        <p>Make sure you are <strong>following the injection instructions properly</strong>. Almost every issue comes from skipping steps. The guides exist for a reason - if you want to play without the restrictions, the Premium Plus version gives you access to everything. Otherwise, use the limited free version as documented.</p>
-                    </div>
-                </div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/general/free-key/"><span>← Previous guide</span><strong>Getting a Free Key</strong></a><a href="/guides/general/universal/"><span>Next guide →</span><strong>Universal Troubleshooting</strong></a></nav><footer class="wiki-footer">
+<section class="help-section" id="quick-check"><h3>Try these first</h3><ol class="help-steps"><li>Close Scooby and the game. Restart the PC if they will not close normally.</li>
+<li>Launch the game without Scooby once. If it still crashes, repair the game first using its launcher’s Verify / Repair option.</li>
+<li>Download the current loader from <a href="/">Scooby’s website</a> and follow your <a href="/guides/">game’s setup guide</a>. Use the correct edition and account tier.</li>
+<li>Read any antivirus alert before changing settings. A missing or quarantined file belongs in <a href="/guides/general/faq/">antivirus &amp; download help</a>.</li>
+<li>Apply pending Windows updates and get graphics drivers from your GPU maker. Test again after restarting.</li></ol>
+</section>
+
+<section class="help-section" id="vc-runtimes"><h3>Missing DLL or Visual C++ error?</h3><p>Install or repair the current Microsoft Visual C++ Redistributable packages. On a 64-bit Windows gaming PC, install both packages below, then restart.</p><div class="help-download-links"><a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">Microsoft Visual C++ · x64 <span aria-hidden="true">↗</span></a><a href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank" rel="noopener">Microsoft Visual C++ · x86 <span aria-hidden="true">↗</span></a></div><p>Use Microsoft installers rather than downloading individual DLL files from a DLL website. For DirectX errors, repair the game’s prerequisites through its launcher.</p></section>
+
+<section class="help-section" id="reset-settings"><h3>Test with fresh settings without losing your backup</h3><ol class="help-steps"><li>Close both Scooby and the game.</li>
+<li>Locate Scooby’s data folder. Check <code>C:\scooby</code> and your <strong>Documents\Scooby</strong> folder; use the one that actually contains your settings.</li>
+<li>Rename that folder to an unused backup name, such as <code>scooby-backup</code>. Keep its scripts, outfits and presets in the backup. Do not rename a whole Documents folder or the loader executable.</li>
+<li>Open Scooby so it can create fresh settings. Test without imported scripts, themes or presets.</li>
+<li>If it works, restore your saved items gradually to find the cause. If it does not, close Scooby before restoring the original folder name.</li></ol>
+<figure class="help-figure"><img class="guide-image" src="/assets/images/guides/crashing-fix.png" alt="File Explorer showing the scooby folder on Local Disk C" loading="lazy" decoding="async"><figcaption>This older screenshot identifies the data folder. Rename it as a backup; you do not need to delete it.</figcaption></figure>
+</section>
+
+<section class="help-section" id="more-help"><h3>Still crashing?</h3><p>Check <a href="/guides/general/universal/">the exact loader error</a> and your game’s troubleshooting page. If asking for help, include the game and edition, where the crash happens, the exact error and the steps you already tried. A screenshot is more useful than “it does not work”.</p><p>For GTA 5, keep the <a href="/guides/gta5/free-setup/">Free Version Setup</a> and <a href="/guides/gta5/plus-setup/">Plus Setup</a> instructions separate: their BattlEye requirements differ.</p></section>
+</div><nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/general/free-key/"><span>← Previous guide</span><strong>Getting a Free Key</strong></a><a href="/guides/general/universal/"><span>Next guide →</span><strong>Universal Troubleshooting</strong></a></nav><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>

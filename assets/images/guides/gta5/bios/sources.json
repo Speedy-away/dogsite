@@ -1,0 +1,94 @@
+[
+  {
+    "id": "bios-secure-boot",
+    "title": "Secure Boot — ASUS notebook",
+    "file": "asus-secure-boot-control.png",
+    "size": [
+      2079,
+      1169
+    ],
+    "target": "Secure Boot Control → Disabled",
+    "text": "Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting.",
+    "source": "https://www.asus.com/uk/support/faq/1050047/",
+    "credit": "ASUS Secure Boot instructions"
+  },
+  {
+    "id": "bios-os-type",
+    "title": "Secure Boot — ASUS desktop",
+    "file": "asus-secure-boot-os-type.png",
+    "size": [
+      1024,
+      768
+    ],
+    "target": "OS Type → Other OS",
+    "text": "On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control.",
+    "source": "https://www.asus.com/uk/support/faq/1050047/",
+    "credit": "ASUS Secure Boot instructions"
+  },
+  {
+    "id": "bios-fast-boot",
+    "title": "Fast Boot — ASUS UEFI",
+    "file": "asus-fast-boot.png",
+    "size": [
+      1920,
+      1080
+    ],
+    "target": "Fast Boot → Disabled",
+    "text": "Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup.",
+    "source": "https://www.asus.com/uk/support/faq/1044641/",
+    "credit": "ASUS Fast Boot instructions"
+  },
+  {
+    "id": "bios-intel",
+    "title": "Intel virtualization — ASUS motherboard",
+    "file": "asus-intel-vmx.jpg",
+    "size": [
+      1024,
+      768
+    ],
+    "target": "Intel (VMX) Virtualization Technology → Disabled",
+    "text": "The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch.",
+    "source": "https://www.asus.com/uk/support/faq/1043786/",
+    "credit": "ASUS Intel VMX instructions"
+  },
+  {
+    "id": "bios-msi",
+    "title": "Intel CPU + VT-d — MSI Click BIOS X",
+    "file": "msi-intel-virtualization.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "target": "Intel Virtualization Tech + Intel VT-D Tech → Disabled",
+    "text": "The outlines mark two separate controls. Choose Disabled for Intel Virtualization Tech, then change Intel VT-D Tech separately. The open dropdown in this reference image covers the VT-d value; check both controls on your own PC.",
+    "source": "https://www.msi.com/Landing/msi-click-bios-intel-amd-motherboard",
+    "credit": "MSI Click BIOS guide",
+    "overlay": true
+  },
+  {
+    "id": "bios-amd",
+    "title": "AMD virtualization — ASUS notebook",
+    "file": "asus-amd-svm.jpg",
+    "size": [
+      746,
+      395
+    ],
+    "target": "SVM Mode → Disabled",
+    "text": "The red outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual.",
+    "source": "https://www.asus.com/support/faq/1043992/",
+    "credit": "ASUS AMD SVM instructions"
+  },
+  {
+    "id": "bios-save",
+    "title": "Save changes — ASUS notebook",
+    "file": "asus-save-exit.png",
+    "size": [
+      1039,
+      585
+    ],
+    "target": "F10 → confirm Save & reset",
+    "text": "After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit.",
+    "source": "https://www.asus.com/uk/support/faq/1050047/",
+    "credit": "ASUS save-and-exit example"
+  }
+]

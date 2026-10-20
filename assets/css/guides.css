@@ -1099,6 +1099,61 @@ main:focus {
 @media (max-width: 600px) { .game-grid { grid-template-columns: 1fr; } .game-article-art { aspect-ratio: 16 / 9; margin: 24px 0; } }
 @media print { .game-article-art { display: none; } }
 /* Individual guide topics use one reading column and the shared sidebar. */
+.plus-loader-figure { margin:28px 0; }
+.plus-setup-overview { margin:28px 0; padding:20px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.plus-setup-overview>p:first-child { margin-top:0; }
+.plus-setup-overview>p:last-child { margin-bottom:0; }
+.plus-page-index { margin-bottom:30px; }
+.plus-bios-gallery { margin:28px 0; }
+.plus-bios-example { border-top:1px solid var(--border); padding:16px 0; }
+.plus-bios-example:last-child { border-bottom:1px solid var(--border); }
+.plus-bios-example>summary { cursor:pointer; font-weight:600; font-size:.94rem; line-height:1.6; }
+.plus-bios-example>figure { margin:20px 0 8px; }
+.guide-card .plus-bios-target { margin:0 0 12px; padding:10px 14px; background:var(--note); border-left:3px solid var(--accent); }
+.plus-bios-enlarge { display:block; border:1px solid var(--border); border-radius:7px; overflow:hidden; cursor:zoom-in; }
+.plus-bios-enlarge:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+.plus-bios-shot { display:block; position:relative; }
+.plus-bios-shot img { display:block; width:100%; height:auto; }
+.plus-bios-outlines { position:absolute; inset:0; width:100%; height:100%; fill:none; stroke:#ffe500; stroke-width:4px; pointer-events:none; }
+.plus-bios-example figcaption,.plus-image-hint { font-size:.83rem; color:var(--muted); line-height:1.7; }
+.plus-bios-example figcaption { margin-top:12px; }
+.plus-bios-reference { margin-bottom:24px; }
+#plus-setup [id] { scroll-margin-top:90px; }
+.plus-bios-dialog { width:min(1200px,calc(100% - 24px)); max-width:none; max-height:calc(100dvh - 24px); margin:auto; padding:20px; color:var(--text); background:var(--bg); border:1px solid var(--border); border-radius:10px; overflow:auto; }
+.plus-bios-dialog::backdrop { background:rgba(0,0,0,.8); }
+.plus-bios-viewer-header { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.plus-bios-viewer-header h2 { flex:1 1 240px; font-size:1.05rem; margin:0; }
+.plus-bios-viewer-header button { font:inherit; font-size:.85rem; padding:8px 12px; border:1px solid var(--border); border-radius:5px; color:var(--text); background:var(--panel); cursor:pointer; }
+.plus-bios-viewer-header button:focus-visible,.plus-bios-zoom-area:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.plus-bios-dialog p { font-size:.85rem; color:var(--muted); line-height:1.6; }
+.plus-bios-zoom-area { overflow:auto; max-height:65dvh; border:1px solid var(--border); overscroll-behavior:contain; }
+.plus-bios-zoom-area .plus-bios-shot { max-width:none; }
+@media(max-width:600px) { .plus-bios-dialog { padding:14px; } .plus-bios-viewer-header h2 { flex-basis:100%; } }
+@media print { .plus-bios-dialog { display:none!important; } .plus-bios-example figure { break-inside:avoid; } .plus-bios-example>summary { break-after:avoid; } }
+.plus-guide-tools { display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin:20px 0; font-size:.85rem; }
+.plus-guide-tools button,.plus-copy-button { font:inherit; color:var(--text); background:var(--panel); border:1px solid var(--border); border-radius:5px; padding:7px 10px; cursor:pointer; }
+.plus-guide-tools button:hover,.plus-copy-button:hover { border-color:var(--accent); }
+.plus-guide-tools button:focus-visible,.plus-copy-button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.plus-code-block { position:relative; }
+.guide-card .plus-code-block pre { padding-top:48px; }
+.plus-copy-button { position:absolute; top:8px; right:8px; font-size:.72rem; line-height:1.2; }
+.plus-feedback:empty { display:none; }
+.plus-feedback { color:var(--muted); }
+.plus-loader-status { margin:20px 0 28px; }
+.plus-loader-status dt { font-weight:600; margin-top:18px; }
+.plus-loader-status dd { margin:6px 0 0; font-size:.96rem; line-height:1.85; }
+@media print { .plus-guide-tools,.plus-copy-button,.plus-feedback { display:none!important; } .guide-card .plus-code-block pre { padding-top:16px; } .plus-settings-reference { overflow:visible; } }
+.plus-loader-figure img { display:block; width:100%; height:auto; border:1px solid var(--border); border-radius:10px; }
+.plus-loader-figure figcaption { margin-top:10px; color:var(--muted); font-size:.8rem; line-height:1.6; }
+.plus-settings-reference { margin:20px 0; overflow-x:auto; }
+.plus-settings-reference:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+.plus-settings-table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:.86rem; line-height:1.65; }
+.plus-settings-table caption { text-align:left; color:var(--muted); margin-bottom:10px; }
+.plus-settings-table th,.plus-settings-table td { padding:12px; text-align:left; vertical-align:top; border:1px solid var(--border); overflow-wrap:anywhere; }
+.plus-settings-table thead th { background:var(--panel); }
+.plus-settings-table th:first-child { width:26%; }
+.plus-settings-table th:last-child { width:23%; }
+@media(max-width:600px) { .plus-settings-table { font-size:.75rem; } .plus-settings-table th,.plus-settings-table td { padding:8px 6px; } }
 .wiki-topic-page .article-layout { grid-template-columns:minmax(0,1fr); max-width:1120px; }
 .wiki-topic-page .article-layout>main { width:100%; max-width:900px; }
 .wiki-topic-page .guide-card { border-top:0; padding-top:0; margin-top:24px; }
@@ -1123,3 +1178,33 @@ main:focus {
 .guide-logo-art--source-games::before{background-image:url("/assets/images/source-games/source-games-background-v1.png");inset:-6px;filter:blur(1px) brightness(.8)}
 .guide-logo-art--source-games img{padding:18px}
 .wiki-home .tf2-guide-art{background:linear-gradient(#20190e55,#20190e99),url("/assets/images/tf2/background-v1.webp") center/cover}
+
+/* Shared game guide navigation: compact groups and consistent selection states. */
+.wiki-sidebar .sidebar-game { margin-top:22px; }
+.wiki-sidebar .sidebar-game>summary { padding:0 8px 16px; margin-bottom:4px; }
+.sidebar-game-title { display:block; font-size:.97rem; font-weight:700; line-height:1.35; letter-spacing:-.015em; }
+.sidebar-game-subtitle { display:block; margin-top:4px; color:var(--muted); font-size:.7rem; font-weight:400; letter-spacing:0; }
+.wiki-sidebar .sidebar-game>summary::after,.wiki-sidebar .sidebar-game .sidebar-customization>summary::after { content:''; width:6px; height:6px; margin-right:3px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(-45deg); transition:transform .18s ease; }
+.wiki-sidebar .sidebar-game[open]>summary::after,.wiki-sidebar .sidebar-game .sidebar-customization[open]>summary::after { transform:rotate(45deg); }
+.wiki-sidebar .sidebar-game .sidebar-guide-link { position:relative; display:block; margin:2px 0; border:0; border-radius:6px; padding:8px 12px; font-size:.8rem; line-height:1.4; transition:color .15s ease,background-color .15s ease; }
+.wiki-sidebar .sidebar-game .sidebar-guide-link:focus-visible,.wiki-sidebar .sidebar-game summary:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.sidebar-link-label { display:block; }
+.sidebar-link-note { display:block; margin-top:3px; font-size:.68rem; line-height:1.45; color:var(--muted); }
+.wiki-sidebar .sidebar-game .sidebar-overview { margin-bottom:4px; }
+.sidebar-guide-section { margin-top:18px; }
+.wiki-sidebar .sidebar-section-label { margin:0 0 6px; padding:0 12px; font-size:.67rem; font-weight:600; line-height:1.5; color:var(--muted); }
+.wiki-sidebar .sidebar-game .sidebar-customization { margin:18px 0 0; padding:0; }
+.wiki-sidebar .sidebar-game .sidebar-customization>summary { padding:8px 12px; font-size:.8rem; font-weight:600; }
+.wiki-sidebar .sidebar-game .sidebar-customization>.sidebar-guide-link { margin-left:0; padding-left:22px; border-left:0; }
+#wiki-sidebar .sidebar-game a:is([aria-current=page],[aria-current=location]) { color:var(--accent); background:var(--soft); border:0; border-radius:6px; font-weight:600; }
+#wiki-sidebar .sidebar-game a:is([aria-current=page],[aria-current=location])::before { content:''; position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:2px; background:var(--accent); }
+#wiki-sidebar .sidebar-game a:is([aria-current=page],[aria-current=location]) .sidebar-link-note { color:var(--accent); opacity:.8; font-weight:400; }
+@media(max-width:360px) {
+    .wiki-header { gap:8px; padding:0 12px; }
+    .wiki-header .wiki-brand { font-size:1rem; }
+    .wiki-header .wiki-brand>span:last-child { display:none; }
+    .wiki-header .scooby-emblem { width:26px; height:30px; }
+    .wiki-header .header-actions { gap:6px; }
+    .wiki-header .search-trigger { width:32px; height:32px; flex-shrink:0; }
+    .wiki-header .i18n-toggle { padding:6px 7px; }
+}
