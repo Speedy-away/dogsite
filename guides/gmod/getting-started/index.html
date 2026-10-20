@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Garry's Mod (GMOD) Getting started - Scooby Guide</title>
-<link rel="stylesheet" href="/assets/css/site-brand.css">
+<link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
 <meta name="description" content="Set up Scooby GMOD with Steam's x86-64 branch, load at the main menu, and open the menu with Insert or F2.">
 
 <meta property="og:type" content="website">
@@ -25,7 +25,7 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
-<link rel="stylesheet" href="/assets/css/guides.css?v=0ddea1f4370c">
+<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer="">
@@ -89,6 +89,8 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
+<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 </head>
 <body class="wiki-article wiki-topic-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -134,6 +136,7 @@
 <a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/loading/#redeem-key"><span class="sidebar-link-label">Premium login &amp; redeem</span></a>
 <a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
 <a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
 </div>
@@ -144,7 +147,7 @@
 <a class="sidebar-guide-link sidebar-overview" href="/guides/gmod/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
 <div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
 <a href="/guides/gmod/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
-<a href="/guides/gmod/getting-started/" class="sidebar-guide-link" aria-current="page" aria-label="Setup &amp; launch"><span class="sidebar-link-label">Setup &amp; launch</span></a>
+<a href="/guides/gmod/getting-started/" class="sidebar-guide-link" aria-current="page" aria-label="Load Scooby in Garry’s Mod"><span class="sidebar-link-label">Load guide</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
 <a href="/guides/gmod/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings"><span class="sidebar-link-label">Menu settings</span></a>
@@ -156,6 +159,7 @@
 
 <div class="sidebar-resources">
 <span>Resources</span>
+<a href="/guides/loading/">Loading guides</a>
 <a href="/docs/">Developer documentation ↗</a>
 <a href="/videos/">Video tutorials ↗</a>
 <a href="/store/">Browse products ↗</a>
@@ -183,7 +187,7 @@
 </a>
 </div>
 <nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gmod/requirements/"><span>← Previous guide</span><strong>Requirements</strong></a><a href="/guides/gmod/menu-settings/"><span>Next guide →</span><strong>Menu settings</strong></a></nav>
-<footer class="wiki-footer">
+<section class="help-section loader-walkthrough" id="loader-reference"><h2>Follow the loader from start to finish</h2><p class="help-version-note">Real native-loader interface captures with example states. The red outlines mark controls or status messages. Your access, edition and game status may differ. Select a picture to enlarge it.</p><nav class="help-quick-links" aria-label="Screenshot steps"><a href="#loader-sign-in">1. Sign in</a><a href="#loader-choose-game">2. Choose game</a><a href="#loader-load">3. Load</a><a href="#loader-finished">Finished loading</a></nav><section class="loader-walkthrough-step" id="loader-sign-in"><h3>1. Sign in — choose your access type</h3><p>Use one of these two login methods.</p><details class="loader-login-choice" open><summary>Premium — use your Scooby account</summary><div><ol class="help-steps"><li>Choose <strong>Premium</strong>.</li><li>Enter the <strong>username and password of the Scooby account you created</strong>.</li><li>Choose <strong>Sign in</strong>. A purchased license key is redeemed on the portal; it is not your loader password.</li></ol><p>New purchase? <a href="/guides/loading/#redeem-key">Redeem your Premium license key first →</a></p><figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/loader/premium-sign-in.png" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/guides/loader/premium-sign-in.png" width="1000" height="800" alt="Premium login: Premium tab, Username, Password and Sign in outlined" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 1000 800" aria-hidden="true"><rect x="624" y="284" width="166" height="36"/><rect x="624" y="367" width="332" height="44"/><rect x="624" y="453" width="332" height="44"/><rect x="624" y="545" width="332" height="46"/></svg></span><span class="help-image-enlarge">Enlarge screenshot ↗</span></a><figcaption>Choose Premium → enter your existing account username and password → Sign in. Use Register if you have not created an account.</figcaption></figure></div></details><details class="loader-login-choice" ><summary>Free — paste a free key</summary><div><ol class="help-steps"><li><a href="/guides/general/free-key/#get-key">Complete the free-key access steps and copy your key</a>.</li><li>In the loader, choose <strong>Free</strong> and paste it into <strong>Free key</strong>.</li><li>Choose <strong>Sign in</strong>.</li></ol><p><strong>Free keys work only in the loader’s Free login.</strong> They cannot sign in to the portal/dashboard or be redeemed there as a Premium license.</p><p class="free-key-policy"><strong>One free key supports all Scooby Free versions.</strong> Free keys reset every <strong>24 hours</strong>, so you need to get a new free key every 24 hours. Complete the access steps again, copy the new key and use it in the loader’s <strong>Free</strong> tab. You do not need a separate key for each game.</p><figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/loader/free-key-sign-in.png" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/guides/loader/free-key-sign-in.png" width="1000" height="800" alt="Free login: Free tab, Free key field and Sign in outlined" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 1000 800" aria-hidden="true"><rect x="790" y="292" width="164" height="33"/><rect x="624" y="374" width="332" height="44"/><rect x="624" y="484" width="332" height="46"/></svg></span><span class="help-image-enlarge">Enlarge screenshot ↗</span></a><figcaption>Choose Free → paste the copied free key → Sign in. Get a free key opens the access page.</figcaption></figure></div></details></section><section class="loader-walkthrough-step" id="loader-choose-game"><h3>2. Choose your game</h3><p>Open <strong>Games</strong>, then select <strong>Garry’s Mod</strong>.</p><figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/loader/choose-game.png" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/guides/loader/choose-game.png" width="1000" height="800" alt="Garry’s Mod game selection with the relevant card or search control outlined" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 1000 800" aria-hidden="true"><rect x="8" y="52" width="60" height="56"/><rect x="398" y="488" width="281" height="193"/></svg></span><span class="help-image-enlarge">Enlarge screenshot ↗</span></a><figcaption>Outlined selection in the game library. Locked / Testers badges are example access states: if your card is locked, resolve your sign-in or access before loading.</figcaption></figure><p>Check that the dashboard name matches your game before continuing.</p></section><section class="loader-walkthrough-step" id="loader-load"><h3>3. Check the edition, then Load</h3><p>Follow the game-specific preparation steps above, check Edition if shown, and press Load once.</p><figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/loader/gmod.png" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/guides/loader/gmod.png" width="1000" height="800" alt="Garry’s Mod loader screen with the relevant controls outlined" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 1000 800" aria-hidden="true"><rect x="124" y="378" width="530" height="52"/></svg></span><span class="help-image-enlarge">Enlarge loader screenshot ↗</span></a><figcaption>Start Garry’s Mod on its x86-64 branch and wait at the main menu, then choose Load.</figcaption></figure></section><section class="loader-walkthrough-step" id="loader-progress"><h3>4. Wait for loading to finish</h3><p>Keep the loader open while it prepares files and loads the module. A download percentage or “Preparing assets” message is <strong>still in progress</strong>; wait for the completion message.</p></section><section class="loader-walkthrough-step" id="loader-finished"><h3>5. Check completion, then return to the game</h3><p>Look for Loaded and read the message beneath it.</p><figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/loader/gmod-finished.png" target="_blank" rel="noopener"><span class="help-image-frame"><img src="/assets/images/guides/loader/gmod-finished.png" width="1000" height="800" alt="Garry’s Mod completion message and Done outlined" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 1000 800" aria-hidden="true"><rect x="124" y="378" width="530" height="53"/><rect x="168" y="440" width="82" height="32"/></svg></span><span class="help-image-enlarge">Enlarge screenshot ↗</span></a><figcaption><strong>Loaded</strong> is the completion state. Use <strong>Done</strong> if shown, then return to the game. Follow the menu-key message on your screen. This example says the module loaded but in-game startup has not been confirmed. Check that the menu actually opens before treating setup as finished.</figcaption></figure><p>If the menu does not open, check your configured menu key and the troubleshooting section for your game. Keep the exact error or status message.</p></section><p><a href="/guides/loading/">Loading guides for every game →</a></p></section><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>

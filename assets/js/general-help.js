@@ -59,10 +59,22 @@
     const dialog = document.createElement('dialog');
     dialog.className = 'help-image-dialog';
     dialog.setAttribute('aria-labelledby', 'help-image-title');
-    dialog.innerHTML = '<header><p id="help-image-title"></p><button type="button" autofocus>Close</button></header><div class="help-image-dialog-content"></div><footer><a target="_blank" rel="noopener">Open original image ↗</a></footer>';
+    dialog.innerHTML = '<header><p id="help-image-title"></p><button type="button" data-help-zoom aria-pressed="false">Zoom in</button><button type="button" data-help-close autofocus>Close</button></header><p class="help-image-zoom-hint">Zoom in to read small labels, then scroll to move around the picture.</p><div class="help-image-dialog-content" tabindex="0" role="region" aria-label="Enlarged guide screenshot"></div><footer><a target="_blank" rel="noopener">Open original image ↗</a></footer>';
     document.body.append(dialog);
     let trigger;
-    dialog.querySelector('button').addEventListener('click', () => dialog.close());
+    const viewport = dialog.querySelector('.help-image-dialog-content');
+    const zoom = dialog.querySelector('[data-help-zoom]');
+    dialog.querySelector('[data-help-close]').addEventListener('click', () => dialog.close());
+    zoom.addEventListener('click', () => {
+        const content = viewport.firstElementChild;
+        if (!content) return;
+        const img = content.tagName === 'IMG' ? content : content.querySelector('img');
+        const enlarged = zoom.getAttribute('aria-pressed') !== 'true';
+        content.style.width = enlarged ? Math.max(img.naturalWidth, viewport.clientWidth) + 'px' : '';
+        content.style.maxWidth = enlarged ? 'none' : '';
+        zoom.setAttribute('aria-pressed', String(enlarged));
+        zoom.textContent = enlarged ? 'Fit image' : 'Zoom in';
+    });
     dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
     dialog.addEventListener('close', () => trigger?.focus());
     links.forEach(link => link.addEventListener('click', event => {
@@ -75,8 +87,11 @@
         const content = (link.querySelector('.help-image-frame') || img).cloneNode(true);
         const picture = content.tagName === 'IMG' ? content : content.querySelector('img');
         picture.loading = 'eager';
-        dialog.querySelector('.help-image-dialog-content').replaceChildren(content);
+        viewport.replaceChildren(content);
+        zoom.setAttribute('aria-pressed', 'false');
+        zoom.textContent = 'Zoom in';
         dialog.querySelector('footer a').href = link.href;
         dialog.showModal();
+        viewport.scrollTo(0, 0);
     }));
 })();

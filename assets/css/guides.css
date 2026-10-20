@@ -1105,6 +1105,8 @@ main:focus {
 .plus-setup-overview>p:last-child { margin-bottom:0; }
 .plus-page-index { margin-bottom:30px; }
 .plus-bios-gallery { margin:28px 0; }
+.plus-bios-shortcuts { display:flex; flex-wrap:wrap; gap:8px 16px; margin:18px 0; font-size:.85rem; }
+.plus-bios-shortcuts a { padding:4px 0; }
 .plus-bios-example { border-top:1px solid var(--border); padding:16px 0; }
 .plus-bios-example:last-child { border-bottom:1px solid var(--border); }
 .plus-bios-example>summary { cursor:pointer; font-weight:600; font-size:.94rem; line-height:1.6; }
@@ -1115,6 +1117,7 @@ main:focus {
 .plus-bios-shot { display:block; position:relative; }
 .plus-bios-shot img { display:block; width:100%; height:auto; }
 .plus-bios-outlines { position:absolute; inset:0; width:100%; height:100%; fill:none; stroke:#ffe500; stroke-width:4px; pointer-events:none; }
+.plus-bios-outlines rect { vector-effect:non-scaling-stroke; stroke-width:3px; filter:drop-shadow(0 0 1px #000); }
 .plus-bios-example figcaption,.plus-image-hint { font-size:.83rem; color:var(--muted); line-height:1.7; }
 .plus-bios-example figcaption { margin-top:12px; }
 .plus-bios-reference { margin-bottom:24px; }

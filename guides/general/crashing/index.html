@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Scooby Crashing: Settings, Runtimes &amp; Drivers - Scooby Guide</title>
-<link rel="stylesheet" href="/assets/css/site-brand.css">
+<link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
 <meta name="description" content="Troubleshoot Scooby crashes, repair Microsoft Visual C++ runtimes and test fresh settings with a backup. Find checks for the game, loader and drivers.">
 
 <meta property="og:type" content="website">
@@ -25,8 +25,8 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
-<link rel="stylesheet" href="/assets/css/guides.css?v=0ddea1f4370c">
-<link rel="stylesheet" href="/assets/css/guide-help.css">
+<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
+<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer="">
@@ -44,7 +44,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SCOOBY SUPPORT: A little help. A better start. Loader · Account · Troubleshooting.">
 <meta name="twitter:image:alt" content="SCOOBY SUPPORT: A little help. A better start. Loader · Account · Troubleshooting.">
-<script src="/assets/js/general-help.js" defer></script>
+<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -136,12 +136,14 @@
 <a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/loading/#redeem-key"><span class="sidebar-link-label">Premium login &amp; redeem</span></a>
 <a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
 <a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
 </div>
 </details>
 <div class="sidebar-resources">
 <span>Resources</span>
+<a href="/guides/loading/">Loading guides</a>
 <a href="/docs/">Developer documentation ↗</a>
 <a href="/videos/">Video tutorials ↗</a>
 <a href="/store/">Browse products ↗</a>
@@ -161,11 +163,11 @@
 <section class="help-section" id="vc-runtimes"><h3>Missing DLL or Visual C++ error?</h3><p>Install or repair the current Microsoft Visual C++ Redistributable packages. On a 64-bit Windows gaming PC, install both packages below, then restart.</p><div class="help-download-links"><a href="https://aka.ms/vc14/vc_redist.x64.exe" target="_blank" rel="noopener">Microsoft Visual C++ · x64 <span aria-hidden="true">↗</span></a><a href="https://aka.ms/vc14/vc_redist.x86.exe" target="_blank" rel="noopener">Microsoft Visual C++ · x86 <span aria-hidden="true">↗</span></a></div><p>Use Microsoft installers rather than downloading individual DLL files from a DLL website. For DirectX errors, repair the game’s prerequisites through its launcher.</p></section>
 
 <section class="help-section" id="reset-settings"><h3>Test with fresh settings without losing your backup</h3><ol class="help-steps"><li>Close both Scooby and the game.</li>
-<li>Locate Scooby’s data folder. Check <code>C:\scooby</code> and your <strong>Documents\Scooby</strong> folder; use the one that actually contains your settings.</li>
-<li>Rename that folder to an unused backup name, such as <code>scooby-backup</code>. Keep its scripts, outfits and presets in the backup. Do not rename a whole Documents folder or the loader executable.</li>
+<li>Open File Explorer with <kbd>Win + E</kbd>. Check <code>C:\scooby</code> and your <strong>Documents\Scooby</strong> folder; use the one that actually contains your settings. Press <kbd>Alt + D</kbd> to enter a folder path in the address bar.</li>
+<li>Select the Scooby data folder and press <kbd>F2</kbd>, or right-click it and choose the <strong>Rename</strong> icon. Enter an unused backup name, such as <code>scooby-backup</code>, then press <kbd>Enter</kbd>. Keep its scripts, outfits and presets in the backup. Do not rename a whole Documents folder or the loader executable.</li>
 <li>Open Scooby so it can create fresh settings. Test without imported scripts, themes or presets.</li>
 <li>If it works, restore your saved items gradually to find the cause. If it does not, close Scooby before restoring the original folder name.</li></ol>
-<figure class="help-figure"><img class="guide-image" src="/assets/images/guides/crashing-fix.png" alt="File Explorer showing the scooby folder on Local Disk C" loading="lazy" decoding="async"><figcaption>This older screenshot identifies the data folder. Rename it as a backup; you do not need to delete it.</figcaption></figure>
+<figure class="help-figure"><a class="help-image-link" data-help-image href="/assets/images/guides/general/windows11-rename-menu.png" target="_blank" rel="noopener"><span class="help-image-frame"><img class="guide-image" src="/assets/images/guides/general/windows11-rename-menu.png" alt="Microsoft Windows 11 context menu with the Rename icon outlined" width="550" height="742" loading="lazy" decoding="async"><svg class="help-image-outline help-click-outlines" viewBox="0 0 550 742" aria-hidden="true"><rect x="250" y="48" width="44" height="45"/></svg></span><span class="help-image-enlarge">Enlarge screenshot ↗</span></a><figcaption><strong>Choose Rename, or press F2.</strong> Microsoft’s Windows 11 reference shows a file menu; the same Rename icon works on folders. Apply it to your Scooby data folder, then use a backup name. <a href="https://support.microsoft.com/en-gb/windows/experience/fileexplorer/file-explorer-in-windows?nochrome=true" target="_blank" rel="noopener">Microsoft screenshot and instructions ↗</a>.</figcaption></figure>
 </section>
 
 <section class="help-section" id="more-help"><h3>Still crashing?</h3><p>Check <a href="/guides/general/universal/">the exact loader error</a> and your game’s troubleshooting page. If asking for help, include the game and edition, where the crash happens, the exact error and the steps you already tried. A screenshot is more useful than “it does not work”.</p><p>For GTA 5, keep the <a href="/guides/gta5/free-setup/">Free Version Setup</a> and <a href="/guides/gta5/plus-setup/">Plus Setup</a> instructions separate: their BattlEye requirements differ.</p></section>

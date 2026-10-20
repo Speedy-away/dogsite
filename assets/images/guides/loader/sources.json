@@ -1,0 +1,421 @@
+{
+  "checked": "2026-10-20",
+  "source": "Scooby-loader native offline UI render-check reports; original screenshot pixels unchanged.",
+  "mode": "Actual native renderer with presentation-only example states. No account authentication or game loading was performed for these captures.",
+  "screenshots": [
+    {
+      "file": "gta5.png",
+      "original": "edition-gta5-open.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ],
+        [
+          704,
+          381,
+          266,
+          132
+        ]
+      ],
+      "page": "/guides/gta5/free-setup/"
+    },
+    {
+      "file": "rdr2.png",
+      "original": "parity-rdr2.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/rdr2/rdr2-launch/"
+    },
+    {
+      "file": "fivem.png",
+      "original": "parity-fivem.png",
+      "controls": [
+        [
+          704,
+          381,
+          266,
+          43
+        ],
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/fivem/fivem-inject/"
+    },
+    {
+      "file": "redm.png",
+      "original": "parity-redm.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/redm/redm-inject/"
+    },
+    {
+      "file": "cs2.png",
+      "original": "parity-cs2.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/cs2/cs2-inject/"
+    },
+    {
+      "file": "l4d.png",
+      "original": "parity-l4d.png",
+      "controls": [
+        [
+          704,
+          381,
+          266,
+          43
+        ],
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/l4d/getting-started/"
+    },
+    {
+      "file": "gmod.png",
+      "original": "parity-gmod.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/gmod/getting-started/"
+    },
+    {
+      "file": "half-life-1.png",
+      "original": "parity-hl1.png",
+      "controls": [
+        [
+          704,
+          381,
+          266,
+          43
+        ],
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/half-life-1/getting-started/"
+    },
+    {
+      "file": "megabonk.png",
+      "original": "parity-other-hub.png",
+      "controls": [
+        [
+          102,
+          240,
+          283,
+          208
+        ]
+      ],
+      "page": "/guides/megabonk/getting-started/"
+    },
+    {
+      "file": "mta-sa.png",
+      "original": "parity-mta-free.png",
+      "controls": [
+        [
+          104,
+          358,
+          570,
+          67
+        ],
+        [
+          124,
+          461,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/mta-sa/#load-guide"
+    },
+    {
+      "file": "sbox.png",
+      "original": "parity-sbox.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/sbox/getting-started/"
+    },
+    {
+      "file": "tf2.png",
+      "original": "parity-tf2.png",
+      "controls": [
+        [
+          704,
+          381,
+          266,
+          43
+        ],
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/tf2/getting-started/"
+    },
+    {
+      "file": "last-of-us.png",
+      "original": "parity-tlou.png",
+      "controls": [
+        [
+          124,
+          378,
+          530,
+          52
+        ]
+      ],
+      "page": "/guides/last-of-us/getting-started/"
+    },
+    {
+      "file": "free-key-sign-in.png",
+      "original": "parity-login-free.png",
+      "page": "/guides/general/free-key/"
+    },
+    {
+      "file": "premium-sign-in.png",
+      "original": "native-login.png",
+      "controls": [
+        [
+          624,
+          284,
+          166,
+          36
+        ],
+        [
+          624,
+          367,
+          332,
+          44
+        ],
+        [
+          624,
+          453,
+          332,
+          44
+        ],
+        [
+          624,
+          545,
+          332,
+          46
+        ]
+      ]
+    },
+    {
+      "file": "choose-game.png",
+      "original": "typography-en-100-games.png",
+      "controls": []
+    },
+    {
+      "file": "choose-source-game.png",
+      "original": "parity-source-hub.png",
+      "controls": []
+    },
+    {
+      "file": "choose-more-games.png",
+      "original": "parity-other-hub.png",
+      "controls": []
+    },
+    {
+      "file": "gta5-loading.png",
+      "original": "parity-progress.png",
+      "controls": []
+    },
+    {
+      "file": "completion-example.png",
+      "original": "parity-done-gmod.png",
+      "controls": []
+    },
+    {
+      "file": "fivem-loading.png",
+      "original": "parity-progress-fivem.png",
+      "controls": []
+    },
+    {
+      "file": "fivem-finished.png",
+      "original": "parity-confirm-fivem.png",
+      "controls": []
+    },
+    {
+      "file": "redm-finished.png",
+      "original": "parity-confirm-redm.png",
+      "controls": []
+    },
+    {
+      "file": "cs2-loading.png",
+      "original": "parity-owned-cs2-progress.png",
+      "controls": []
+    },
+    {
+      "file": "l4d-loading.png",
+      "original": "parity-progress-l4d.png",
+      "controls": []
+    },
+    {
+      "file": "l4d-finished.png",
+      "original": "parity-done-l4d.png",
+      "controls": []
+    },
+    {
+      "file": "gmod-finished.png",
+      "original": "parity-done-gmod.png",
+      "controls": []
+    },
+    {
+      "file": "half-life-1-loading.png",
+      "original": "parity-progress-hl1.png",
+      "controls": []
+    },
+    {
+      "file": "half-life-1-finished.png",
+      "original": "parity-done-hl1.png",
+      "controls": []
+    },
+    {
+      "file": "sbox-loading.png",
+      "original": "parity-progress-sbox.png",
+      "controls": []
+    },
+    {
+      "file": "sbox-finished.png",
+      "original": "parity-done-sbox.png",
+      "controls": []
+    },
+    {
+      "file": "tf2-loading.png",
+      "original": "parity-progress-tf2.png",
+      "controls": []
+    },
+    {
+      "file": "tf2-finished.png",
+      "original": "parity-done-tf2.png",
+      "controls": []
+    },
+    {
+      "file": "last-of-us-loading.png",
+      "original": "parity-progress-tlou.png",
+      "controls": []
+    },
+    {
+      "file": "free-key-access-steps.png",
+      "original": "codex-clipboard-73605838-0b95-4985-a4e6-790482bb7f28.png",
+      "size": [
+        1916,
+        947
+      ],
+      "controls": [
+        [
+          780,
+          420,
+          367,
+          340
+        ],
+        [
+          780,
+          775,
+          367,
+          103
+        ]
+      ],
+      "source": "User-supplied current website screenshot; original pixels unchanged."
+    },
+    {
+      "file": "free-key-copy.png",
+      "original": "codex-clipboard-da356340-b1fc-4b6d-b284-4adf269570a6.png",
+      "size": [
+        1917,
+        940
+      ],
+      "controls": [
+        [
+          631,
+          496,
+          335,
+          39
+        ]
+      ],
+      "source": "User-supplied current website screenshot; original pixels unchanged."
+    },
+    {
+      "file": "free-key-access-required.png",
+      "original": "codex-clipboard-f56f4464-19b7-4bc9-af69-7a674249fdc9.png",
+      "size": [
+        1912,
+        946
+      ],
+      "controls": [
+        [
+          622,
+          455,
+          660,
+          43
+        ]
+      ],
+      "source": "User-supplied current website screenshot; original pixels unchanged."
+    }
+  ],
+  "portal": {
+    "file": "portal-redeem-key.png",
+    "controls": [
+      [
+        72,
+        264,
+        880,
+        84
+      ],
+      [
+        72,
+        372,
+        880,
+        78
+      ]
+    ],
+    "size": [
+      1024,
+      520
+    ],
+    "mode": "Current local portal UI with isolated example account responses; no key submitted and no account changes."
+  }
+}

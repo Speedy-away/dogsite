@@ -127,7 +127,7 @@ class GuideParser(HTMLParser):
                 self.depth = 0
             if self.topic is not None:
                 self.depth += 1
-        if self.topic is not None and tag == "h2":
+        if self.topic is not None and tag == "h2" and not self.topic["title"]:
             self.heading = True
 
     def handle_data(self, data):
@@ -161,6 +161,26 @@ if __name__ == "__main__":
                 topic["tags"] = [slug] + SEARCH_ALIASES.get(slug, [])
             topics.extend(parser.topics)
     target = ROOT / "assets" / "data" / "guide-search.json"
+    topics.extend([
+        {
+            "game": "All games", "title": "How to load Scooby",
+            "href": "/guides/loading/",
+            "text": "Premium account and Free key sign-in, game selection, loading progress and completion screenshots. " + " ".join(GAMES.values()) + " MTA:SA",
+            "tags": ["load", "loading", "loader", "setup", "screenshots", "all games", "sign in"],
+        },
+        {
+            "game": "General help", "title": "Premium sign-in & redeem a license key",
+            "href": "/guides/loading/#redeem-key",
+            "text": "Sign in to the Scooby portal with the account you created. Dashboard, Redeem license key, paste purchased license, Redeem key. In the loader use Premium, username and password. Free keys work only in the loader's Free login, not the portal or dashboard.",
+            "tags": ["Premium", "redeem", "license", "activate", "account", "login", "sign in", "password", "portal", "dashboard"],
+        },
+        {
+            "game": "MTA:SA", "title": "MTA:SA loading status",
+            "href": "/guides/mta-sa/#load-guide",
+            "text": "Multi Theft Auto: San Andreas. Current native loader Testing / Paused status and runtime requirements.",
+            "tags": ["MTA", "MTA:SA", "loading", "loader", "paused", "testing"],
+        },
+    ])
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(topics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Indexed {len(topics)} guide topics.")

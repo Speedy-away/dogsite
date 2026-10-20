@@ -60,6 +60,21 @@
 .help-figure figcaption { color:var(--muted); font-size:.78rem; line-height:1.7; margin-top:8px; }
 .help-figure figcaption a { white-space:normal; }
 .help-figure figcaption>strong { color:var(--text); font-weight:600; }
+.loader-walkthrough { margin:40px 0; scroll-margin-top:100px; }
+.loader-walkthrough>.help-version-note { color:var(--muted); font-size:.88rem; line-height:1.75; }
+.loader-walkthrough-step { margin:36px 0 48px; scroll-margin-top:100px; }
+.loader-walkthrough-step>h3 { font-size:1.2rem; line-height:1.4; margin:0 0 14px; }
+.loader-walkthrough .help-steps { padding-left:25px; }
+.loader-walkthrough .help-steps li { margin:12px 0; padding-left:5px; }
+.loader-walkthrough .help-steps li::marker { color:var(--accent); font-weight:650; }
+.loader-login-choice { margin:12px 0; border:1px solid var(--border); border-radius:7px; }
+.loader-login-choice>summary { padding:16px 18px; cursor:pointer; font-size:.95rem; font-weight:600; line-height:1.6; }
+.loader-login-choice>summary:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.loader-login-choice[open]>summary { background:var(--panel); border-radius:7px 7px 0 0; }
+.loader-login-choice>div { padding:4px 18px 14px; }
+.loader-login-choice .help-figure { margin:20px 0 12px; }
+.loader-walkthrough-step .help-figure figcaption { font-size:.83rem; }
+#account-help { margin-top:44px; }
 .help-screenshot-credit { display:block; margin-top:6px; font-size:.74rem; font-weight:400; }
 .general-guide .help-version-note { padding:14px 16px; background:var(--panel); border-radius:6px; font-size:.85rem; line-height:1.7; }
 .help-download-links { display:flex; flex-wrap:wrap; gap:12px 24px; margin:20px 0; }
@@ -70,11 +85,14 @@
 .help-print button:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
 .help-image-dialog { width:min(1200px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); padding:18px; border:1px solid var(--border); border-radius:10px; background:var(--bg); color:var(--text); }
 .help-image-dialog::backdrop { background:#080b14d9; }
-.help-image-dialog header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px; }
+.help-image-dialog header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px; }
+.help-image-dialog header p { flex:1 1 240px; }
+.help-image-zoom-hint { color:var(--muted); font-size:.8rem; }
 .help-image-dialog header p { margin:0; font-size:.9rem; font-weight:600; }
 .help-image-dialog button { padding:6px 12px; background:var(--panel); color:var(--text); border:1px solid var(--border); border-radius:5px; cursor:pointer; }
 .help-image-dialog button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
 .help-image-dialog-content { overflow:auto; max-height:72dvh; }
+.help-image-dialog-content:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
 .help-image-dialog-content img { display:block; width:100%; height:auto; }
 .help-image-dialog footer { margin-top:12px; font-size:.8rem; }
 @media(max-width:600px) {

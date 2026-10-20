@@ -10,7 +10,22 @@
     "target": "Secure Boot Control → Disabled",
     "text": "Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting.",
     "source": "https://www.asus.com/uk/support/faq/1050047/",
-    "credit": "ASUS Secure Boot instructions"
+    "credit": "ASUS Secure Boot instructions",
+    "outlines": [
+      [
+        38,
+        357,
+        250,
+        70
+      ],
+      [
+        608,
+        417,
+        321,
+        38
+      ]
+    ],
+    "menu": "Security → Secure Boot → Secure Boot Control"
   },
   {
     "id": "bios-os-type",
@@ -23,7 +38,22 @@
     "target": "OS Type → Other OS",
     "text": "On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control.",
     "source": "https://www.asus.com/uk/support/faq/1050047/",
-    "credit": "ASUS Secure Boot instructions"
+    "credit": "ASUS Secure Boot instructions",
+    "outlines": [
+      [
+        30,
+        183,
+        164,
+        39
+      ],
+      [
+        550,
+        218,
+        249,
+        24
+      ]
+    ],
+    "menu": "Boot → Secure Boot → OS Type"
   },
   {
     "id": "bios-fast-boot",
@@ -36,7 +66,28 @@
     "target": "Fast Boot → Disabled",
     "text": "Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup.",
     "source": "https://www.asus.com/uk/support/faq/1044641/",
-    "credit": "ASUS Fast Boot instructions"
+    "credit": "ASUS Fast Boot instructions",
+    "outlines": [
+      [
+        299,
+        117,
+        91,
+        46
+      ],
+      [
+        44,
+        177,
+        117,
+        49
+      ],
+      [
+        560,
+        232,
+        298,
+        40
+      ]
+    ],
+    "menu": "Boot → Fast Boot"
   },
   {
     "id": "bios-intel",
@@ -49,7 +100,16 @@
     "target": "Intel (VMX) Virtualization Technology → Disabled",
     "text": "The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch.",
     "source": "https://www.asus.com/uk/support/faq/1043786/",
-    "credit": "ASUS Intel VMX instructions"
+    "credit": "ASUS Intel VMX instructions",
+    "outlines": [
+      [
+        36,
+        373,
+        783,
+        41
+      ]
+    ],
+    "menu": "Advanced Mode (F7) → Advanced → CPU Configuration"
   },
   {
     "id": "bios-msi",
@@ -63,7 +123,8 @@
     "text": "The outlines mark two separate controls. Choose Disabled for Intel Virtualization Tech, then change Intel VT-D Tech separately. The open dropdown in this reference image covers the VT-d value; check both controls on your own PC.",
     "source": "https://www.msi.com/Landing/msi-click-bios-intel-amd-motherboard",
     "credit": "MSI Click BIOS guide",
-    "overlay": true
+    "overlay": true,
+    "menu": "Advanced Mode (F7) → Overclocking → CPU Features"
   },
   {
     "id": "bios-amd",
@@ -74,9 +135,18 @@
       395
     ],
     "target": "SVM Mode → Disabled",
-    "text": "The red outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual.",
+    "text": "The yellow outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual.",
     "source": "https://www.asus.com/support/faq/1043992/",
-    "credit": "ASUS AMD SVM instructions"
+    "credit": "ASUS AMD SVM instructions",
+    "outlines": [
+      [
+        17,
+        198,
+        508,
+        35
+      ]
+    ],
+    "menu": "Advanced → SVM Mode"
   },
   {
     "id": "bios-save",
@@ -89,6 +159,93 @@
     "target": "F10 → confirm Save & reset",
     "text": "After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit.",
     "source": "https://www.asus.com/uk/support/faq/1050047/",
-    "credit": "ASUS save-and-exit example"
+    "credit": "ASUS save-and-exit example",
+    "outlines": [
+      [
+        398,
+        400,
+        116,
+        28
+      ]
+    ],
+    "menu": "Save & Exit, or press F10 after completing all changes"
+  },
+  {
+    "id": "bios-gigabyte",
+    "title": "Secure Boot — Gigabyte / AORUS AM4",
+    "file": "gigabyte-secure-boot.png",
+    "size": [
+      1620,
+      1080
+    ],
+    "target": "Boot → Secure Boot → Disabled",
+    "text": "Open Advanced Mode → Boot → Secure Boot. Select the yellow-outlined Secure Boot control, then choose Disabled. This AM4 reference shows Enabled and Active before the change; Active is a status, not the setting to select. Keep UEFI boot mode. The Custom mode and key-management items visible in this source picture are not steps to follow for this setup.",
+    "source": "https://www.gigabyte.com/Support/Enterprise/FAQ/4395",
+    "credit": "Gigabyte AM4 / sTRX4 Secure Boot reference",
+    "imageSource": "https://faq.gigabyte.com/FileUpload/FAQ/1/4395/photo/202510031429548407.png",
+    "outlines": [
+      [
+        94,
+        241,
+        1250,
+        33
+      ]
+    ]
+  },
+  {
+    "id": "bios-asrock-secure",
+    "title": "Secure Boot — ASRock X300TM-ITX",
+    "file": "asrock-x300-secure-boot.jpg",
+    "size": [
+      1024,
+      723
+    ],
+    "target": "Security → Secure Boot → Disabled",
+    "text": "Open the Security tab, then select the outlined Secure Boot entry. This screenshot shows the entry that opens its settings, not the on/off control itself. In the following screen, set Secure Boot to Disabled. The password rows are separate controls. This is the X300TM-ITX layout; check your model’s manual if it differs.",
+    "source": "https://download.asrock.com/Manual/X300TM-ITX.pdf#page=52",
+    "credit": "ASRock X300TM-ITX manual, printed page 47",
+    "sourcePage": 52,
+    "outlines": [
+      [
+        652,
+        2,
+        111,
+        34
+      ],
+      [
+        23,
+        248,
+        180,
+        36
+      ]
+    ]
+  },
+  {
+    "id": "bios-asrock-amd",
+    "title": "AMD SVM + IOMMU — ASRock X300TM-ITX",
+    "file": "asrock-x300-cpu.jpg",
+    "size": [
+      1024,
+      734
+    ],
+    "target": "SVM Mode → Disabled; IOMMU → Disabled",
+    "text": "Open Advanced → CPU Configuration. Change the first outlined row, SVM Mode, to Disabled. Then change IOMMU separately to Disabled. This source screenshot shows SVM Enabled and IOMMU Auto; neither is the target for this setup. PSS Support, NX Mode, SMT Mode and AMD fTPM switch are different settings.",
+    "source": "https://download.asrock.com/Manual/X300TM-ITX.pdf#page=42",
+    "credit": "ASRock X300TM-ITX manual, printed page 37",
+    "sourcePage": 42,
+    "outlines": [
+      [
+        21,
+        499,
+        646,
+        35
+      ],
+      [
+        21,
+        568,
+        646,
+        33
+      ]
+    ]
   }
 ]

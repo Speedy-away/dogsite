@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>GTA 5 Plus Setup Guide - Scooby Guide</title>
-<link rel="stylesheet" href="/assets/css/site-brand.css">
+<link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
 <meta name="description" content="Set up Scooby GTA 5 Plus: UEFI bootloader requirements, Windows and BIOS settings, BitLocker preparation, and loading with BattlEye enabled.">
 
 <meta property="og:type" content="website">
@@ -25,7 +25,7 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
-<link rel="stylesheet" href="/assets/css/guides.css?v=0ddea1f4370c">
+<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer="">
@@ -135,6 +135,7 @@
 <a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/loading/#redeem-key"><span class="sidebar-link-label">Premium login &amp; redeem</span></a>
 <a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
 <a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
 </div>
@@ -167,6 +168,7 @@
 
 <div class="sidebar-resources">
 <span>Resources</span>
+<a href="/guides/loading/">Loading guides</a>
 <a href="/docs/">Developer documentation ↗</a>
 <a href="/videos/">Video tutorials ↗</a>
 <a href="/store/">Browse products ↗</a>
@@ -261,47 +263,53 @@
 </ol>
 <section class="plus-bios-gallery" aria-labelledby="bios-pictures">
 <h4 id="bios-pictures">BIOS pictures: find the outlined setting</h4>
-<p>Open the example closest to your screen. The outline shows where to look; the <strong>“Set this”</strong> line tells you the required choice. These ASUS and MSI examples show common layouts. For other brands and models, match the setting name using the reference below.</p>
-<p class="plus-image-hint">Tap a picture to enlarge it. Some examples show Enabled before the change; follow the target written above the picture.</p>
+<p>Open the example closest to your screen. The outline shows where to look; the <strong>“Set this”</strong> line tells you the required choice. The real screenshots below cover ASUS, MSI, Gigabyte/AORUS and an ASRock X300TM-ITX layout. Match the brand, model and setting name; firmware versions can look different.</p>
+<nav class="plus-bios-shortcuts" aria-label="BIOS screenshot shortcuts"><a href="#bios-secure-boot">ASUS notebook</a><a href="#bios-os-type">ASUS desktop</a><a href="#bios-msi">MSI</a><a href="#bios-gigabyte">Gigabyte / AORUS</a><a href="#bios-asrock-secure">ASRock</a></nav>
+<p class="plus-image-hint">Tap a picture to enlarge it, then choose Zoom in for small labels. Yellow outlines mark the control or choice. Some source pictures show Enabled or Auto: follow the <strong>Set this</strong> value above the picture. You can use arrow keys and Enter if your firmware does not support a mouse.</p>
 <details class="plus-bios-example" id="bios-secure-boot" open>
 <summary>Secure Boot — ASUS notebook</summary>
 <figure>
+<p><strong>Where to go:</strong> Security → Secure Boot → Secure Boot Control</p>
 <p class="plus-bios-target"><strong>Set this:</strong> Secure Boot Control → Disabled</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-secure-boot-control.png" target="_blank" rel="noopener" aria-label="Enlarge Secure Boot — ASUS notebook" data-bios-title="Secure Boot — ASUS notebook">
-<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-secure-boot-control.png" alt="Secure Boot — ASUS notebook. Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting." width="2079" height="1169" loading="lazy"></span>
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-secure-boot-control.png" alt="Secure Boot — ASUS notebook. Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting." width="2079" height="1169" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 2079 1169" aria-hidden="true"><rect x="38" y="357" width="250" height="70"/><rect x="608" y="417" width="321" height="38"/></svg></span>
 </a>
 <figcaption>Select the outlined Secure Boot Control option, then choose Disabled. The status above it can update only after saving and restarting. <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">Source: ASUS Secure Boot instructions</a>.</figcaption>
 </figure></details>
 <details class="plus-bios-example" id="bios-os-type">
 <summary>Secure Boot — ASUS desktop</summary>
 <figure>
+<p><strong>Where to go:</strong> Boot → Secure Boot → OS Type</p>
 <p class="plus-bios-target"><strong>Set this:</strong> OS Type → Other OS</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-secure-boot-os-type.png" target="_blank" rel="noopener" aria-label="Enlarge Secure Boot — ASUS desktop" data-bios-title="Secure Boot — ASUS desktop">
-<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-secure-boot-os-type.png" alt="Secure Boot — ASUS desktop. On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control." width="1024" height="768" loading="lazy"></span>
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-secure-boot-os-type.png" alt="Secure Boot — ASUS desktop. On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control." width="1024" height="768" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1024 768" aria-hidden="true"><rect x="30" y="183" width="164" height="39"/><rect x="550" y="218" width="249" height="24"/></svg></span>
 </a>
 <figcaption>On this ASUS layout, choose Other OS in the outlined menu to deactivate Secure Boot. Keep the PC in UEFI boot mode; Other OS here is a Secure Boot control. <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">Source: ASUS Secure Boot instructions</a>.</figcaption>
 </figure></details>
 <details class="plus-bios-example" id="bios-fast-boot">
 <summary>Fast Boot — ASUS UEFI</summary>
 <figure>
+<p><strong>Where to go:</strong> Boot → Fast Boot</p>
 <p class="plus-bios-target"><strong>Set this:</strong> Fast Boot → Disabled</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-fast-boot.png" target="_blank" rel="noopener" aria-label="Enlarge Fast Boot — ASUS UEFI" data-bios-title="Fast Boot — ASUS UEFI">
-<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-fast-boot.png" alt="Fast Boot — ASUS UEFI. Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup." width="1920" height="1080" loading="lazy"></span>
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-fast-boot.png" alt="Fast Boot — ASUS UEFI. Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup." width="1920" height="1080" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1920 1080" aria-hidden="true"><rect x="299" y="117" width="91" height="46"/><rect x="44" y="177" width="117" height="49"/><rect x="560" y="232" width="298" height="40"/></svg></span>
 </a>
 <figcaption>Open Boot, select the outlined Fast Boot row, and choose Disabled. This is the firmware setting, separate from Windows Fast Startup. <a href="https://www.asus.com/uk/support/faq/1044641/" target="_blank" rel="noopener">Source: ASUS Fast Boot instructions</a>.</figcaption>
 </figure></details>
 <details class="plus-bios-example" id="bios-intel">
 <summary>Intel virtualization — ASUS motherboard</summary>
 <figure>
+<p><strong>Where to go:</strong> Advanced Mode (F7) → Advanced → CPU Configuration</p>
 <p class="plus-bios-target"><strong>Set this:</strong> Intel (VMX) Virtualization Technology → Disabled</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-intel-vmx.jpg" target="_blank" rel="noopener" aria-label="Enlarge Intel virtualization — ASUS motherboard" data-bios-title="Intel virtualization — ASUS motherboard">
-<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-intel-vmx.jpg" alt="Intel virtualization — ASUS motherboard. The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch." width="1024" height="768" loading="lazy"></span>
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-intel-vmx.jpg" alt="Intel virtualization — ASUS motherboard. The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch." width="1024" height="768" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1024 768" aria-hidden="true"><rect x="36" y="373" width="783" height="41"/></svg></span>
 </a>
 <figcaption>The yellow outline marks the setting to change. This reference screenshot shows Enabled: change it to Disabled for this setup. The read-only Intel VT-x Technology: Supported line above is not the switch. <a href="https://www.asus.com/uk/support/faq/1043786/" target="_blank" rel="noopener">Source: ASUS Intel VMX instructions</a>.</figcaption>
 </figure></details>
 <details class="plus-bios-example" id="bios-msi">
 <summary>Intel CPU + VT-d — MSI Click BIOS X</summary>
 <figure>
+<p><strong>Where to go:</strong> Advanced Mode (F7) → Overclocking → CPU Features</p>
 <p class="plus-bios-target"><strong>Set this:</strong> Intel Virtualization Tech + Intel VT-D Tech → Disabled</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/msi-intel-virtualization.jpg" target="_blank" rel="noopener" aria-label="Enlarge Intel CPU + VT-d — MSI Click BIOS X" data-bios-title="Intel CPU + VT-d — MSI Click BIOS X">
 <span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/msi-intel-virtualization.jpg" alt="Intel CPU + VT-d — MSI Click BIOS X. The outlines mark two separate controls. Choose Disabled for Intel Virtualization Tech, then change Intel VT-D Tech separately. The open dropdown in this reference image covers the VT-d value; check both controls on your own PC." width="1280" height="720" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1280 720" aria-hidden="true"><rect x="266" y="147" width="632" height="29"/><rect x="266" y="182" width="316" height="31"/><rect x="679" y="177" width="216" height="23"/></svg></span>
@@ -311,18 +319,47 @@
 <details class="plus-bios-example" id="bios-amd">
 <summary>AMD virtualization — ASUS notebook</summary>
 <figure>
+<p><strong>Where to go:</strong> Advanced → SVM Mode</p>
 <p class="plus-bios-target"><strong>Set this:</strong> SVM Mode → Disabled</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-amd-svm.jpg" target="_blank" rel="noopener" aria-label="Enlarge AMD virtualization — ASUS notebook" data-bios-title="AMD virtualization — ASUS notebook">
-<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-amd-svm.jpg" alt="AMD virtualization — ASUS notebook. The red outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual." width="746" height="395" loading="lazy"></span>
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-amd-svm.jpg" alt="AMD virtualization — ASUS notebook. The yellow outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual." width="746" height="395" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 746 395" aria-hidden="true"><rect x="17" y="198" width="508" height="35"/></svg></span>
 </a>
-<figcaption>The red outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual. <a href="https://www.asus.com/support/faq/1043992/" target="_blank" rel="noopener">Source: ASUS AMD SVM instructions</a>.</figcaption>
+<figcaption>The yellow outline marks SVM Mode, the AMD CPU virtualization switch. This example shows Enabled: change it to Disabled for this setup. If your firmware also exposes IOMMU, check that separately using your model’s manual. <a href="https://www.asus.com/support/faq/1043992/" target="_blank" rel="noopener">Source: ASUS AMD SVM instructions</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-gigabyte">
+<summary>Secure Boot — Gigabyte / AORUS AM4</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> Boot → Secure Boot → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/gigabyte-secure-boot.png" target="_blank" rel="noopener" aria-label="Enlarge Secure Boot — Gigabyte / AORUS AM4" data-bios-title="Secure Boot — Gigabyte / AORUS AM4">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/gigabyte-secure-boot.png" alt="Secure Boot — Gigabyte / AORUS AM4. Open Advanced Mode → Boot → Secure Boot. Select the yellow-outlined Secure Boot control, then choose Disabled. This AM4 reference shows Enabled and Active before the change; Active is a status, not the setting to select. Keep UEFI boot mode. The Custom mode and key-management items visible in this source picture are not steps to follow for this setup." width="1620" height="1080" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1620 1080" aria-hidden="true"><rect x="94" y="241" width="1250" height="33"/></svg></span>
+</a>
+<figcaption>Open Advanced Mode → Boot → Secure Boot. Select the yellow-outlined Secure Boot control, then choose Disabled. This AM4 reference shows Enabled and Active before the change; Active is a status, not the setting to select. Keep UEFI boot mode. The Custom mode and key-management items visible in this source picture are not steps to follow for this setup. <a href="https://www.gigabyte.com/Support/Enterprise/FAQ/4395" target="_blank" rel="noopener">Source: Gigabyte AM4 / sTRX4 Secure Boot reference</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-asrock-secure">
+<summary>Secure Boot — ASRock X300TM-ITX</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> Security → Secure Boot → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asrock-x300-secure-boot.jpg" target="_blank" rel="noopener" aria-label="Enlarge Secure Boot — ASRock X300TM-ITX" data-bios-title="Secure Boot — ASRock X300TM-ITX">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asrock-x300-secure-boot.jpg" alt="Secure Boot — ASRock X300TM-ITX. Open the Security tab, then select the outlined Secure Boot entry. This screenshot shows the entry that opens its settings, not the on/off control itself. In the following screen, set Secure Boot to Disabled. The password rows are separate controls. This is the X300TM-ITX layout; check your model’s manual if it differs." width="1024" height="723" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1024 723" aria-hidden="true"><rect x="652" y="2" width="111" height="34"/><rect x="23" y="248" width="180" height="36"/></svg></span>
+</a>
+<figcaption>Open the Security tab, then select the outlined Secure Boot entry. This screenshot shows the entry that opens its settings, not the on/off control itself. In the following screen, set Secure Boot to Disabled. The password rows are separate controls. This is the X300TM-ITX layout; check your model’s manual if it differs. <a href="https://download.asrock.com/Manual/X300TM-ITX.pdf#page=52" target="_blank" rel="noopener">Source: ASRock X300TM-ITX manual, printed page 47</a>.</figcaption>
+</figure></details>
+<details class="plus-bios-example" id="bios-asrock-amd">
+<summary>AMD SVM + IOMMU — ASRock X300TM-ITX</summary>
+<figure>
+<p class="plus-bios-target"><strong>Set this:</strong> SVM Mode → Disabled; IOMMU → Disabled</p>
+<a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asrock-x300-cpu.jpg" target="_blank" rel="noopener" aria-label="Enlarge AMD SVM + IOMMU — ASRock X300TM-ITX" data-bios-title="AMD SVM + IOMMU — ASRock X300TM-ITX">
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asrock-x300-cpu.jpg" alt="AMD SVM + IOMMU — ASRock X300TM-ITX. Open Advanced → CPU Configuration. Change the first outlined row, SVM Mode, to Disabled. Then change IOMMU separately to Disabled. This source screenshot shows SVM Enabled and IOMMU Auto; neither is the target for this setup. PSS Support, NX Mode, SMT Mode and AMD fTPM switch are different settings." width="1024" height="734" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1024 734" aria-hidden="true"><rect x="21" y="499" width="646" height="35"/><rect x="21" y="568" width="646" height="33"/></svg></span>
+</a>
+<figcaption>Open Advanced → CPU Configuration. Change the first outlined row, SVM Mode, to Disabled. Then change IOMMU separately to Disabled. This source screenshot shows SVM Enabled and IOMMU Auto; neither is the target for this setup. PSS Support, NX Mode, SMT Mode and AMD fTPM switch are different settings. <a href="https://download.asrock.com/Manual/X300TM-ITX.pdf#page=42" target="_blank" rel="noopener">Source: ASRock X300TM-ITX manual, printed page 37</a>.</figcaption>
 </figure></details>
 <details class="plus-bios-example" id="bios-save">
 <summary>Save changes — ASUS notebook</summary>
 <figure>
+<p><strong>Where to go:</strong> Save &amp; Exit, or press F10 after completing all changes</p>
 <p class="plus-bios-target"><strong>Set this:</strong> F10 → confirm Save &amp; reset</p>
 <a class="plus-bios-enlarge" href="/assets/images/guides/gta5/bios/asus-save-exit.png" target="_blank" rel="noopener" aria-label="Enlarge Save changes — ASUS notebook" data-bios-title="Save changes — ASUS notebook">
-<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-save-exit.png" alt="Save changes — ASUS notebook. After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit." width="1039" height="585" loading="lazy"></span>
+<span class="plus-bios-shot"><img src="/assets/images/guides/gta5/bios/asus-save-exit.png" alt="Save changes — ASUS notebook. After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit." width="1039" height="585" loading="lazy"><svg class="plus-bios-outlines" viewBox="0 0 1039 585" aria-hidden="true"><rect x="398" y="400" width="116" height="28"/></svg></span>
 </a>
 <figcaption>After completing all BIOS changes, save and confirm the restart. This ASUS example outlines OK; other models may call it Yes, Apply or Save Changes and Exit. <a href="https://www.asus.com/uk/support/faq/1050047/" target="_blank" rel="noopener">Source: ASUS save-and-exit example</a>.</figcaption>
 </figure></details>

@@ -1,0 +1,70 @@
+{
+  "captured": "2026-10-20",
+  "source": "Current local portal UI: portal/index.html and portal/portal.js",
+  "account": "Isolated example account; no real account or credentials used; no reset submitted.",
+  "screenshots": [
+    {
+      "file": "portal-hwid-dashboard.png",
+      "size": [
+        2560,
+        1520
+      ],
+      "outlines": [
+        [
+          25.603,
+          2.632,
+          8.328,
+          5
+        ],
+        [
+          80.173,
+          73.074,
+          5.92,
+          2.315
+        ],
+        [
+          52.813,
+          79.073,
+          34.375,
+          5.132
+        ]
+      ]
+    },
+    {
+      "file": "portal-hwid-confirmation.png",
+      "size": [
+        888,
+        578
+      ],
+      "outlines": [
+        [
+          60.832,
+          75.189,
+          30.835,
+          14.879
+        ]
+      ]
+    },
+    {
+      "file": "portal-hwid-cooldown.png",
+      "size": [
+        1024,
+        540
+      ],
+      "outlines": [
+        [
+          71.295,
+          43.837,
+          18.939,
+          6.516
+        ],
+        [
+          7.031,
+          60.723,
+          85.938,
+          14.444
+        ]
+      ]
+    }
+  ]
+}
