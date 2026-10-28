@@ -122,7 +122,7 @@ console.log('labelled commands :', allLabelled.length, '| unplaced:', missing.si
 // ---- shape + report ---------------------------------------------------------
 const manifest = {
   game: 'GTA 5', slug: 'gta5',
-  sourceDate: new Date().toLocaleDateString('en-CA', {timeZone:'Asia/Bangkok'}),
+  sourceDate: new Date().toLocaleDateString('en-CA', {timeZone:'Europe/London'}),
   tabs: [...tabs.entries()].map(([tab, cats]) => ({
     name: tab,
     categories: [...cats.entries()].map(([cat, grps]) => ({

@@ -16,6 +16,9 @@ if (!comparison.test(html)) throw new Error('GTA comparison markers missing');
 html = html.replace(comparison,'<!-- GTA5 COMPARISON START -->\n'+require('./gta5-editions.cjs').renderComparison()+'\n<!-- GTA5 COMPARISON END -->');
 html = html.replace(/[\d,]+ features (?:&amp;|&) settings/g,manifest.stats.features.toLocaleString('en-US')+' features &amp; settings')
   .replace(/[\d,]+ features and settings across \d+ sections/g,`${manifest.stats.features.toLocaleString('en-US')} features and settings across ${manifest.stats.tabs} sections`);
+const updated = new Intl.DateTimeFormat('en-GB', {day:'numeric',month:'long',year:'numeric',timeZone:'Europe/London'})
+  .format(new Date(manifest.sourceDate+'T12:00:00Z')).toUpperCase();
+html = html.replace(/UPDATED FEATURE LIBRARY · \d+ [A-Z]+ \d{4}/g, 'UPDATED FEATURE LIBRARY · '+updated);
 fs.writeFileSync(product,html);
 execFileSync(process.execPath,[path.join(__dirname,'build-features-page.js'),'--only','gta5','--apply'],{cwd:root,stdio:'inherit'});
 const previousIds = new Set(before.map(i=>i.id)), currentIds = new Set(after.map(i=>i.id));

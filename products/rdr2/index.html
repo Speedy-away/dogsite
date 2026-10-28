@@ -265,13 +265,7 @@
 
                 <div class="screenshot-gallery">
                     <div class="screenshot-item main" onclick="openLightbox(0)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/rdr2/rdr2-menu-main.webp" alt="Scooby RDR2 menu open on the Main tab with God Mode and Anti Headshot enabled">
-                    </div>
-                    <div class="screenshot-item" onclick="openLightbox(1)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/rdr2/rdr2-dual-ui.webp" alt="Scooby RDR2 running both interfaces at once - the ListUI main menu beside the ClickUI panel">
-                    </div>
-                    <div class="screenshot-item" onclick="openLightbox(2)">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/rdr2/rdr2-recovery.webp" alt="Scooby RDR2 recovery result showing a rank up to 248 with cash and gold added">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/rdr2/rdr2-self-dual-ui-20261021.png" width="2560" height="1600" alt="Scooby RDR2 ListUI and ClickUI menus showing Self options for protection, recovery, movement and abilities">
                     </div>
                 </div>
             </div>
@@ -589,10 +583,11 @@
     </footer>
     <script>
         const images = [
-            '/assets/images/previews/rdr2/rdr2-menu-main.webp',
-            '/assets/images/previews/rdr2/rdr2-dual-ui.webp',
-            '/assets/images/previews/rdr2/rdr2-recovery.webp'
+            '/assets/images/previews/rdr2/rdr2-self-dual-ui-20261021.png'
         ];
+        document.querySelectorAll('.lightbox-nav').forEach(button => {
+            button.style.display = images.length > 1 ? '' : 'none';
+        });
         let currentIndex = 0;
         function openLightbox(index) {
             currentIndex = index;

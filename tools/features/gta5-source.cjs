@@ -20,10 +20,18 @@ function argument(text, start) {
   throw new Error('Unbalanced source expression');
 }
 const commandIds = text => [...text.matchAll(/std::make_shared<\w*CommandItem>\(\s*"([\w]+)"_J/g)].map(m => m[1]);
-function accessFromSource(sources, accessText) {
-  const array = name => new Set([...accessText.match(new RegExp(name + '\\s*\\{([\\s\\S]*?)\\};'))[1].matchAll(/Joaat\("([^"]+)"\)/g)].map(m => m[1]));
+function accessFromSource(sources, accessText, protectionText = '') {
+  accessText = stripComments(accessText);
+  const array = (name, text = accessText) => {
+    const match = text.match(new RegExp('\\b' + name + '\\s*(?:\\[\\s*\\]\\s*)?(?:=\\s*)?\\{([\\s\\S]*?)\\};'));
+    return new Set([...(match?.[1] || '').matchAll(/Joaat\("([^"]+)"\)|"([^"]+)"_J/g)].map(m => m[1] || m[2]));
+  };
   const premium = array('kPremiumCommands');
   const free = array('kFreePlayerSupportCommands');
+  // Newer builds moved the Free overrides into a function-local array.
+  const explicitFree = accessText.match(/\bIsExplicitlyFreeCommand\([^)]*\)\s*\{([\s\S]*?)return\s/);
+  if (explicitFree) for (const id of array('commands', explicitFree[1])) free.add(id);
+  for (const id of array('commands', stripComments(protectionText))) premium.add(id);
   const editions = new Map();
   for (const {text} of sources) {
     const children = new Map();
@@ -31,6 +39,12 @@ function accessFromSource(sources, accessText) {
       const expression = argument(text, match.index + match[0].length);
       if (!children.has(match[1])) children.set(match[1], []);
       children.get(match[1]).push(expression);
+    }
+    // Wrappers can receive an item variable instead of an inline constructor.
+    for (const match of text.matchAll(/\b(\w+)\s*=\s*(std::make_shared<\w+>\()/g)) {
+      const start = match.index + match[0].length;
+      if (!children.has(match[1])) children.set(match[1], []);
+      children.get(match[1]).push(match[2] + argument(text, start) + ')');
     }
     function resolve(expression, visited = new Set()) {
       const ids = new Set(commandIds(expression));
@@ -61,18 +75,27 @@ function readSource(root) {
   return parseSources(sources, accessText);
 }
 function parseSources(sources, accessText) {
+  sources = sources.map(source => ({...source, text:stripComments(source.text)
+    .replace(/XOR\(("(?:\\.|[^"\\])*")\)/g, '$1')
+    .replace(/Command::Intern\(("(?:\\.|[^"\\])*")\)/g, '$1')
+    // This source macro constructs the same command through a deferred factory.
+    .replace(/\bSCOOBY_DEFERRED_COMMAND\(\s*([\w:]+(?:<[^\n;{}]+?>)?)\s*,\s*(\w+)\s*,/g, '$1 $2{')
+  }));
   const labels = {}, locations = new Map();
   const commandTypes = new Set(['Command']);
-  const parents = sources.flatMap(({text}) => [...text.matchAll(/(?:class|struct)\s+(\w+)(?:\s+final)?\s*:\s*(?:(?:public|private|protected)\s+)?([\w:]+)/g)].map(m => [m[1],m[2].split('::').pop()]));
+  const parents = sources.flatMap(({text}) => [
+    ...text.matchAll(/(?:class|struct)\s+(\w+)(?:\s+final)?\s*:\s*(?:(?:public|private|protected)\s+)?([\w:]+)/g),
+    ...text.matchAll(/\busing\s+(\w+)\s*=\s*([\w:]+)/g)
+  ].map(m => [m[1],m[2].split('::').pop()]));
   let changed = true;
   while (changed) {
     changed = false;
     for (const [child,parent] of parents) if (commandTypes.has(parent) && !commandTypes.has(child)) { commandTypes.add(child); changed = true; }
   }
   // Literal command registrations: both aggregate construction and base constructors.
-  const registration = /\b([\w:]+(?:<[^;{}\n]+>)?)\s*(?:\s+\w+\s*)?(?:=\s*)?[({]\s*"([a-zA-Z0-9_]+)"\s*,\s*"((?:\\.|[^"\\])*)"\s*,\s*"((?:\\.|[^"\\])*)"/g;
+  const registration = /\b(?!(?:new|return)\b)([\w:]+(?:<[^;{}\n]+>)?)\s*(?:\s+\w+\s*)?(?:=\s*)?[({]\s*"([a-zA-Z0-9_]+)"\s*,\s*"((?:\\.|[^"\\])*)"\s*,\s*"((?:\\.|[^"\\])*)"/g;
   const decode = s => s.replace(/\\n/g,' ').replace(/\\t/g,' ').replace(/\\"/g,'"').replace(/\\\\/g,'\\').trim();
-  for (const {file,text} of sources) for (const match of text.replace(/XOR\(("(?:\\.|[^"\\])*")\)/g,'$1').matchAll(registration)) {
+  for (const {file,text} of sources) for (const match of text.matchAll(registration)) {
     const [,type,id,label,desc] = match;
     if (!label || !commandTypes.has(type.split('<')[0].split('::').pop())) continue;
     labels['command.'+id+'.label'] = decode(label);
@@ -92,7 +115,7 @@ function parseSources(sources, accessText) {
       const id = header?.text.match(new RegExp(m[2]+'\\s*=\\s*"(\\w+)"'));
       if (id) add(id[1],m[3],m[4],file);
     }
-    for (const m of text.matchAll(/\b(\w+)\s+\w+\s*\{\s*"(\w+)"\s*,\s*"([^"]+)"\s*[,}]/g)) {
+    for (const m of text.matchAll(/\b(\w+)\s+\w+\s*\{\s*"(\w+)"\s*,\s*"([^"]+)"\s*[,})]/g)) {
       if (commandTypes.has(m[1]) && !locations.has(m[2])) add(m[2],m[3],'',file);
     }
     for (const m of text.matchAll(/\}\s+\w+\s*\{\s*"(\w+)"\s*,\s*"([^"]+)"\s*,\s*"([^"]+)"/g)) {
@@ -115,6 +138,7 @@ function parseSources(sources, accessText) {
   // A menu label is not a registration: old UI references can outlive the
   // implementation. Keep them out of the published catalogue.
   const unresolved = [...new Set(menus.flatMap(({text}) => commandIds(text)))].filter(id => !locations.has(id));
-  return {labels,locations,sources,menus,unresolved,...accessFromSource(menus,accessText)};
+  const protectionText = sources.find(s => s.file.endsWith('ProtectionPremium.hpp'))?.text || '';
+  return {labels,locations,sources,menus,unresolved,...accessFromSource(menus,accessText,protectionText)};
 }
 module.exports = {readSource, parseSources, stripComments, accessFromSource};

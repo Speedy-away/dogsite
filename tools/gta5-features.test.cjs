@@ -30,8 +30,44 @@ test('catalogue has unique IDs, valid access labels and representative access ga
   assert.equal(items.length, manifest.stats.features);
   assert.ok(items.every(i => i.label && ['free','premium'].includes(i.access)));
   for (const id of ['hkickall','samurai_cayocompoundloot','samurai_cayoislandloot']) assert.ok(!items.some(i=>i.id===id), `Unregistered ${id} must not return`);
-  for (const id of ['godmode','healall','giveallarmor','clearwantedall','fireworksonplayer','velocityvehiclefly','rainbomizertraffic']) assert.equal(items.find(i => i.id === id)?.access, 'free', id);
-  for (const id of ['freeshopping','vehiclefly','blackhole','tornadoworld','rainbomizerlivetraffic','vehicletricktype','vehicletirelights','cayopericoheistinstantfinish']) assert.equal(items.find(i => i.id === id)?.access, 'premium', id);
+  for (const id of ['godmode','healall','giveallarmor','clearwantedall','fireworksonplayer','rainbomizertraffic','freeshopping','cayopericoheistinstantfinish','driftcountersteer','vehiclefly','vehicletirelights']) assert.equal(items.find(i => i.id === id)?.access, 'free', id);
+  for (const id of ['velocityvehiclefly','blackhole','tornadoworld','rainbomizerlivetraffic','vehicletricktype','silentaim','magicbullet','protreactioncrash','protentitythrottler','repairplayervehicle']) assert.equal(items.find(i => i.id === id)?.access, 'premium', id);
+});
+
+test('deferred and interned registrations retain labels and descriptions', () => {
+  const access = 'constexpr std::array kPremiumCommands{Joaat("paid")};';
+  const source = {file:'/src/game/features/self/Tools.cpp',text:`
+    class Toggle : public Command {};
+    SCOOBY_DEFERRED_COMMAND(Toggle, deferred, "deferred", "Deferred tool", "Created by the factory.");
+    SCOOBY_DEFERRED_COMMAND(Toggle<true>, templated, "templated", "Template tool", "Template settings.");
+    static Toggle interned{Command::Intern(XOR("interned")), Command::Intern(XOR("Interned tool")), Command::Intern(XOR("Stored strings."))};
+    new Toggle{"allocated", "Allocated tool", "Created during initialization."};
+    using Alias = Toggle<true>;
+    static Alias aliased{"aliased", "Aliased tool", "Uses a command type alias."};
+    SCOOBY_DEFERRED_COMMAND(Toggle, brief, "brief", "Brief tool");
+    // SCOOBY_DEFERRED_COMMAND(Toggle, old, "old", "Deleted tool", "Do not publish.");
+  `};
+  const {labels} = parseSources([source],access);
+  assert.equal(labels['command.deferred.description'],'Created by the factory.');
+  assert.equal(labels['command.templated.label'],'Template tool');
+  assert.equal(labels['command.interned.description'],'Stored strings.');
+  assert.equal(labels['command.allocated.description'],'Created during initialization.');
+  assert.equal(labels['command.aliased.label'],'Aliased tool');
+  assert.equal(labels['command.brief.label'],'Brief tool');
+  assert.equal(labels['command.old.label'],undefined);
+});
+
+test('function-local Free overrides win over wrappers and protection gates', () => {
+  const access = `bool IsExplicitlyFreeCommand(int hash) {
+    constexpr std::array commands{Joaat("freefinish"), Joaat("freepreference")};
+    return false;
+  }
+  constexpr std::array kPremiumCommands{Joaat("freefinish"), Joaat("paidflight")};`;
+  const protection = 'constexpr joaat_t commands[] = {"reaction"_J, "freepreference"_J};';
+  const text = 'auto item = std::make_shared<BoolCommandItem>("freefinish"_J); page->AddItem(PremiumItem::Only(item)); auto other = std::make_shared<BoolCommandItem>("wrapped"_J); page->AddItem(PremiumItem::Only(other));';
+  const {free,premium} = accessFromSource([{text}],access,protection);
+  assert.deepEqual([...free].sort(),['freefinish','freepreference']);
+  assert.deepEqual([...premium].sort(),['paidflight','reaction','wrapped']);
 });
 test('generated product and library share the same comparison', () => {
   const fs = require('node:fs');
