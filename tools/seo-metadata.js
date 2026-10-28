@@ -207,11 +207,6 @@ Object.assign(pages, {
     "description": "Set up the free Scooby TF2 preview. Choose retail or Classified, configure the menu, manage profiles and Lua scripts, and solve common loading problems.",
     "keywords": "TF2 guide, TF2 Classified setup, Scooby Wiki, Team Fortress 2 cheat guide"
   },
-  "docs/rdr2/index.html": {
-    "title": "RDR2 Lua Scripts and Frontier — Scooby Developer Docs",
-    "description": "Download Frontier, a standalone RDR2 Lua GUI with controller support, player and horse tools, saved travel locations and world controls.",
-    "keywords": "RDR2 Lua, Frontier, standalone GUI, LuaJIT, Scooby Lua scripts"
-  },
   "api/rdr2/index.html": {
     "title": "RDR2 Lua API Reference — Scooby Developer Docs",
     "description": "Search Scooby RDR2 Lua APIs, controller bindings, standalone ImGui, cooperative tasks and typed native signatures.",
@@ -233,6 +228,17 @@ Object.assign(pages, {
     "keywords": "TF2 cheat, TF2 Classified cheat, Team Fortress 2, Scooby TF2, free TF2 preview"
   }
 });
+// Keep generated Rockstar documentation discoverable in both sitemap formats.
+for (const [slug, game] of [['gta5', 'GTA 5'], ['rdr2', 'RDR2']]) {
+  const docs = [
+    ['index.html', `${game} Lua Documentation - Scooby`, `Build ${game} Lua scripts with native feature pages, shared settings, custom interfaces and game-specific examples. Browse the API and developer references.`],
+    ['custom-ui/index.html', `${game} ListUI, ClickUI & Custom Lua Interfaces - Scooby`, `Create ${game} Lua interfaces with ListUI, ClickUI, native themes and shared feature state. Follow examples for native pages and custom ImGui windows.`],
+    ['imgui-porting/index.html', `${game} C++ ImGui to Lua Porting Guide - Scooby`, `Port C++ ImGui interfaces to ${game} Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks.`],
+    ['developer-files/index.html', `${game} Lua Developer Files & References - Scooby`, `Download ${game} Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files.`],
+    ['lua-api.html', `${game} Generated Lua API Documentation - Scooby`, `Browse the generated ${game} Lua API documentation, including host functions, bindings, signatures and examples for the supported scripting runtime.`],
+  ];
+  for (const [route, title, description] of docs) add(`docs/${slug}/${route}`, title, description, `${game} Lua, ${game} scripting, ListUI, ClickUI, ImGuiCpp, Scooby developer documentation`);
+}
 const escape = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const decode = s => s.replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 function attrs(tag) { return Object.fromEntries([...tag.matchAll(/([\w:-]+)\s*=\s*(["'])([\s\S]*?)\2/g)].map(m=>[m[1].toLowerCase(),decode(m[3])])); }

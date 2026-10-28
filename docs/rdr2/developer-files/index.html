@@ -1,4 +1,42 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Generated developer references | Scooby</title><meta name="description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><link rel="canonical" href="https://scoobymenu.cc/docs/rdr2/developer-files/"><link rel="icon" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="Generated developer references"><meta property="og:description" content="RDR2 Lua API: ListUI and ClickUI pages, native themes, shared feature state, custom ImGui interfaces and game-specific developer references."><meta property="og:url" content="https://scoobymenu.cc/docs/rdr2/developer-files/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"></head><body class="game-rdr2 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand" href="/docs/">Scooby <span>Docs</span></a><nav><a href="/docs/rdr2/">RDR2 Lua</a><a href="/api/rdr2/">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">RDR2 / LUA</p><h1>RDR2 Lua developer references</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RDR2 Lua Developer Files &amp; References - Scooby</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Download RDR2 Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files."><link rel="canonical" href="https://scoobymenu.cc/docs/rdr2/developer-files/"><link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png"><meta property="og:type" content="website"><meta property="og:title" content="RDR2 Lua Developer Files &amp; References - Scooby"><meta property="og:description" content="Download RDR2 Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files."><meta property="og:url" content="https://scoobymenu.cc/docs/rdr2/developer-files/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"><meta name="keywords" content="Scooby Menu, RDR2 Lua, RDR2 scripting, ListUI, ClickUI, ImGuiCpp, Scooby developer documentation">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:title" content="RDR2 Lua Developer Files &amp; References - Scooby">
+<meta name="twitter:description" content="Download RDR2 Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files.">
+<meta name="twitter:url" content="https://scoobymenu.cc/docs/rdr2/developer-files/">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/docs-v2.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SCOOBY DEVELOPERS: Build something of your own. Lua APIs · Examples · Native references.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/docs-v2.png">
+<meta name="twitter:image:alt" content="SCOOBY DEVELOPERS: Build something of your own. Lua APIs · Examples · Native references.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/docs/rdr2/developer-files/#webpage",
+      "url": "https://scoobymenu.cc/docs/rdr2/developer-files/",
+      "name": "RDR2 Lua Developer Files & References - Scooby",
+      "description": "Download RDR2 Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files.",
+      "keywords": "Scooby Menu, RDR2 Lua, RDR2 scripting, ListUI, ClickUI, ImGuiCpp, Scooby developer documentation",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head><body class="game-rdr2 guide"><a class="skip-link" href="#main-content">Skip to documentation</a><header class="guide-nav"><a class="brand scooby-brand" href="/docs/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Docs</span></a><nav><a href="/docs/rdr2/">RDR2 Lua</a><a href="/api/rdr2/">API reference</a></nav></header><main id="main-content" class="guide-content"><p class="page-title">RDR2 / LUA</p><h1>RDR2 Lua developer references</h1>
 <h2>Attached API browser placement</h2>
 <p>The in-menu documentation browser remains on the editor&#39;s right, aligned with
 its top edge. Dragging the editor beyond any screen edge carries the browser

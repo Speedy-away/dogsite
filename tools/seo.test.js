@@ -159,6 +159,8 @@ test('sitemap and JavaScript-free directory cover public pages while excluding a
   const root = path.resolve(__dirname, '..');
   const files = walk(root).filter(file => !excluded(fs.readFileSync(file, 'utf8').match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || ''))
     .map(file => path.relative(root, file).replace(/\\/g, '/'));
+  const { pages } = require('./seo-metadata');
+  for (const file of files) assert(pages[file], 'Public page has no SEO catalogue entry: ' + file);
   const urls = files.map(pageUrl).sort();
   assert.deepEqual(sitemapUrls(fs.readFileSync('sitemap.xml', 'utf8')).sort(), urls);
   assert(![SITE + '/portal/', SITE + '/discord.html', SITE + '/scoobyontop.html'].some(url => urls.includes(url)));
