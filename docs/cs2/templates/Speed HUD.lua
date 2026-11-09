@@ -1,10 +1,10 @@
--- Copied CS2 velocity, with frame-rate-independent display smoothing.
+-- Copied CS2 motion, with frame-rate-independent display smoothing.
 local enabled=features.add{id="enabled",label="Lua speed HUD",default=true}
 local speed=0
 ui.tab("speed","Speed HUD",function() ui.feature(enabled) end)
 events.on("update",function()
     local me=entity.get_local_player()
-    local target=me and me.alive and math.sqrt(me.velocity.x^2+me.velocity.y^2) or 0
+    local target=me and me.alive and math.sqrt(me.motion.x^2+me.motion.y^2) or 0
     speed=speed+(target-speed)*(1-math.exp(-12*math.max(0,engine.delta_time())))
 end)
 ui.overlay("speed_overlay",function()

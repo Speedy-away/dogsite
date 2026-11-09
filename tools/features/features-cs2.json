@@ -1,20 +1,26 @@
 {
   "game": "Counter-Strike 2",
   "slug": "cs2",
-  "source": "Reviewed against the current CS2/base menu registry and feature UI on 2026-09-22. This catalogue documents exposed controls; it is not an in-game validation or a guarantee of compatibility after game updates.",
-  "sourceRoot": "C:/Users/whatw/OneDrive/Documents/GitHub/Scooby-Op/CS2/base",
+  "source": "Reviewed against the CS2 Simple-base menu registry and feature guides on 2026-11-09. Development build groups describe controls reviewed in local source without a verified public release.",
+  "sourceRoot": "Scooby-Op/CS2/simple-base-cs2",
   "sourceFiles": [
     "src/GUI/feature_registry.cpp",
-    "src/GUI/feature_registry_listui.generated.inc",
-    "src/GUI/ClickUI/menu.cpp",
-    "src/GUI/features/skins/skins_content.cpp",
-    "src/GUI/features/skins/inventory/inventory_content.cpp",
-    "src/GUI/features/skins/inventory/item_settings.cpp",
-    "src/GUI/features/skins/inventory/case_opening_ui.cpp",
-    "src/cs2/features/skins/inventory/inventory_types.hpp",
-    "src/GUI/features/misc/misc_tab.cpp",
-    "src/GUI/features/settings/config.cpp",
-    "src/GUI/features/settings/rendering.cpp"
+    "docs/SIMPLE_BASE_UI.md",
+    "docs/COMBAT_PROFILES_2026-11-04.md",
+    "docs/ESP_LAYER_CONTROLS_2026-11-04.md",
+    "docs/ESP_MODEL_GLOW_2026-11-04.md",
+    "docs/CHAMS_EFFECT_CONTROLS_2026-11-02.md",
+    "docs/CS2_WORLD_LAYOUT_2026-10-01.md",
+    "docs/AUTOBUY_UI_2026-11-04.md",
+    "docs/SESSION_ASSISTS_2026-11-01.md",
+    "docs/RECORDER_TRAILS_2026-11-02.md",
+    "docs/GRENADE_HELPER_CAMERA_2026-11-01.md",
+    "docs/CUSTOM_SKINS_2026-11-08.md",
+    "docs/MODEL_REPO_2026-11-08.md",
+    "docs/LUA_API.md",
+    "docs/CUSTOM_HUDS.md",
+    "docs/HUD_STUDIO.md",
+    "UPDATING.md"
   ],
   "tabs": [
     {
@@ -37,8 +43,11 @@
                   ]
                 },
                 {
-                  "label": "Weapon-specific aim settings",
-                  "desc": "Choose the weapon category and weapon to configure."
+                  "label": "Global and weapon aim profiles",
+                  "desc": "Use shared aim settings and set overrides for weapon categories or individual firearms.",
+                  "settings": [
+                    "FOV, smoothing, hitboxes and recoil settings"
+                  ]
                 },
                 {
                   "label": "Target selection",
@@ -112,11 +121,35 @@
                 },
                 {
                   "label": "Aim indicators",
-                  "desc": "Customize the aim field-of-view circle and target line.",
+                  "desc": "Customize the aim FOV circle and target line.",
                   "settings": [
                     "Circle color, thickness, fill and gradient",
-                    "Follow recoil",
                     "Target-line color, thickness, dashes and glow"
+                  ]
+                },
+                {
+                  "label": "Lock-on and Silent",
+                  "desc": "Choose visible lock-on aim or the separate Silent mode with its own activation bind."
+                },
+                {
+                  "label": "Combat presets",
+                  "desc": "Start with a bundled profile and adjust aim, trigger and recoil settings for your setup."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Motion Prediction",
+                  "desc": "Lead moving targets. Older profiles may call this Velocity Prediction."
+                },
+                {
+                  "label": "Aim response modes",
+                  "desc": "Choose how the aim radius and smoothing respond as the target moves.",
+                  "settings": [
+                    "Static or Dynamic FOV",
+                    "Constant, Decrease or legacy smoothing"
                   ]
                 }
               ]
@@ -161,6 +194,19 @@
                 {
                   "label": "Spray control",
                   "desc": "Enable the menu's spray-control option."
+                },
+                {
+                  "label": "Recoil dot",
+                  "desc": "Show recent shot recoil in a separate indicator with its own color and size."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Return crosshair",
+                  "desc": "Choose whether standalone recoil compensation unwinds after the shot counter clears."
                 }
               ]
             }
@@ -219,6 +265,19 @@
                     "Auto stop",
                     "FOV tolerance",
                     "Magnet strength and FOV"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Trigger delay policies",
+                  "desc": "Choose how a target qualifies before a generated shot.",
+                  "settings": [
+                    "None, Time, Smart or Combo",
+                    "Category and weapon overrides for penetration and minimum damage"
                   ]
                 }
               ]
@@ -370,8 +429,8 @@
                   ]
                 },
                 {
-                  "label": "Player velocity",
-                  "desc": "Display player velocity information."
+                  "label": "Player speed ESP",
+                  "desc": "Display movement speed beside a player. Older builds may label this Velocity."
                 },
                 {
                   "label": "Hat ESP",
@@ -383,10 +442,11 @@
                   ]
                 },
                 {
-                  "label": "Visibility colors",
-                  "desc": "Use different colors for visible and hidden players.",
+                  "label": "Visible and Invisible ESP",
+                  "desc": "Enable visible and occluded player layers independently and style each layer.",
                   "settings": [
-                    "Box, skeleton, name, snapline and glow colors"
+                    "Enemy and teammate profiles",
+                    "Independent box, skeleton, name and snapline appearance"
                   ]
                 },
                 {
@@ -407,6 +467,20 @@
                     "Background, border and grid",
                     "Live player mirror",
                     "Animated poses and name tag"
+                  ]
+                },
+                {
+                  "label": "Model glow",
+                  "desc": "Add a silhouette glow with independent Visible and Invisible colors for supported models.",
+                  "settings": [
+                    "Players, dropped weapons and kits, grenades, bomb and hostages"
+                  ]
+                },
+                {
+                  "label": "Clutch ESP",
+                  "desc": "Temporarily show hidden enemy ESP in a clutch when the configured enemy count is met.",
+                  "settings": [
+                    "Optional invisible chams"
                   ]
                 }
               ]
@@ -461,13 +535,29 @@
                   ]
                 },
                 {
-                  "label": "Chams visibility",
-                  "desc": "Adjust wall-pass appearance and distance behavior.",
+                  "label": "Visible and Invisible chams",
+                  "desc": "Set visible and occluded material passes independently for supported targets.",
                   "settings": [
-                    "Wall material and color",
-                    "Wall brightness and animation",
-                    "Distance fade"
+                    "Separate colors and materials",
+                    "Distance fade and overlay material"
                   ]
+                },
+                {
+                  "label": "Material browser",
+                  "desc": "Browse chams materials and inspect a preview for the selected model."
+                },
+                {
+                  "label": "Other model chams",
+                  "desc": "Style supported world models, including dropped weapons and chickens."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Chams palettes and motion",
+                  "desc": "Adjust gradients, effect colors and motion for supported animated materials."
                 }
               ]
             }
@@ -569,6 +659,22 @@
                 {
                   "label": "Map callouts",
                   "desc": "Display map-location callouts."
+                },
+                {
+                  "label": "Visible and Invisible item ESP",
+                  "desc": "Set separate display options for visible and occluded weapons, grenades and objectives."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Dropped weapon categories",
+                  "desc": "Style dropped weapon groups independently.",
+                  "settings": [
+                    "Category profiles for weapon ESP and chams"
+                  ]
                 }
               ]
             }
@@ -619,6 +725,19 @@
                     "Outline, glow and rainbow",
                     "Local, enemy and teammate tracers",
                     "Impact marker and maximum range"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Grenade Indicator",
+                  "desc": "Show the type and distance of a nearby in-flight HE, smoke, incendiary or decoy grenade.",
+                  "settings": [
+                    "Range, pulse and screen-edge placement",
+                    "Separate from the Flashbang Indicator"
                   ]
                 }
               ]
@@ -703,6 +822,14 @@
                     "Static, rainbow or pulse",
                     "Animation speed"
                   ]
+                },
+                {
+                  "label": "World presets",
+                  "desc": "Save and switch environment looks for different maps."
+                },
+                {
+                  "label": "Weather designer",
+                  "desc": "Adjust weather type, density and particle appearance."
                 }
               ]
             }
@@ -874,6 +1001,53 @@
                     "Custom odds",
                     "Normalize odds or reset official-style odds"
                   ]
+                },
+                {
+                  "label": "Storage units",
+                  "desc": "Organize local items in named storage units with deposit and withdraw actions."
+                },
+                {
+                  "label": "Container browser",
+                  "desc": "Browse cases, capsules, souvenir packages and other supported containers by type."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Weapon customization",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Custom weapon textures",
+                  "desc": "Import local images, assign them by team and weapon, and inspect the texture before applying it."
+                },
+                {
+                  "label": "Per-weapon sounds",
+                  "desc": "Replace supported weapon sounds with a WAV or a bundled pack.",
+                  "settings": [
+                    "Fire, reload start, draw and empty actions",
+                    "Preview audio before applying",
+                    "Team and weapon assignments"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Paint Lab",
+                  "desc": "Edit a draft finish for a supported weapon, knife or glove alongside the 3D preview.",
+                  "settings": [
+                    "Wear, pattern seed and supported paint colors"
+                  ]
+                },
+                {
+                  "label": "Downloadable skins",
+                  "desc": "Browse curated weapon and first-person arms packages and install supported resources for local use."
                 }
               ]
             }
@@ -891,28 +1065,98 @@
               "name": "Features",
               "items": [
                 {
-                  "label": "Custom model changer",
-                  "desc": "Enable installed custom player and weapon models."
+                  "label": "CS2 Custom Model Changer",
+                  "desc": "Preview and equip compatible custom models in Counter-Strike 2. Model swaps apply on your client.",
+                  "settings": [
+                    "Custom player models, weapon models and first-person arms"
+                  ]
                 },
                 {
-                  "label": "Player models",
-                  "desc": "Select a player model from the installed model library."
+                  "label": "Custom player and agent models",
+                  "desc": "Assign player models to yourself, teammates or enemies.",
+                  "settings": [
+                    "CT and T settings",
+                    "Team and agent rules"
+                  ]
                 },
                 {
-                  "label": "Weapon models",
-                  "desc": "Choose a custom model for the active weapon."
+                  "label": "Custom weapon models",
+                  "desc": "Replace supported CS2 weapon models using installed resources.",
+                  "settings": [
+                    "World model and first-person weapon model"
+                  ]
                 },
                 {
-                  "label": "First-person models",
-                  "desc": "Configure the weapon's first-person model."
+                  "label": "First-person arms and viewmodels",
+                  "desc": "Equip compatible first-person arms and weapon viewmodels."
                 },
                 {
-                  "label": "Model library",
-                  "desc": "Refresh the available model packs and open the player or weapon library folders."
+                  "label": "Custom Models Library",
+                  "desc": "Browse installed CS2 models, preview the selected model and equip it for your selected target."
                 },
                 {
-                  "label": "Apply and reset models",
-                  "desc": "Apply selected models or restore the defaults."
+                  "label": "Equip and unequip models",
+                  "desc": "Apply the selected model to its target or restore the stock model."
+                },
+                {
+                  "label": "Custom Models Repo",
+                  "desc": "Browse curated CS2 model packages, inspect their previews and install supported resources into your local library."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Model folder import",
+                  "desc": "Import a folder of compiled player, weapon or first-person arms resources into the appropriate library."
+                },
+                {
+                  "label": "Workshop packages",
+                  "desc": "Download selected supported Workshop model packages through the Repo."
+                },
+                {
+                  "label": "Custom knife models",
+                  "desc": "Equip a replacement knife model such as a voxel pickaxe. Unequip to restore the previous knife and finish."
+                },
+                {
+                  "label": "Custom grenade and equipment models",
+                  "desc": "Replace compatible flashbang, smoke, HE, incendiary and decoy models, plus equipment such as C4 and Zeus."
+                },
+                {
+                  "label": "Per-weapon model assignments",
+                  "desc": "Save models by weapon and team so the matching model appears when you draw that item.",
+                  "settings": [
+                    "CT, T, Both and Shared default"
+                  ]
+                },
+                {
+                  "label": "Repo search and filters",
+                  "desc": "Search the expanded catalog by package, model variant or creator. Filter by model type or installation status.",
+                  "settings": [
+                    "Players and arms, weapons, knives and throwables",
+                    "Installed and Needs download"
+                  ]
+                },
+                {
+                  "label": "Package previews and variants",
+                  "desc": "Open model details to inspect additional angles or choose a specific model from a pack.",
+                  "settings": [
+                    "Preview zoom and pan",
+                    "Browse the selected variant in Library"
+                  ]
+                },
+                {
+                  "label": "Model package downloads",
+                  "desc": "Install selected packages, refresh the library or repair missing files.",
+                  "settings": [
+                    "Download and space estimates",
+                    "Bulk selection and cancellation"
+                  ]
+                },
+                {
+                  "label": "Model-linked weapon sounds",
+                  "desc": "Compatible imported model bundles can supply fire, reload, draw or empty sound events. Explicit per-weapon sound settings take priority."
                 }
               ]
             }
@@ -949,6 +1193,22 @@
                   "desc": "Assist airborne left/right steering.",
                   "settings": [
                     "Turn response"
+                  ]
+                },
+                {
+                  "label": "Jump assists",
+                  "desc": "Configure Long Jump and Mini Jump with individual activation binds."
+                },
+                {
+                  "label": "Strafe and stop assists",
+                  "desc": "Set up Null Strafe, Fast Stop and Slow Walk."
+                },
+                {
+                  "label": "Movement recorder",
+                  "desc": "Record and replay movement routes with saved starts and a route preview.",
+                  "settings": [
+                    "Trim, rename, import and export routes",
+                    "Start and finish markers, direction arrows and sample dots"
                   ]
                 }
               ]
@@ -1011,6 +1271,26 @@
                 {
                   "label": "Scope overlay",
                   "desc": "Remove the scope overlay and show the scope-sensitivity indicator."
+                },
+                {
+                  "label": "Grenade follow camera",
+                  "desc": "Follow a locally thrown grenade with a full-screen camera.",
+                  "settings": [
+                    "Distance, height, FOV, smoothing and return delay"
+                  ]
+                },
+                {
+                  "label": "Practice grenade camera",
+                  "desc": "Use the game’s grenade picture-in-picture view in supported practice sessions."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Rear Look",
+                  "desc": "Hold a bind for a temporary rear-facing first-person view while retaining your aim."
                 }
               ]
             }
@@ -1073,8 +1353,8 @@
                   "desc": "Display spectators."
                 },
                 {
-                  "label": "Velocity overlay",
-                  "desc": "Show player velocity."
+                  "label": "Speed overlay",
+                  "desc": "Show your current movement speed on a configurable HUD. Older builds may label this Velocity."
                 },
                 {
                   "label": "Economy advisor",
@@ -1105,6 +1385,36 @@
                     "Panel position and borders",
                     "Color synchronization"
                   ]
+                },
+                {
+                  "label": "Input overlay",
+                  "desc": "Display pressed keyboard and mouse buttons with optional clicks per second."
+                },
+                {
+                  "label": "Scoreboard overlay",
+                  "desc": "View match and player information in a configurable panel."
+                },
+                {
+                  "label": "Server and region overlay",
+                  "desc": "Display available connection and server region details."
+                },
+                {
+                  "label": "Web Radar",
+                  "desc": "Create a shareable radar viewer link, reconnect between games or stop sharing."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "HUD Studio",
+                  "desc": "Move and style native match HUD and buy-menu panels.",
+                  "settings": [
+                    "Radar, score, timer, kill feed, money, health, armor and ammo",
+                    "Offset, scale, opacity, tint, background and texture",
+                    "Import and export presets or restore stock styles"
+                  ]
                 }
               ]
             }
@@ -1129,6 +1439,111 @@
                 {
                   "label": "Hide game crosshair",
                   "desc": "Hide the game's crosshair while using the custom overlay."
+                },
+                {
+                  "label": "Sniper crosshair",
+                  "desc": "Use the custom crosshair with supported unscoped sniper rifles."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Session & practice",
+      "categories": [
+        {
+          "name": "Session tools",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Autobuy",
+                  "desc": "Set a round-start loadout for CT and T. Purchases depend on your money, game loadout and buy rules.",
+                  "settings": [
+                    "Primary, secondary, armor, grenades, Zeus and CT defuse kit",
+                    "Full-loadout cost by team"
+                  ]
+                },
+                {
+                  "label": "Auto-accept matchmaking",
+                  "desc": "Accept a ready match after a configurable delay."
+                },
+                {
+                  "label": "Auto Team Select",
+                  "desc": "Join an available team automatically or request CT or T while unassigned."
+                },
+                {
+                  "label": "Anti-AFK",
+                  "desc": "Set an idle delay and choose periodic movement or local walking behavior."
+                },
+                {
+                  "label": "Per-player settings",
+                  "desc": "Find players in the list and manage overrides for individual players."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Grenade Helper",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Lineup library",
+                  "desc": "Browse and filter saved grenade starts for the current map."
+                },
+                {
+                  "label": "Custom lineups",
+                  "desc": "Save, edit, import and export your own grenade starts, aim points and throw notes."
+                },
+                {
+                  "label": "Guided replay",
+                  "desc": "Follow position, stance and aim cues for a manual throw."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lua",
+      "categories": [
+        {
+          "name": "Scripting workspace",
+          "groups": [
+            {
+              "name": "Features",
+              "items": [
+                {
+                  "label": "Lua editor and console",
+                  "desc": "Create or edit scripts in the menu and inspect their messages and errors."
+                },
+                {
+                  "label": "Script library",
+                  "desc": "Import local scripts, run or unload them, and choose which scripts start automatically."
+                },
+                {
+                  "label": "Script permissions",
+                  "desc": "Review and control the capabilities scripts can use."
+                },
+                {
+                  "label": "Lua API and examples",
+                  "desc": "Build overlays and tools with the CS2 Lua API, or start with the downloadable examples."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Lua HUD library",
+                  "desc": "Install and customize the bundled Vital Signs, Speed Dial and Session Strip widgets."
                 }
               ]
             }
@@ -1146,8 +1561,8 @@
               "name": "Features",
               "items": [
                 {
-                  "label": "Dual UI",
-                  "desc": "Switch between Click UI and List UI."
+                  "label": "V1 and V2 interface",
+                  "desc": "Switch interface versions in Settings > Interface. V2 is the default in Simple Base."
                 },
                 {
                   "label": "Menu keybinds",
@@ -1218,6 +1633,14 @@
                 {
                   "label": "Interface animation",
                   "desc": "Adjust menu animation and fine-tuning options."
+                },
+                {
+                  "label": "Feature search and favorites",
+                  "desc": "Search for a control by name and pin frequently used settings."
+                },
+                {
+                  "label": "Language",
+                  "desc": "Choose from the installed interface languages."
                 }
               ]
             }

@@ -63,7 +63,7 @@ function vector(x,y,z) end
 ---@field immune boolean
 ---@field origin CS2Vector
 ---@field eye_position CS2Vector
----@field velocity CS2Vector
+---@field motion CS2Vector
 ---@field weapon CS2Weapon?
 local Player={}
 ---@return CS2Player?
@@ -80,7 +80,7 @@ function Player:get_origin() end
 ---@return CS2Vector
 function Player:get_eye_position() end
 ---@return CS2Vector
-function Player:get_velocity() end
+function Player:get_motion() end
 ---@return number
 function Player:get_health() end
 ---@return number
@@ -1181,7 +1181,7 @@ function print(...) end
 ---@field local_player CommandPlayer
 ---@field players CommandPlayer[]
 ---@field recoil CommandVector?
----@field velocity CommandVector?
+---@field motion CommandVector?
 ---@field weapon {handle:integer,definition:integer,ammo:integer,reloading:boolean,can_fire:boolean}
 ---@class InventoryCosmetics
 ---@field paint_kit? integer

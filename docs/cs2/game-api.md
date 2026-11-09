@@ -227,7 +227,7 @@ A player snapshot contains:
 
 - `index`, `handle`, `name`, `sample_frame`, `health`, `armor`, `team`, `ping`, `flags`, `flash_duration`.
 - `is_local`, `enemy`, `alive`, `scoped`, `crouched`, `defusing`, `helmet`, `defuser`, `immune`.
-- `origin`, `eye_position`, `velocity` as vectors; `weapon` as a copied table or nil.
+- `origin`, `eye_position`, `motion` as vectors; `weapon` as a copied table or nil.
 
 A weapon snapshot contains `handle`, `definition_index`, `ammo`, `zoom`, and `reloading`. The bone API revalidates the controller's current full pawn handle and reads the existing animated-bone implementation; it never manufactures a pose. Bone indices range from 0 to 127. Player enumeration is limited to the existing 64 controller slots.
 
@@ -2038,15 +2038,15 @@ local p=entity.get_local_player()
 if p then print(p:get_eye_position()) end
 ```
 
-### player:get_velocity
+### player:get_motion
 
 ```text
-p:get_velocity()
+p:get_motion()
 ```
 
 ```lua
 local p=entity.get_local_player()
-if p then print(p:get_velocity()) end
+if p then print(p:get_motion()) end
 ```
 
 ### player:get_health
@@ -2458,7 +2458,7 @@ Commands run only with a live local player, foreground game, closed menu and the
 | `buttons` | Unsigned 32-bit mask; attack=1, jump=2, duck=4; native higher bits are preserved |
 | `visible` | Boolean, defaults true; update the visible camera only after successful serialization |
 
-`ctx` contains `tick`, `time`, `interval` (the host command model uses 1/64 second), `local_player`, `players`, `recoil`, `velocity` and `weapon`. Players are copied `{index,handle,health,armor,team,enemy,alive,immune,origin,eye}` records with `{x,y,z}` vectors; `players` excludes self. `weapon` has `handle`, `definition`, `ammo`, `reloading`, `can_fire`. `can_fire` is a readiness check, not a hit guarantee. Recoil values are the host aim-punch angles; authors choose compensation and smoothing.
+`ctx` contains `tick`, `time`, `interval` (the host command model uses 1/64 second), `local_player`, `players`, `recoil`, `motion` and `weapon`. Players are copied `{index,handle,health,armor,team,enemy,alive,immune,origin,eye}` records with `{x,y,z}` vectors; `players` excludes self. `weapon` has `handle`, `definition`, `ammo`, `reloading`, `can_fire`. `can_fire` is a readiness check, not a hit guarantee. Recoil values are the host aim-punch angles; authors choose compensation and smoothing.
 
 Worker-only `game.trace(start,finish)` uses the host shot trace, skips the local pawn and returns `{fraction,start_solid,entity,position,normal}` or `nil,error`. It is not penetration simulation. `game.bone(handle,index)` reads an actual animated player bone (0..127), returning nil when unavailable; it does not fabricate a fallback pose. Handles are revalidated against the current command's player identities. `game.key_down(vk)` checks virtual keys 1..255. These functions are deliberately separate from render-thread player snapshots.
 

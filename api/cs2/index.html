@@ -236,7 +236,7 @@
 <a class="entry" href="#host-player-get-name">player:get_name</a>
 <a class="entry" href="#host-player-get-origin">player:get_origin</a>
 <a class="entry" href="#host-player-get-eye-position">player:get_eye_position</a>
-<a class="entry" href="#host-player-get-velocity">player:get_velocity</a>
+<a class="entry" href="#host-player-get-motion">player:get_motion</a>
 <a class="entry" href="#host-player-get-health">player:get_health</a>
 <a class="entry" href="#host-player-get-armor">player:get_armor</a>
 <a class="entry" href="#host-player-is-alive">player:is_alive</a>
@@ -820,7 +820,7 @@ print(status.calls,status.bypassed,status.error)
 <ul>
 <li><code>index</code>, <code>handle</code>, <code>name</code>, <code>sample_frame</code>, <code>health</code>, <code>armor</code>, <code>team</code>, <code>ping</code>, <code>flags</code>, <code>flash_duration</code>.</li>
 <li><code>is_local</code>, <code>enemy</code>, <code>alive</code>, <code>scoped</code>, <code>crouched</code>, <code>defusing</code>, <code>helmet</code>, <code>defuser</code>, <code>immune</code>.</li>
-<li><code>origin</code>, <code>eye_position</code>, <code>velocity</code> as vectors; <code>weapon</code> as a copied table or nil.</li>
+<li><code>origin</code>, <code>eye_position</code>, <code>motion</code> as vectors; <code>weapon</code> as a copied table or nil.</li>
 </ul>
 <p>A weapon snapshot contains <code>handle</code>, <code>definition_index</code>, <code>ammo</code>, <code>zoom</code>, and <code>reloading</code>. The bone API revalidates the controller&#39;s current full pawn handle and reads the existing animated-bone implementation; it never manufactures a pose. Bone indices range from 0 to 127. Player enumeration is limited to the existing 64 controller slots.</p>
 <div class="table-wrap"><table>
@@ -1976,11 +1976,11 @@ if p then print(p:get_origin()) end
 if p then print(p:get_eye_position()) end
 </code></pre>
 </div></details>
-<details class="reference-entry" id="host-player-get-velocity"><summary>player:get_velocity</summary><div class="entry-body"><a class="permalink" href="#host-player-get-velocity" aria-label="Link to player:get_velocity"># Permalink</a>
-<pre><code class="language-text">p:get_velocity()
+<details class="reference-entry" id="host-player-get-motion"><summary>player:get_motion</summary><div class="entry-body"><a class="permalink" href="#host-player-get-motion" aria-label="Link to player:get_motion"># Permalink</a>
+<pre><code class="language-text">p:get_motion()
 </code></pre>
 <pre><code class="language-lua">local p=entity.get_local_player()
-if p then print(p:get_velocity()) end
+if p then print(p:get_motion()) end
 </code></pre>
 </div></details>
 <details class="reference-entry" id="host-player-get-health"><summary>player:get_health</summary><div class="entry-body"><a class="permalink" href="#host-player-get-health" aria-label="Link to player:get_health"># Permalink</a>
@@ -2257,7 +2257,7 @@ end)
 <td>Boolean, defaults true; update the visible camera only after successful serialization</td>
 </tr>
 </tbody></table></div>
-<p><code>ctx</code> contains <code>tick</code>, <code>time</code>, <code>interval</code> (the host command model uses 1/64 second), <code>local_player</code>, <code>players</code>, <code>recoil</code>, <code>velocity</code> and <code>weapon</code>. Players are copied <code>{index,handle,health,armor,team,enemy,alive,immune,origin,eye}</code> records with <code>{x,y,z}</code> vectors; <code>players</code> excludes self. <code>weapon</code> has <code>handle</code>, <code>definition</code>, <code>ammo</code>, <code>reloading</code>, <code>can_fire</code>. <code>can_fire</code> is a readiness check, not a hit guarantee. Recoil values are the host aim-punch angles; authors choose compensation and smoothing.</p>
+<p><code>ctx</code> contains <code>tick</code>, <code>time</code>, <code>interval</code> (the host command model uses 1/64 second), <code>local_player</code>, <code>players</code>, <code>recoil</code>, <code>motion</code> and <code>weapon</code>. Players are copied <code>{index,handle,health,armor,team,enemy,alive,immune,origin,eye}</code> records with <code>{x,y,z}</code> vectors; <code>players</code> excludes self. <code>weapon</code> has <code>handle</code>, <code>definition</code>, <code>ammo</code>, <code>reloading</code>, <code>can_fire</code>. <code>can_fire</code> is a readiness check, not a hit guarantee. Recoil values are the host aim-punch angles; authors choose compensation and smoothing.</p>
 <p>Worker-only <code>game.trace(start,finish)</code> uses the host shot trace, skips the local pawn and returns <code>{fraction,start_solid,entity,position,normal}</code> or <code>nil,error</code>. It is not penetration simulation. <code>game.bone(handle,index)</code> reads an actual animated player bone (0..127), returning nil when unavailable; it does not fabricate a fallback pose. Handles are revalidated against the current command&#39;s player identities. <code>game.key_down(vk)</code> checks virtual keys 1..255. These functions are deliberately separate from render-thread player snapshots.</p>
 <p>Use <code>callback:set(key,value)</code> and worker <code>shared.get(key)</code> for UI-to-command controls; worker <code>shared.set</code> and <code>callback:get</code> carry results back. Values are scalars, nil or strings up to 4096 bytes, with 64 keys per worker. Worker state is separate from the UI Lua state: no UI, files, HTTP, native calls, dynamic code loading or protected calls. Base/table/string/math/utf8 are available. Limits are 4 MiB, 200,000 instructions, 2 ms per callback, 4 ms for the dispatch and 64 game queries. A blocking native query cannot be interrupted mid-call, but an over-budget result is discarded. Rebuilt identical commands reuse the prior result without advancing worker state twice. Altered input for an already processed sequence is left untouched.</p>
 <p><code>callback:enable</code>, <code>callback:remove</code>, <code>callback:status</code>, <code>callback:get</code> and <code>callback:set</code> control the worker. Errors discard that worker&#39;s edits, disable it, and report the script, worker source/line, traceback when available and a reload hint to the console. Other callbacks remain active. Unload, reload and failed startup remove owned workers. The <strong>Command framework</strong> template starts disabled and demonstrates custom targeting, recoil and firing with explicit controls.</p>

@@ -43,6 +43,6 @@ end)
 ui.overlay("tools_hud",function()
     local me=entity.get_local_player();if not me or not me.alive then return end
     local w,h=render.screen_size();local tint=render.theme().accent;local s=render.scale()
-    if options.speed then render.text(25*s,h-60*s,string.format("%.0f u/s",math.sqrt(me.velocity.x^2+me.velocity.y^2)),tint,20*s) end
+    if options.speed then render.text(25*s,h-60*s,string.format("%.0f u/s",math.sqrt(me.motion.x^2+me.motion.y^2)),tint,20*s) end
     if options.crosshair then render.line(w/2-7*s,h/2,w/2+7*s,h/2,tint,2*s);render.line(w/2,h/2-7*s,w/2,h/2+7*s,tint,2*s) end
 end)

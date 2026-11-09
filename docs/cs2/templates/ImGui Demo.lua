@@ -161,7 +161,7 @@ ui.overlay("visual_effects",function()
         render.line(x,y-b,x,y-a,tint,t);render.line(x,y+a,x,y+b,tint,t)
     end
     if prefs.speed then
-        local speed=math.sqrt(me.velocity.x^2+me.velocity.y^2)
+        local speed=math.sqrt(me.motion.x^2+me.motion.y^2)
         render.rect(22*scale,h-90*scale,200*scale,52*scale,{.04,.05,.06,.88},true,5*scale)
         render.text(34*scale,h-80*scale,string.format("SPEED   %.0f u/s",speed),tint,16*scale)
         render.rect(34*scale,h-53*scale,176*scale*math.min(speed/350,1),3*scale,tint,true)
