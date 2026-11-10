@@ -1,7 +1,7 @@
 {
   "game": "Counter-Strike 2",
   "slug": "cs2",
-  "source": "Reviewed against the CS2 Simple-base menu registry and feature guides on 2026-11-09. Development build groups describe controls reviewed in local source without a verified public release.",
+  "source": "Reviewed against the CS2 Simple-base menu registry, feature guides and November 10 distribution record. Development build groups describe controls without a verified public release.",
   "sourceRoot": "Scooby-Op/CS2/simple-base-cs2",
   "sourceFiles": [
     "src/GUI/feature_registry.cpp",
@@ -20,6 +20,10 @@
     "docs/LUA_API.md",
     "docs/CUSTOM_HUDS.md",
     "docs/HUD_STUDIO.md",
+    "docs/CUSTOM_WORKSPACE_2026-11-04.md",
+    "docs/WEAPON_SOUND_PACKS_2026-11-01.md",
+    "docs/VISUAL_REFRESH_2026-11-02.md",
+    "docs/VFX_REFERENCE_2026-11-01.md",
     "UPDATING.md"
   ],
   "tabs": [
@@ -55,8 +59,7 @@
                   "settings": [
                     "Target priority",
                     "Sticky target",
-                    "Teammate targeting",
-                    "Velocity prediction"
+                    "Teammate targeting"
                   ]
                 },
                 {
@@ -128,8 +131,8 @@
                   ]
                 },
                 {
-                  "label": "Lock-on and Silent",
-                  "desc": "Choose visible lock-on aim or the separate Silent mode with its own activation bind."
+                  "label": "Lock-on aim",
+                  "desc": "Use lock-on aim with the selected activation and aim profile."
                 },
                 {
                   "label": "Combat presets",
@@ -151,6 +154,10 @@
                     "Static or Dynamic FOV",
                     "Constant, Decrease or legacy smoothing"
                   ]
+                },
+                {
+                  "label": "Silent aim disabled",
+                  "desc": "The Silent toggle is disabled in the reviewed build. Saved Silent settings and bindings have no effect."
                 }
               ]
             }
@@ -207,6 +214,10 @@
                 {
                   "label": "Return crosshair",
                   "desc": "Choose whether standalone recoil compensation unwinds after the shot counter clears."
+                },
+                {
+                  "label": "No spread",
+                  "desc": "Use a spread correction when one is verified for the shot. Firing keeps its normal timing and falls back to normal spread."
                 }
               ]
             }
@@ -549,6 +560,10 @@
                 {
                   "label": "Other model chams",
                   "desc": "Style supported world models, including dropped weapons and chickens."
+                },
+                {
+                  "label": "Wireframe over the model",
+                  "desc": "In Visible chams, enable Show over model to draw the original surface beneath the wireframe. The setting is saved separately for each target."
                 }
               ]
             },
@@ -558,6 +573,10 @@
                 {
                   "label": "Chams palettes and motion",
                   "desc": "Adjust gradients, effect colors and motion for supported animated materials."
+                },
+                {
+                  "label": "Clown Chams region colors",
+                  "desc": "Choose Base, Head and Lower body colors on supported models, including compatible custom player models."
                 }
               ]
             }
@@ -675,6 +694,14 @@
                   "settings": [
                     "Category profiles for weapon ESP and chams"
                   ]
+                },
+                {
+                  "label": "Grenade overlay appearance",
+                  "desc": "Show compact fuse and estimated damage readouts, smaller ring or bar timers, and grounded HE coverage when the floor can be located.",
+                  "settings": [
+                    "Visible and Invisible trajectory layers",
+                    "Predicted coverage fill opacity and outline width"
+                  ]
                 }
               ]
             }
@@ -752,7 +779,7 @@
               "items": [
                 {
                   "label": "VFX controls",
-                  "desc": "Enable world and particle effects with an adjustable update budget."
+                  "desc": "Open the VFX workspace to configure visual effects. Current development builds place VFX Studio under Custom → VFX."
                 },
                 {
                   "label": "Skybox",
@@ -830,6 +857,42 @@
                 {
                   "label": "Weather designer",
                   "desc": "Adjust weather type, density and particle appearance."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Player and world textures",
+                  "desc": "Assign images to your player, teammates, enemies, map surfaces or world props from Custom → Textures."
+                },
+                {
+                  "label": "Map materials",
+                  "desc": "Replace eligible materials in a Global or per-map preset. Individual material rules take priority over category and whole-map rules.",
+                  "settings": [
+                    "Object inspector and material filters",
+                    "Preview applied textures on supported 3D props",
+                    "Undo or redo the last preset edit"
+                  ]
+                },
+                {
+                  "label": "Portable map texture projects",
+                  "desc": "Export a map preset with its images, then open and apply the project to the selected map scope."
+                },
+                {
+                  "label": "Model Wetness",
+                  "desc": "Adjust the wet surface effect for supported models under World presets → Weather."
+                },
+                {
+                  "label": "Main Menu Editor",
+                  "desc": "Use Custom → VFX → Main Menu to change the CS2 title screen.",
+                  "settings": [
+                    "Stock scenes, compiled vanity maps and showcased loadout",
+                    "Static or animated image backdrops",
+                    "Panel layout, text colors and Panorama textures",
+                    "Rain, snow, embers, dust, thunderstorm, haze and vignette"
+                  ]
                 }
               ]
             }
@@ -1022,11 +1085,11 @@
               "items": [
                 {
                   "label": "Custom weapon textures",
-                  "desc": "Import local images, assign them by team and weapon, and inspect the texture before applying it."
+                  "desc": "Import PNG, JPG or GIF images in Custom → Textures and select a weapon and team."
                 },
                 {
                   "label": "Per-weapon sounds",
-                  "desc": "Replace supported weapon sounds with a WAV or a bundled pack.",
+                  "desc": "In Custom → Sounds, audition a WAV and assign it to a selected weapon, team and action.",
                   "settings": [
                     "Fire, reload start, draw and empty actions",
                     "Preview audio before applying",
@@ -1039,15 +1102,50 @@
               "name": "Development build",
               "items": [
                 {
-                  "label": "Paint Lab",
-                  "desc": "Edit a draft finish for a supported weapon, knife or glove alongside the 3D preview.",
+                  "label": "Color changer",
+                  "desc": "Edit supported paint regions or randomize their colors in Custom → Skins. Apply the draft to a loadout or add an unequipped copy to local inventory.",
                   "settings": [
-                    "Wear, pattern seed and supported paint colors"
+                    "Weapon, knife, glove and agent drafts",
+                    "Paint regions, seed, wear and team where supported"
                   ]
                 },
                 {
                   "label": "Downloadable skins",
                   "desc": "Browse curated weapon and first-person arms packages and install supported resources for local use."
+                },
+                {
+                  "label": "Skin editor",
+                  "desc": "Build a texture from an image, solid color or two-color gradient. Add and position sticker layers, then bake the design.",
+                  "settings": [
+                    "Tint, opacity, rotation and layer visibility",
+                    "Snap to grid, Undo and Redo",
+                    "Pause, step or scrub animated GIF frames",
+                    "Keep full image to preserve source proportions"
+                  ]
+                },
+                {
+                  "label": "Portable skin projects",
+                  "desc": "Save an editable project with its source frames and reopen it before baking or applying the texture."
+                },
+                {
+                  "label": "Classic weapon sound packs",
+                  "desc": "Audition CS:GO Classic, CS:GO Legacy, CS: Source or CS 1.6. Apply matching recordings by weapon and team."
+                },
+                {
+                  "label": "Imported sound packs",
+                  "desc": "Organize WAVs by weapon and action under Custom → Sounds. Preview and apply a pack to the selected team and weapons."
+                },
+                {
+                  "label": "Standalone Textures window",
+                  "desc": "Choose Open Textures under Custom → Textures to open a movable editor with the image library, framing controls, and the weapon or map preview."
+                },
+                {
+                  "label": "Weapon UV templates",
+                  "desc": "Export the previewed weapon or all 34 firearm templates. Use the transparent UV guide to place artwork for the stock model."
+                },
+                {
+                  "label": "Texture dumper",
+                  "desc": "Export the selected weapon, player or map texture as PNG. Animated GIFs export separate frames and timing metadata."
                 }
               ]
             }
@@ -1092,7 +1190,7 @@
                 },
                 {
                   "label": "Custom Models Library",
-                  "desc": "Browse installed CS2 models, preview the selected model and equip it for your selected target."
+                  "desc": "Open Custom → Library to search installed packages and preview compatible models."
                 },
                 {
                   "label": "Equip and unequip models",
@@ -1121,7 +1219,7 @@
                 },
                 {
                   "label": "Custom grenade and equipment models",
-                  "desc": "Replace compatible flashbang, smoke, HE, incendiary and decoy models, plus equipment such as C4 and Zeus."
+                  "desc": "Preview and equip compatible throwables, gloves, Zeus and C4 packages in supported builds."
                 },
                 {
                   "label": "Per-weapon model assignments",
@@ -1156,7 +1254,42 @@
                 },
                 {
                   "label": "Model-linked weapon sounds",
-                  "desc": "Compatible imported model bundles can supply fire, reload, draw or empty sound events. Explicit per-weapon sound settings take priority."
+                  "desc": "Use Set up custom sound on a supported firearm model to open the matching weapon and team in Custom → Sounds."
+                },
+                {
+                  "label": "Model swapping",
+                  "desc": "Open a movable window from Custom → Model swapping or press F8. Use Set up swap, Preview and Saved swaps to compare and assign built-in models.",
+                  "settings": [
+                    "Held, other-player and dropped item scopes",
+                    "Own body and other player scopes",
+                    "Saved texture, stock materials and texture audition",
+                    "Restore original, enable or remove a saved swap",
+                    "Rebind the F8 shortcut in Settings → Hotkeys"
+                  ]
+                },
+                {
+                  "label": "Model pools",
+                  "desc": "Collect compatible variants for a player group or weapon and reroll by scope."
+                },
+                {
+                  "label": "Model download queue",
+                  "desc": "Queue selected Repo downloads, see install progress and open installed variants directly in Library."
+                },
+                {
+                  "label": "First-person arms Repo",
+                  "desc": "Browse dedicated arm packages in Repo and open the installed variant in Library → Self → First-person arms."
+                },
+                {
+                  "label": "Download Random Models",
+                  "desc": "Review a compatible package per supported weapon and equipment slot, plus a player model and gloves. Check the download size before adding the batch to the queue."
+                },
+                {
+                  "label": "Weapon package animations",
+                  "desc": "Import a compatible weapon package with authored AnimGraph 2 part tracks for actions such as fire and reload."
+                },
+                {
+                  "label": "Weapon package sounds and HUD icons",
+                  "desc": "Compatible packages can include WAV or native sound mappings and a compiled icon for the local weapon HUD and killfeed."
                 }
               ]
             }
@@ -1291,6 +1424,15 @@
                 {
                   "label": "Rear Look",
                   "desc": "Hold a bind for a temporary rear-facing first-person view while retaining your aim."
+                },
+                {
+                  "label": "Freecam",
+                  "desc": "Fly a detached camera while your player stays in place. Open Visuals → Viewmodel → Freecam or use the default F7 shortcut.",
+                  "settings": [
+                    "WASD to fly, Space and Ctrl for height, Shift for a speed boost",
+                    "Mouse or arrow keys to look",
+                    "Saved flight speed and hotkey"
+                  ]
                 }
               ]
             }
@@ -1443,6 +1585,23 @@
                 {
                   "label": "Sniper crosshair",
                   "desc": "Use the custom crosshair with supported unscoped sniper rifles."
+                },
+                {
+                  "label": "Custom rifle optics",
+                  "desc": "Use Settings → Crosshair → Rifle Optics to replace the AUG and SG 553 dot.",
+                  "settings": [
+                    "Hidden, dot, cross, ring or custom image",
+                    "Color, sizing and preview"
+                  ]
+                },
+                {
+                  "label": "Custom sniper scopes",
+                  "desc": "Use Settings → Crosshair → Sniper Scopes to customize the AWP, SSG 08, SCAR-20 and G3SG1 reticle and mask.",
+                  "settings": [
+                    "Hidden, dot, cross, ring or custom image",
+                    "Lens opening and outside opacity",
+                    "PNG or JPEG import and preview"
+                  ]
                 }
               ]
             }
@@ -1685,6 +1844,10 @@
                     "Target FPS",
                     "Triple buffering"
                   ]
+                },
+                {
+                  "label": "Startup profile recovery",
+                  "desc": "After a startup profile fails to load, open a valid profile in Settings → Config → Load to resume auto-save. The previous startup file is kept as a backup."
                 }
               ]
             }

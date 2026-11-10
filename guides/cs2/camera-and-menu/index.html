@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>CS2 Camera, Scope Reticles &amp; Main Menu Editor - Scooby Guide</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
+<meta name="description" content="Customize rifle and sniper optics in Scooby CS2, fly with Freecam and edit the title-screen scene, panels and weather in supported builds.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://scoobymenu.cc/guides/cs2/camera-and-menu/">
+<meta property="og:title" content="CS2 Camera, Scope Reticles &amp; Main Menu Editor - Scooby Guide">
+<meta property="og:description" content="Customize rifle and sniper optics in Scooby CS2, fly with Freecam and edit the title-screen scene, panels and weather in supported builds.">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/wiki-game-cs2-v3.png">
+<meta property="og:site_name" content="Scooby Menu">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CS2 Camera, Scope Reticles &amp; Main Menu Editor - Scooby Guide">
+<meta name="twitter:description" content="Customize rifle and sniper optics in Scooby CS2, fly with Freecam and edit the title-screen scene, panels and weather in supported builds.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/wiki-game-cs2-v3.png">
+<meta name="keywords" content="Scooby Menu, CS2 Freecam, scope reticle, rifle optics, sniper scopes, CS2 Main Menu Editor">
+
+<!-- DNS Prefetch for external resources -->
+
+<!-- Google Fonts -->
+
+<link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
+<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
+<script src="/assets/js/wiki-theme.js">
+</script>
+<script src="/assets/js/guides.js" defer="">
+</script>
+<link rel="canonical" href="https://scoobymenu.cc/guides/cs2/camera-and-menu/">
+<noscript>
+<style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style>
+</noscript>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/cs2/camera-and-menu/">
+<script src="/lang/i18n.js"></script>
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/wiki-game-cs2-v3.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GAME GUIDE: Counter-Strike 2 Setup &amp; help Loading, menu controls &amp; troubleshooting..">
+<meta name="twitter:image:alt" content="GAME GUIDE: Counter-Strike 2 Setup &amp; help Loading, menu controls &amp; troubleshooting..">
+
+
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/guides/cs2/camera-and-menu/#webpage",
+      "url": "https://scoobymenu.cc/guides/cs2/camera-and-menu/",
+      "name": "CS2 Camera, Scope Reticles & Main Menu Editor - Scooby Guide",
+      "description": "Customize rifle and sniper optics in Scooby CS2, fly with Freecam and edit the title-screen scene, panels and weather in supported builds.",
+      "keywords": "Scooby Menu, CS2 Freecam, scope reticle, rifle optics, sniper scopes, CS2 Main Menu Editor",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://scoobymenu.cc/guides/cs2/camera-and-menu/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Guides",
+          "item": "https://scoobymenu.cc/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Counter-Strike 2",
+          "item": "https://scoobymenu.cc/guides/cs2/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Camera, scopes & main menu",
+          "item": "https://scoobymenu.cc/guides/cs2/camera-and-menu/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="wiki-article wiki-topic-page">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="wiki-header">
+<a class="wiki-brand scooby-brand" href="/guides/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Wiki</span>
+</a>
+<button class="search-trigger" type="button" aria-label="Search guides" data-search-open="">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<span>Search guides</span>
+<kbd>Ctrl K</kbd>
+</button>
+<div class="header-actions">
+<a href="/" class="site-link">Main site ↗</a>
+<label class="theme-control">
+<span class="sr-only">Color theme</span>
+<select id="theme-select">
+<option value="auto">Auto</option>
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</label>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="wiki-sidebar">Menu</button>
+</div>
+</header>
+<aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Guide navigation">
+<nav>
+<a class="sidebar-home" href="/guides/">Wiki overview</a>
+<details class="sidebar-game sidebar-general">
+<summary><span class="sidebar-game-title">General help<span class="sidebar-game-subtitle">Downloads, accounts &amp; fixes</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/general/"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Downloads &amp; keys"><p class="sidebar-section-label">Downloads &amp; keys</p>
+<a class="sidebar-guide-link" href="/guides/general/faq/"><span class="sidebar-link-label">Antivirus &amp; downloads</span></a>
+<a class="sidebar-guide-link" href="/guides/general/free-key/"><span class="sidebar-link-label">Get a free key</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Fix a problem"><p class="sidebar-section-label">Fix a problem</p>
+<a class="sidebar-guide-link" href="/guides/general/crashing/"><span class="sidebar-link-label">Crashes &amp; loading errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/connection/"><span class="sidebar-link-label">Connection &amp; SSL errors</span></a>
+<a class="sidebar-guide-link" href="/guides/general/universal/"><span class="sidebar-link-label">Loader troubleshooting</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Account &amp; compatibility"><p class="sidebar-section-label">Account &amp; compatibility</p>
+<a class="sidebar-guide-link" href="/guides/loading/#redeem-key"><span class="sidebar-link-label">Premium login &amp; redeem</span></a>
+<a class="sidebar-guide-link" href="/guides/general/hwid/"><span class="sidebar-link-label">Reset your HWID</span></a>
+<a class="sidebar-guide-link" href="/guides/general/linux-mac/"><span class="sidebar-link-label">Linux, Steam Deck &amp; Mac</span></a>
+</div>
+</details>
+
+<details class="sidebar-game sidebar-cs2" open="">
+<summary><span class="sidebar-game-title">Counter-Strike 2<span class="sidebar-game-subtitle">Game guides</span></span></summary>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/cs2/" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
+<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
+<a href="/guides/cs2/cs2-requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
+<a href="/guides/cs2/cs2-inject/" class="sidebar-guide-link" aria-label="Load Scooby in Counter-Strike 2"><span class="sidebar-link-label">Load guide</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
+<a href="/guides/cs2/custom-models/" class="sidebar-guide-link" aria-label="Custom models"><span class="sidebar-link-label">Custom models</span></a>
+<a href="/guides/cs2/textures-and-sounds/" class="sidebar-guide-link" aria-label="Textures and sounds"><span class="sidebar-link-label">Textures &amp; sounds</span></a>
+<a href="/guides/cs2/camera-and-menu/" class="sidebar-guide-link" aria-current="page" aria-label="Camera, scopes and main menu"><span class="sidebar-link-label">Camera, scopes &amp; menu</span></a>
+</div>
+<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
+<a href="/guides/cs2/cs2-updates/" class="sidebar-guide-link" aria-label="Feature troubleshooting (After game updates)"><span class="sidebar-link-label">Feature troubleshooting</span><span class="sidebar-link-note">After game updates</span></a>
+</div>
+</details>
+
+<div class="sidebar-resources">
+<span>Resources</span>
+<a href="/guides/loading/">Loading guides</a>
+<a href="/docs/">Developer documentation ↗</a>
+<a href="/videos/">Video tutorials ↗</a>
+<a href="/store/">Browse products ↗</a>
+</div>
+</nav>
+</aside>
+<div class="article-layout">
+<main id="main-content" tabindex="-1">
+<div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/cs2/">Counter-Strike 2</a><span>/</span><span>Camera, scopes &amp; main menu</span></div>
+<h1>Camera, scopes &amp; main menu</h1>
+<p class="article-intro">Customize rifle and sniper optics, fly a detached camera, or give the CS2 title screen its own scene and weather.</p>
+<div class="guide-card" id="camera-and-menu">
+<h2 class="sr-only">CS2 Camera, Scope Reticles and Main Menu Editor</h2>
+<nav class="guide-contents" aria-label="In this guide">
+<a href="#scope-reticles">Scope reticles</a><a href="#freecam">Freecam</a><a href="#main-menu-editor">Main Menu Editor</a>
+</nav>
+<h3 id="scope-reticles">Customize scope reticles</h3>
+<ol class="help-steps">
+<li>Open <strong>Settings &gt; Crosshair</strong>. Under <strong>Rifle Optics</strong>, enable <strong>Replace Rifle Dot</strong> for the AUG or SG 553. Under <strong>Sniper Scopes</strong>, enable <strong>Customize Sniper Scope</strong> for the AWP, SSG 08, SCAR-20 or G3SG1.</li>
+<li>Choose Hidden, Dot, Cross, Ring or Custom image. Use <strong>Import image</strong> to select a PNG or JPEG up to 512 × 512 and 4 MB. Check the result in <strong>Preview</strong>.</li>
+<li>Adjust the reticle size, color or image opacity. Sniper Scopes also has <strong>Lens opening</strong> and <strong>Outside opacity</strong>. Choose <strong>Restore defaults</strong> to reset the selected group.</li>
+</ol>
+<p>Freecam and the Main Menu Editor below are documented for development builds. Check the <a href="/features-list/cs2-features/">feature list</a> for availability.</p>
+<h3 id="freecam">Fly with Freecam</h3>
+<ol class="help-steps">
+<li>With a living, unscoped player, press <strong>F7</strong> or choose <strong>Visuals &gt; Viewmodel &gt; Freecam</strong>. Rebind F7 under <strong>Settings &gt; Hotkeys</strong>.</li>
+<li>Use <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> and <kbd>D</kbd> to fly, <kbd>Space</kbd> and <kbd>Ctrl</kbd> to change height, and <kbd>Shift</kbd> for a speed boost. Look with the mouse or arrow keys.</li>
+<li>Toggle Freecam off to return to the player. Freecam blocks player movement and firing while active. Flight pauses while the menu has focus.</li>
+</ol>
+<h3 id="main-menu-editor">Edit the CS2 title screen</h3>
+<ol class="help-steps">
+<li>At the title screen, open <strong>Custom &gt; VFX &gt; Main Menu</strong> and turn on <strong>Enable Main Menu</strong>.</li>
+<li>Use <strong>Scene &amp; loadout</strong> to choose a stock scene and showcased items, or select a compatible compiled vanity map. To use a PNG, JPEG or GIF backdrop, choose <strong>Browse image</strong> or place the image in the folder opened by <strong>Open image folder</strong>. Select the image and turn on <strong>Replace 3D scene with image</strong>.</li>
+<li>In <strong>Panel layout</strong>, select a navigation button, card or other supported panel and adjust its position, scale, opacity or colors. Use <strong>Reset panel</strong> to restore that panel.</li>
+<li>Under <strong>Atmosphere</strong>, choose rain, snow, embers, dust or thunderstorm. Adjust haze and vignette separately. Thunderstorm also has its own lightning interval and thunder volume.</li>
+</ol>
+<p>Use <strong>Restore stock menu</strong> to clear the title-screen changes and turn off its profile.</p>
+</div>
+<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/cs2/textures-and-sounds/"><span>Related guide</span><strong>Textures &amp; sounds</strong></a><a href="/guides/cs2/"><span>Browse topics →</span><strong>All Counter-Strike 2 guides</strong></a></nav>
+<footer class="wiki-footer">
+<span>Scooby Wiki · Guides &amp; support</span>
+<div>
+<a href="/">Main site</a>
+<a href="/docs/">Developer docs</a>
+<a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
+</div>
+</footer></main>
+
+</div>
+<dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
+<div class="search-dialog-top">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+<circle cx="10.5" cy="10.5" r="6.5">
+</circle>
+<path d="m16 16 4 4">
+</path>
+</svg>
+<label class="sr-only" for="guide-search">Search all guides</label>
+<input id="guide-search" type="search" placeholder="Search guides, games, or an error…" autocomplete="off">
+<button type="button" data-search-close="" aria-label="Close search">Esc</button>
+</div>
+<p id="search-status" role="status">Search setup instructions, troubleshooting, and account help.</p>
+<div id="guide-results" class="search-results">
+</div>
+<div class="search-hint">Type to search · Enter to open first result · Esc to close</div>
+</dialog>
+
+
+
+</body>
+</html>

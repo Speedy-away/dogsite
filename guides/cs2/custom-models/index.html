@@ -4,21 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>CS2 Custom Models: Install Folder, Players, Arms &amp; Weapons - Scooby Guide</title>
+<title>CS2 Custom Models: Repo, Library &amp; Model Swapping - Scooby Guide</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
 <link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
-<meta name="description" content="Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.">
+<meta name="description" content="Download CS2 models from Repo or import a package. Equip player, weapon and equipment models from Library and preview stock swaps in supported builds.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://scoobymenu.cc/guides/cs2/custom-models/">
-<meta property="og:title" content="CS2 Custom Models: Install Folder, Players, Arms &amp; Weapons - Scooby Guide">
-<meta property="og:description" content="Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.">
+<meta property="og:title" content="CS2 Custom Models: Repo, Library &amp; Model Swapping - Scooby Guide">
+<meta property="og:description" content="Download CS2 models from Repo or import a package. Equip player, weapon and equipment models from Library and preview stock swaps in supported builds.">
 <meta property="og:image" content="https://scoobymenu.cc/assets/images/social/wiki-game-cs2-v3.png">
 <meta property="og:site_name" content="Scooby Menu">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CS2 Custom Models: Install Folder, Players, Arms &amp; Weapons - Scooby Guide">
-<meta name="twitter:description" content="Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.">
+<meta name="twitter:title" content="CS2 Custom Models: Repo, Library &amp; Model Swapping - Scooby Guide">
+<meta name="twitter:description" content="Download CS2 models from Repo or import a package. Equip player, weapon and equipment models from Library and preview stock swaps in supported builds.">
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/wiki-game-cs2-v3.png">
-<meta name="keywords" content="Scooby Menu, CS2 custom models, game csgo folder, model installation path, custom agents, arms, hands, weapons, model preview">
+<meta name="keywords" content="Scooby Menu, CS2 custom models, game csgo folder, custom agents, weapon models, model preview, model Repo, model swapping">
 
 <!-- DNS Prefetch for external resources -->
 
@@ -51,9 +52,9 @@
       "@type": "WebPage",
       "@id": "https://scoobymenu.cc/guides/cs2/custom-models/#webpage",
       "url": "https://scoobymenu.cc/guides/cs2/custom-models/",
-      "name": "CS2 Custom Models: Install Folder, Players, Arms & Weapons - Scooby Guide",
-      "description": "Install custom CS2 model packages in the correct game folder. Set up CT/T agents, your own body and hands, weapon models, 3D previews and Refresh list.",
-      "keywords": "Scooby Menu, CS2 custom models, game csgo folder, model installation path, custom agents, arms, hands, weapons, model preview",
+      "name": "CS2 Custom Models: Repo, Library & Model Swapping - Scooby Guide",
+      "description": "Download CS2 models from Repo or import a package. Equip player, weapon and equipment models from Library and preview stock swaps in supported builds.",
+      "keywords": "Scooby Menu, CS2 custom models, game csgo folder, custom agents, weapon models, model preview, model Repo, model swapping",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://scoobymenu.cc/#website"
@@ -149,6 +150,8 @@
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
 <a href="/guides/cs2/custom-models/" class="sidebar-guide-link" aria-current="page" aria-label="Custom models"><span class="sidebar-link-label">Custom models</span></a>
+<a href="/guides/cs2/textures-and-sounds/" class="sidebar-guide-link" aria-label="Textures and sounds"><span class="sidebar-link-label">Textures &amp; sounds</span></a>
+<a href="/guides/cs2/camera-and-menu/" class="sidebar-guide-link" aria-label="Camera, scopes and main menu"><span class="sidebar-link-label">Camera, scopes &amp; menu</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
 <a href="/guides/cs2/cs2-updates/" class="sidebar-guide-link" aria-label="Feature troubleshooting (After game updates)"><span class="sidebar-link-label">Feature troubleshooting</span><span class="sidebar-link-note">After game updates</span></a>
@@ -168,84 +171,61 @@
 <main id="main-content" tabindex="-1">
 <div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/cs2/">Counter-Strike 2</a><span>/</span><span>Custom Models</span></div>
 <h1>Custom Models</h1>
-<p class="article-intro">Install CS2 model packages, preview them, and choose replacements for players, yourself, arms and weapons in Scooby CS2 v2.</p>
+<p class="article-intro">Install compatible CS2 models from Repo or import your own. Use Library to preview and equip them, or use Model swapping for built-in assets.</p>
 <div class="guide-card" id="custom-models">
-<h2 class="sr-only">CS2 Custom Models: Install Folder, Players, Arms and Weapons</h2>
+<h2 class="sr-only">CS2 Custom Models</h2>
 <nav class="guide-contents" aria-label="In this guide">
-<a href="#install-folder">Game folder</a><a href="#install-package">Install a package</a><a href="#browse-apply">Refresh &amp; preview</a><a href="#players">Players</a><a href="#self">Self &amp; arms</a><a href="#weapons">Weapons</a><a href="#reset">Reset</a><a href="#troubleshooting">Troubleshooting</a>
+<a href="#repo">Download from Repo</a><a href="#install-folder">Game folder</a><a href="#install-package">Import a package</a><a href="#browse-apply">Preview &amp; equip</a><a href="#players">Players</a><a href="#self">Self &amp; arms</a><a href="#weapons">Equipment</a><a href="#weapon-packages">Weapon packages</a><a href="#model-swapping">Model swapping</a><a href="#reset">Reset</a><a href="#troubleshooting">Troubleshooting</a>
 </nav>
-<h3 id="install-folder">Where do I put the model files?</h3>
-<p>Install the model package inside CS2's <strong>game\csgo</strong> folder. For the usual Windows Steam location, the full folder is:</p>
+<h3 id="repo">Download from Repo</h3>
+<ol class="help-steps">
+<li>Open <strong>Custom &gt; Repo</strong>. Search by name or filter by category. Development builds have a dedicated <strong>First-person arms</strong> category.</li>
+<li>Preview a package, choose <strong>Download</strong>, then confirm <strong>Download and install</strong>. Some local variants use <strong>Install</strong>.</li>
+<li>When installation finishes, choose <strong>Open in Models</strong>. For a multi-model package, use <strong>Choose model</strong> and <strong>Browse this model</strong> to open the exact variant in Library.</li>
+</ol>
+<p>The Repo catalog depends on your Scooby build. If the card still shows its earlier status after installation, select <strong>Refresh</strong>.</p>
+<p>In development builds, <strong>Library &gt; Random &gt; Download Random Models</strong> opens a review of compatible weapon and equipment packages. Check the selection, download size and disk estimate before queuing it. After installation, <strong>Random Models</strong> rerolls the saved pools.</p>
+<h3 id="install-folder">Find the CS2 game folder</h3>
+<p>In Steam, right-click Counter-Strike 2 and select <strong>Manage &gt; Browse local files</strong>. Open <code>game\csgo</code> from that folder. The default location is below.</p>
 <pre><code>C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\</code></pre>
-<p>If your Steam library is on another drive, use that library's <code>steamapps\common\Counter-Strike Global Offensive\game\csgo\</code> folder instead. CS2 still uses the <code>Counter-Strike Global Offensive</code> installation folder name.</p>
-<div class="requirements-box"><h4>Keep the package's folder structure</h4><p>Copy the package's contents into <code>game\csgo</code>, keeping its original paths. A folder such as <code>agents</code>, <code>models</code>, <code>weapons</code> or <code>materials</code> should sit directly inside <code>csgo</code>. The model and its materials, textures, animations and other dependencies need to stay together.</p></div>
-<p>Examples of final locations, depending on how the author packaged the model:</p>
-<pre><code>Counter-Strike Global Offensive\
-└─ game\
-   └─ csgo\
-      ├─ agents\models\author\character\character.vmdl_c
-      ├─ characters\models\author\character\character.vmdl_c
-      ├─ models\author\character\character.vmdl_c
-      ├─ weapons\author\ak47\weapon.vmdl_c
-      ├─ models\weapons\author\weapon.vmdl_c
-      ├─ phase2\weapons\author\weapon.vmdl_c
-      └─ materials\author\... </code></pre>
-<p>These are examples, not folders to rename your package into. Use the author's actual filenames and directories. Compiled files contain references to those paths.</p>
-<h3 id="install-package">Install the complete package</h3>
-<ol>
-<li><strong>Close CS2.</strong> Extract the downloaded package so you can see its files and folders.</li>
-<li><strong>Find the package's content folders.</strong> If the archive includes a <code>game\csgo</code> wrapper, open it and copy the folders inside it.</li>
-<li><strong>Copy those folders into your installed <code>game\csgo</code> folder.</strong> Merge matching folders and include all supplied dependencies. The result should be <code>game\csgo\models\...</code>, for example; an extra archive-name folder or a second <code>csgo</code> folder breaks resource paths.</li>
-<li><strong>Start CS2 and load Scooby.</strong> See <a href="/guides/cs2/cs2-inject/">How to Load Scooby in CS2</a> if you need the loading steps.</li>
-<li>Open <strong>Custom models</strong> in the sidebar, choose <strong>Players</strong>, <strong>Self</strong> or <strong>Weapon</strong>, and press <strong>Refresh list</strong>.</li>
+<p>Compiled models use <code>.vmdl_c</code> files. Keep the accompanying materials, textures and animations at their original paths.</p>
+<h3 id="install-package">Import a compiled package</h3>
+<ol class="help-steps">
+<li>Extract the archive and find the folder that contains the original resource trees, such as <code>characters\models</code>, <code>models\weapons</code> and <code>materials</code>.</li>
+<li>Open <strong>Custom &gt; Library</strong> and choose the matching category. Open its gear menu and choose <strong>Import folder</strong>, or <strong>Import weapon folder</strong> where shown.</li>
+<li>Select the extracted folder. Once the import finishes, open the model in Library. Use <strong>Sync</strong> to rescan installed packages after file changes.</li>
 </ol>
-<p>Use a CS2-compatible compiled Source 2 package with <code>.vmdl_c</code> model files. Source files such as <code>.vmdl</code> need to be compiled by the model author. Renaming a file's extension does not compile or convert it.</p>
-<p>Keeping a ZIP in Downloads or a model in Scooby's package library alone does not install its game resources. The complete package must exist at its expected paths below <code>game\csgo</code>.</p>
-<h3 id="browse-apply">Refresh the list, preview, then apply</h3>
-<ol>
-<li>Choose the target you want to change and use <strong>Search models...</strong> to find its package.</li>
-<li>Select a model in the list on the left. Scooby checks its dependencies in the background and shows its <strong>3D preview</strong> on the right when it is ready.</li>
-<li>Press <strong>Apply model</strong> to assign the selection. Browsing a model by itself does not apply it.</li>
+<p>For manual installation, close CS2 and copy the extracted resource trees into <code>game\csgo</code> at their original relative paths. If the archive has a <code>game\csgo</code> wrapper, copy the contents inside it. Restart CS2, load Scooby and rescan Library.</p>
+<h3 id="browse-apply">Preview and equip</h3>
+<p>Open <strong>Custom &gt; Library</strong>, select the model, check its preview and pick a target and scope. Click <strong>Equip model</strong> to save the assignment. Use <strong>Unequip model</strong> to clear the selected assignment.</p>
+<h3 id="players">Teammates, enemies and agents</h3>
+<p>Under <strong>Library &gt; Players</strong>, select <strong>Teammates</strong> or <strong>Enemies</strong> and a team, then equip the model. Use the gear menu for individual agent rules. In builds with model pools, use <strong>Add to pool</strong> and <strong>Remove from pool</strong> to manage variants for the selected group.</p>
+<h3 id="self">Your body and first-person arms</h3>
+<p>Under <strong>Library &gt; Self</strong>, choose CT or T. Set <strong>Self model</strong> in the gear menu to choose your body or <strong>First-person arms</strong>. A separate arms assignment takes priority over the matching arms supplied by a body package.</p>
+<h3 id="weapons">Weapons, knives and equipment</h3>
+<p>Open the appropriate Library category, choose the item and equip a compatible model. Keep its first-person and world resources together. In builds with weapon scopes, choose <strong>My weapons</strong>, <strong>Other players</strong> or <strong>Dropped items</strong>. Use <strong>Both</strong> when the team picker offers it and you want a held-item assignment for CT and T. Dropped-item assignments use their own scope.</p>
+<h3 id="weapon-packages">Import weapon packages with animations, sounds and icons</h3>
+<p>In development builds, use <strong>Library &gt; Weapons &gt; Import weapon folder</strong> with the complete extracted package. Keep its compiled model, animation and sound mapping files, WAVs and compiled <code>.vsvg_c</code> icon together. See <strong>Custom &gt; Guide &gt; Weapon packages</strong> for the in-game walkthrough.</p>
+<p>Compatible animation tracks apply to the actions supplied by the package. Sounds set explicitly in <strong>Custom &gt; Sounds</strong> take priority over package audio. A validated icon can appear in your weapon selection HUD and matching killfeed entries.</p>
+<h3 id="model-swapping">Swap built-in CS2 models</h3>
+<p>In development builds, select <strong>Custom &gt; Model swapping &gt; Open Model swapping</strong> or press <strong>F8</strong> to open the standalone window. Rebind the shortcut under <strong>Settings &gt; Hotkeys</strong>.</p>
+<ol class="help-steps">
+<li>In <strong>Set up swap</strong>, choose a <strong>Target</strong> and <strong>Replacement</strong>. Select <strong>Preview replacement</strong> to open the Preview tab, then use <strong>Show original</strong> to compare them.</li>
+<li>Choose <strong>Saved texture</strong> to see the target's assigned texture on the replacement, <strong>Stock materials</strong> for its original finish, or <strong>Try a texture</strong> to audition an image in the preview.</li>
+<li>Set <strong>Apply to</strong> for your held items, other players' items or dropped items. Player bodies have separate choices for your own model and other players' models. Choose <strong>Save swap</strong> to apply it.</li>
 </ol>
-<p><strong>Refresh list</strong> rescans the active category. The top <strong>Refresh</strong> button refreshes all model categories. Wait for background work to finish after adding or replacing files. Refresh discovers installed files; it does not download missing dependencies.</p>
-<p><strong>Default model</strong> previews the currently loaded model when your player is available. In the menu, the player preview can use your equipped agent. To remove an assignment, select <strong>Default model</strong> and press <strong>Apply model</strong>.</p>
-<h3 id="players">Players: global, CT/T and individual agents</h3>
-<p>The <strong>Players</strong> tab controls other players. Use the <strong>Team</strong> and <strong>Agent</strong> dropdowns to choose the scope before applying a model:</p>
+<p>In <strong>Saved swaps</strong>, use <strong>Restore original</strong> to turn the rule off. A matching Library assignment resumes if one exists. Use <strong>Enable swap</strong> to reapply the rule or <strong>Remove</strong> to delete it.</p>
+<h3 id="reset">Clear a Library assignment</h3>
+<p>Select the same category, model, team and scope and choose <strong>Unequip model</strong>. Check for a remaining team, agent or pool assignment if you still see a replacement.</p>
+<h3 id="troubleshooting">Troubleshoot models and previews</h3>
 <ul>
-<li><strong>Global:</strong> a fallback for CT and T players.</li>
-<li><strong>CT → All CT agents</strong> or <strong>T → All T agents:</strong> a fallback for that team.</li>
-<li><strong>CT or T → a named agent:</strong> a separate replacement for that original agent model.</li>
+<li><strong>Model missing.</strong> Verify the original folder paths and compiled files, choose the matching category and use <strong>Sync</strong> to rescan.</li>
+<li><strong>Needs attention.</strong> Hover over the Library tile or open its package details. Check for missing dependencies or incompatible assets. If the game rejects a newly installed resource, restart CS2 and try again.</li>
+<li><strong>Wrong model or hands.</strong> Check the selected scope, the explicit arms assignment and the package's first-person support. Compare with the original model to isolate a package issue.</li>
+<li><strong>Only one package has problems.</strong> Include its name, target, resource path and the exact package status when reporting it. If several features stopped after a patch, follow the <a href="/guides/cs2/cs2-updates/">CS2 troubleshooting guide</a>.</li>
 </ul>
-<p>The order is <strong>individual agent → team → global → original model</strong>. A more specific assignment takes priority. For example, set a global model, choose a different CT model, then give one CT agent its own replacement. Your own character is configured under <strong>Self</strong>.</p>
-<p>Applying Default to an individual agent removes that assignment, so its team or global fallback may still appear. To return everyone to their original models, clear the remaining team/global assignments too, or use <strong>Reset All</strong>.</p>
-<h3 id="self">Self: your body, arms and hands</h3>
-<p>Open <strong>Self</strong> and select <strong>Player body</strong> to change your own character. The body selection uses matching first-person arms and hands when the model includes an authored first-person mesh.</p>
-<p>Choose <strong>First-person arms</strong> to apply a separate arms model. That explicit selection takes priority over the body model's arms. Applying Default in the arms list clears the explicit choice and lets the body supply its matching arms when available.</p>
-<p>A body-only package cannot create matching hands automatically. If the body changes but the hands stay ordinary, check that the package includes first-person geometry or install the author's matching arms package.</p>
-<h3 id="weapons">Weapon: matching world and first-person models</h3>
-<p>Open <strong>Weapon</strong>, select a package made for the weapon you want to replace, and press <strong>Apply model</strong>. The replacement applies when you hold the matching weapon. An AK-47 package, for example, belongs to the AK-47.</p>
-<p>Keep the package's world and first-person resources together in their original locations. The <strong>First-person weapon</strong> option controls whether the replacement is also used for the weapon in your hands. An unrecognized weapon target or incomplete package can block Apply.</p>
-<h3 id="reset">Turn models off or clear assignments</h3>
-<ul>
-<li><strong>Custom models toggle:</strong> switch custom replacements off while keeping your selections.</li>
-<li><strong>Default model → Apply model:</strong> clear the selected target's assignment. Players can fall back to a team/global choice; arms can follow the Self body.</li>
-<li><strong>Reset All:</strong> clear custom-model assignments and turn the feature off. Installed package files remain on disk.</li>
-</ul>
-<h3 id="troubleshooting">Troubleshooting</h3>
-<h4>The model is missing from the list</h4>
-<p>Check the exact <code>game\csgo</code> folder and the package's original directory structure, then press <strong>Refresh list</strong>. Make sure the archive is extracted and contains compiled <code>.vmdl_c</code> files. Choose the correct tab: arms and weapons have their own lists. Player discovery filters unrelated map props. If the library reports a scan limit, reduce the installed collection while testing.</p>
-<h4>Package needs attention / Apply is unavailable</h4>
-<p>Wait if the preview says <strong>Checking package...</strong>. Otherwise click the package-details message below the preview to see which dependency is missing. Install the complete compatible bundle, restart CS2 and refresh the list. Old packages may reference animation graphs removed by a game update and need a new build from their author.</p>
-<h4>The preview is empty or the wrong model appears</h4>
-<p>Check the selected scope and the <strong>Assigned</strong> label. A preview selection becomes an assignment only after Apply. Default arms and weapon previews need a loaded local player and the corresponding model. A package with missing geometry, materials or animations needs corrected assets.</p>
-<h4>Hands, death poses or animations look wrong</h4>
-<p>Clear any separate arms override, check the package's first-person support, and compare with Default. If one custom package alone produces a broken death pose or animation, it may have incompatible skeleton, animation or physics data. Use a compatible version of that package and include its name and resource path when reporting the problem.</p>
-<h4>Frame rate drops with a model</h4>
-<p>Test one replacement at a time, then compare with Default in the same scene. Large textures, detailed meshes and bundled effects can add rendering cost. Close the preview when finished and refresh after file changes. Background scanning reduces menu stalls, but it does not make every custom asset inexpensive to render.</p>
-<h4>Models stopped applying after a CS2 update</h4>
-<p>Check <a href="/guides/cs2/cs2-updates/">Features Not Working After an Update</a> and use a Scooby build that matches the current game. For package-specific help, share the affected tab, package name, resource path and the exact <strong>Package details</strong> message with the <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Scooby community</a>.</p>
 </div>
-<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/cs2/cs2-inject/"><span>Related guide</span><strong>How to Load Scooby in CS2</strong></a><a href="/guides/cs2/"><span>Browse topics →</span><strong>All Counter-Strike 2 guides</strong></a></nav>
+<nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/cs2/cs2-inject/"><span>Related guide</span><strong>How to load Scooby in CS2</strong></a><a href="/guides/cs2/"><span>Browse topics →</span><strong>All Counter-Strike 2 guides</strong></a></nav>
 <footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
