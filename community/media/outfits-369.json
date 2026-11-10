@@ -1,0 +1,108 @@
+{
+	"format": "Cherax Entity",
+	"type": 2,
+	"model": 1885233650,
+	"baseFlags": 66855,
+	"components": {
+		"Head": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Beard": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Hair": {
+			"drawable": 50,
+			"texture": 0,
+			"palette": 0
+		},
+		"Torso": {
+			"drawable": 113,
+			"texture": 0,
+			"palette": 0
+		},
+		"Legs": {
+			"drawable": 59,
+			"texture": 8,
+			"palette": 0
+		},
+		"Hands": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Feet": {
+			"drawable": 6,
+			"texture": 0,
+			"palette": 0
+		},
+		"Teeth": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Special": {
+			"drawable": 58,
+			"texture": 0,
+			"palette": 0
+		},
+		"Special 2": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Decal": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Tuxedo/Jacket Bib": {
+			"drawable": 143,
+			"texture": 9,
+			"palette": 0
+		}
+	},
+	"props": {
+		"Head": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Eyes": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Ears": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Mouth": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Left Hand": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Right Hand": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Left Wrist": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Right Wrist": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Hip": {
+			"drawable": -1,
+			"texture": -1
+		}
+	},
+	"primary_hair_tint": 3,
+	"secondary_hair_tint": 4
+}

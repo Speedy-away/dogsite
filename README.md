@@ -32,3 +32,7 @@ More details: [development notes](project/DEV.md).
 ## Reseller page and media pack
 
 `/resellers/become/` contains the GBP bulk calculator for GTA 5 Premium (£15), GTA 5 Plus (£25), RDR2 (£10), FiveM (£15) and RedM (£25). The shared minimum is 10 keys. Discounts increase linearly from 25% at 10 keys to 40% at 50, then linearly to 65% at 1,000; larger orders keep 65%. Brazil's base prices are 20% lower before the bulk discount. Other countries use standard pricing. Selling-price presets add 10% or 25% to the selected market's base; custom prices are also available. Gross profit is sales revenue minus bulk cost, excluding fees and taxes. Orders are arranged on Discord or Telegram @whatwhatboy; payment is BTC/LTC only.
+
+## Community collection
+
+`/community/` contains the shared vehicle and outfit catalog, with responsive filtering, previews and downloads. Source indexes live in `community/data/`. Run `python tools/prepare-community-media.py` with Pillow installed and the sibling `INF_DATA` checkout available to regenerate optimized WebP thumbnails, original preset copies and the local asset manifests. These generated public files are required for deployment; the page does not depend on the unavailable upstream raw GitHub URLs.

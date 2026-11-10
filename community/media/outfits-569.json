@@ -1,0 +1,192 @@
+{
+	"format": "Cherax Entity",
+	"type": 2,
+	"model": 1885233650,
+	"baseFlags": 66863,
+	"components": {
+		"Head": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Beard": {
+			"drawable": 129,
+			"texture": 0,
+			"palette": 0
+		},
+		"Hair": {
+			"drawable": 38,
+			"texture": 0,
+			"palette": 0
+		},
+		"Torso": {
+			"drawable": 174,
+			"texture": 2,
+			"palette": 0
+		},
+		"Legs": {
+			"drawable": 30,
+			"texture": 0,
+			"palette": 0
+		},
+		"Hands": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Feet": {
+			"drawable": 67,
+			"texture": 17,
+			"palette": 0
+		},
+		"Teeth": {
+			"drawable": 125,
+			"texture": 0,
+			"palette": 0
+		},
+		"Special": {
+			"drawable": 151,
+			"texture": 0,
+			"palette": 0
+		},
+		"Special 2": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Decal": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Tuxedo/Jacket Bib": {
+			"drawable": 49,
+			"texture": 1,
+			"palette": 0
+		}
+	},
+	"props": {
+		"Head": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Eyes": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Ears": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Mouth": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Left Hand": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Right Hand": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Left Wrist": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Right Wrist": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Hip": {
+			"drawable": -1,
+			"texture": -1
+		}
+	},
+	"face_features": {
+		"Nose Width": 0.0,
+		"Nose Peak": 0.0,
+		"Nose Length": 0.0,
+		"Nose Bone Curveness": 0.0,
+		"Nose Tip": 0.0,
+		"Nose Bone Twist": 0.0,
+		"Eyebrow Height": 0.0,
+		"Eyebrow Indent": 0.0,
+		"Cheek Bones": 0.0,
+		"Cheek Sideways Bone Size": 0.0,
+		"Cheek Bones Width": 0.0,
+		"Eye Opening": 0.0,
+		"Lip Thickness": 0.0,
+		"Jaw Bone Width": 0.0,
+		"Jaw Bone Shape": 0.0,
+		"Chin Bone": 0.0,
+		"Chin Bone Length": 0.0,
+		"Chin Bone Shape": 0.0,
+		"Chin Hole": 0.0,
+		"Neck Thickness": 0.0
+	},
+	"primary_hair_tint": 255,
+	"secondary_hair_tint": 255,
+	"attachments": [
+		{
+			"data": {
+				"offset": {
+					"x": 0.07506716996431351,
+					"y": 0.055943626910448074,
+					"z": -0.006123503670096397
+				},
+				"parentOffset": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"quat": {
+					"x": -0.657819390296936,
+					"y": -0.0002875235804822296,
+					"z": -0.09309301525354385,
+					"w": 0.7474004030227661
+				},
+				"otherBone": 90,
+				"myBone": -1,
+				"flags": 4098
+			},
+			"entity": {
+				"format": "Cherax Entity",
+				"type": 3,
+				"model": 2402119385,
+				"baseFlags": 8455447,
+				"attachments": [
+					{
+						"data": {
+							"offset": {
+								"x": 0.0009089149534702301,
+								"y": 0.16279762983322144,
+								"z": -1.3304946477887825e-08
+							},
+							"parentOffset": {
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0
+							},
+							"quat": {
+								"x": 0.0,
+								"y": 0.0,
+								"z": 0.0,
+								"w": 1.0
+							},
+							"otherBone": 9,
+							"myBone": -1,
+							"flags": 4098
+						},
+						"entity": {
+							"format": "Cherax Entity",
+							"type": 3,
+							"model": 0,
+							"baseFlags": 0
+						}
+					}
+				]
+			}
+		}
+	]
+}

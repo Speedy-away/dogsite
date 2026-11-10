@@ -1,0 +1,130 @@
+{
+	"format": "Cherax Entity",
+	"type": 2,
+	"model": 1885233650,
+	"baseFlags": 66871,
+	"components": {
+		"Head": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Beard": {
+			"drawable": 115,
+			"texture": 14,
+			"palette": 0
+		},
+		"Hair": {
+			"drawable": 79,
+			"texture": 0,
+			"palette": 0
+		},
+		"Torso": {
+			"drawable": 33,
+			"texture": 0,
+			"palette": 0
+		},
+		"Legs": {
+			"drawable": 59,
+			"texture": 6,
+			"palette": 0
+		},
+		"Hands": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Feet": {
+			"drawable": 55,
+			"texture": 7,
+			"palette": 0
+		},
+		"Teeth": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Special": {
+			"drawable": 58,
+			"texture": 0,
+			"palette": 0
+		},
+		"Special 2": {
+			"drawable": 0,
+			"texture": 0,
+			"palette": 0
+		},
+		"Decal": {
+			"drawable": 45,
+			"texture": 0,
+			"palette": 0
+		},
+		"Tuxedo/Jacket Bib": {
+			"drawable": 126,
+			"texture": 7,
+			"palette": 0
+		}
+	},
+	"props": {
+		"Head": {
+			"drawable": 118,
+			"texture": 0
+		},
+		"Eyes": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Ears": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Mouth": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Left Hand": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Right Hand": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Left Wrist": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Right Wrist": {
+			"drawable": -1,
+			"texture": -1
+		},
+		"Hip": {
+			"drawable": -1,
+			"texture": -1
+		}
+	},
+	"face_features": {
+		"Nose Width": -0.26955485343933105,
+		"Nose Peak": 0.7091794013977051,
+		"Nose Length": 0.015574336051940918,
+		"Nose Bone Curveness": -0.14633387327194214,
+		"Nose Tip": 0.12525737285614014,
+		"Nose Bone Twist": -0.4790194034576416,
+		"Eyebrow Height": -0.74383544921875,
+		"Eyebrow Indent": -0.2561876177787781,
+		"Cheek Bones": -0.037697553634643555,
+		"Cheek Sideways Bone Size": -0.0022069811820983887,
+		"Cheek Bones Width": 0.44333088397979736,
+		"Eye Opening": 0.8042507171630859,
+		"Lip Thickness": -0.9869805574417114,
+		"Jaw Bone Width": -0.9379246234893799,
+		"Jaw Bone Shape": -0.9067902565002441,
+		"Chin Bone": 0.858554482460022,
+		"Chin Bone Length": -0.0022069811820983887,
+		"Chin Bone Shape": -0.01116037368774414,
+		"Chin Hole": 0.33177605271339417,
+		"Neck Thickness": 1.0
+	},
+	"primary_hair_tint": 0,
+	"secondary_hair_tint": 1
+}
