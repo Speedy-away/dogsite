@@ -84,7 +84,8 @@ async function main() {
   const browser = await chromium.launch({ channel: process.env.SOCIAL_CARD_BROWSER || 'msedge', headless: true });
   try {
     const page = await browser.newPage({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: 1 });
-    const selected = Object.values(cards).filter(card => !process.argv.includes('--wiki-only') || card.layout === 'wiki');
+    const selected = Object.values(cards).filter(card => (!process.argv.includes('--wiki-only') || card.layout === 'wiki') &&
+      (!process.argv.includes('--resources-only') || /^resources(?:-|$)/.test(card.id)));
     for (const card of selected) {
       await page.setContent(render(card));
       await page.evaluate(async () => {

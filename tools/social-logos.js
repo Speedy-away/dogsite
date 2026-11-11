@@ -33,11 +33,13 @@ const source = ['cs2','gmod','l4d','sbox','tf2','half-life-1','half-life-2','hal
 const collections = {
   home: all, store: all, free: all, compare: all, directory: all,
   guides: all, docs: all, features: all, videos: all,
+  resources: ['gta5', 'rdr2', 'cs2', 'fivem', 'redm', 'l4d'],
+  'resources-guides': ['gta5', 'rdr2', 'cs2', 'fivem', 'redm', 'l4d'],
   source, 'more-games': ['last-of-us','megabonk'],
 };
 function logosFor(card) {
-  if (card.id.startsWith('game-')) {
-    const logos = gameLogos[card.id.slice(5)];
+  if (card.game || card.id.startsWith('game-')) {
+    const logos = gameLogos[card.game || card.id.slice(5)];
     if (!logos) throw new Error('Missing game logo: ' + card.id);
     return logos;
   }

@@ -47,6 +47,42 @@ function hasType(node, type) {
   return Array.isArray(node['@type']) ? node['@type'].includes(type) : node['@type'] === type;
 }
 
+test('Resources shares game-specific previews and exposes RedM graphics search topics', () => {
+  const { cardFor } = require('./social-cards');
+  const taxonomy = require('../resources/taxonomy.js');
+  const files = ['resources/index.html', 'resources/guides/index.html',
+    ...GAMES.map(game => `resources/${game}/index.html`), 'resources/redm/graphics-packs/index.html'];
+  const images = files.map(file => {
+    const html = read(file), card = cardFor(file);
+    const [image] = metadata(html, 'og:image');
+    assert.equal(image, ORIGIN + card.path, file);
+    assert.equal(metadata(html, 'twitter:image')[0], image, file);
+    assert.equal(metadata(html, 'og:description')[0], metadata(html, 'description')[0], file);
+    const png = fs.readFileSync(path.join(ROOT, card.path));
+    assert.equal(png.readUInt32BE(16), 1200, file);
+    assert.equal(png.readUInt32BE(20), 630, file);
+    return image;
+  });
+  assert.equal(new Set(images).size, files.length);
+
+  const redm = files.at(-1);
+  const keywords = metadata(read(redm), 'keywords')[0];
+  assert.match(keywords, /RedM PvP packs/);
+  assert.match(keywords, /RedM RP packs/);
+  assert.match(keywords, /RedM cinematic packs/);
+  const queries = links(redm).filter(url => url.searchParams.get('category') === 'graphics-packs').map(url => url.searchParams.get('q'));
+  const { items } = require('./resource-pages.cjs').buildData();
+  const packs = items.filter(item => item.game === 'redm' && item.category === 'graphics-packs');
+  for (const topic of taxonomy.REDM_GRAPHICS_TOPICS) {
+    assert(queries.includes(topic.query), topic.name);
+    const matches = packs.filter(item => taxonomy.redmGraphicsTopics(item).includes(topic));
+    assert(matches.length > 0 && matches.length < packs.length, topic.name);
+    assert(matches.every(item => taxonomy.tagsFor(item).includes(topic.query)), topic.name);
+    assert.equal(taxonomy.redmGraphicsTopicForQuery(topic.query), topic);
+  }
+  assert.deepEqual(taxonomy.redmGraphicsTopics({ game: 'fivem', category: 'graphics-packs', tags: ['pvp packs'] }), []);
+});
+
 function expectedInventory() {
   const supplement = fs.existsSync(path.join(ROOT, 'community/data/menu-resources.json')) ? json('community/data/menu-resources.json') : {};
   const overrides = new Map((supplement.libraryOverrides || []).map(item => [item.id, item]));
@@ -165,16 +201,18 @@ test('resource pages have unique self-canonical metadata and explicit indexing w
 
 test('game and category links are crawlable and every resource page appears in both sitemaps', () => {
   const pages = inventory();
+  assert.doesNotMatch(markup('resources/index.html'), /Browse GTA 5 menu collections|class="menu-directory"/i);
   const rootLinks = links('resources/index.html').filter((url) => url.origin === ORIGIN).map((url) => url.pathname);
   const sitemap = read('sitemap.xml');
   const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   const directory = links('sitemap/index.html').map((url) => url.href);
   const rootKeywords = metadata(read('resources/index.html'), 'keywords')[0];
   for (const menu of ['cherax', 'stand']) {
+    const menuLinks = links(`resources/gta5/${menu}/index.html`);
     for (const [category, label] of [['lua', 'Lua scripts'], ['outfits', 'outfits'], ['vehicles', 'vehicles']]) {
       const phrase = `${menus.menuName(menu)} ${label}`;
       const route = `/resources/gta5/${menu}/${category}/`;
-      assert(rootLinks.includes(route), `Missing link for ${phrase}`);
+      assert(menuLinks.some((url) => url.href === ORIGIN + route), `Menu collection omits ${phrase}`);
       assert(rootKeywords.includes(phrase), `Missing root keyword for ${phrase}`);
       assert(metadata(read(route.slice(1) + 'index.html'), 'keywords')[0].includes(phrase), route);
     }

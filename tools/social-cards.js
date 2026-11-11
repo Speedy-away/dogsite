@@ -57,6 +57,23 @@ for (const [slug, [first, second, accent]] of Object.entries(games)) {
     subtitle: 'Explore the Scooby collection', detail: 'Product details, availability and related resources.', accent, icon: 'game' };
 }
 
+const resourceCovers = {
+  resources: [['Game mods', '& downloads'], 'GTA 5 · RDR2 · CS2 · FiveM · RedM · L4D'],
+  'resources-guides': [['Mod installation', 'guides'], 'Formats, compatibility and setup by game'],
+  'resources-gta5': [['GTA 5', 'Resources'], 'Vehicles, outfits, Menyoo maps and addons', 'gta5'],
+  'resources-rdr2': [['RDR2', 'Resources'], 'Outfits, addon peds and menu themes', 'rdr2'],
+  'resources-cs2': [['Counter-Strike 2', 'Resources'], 'Custom models, skyboxes and textures', 'cs2'],
+  'resources-fivem': [['FiveM', 'Resources'], 'Graphics packs, ReShade and textures', 'fivem'],
+  'resources-redm': [['RedM', 'Resources'], 'Graphics, weapon skins, audio and UI presets', 'redm'],
+  'resources-redm-graphics': [['RedM', 'Graphics packs'], 'PvP skies, RP presets and cinematic packs', 'redm'],
+  'resources-l4d': [['Left 4 Dead', 'Resources'], 'Campaigns, survivor models and sound packs', 'l4d']
+};
+for (const [id, [lines, subtitle, game]] of Object.entries(resourceCovers)) {
+  cards[id] = { id, label: 'SCOOBY RESOURCES', lines, subtitle, game,
+    detail: id === 'resources-guides' ? 'Installation steps for all six games.' : 'Browse the collection and installation guides.',
+    accent: game ? games[game][2] : '#cbb3ff', icon: 'download', version: 'v1' };
+}
+
 // Wiki previews have their own revision so other site embeds keep their assets.
 const wikiCard = (id, label, lines, subtitle, detail, visual, extra = {}) => ({
  id, label, lines, subtitle, detail, visual, layout:'wiki', version:GUIDE_VERSION,
@@ -102,8 +119,11 @@ function cardFor(file) {
     else if(group==='source-games')id='wiki-source';
     else id=wikiGames.includes(group)?'wiki-game-'+group:'guides';
   }
-  else if (file.startsWith('resources/guides/')) id = 'guides';
-  else if (file.startsWith('resources/') && games[file.split('/')[1]]) id = 'game-' + file.split('/')[1];
+  else if (file.startsWith('resources/')) {
+    const game = file.split('/')[1];
+    id = file.startsWith('resources/redm/graphics-packs/') ? 'resources-redm-graphics' :
+      Object.hasOwn(resourceCovers, 'resources-' + game) ? 'resources-' + game : 'resources';
+  }
   else if (/^(docs|api)\//.test(file)) id = 'docs';
   else if (/^(features-list|fivem-features|scooby-features)\//.test(file)) id = 'features';
   else if (file === 'products/free/index.html' || file === 'freekey.html') id = 'free';

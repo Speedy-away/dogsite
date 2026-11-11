@@ -37,7 +37,7 @@
     weapons: ['weapons', 'weapon models', 'weapon model', 'guns', 'gun'],
     'weapon-models': ['weapons', 'weapon models', 'weapon skins', 'gun skins', 'models', 'skins'],
     'sound-packs': ['sound packs', 'sounds', 'audio', 'weapon sounds', 'gun sounds'],
-    'graphics-packs': ['graphics packs', 'graphics', 'pvp graphics', 'rp graphics', 'cinematic'],
+    'graphics-packs': ['graphics packs', 'graphics', 'texture packs', 'visual presets'],
     'ui-presets': ['ui presets', 'ui boost', 'colors xml', 'colors.xml', 'color presets', 'weapon wheel', 'hud'],
     'visual-effects': ['visual effects', 'effects', 'tracers', 'tracer presets', 'bloodfx', 'blood effects'],
     scopes: ['scopes', 'scope', 'clean scope', 'scope textures'],
@@ -75,6 +75,21 @@
     textures: 'textures', paintjobs: 'paintjobs', liveries: 'liveries',
     wallpapers: 'wallpapers', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods'
   };
+  const REDM_GRAPHICS_TOPICS = [
+    { name: 'PvP graphics packs', query: 'pvp graphics packs', match: /\bpvp\b/, tags: ['PvP packs', 'PvP graphics packs'] },
+    { name: 'RP graphics packs', query: 'rp graphics packs', match: /\b(?:rp|roleplay)\b/, tags: ['RP packs', 'RP graphics packs', 'roleplay graphics packs'] },
+    { name: 'Cinematic packs', query: 'cinematic packs', match: /\bcinematic\b/, tags: ['Cinematic packs', 'cinematic graphics'] }
+  ];
+
+  function redmGraphicsTopics(item) {
+    if (item.game !== 'redm' || roleplayCategoryId(item.game, item.category) !== 'graphics-packs') return [];
+    const labels = values([item.name, item.tags, item.keywords]).map(normalizeTag);
+    return REDM_GRAPHICS_TOPICS.filter(topic => labels.some(label => topic.match.test(label)));
+  }
+
+  function redmGraphicsTopicForQuery(query) {
+    return REDM_GRAPHICS_TOPICS.find(topic => topic.tags.some(tag => normalizeTag(tag) === query));
+  }
 
   function menuTopic(menu, category) {
     const name = MENU_NAMES[normalizeTag(menu).replace(/\s/g, '')];
@@ -119,6 +134,7 @@
     }
     if (options.menu) add(options.menu);
     categories.forEach(add);
+    redmGraphicsTopics(item).forEach(topic => topic.tags.forEach(add));
     if (game === 'l4d') {
       if (item.edition === 'l4d1' || item.edition === 'both') ['l4d1', 'left 4 dead 1'].forEach(add);
       if (item.edition === 'l4d2' || item.edition === 'both') ['l4d2', 'left 4 dead 2'].forEach(add);
@@ -188,5 +204,5 @@
     ];
   }
 
-  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS });
+  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS });
 });

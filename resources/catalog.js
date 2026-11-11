@@ -792,6 +792,8 @@ function matchesFilters(entry) {
   if (state.ui && ![].concat(entry.uiStyle || []).some(ui => normalize(ui) === normalize(state.ui))) return false;
   if (state.style && ![].concat(entry.style || []).some(style => normalize(style) === normalize(state.style))) return false;
   if (!query) return true;
+  const graphicsTopic = state.game === 'redm' && taxonomy?.redmGraphicsTopicForQuery(query);
+  if (graphicsTopic) return taxonomy.redmGraphicsTopics(entry).includes(graphicsTopic);
   const text = resourceSearchText(entry);
   return query.split(/\s+/).every(word => text.includes(word));
 }

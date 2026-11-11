@@ -23,16 +23,6 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 
 .card[data-category=themes]{padding:18px;border:1px solid #282828;border-radius:8px;background:#101010}.card[data-category=themes] .info{padding:0}.info button.theme-details{background:transparent;border-color:#3a3a3a;color:#ccc}.info button.theme-details:hover{background:#242424;color:#fff}
 .info button.download-pending{max-width:100%;white-space:normal;line-height:1.5;text-align:left}
-.menu-directory {
-  margin: 0 40px;
-  padding: 24px 0 28px;
-  border-top: 1px solid var(--border);
-}
-.menu-directory h2 { margin: 0 0 12px; font-size: 16px; font-weight: 600; }
-.menu-directory > div { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 7px 0; }
-.menu-directory a { color: var(--text-dim); font-size: 12px; }
-.menu-directory .menu-directory-title { color: var(--text); font-weight: 600; }
-.menu-directory a:hover { color: var(--text); text-decoration: underline; }
 #gta-menu-dialog {
   --menu-accent: #cbb3ff;
   width: min(480px, calc(100vw - 24px));
@@ -150,9 +140,6 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 .gta-menu-remember input:focus-visible ~ .gta-menu-switch { outline: 2px solid #fff; outline-offset: 3px; }
 @media (prefers-reduced-transparency: reduce) {
   #gta-menu-dialog::backdrop { backdrop-filter: none; }
-}
-@media (max-width: 700px) {
-  .menu-directory { margin-inline: 22px; }
 }
 @media (min-width: 1180px) {
     :root { --maxw: 1380px; }

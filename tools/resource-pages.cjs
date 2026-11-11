@@ -7,7 +7,7 @@ const SITE = 'https://scoobymenu.cc';
 const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const menus = require('../resources/menus.js');
 const editions = require('../resources/editions.js');
-const { menuTopic, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS } = require('../resources/taxonomy.js');
+const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS } = require('../resources/taxonomy.js');
 const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'dlc'];
 const headAd = '<script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>';
 
@@ -16,12 +16,12 @@ function placeHeadAd(html) {
   return html.replace(headAd + '\n', '').replace('</head>', headAd + '\n</head>');
 }
 const GAMES = {
-  gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo/XML builds, outfits, addon vehicles and peds, maps, textures and Scooby appearance files. Check Legacy or Enhanced requirements before installing.' },
-  rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse player outfits, addons, ClickUI color presets, ListUI styles and language files for Scooby RDR2. Match each resource to its required model, format and loader.' },
-  cs2: { name: 'CS2', full: 'Counter-Strike 2', aliases: ['Counter Strike 2'], logo: '/portal/images/product-logos/cs2.png', intro: 'Search custom player, weapon, knife, throwable and bomb models, plus skyboxes, textures and Scooby profiles. Keep each model package and its materials together.' },
-  fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Browse FiveM graphics packs, ReShade presets, road and minimap textures, and Scooby language files. Check whether each release is installed on the client or streamed by the server.' },
-  redm: { name: 'RedM', full: 'RedM', aliases: ['Red Dead roleplay'], logo: '/assets/images/store/redm-logo.png', intro: 'Browse RedM weapon models and skins, sound packs, graphics, UI presets and client settings. Keep complete resource packages together and follow their installation requirements.' },
-  l4d: { name: 'L4D', full: 'Left 4 Dead', aliases: ['Left 4 Dead 2', 'L4D1', 'L4D2'], logo: '/assets/images/source-games/l4d-logo.png', intro: 'Find custom campaigns, survivor models, weapon skins, sounds, skyboxes and textures for Left 4 Dead and Left 4 Dead 2. Check each game badge before installing.' }
+  gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
+  rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse Red Dead Redemption 2 outfit presets, addon peds, ClickUI color presets, ListUI styles and Scooby translations.' },
+  cs2: { name: 'CS2', full: 'Counter-Strike 2', aliases: ['Counter Strike 2', 'CS2 custom model repo', 'Source 2 skyboxes'], logo: '/portal/images/product-logos/cs2.png', intro: 'Browse Counter-Strike 2 custom player, weapon, knife, grenade and C4 models, plus skyboxes, textures and Scooby configs.' },
+  fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay', 'FiveM texture packs'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Find FiveM graphics packs, ReShade presets, road and minimap textures, and Scooby language files for GTA roleplay.' },
+  redm: { name: 'RedM', full: 'RedM', aliases: ['Red Dead roleplay'], logo: '/assets/images/store/redm-logo.png', intro: 'Browse RedM PvP and RP graphics packs, cinematic sky packs, weapon skins, sound packs, Colors.xml presets, tracers and client settings.' },
+  l4d: { name: 'L4D', full: 'Left 4 Dead', aliases: ['Left 4 Dead 2', 'L4D1', 'L4D2', 'Left 4 Dead addons', 'L4D2 mods'], logo: '/assets/images/source-games/l4d-logo.png', intro: 'Find custom campaigns, survivor and infected models, weapon skins, sound packs, skyboxes and configs for Left 4 Dead 1 and 2.' }
 };
 const CATEGORIES = {
   vehicles: { name: 'Vehicles', words: ['saved vehicles', 'vehicle presets', 'Menyoo vehicles', 'XML vehicles'], description: 'Saved vehicle presets describe a vehicle, its customization and any attachments. Use a supported importer and install required model assets separately.' },
@@ -43,7 +43,7 @@ const CATEGORIES = {
   weapons: { name: 'Weapon models', words: ['custom weapons', 'gun models', 'weapon skins'], description: 'Find custom firearm and equipment models. Keep first-person, world, animation and material resources together and use a compatible target.' },
   'weapon-models': { name: 'Weapon models / skins', words: ['weapon skins', 'weapon models', 'RedM weapons', 'custom guns'], description: 'Browse RedM weapon model and skin packages. Keep model and texture files together and use the package’s stated game build and installation destination.' },
   'sound-packs': { name: 'Sound packs', words: ['weapon sounds', 'sound packs', 'audio replacements', 'RedM audio'], description: 'Browse weapon audio and sound packs. Preserve archive paths and match each pack to its intended RedM installation.' },
-  'graphics-packs': { name: 'Graphics packs', words: ['RedM graphics', 'PvP graphics', 'RP graphics', 'cinematic graphics'], description: 'Browse graphics packs and sky or visual presets. Use the included requirements and preserve the pack’s complete supporting files.' },
+  'graphics-packs': { name: 'Graphics packs', words: ['graphics packs', 'texture packs', 'visual presets'], description: 'Browse graphics packs and visual presets. Use the included requirements and preserve the pack’s complete supporting files.' },
   'ui-presets': { name: 'UI presets', words: ['colors.xml', 'color presets', 'weapon wheel', 'HUD presets', 'UI boost'], description: 'Browse RedM interface and color presets. Back up the current settings and install the complete XML or UI package using its supplied instructions.' },
   'visual-effects': { name: 'Visual effects', words: ['blood effects', 'tracer presets', 'bloodfx', 'RedM effects'], description: 'Browse tracer and blood-effect resources. Keep the supplied metadata and effect assets together and follow their stated installation paths.' },
   scopes: { name: 'Scopes', words: ['clean scope', 'scope textures', 'scope presets'], description: 'Browse scope appearance resources and their installation instructions. Check the supported weapon, game build and asset format.' },
@@ -103,7 +103,13 @@ const l4dCategories = {
   textures: { ...CATEGORIES.textures, description: 'Find Source materials for custom maps and texture replacements for existing game assets. Each listing includes its supported game and install method.' },
   configs: { ...CATEGORIES.configs, description: 'Browse game settings presets. Follow the instructions for the file format and game listed on each preset.' }
 };
-const categoryInfo = (game, category) => (game === 'l4d' ? l4dCategories[category] : undefined) || CATEGORIES[category];
+const graphicsCategories = {
+  gta5: { ...CATEGORIES['graphics-packs'], words: ['graphics mods', 'NaturalVision', 'visual overhauls'], description: 'Browse NaturalVision graphics mods and visual overhauls for GTA 5 Legacy and Enhanced. Check the author’s installation requirements for your edition.' },
+  fivem: { ...CATEGORIES['graphics-packs'], words: ['graphics packs', 'ReShade presets', 'road textures', 'minimap textures'], description: 'Browse FiveM ReShade presets, graphics packs, road textures and minimap replacements. Check whether each pack installs on the client or server.' },
+  redm: { ...CATEGORIES['graphics-packs'], words: ['PvP packs', 'PvP graphics packs', 'RP packs', 'roleplay graphics packs', 'cinematic packs', 'sky packs', 'custom sky textures'], description: 'Browse RedM PvP sky packs, RP graphics presets and cinematic packs. Compare skies, weather and lighting previews before installing.' }
+};
+const categoryInfo = (game, category) => (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
+  (game === 'l4d' ? l4dCategories[category] : undefined) || CATEGORIES[category];
 function buildData() {
   const library = read('community/data/library.json');
   const gtaEditionCatalog = read('community/data/gta5-editions.json');
@@ -161,26 +167,35 @@ function buildData() {
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
       const scopeName = `${config.name}${game === 'gta5' ? ' ' + menuName : ''}`;
-      const title = category ? `${scopeName} ${label}${pendingOnly ? ' — Coming Soon' : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — Coming Soon' : ' & Downloads'} — Scooby`;
-      const description = category ? pendingOnly
-        ? `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} listings. Downloads are coming soon; check the available descriptions, requirements and changelogs.`
-        : `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} resources. Check original file formats, package requirements and installation guidance${pendingCount ? '; some downloads are coming soon' : ''}.`
-        : gameItems.length ? `Browse ${scopeName} resources: ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}${categories.length > 4 ? ' and more' : ''}. Search listings, check download availability and original format requirements.` : `${config.name} resource installation and setup guides from Scooby. No downloads are published in this collection yet.`;
-      const wordsFor = id => id === 'graphics-packs' && game === 'fivem' ? ['FiveM graphics packs', 'ReShade presets', 'road textures', 'minimap textures'] :
-        game === 'gta5' && id === 'graphics-packs' ? ['GTA V graphics mods', 'NaturalVision', 'visual overhauls'] : categoryInfo(game, id).words;
-      const categoryWords = category ? wordsFor(category) : categories.flatMap(group => wordsFor(group.id).slice(0, 2));
+      const redmGraphics = game === 'redm' && category === 'graphics-packs';
+      const title = redmGraphics ? 'RedM Graphics Packs for PvP, RP & Cinematic Play | Scooby' :
+        category ? `${scopeName} ${label}${pendingOnly ? ' — Coming Soon' : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — Coming Soon' : ' & Downloads'} — Scooby`;
+      const wordsFor = id => categoryInfo(game, id).words;
+      const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
+        group.id === 'graphics-packs' && game === 'redm' ? group.words : group.words.slice(0, 2));
       const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style]).filter(Boolean))];
       const topics = game === 'gta5'
         ? (category ? [category] : categories.map(group => group.id)).map(id => menuTopic(menu, id)).filter(Boolean)
         : [];
-      const keywords = [...new Set(['Scooby resources', menuName, `${menuName} resources`, config.name, config.full, ...topics, ...config.aliases, ...categoryWords, ...interfaces])].join(', ');
+      const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
+      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, `${menuName} resources`, config.name, config.full, ...topics, ...config.aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
       const intro = scoobyThemes
         ? 'Browse native Scooby ClickUI colors and ListUI styles. Some Scooby-compatible presets look like other menus. Check the file requirements before installing.'
         : game === 'gta5' && menu === 'cherax' && category === 'themes'
           ? 'Browse original Cherax ClickGUI packages. Use the Cherax theme loader and keep the settings and artwork together.'
           : category ? categoryInfo(game, category).description.replace(/the selected menu/g, menuName).replace(/selected menu/g, menuName) : menu === 'scooby' ? config.intro : `Browse ${config.name} resources listed for ${menuName}. Check each resource’s original menu format, download availability and any required compatibility layer before installing.`;
+      const firstSentence = intro.split(/(?<=[.!?])\s/)[0];
+      const description = pendingOnly
+        ? `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} listings. Downloads are coming soon. Check requirements and changelogs.`
+        : redmGraphics ? intro
+        : category ? `${scopeName} resources. ${firstSentence}`
+        : !gameItems.length ? `${config.name} resource installation and setup guides from Scooby. No downloads are published in this collection yet.`
+        : menu === 'scooby' ? config.intro
+        : `Browse ${menuName} resources for GTA 5, including ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}. Check formats and install guides.`;
+      const graphicsTopics = game === 'redm' && (!category || redmGraphics)
+        ? REDM_GRAPHICS_TOPICS.filter(topic => subset.some(item => redmGraphicsTopics(item).includes(topic))) : [];
       pages.push({ file: route(game, category, menu).slice(1) + 'index.html', url: SITE + route(game, category, menu), game, menu, menuName, category, name: label, title, description, keywords,
-        itemCount: subset.length, pendingCount, gameItemCount: gameItems.length, categories, availableMenus, samples, intro, downloadBaseUrl: library.downloadBaseUrl });
+        itemCount: subset.length, pendingCount, gameItemCount: gameItems.length, categories, availableMenus, samples, intro, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
       };
       makePage();
       for (const category of categories) makePage(category.id);
@@ -260,6 +275,9 @@ function renderPage(page) {
   const sourceLink = source ? `<a class="menu-source-link" href="${escape(source.url)}">${escape(source.label)}</a>` : '';
   const clickUILink = page.game === 'gta5' && page.menu === 'scooby' && page.category === 'themes'
     ? ` <a class="resource-open" href="${escape(queryURL('gta5', 'themes') + '&ui=clickui')}">Browse Scooby ClickUI themes →</a>` : '';
+  const graphicsLinks = page.graphicsTopics?.length
+    ? `<nav class="resource-menus" aria-label="RedM graphics pack types">${page.graphicsTopics.map(topic =>
+      `<a href="${escape(queryURL('redm', 'graphics-packs', topic.query))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';
   const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/discover.js" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
 <link rel="stylesheet" href="/assets/css/ad-sidebar.css">
@@ -274,7 +292,7 @@ function renderPage(page) {
   <a class="ad-sponsor" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="sponsored nofollow noopener noreferrer">Sponsored offer ↗</a>
 </aside></div></main><footer><a href="/resources/">All resources</a><a href="/sitemap/">Site directory</a></footer></body></html>`;
   const dialog = '<dialog id="resource-changelog" aria-labelledby="resource-changelog-title"><button type="button" class="dialog-close" id="close-resource-changelog">Close ✕</button><h2 id="resource-changelog-title">Changelog</h2><div id="resource-changelog-content"></div></dialog>';
-  return placeHeadAd(require('./seo-metadata').applyMetadata(page.file, html.replace('</body>', dialog + '\n<script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>\n</body>')));
+  return placeHeadAd(require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>\n</body>')));
 }
 function build({ gta5Only = false } = {}) {
   const data = buildData();
@@ -319,17 +337,6 @@ function build({ gta5Only = false } = {}) {
   let rootHtml = fs.readFileSync(rootFile, 'utf8').replace(/<script\b[^>]*id="resource-collection-data"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   const rootUrl = SITE + '/resources/';
   const rootMeta = require('./seo-metadata').pages['resources/index.html'];
-  const menuGroups = gtaMenus.map(page => {
-    const links = featuredTopics.flatMap(category => {
-      const topicPage = data.pages.find(candidate => candidate.game === 'gta5' && candidate.menu === page.menu && candidate.category === category);
-      const topic = menuTopic(page.menu, category);
-      if (!topicPage || !topic) return [];
-      return [`<a href="${route('gta5', category, page.menu)}">${escape(topic)}</a>`];
-    });
-    return `<div><a class="menu-directory-title" href="${route('gta5', undefined, page.menu)}">${escape(page.menuName)} resources</a>${links.join('')}</div>`;
-  });
-  const menuDirectory = `<nav class="menu-directory" aria-label="GTA 5 menu collections"><h2>Browse GTA 5 menu collections</h2>${menuGroups.join('')}</nav>`;
-  rootHtml = rootHtml.replace(/<!-- menu-directory:start -->[\s\S]*?<!-- menu-directory:end -->\s*|(?=  <section class="note">)/, `<!-- menu-directory:start -->${menuDirectory}<!-- menu-directory:end -->\n`);
   const rootSchema = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'CollectionPage', '@id': rootUrl + '#collection', url: rootUrl, name: 'Scooby Resources', description: rootMeta.description, keywords: rootMeta.keywords, inLanguage: 'en', isPartOf: { '@id': SITE + '/#website' }, mainEntity: { '@id': rootUrl + '#games' } },
     { '@type': 'ItemList', '@id': rootUrl + '#games', name: 'Game resource collections', numberOfItems: Object.keys(GAMES).length, itemListElement: Object.entries(GAMES).map(([game, config], index) => ({ '@type': 'ListItem', position: index + 1, name: config.name, url: SITE + route(game) })) }
