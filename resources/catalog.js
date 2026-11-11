@@ -33,7 +33,10 @@ const menuSystem = globalThis.ScoobyMenus;
 const editions = globalThis.ScoobyEditions;
 const routes = globalThis.ScoobyResourceRoutes;
 const initialPath = location.pathname.replace(/\/index\.html$/, '/');
-const publishedRoutes = new Set([...document.querySelectorAll('#collection .games a[data-game]')].map(link => link.pathname));
+const publishedRoutes = new Set([...gameTabs].map(link => link.pathname));
+const gameIcons = new Map([...gameTabs].map(link => [link.dataset.game, link.querySelector('img')?.getAttribute('src')]));
+const tabIcon = document.querySelector('link[rel="icon"]');
+const defaultIcon = '/assets/images/brand/scooby-logo.png';
 if (initialPath !== routes.base) publishedRoutes.add(initialPath);
 let publishedGuides = {};
 const tagCache = new WeakMap();
@@ -110,11 +113,16 @@ function readState() {
   };
 }
 
-function updatePageTitle(url = new URL(location.href)) {
+function updatePageTab(url = new URL(location.href)) {
   const hub = url.pathname.replace(/\/index\.html$/, '/') === routes.base && !url.search;
   const category = state.category === 'all' ? 'Resources' : categoryLabel(state.game, state.category);
   const title = [GAMES[state.game].name, state.menu === 'scooby' ? '' : menuName(), category].filter(Boolean).join(' ');
   document.title = `${hub ? 'Resources' : title} — Scooby`;
+  const icon = (hub ? null : gameIcons.get(state.game)) || defaultIcon;
+  if (tabIcon && tabIcon.getAttribute('href') !== icon) {
+    tabIcon.removeAttribute('type');
+    tabIcon.href = icon;
+  }
 }
 
 function saveState(replace = false, hash = location.hash) {
@@ -124,7 +132,7 @@ function saveState(replace = false, hash = location.hash) {
   if (url.href !== location.href) history[replace ? 'replaceState' : 'pushState'](null, '', url);
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.href = new URL(url.pathname, canonical.href).href;
-  updatePageTitle(url);
+  updatePageTab(url);
 }
 
 async function json(url) {
@@ -1218,7 +1226,7 @@ window.addEventListener('popstate', () => {
     return;
   }
   state = nextState;
-  updatePageTitle();
+  updatePageTab();
   if (catalogReady) loadGame();
 });
 const mobileFilters = matchMedia('(max-width: 760px)');
@@ -1248,7 +1256,7 @@ if (initialPath === routes.base && !location.search && !location.hash && typeof 
 }
 
 (async () => {
-  updatePageTitle();
+  updatePageTab();
   setLoading(true);
   const libraryReady = loadLibrary();
   const [collections, guides] = await Promise.allSettled([json('/resources/routes.json'), json('/resources/guides/routes.json')]);

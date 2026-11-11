@@ -75,7 +75,7 @@ function renderGuide(page, guides, inventory, collectionRoutes) {
   return `${marker}
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title>
-<link rel="icon" href="/assets/images/brand/scooby-logo.png"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css"><link rel="stylesheet" href="/resources/discover.css"><link rel="stylesheet" href="/resources/guides/guides.css"><link rel="stylesheet" href="/assets/css/ad-sidebar.css">
+<link rel="icon" data-game-icon href="${escape(inventory.games[page.game].logo)}"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css"><link rel="stylesheet" href="/resources/discover.css"><link rel="stylesheet" href="/resources/guides/guides.css"><link rel="stylesheet" href="/assets/css/ad-sidebar.css">
 </head><body><a class="skip" href="#install">Skip to installation guides</a>
 <header><a class="scooby-brand" href="/"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a><nav aria-label="Main"><a href="/resources/">Resources</a><a href="${guideBase}">Install guides</a><a href="/store/">Store ↗</a></nav></header>
 <main id="install"><div class="page-heading"><h1>${escape(page.title)}</h1><a href="${escape(collection)}">Browse resources ↗</a></div>
