@@ -117,13 +117,15 @@ function expectedInventory() {
   }
   for (const kind of ['vehicles', 'outfits']) {
     const index = json(`community/data/${kind}/index.json`);
+    const assets = json(`community/data/${kind}/local-assets.json`);
     assert.equal(index.items.length, index.totalItems);
     index.items.forEach((entry, position) => {
       const id = `${kind}-${position}`;
-      items.set(id, { id, game: 'gta5', category: kind, format: index.formats?.[entry[5]], attachments: index.attachments?.[position] || 0, ...legacy.get(`${kind}:${position}`), id });
+      const formatExtension = menus.fileExtension({ formatPath: assets[position]?.file || entry[1] });
+      items.set(id, { id, game: 'gta5', category: kind, format: index.formats?.[entry[5]], attachments: index.attachments?.[position] || 0, ...legacy.get(`${kind}:${position}`), formatExtension, id });
     });
   }
-  const scopes = new Map(GAMES.map(game => [`${game}:scooby`, { game, menu: 'scooby', total: 0, categories: new Map(), items: [] }]));
+  const scopes = new Map(GAMES.map(game => [`${game}:scooby`, { game, menu: 'scooby', categories: new Set(), items: [] }]));
   for (const original of items.values()) {
     const item = original.game === 'gta5' && original.category === 'dlc'
       ? { ...original, category: original.sourceMenu === 'xforce' ? 'addon-vehicles' : 'addon-packs' }
@@ -132,12 +134,12 @@ function expectedInventory() {
     for (const menu of menus.menusFor(item.game).filter(menu => !menu.deferred)) {
       if (!menus.supports(item, menu.id)) continue;
       const key = `${item.game}:${menu.id}`;
-      if (!scopes.has(key)) scopes.set(key, { game: item.game, menu: menu.id, total: 0, categories: new Map(), items: [] });
+      if (!scopes.has(key)) scopes.set(key, { game: item.game, menu: menu.id, categories: new Set(), items: [] });
       const bucket = scopes.get(key);
-      bucket.total++; bucket.items.push(item);
+      bucket.items.push(item);
       const categories = [item.category, ...(item.categories || [])];
       if (item.category === 'vehicles' && item.attachments > 0) categories.push('modded');
-      for (const category of new Set(categories)) bucket.categories.set(category, (bucket.categories.get(category) || 0) + 1);
+      for (const category of categories) bucket.categories.add(category);
     }
   }
   return scopes;
@@ -160,10 +162,12 @@ test('resource routes cover actual menu-compatible collections without empty cat
     const category = page.category && page.category !== 'all' ? page.category : null;
     const bucket = expected.get(`${page.game}:${page.menu}`);
     assert(bucket, `Unexpected menu route: ${page.file}`);
-    const count = category ? bucket.categories.get(category) : bucket.total;
+    const listed = category ? bucket.items.filter(item => item.category === category || item.categories?.includes(category) || (category === 'modded' && item.category === 'vehicles' && item.attachments > 0)) : bucket.items;
+    const { nativeDefault } = menus.presetFormatScope(listed, page.menu);
+    const subset = nativeDefault ? listed.filter(item => !menus.alternatePreset(item, page.menu)) : listed;
+    const count = subset.length;
     assert.equal(page.itemCount, count, `Stale or invented resource count: ${page.file}`);
     if (category) assert(count > 0, `Empty category should not have an indexable page: ${page.file}`);
-    const subset = category ? bucket.items.filter(item => item.category === category || item.categories?.includes(category) || (category === 'modded' && item.category === 'vehicles' && item.attachments > 0)) : bucket.items;
     for (const item of page.samples) assert(subset.some(expected => expected.id === item.id), `Incompatible sample on ${page.file}: ${item.id}`);
     if (!subset.some(item => item.category === 'lua' || item.category === 'mod-menus')) assert(!/\blua\b/i.test([page.title, page.description, page.keywords].join(' ')), page.file);
     if (subset.length && subset.every(item => item.downloadStatus === 'pending' && !item.files?.length)) {

@@ -37,6 +37,82 @@
     canonical(entry.sourceMenu) === 'cherax' || entry.source === 'ModVerse public catalog' ||
     /^(?:menu-cherax-theme-|gta5-modverse-themes-)/.test(entry.id || '')
   );
+  const presetCategories = new Set(['vehicles', 'modded', 'outfits', 'maps']);
+  const presetLoaderMenus = new Set(['cherax', 'stand', 'xforce']);
+  const archives = new Set(['zip', 'rar', '7z', 'gz']);
+  const fileFormat = value => String(value || '').toLowerCase().match(/^\.?([a-z0-9_]{1,10})$/)?.[1] || '';
+  const pathFormat = value => String(value || '').split(/[?#]/)[0].toLowerCase()
+    .match(/\.(?:(zip|7z|rar)\.\d{3}|([a-z0-9_]{1,10}))$/)?.slice(1).find(Boolean) || '';
+  function fileExtension(file) {
+    const filenameFormat = pathFormat(file?.formatPath) || pathFormat(file?.name) || pathFormat(file?.path);
+    if (filenameFormat) return filenameFormat;
+    let url = file?.url;
+    try { url = decodeURIComponent(url); } catch { /* Keep the original path. */ }
+    return pathFormat(url);
+  }
+  function formatExtensions(entry) {
+    const formats = (entry.files || []).map(fileExtension).filter(Boolean);
+    const fallback = fileFormat(entry.formatExtension) || pathFormat(entry.sourceFilename) || (entry.builtInLua ? 'lua' : '');
+    return [...new Set(formats.length ? formats : fallback ? [fallback] : [])];
+  }
+  function presetLoader(entry, menu) {
+    if (entry.game !== 'gta5' || !presetCategories.has(entry.category) || !presetLoaderMenus.has(menu)) return '';
+    const formats = formatExtensions(entry);
+    const schema = entry.sourceFormat || entry.format || '';
+    const origin = canonical(entry.sourceMenu);
+    if (menu === 'xforce') {
+      const native = origin === 'xforce' && (
+        (/^X-Force vehicle INI\b/i.test(schema) && formats.includes('ini')) ||
+        (/^X-Force outfit JSON\b/i.test(schema) && formats.includes('json')) ||
+        (/^X-Force archive with .* (?:JSON|XFO) outfit preset/i.test(schema) && formats.some(ext => archives.has(ext)))
+      );
+      return native ? 'native' : 'importer';
+    }
+    if (menu === 'cherax') {
+      return origin === 'cherax' && formats.includes('json') && /^Cherax (?:vehicle|outfit) JSON\b/i.test(schema) ? 'native' : 'lua';
+    }
+    // Some archives are known to contain Stand TXT files. A TXT suffix alone
+    // can also hide INI data, so honor the inspected schema when available.
+    const standTxt = /^Stand (?:vehicle|outfit) TXT\b/i.test(schema);
+    const nativeTxt = formats.includes('txt') && (!entry.sourceFormat || standTxt);
+    return origin === 'stand' && entry.category !== 'maps' && (nativeTxt || (standTxt && formats.some(ext => archives.has(ext))))
+      ? 'native' : 'lua';
+  }
+  function alternatePreset(entry, menu) {
+    const loader = presetLoader(entry, menu);
+    return loader === 'lua' || loader === 'importer';
+  }
+  function presetLoaderNote(entry, menu) {
+    const loader = presetLoader(entry, menu);
+    if (loader === 'importer') return 'Check the importer for this format in your X-Force version.';
+    if (loader !== 'lua') return '';
+    const label = entry.requirementLabel || '';
+    if (menu === 'cherax' && /BiggerScript/i.test(label)) return 'Requires BiggerScript for Cherax (Lua)';
+    if (menu === 'stand' && /Constructor/i.test(label)) return 'Requires Constructor for Stand (Lua)';
+    if (menu === 'stand' && /Jackz|JSTAND/i.test(entry.sourceFormat || entry.format || '')) return 'Requires a compatible Jackz Builder / JSTAND Lua loader';
+    return `Requires a compatible ${menuName(menu)} Lua loader`;
+  }
+  function presetFormatScope(entries, menu) {
+    let hasLua = false, hasNative = false, hasAlternate = false;
+    if (presetLoaderMenus.has(menu)) for (const entry of entries) {
+      const loader = presetLoader(entry, menu);
+      hasLua ||= loader === 'lua';
+      hasNative ||= loader === 'native';
+      hasAlternate ||= loader === 'lua' || loader === 'importer';
+      if (hasAlternate && hasNative) break;
+    }
+    return { hasLua, hasAlternate, nativeDefault: hasAlternate && hasNative };
+  }
+  function presetFormatHint(menu, nativeDefault, category) {
+    if (menu === 'xforce') {
+      if (!nativeDefault) return 'Check the importer for these presets in your X-Force version.';
+      return 'X-Force presets are shown by default. Choose “All formats” to see the other presets.';
+    }
+    if (!nativeDefault) return `These presets require a compatible Lua loader for ${menuName(menu)}.`;
+    if (category === 'all') return 'Presets that need a Lua loader are hidden by default. Choose “Lua loader required” to see them.';
+    const native = menu === 'cherax' ? 'Cherax .json' : 'Stand .txt';
+    return `${native} presets are shown by default. Choose “Lua loader required” for other presets.`;
+  }
   const themeInterface = entry => entry?.uiStyle || (isCheraxTheme(entry) ? 'ClickGUI' : undefined);
   function menuIds(entry) {
     if (!entry || menusFor(entry.game).length === 1) return ['scooby'];
@@ -75,5 +151,5 @@
     }
     return result;
   }
-  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, supports, compatibleWith, isCheraxTheme, themeInterface, legacyOverrideMap };
+  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, supports, compatibleWith, isCheraxTheme, themeInterface, legacyOverrideMap, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
 });

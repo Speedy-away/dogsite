@@ -52,6 +52,7 @@ let nenyooCatalog = { items: [] };
 let libraryError = false;
 let entries = [];
 let menuCategoryCounts = new Map();
+let nativeFormatDefault = false;
 let revision = 0;
 let loadRevision = 0;
 let catalogReady = false;
@@ -109,6 +110,7 @@ function readState() {
     model: category === 'all' ? '' : query.get('model') || '',
     ui: themeFilters ? query.get('ui') || '' : '', style: themeFilters ? query.get('style') || '' : '',
     sort: ['name', 'attachments'].includes(query.get('sort')) ? query.get('sort') : '',
+    format: ['all-formats', 'lua-loader'].includes(query.get('format')) ? query.get('format') : menuSystem.fileFormat(query.get('format')),
     page: Math.max(1, Number.parseInt(query.get('page'), 10) || 1)
   };
 }
@@ -214,7 +216,9 @@ function link(text, href, external = false) {
 }
 
 function resourceURL(entry) {
-  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category }, publishedRoutes) + routes.resourceHash(entry.id);
+  const loader = menuSystem.presetLoader(entry, state.menu);
+  const format = loader === 'lua' ? 'lua-loader' : loader === 'importer' ? 'all-formats' : '';
+  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category, format }, publishedRoutes) + routes.resourceHash(entry.id);
 }
 
 function image(src, name, showUnavailable = false) {
@@ -272,7 +276,7 @@ async function loadLegacy(family) {
     id: `${family}-${index}`, game: 'gta5', category: family, name: row[0],
     model: data.models[row[3]], modelLabel: data.modelLabels?.[row[3]] || data.models[row[3]],
     attachments: data.attachments?.[index] || 0, preview: assets[index]?.preview,
-    formatExtension: fileExtension({ formatPath: assets[index]?.file || row[1] }),
+    formatExtension: menuSystem.fileExtension({ formatPath: assets[index]?.file || row[1] }),
     tags: [row[1], row[2], data.formats?.[row[5]] || ''],
     _legacy: { family, index, data, assets: assets[index], row }
   }));
@@ -338,7 +342,7 @@ function categoryButton(category, label = categoryLabel(state.game, category)) {
   button.dataset.category = category;
   button.setAttribute('aria-pressed', String(state.category === category));
   const menuChoice = hasMenuChoice(state.game);
-  const count = menuChoice && category !== 'all' ? menuCategoryCounts.get(category) || 0 : entries.filter(entry =>
+  const count = menuChoice ? menuCategoryCounts.get(category) || 0 : entries.filter(entry =>
     inCategory(entry, category) && (state.game !== 'l4d' || editions.matches(entry, state.edition))).length;
   button.href = routes.catalogURL({ game: state.game, menu: state.menu, category, edition: state.edition }, publishedRoutes);
   button.append(node('span', label), node('small', count.toLocaleString()));
@@ -363,6 +367,29 @@ function categoryButton(category, label = categoryLabel(state.game, category)) {
 function setSelect(id, value) {
   $(id).value = value;
   if ($(id).value !== value) { $(id).value = ''; state[id] = ''; }
+}
+
+function updateFormatFilter(selection) {
+  const { hasLua, hasAlternate, nativeDefault } = menuSystem.presetFormatScope(selection, state.menu);
+  nativeFormatDefault = nativeDefault;
+  const extensions = new Map();
+  for (const entry of selection) {
+    const lua = hasLua && menuSystem.presetLoader(entry, state.menu) === 'lua';
+    for (const ext of menuSystem.formatExtensions(entry)) extensions.set(ext, (extensions.get(ext) ?? true) && lua);
+  }
+  const defaultLabel = nativeDefault ? state.category === 'all' ? 'Native presets' : 'Native formats'
+    : hasLua ? 'Lua loader required' : 'All formats';
+  const options = [new Option(defaultLabel, '')];
+  if (nativeDefault) options.push(new Option('All formats', 'all-formats'));
+  if (nativeDefault && hasLua) options.push(new Option('Lua loader required', 'lua-loader'));
+  for (const ext of [...extensions.keys()].sort()) {
+    options.push(new Option(`.${ext}${extensions.get(ext) ? ' · Lua loader' : ''}`, ext));
+  }
+  $('format').replaceChildren(...options);
+  $('format-field').hidden = options.length === 1;
+  setSelect('format', state.format);
+  $('format-note').hidden = !hasAlternate;
+  $('format-note').textContent = hasAlternate ? menuSystem.presetFormatHint(state.menu, nativeDefault, state.category) : '';
 }
 
 function updateThemeFilters() {
@@ -447,9 +474,11 @@ function updateControls() {
     for (const category of list) group.append(categoryButton(category, roleplay ? taxonomy.roleplayCategoryLabel(state.game, category) : undefined));
     $('categories').append(group);
   }
+  const selection = selectedEntries();
+  updateFormatFilter(selection);
   const models = new Map();
   if (state.category !== 'all') {
-    for (const entry of selectedEntries()) {
+    for (const entry of selection) {
       const label = String(entry.modelLabel || entry.model || '').trim();
       if (entry.model && label && !/^(?:[+-]?\d+|0x[\da-f]+)$/i.test(label)) models.set(String(entry.model), label);
     }
@@ -507,7 +536,12 @@ async function loadGame() {
       return menuSystem?.isCheraxTheme(entry) ? { ...entry, uiStyle: menuSystem.themeInterface(entry) } : entry;
     });
     if (hasMenuChoice(game)) {
-      menuCategoryCounts = new Map(categories(game).map(id => [id, entries.filter(entry => inCategory(entry, id)).length]).filter(([, count]) => count));
+      menuCategoryCounts = new Map(['all', ...categories(game)].map(id => {
+        const selection = entries.filter(entry => inCategory(entry, id));
+        const { nativeDefault } = menuSystem.presetFormatScope(selection, state.menu);
+        const count = nativeDefault ? selection.filter(entry => !menuSystem.alternatePreset(entry, state.menu)).length : selection.length;
+        return [id, count];
+      }).filter(([, count]) => count));
       if (state.category !== 'all' && !menuCategoryCounts.has(state.category)) {
         state.category = 'all';
         state.page = 1;
@@ -562,21 +596,8 @@ function matchingFilename(name, actualPath) {
   return filename + actualSuffix;
 }
 
-function fileExtension(file) {
-  if (!file) return '';
-  let urlPath = '';
-  try { urlPath = decodeURIComponent(new URL(file.url).pathname); } catch { /* Use the supplied file name or path. */ }
-  for (const value of [file.formatPath, file.name, file.path, urlPath]) {
-    if (typeof value !== 'string') continue;
-    const split = value.match(/\.(zip|7z|rar)\.\d{3}$/i);
-    if (split) return split[1].toLowerCase();
-    const extension = value.match(/\.([a-z0-9_]{1,10})$/i);
-    if (extension) return extension[1].toLowerCase();
-  }
-  return '';
-}
-
 function resourceTitle(name, files, knownExtension = '') {
+  const { fileExtension } = menuSystem;
   const archives = new Set(['zip', '7z', 'rar', 'gz']);
   const primary = files.find(file => archives.has(fileExtension(file))) || files[0];
   const extension = fileExtension(primary) || knownExtension;
@@ -599,7 +620,7 @@ function downloadButton(file, container) {
   let error;
   button.onclick = async () => {
     const directURL = new URL(file.url);
-    const archive = ['zip', 'rar', '7z', 'gz'].includes(fileExtension(file));
+    const archive = ['zip', 'rar', '7z', 'gz'].includes(menuSystem.fileExtension(file));
     const storedFile = directURL.origin === location.origin || directURL.hostname === 'raw.githubusercontent.com';
     const largeArchive = archive && storedFile && Number(file.size) >= 50 * 1024 * 1024;
     const directArchive = archive && file.downloadMethod === 'direct';
@@ -845,6 +866,8 @@ function showDetails(entry, files) {
   if (ACCESS_LABELS[entry.access]) details.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
   if (entry.description) details.append(node('p', visibleText(entry, entry.description)));
   if (entry.compatibility) details.append(node('p', visibleText(entry, entry.compatibility)));
+  const loaderNote = menuSystem.presetLoaderNote(entry, state.menu);
+  if (loaderNote) details.append(node('p', loaderNote, 'compatibility-note'));
   const edition = editions.support(entry);
   const install = safeURL(entry.installUrl);
   if (edition) {
@@ -922,7 +945,7 @@ async function card(entry) {
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
-  const knownExtension = entry.builtInLua ? '.lua' : pendingDownload(entry) && pendingExtension === normalize(entry.formatExtension) ? pendingExtension : '';
+  const knownExtension = entry.builtInLua ? 'lua' : pendingDownload(entry) && pendingExtension === normalize(entry.formatExtension) ? pendingExtension : '';
   const title = resourceTitle(visibleText(entry, entry.name), files, knownExtension);
   title.title = title.textContent;
   const name = title.firstElementChild;
@@ -949,6 +972,8 @@ async function card(entry) {
     info.append(node('p', visibleText(entry, entry.requirementLabel || `Requires ${menuName(sourceMenu)} format`), 'compatibility-note'));
   }
   if (entry.description) info.append(node('p', visibleText(entry, entry.description), 'description'));
+  const loaderNote = menuSystem.presetLoaderNote(entry, state.menu);
+  if (loaderNote) info.append(node('p', loaderNote, 'compatibility-note'));
   if (entry.requirementLabel && (sourceMenu === 'nenyoo' && entry.category === 'lua' || isFiveMRecipe(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
     info.append(node('p', entry.requirementLabel, 'compatibility-note'));
   }
@@ -1014,6 +1039,9 @@ async function card(entry) {
 
 function matchesFilters(entry) {
   if (!editions.matches(entry, state.edition)) return false;
+  if (!state.format && nativeFormatDefault && menuSystem.alternatePreset(entry, state.menu)) return false;
+  if (state.format === 'lua-loader' && menuSystem.presetLoader(entry, state.menu) !== 'lua') return false;
+  if (state.format && !['all-formats', 'lua-loader'].includes(state.format) && !menuSystem.formatExtensions(entry).includes(state.format)) return false;
   const query = normalizeSearch(state.q);
   if (state.model && String(entry.model) !== state.model) return false;
   if (state.ui && ![].concat(entry.uiStyle || []).some(ui => normalize(ui) === normalize(state.ui))) return false;
@@ -1027,7 +1055,7 @@ function matchesFilters(entry) {
 
 function emptyState() {
   const empty = node('div', null, 'empty');
-  const activeFilters = state.edition || state.q || state.model || state.ui || state.style;
+  const activeFilters = state.edition || state.q || state.model || state.ui || state.style || state.format;
   const category = LABELS[state.category] || 'Files';
   if (menuSystem?.MENUS.find(menu => menu.id === state.menu)?.deferred) {
     empty.append(node('h3', `${menuName()} resources are coming soon.`), node('p', 'This menu’s collection is not available yet. Choose another menu to browse resources.'));
@@ -1078,7 +1106,7 @@ async function render() {
 
 function resetFilters() {
   clearTimeout(inputTimer);
-  state = { ...state, edition: '', q: '', model: '', ui: '', style: '', sort: '', page: 1 };
+  state = { ...state, edition: '', q: '', model: '', ui: '', style: '', sort: '', format: '', page: 1 };
   updateControls();
   saveState();
   render();
@@ -1117,7 +1145,7 @@ function selectResourceGame(game, menu = 'scooby') {
   const sameGame = game === state.game;
   state = {
     game, menu: selectedMenu, category: sameGame || (selectedMenu === 'nenyoo' && nenyooLuaGame(game)) ? state.category : 'all',
-    edition: sameGame ? state.edition : '', q: '', model: '', ui: '', style: '',
+    edition: sameGame ? state.edition : '', q: '', model: '', ui: '', style: '', format: '',
     sort: sameGame ? state.sort : '', page: 1
   };
   saveState();
@@ -1183,7 +1211,7 @@ $('search').oninput = () => {
   clearTimeout(inputTimer);
   inputTimer = setTimeout(() => { saveState(true); render(); }, 150);
 };
-for (const id of ['model', 'ui', 'style', 'sort']) $(id).onchange = () => {
+for (const id of ['model', 'ui', 'style', 'sort', 'format']) $(id).onchange = () => {
   state[id] = $(id).value;
   state.page = 1;
   if (id === 'ui') updateThemeFilters();

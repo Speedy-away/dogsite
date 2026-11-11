@@ -12,8 +12,8 @@
 <link rel="canonical" href="https://scoobymenu.cc/resources/">
 <meta name="theme-color" content="#101112">
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
-<link rel="stylesheet" href="./catalog.css">
-<script src="/resources/taxonomy.js" defer></script><script src="/resources/menus.js" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js" defer></script><script src="/resources/catalog.js?v=game-icons" defer></script>
+<link rel="stylesheet" href="./catalog.css?v=format-filter">
+<script src="/resources/taxonomy.js" defer></script><script src="/resources/menus.js?v=format-filter" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js?v=format-filter" defer></script><script src="/resources/catalog.js?v=format-filter" defer></script>
 <meta name="keywords" content="Scooby Menu, resources, community downloads, GTA 5 mods, GTA V vehicles, modded vehicles, Menyoo XML vehicles, addon vehicles, addon peds, map mods, RDR2 outfits, CS2 player models, CS2 knife models, CS2 skyboxes, FiveM graphics packs, FiveM ReShade, RedM PvP packs, RedM RP packs, RedM weapon skins, RedM sound packs, RedM Colors.xml presets, L4D2 mods, Left 4 Dead custom campaigns, textures, paintjobs, ASI mods, .NET mods, ClickUI themes, ListUI styles, Stand themes, 2Take1 style, Impulse style, Silkroad themes, Ozark themes, X-Force style, configs, translations, Scooby resources, Nenyoo resources, Cherax resources, Stand resources, X-Force resources, YimMenu resources, Nenyoo vehicles, Nenyoo outfits, Nenyoo addon packs, Nenyoo maps, Nenyoo themes, Nenyoo Lua scripts, Nenyoo translations, Cherax vehicles, Cherax outfits, Cherax addon packs, Cherax maps, Cherax themes, Cherax Lua scripts, Stand vehicles, Stand outfits, Stand addon packs, Stand maps, Stand configs, Stand Lua scripts, X-Force vehicles, X-Force outfits, X-Force maps, X-Force themes, X-Force configs, X-Force Lua scripts, X-Force translations, YimMenu Lua scripts">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="Game Mods, Addons &amp; Downloads — Scooby Resources">
@@ -73,11 +73,15 @@
     <a id="menu-source" class="menu-source-link" hidden></a>
     </aside>
     <div class="collection-results">
-    <form id="search-controls" class="result-tools" aria-label="Search and sort resources">
+    <form id="search-controls" class="result-tools" aria-label="Search, sort and filter resources">
       <label class="search">Search<input id="search" type="search" placeholder="Search names, models or tags…" autocomplete="off"></label>
-      <label>Sort<select id="sort"><option value="">Previews first</option><option value="name">Name A–Z</option><option value="attachments">Most attachments</option></select></label>
+      <div class="result-selects">
+        <label>Sort<select id="sort"><option value="">Previews first</option><option value="name">Name A–Z</option><option value="attachments">Most attachments</option></select></label>
+        <label id="format-field" hidden>Format<select id="format" aria-describedby="format-note"><option value="">All formats</option></select></label>
+      </div>
       <button type="reset">Reset filters</button>
     </form>
+    <p id="format-note" class="category-note" hidden></p>
     <div id="catalog-warning" class="catalog-warning" hidden></div>
     <p id="status" role="status" aria-live="polite">Loading collection…</p>
     <div id="grid" aria-busy="true"></div>

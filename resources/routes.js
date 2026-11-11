@@ -23,7 +23,7 @@
       if (menu !== 'scooby') query.set('menu', menu);
     }
     if (pathname !== categoryPath && category && category !== 'all') query.set('category', category);
-    for (const key of ['edition', 'q', 'model', 'ui', 'style', 'sort']) {
+    for (const key of ['edition', 'q', 'model', 'ui', 'style', 'sort', 'format']) {
       if (filters[key]) query.set(key, filters[key]);
     }
     if (page > 1) query.set('page', page);

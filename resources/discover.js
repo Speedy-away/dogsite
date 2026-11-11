@@ -116,7 +116,9 @@ async function mountCatalog() {
   if (!main || dialogs.length !== 3 || !catalogSource) return;
   main.id = directory.id;
 
-  await Promise.all(['taxonomy', 'menus', 'editions', 'routes'].map(name => loadCatalogScript(`/resources/${name}.js`)));
+  const dependencies = ['taxonomy', 'menus', 'editions', 'routes'].map(name =>
+    shell.querySelector(`head script[src^="/resources/${name}.js"]`)?.getAttribute('src') || `/resources/${name}.js`);
+  await Promise.all(dependencies.map(loadCatalogScript));
   const ad = directory.querySelector('.ad-sidebar');
   const adPosition = document.createComment('advertisement');
   if (ad) {
