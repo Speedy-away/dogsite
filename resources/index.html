@@ -97,10 +97,16 @@
 <footer><a href="/">Scooby / Home</a><a href="/guides/">All setup guides ↗</a><span>Not affiliated with the game publishers.</span></footer>
 <dialog id="gta-menu-dialog" aria-labelledby="gta-menu-title">
   <form method="dialog">
-    <button class="dialog-close" value="cancel" type="submit" aria-label="Close menu picker">Close ×</button>
-    <h2 id="gta-menu-title">Which GTA 5 mod menu do you use?</h2>
+    <div class="gta-menu-heading">
+      <h2 id="gta-menu-title">Choose your GTA 5 menu</h2>
+      <button class="gta-menu-close" value="cancel" type="submit" aria-label="Close menu picker"><span aria-hidden="true">×</span></button>
+    </div>
     <div id="gta-menu-options"></div>
-    <label class="gta-menu-remember"><input id="gta-menu-remember" type="checkbox"> Don’t show again</label>
+    <label class="gta-menu-remember">
+      <input id="gta-menu-remember" type="checkbox" role="switch">
+      <span>Don’t show again</span>
+      <span class="gta-menu-switch" aria-hidden="true"></span>
+    </label>
   </form>
 </dialog>
 <dialog id="preview" aria-labelledby="preview-title"><button type="button" id="close">Close ✕</button><h2 id="preview-title"></h2><div id="pictures"></div><div id="preview-details"></div></dialog>

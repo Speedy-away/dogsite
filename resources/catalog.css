@@ -33,33 +33,124 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 .menu-directory a { color: var(--text-dim); font-size: 12px; }
 .menu-directory .menu-directory-title { color: var(--text); font-weight: 600; }
 .menu-directory a:hover { color: var(--text); text-decoration: underline; }
-#gta-menu-dialog { width: min(440px, calc(100vw - 28px)); }
+#gta-menu-dialog {
+  --menu-accent: #cbb3ff;
+  width: min(480px, calc(100vw - 24px));
+  padding: clamp(16px, 5vw, 26px);
+  border-color: #39363e;
+  border-radius: 16px;
+  background: #141315;
+  box-shadow: 0 24px 76px #0009;
+  color-scheme: dark;
+}
+#gta-menu-dialog::backdrop { background: #050406b8; backdrop-filter: blur(5px); }
 #gta-menu-dialog form { display: block; }
-#gta-menu-title { margin: 3px 76px 20px 0; font-size: 20px; line-height: 1.3; font-weight: 600; }
-#gta-menu-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.gta-menu-choice { min-height: 45px; padding: 10px; }
+.gta-menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+#gta-menu-title { margin: 0; font-size: clamp(19px, 5.5vw, 24px); line-height: 1.15; font-weight: 650; letter-spacing: -.035em; }
+.gta-menu-close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  padding: 0;
+  border-color: transparent;
+  color: #b9b4be;
+  font-size: 24px;
+  line-height: 1;
+}
+#gta-menu-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.gta-menu-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 10px 14px;
+  background: #1b1a1d;
+  border-color: #343136;
+  text-align: left;
+  font-weight: 550;
+}
+.gta-menu-choice:enabled:hover { background: #252327; border-color: #655d6b; }
+.gta-menu-choice:enabled::after {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-left: auto;
+  border: solid currentColor;
+  border-width: 1px 1px 0 0;
+  transform: rotate(45deg);
+  opacity: .65;
+}
 .gta-menu-primary {
   grid-column: 1 / -1;
-  min-height: 60px;
-  color: #171025;
-  background: #cbb3ff;
-  border-color: #cbb3ff;
-  font-size: 18px;
+  min-height: 76px;
+  padding-inline: 16px;
+  color: #f2e8ff;
+  background: #302341;
+  border-color: #8c70ac;
+  font-size: 21px;
   font-weight: 700;
 }
-.gta-menu-primary:hover { background: #dbcaff; }
+.gta-menu-primary::before {
+  content: "";
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #4b3662 url('/assets/images/brand/scooby-mark.svg') center / 30px no-repeat;
+}
+.gta-menu-primary:enabled:hover { background: #3a2b4e; border-color: var(--menu-accent); }
+.gta-menu-choice:disabled {
+  grid-column: 1 / -1;
+  background: transparent;
+  border-color: transparent;
+  min-height: 38px;
+  color: #aaa3af;
+  opacity: 1;
+  font-size: 12px;
+}
 #gta-menu-dialog .gta-menu-remember {
   display: flex;
   align-items: center;
-  gap: 9px;
-  margin-top: 18px;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid #343136;
   color: var(--text);
   text-transform: none;
   letter-spacing: normal;
   font-size: 13px;
   cursor: pointer;
 }
-.gta-menu-remember input { width: 16px; height: 16px; margin: 0; accent-color: #cbb3ff; }
+.gta-menu-remember input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.gta-menu-switch {
+  display: flex;
+  align-items: center;
+  flex: none;
+  width: 40px;
+  height: 23px;
+  padding: 3px;
+  border: 1px solid #766f7d;
+  border-radius: 20px;
+  background: #2b282d;
+}
+.gta-menu-switch::before { content: ""; width: 15px; height: 15px; border-radius: 50%; background: #d4cdd9; }
+.gta-menu-remember input:checked ~ .gta-menu-switch { justify-content: flex-end; border-color: var(--menu-accent); background: var(--menu-accent); }
+.gta-menu-remember input:checked ~ .gta-menu-switch::before { background: #2d2039; }
+.gta-menu-remember input:focus-visible ~ .gta-menu-switch { outline: 2px solid #fff; outline-offset: 3px; }
+@media (prefers-reduced-transparency: reduce) {
+  #gta-menu-dialog::backdrop { backdrop-filter: none; }
+}
 @media (max-width: 700px) {
   .menu-directory { margin-inline: 22px; }
 }
