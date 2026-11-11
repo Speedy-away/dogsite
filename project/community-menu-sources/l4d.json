@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "game": "l4d",
+  "summary": {
+    "resourceItems": 16,
+    "l4d1": 8,
+    "l4d2": 8,
+    "sourcePages": [
+      "GameMaps",
+      "Steam Workshop"
+    ]
+  },
+  "items": [
+    {
+      "id": "l4d-l4d1-i-hate-mountains",
+      "game": "l4d",
+      "category": "maps",
+      "name": "I Hate Mountains",
+      "description": "Five chapters through a mountain forest, a manor and an underground complex, ending with a lakeside rescue.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "IHM Team",
+      "sourceUrl": "https://www.gamemaps.com/details/2595",
+      "tags": [
+        "campaign",
+        "co-op",
+        "forest"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-dark-carnival-remix",
+      "game": "l4d",
+      "category": "maps",
+      "name": "Dark Carnival: Remix",
+      "description": "A redesign of Whispering Oaks with new routes, restored carnival attractions and a reworked concert finale.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "NF, Daroot Leafstorm, Roku, Azuki and contributors",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=1575673903",
+      "preview": "https://images.steamusercontent.com/ugc/951845216965495851/A31C2EDCD55BE597726AC27CC16F27D4947DCA8A/?ima=fit&imcolor=%23000000&imh=65&impolicy=Letterbox&imw=116&letterbox=true",
+      "previewVerified": true,
+      "tags": [
+        "campaign",
+        "co-op",
+        "versus"
+      ],
+      "compatibility": "The author advises disabling population or navigation mods if players spawn outside chapter two."
+    },
+    {
+      "id": "l4d-l4d1-trs-survivors-2007",
+      "game": "l4d",
+      "category": "players",
+      "name": "TRS Survivors 2007",
+      "description": "Restores a development-era look for the four original survivors with updated textures, first-person arms and interface art.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Oxxy, Splinks and L4D0. L4D1 port by francisyelimsurycfor.",
+      "sourceUrl": "https://www.gamemaps.com/details/34485",
+      "tags": [
+        "survivors",
+        "beta",
+        "turtle rock"
+      ],
+      "compatibility": "Follow the port’s installation directions on GameMaps."
+    },
+    {
+      "id": "l4d-l4d2-lima-infection-survivors",
+      "game": "l4d",
+      "category": "players",
+      "name": "Lima Infection: Survivors",
+      "description": "Four Peruvian survivor models with their own first-person arms and HUD portraits.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Amauta Collective",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2238179972",
+      "tags": [
+        "survivors",
+        "models",
+        "lima infection"
+      ]
+    },
+    {
+      "id": "l4d-l4d1-m4a1-flashback",
+      "game": "l4d",
+      "category": "weapons",
+      "name": "CS:GO M4A1-S: Flashback",
+      "description": "Replaces the M16 with the Flashback version of the M4A1-S from Counter-Strike: Global Offensive.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "PrideBFG and Twilight Sparkle",
+      "sourceUrl": "https://www.gamemaps.com/details/28470",
+      "tags": [
+        "m16",
+        "rifle",
+        "csgo",
+        "weapon skin"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-mw2019-pump-shotgun",
+      "game": "l4d",
+      "category": "weapons",
+      "name": "MW2019: Default Pump Shotgun",
+      "description": "Gives the original wooden pump shotgun new first-person animations while retaining its model.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "tomaz, Qude, mav, ThomasCat and Valve",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2854650819",
+      "tags": [
+        "pump shotgun",
+        "animation",
+        "weapon model"
+      ]
+    },
+    {
+      "id": "l4d-l4d1-hd-loading-screens",
+      "game": "l4d",
+      "category": "textures",
+      "name": "HD Loading Screens (Widescreen)",
+      "description": "Eight widescreen loading screens with replacement campaign thumbnails.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "WILLIAMS117™, L.v and Jewel23",
+      "sourceUrl": "https://www.gamemaps.com/details/17553",
+      "tags": [
+        "loading screens",
+        "ui",
+        "widescreen"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-2k-weapon-textures",
+      "game": "l4d",
+      "category": "textures",
+      "name": "2K L4D2 Weapons",
+      "description": "Upscaled 2048 × 2048 textures for firearms introduced in Left 4 Dead 2.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "cintlex8174910475166018924658102",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2871887170",
+      "tags": [
+        "weapon textures",
+        "2k",
+        "upscaled"
+      ]
+    },
+    {
+      "id": "l4d-l4d1-silent-hill-pickup",
+      "game": "l4d",
+      "category": "sound-packs",
+      "name": "Silent Hill Pickup Sound Effect",
+      "description": "Uses the Silent Hill 2 pickup chime when collecting an item.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Monochrome Kanon and Head;Closer. Published by G@MER.",
+      "sourceUrl": "https://www.gamemaps.com/details/17011",
+      "tags": [
+        "sound",
+        "item pickup",
+        "silent hill"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-new-ui-sounds",
+      "game": "l4d",
+      "category": "sound-packs",
+      "name": "Brand New Menu/UI Sounds for L4D2",
+      "description": "Original replacement sounds for the game’s menus.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Big Boss",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2628475851",
+      "tags": [
+        "sound",
+        "ui",
+        "menu"
+      ]
+    },
+    {
+      "id": "l4d-l4d1-death-aboard",
+      "game": "l4d",
+      "category": "maps",
+      "name": "Death Aboard",
+      "description": "A five-map campaign through a prison, a dockyard and a stranded ship, with a lighthouse finale.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Diputs",
+      "sourceUrl": "https://www.gamemaps.com/details/2114",
+      "tags": [
+        "campaign",
+        "co-op",
+        "versus",
+        "survival"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-cold-front",
+      "game": "l4d",
+      "category": "maps",
+      "name": "Cold Front",
+      "description": "Five chapters through a northern winter storm, with custom music, dialogue and multiple ways to escape the finale.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "JAiZ and the Cold Front team",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=3135451698",
+      "tags": [
+        "campaign",
+        "co-op",
+        "versus",
+        "snow"
+      ],
+      "compatibility": "Subscribe to all three parts. Parts 2 and 3 are linked under Required Items on the Workshop page."
+    },
+    {
+      "id": "l4d-l4d1-nam-vet-smoker",
+      "game": "l4d",
+      "category": "players",
+      "name": "Nam Vet Smoker",
+      "description": "Replaces the Smoker with an infected veteran model based on Bill.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "devious critter and Fraze彡. L4D1 port by francisyelimsurycfor.",
+      "sourceUrl": "https://www.gamemaps.com/details/33795",
+      "tags": [
+        "infected",
+        "smoker",
+        "model"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-cubas-common-infected",
+      "game": "l4d",
+      "category": "players",
+      "name": "Cuba's Common Infected",
+      "description": "Remakes the common infected textures from The Last Stand and revises which face textures appear on each model.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Cuba",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=2799299732",
+      "tags": [
+        "infected",
+        "common infected",
+        "models"
+      ]
+    },
+    {
+      "id": "l4d-l4d1-shotgun-blaze",
+      "game": "l4d",
+      "category": "weapons",
+      "name": "Shotgun Blaze Skin",
+      "description": "A flame-patterned replacement skin for the original pump shotgun.",
+      "edition": "l4d1",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "Eman",
+      "sourceUrl": "https://www.gamemaps.com/details/14200",
+      "tags": [
+        "shotgun",
+        "weapon skin"
+      ]
+    },
+    {
+      "id": "l4d-l4d2-enhanced-audio-fire",
+      "game": "l4d",
+      "category": "sound-packs",
+      "name": "Enhanced Audio: Fire",
+      "description": "Reworks the game’s fire sound effects.",
+      "edition": "l4d2",
+      "status": "author-hosted",
+      "files": [],
+      "credits": "frawzy",
+      "sourceUrl": "https://steamcommunity.com/sharedfiles/filedetails/?id=517929903",
+      "tags": [
+        "sound",
+        "fire",
+        "environment"
+      ]
+    }
+  ]
+}

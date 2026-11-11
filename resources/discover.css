@@ -2,3 +2,7 @@
 
 .resource-extension{font-size:11px;font-weight:600;white-space:nowrap}.resource-download,.resource-download-menu>summary{font:inherit;font-size:11px;font-weight:600;line-height:1.4;display:inline-flex;background:#eee;color:#111;border:1px solid #eee;border-radius:7px;padding:9px 12px;cursor:pointer}.resource-download:disabled{opacity:.5}.resource-download-menu .resource-download{display:flex;margin:8px 0;max-width:100%;overflow-wrap:anywhere;text-align:left}.resource-inline-details{font-size:12px;color:#ccc}.resource-inline-details summary{cursor:pointer;padding:8px 0}.resource-download-status{min-height:18px}.resource-sample{scroll-margin-top:20px}
 .resource-changelog{font:inherit;font-size:11px;color:#ccc;background:transparent;border:1px solid #3a3a3a;border-radius:7px;padding:9px 12px;cursor:pointer;margin-left:8px}.resource-changelog:hover{color:#fff;background:#242424}#resource-changelog{max-width:740px}#resource-changelog-content{font-size:13px;color:#bbb;line-height:1.8}#resource-changelog-content li+li{margin-top:7px}
+.resource-games:has(+.resource-menus){margin-bottom:12px}
+.resource-menus{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.resource-menus a{display:flex;align-items:center;min-height:40px;padding:8px 14px;border:1px solid #252525;border-radius:8px;background:#111;color:#ccc;font-size:13px}
+.resource-menus a:hover,.resource-menus a[aria-current]{border-color:#aaa;background:#222;color:#fff}

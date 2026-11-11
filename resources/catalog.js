@@ -2,12 +2,12 @@
 
 const $ = id => document.getElementById(id);
 const GAMES = {
-  gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'paintjobs', 'liveries', 'dlc', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+  gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'dlc', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
   rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
   cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
-  fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'paintjobs', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+  fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
   redm: { name: 'RedM', assets: ['outfits', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings', 'maps', 'textures', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
-  l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures'] }
+  l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
 };
 const LABELS = {
   all: 'All resources', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
@@ -17,12 +17,16 @@ const LABELS = {
   lua: 'Lua scripts', languages: 'Translations / Languages', misc: 'Miscellaneous',
   'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods', dlc: 'DLC packs', wallpapers: 'Wallpapers',
   'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
-  'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings'
+  'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
+  'mod-menus': 'Mod Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
 };
 const MENU_CATEGORIES = ['themes', 'configs', 'lua', 'languages', 'misc'];
+const L4D_LABELS = { maps: 'Maps & campaigns', players: 'Survivor & infected models', weapons: 'Weapon models & skins' };
 const PAGE_SIZE = 24;
+const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const taxonomy = globalThis.ScoobyTaxonomy;
 const menuSystem = globalThis.ScoobyMenus;
+const editions = globalThis.ScoobyEditions;
 const tagCache = new WeakMap();
 const searchCache = new WeakMap();
 const cache = new Map();
@@ -30,8 +34,10 @@ const legacy = new Map();
 const LOCAL_PREVIEW = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
 let library = { items: [], downloadBaseUrl: 'https://raw.githubusercontent.com/Speedy-away/cool-repo/main/' };
 let menuResources = { items: [] };
+let gtaEditionCatalog = { items: [], verified: {} };
 let libraryError = false;
 let entries = [];
+let gtaCategoryCounts = new Map();
 let revision = 0;
 let loadRevision = 0;
 let gameLoading = false;
@@ -59,14 +65,24 @@ function resourceSearchText(entry) {
   if (!searchCache.has(entry)) searchCache.set(entry, taxonomy ? taxonomy.searchText(entry) : normalizeSearch([entry.name, entry.description, entry.model, entry.modelLabel, entry.uiStyle, entry.style, ...resourceTags(entry)].join(' ')));
   return searchCache.get(entry);
 }
-function categories(game = state.game) { return [...GAMES[game].assets, ...MENU_CATEGORIES]; }
+function roleplayGroups(game) {
+  return taxonomy?.roleplayCategoryGroups?.(game, [...GAMES[game].assets, ...MENU_CATEGORIES]);
+}
+
+function categoryId(game, id) { return taxonomy?.roleplayCategoryId?.(game, id) ?? id; }
+
+function categories(game = state.game) {
+  const groups = roleplayGroups(game);
+  return groups ? groups.flatMap(([, ids]) => ids) : [...GAMES[game].assets, ...MENU_CATEGORIES];
+}
 function readState() {
   const query = new URLSearchParams(location.search);
   const game = Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5';
-  const category = [...GAMES[game].assets, ...MENU_CATEGORIES].includes(query.get('category')) ? query.get('category') : 'all';
+  const requested = categoryId(game, query.get('category'));
+  const category = categories(game).includes(requested) ? requested : 'all';
   const themeFilters = ['gta5', 'rdr2'].includes(game) && ['all', 'themes'].includes(category);
   return {
-    game, category, menu: menuFor(game, query.get('menu')), q: query.get('q') || '', model: query.get('model') || '',
+    game, category, menu: menuFor(game, query.get('menu')), edition: editions.choice(game, query.get('edition')), q: query.get('q') || '', model: query.get('model') || '',
     ui: themeFilters ? query.get('ui') || '' : '', style: themeFilters ? query.get('style') || '' : '',
     sort: ['name', 'attachments'].includes(query.get('sort')) ? query.get('sort') : '',
     page: Math.max(1, Number.parseInt(query.get('page'), 10) || 1)
@@ -79,6 +95,7 @@ function saveState(replace = false) {
   url.searchParams.set('game', state.game);
   if (state.game === 'gta5' && state.menu !== 'scooby') url.searchParams.set('menu', state.menu);
   if (state.category !== 'all') url.searchParams.set('category', state.category);
+  if (state.edition) url.searchParams.set('edition', state.edition);
   for (const key of ['q', 'model', 'ui', 'style', 'sort']) if (state[key]) url.searchParams.set(key, state[key]);
   if (state.page > 1) url.searchParams.set('page', state.page);
   if (url.href !== location.href) history[replace ? 'replaceState' : 'pushState'](null, '', url);
@@ -107,6 +124,10 @@ function downloadURL(file) {
   return base ? safeURL(file.path.split('/').map(encodeURIComponent).join('/'), base.endsWith('/') ? base : `${base}/`) : '';
 }
 
+function authorPage(entry) {
+  return entry.status === 'author-hosted' ? safeURL(entry.sourceUrl) : '';
+}
+
 function previewAllowed(entry) {
   return entry.previewVerified !== false && (entry.category !== 'themes' || entry.previewVerified === true);
 }
@@ -127,7 +148,8 @@ function guideURL(entry) {
     if (state.game === 'gta5') url.searchParams.set('menu', state.menu);
     return url.pathname + url.search + url.hash;
   }
-  const query = new URLSearchParams({ game: entry?.game || state.game, category: entry?.category || state.category });
+  const game = entry?.game || state.game;
+  const query = new URLSearchParams({ game, category: categoryId(game, entry?.category || state.category) });
   if (state.game === 'gta5') query.set('menu', state.menu);
   return `/resources/guides/?${query}`;
 }
@@ -141,11 +163,17 @@ function link(text, href, external = false) {
 
 function image(src, name) {
   const result = node('img');
-  result.src = src;
   result.alt = name;
   result.loading = 'lazy';
   result.decoding = 'async';
-  result.onerror = () => result.replaceWith(node('span', 'Preview unavailable'));
+  const showLogo = () => {
+    result.classList.add('preview-placeholder');
+    result.alt = '';
+    result.src = SCOOBY_PREVIEW_LOGO;
+  };
+  if (src) result.addEventListener('error', showLogo, { once: true });
+  if (src) result.src = src;
+  else showLogo();
   return result;
 }
 
@@ -159,11 +187,15 @@ function prettySize(size) {
 }
 
 async function loadLibrary() {
-  const [base, supplemental] = await Promise.allSettled([json('/community/data/library.json'), json('/community/data/menu-resources.json')]);
+  const [base, supplemental, reviewed] = await Promise.allSettled([
+    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json')
+  ]);
   libraryError = false;
   if (base.status === 'fulfilled' && Array.isArray(base.value.items)) library = base.value;
   else libraryError = true;
   if (supplemental.status === 'fulfilled' && Array.isArray(supplemental.value.items)) menuResources = supplemental.value;
+  else libraryError = true;
+  if (reviewed.status === 'fulfilled' && Array.isArray(reviewed.value.items)) gtaEditionCatalog = reviewed.value;
   else libraryError = true;
 }
 
@@ -200,12 +232,13 @@ function libraryEntries() {
   const merged = new Map();
   const overrides = new Map((Array.isArray(menuResources.libraryOverrides) ? menuResources.libraryOverrides : []).filter(override => override.id).map(override => [override.id, override]));
   for (const item of library.items) merged.set(item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`, { ...item, ...overrides.get(item.id), id: item.id });
-  for (const item of menuResources.items) {
+  for (const item of [...menuResources.items, ...gtaEditionCatalog.items]) {
     const id = item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`;
     merged.set(id, { ...merged.get(id), ...item });
   }
-  return [...merged.values()].filter(item => item.game === state.game && categories().includes(item.category) && !excludedRedMResource(item) &&
-    (pendingDownload(item) || item.status === 'in-menu' || (item.game === 'cs2' && item.status === 'workshop') ||
+  const allowedCategories = new Set(categories());
+  return [...merged.values()].filter(item => item.game === state.game && allowedCategories.has(categoryId(item.game, item.category)) && !excludedRedMResource(item) &&
+    (pendingDownload(item) || item.status === 'in-menu' || (item.category === 'mod-menus' && item.status === 'preview-only') || authorPage(item) || (item.game === 'cs2' && item.status === 'workshop') ||
       (Array.isArray(item.files) && item.files.some(file => downloadURL(file)))))
     .map(item => ({ ...item, tags: Array.isArray(item.tags) ? item.tags : [] }));
 }
@@ -221,17 +254,27 @@ function selectedEntries() {
 }
 
 function inCategory(entry, category) {
-  return category === 'all' || entry.category === category || entry.categories?.includes(category) || (category === 'modded' && entry.category === 'vehicles' && entry.attachments > 0);
+  return category === 'all' || categoryId(entry.game, entry.category) === category ||
+    entry.categories?.some(id => categoryId(entry.game, id) === category) ||
+    (category === 'modded' && entry.category === 'vehicles' && entry.attachments > 0);
 }
 
-function categoryButton(category) {
+function categoryLabel(game, category) { return (game === 'l4d' ? L4D_LABELS[category] : undefined) || LABELS[category]; }
+
+function categoryButton(category, label = categoryLabel(state.game, category)) {
   const button = node('a', null, 'category-choice');
   button.setAttribute('role', 'button');
   button.dataset.category = category;
   button.setAttribute('aria-pressed', String(state.category === category));
-  const count = entries.filter(entry => inCategory(entry, category)).length;
-  button.href = state.menu !== 'scooby' ? `/resources/?${new URLSearchParams({ game: state.game, menu: state.menu, ...(category !== 'all' ? { category } : {}) })}` : category === 'all' ? `/resources/${state.game}/` : count > 0 ? `/resources/${state.game}/${category}/` : `/resources/?${new URLSearchParams({ game: state.game, category })}`;
-  button.append(node('span', LABELS[category]), node('small', count.toLocaleString()));
+  const gta = state.game === 'gta5';
+  const count = gta && category !== 'all' ? gtaCategoryCounts.get(category) || 0 : entries.filter(entry =>
+    inCategory(entry, category) && (state.game !== 'l4d' || editions.matches(entry, state.edition))).length;
+  const params = new URLSearchParams({ game: state.game, ...(state.menu !== 'scooby' ? { menu: state.menu } : {}),
+    ...(category !== 'all' ? { category } : {}), ...(state.edition ? { edition: state.edition } : {}) });
+  const directory = gta && state.menu !== 'scooby' ? `${state.game}/${state.menu}` : state.game;
+  button.href = state.edition || (!count && (category !== 'all' || (gta && state.menu !== 'scooby')))
+    ? `/resources/?${params}` : `/resources/${directory}/${category === 'all' ? '' : category + '/'}`;
+  button.append(node('span', label), node('small', count.toLocaleString()));
   button.onclick = event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button > 0) return;
     event.preventDefault();
@@ -264,10 +307,28 @@ function addMetadataOptions() {
   }
 }
 
+function updateThemeInterfaceOptions() {
+  const interfaces = $('ui');
+  const labels = state.game === 'gta5'
+    ? ['ClickUI', 'ClickGUI', 'ListUI'].filter(label => entries.some(entry =>
+      entry.category === 'themes' && [].concat(entry.uiStyle || []).includes(label)))
+    : ['ClickUI', 'ListUI'];
+  interfaces.replaceChildren(new Option('All interfaces', ''), ...labels.map(label => new Option(label, normalize(label))));
+  if (state.game === 'gta5' && state.menu === 'cherax' && normalize(state.ui) === 'clickui') state.ui = 'clickgui';
+}
+
 function updateControls() {
   document.querySelectorAll('[data-game]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.game === state.game)));
   $('collection-title').textContent = state.game === 'gta5' ? `${menuName()}'s GTA 5 resources` : `${GAMES[state.game].name} resources`;
+  const editionGroup = editions.group(state.game);
+  $('collection-selectors').hidden = !editionGroup;
   $('menu-field').hidden = state.game !== 'gta5';
+  if (editionGroup && $('edition').dataset.game !== state.game) {
+    $('edition-label').textContent = editionGroup.label;
+    $('edition').replaceChildren(new Option(editionGroup.all, ''), ...Object.entries(editionGroup.options).map(([value, label]) => new Option(label, value)));
+    $('edition').dataset.game = state.game;
+  }
+  $('edition').value = state.edition;
   $('menu').replaceChildren();
   for (const menu of menuSystem?.MENUS || [{ id: 'scooby', name: 'Scooby' }]) $('menu').add(new Option(menu.name + (menu.deferred ? ' · Coming soon' : ''), menu.id));
   $('menu').value = state.menu;
@@ -282,27 +343,43 @@ function updateControls() {
   $('search').placeholder = {
     gta5: 'Search outfits, vehicles or files…', rdr2: 'Search outfits or files…',
     cs2: 'Search models, skyboxes or files…', fivem: 'Search vehicles, maps or files…',
-    redm: 'Search outfits, peds or files…', l4d: 'Search models, maps or files…'
+    redm: 'Search outfits, peds or files…', l4d: 'Search campaigns, models or files…'
   }[state.game];
   $('categories').replaceChildren(categoryButton('all'));
   const assets = GAMES[state.game].assets;
-  for (const [label, list] of [[`${menuName()}’s resources`, assets.filter(category => !category.startsWith('addon-'))], ['Addons', assets.filter(category => category.startsWith('addon-'))], [`${menuName()} files`, MENU_CATEGORIES]]) {
+  const roleplay = roleplayGroups(state.game);
+  const groups = state.game === 'gta5' && menuSystem
+    ? menuSystem.gtaCategoryGroups(state.menu, gtaCategoryCounts.keys())
+    : state.game === 'l4d' ? [
+      ['Custom content', assets.filter(category => entries.some(entry => inCategory(entry, category)))],
+      ['Settings and translations', MENU_CATEGORIES.filter(category => entries.some(entry => inCategory(entry, category)))]
+    ]
+    : roleplay || [
+    [`${menuName()}’s resources`, assets.filter(category => !category.startsWith('addon-'))],
+    ['Addons', assets.filter(category => category.startsWith('addon-'))],
+    [`${menuName()} files`, MENU_CATEGORIES]
+  ];
+  for (const [label, list] of groups) {
     if (!list.length) continue;
     const group = node('div', null, 'category-group');
     group.append(node('p', label, 'category-group-label'));
-    for (const category of list) group.append(categoryButton(category));
+    for (const category of list) group.append(categoryButton(category, roleplay ? taxonomy.ROLEPLAY_LABELS[category] : undefined));
     $('categories').append(group);
   }
   const models = new Map();
-  for (const entry of selectedEntries()) {
-    if (entry.model) models.set(String(entry.model), String(entry.modelLabel || entry.model));
+  if (state.category !== 'all') {
+    for (const entry of selectedEntries()) {
+      const label = String(entry.modelLabel || entry.model || '').trim();
+      if (entry.model && label && !/^(?:[+-]?\d+|0x[\da-f]+)$/i.test(label)) models.set(String(entry.model), label);
+    }
   }
   $('model').replaceChildren(new Option('All models', ''));
   [...models].sort((a, b) => a[1].localeCompare(b[1])).forEach(([value, label]) => $('model').add(new Option(label, value)));
   $('model-field').hidden = !models.size;
   addMetadataOptions();
+  updateThemeInterfaceOptions();
   for (const id of ['model', 'ui', 'style', 'sort']) setSelect(id, state[id]);
-  const themeFilters = ['gta5', 'rdr2'].includes(state.game) && ['all', 'themes'].includes(state.category);
+  const themeFilters = state.category === 'themes' && (state.game === 'rdr2' || (state.game === 'gta5' && gtaCategoryCounts.has('themes')));
   $('ui-field').hidden = !themeFilters;
   $('style-field').hidden = !themeFilters;
   if (!themeFilters) { state.ui = ''; state.style = ''; $('ui').value = ''; $('style').value = ''; }
@@ -314,6 +391,8 @@ function updateControls() {
     ? `Keep the complete download together and follow its installation guide. Choose files made for ${menuName()} and your game version.`
     : ['gta5', 'rdr2'].includes(state.game)
     ? 'Keep the complete download together and follow its installation guide. A theme’s appearance can resemble another menu while using Scooby’s own format. Choose a theme that supports your ClickUI or ListUI interface.'
+    : state.game === 'l4d'
+    ? 'Check the game badge and follow the resource’s install guide. Workshop subscriptions, manual add-ons and Scooby files use different install methods.'
     : 'Keep the complete download together and follow its installation guide. Check that the resource supports your game and Scooby version.';
   $('catalog-warning').replaceChildren();
   $('catalog-warning').hidden = !libraryError;
@@ -329,6 +408,7 @@ function updateControls() {
 function setLoading(loading) {
   gameLoading = loading;
   $('menu').disabled = loading;
+  $('edition').disabled = loading;
   for (const form of ['filters', 'search-controls']) for (const control of $(form).elements) control.disabled = loading;
   $('categories').querySelectorAll('.category-choice').forEach(button => { button.setAttribute('aria-disabled', String(loading)); button.tabIndex = loading ? -1 : 0; });
 }
@@ -346,7 +426,17 @@ async function loadGame() {
     const game = state.game;
     const original = game === 'gta5' ? (await Promise.all([loadLegacy('vehicles'), loadLegacy('outfits')])).flat() : [];
     if (token !== loadRevision) return;
-    entries = [...original, ...libraryEntries()].filter(supportsMenu);
+    entries = [...original, ...libraryEntries()].filter(supportsMenu).map(item => {
+      const entry = editions.withVerification(item, gtaEditionCatalog);
+      return menuSystem?.isCheraxTheme(entry) ? { ...entry, uiStyle: menuSystem.themeInterface(entry) } : entry;
+    });
+    if (game === 'gta5') {
+      gtaCategoryCounts = new Map(categories(game).map(id => [id, entries.filter(entry => inCategory(entry, id)).length]).filter(([, count]) => count));
+      if (state.category !== 'all' && !gtaCategoryCounts.has(state.category)) {
+        state.category = 'all';
+        state.page = 1;
+      }
+    }
     setLoading(false);
     updateControls();
     await render();
@@ -544,7 +634,7 @@ function tagLinks(entry) {
   section.append(node('h3', 'Tags'));
   const links = node('div');
   for (const tag of tags) {
-    const url = `/resources/?${new URLSearchParams({ game: state.game, ...(state.menu !== 'scooby' ? { menu: state.menu } : {}), ...(state.category !== 'all' ? { category: state.category } : {}), q: tag })}`;
+    const url = `/resources/?${new URLSearchParams({ game: state.game, ...(state.menu !== 'scooby' ? { menu: state.menu } : {}), ...(state.category !== 'all' ? { category: state.category } : {}), ...(state.edition ? { edition: state.edition } : {}), q: tag })}`;
     const choice = link(tag, url);
     choice.title = `Search for ${tag}`;
     choice.onclick = event => {
@@ -578,7 +668,14 @@ function showDetails(entry, files) {
   details.replaceChildren();
   if (entry.description) details.append(node('p', visibleText(entry, entry.description)));
   if (entry.compatibility) details.append(node('p', visibleText(entry, entry.compatibility)));
-  if (entry.edition) details.append(node('p', `Edition: ${visibleText(entry, entry.edition)}`));
+  const edition = editions.support(entry);
+  const install = safeURL(entry.installUrl);
+  if (edition) {
+    const compatibility = node('p', `${entry.game === 'l4d' ? 'Game' : 'GTA 5 edition'}: ${editions.gameLabel(entry.game, edition)}`);
+    const evidence = safeURL(entry.editionSource);
+    if (evidence && evidence !== install) compatibility.append(' · ', link('Compatibility source ↗', evidence, true));
+    details.append(compatibility);
+  } else if (entry.edition) details.append(node('p', `Edition: ${visibleText(entry, entry.edition)}`));
   const requirements = Array.isArray(entry.requirements) ? entry.requirements.map(value => visibleText(entry, value)).filter(Boolean) : [];
   if (requirements.length) {
     const section = node('section', null, 'resource-requirements');
@@ -592,7 +689,11 @@ function showDetails(entry, files) {
   if (entry.uiStyle || entry.style) details.append(node('p', [entry.uiStyle, entry.style && `Appearance: ${entry.style}`].filter(Boolean).join(' · ')));
   if (entry.author || entry.credits) details.append(node('p', `Credits: ${visibleText(entry, entry.credits || entry.author)}`));
   if (entry.license) details.append(node('p', `License: ${visibleText(entry, entry.license)}`));
-  if (pendingDownload(entry)) {
+  if (authorPage(entry)) {
+    const source = link('Get from the author ↗', authorPage(entry), true);
+    source.className = 'external-primary';
+    details.append(source);
+  } else if (pendingDownload(entry)) {
     details.append(comingSoonButton());
   } else if (files.length) {
     const list = node('div', null, 'file-list');
@@ -610,7 +711,7 @@ function showDetails(entry, files) {
   const tags = tagLinks(entry);
   if (tags) details.append(tags);
   if (entry.category === 'lua') details.append(changelogButton(entry));
-  details.append(link('Installation guide ↗', guideURL(entry)));
+  details.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)));
   if (!$('preview').open) $('preview').showModal();
 }
 
@@ -623,13 +724,7 @@ async function card(entry) {
   shot.setAttribute('aria-label', `View ${entry.name}`);
   const preview = previewURL(entry);
   if (entry.category === 'themes' && preview) article.className += ' has-verified-preview';
-  if (preview) shot.append(image(preview, entry.name));
-  else {
-    const art = node('div', null, 'file-art');
-    const extension = files[0]?.name?.split('.').pop();
-    art.append(node('strong', extension && extension.length < 8 ? extension.toUpperCase() : GAMES[entry.game].name), node('span', LABELS[entry.category] || 'Community file'));
-    shot.append(art);
-  }
+  shot.append(image(preview, entry.name));
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -637,15 +732,30 @@ async function card(entry) {
   const title = resourceTitle(visibleText(entry, entry.name), files, knownExtension);
   title.title = title.textContent;
   info.append(title);
-  info.append(node('p', [entry.modelLabel || LABELS[entry.category], entry.attachments > 0 && `${entry.attachments} attachments`, files.length === 1 && prettySize(files[0].size), entry.status === 'in-menu' && 'In-menu', entry.status === 'workshop' && 'Workshop'].filter(Boolean).join(' · ')));
+  info.append(node('p', [entry.modelLabel || categoryLabel(entry.game, entry.category), entry.attachments > 0 && `${entry.attachments} attachments`, files.length === 1 && prettySize(files[0].size), entry.status === 'in-menu' && 'In-menu', entry.status === 'workshop' && 'Workshop'].filter(Boolean).join(' · ')));
+  const edition = editions.support(entry);
+  if (edition) {
+    const badge = node('span', editions.badge(entry.game, edition), `edition-badge edition-${edition}`);
+    badge.title = editions.title(entry.game, edition);
+    info.append(badge);
+  }
   const sourceMenu = menuSystem?.canonical(entry.sourceMenu);
   if (['cherax', 'stand', 'xforce'].includes(sourceMenu) && typeof menuSystem?.compatibleWith === 'function' && !menuSystem.compatibleWith(entry, state.menu)) {
     info.append(node('p', visibleText(entry, entry.requirementLabel || `Requires ${menuName(sourceMenu)} format`), 'compatibility-note'));
   }
   if (entry.description) info.append(node('p', visibleText(entry, entry.description), 'description'));
+  if (entry.game === 'l4d' && entry.requirementLabel) info.append(node('p', entry.requirementLabel, 'meta'));
+  if (entry.status === 'preview-only') info.append(node('p', 'Download unavailable', 'meta'));
   if (entry.uiStyle || entry.style) info.append(node('p', [entry.uiStyle, entry.style && `${entry.style} style`].filter(Boolean).join(' · '), 'meta'));
   const actions = node('div', null, 'card-actions');
-  if (pendingDownload(entry)) actions.append(comingSoonButton());
+  const source = authorPage(entry);
+  if (source) {
+    const credit = entry.author || (entry.game === 'l4d' ? entry.credits : '');
+    if (credit) info.append(node('p', `By ${visibleText(entry, credit)}`));
+    const external = link('Get from the author ↗', source, true);
+    external.className = 'external-primary';
+    actions.append(external);
+  } else if (pendingDownload(entry)) actions.append(comingSoonButton());
   else if (!files.length) {
     const details = node('button', 'Details');
     details.type = 'button';
@@ -663,8 +773,9 @@ async function card(entry) {
   }
   if (entry.category === 'lua') actions.append(changelogButton(entry));
   info.append(actions);
-  if (files.length || entry.status === 'in-menu' || pendingDownload(entry)) {
-    const guide = link('Install guide ↗', guideURL(entry));
+  if (source || files.length || entry.status === 'in-menu' || pendingDownload(entry)) {
+    const install = safeURL(entry.installUrl);
+    const guide = install ? link('Author’s install guide ↗', install, true) : link('Install guide ↗', guideURL(entry));
     guide.className = 'guide-link';
     info.append(guide);
   }
@@ -674,6 +785,7 @@ async function card(entry) {
 }
 
 function matchesFilters(entry) {
+  if (!editions.matches(entry, state.edition)) return false;
   const query = normalizeSearch(state.q);
   if (state.model && String(entry.model) !== state.model) return false;
   if (state.ui && ![].concat(entry.uiStyle || []).some(ui => normalize(ui) === normalize(state.ui))) return false;
@@ -685,7 +797,7 @@ function matchesFilters(entry) {
 
 function emptyState() {
   const empty = node('div', null, 'empty');
-  const activeFilters = state.q || state.model || state.ui || state.style;
+  const activeFilters = state.edition || state.q || state.model || state.ui || state.style;
   const category = LABELS[state.category] || 'Files';
   if (menuSystem?.MENUS.find(menu => menu.id === state.menu)?.deferred) {
     empty.append(node('h3', `${menuName()} resources are coming soon.`), node('p', 'This menu’s collection is not available yet. Choose another menu to browse resources.'));
@@ -734,29 +846,91 @@ async function render() {
 
 function resetFilters() {
   clearTimeout(inputTimer);
-  state = { ...state, q: '', model: '', ui: '', style: '', sort: '', page: 1 };
+  state = { ...state, edition: '', q: '', model: '', ui: '', style: '', sort: '', page: 1 };
   updateControls();
   saveState();
   render();
 }
 
+const gtaMenuDialog = $('gta-menu-dialog');
+const gtaMenuPreference = 'scooby.resources.gta5-menu';
+
+function rememberedGtaMenu() {
+  try {
+    const id = localStorage.getItem(gtaMenuPreference);
+    return menuSystem?.MENUS.find(menu => menu.id === id && !menu.deferred)?.id || '';
+  } catch { return ''; }
+}
+
+function rememberGtaMenu(id) {
+  try { localStorage.setItem(gtaMenuPreference, id); }
+  catch { /* Storage may be blocked in this browser. */ }
+}
+
+function openGtaMenuDialog() {
+  if (gtaMenuDialog.open) return;
+  gtaMenuDialog.returnValue = '';
+  $('gta-menu-remember').checked = false;
+  gtaMenuDialog.showModal();
+}
+
+function selectResourceGame(game, menu = 'scooby') {
+  const selectedMenu = menuFor(game, menu);
+  if (game === state.game && selectedMenu === state.menu) return;
+  clearTimeout(inputTimer);
+  const sameGame = game === state.game;
+  state = {
+    game, menu: selectedMenu, category: sameGame ? state.category : 'all',
+    edition: sameGame ? state.edition : '', q: '', model: '', ui: '', style: '',
+    sort: sameGame ? state.sort : '', page: 1
+  };
+  saveState();
+  loadGame();
+}
+
+for (const menu of menuSystem?.MENUS || [{ id: 'scooby', name: 'Scooby' }]) {
+  const choice = node('button', menu.name + (menu.deferred ? ' · Coming soon' : ''), 'gta-menu-choice');
+  choice.type = 'submit';
+  choice.value = menu.id;
+  choice.disabled = Boolean(menu.deferred);
+  if (menu.id === 'scooby') {
+    choice.classList.add('gta-menu-primary');
+    choice.autofocus = true;
+  }
+  $('gta-menu-options').append(choice);
+}
+gtaMenuDialog.addEventListener('close', () => {
+  const menu = menuSystem?.MENUS.find(option => option.id === gtaMenuDialog.returnValue && !option.deferred);
+  if (!menu) return;
+  if ($('gta-menu-remember').checked) rememberGtaMenu(menu.id);
+  selectResourceGame('gta5', menu.id);
+});
+
 document.querySelectorAll('[data-game]').forEach(button => {
   button.onclick = event => {
     if (button.tagName === 'A' && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button > 0)) return;
     event.preventDefault();
-    if (button.dataset.game === state.game) return;
-    clearTimeout(inputTimer);
-    state = { game: button.dataset.game, category: 'all', menu: menuFor(button.dataset.game, 'scooby'), q: '', model: '', ui: '', style: '', sort: '', page: 1 };
-    saveState();
-    loadGame();
+    const game = button.dataset.game;
+    if (game === 'gta5') {
+      const remembered = rememberedGtaMenu();
+      if (!remembered) { openGtaMenuDialog(); return; }
+      selectResourceGame(game, state.game === game ? state.menu : remembered);
+    } else selectResourceGame(game);
   };
   if (button.tagName === 'A') button.onkeydown = event => { if (event.key === ' ') { event.preventDefault(); button.click(); } };
 });
 $('menu').onchange = () => {
+  const selected = $('menu').value;
+  if (rememberedGtaMenu() && menuSystem?.MENUS.some(menu => menu.id === selected && !menu.deferred)) rememberGtaMenu(selected);
+  selectResourceGame(state.game, selected);
+};
+$('edition').onchange = () => {
   clearTimeout(inputTimer);
-  state = { ...state, menu: menuFor(state.game, $('menu').value), q: '', model: '', ui: '', style: '', page: 1 };
+  state.edition = editions.choice(state.game, $('edition').value);
+  state.page = 1;
+  updateControls();
   saveState();
-  loadGame();
+  render();
 };
 for (const id of ['filters', 'search-controls']) {
   $(id).onsubmit = event => event.preventDefault();

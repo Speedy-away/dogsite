@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "purpose": "RedM submissions provided directly for the Scooby resource catalog.",
+  "items": [
+    {
+      "id": "redm-additions-menu-v2",
+      "name": "Additions Menu v2",
+      "category": "mod-menus",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "sourceFilename": "AdditionsRel-o2.lua",
+      "formatExtension": "lua",
+      "version": "2",
+      "preview": "previews/redm/menus/scooby/151ce064d37ce05084a8.png",
+      "previewVerified": true,
+      "previewKind": "submitted-image",
+      "previewCaption": "Submitted Additions Menu v2 screenshot.",
+      "credits": "NF Cheats branding appears in the supplied screenshot.",
+      "description": "Screenshot of the Additions Menu v2 interface and its visual settings.",
+      "status": "preview-only",
+      "downloadStatus": "unavailable",
+      "files": []
+    },
+    {
+      "id": "redm-chaos-menu-0-0-1",
+      "name": "ChaosMenu 0.0.1",
+      "category": "mod-menus",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "sourceFilename": "ChaosMenu_0.0.1.lua",
+      "formatExtension": "lua",
+      "version": "0.0.1",
+      "preview": "previews/redm/menus/scooby/cbdd956b0526485ba72d.png",
+      "previewVerified": true,
+      "previewKind": "submitted-image",
+      "previewCaption": "Submitted ChaosMenu 0.0.1 screenshot.",
+      "credits": "The Whale Road is credited in the supplied screenshot.",
+      "description": "Screenshot of the ChaosMenu 0.0.1 interface.",
+      "status": "preview-only",
+      "downloadStatus": "unavailable",
+      "files": []
+    },
+    {
+      "id": "redm-spawn-dead-alligators",
+      "name": "Spawn Dead Alligators",
+      "category": "lua",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "sourceFilename": "SpawnDeadAlligators.lua",
+      "formatExtension": "lua",
+      "reviewedLua": true,
+      "description": "Spawns dead alligators at the local player’s position.",
+      "status": "download",
+      "downloadStatus": "available",
+      "requirements": [
+        "RedM client Lua runtime with CitizenFX natives."
+      ],
+      "compatibility": "Reviewed as source code. Compatibility with specific menu builds has not been tested.",
+      "files": [
+        {
+          "path": "downloads/redm/menus/scooby/8cee962550db3785c3fd.lua",
+          "sha256": "8cee962550db3785c3fda67a2e7cc0f205fc78aa7ff955a1df398ea118e20383",
+          "size": 1098,
+          "name": "SpawnDeadAlligators.lua"
+        }
+      ]
+    },
+    {
+      "id": "redm-horse-stim",
+      "name": "Horse Stim",
+      "category": "lua",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "sourceFilename": "Horse_Stim.lua",
+      "formatExtension": "lua",
+      "reviewedLua": true,
+      "description": "Boosts the mounted horse’s health and stamina.",
+      "status": "download",
+      "downloadStatus": "available",
+      "requirements": [
+        "RedM client Lua runtime with CitizenFX natives."
+      ],
+      "compatibility": "Reviewed as source code. Compatibility with specific menu builds has not been tested.",
+      "files": [
+        {
+          "path": "downloads/redm/menus/scooby/eabdc9c646fd9ab6d648.lua",
+          "sha256": "eabdc9c646fd9ab6d648f7b14da92cb1bd0039e94364a99d393d3ac6dcc3e84f",
+          "size": 1743,
+          "name": "Horse_Stim.lua"
+        }
+      ],
+      "preview": "previews/redm/menus/scooby/9cec0088e621344444b4.webp",
+      "previewVerified": true,
+      "previewKind": "submitted-image",
+      "previewCaption": "Submitted Horse Stim preview."
+    },
+    {
+      "id": "redm-horse-speed-boost",
+      "name": "Horse Speed Boost",
+      "category": "lua",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "sourceFilename": "Horse_Speed_Boost.lua",
+      "formatExtension": "lua",
+      "reviewedLua": true,
+      "description": "Applies a short speed boost while the player is on horseback.",
+      "status": "download",
+      "downloadStatus": "available",
+      "requirements": [
+        "RedM client Lua runtime with CitizenFX natives."
+      ],
+      "compatibility": "Reviewed as source code. Compatibility with specific menu builds has not been tested.",
+      "files": [
+        {
+          "path": "downloads/redm/menus/scooby/8242b1fb7db834d41f06.lua",
+          "sha256": "8242b1fb7db834d41f067c6dc61a952c918a7cbfeab2be6bbabc6b701c6b3f21",
+          "size": 718,
+          "name": "Horse_Speed_Boost.lua"
+        }
+      ]
+    }
+  ]
+}

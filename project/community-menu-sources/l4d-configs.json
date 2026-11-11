@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "l4d-full-captions",
+      "category": "configs",
+      "name": "Full Captions",
+      "edition": "both",
+      "description": "Shows captions for dialogue and supported sound effects in both games.",
+      "format": "Source .cfg",
+      "credits": "Scooby",
+      "compatibility": "Copy the file to the game's cfg folder and run exec scooby-full-captions.cfg in the developer console.",
+      "tags": ["accessibility", "closed captions", "subtitles"],
+      "files": [
+        { "url": "/assets/downloads/l4d/scooby-full-captions.cfg" }
+      ]
+    }
+  ]
+}

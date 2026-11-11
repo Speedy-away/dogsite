@@ -3,13 +3,14 @@
 
   const $ = id => document.getElementById(id);
   const menus = window.ScoobyMenus;
+  const taxonomy = window.ScoobyTaxonomy;
   const GAMES = {
-    gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'dlc', 'textures', 'paintjobs', 'liveries', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+    gta5: { name: 'GTA 5' },
     rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
     cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
-    fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'paintjobs', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+    fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
     redm: { name: 'RedM', assets: ['outfits', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings', 'maps', 'textures', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
-    l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures'] }
+    l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
   };
   const LABELS = {
     all: 'All guides', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
@@ -19,14 +20,26 @@
     bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs', lua: 'Lua scripts',
     languages: 'Translations / Languages', wallpapers: 'Wallpapers', dlc: 'DLC packs', misc: 'Miscellaneous',
     'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
-    'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings'
+    'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
+    'mod-menus': 'Mod Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
   };
   const FILES = ['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc'];
   const sections = [...document.querySelectorAll('.guide-topics > section')];
   const mobile = matchMedia('(max-width: 760px)');
+  let gtaCategories = null;
   let state = readState();
 
-  function categories(game) { return [...GAMES[game].assets, ...FILES]; }
+  function gtaCategoryIds(menu) { return gtaCategories?.[menu] || []; }
+  function roleplayGroups(game) { return taxonomy?.roleplayCategoryGroups?.(game, [...GAMES[game].assets, ...FILES]); }
+  function categories(game, menu) {
+    if (game === 'gta5') return gtaCategoryIds(menu);
+    const groups = roleplayGroups(game);
+    return groups ? groups.flatMap(([, ids]) => ids) : [...GAMES[game].assets, ...FILES];
+  }
+  function categoryFor(game, menu, requested) {
+    if (requested === 'all' || categories(game, menu).includes(requested)) return requested;
+    return game === 'gta5' ? 'all' : GAMES[game].assets[0];
+  }
   function contains(value, candidate) { return String(value || '').split(/\s+/).some(part => part === 'all' || part === candidate); }
   function relevant(section, game, category, menu) {
     return contains(section.dataset.games, game) && contains(section.dataset.menus || 'scooby', menu) &&
@@ -41,12 +54,19 @@
     const target = targetSection();
     const targetGame = String(target?.dataset.games || '').split(/\s+/).find(game => Object.hasOwn(GAMES, game));
     const game = Object.hasOwn(GAMES, params.get('game')) ? params.get('game') : targetGame || 'gta5';
-    const choices = categories(game);
-    const targetCategory = contains(target?.dataset.games, game) ? String(target?.dataset.categories || '').split(/\s+/).find(category => choices.includes(category)) : '';
-    const requested = params.get('category');
-    const category = requested === 'all' || choices.includes(requested) ? requested : targetCategory || GAMES[game].assets[0];
     const targetMenu = String(target?.dataset.menus || '').split(/\s+/).find(id => menus.MENUS.some(menu => menu.id === id));
-    return { game, category, menu: menus.menuFor(game, params.get('menu') || targetMenu) };
+    const menu = menus.menuFor(game, params.get('menu') || targetMenu);
+    const choices = categories(game, menu);
+    const requested = taxonomy?.roleplayCategoryId?.(game, params.get('category')) ?? params.get('category');
+    if (game === 'gta5') {
+      const linkedSection = target && relevant(target, game, 'all', menu);
+      const targetCategory = linkedSection && target.dataset.categories.split(/\s+/).find(category => choices.includes(category));
+      const category = categoryFor(game, menu, requested || (linkedSection ? targetCategory || 'all' : 'vehicles'));
+      return { game, category, menu };
+    }
+    const targetCategory = contains(target?.dataset.games, game) ? String(target?.dataset.categories || '').split(/\s+/).find(category => choices.includes(category)) : '';
+    const category = requested === 'all' || choices.includes(requested) ? requested : targetCategory || GAMES[game].assets[0];
+    return { game, category, menu };
   }
   function address(game, category, menu = state.menu) {
     return `/resources/guides/?${new URLSearchParams({ game, category, menu: menus.menuFor(game, menu) })}`;
@@ -55,14 +75,25 @@
     const url = address(state.game, state.category);
     if (location.pathname + location.search !== url) history.pushState({}, '', url);
   }
+  function restoreState() {
+    state = readState();
+    if (state.game === 'gta5' && gtaCategories) {
+      const url = new URL(location.href);
+      if (url.searchParams.has('category') && url.searchParams.get('category') !== state.category) {
+        url.searchParams.set('category', state.category);
+        history.replaceState(history.state, '', url);
+      }
+    }
+    update();
+  }
   function node(tag, text, className) {
     const element = document.createElement(tag);
     if (text) element.textContent = text;
     if (className) element.className = className;
     return element;
   }
-  function categoryLink(category) {
-    const choice = node('a', LABELS[category], 'category-choice');
+  function categoryLink(category, label = LABELS[category]) {
+    const choice = node('a', label, 'category-choice');
     choice.href = address(state.game, category);
     choice.dataset.category = category;
     choice.setAttribute('aria-current', state.category === category ? 'page' : 'false');
@@ -80,20 +111,27 @@
   }
   function update() {
     const menuName = menus.menuName(state.menu);
-    $('guide-menu-control').hidden = state.game !== 'gta5';
+    const gta = state.game === 'gta5';
+    $('guide-menu-control').hidden = !gta;
     $('guide-menu').value = state.menu;
     document.querySelectorAll('[data-game]').forEach(choice => {
       choice.setAttribute('aria-pressed', String(choice.dataset.game === state.game));
       const game = choice.dataset.game;
-      choice.href = address(game, state.category === 'all' || categories(game).includes(state.category) ? state.category : GAMES[game].assets[0]);
+      choice.href = address(game, categoryFor(game, menus.menuFor(game, state.menu), state.category));
     });
     $('guide-categories').replaceChildren(categoryLink('all'));
     const assets = GAMES[state.game].assets;
-    for (const [label, list] of [[`${menuName} resources`, assets.filter(category => !category.startsWith('addon-'))], ['Addons', assets.filter(category => category.startsWith('addon-'))], [`${menuName} files`, FILES]]) {
+    const roleplay = gta ? null : roleplayGroups(state.game);
+    const groups = gta ? menus.gtaCategoryGroups(state.menu, gtaCategoryIds(state.menu)) : roleplay || [
+      [`${menuName} resources`, assets.filter(category => !category.startsWith('addon-'))],
+      ['Addons', assets.filter(category => category.startsWith('addon-'))],
+      [`${menuName} files`, FILES]
+    ];
+    for (const [label, list] of groups) {
       if (!list.length) continue;
       const group = node('div', '', 'category-group');
       group.append(node('p', label, 'category-group-label'));
-      for (const category of list) group.append(categoryLink(category));
+      for (const category of list) group.append(categoryLink(category, roleplay ? taxonomy.ROLEPLAY_LABELS[category] : undefined));
       $('guide-categories').append(group);
     }
     let count = 0;
@@ -131,6 +169,7 @@
   }
   $('guide-menu').onchange = () => {
     state.menu = menus.menuFor(state.game, $('guide-menu').value);
+    if (state.game === 'gta5') state.category = categoryFor(state.game, state.menu, state.category);
     saveState();
     update();
   };
@@ -140,7 +179,8 @@
       event.preventDefault();
       if (choice.dataset.game === state.game) return;
       const game = choice.dataset.game;
-      state = { game, category: state.category === 'all' || categories(game).includes(state.category) ? state.category : GAMES[game].assets[0], menu: menus.menuFor(game, state.menu) };
+      const menu = menus.menuFor(game, state.menu);
+      state = { game, category: categoryFor(game, menu, state.category), menu };
       saveState();
       update();
     };
@@ -148,7 +188,20 @@
   }
   $('guide-category-panel').open = !mobile.matches;
   mobile.addEventListener('change', event => { $('guide-category-panel').open = !event.matches; });
-  window.addEventListener('popstate', () => { state = readState(); update(); });
-  window.addEventListener('hashchange', () => { state = readState(); update(); });
+  window.addEventListener('popstate', restoreState);
+  window.addEventListener('hashchange', restoreState);
   update();
+
+  async function loadGtaCategories() {
+    try {
+      const response = await fetch('/resources/gta5/categories.json');
+      if (!response.ok) return;
+      gtaCategories = await response.json();
+    } catch { return; }
+    if (state.game !== 'gta5') return;
+    restoreState();
+    const target = targetSection();
+    if (target && !target.hidden) target.scrollIntoView();
+  }
+  loadGtaCategories();
 })();

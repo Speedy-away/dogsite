@@ -9,6 +9,8 @@ const SOURCES = path.join(ROOT, 'project/community-menu-sources');
 const targetIndex = process.argv.indexOf('--target');
 const target = path.resolve(targetIndex >= 0 ? process.argv[targetIndex + 1] : path.join(ROOT, '../cool-repo'));
 const publish = process.argv.includes('--publish-assets');
+const l4dDownload = /^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i;
+const l4dPreview = /^\/assets\/images\/resource-previews\/l4d\/[\w.-]+\.(?:jpe?g|png|webp)$/i;
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const base = read(path.join(ROOT, 'community/data/library.json'));
 const baseItems = new Map(base.items.map(item => [item.id, item]));
@@ -22,8 +24,8 @@ const output = { version: 1, items: [], libraryOverrides: [], legacyOverrides: [
 const overrides = new Map(), additions = new Map(), legacy = new Map();
 const localLuaHashes = new Map();
 const fields = ['name', 'category', 'categories', 'description', 'sourceMenu', 'supportedMenus', 'listedMenus', 'sourceFilename', 'formatExtension', 'sourceFormat', 'format',
-  'author', 'credits', 'license', 'sourceUrl', 'sourceChannel', 'collection', 'collectionStatus', 'archival', 'version', 'versionBasis', 'sourceVersion', 'versionStatus',
-  'compatibility', 'requirementLabel', 'requirements', 'tags', 'changelog', 'changelogStatus', 'previewKind', 'previewCaption', 'uiStyle', 'style', 'resourceType', 'themePath', 'model', 'modelLabel'];
+  'author', 'credits', 'license', 'sourceUrl', 'installUrl', 'sourceChannel', 'collection', 'collectionStatus', 'archival', 'version', 'versionBasis', 'sourceVersion', 'versionStatus',
+  'compatibility', 'requirementLabel', 'requirements', 'edition', 'editionSupport', 'editionSource', 'tags', 'changelog', 'changelogStatus', 'previewKind', 'previewCaption', 'uiStyle', 'style', 'resourceType', 'themePath', 'model', 'modelLabel'];
 const canonicalList = values => [...new Set((values || []).map(menus.canonical).filter(Boolean))];
 const aliases = { dlcs: 'dlc', translations: 'languages', wallpaper: 'wallpapers', 'custom-header': 'wallpapers', 'lua-scripts': 'lua' };
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-|-$/g, '');
@@ -46,6 +48,11 @@ function clean(entry, origin) {
   result.supportedMenus = canonicalList(entry.supportedMenus?.length ? entry.supportedMenus : [result.sourceMenu]);
   result.listedMenus = canonicalList(entry.listedMenus?.length ? entry.listedMenus :
     [result.sourceMenu, ...result.supportedMenus, ...(['cherax', 'stand', 'xforce'].includes(result.sourceMenu) ? ['scooby', 'nenyoo'] : [])]);
+  if (menus.isCheraxTheme(result)) {
+    result.supportedMenus = menus.menuIds(result);
+    result.listedMenus = result.supportedMenus;
+    result.uiStyle = menus.themeInterface(result);
+  }
   if (result.game !== 'gta5') { result.supportedMenus = ['scooby']; result.listedMenus = ['scooby']; }
   result.tags = [...new Set([...(entry.tags || []), menus.menuName(result.sourceMenu), ...(entry.archival || entry.collectionStatus === 'archival' || entry.collection === 'old' ? ['old shares', 'archival'] : [])])];
   result.menuResource = true;
@@ -61,10 +68,26 @@ function clean(entry, origin) {
     if (checked?.verified && checked.localPath) result.preview = asset(checked.localPath, result.sourceMenu, 'previews', result.game);
     else if (checked && !checked.verified) result.previewVerified = false;
     else if (entry.preview.startsWith('project/community-menu-sources/')) result.preview = asset(entry.preview, result.sourceMenu, 'previews', result.game);
+    else if (result.game === 'l4d' && l4dPreview.test(entry.preview) && fs.existsSync(path.join(ROOT, entry.preview))) result.preview = entry.preview;
     else if (/^https:\/\//.test(entry.preview) || entry.preview.startsWith('previews/') || entry.preview.startsWith('/community/media/')) result.preview = entry.preview;
-    if (result.preview) result.previewVerified = true;
+    if (result.preview) {
+      const thumbnail = result.preview.match(/^previews\/gta5\/menus\/xforce\/([a-f0-9]{20})\.(?:png|jpe?g|gif|webp)$/i);
+      if (thumbnail) {
+        for (const extension of ['jpg', 'webp']) {
+          const local = '/assets/images/resource-previews/xforce/' + thumbnail[1] + '.' + extension;
+          if (!fs.existsSync(path.join(ROOT, local.slice(1)))) continue;
+          result.preview = local;
+          break;
+        }
+      }
+      result.previewVerified = true;
+    }
+  } else if (entry.previewVerified !== false && entry.source === 'GTA5-Mods' &&
+    ['addon-peds', 'addon-vehicles'].includes(entry.category) && /^https:\/\/img\.gta5-mods\.com\//i.test(entry.preview || '')) {
+    result.preview = entry.preview;
   }
-  if (result.category === 'lua') {
+  const reviewedRedmLua = result.game === 'redm' && origin === 'redm-submitted' && entry.reviewedLua === true;
+  if (result.category === 'lua' && !reviewedRedmLua) {
     result.downloadStatus = 'pending'; result.status = 'pending'; result.files = [];
     result.sourceFilename = result.sourceFilename || (typeof entry.source?.path === 'string' ? path.posix.basename(entry.source.path) : typeof entry.member === 'string' ? path.posix.basename(entry.member) : undefined);
     const extension = result.sourceFilename?.match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -73,6 +96,10 @@ function clean(entry, origin) {
   } else if (Array.isArray(entry.files)) {
     result.files = entry.files.map(file => {
       if (file.url && /^https:\/\//.test(file.url)) return { ...file };
+      if (result.game === 'l4d' && l4dDownload.test(file.url || '')) {
+        const bytes = fs.readFileSync(path.join(ROOT, file.url));
+        return { url: file.url, name: path.posix.basename(file.url), size: bytes.length, sha256: hash(bytes) };
+      }
       if (file.path && !path.isAbsolute(file.path) && !file.path.includes('\\') && !file.path.split('/').includes('..') && fs.existsSync(path.join(target, file.path))) return { ...file };
       if (file.localPath?.startsWith('project/community-menu-sources/')) {
         const relative = asset(file.localPath, result.sourceMenu, 'downloads', result.game);
@@ -101,7 +128,11 @@ function add(entry, origin) {
   if (entry.game === 'redm' && /(?:pm[ _-]*bypass|fast(?:er)?[ _-]*scope)/i.test([entry.id, entry.name, entry.sourceChannel].join(' '))) return;
   const normalized = clean(entry, origin);
   if (baseItems.has(entry.id)) overrides.set(entry.id, { ...overrides.get(entry.id), ...normalized, id: entry.id });
-  else if (normalized.category === 'lua' || normalized.files?.length || entry.status === 'in-menu') additions.set(entry.id, { ...additions.get(entry.id), ...normalized, id: entry.id });
+  else if ((normalized.category === 'lua' && normalized.downloadStatus === 'pending') || normalized.files?.length ||
+    entry.status === 'in-menu' || (normalized.category === 'mod-menus' && normalized.status === 'preview-only') ||
+    (['fivem-graphics', 'l4d'].includes(origin) && normalized.status === 'author-hosted' && /^https:\/\//.test(normalized.sourceUrl || ''))) {
+    additions.set(entry.id, { ...additions.get(entry.id), ...normalized, id: entry.id });
+  }
 }
 function luaIdentity(entry) {
   if (additions.has(entry.id)) return entry.id;
@@ -155,8 +186,11 @@ function importManifest(menu, defaultGame = 'gta5') {
   }
   output.coverage.push({ menu, source: `project/community-menu-sources/${menu}.json`, summary: source.summary || {}, coverage: source.coverage || [], completeness: source.completeness || 'Source snapshot only' });
 }
-for (const menu of ['stand', 'xforce', 'inbox', 'biggerscript-public']) importManifest(menu);
+for (const menu of ['stand', 'stand-discord-reviewed', 'xforce', 'inbox', 'biggerscript-public', 'gta5-addon-packs']) importManifest(menu);
 importManifest('redm', 'redm');
+importManifest('redm-submitted', 'redm');
+importManifest('fivem-graphics', 'fivem');
+for (const manifest of ['l4d', 'l4d-originals', 'l4d-configs']) importManifest(manifest, 'l4d');
 // Relabel existing Cherax marketplace data in place, preserving file identities.
 for (const item of base.items.filter(item => item.source === 'ModVerse public catalog')) {
   const category = item.category === 'misc' ? 'dlc' : item.category;
@@ -181,7 +215,7 @@ if (fs.existsSync(auditFile) && fs.existsSync(checksFile)) {
       requirements: ['Cherax ClickGUI theme loader or a compatible importer in the installed menu build', 'Preserve the complete package and supplied artwork'],
       credits: item.creator === 'Original developer unverified' ? item.sharedBy : item.creator,
       sourceUrl: item.sourceCatalogUrl, preview: preview?.localPath, previewVerified: Boolean(preview),
-      previewCaption: preview?.kind === 'source_theme_artwork' ? 'Original theme artwork' : 'Original Cherax screenshot', uiStyle: 'ClickUI'
+      previewCaption: preview?.kind === 'source_theme_artwork' ? 'Original theme artwork' : 'Original Cherax screenshot'
     }, 'cherax');
   }
   output.coverage.push({ menu: 'cherax', source: 'Pinned ModVerse public catalog', themesVerified: [...checks.values()].filter(entry => entry.files.some(file => file.verified)).length,

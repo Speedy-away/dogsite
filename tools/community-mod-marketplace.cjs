@@ -282,7 +282,7 @@ async function resolveAuthorDownload(item) {
   throw Error(errors[0] || 'No directly downloadable public archive was available');
 }
 
-async function resolveDirectDownloads({ cacheDirectory = CACHE, force = false, limit = 80 } = {}) {
+async function resolveDirectDownloads({ cacheDirectory = CACHE, force = false, limit = 80, addonModelsOnly = false } = {}) {
   const snapshot = JSON.parse(fs.readFileSync(path.join(cacheDirectory, 'gta5-mods.json'), 'utf8'));
   const cacheFile = path.join(cacheDirectory, 'direct-downloads.json');
   const previous = fs.existsSync(cacheFile) ? JSON.parse(fs.readFileSync(cacheFile, 'utf8')) : {};
@@ -290,6 +290,13 @@ async function resolveDirectDownloads({ cacheDirectory = CACHE, force = false, l
   const listed = new Map();
   for (const feed of snapshot.feeds) for (const item of feed.items) if (!listed.has(item.sourceUrl)) listed.set(item.sourceUrl, item);
   for (const item of snapshot.tools) listed.set(item.sourceUrl, { ...listed.get(item.sourceUrl), ...item });
+  if (addonModelsOnly) {
+    for (const [url, item] of listed) {
+      const modelCategory = ['addon-peds', 'addon-vehicles'].includes(item.category);
+      if (!modelCategory || !/\badd[ -]?on\b/i.test(item.name) || /\boutdated\b/i.test(item.name) ||
+        (item.tags || []).some(tag => /^(?:clothing|shoes|mask|helmet|hair|eyes|tattoo|watch|jewellery|wardrobe)$/i.test(tag))) listed.delete(url);
+    }
+  }
   if (!Number.isSafeInteger(limit) || limit < 1) throw Error('Download resolution limit must be a positive integer');
   let completed = 0, attempted = 0, rateLimited = false;
   const persist = () => {
@@ -303,7 +310,7 @@ async function resolveDirectDownloads({ cacheDirectory = CACHE, force = false, l
     if (!grouped.has(key)) grouped.set(key, []);
     grouped.get(key).push(item);
   }
-  const ordered = [...snapshot.tools];
+  const ordered = addonModelsOnly ? [] : [...snapshot.tools];
   const seen = new Set(ordered.map(item => item.sourceUrl));
   for (let row = 0; [...grouped.values()].some(group => row < group.length); row++) {
     for (const group of grouped.values()) if (group[row] && !seen.has(group[row].sourceUrl)) {
@@ -511,7 +518,9 @@ if (require.main === module) {
     if (process.argv.includes('--refresh')) await refreshMarketplace();
     if (process.argv.includes('--resolve')) {
       const argument = process.argv.find(value => value.startsWith('--limit='));
-      const resolved = await resolveDirectDownloads({ force: process.argv.includes('--force'), ...(argument ? { limit: Number(argument.slice(8)) } : {}) });
+      const resolved = await resolveDirectDownloads({ force: process.argv.includes('--force'),
+        addonModelsOnly: process.argv.includes('--addon-models'),
+        ...(argument ? { limit: Number(argument.slice(8)) } : {}) });
       const reasons = resolved.failures.reduce((out, item) => (out[item.reason] = (out[item.reason] || 0) + 1, out), {});
       process.stdout.write(`${JSON.stringify({ listed: resolved.listed, attempted: resolved.attempted, verified: resolved.verified, rateLimited: resolved.rateLimited, unavailable: resolved.failures.length, reasons }, null, 2)}\n`);
     }

@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "gta5-scooby-addon-peds-black-knight",
+      "game": "gta5",
+      "category": "addon-peds",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Black Knight",
+      "description": "Individual loose ped package from the Scooby addon collection.",
+      "tags": [
+        "Black Knight",
+        "loose ped"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "A compatible Scooby loose-ped importer. The source bundle does not identify the supported edition."
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-peds-black-knight.zip",
+          "name": "black-knight.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-peds-deadpool",
+      "game": "gta5",
+      "category": "addon-peds",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Deadpool",
+      "description": "Individual loose ped package from the Scooby addon collection.",
+      "tags": [
+        "deadpool",
+        "loose ped"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "A compatible Scooby loose-ped importer. The source bundle does not identify the supported edition."
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-peds-deadpool.zip",
+          "name": "deadpool.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-peds-sonic",
+      "game": "gta5",
+      "category": "addon-peds",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Sonic",
+      "description": "Individual loose ped package from the Scooby addon collection.",
+      "tags": [
+        "sonic",
+        "loose ped"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "A compatible Scooby loose-ped importer. The source bundle does not identify the supported edition."
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-peds-sonic.zip",
+          "name": "sonic.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-enhanced-lrsv27",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "2027 Lamborghini Revuelto SV",
+      "editionSupport": "enhanced",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Enhanced vehicle package from the Scooby addon collection.",
+      "tags": [
+        "lrsv27",
+        "DLC RPF",
+        "Enhanced"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Enhanced and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-enhanced-lrsv27.zip",
+          "name": "2027-lamborghini-revuelto-sv-enhanced.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-enhanced-r820-enhanced",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Audi R8",
+      "editionSupport": "enhanced",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Enhanced vehicle package from the Scooby addon collection.",
+      "tags": [
+        "r820_enhanced",
+        "DLC RPF",
+        "Enhanced"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Enhanced and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-enhanced-r820-enhanced.zip",
+          "name": "audi-r8-enhanced.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-legacy-00spid",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "00spid",
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Legacy vehicle package from the Scooby addon collection.",
+      "tags": [
+        "00spid",
+        "DLC RPF",
+        "Legacy"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Legacy and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-legacy-00spid.zip",
+          "name": "00spid-legacy.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-legacy-chrysler-300-redeye",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Chrysler 300 Redeye",
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Legacy vehicle package from the Scooby addon collection.",
+      "tags": [
+        "Chrysler 300 Redeye",
+        "DLC RPF",
+        "Legacy"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Legacy and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-legacy-chrysler-300-redeye.zip",
+          "name": "chrysler-300-redeye-legacy.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-legacy-amggtsmansory",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Mercedes-AMG GT S Mansory",
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Legacy vehicle package from the Scooby addon collection.",
+      "tags": [
+        "amggtsmansory",
+        "DLC RPF",
+        "Legacy"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Legacy and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-legacy-amggtsmansory.zip",
+          "name": "mercedes-amg-gt-s-mansory-legacy.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-legacy-lrsv27",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "2027 Lamborghini Revuelto SV",
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Legacy vehicle package from the Scooby addon collection.",
+      "tags": [
+        "lrsv27",
+        "DLC RPF",
+        "Legacy"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Legacy and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-legacy-lrsv27.zip",
+          "name": "2027-lamborghini-revuelto-sv-legacy.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-legacy-r820",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Audi R8",
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Legacy vehicle package from the Scooby addon collection.",
+      "tags": [
+        "r820",
+        "DLC RPF",
+        "Legacy"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Legacy and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-legacy-r820.zip",
+          "name": "audi-r8-legacy.zip"
+        }
+      ]
+    },
+    {
+      "id": "gta5-scooby-addon-vehicles-legacy-rs7",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ],
+      "name": "Audi RS7",
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "description": "Individual Legacy vehicle package from the Scooby addon collection.",
+      "tags": [
+        "rs7",
+        "DLC RPF",
+        "Legacy"
+      ],
+      "credits": "Original model authors. Package from the Scooby GTA V addon collection.",
+      "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/addons",
+      "requirements": [
+        "GTA V Legacy and a compatible Scooby addon importer"
+      ],
+      "files": [
+        {
+          "localPath": "project/community-menu-sources/gta5-addon-payloads/gta5-scooby-addon-vehicles-legacy-rs7.zip",
+          "name": "audi-rs7-legacy.zip"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "verifiedPackages": 11
+  }
+}

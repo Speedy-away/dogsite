@@ -1,0 +1,154 @@
+{
+  "items": [
+    {
+      "id": "l4d-galaxy-skybox",
+      "game": "l4d",
+      "category": "skyboxes",
+      "name": "Galaxy Skybox",
+      "edition": "both",
+      "description": "A deep-blue star field with a violet nebula for custom maps. Includes all six faces in LDR and HDR.",
+      "credits": "Scooby",
+      "compatibility": "Map-authoring asset for Left 4 Dead and Left 4 Dead 2. Use the Authoring Tools for your game.",
+      "requirementLabel": "Hammer map asset",
+      "format": "Source VMT and VTF, LDR and HDR",
+      "tags": [
+        "hammer",
+        "source",
+        "vmt",
+        "vtf",
+        "skybox",
+        "galaxy"
+      ],
+      "preview": "/assets/images/resource-previews/l4d/l4d-galaxy-skybox.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "url": "/assets/downloads/l4d/l4d-galaxy-skybox.zip",
+          "name": "l4d-galaxy-skybox.zip",
+          "size": 9294738,
+          "sha256": "06cbc8738fa3c8d15491e1695979b7cf5c1ca04cd1d5bacde09803db61929745"
+        }
+      ]
+    },
+    {
+      "id": "l4d-storm-skybox",
+      "game": "l4d",
+      "category": "skyboxes",
+      "name": "Storm Skybox",
+      "edition": "both",
+      "description": "A slate-blue storm sky with diffuse shafts of light for custom maps. Includes all six faces in LDR and HDR.",
+      "credits": "Scooby",
+      "compatibility": "Map-authoring asset for Left 4 Dead and Left 4 Dead 2. Use the Authoring Tools for your game.",
+      "requirementLabel": "Hammer map asset",
+      "format": "Source VMT and VTF, LDR and HDR",
+      "tags": [
+        "hammer",
+        "source",
+        "vmt",
+        "vtf",
+        "skybox",
+        "storm"
+      ],
+      "preview": "/assets/images/resource-previews/l4d/l4d-storm-skybox.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "url": "/assets/downloads/l4d/l4d-storm-skybox.zip",
+          "name": "l4d-storm-skybox.zip",
+          "size": 5786404,
+          "sha256": "3db1705e14ea8dacb952169ecd1e7e5d63fb0814972d74352f7d98a7875273e5"
+        }
+      ]
+    },
+    {
+      "id": "l4d-aurora-skybox",
+      "game": "l4d",
+      "category": "skyboxes",
+      "name": "Aurora Skybox",
+      "edition": "both",
+      "description": "A night sky with ribbons of green and blue light for custom maps. Includes all six faces in LDR and HDR.",
+      "credits": "Scooby",
+      "compatibility": "Map-authoring asset for Left 4 Dead and Left 4 Dead 2. Use the Authoring Tools for your game.",
+      "requirementLabel": "Hammer map asset",
+      "format": "Source VMT and VTF, LDR and HDR",
+      "tags": [
+        "hammer",
+        "source",
+        "vmt",
+        "vtf",
+        "skybox",
+        "aurora"
+      ],
+      "preview": "/assets/images/resource-previews/l4d/l4d-aurora-skybox.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "url": "/assets/downloads/l4d/l4d-aurora-skybox.zip",
+          "name": "l4d-aurora-skybox.zip",
+          "size": 2968818,
+          "sha256": "5d8863f09249b12a7ce8264b4ea9875846fb46bcfbc656cf650f8a7fa2184f28"
+        }
+      ]
+    },
+    {
+      "id": "l4d-frost-brush-material",
+      "game": "l4d",
+      "category": "textures",
+      "name": "Frost Brush Material",
+      "edition": "both",
+      "description": "A blue-white procedural ice texture for walls, floors and other world geometry. Includes a lightmapped material and its VTF.",
+      "credits": "Scooby",
+      "compatibility": "Map-authoring asset for Left 4 Dead and Left 4 Dead 2. Use the Authoring Tools for your game.",
+      "requirementLabel": "Hammer map asset",
+      "format": "Source LightmappedGeneric VMT and VTF",
+      "tags": [
+        "hammer",
+        "source",
+        "vmt",
+        "vtf",
+        "brush material",
+        "frost"
+      ],
+      "preview": "/assets/images/resource-previews/l4d/l4d-frost-brush-material.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "url": "/assets/downloads/l4d/l4d-frost-brush-material.zip",
+          "name": "l4d-frost-brush-material.zip",
+          "size": 1011772,
+          "sha256": "c1687bfff3cd67742ada4a69d49a80339f0729a96f41da75c1ae5d723c6227ed"
+        }
+      ]
+    },
+    {
+      "id": "l4d-circuit-brush-material",
+      "game": "l4d",
+      "category": "textures",
+      "name": "Circuit Brush Material",
+      "edition": "both",
+      "description": "A teal circuit grid for screens, panels and other world geometry. Includes a lightmapped material and its VTF.",
+      "credits": "Scooby",
+      "compatibility": "Map-authoring asset for Left 4 Dead and Left 4 Dead 2. Use the Authoring Tools for your game.",
+      "requirementLabel": "Hammer map asset",
+      "format": "Source LightmappedGeneric VMT and VTF",
+      "tags": [
+        "hammer",
+        "source",
+        "vmt",
+        "vtf",
+        "brush material",
+        "circuit"
+      ],
+      "preview": "/assets/images/resource-previews/l4d/l4d-circuit-brush-material.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "url": "/assets/downloads/l4d/l4d-circuit-brush-material.zip",
+          "name": "l4d-circuit-brush-material.zip",
+          "size": 257491,
+          "sha256": "2952896df4929d12da31661fa4f101754d6532355c3016ffb48e9c4dd1f24877"
+        }
+      ]
+    }
+  ]
+}

@@ -36,7 +36,7 @@ test('menu selection has a Scooby default and separates discovery from runtime r
   assert.deepEqual(menus.menuIds({ game: 'gta5', category: 'themes', menu: 'Scooby' }), ['scooby']);
 });
 test('new Lua listings have honest pending downloads, explicit source APIs and no Discord links', () => {
-  const scripts = supplement.items.filter(item => item.category === 'lua');
+  const scripts = supplement.items.filter(item => item.category === 'lua' && item.game !== 'redm');
   assert(scripts.length >= 59);
   const ids = new Set();
   for (const item of scripts) {
@@ -53,6 +53,18 @@ test('new Lua listings have honest pending downloads, explicit source APIs and n
   assert.equal(notes.changelog[0].date, '2026-11-08');
   assert(notes.changelog[0].changes.length);
   assert(!base.items.some(item => item.category === 'lua'), 'Removed broken examples remain outside the base catalog');
+});
+test('reviewed RedM scripts download and preview-only menus have no payloads', () => {
+  const redm = supplement.items.filter(item => item.game === 'redm');
+  const catalog = require('../project/community-menu-sources/redm-submitted.json');
+  for (const source of catalog.items) {
+    const item = redm.find(entry => entry.id === source.id);
+    assert(item, source.id);
+    assert.equal(item.downloadStatus, source.downloadStatus);
+    assert.deepEqual(item.files, source.files);
+    assert.equal(item.preview, source.preview);
+    assert(!item.sourceUrl, item.id);
+  }
 });
 test('compatibility overrides reuse original resources and compact legacy groups preserve identities', () => {
   const originals = new Map(base.items.map(item => [item.id, item]));
@@ -96,7 +108,7 @@ test('verified source preview bytes are published to the allowlisted download re
   for (const preview of previews) {
     assert(!preview.startsWith('project/'), 'Private source paths must not become public preview URLs');
     if (/^https:/.test(preview)) continue;
-    const bytes = fs.readFileSync(path.join(target, preview));
+    const bytes = fs.readFileSync(path.join(preview.startsWith('/') ? ROOT : target, preview));
     assert(bytes.length > 0, preview);
   }
   for (const entry of checks.entries.filter(entry => entry.preview)) {

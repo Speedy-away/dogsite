@@ -14,9 +14,29 @@
   const canonical = value => MENUS.find(menu => menu.id === key(value))?.id || '';
   const menuFor = (game, value) => game === 'gta5' ? canonical(value) || 'scooby' : 'scooby';
   const menuName = value => MENUS.find(menu => menu.id === canonical(value))?.name || 'Scooby';
+  const gtaFiles = ['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc'];
+  const gtaResourceOrder = ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'dlc', 'asi-mods', 'dotnet-mods'];
+  const gtaAddonOrder = ['addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'];
+  function gtaCategoryGroups(menu, ids) {
+    if (MENUS.find(item => item.id === canonical(menu))?.deferred) return [];
+    const available = new Set(ids);
+    const ordered = [...new Set([...gtaResourceOrder, ...gtaAddonOrder, ...available])].filter(id => available.has(id));
+    const name = menuName(menu);
+    return [
+      [`${name} Files`, gtaFiles.filter(id => available.has(id))],
+      [`${name} Resources`, ordered.filter(id => !gtaFiles.includes(id) && !id.startsWith('addon-'))],
+      ['Addons', ordered.filter(id => id.startsWith('addon-'))]
+    ].filter(([, group]) => group.length);
+  }
   const assetCategories = new Set(['vehicles', 'modded', 'outfits', 'maps', 'dlc', 'textures', 'paintjobs', 'liveries', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-maps', 'addon-clothing', 'addon-animations']);
+  const isCheraxTheme = entry => entry?.game === 'gta5' && entry.category === 'themes' && (
+    canonical(entry.sourceMenu) === 'cherax' || entry.source === 'ModVerse public catalog' ||
+    /^(?:menu-cherax-theme-|gta5-modverse-themes-)/.test(entry.id || '')
+  );
+  const themeInterface = entry => isCheraxTheme(entry) ? 'ClickGUI' : entry?.uiStyle;
   function menuIds(entry) {
     if (!entry || entry.game !== 'gta5') return ['scooby'];
+    if (isCheraxTheme(entry)) return ['cherax'];
     if (Array.isArray(entry.supportedMenus)) return [...new Set(entry.supportedMenus.map(canonical).filter(Boolean))];
     const origin = canonical(entry.sourceMenu);
     if (origin) {
@@ -31,7 +51,7 @@
   const compatibleWith = (entry, menu) => menuIds(entry).includes(canonical(typeof menu === 'object' ? menu.id : menu) || 'scooby');
   // A resource may be discoverable in Scooby's collection while retaining its
   // required original format or compatibility layer in the item details.
-  const supports = (entry, menu) => Array.isArray(entry?.listedMenus)
+  const supports = (entry, menu) => Array.isArray(entry?.listedMenus) && !isCheraxTheme(entry)
     ? entry.listedMenus.map(canonical).includes(canonical(typeof menu === 'object' ? menu.id : menu) || 'scooby')
     : compatibleWith(entry, menu);
   function legacyOverrideMap(supplement) {
@@ -46,5 +66,5 @@
     }
     return result;
   }
-  return { MENUS, canonical, menuFor, menuName, displayName: menuName, menuIds, supports, compatibleWith, legacyOverrideMap };
+  return { MENUS, canonical, menuFor, menuName, displayName: menuName, gtaCategoryGroups, menuIds, supports, compatibleWith, isCheraxTheme, themeInterface, legacyOverrideMap };
 });

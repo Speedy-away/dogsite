@@ -11,7 +11,7 @@
     "resources:refresh": "node tools/resource-sync.cjs --refresh-public",
     "resources:pages": "node tools/resource-pages.cjs",
     "resources:seo": "node tools/build-resource-seo.cjs",
-    "test:resources": "node --test tools/resource-seo.test.cjs tools/resource-sync.test.cjs",
+    "test:resources": "node --test tools/resource-seo.test.cjs tools/resource-sync.test.cjs tools/gta5-resource-navigation.test.cjs",
     "test:community": "node --test tools/community.test.cjs tools/community-menu.test.cjs",
     "tf2:check": "node tools/check-tf2-features.js && node tools/build-tf2-docs.js --check",
     "tf2:build": "node tools/features/build-features-page.js --only tf2 --apply && node tools/build-tf2-docs.js",

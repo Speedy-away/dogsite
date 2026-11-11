@@ -65,6 +65,10 @@ function expectedInventory() {
     }
     items.set(item.id, item);
   }
+  for (const item of json('community/data/gta5-editions.json').items) {
+    assert(!items.has(item.id), `Reviewed listing duplicates ${item.id}`);
+    items.set(item.id, item);
+  }
   for (const kind of ['vehicles', 'outfits']) {
     const index = json(`community/data/${kind}/index.json`);
     assert.equal(index.items.length, index.totalItems);
@@ -165,6 +169,16 @@ test('game and category links are crawlable and every resource page appears in b
   const sitemap = read('sitemap.xml');
   const locations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   const directory = links('sitemap/index.html').map((url) => url.href);
+  const rootKeywords = metadata(read('resources/index.html'), 'keywords')[0];
+  for (const menu of ['cherax', 'stand']) {
+    for (const [category, label] of [['lua', 'Lua scripts'], ['outfits', 'outfits'], ['vehicles', 'vehicles']]) {
+      const phrase = `${menus.menuName(menu)} ${label}`;
+      const route = `/resources/gta5/${menu}/${category}/`;
+      assert(rootLinks.includes(route), `Missing link for ${phrase}`);
+      assert(rootKeywords.includes(phrase), `Missing root keyword for ${phrase}`);
+      assert(metadata(read(route.slice(1) + 'index.html'), 'keywords')[0].includes(phrase), route);
+    }
+  }
   for (const url of [...locations, ...directory]) assert(!new URL(url).pathname.startsWith('/community/'), url);
   for (const route of ['/resources/', '/resources/guides/']) {
     assert(locations.includes(ORIGIN + route), route);
@@ -205,12 +219,64 @@ test('old resource bookmarks redirect to the matching page with filters and anch
     assert(metadata(html, 'robots').includes('noindex'), old);
     assert(links(old).some(link => link.pathname === route), old);
     assert(fs.existsSync(path.join(ROOT, route, 'index.html')), route);
-    const search = '?game=gta5&menu=cherax&category=vehicles';
+    const search = '?game=gta5&menu=cherax&category=vehicles&edition=legacy';
     const hash = '#collection';
     let redirected;
     vm.runInNewContext(script, { location: { search, hash, replace: url => { redirected = url; } } });
     assert.equal(redirected, route + search + hash);
   }
+});
+
+test('GTA edition filters use verified packages and author-hosted cards retain their own actions', () => {
+  const editions = require('../resources/editions.js');
+  const reviewed = json('community/data/gta5-editions.json');
+  const { items } = require('./resource-pages.cjs').buildData();
+  const published = new Map(items.map(item => [item.id, item]));
+  for (const [id, record] of Object.entries(reviewed.verified)) {
+    const item = published.get(id);
+    assert.equal(editions.support(item), record.editionSupport, `Verification no longer matches the published package for ${id}`);
+    assert.equal(editions.support(editions.withVerification({ id, game: 'gta5', files: [{ path: 'changed.zip' }] }, reviewed)), '');
+    for (const filter of ['enhanced', 'legacy', 'both']) {
+      assert.equal(editions.matches(item, filter), record.editionSupport === filter || record.editionSupport === 'both', `${id}, ${filter}`);
+    }
+  }
+  const unknown = { game: 'gta5', edition: 'Legacy and Enhanced may work' };
+  assert(editions.matches(unknown, ''));
+  assert(!editions.matches(unknown, 'enhanced'));
+  assert(!editions.matches(unknown, 'legacy'));
+  assert(!editions.matches(unknown, 'both'));
+  assert.equal(editions.choice('rdr2', 'legacy'), '');
+
+  const graphics = read('resources/gta5/graphics-packs/index.html');
+  for (const [variant, label, url] of [
+    ['evolved', 'Legacy', 'https://razedmods.com/gtavlegacy'],
+    ['enhanced', 'Enhanced', 'https://razedmods.com/gtavenhanced']
+  ]) {
+    const card = graphics.match(new RegExp(`<article[^>]+id="resource-gta5-razed-naturalvision-${variant}"[^>]*>[\\s\\S]*?</article>`))?.[0];
+    assert(card?.includes(`>${label}</span>`), variant);
+    assert(card.includes('By Razed Mods') && card.includes(`href="${url}"`), variant);
+    assert(!card.includes('data-download-file='), 'Author pages are links, not downloadable files');
+  }
+});
+
+test('Left 4 Dead filters keep game-specific add-ons and shared files in the right collections', () => {
+  const editions = require('../resources/editions.js');
+  const resources = inventory().find(page => page.game === 'l4d' && !page.category);
+  const { items } = require('./resource-pages.cjs').buildData();
+  const listing = items.filter(item => item.game === 'l4d');
+  assert.equal(editions.choice('gta5', 'l4d1'), '');
+  for (const game of ['l4d1', 'l4d2']) {
+    assert.equal(editions.choice('l4d', game), game);
+    assert(links(resources.file).some(url => url.searchParams.get('edition') === game));
+    const visible = listing.filter(item => editions.matches(item, game));
+    assert(visible.some(item => item.category === 'maps' && item.edition === game && item.status === 'author-hosted'));
+    assert(visible.some(item => item.category === 'languages' && editions.support(item) === 'both'));
+    assert(!visible.some(item => item.edition === (game === 'l4d1' ? 'l4d2' : 'l4d1')));
+  }
+  const sky = listing.find(item => item.id === 'l4d-galaxy-skybox');
+  assert.equal(editions.support(sky), 'both');
+  assert.equal(fs.statSync(path.join(ROOT, sky.files[0].url)).size, sky.files[0].size);
+  assert(read('resources/l4d/skyboxes/index.html').includes(sky.files[0].url));
 });
 
 test('resource structured data describes visible collections and real sample entries', () => {

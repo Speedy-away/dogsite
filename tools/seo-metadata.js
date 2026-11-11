@@ -105,12 +105,17 @@ scooby-features/index.html|GTA 5 Cheats & Mod Menu Highlights - Scooby|Explore S
 guides/index.html|Scooby Wiki: Game Setup & Troubleshooting Guides|Browse setup, requirements, menu controls and fixes for Scooby games, including GTA 5, RDR2, CS2, TF2 & Classified, L4D and Half-Life.|Scooby cheat setup guides, GTA 5 cheats, GTA 5 mod menu setup, RDR2 cheats, RDR2 mod menu setup, CS2 cheat setup, GMOD cheat setup, TF2 setup, TF2 Classified guide, L4D cheat setup, Half-Life setup, FiveM cheat setup, RedM cheat setup, S&box cheat setup, Scooby troubleshooting
 `;
 for (const row of rows.trim().split('\n')) add(...row.trim().split('|'));
-const resourceInventory = require('./resource-pages.cjs').buildData();
+const { buildData: buildResourceData, featuredTopics } = require('./resource-pages.cjs');
+const { menuTopic } = require('../resources/taxonomy.js');
+const resourceInventory = buildResourceData();
 for (const page of resourceInventory.pages) {
  add(page.file, page.title, page.description, page.keywords);
 }
 const resourceMenus = [...new Set(resourceInventory.pages.filter(page => page.game === 'gta5').map(page => page.menuName))];
-pages['resources/index.html'].keywords += ', ' + resourceMenus.map(menu => menu + ' resources').join(', ');
+const resourceTopics = resourceInventory.pages
+ .filter(page => page.game === 'gta5' && page.menu !== 'scooby' && featuredTopics.includes(page.category))
+ .map(page => menuTopic(page.menu, page.category)).filter(Boolean);
+appendKeywords('resources/index.html', [...resourceMenus.map(menu => menu + ' resources'), ...resourceTopics]);
 for (const [slug, game] of [['gta5','GTA 5'],['fivem','FiveM'],['redm','RedM']]) add(`api/${slug}_api_reference.html`, `${game} Lua API Reference - Scooby Developer Docs`, `Read the Scooby ${game} Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.`, `${game} Lua API, Scooby ${game} scripting, ${game} Lua functions`);
 for (const [slug, game, base] of [['fivem','FiveM','GTA V'],['redm','RedM','RDR2']]) add(`docs/${slug}/index.html`, `${game} Native Reference: ${base} & Scooby Functions`, `Search ${game} and ${base} native functions by namespace. Browse signatures, parameters and custom Scooby natives for scripting, memory and HTTP requests.`, `${game} native reference, ${base} natives, Scooby natives`);
 const groups = [

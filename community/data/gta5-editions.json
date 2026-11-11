@@ -1,0 +1,228 @@
+{
+  "items": [
+    {
+      "id": "gta5-razed-naturalvision-evolved",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "NaturalVision Evolved",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "Razed Mods",
+      "sourceUrl": "https://razedmods.com/gtavlegacy",
+      "installUrl": "https://content.razedmods.com/readme/sp",
+      "editionSupport": "legacy",
+      "editionSource": "https://content.razedmods.com/readme/sp",
+      "description": "Single-player graphics overhaul for GTA V Legacy with reworked lighting, weather and atmosphere.",
+      "requirements": ["GTA V Legacy", "OpenIV and Script Hook V"],
+      "tags": ["NaturalVision", "NVE", "Razed Mods", "graphics", "single player"]
+    },
+    {
+      "id": "gta5-razed-naturalvision-enhanced",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "NaturalVision Enhanced",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "Razed Mods",
+      "sourceUrl": "https://razedmods.com/gtavenhanced",
+      "installUrl": "https://content.razedmods.com/readme/enhanced",
+      "editionSupport": "enhanced",
+      "editionSource": "https://content.razedmods.com/readme/enhanced",
+      "description": "Single-player graphics overhaul built for GTA V Enhanced, with changes to lighting, weather and shaders.",
+      "requirements": ["GTA V Enhanced", "Script Hook V"],
+      "tags": ["NaturalVision", "NVE", "Razed Mods", "graphics", "single player"]
+    },
+    {
+      "id": "gta5-graphics-visualv",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "VisualV",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "_CP_ and robi29",
+      "sourceUrl": "https://www.gta5-mods.com/misc/visualv",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/misc/visualv",
+      "description": "Reworks weather, cloud cover, color correction and distant lights. Choose the Legacy or Enhanced download under All Versions.",
+      "requirements": ["Legacy: OpenIV and its ASI loader", "Enhanced: CodeWalker 30 dev48 or newer and OpenRPF"],
+      "tags": ["graphics", "weather", "lighting", "single player"]
+    },
+    {
+      "id": "gta5-graphics-redux",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "GTA 5 Redux",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "GTA V Redux team",
+      "sourceUrl": "https://gta5redux.com/download/",
+      "installUrl": "https://gta5redux.com/installation/",
+      "editionSupport": "legacy",
+      "editionSource": "https://gta5redux.com/download/",
+      "description": "Rebuilds weather, textures and effects. The author offers a visuals-only download and a full overhaul with gameplay changes.",
+      "requirements": ["GTA V Legacy build supported by the selected release", "OpenIV"],
+      "tags": ["graphics", "weather", "textures", "ReShade", "single player"]
+    },
+    {
+      "id": "gta5-graphics-visual-paradise",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "Visual Paradise",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "Alex106",
+      "sourceUrl": "https://www.gta5-mods.com/misc/old-gen-timecycle",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/misc/old-gen-timecycle",
+      "description": "Restores weather, clouds, lens effects and Snapmatic filters from the PS3 and Xbox 360 releases. Use the OIV package for your edition.",
+      "requirements": ["OIV Package Installer", "Use the editor and archive loader listed for your edition on the release page"],
+      "tags": ["graphics", "weather", "lighting", "PS3", "Xbox 360"]
+    },
+    {
+      "id": "gta5-graphics-realistic-weather-effects-unleashed",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "Realistic Weather Effects Unleashed",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "Foxy_Oxy",
+      "sourceUrl": "https://www.gta5-mods.com/misc/realistic-effects-unleashed-beta-oiv",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/misc/realistic-effects-unleashed-beta-oiv",
+      "description": "Changes rain, dust, lightning and atmospheric lighting. Select the matching Legacy or Enhanced package under All Versions.",
+      "requirements": ["Legacy: OpenIV", "Enhanced: CodeWalker and OpenRPF", "Follow the readme supplied with your edition"],
+      "tags": ["RWEU", "weather", "rain", "fog", "timecycle"]
+    },
+    {
+      "id": "gta5-graphics-maxedv",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "MaxedV",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "MaxedDev",
+      "sourceUrl": "https://www.gta5-mods.com/misc/maxedv",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/misc/maxedv",
+      "description": "A performance-focused weather and lighting overhaul. All Versions lists a Legacy development build and an Enhanced alpha.",
+      "requirements": ["Select the build for your edition and follow the included instructions"],
+      "tags": ["graphics", "performance", "lighting", "weather", "reflections"]
+    },
+    {
+      "id": "gta5-graphics-corefx",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "CoreFX",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "βeta / CRXHVRD",
+      "sourceUrl": "https://corefx.me/",
+      "installUrl": "https://corefx.me/docs",
+      "editionSupport": "both",
+      "editionSource": "https://corefx.me/",
+      "description": "Overhauls weather, textures and shaders. The separate Legacy and Enhanced single-player builds are available through the creator’s free Patreon tier.",
+      "requirements": ["Script Hook V and an ASI loader for your edition", "Use the archive loader and graphics settings in the author’s documentation"],
+      "tags": ["graphics", "weather", "shaders", "ray tracing", "single player"]
+    },
+    {
+      "id": "gta5-graphics-chromatix",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "ChromatiX",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "ChromatiX",
+      "sourceUrl": "https://chromatixmods.com/exclusive-downloads/",
+      "installUrl": "https://chromatixmods.com/installation/",
+      "editionSupport": "both",
+      "editionSource": "https://chromatixmods.com/",
+      "description": "Overhauls lighting, skies, reflections and weather. Separate Legacy and Enhanced downloads require the creator’s paid All Access Patreon membership.",
+      "requirements": ["Script Hook V and the tools listed for your edition in the author’s installation guide"],
+      "tags": ["graphics", "lighting", "weather", "color grading", "single player"]
+    },
+    {
+      "id": "gta5-graphics-aurav-enhanced",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "AuraV Enhanced",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "Kypos",
+      "sourceUrl": "https://kyposmods.com/aurav/enhanced/",
+      "installUrl": "https://kyposmods.com/install/",
+      "editionSupport": "enhanced",
+      "editionSource": "https://kyposmods.com/aurav/enhanced/",
+      "description": "Reworks skies, lighting and weather for Enhanced Story Mode. Free Lite includes path tracing on NVIDIA RTX hardware.",
+      "requirements": ["GTA V Enhanced on Windows 10 or 11", "NVIDIA RTX for path tracing"],
+      "tags": ["graphics", "weather", "lighting", "path tracing", "single player"]
+    },
+    {
+      "id": "gta5-graphics-aurav-legacy",
+      "game": "gta5",
+      "category": "graphics-packs",
+      "name": "AuraV Legacy",
+      "status": "author-hosted",
+      "listedMenus": ["scooby"],
+      "author": "Kypos",
+      "sourceUrl": "https://kyposmods.com/aurav/legacy/",
+      "installUrl": "https://kyposmods.com/install/",
+      "editionSupport": "legacy",
+      "editionSource": "https://kyposmods.com/aurav/legacy/",
+      "description": "Reworks clouds, rain, fog and city lighting. The free Legacy Lite and early-access Legacy Full packages are for Story Mode.",
+      "requirements": ["GTA V Legacy on Windows 10 or 11"],
+      "tags": ["graphics", "weather", "lighting", "clouds", "single player"]
+    }
+  ],
+  "verified": {
+    "gta5-addon-collection": {
+      "editionSupport": "both",
+      "editionSource": "https://github.com/Rendererrr/Rendererrr.github.io/blob/main/scooby/GTA5/addons/README.md",
+      "packageFile": "downloads/gta5/addons/Scooby-GTA-V-Addons-20261027.zip.001"
+    },
+    "gta5-mods-vehicles-freightliner-cascadia-add-on-liveries-legacy-f025b607": {
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/vehicles/freightliner-cascadia-add-on-liveries-legacy",
+      "packageFile": "https://files.gta5-mods.com/uploads/freightliner-cascadia-add-on-liveries-legacy/397999-Freightliner_Cascadia_Creator_Pack_GTA_V_Legacy_v1.0.zip"
+    },
+    "gta5-mods-vehicles-mack-anthem-creator-pack-add-on-liveries-1-0-c889707d": {
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/vehicles/mack-anthem-creator-pack-add-on-liveries-1-0",
+      "packageFile": "https://files.gta5-mods.com/uploads/mack-anthem-creator-pack-add-on-liveries-1-0/461225-Mack_Anthem_Creator_Pack_GTA_V_Legacy_v1.1%20FIX.zip"
+    },
+    "gta5-mods-maps-forests-of-san-andreas-revised-f310dd04": {
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/maps/forests-of-san-andreas-revised",
+      "packageFile": "https://files.gta5-mods.com/uploads/forests-of-san-andreas-revised/9f30c4-Forests%20of%20San%20Andreas%20Revised%20v6.0-SP.zip"
+    },
+    "gta5-mods-misc-gta-iv-driveby-animation-mod-9a1159e7": {
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/misc/gta-iv-driveby-animation-mod#comments_tab",
+      "packageFile": "https://files.gta5-mods.com/uploads/gta-iv-driveby-animation-mod/e15b0c-GTA%20IV%20Driveby%20Animation%20Mod%20v1.1.zip"
+    },
+    "gta5-mods-scripts-simple-trainer-for-gtav-1fb8b056": {
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/scripts/simple-trainer-for-gtav",
+      "packageFile": "https://files.gta5-mods.com/uploads/simple-trainer-for-gtav/0cf657-TrainerV.rar"
+    },
+    "gta5-mods-scripts-menyoo-2-0-cb599743": {
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/scripts/menyoo-2-0",
+      "packageFile": "https://github.com/itsjustcurtis/MenyooSP/releases/download/v2.4.4/MenyooSP.zip"
+    },
+    "gta5-mods-scripts-rampage-trainer-219ee34d": {
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/scripts/rampage-trainer",
+      "packageFile": "https://files.gta5-mods.com/uploads/rampage-trainer/eebac5-Rampage_Legacy_1.0.3889.0.zip"
+    },
+    "gta5-mods-tools-scripthookv-net-00f06cfc": {
+      "editionSupport": "legacy",
+      "editionSource": "https://github.com/scripthookvdotnet/scripthookvdotnet/issues/1558",
+      "packageFile": "https://github.com/scripthookvdotnet/scripthookvdotnet/releases/download/v3.6.0/ScriptHookVDotNet.zip"
+    },
+    "gta5-mods-tools-script-hook-v-net-enhanced-2187407f": {
+      "editionSupport": "both",
+      "editionSource": "https://github.com/Chiheb-Bacha/ScriptHookVDotNetEnhanced/releases/tag/v1.1.0.6",
+      "packageFile": "https://github.com/Chiheb-Bacha/ScriptHookVDotNetEnhanced/releases/download/v1.1.0.6/ScriptHookVDotNetEnhanced-v1.1.0.6.zip"
+    }
+  }
+}

@@ -1,11 +1,22 @@
 'use strict';
 // Static resource content and links work without JavaScript. Local previews
 // reuse the allowlisted download-repository route used by the main browser.
-if (['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
-  for (const image of document.querySelectorAll('[data-resource-image]')) {
-    const path = image.dataset.resourceImage;
-    if (!path || path.startsWith('/') || path.includes('\\') || path.split('/').some(part => part === '..' || part === '.')) continue;
+const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+for (const image of document.querySelectorAll('[data-resource-image], [data-resource-image-fallback]')) {
+  const path = image.dataset.resourceImage;
+  const fallback = image.dataset.resourceImageFallback;
+  const showFallback = () => {
+    image.classList.add('preview-placeholder');
+    image.closest('a')?.setAttribute('aria-label', image.alt.replace(/ preview$/, ''));
+    image.alt = '';
+    image.src = fallback;
+  };
+  if (fallback) image.addEventListener('error', showFallback, { once: true });
+  if (localPreview && path && !path.startsWith('/') && !path.includes('\\') && !path.split('/').some(part => part === '..' || part === '.')) {
     image.src = '/community-files/' + path.split('/').map(encodeURIComponent).join('/');
+  } else if (fallback && image.complete && !image.naturalWidth) {
+    image.removeEventListener('error', showFallback);
+    showFallback();
   }
 }
 

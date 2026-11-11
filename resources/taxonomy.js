@@ -18,6 +18,7 @@
     vehicles: ['vehicles', 'vehicle', 'cars', 'car'],
     modded: ['modded vehicles', 'modded builds', 'custom vehicles', 'modded'],
     outfits: ['outfits', 'outfit', 'clothing', 'wardrobe'],
+    'mod-menus': ['mod menus', 'mod menu'],
     'addon-vehicles': ['addon vehicles', 'vehicle addons', 'add on vehicles', 'vehicles', 'vehicle', 'cars'],
     'addon-peds': ['addon peds', 'ped addons', 'ped', 'peds', 'pedestrian', 'pedestrians', 'character models'],
     'addon-objects': ['object addons', 'objects', 'object models', 'props', 'prop models'],
@@ -62,6 +63,23 @@
     ozark: ['ozark', 'ozark style'], xforce: ['x force', 'xforce', 'x force style'],
     scooby: ['scooby', 'scooby style']
   };
+  const MENU_NAMES = {
+    scooby: 'Scooby', nenyoo: 'Nenyoo', cherax: 'Cherax', stand: 'Stand', xforce: 'X-Force'
+  };
+  const MENU_TOPICS = {
+    lua: 'Lua scripts', outfits: 'outfits', vehicles: 'vehicles', modded: 'modded vehicles',
+    maps: 'maps', themes: 'themes', configs: 'configs', languages: 'translations',
+    dlc: 'DLC packs', 'addon-vehicles': 'addon vehicles', 'addon-peds': 'addon peds',
+    'addon-objects': 'object addons', 'addon-maps': 'map addons',
+    'addon-animations': 'animation addons', 'addon-clothing': 'clothing addons',
+    textures: 'textures', paintjobs: 'paintjobs', liveries: 'liveries',
+    wallpapers: 'wallpapers', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods'
+  };
+
+  function menuTopic(menu, category) {
+    const name = MENU_NAMES[normalizeTag(menu).replace(/\s/g, '')];
+    return name && MENU_TOPICS[category] ? `${name} ${MENU_TOPICS[category]}` : '';
+  }
 
   function normalizeTag(value) {
     if (typeof value !== 'string' && typeof value !== 'number') return '';
@@ -92,8 +110,19 @@
 
     // Primary labels precede aliases so a short visible tag list stays useful.
     add(game);
+    if (game === 'gta5') {
+      const origin = MENU_NAMES[normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '')];
+      if (origin) {
+        add(origin);
+        categories.forEach(category => add(menuTopic(origin, category)));
+      }
+    }
     if (options.menu) add(options.menu);
     categories.forEach(add);
+    if (game === 'l4d') {
+      if (item.edition === 'l4d1' || item.edition === 'both') ['l4d1', 'left 4 dead 1'].forEach(add);
+      if (item.edition === 'l4d2' || item.edition === 'both') ['l4d2', 'left 4 dead 2'].forEach(add);
+    }
     ui.forEach(add);
     styles.forEach(add);
     values([item.modelLabel, item.model]).forEach(add);
@@ -131,10 +160,33 @@
     const files = Array.isArray(item.files) ? item.files.flatMap(file => [file.name, file.path, file.url]) : [];
     return normalizeTag([
       item.name, item.description, item.model, item.modelLabel, item.author, item.sourceUrl,
-      item.format, item.source, item.compatibility, item.downloadStatus,
+      item.format, item.source, item.sourceMenu, item.sourceFilename, item.compatibility, item.downloadStatus,
       ...files, ...tagsFor(item)
     ].filter(value => typeof value === 'string' || typeof value === 'number').join(' '));
   }
 
-  return Object.freeze({ normalizeTag, tagsFor, searchText });
+  const ROLEPLAY_LABELS = Object.freeze({ lua: 'Lua scripts', themes: 'Themes', misc: 'Misc', 'graphics-packs': 'Graphics packs & textures' });
+  const roleplayResources = ['outfits', 'mod-menus', 'lua', 'triggers', 'server-dumps', 'misc'];
+  const roleplayVisions = ['weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings'];
+
+  function roleplayCategoryId(game, id) {
+    return (game === 'redm' || game === 'fivem') && id === 'textures' ? 'graphics-packs' : id;
+  }
+
+  function roleplayCategoryGroups(game, categories) {
+    if (game !== 'redm' && game !== 'fivem') return null;
+    const files = ['configs', 'themes', ...categories.filter(id => id === 'languages' || id === 'wallpapers')];
+    const visions = roleplayVisions.filter(id => id === 'graphics-packs' || categories.includes(id));
+    const addons = categories.filter(id => id.startsWith('addon-'));
+    const grouped = new Set([...roleplayResources, ...files, ...visions, ...addons, 'textures', 'paintjobs']);
+    const otherResources = categories.filter(id => !grouped.has(id));
+    return [
+      ['Scooby resources', [...roleplayResources, ...otherResources]],
+      ['Scooby files', files],
+      ['Textures/Visions', visions],
+      ['Addons', addons]
+    ];
+  }
+
+  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS });
 });
