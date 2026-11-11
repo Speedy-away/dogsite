@@ -1,0 +1,1610 @@
+{
+  "version": 1,
+  "summary": {
+    "repositories": 63,
+    "packages": 56,
+    "screenshots": 29
+  },
+  "completeness": "Public organization snapshot. Includes repositories with a Lua payload in the current branch or latest published release.",
+  "excluded": [
+    {
+      "repository": "Example",
+      "reason": "Example metadata template without a Lua payload"
+    },
+    {
+      "repository": "heist-editior",
+      "reason": "Placeholder without a Lua payload"
+    },
+    {
+      "repository": "Heist-Editor",
+      "reason": "README and metadata only; no published Lua payload"
+    },
+    {
+      "repository": "mikedrugs-ngad-g",
+      "reason": "Empty repository"
+    },
+    {
+      "repository": "submission",
+      "reason": "Repository submission bot"
+    },
+    {
+      "repository": "Utimate-Menu",
+      "reason": "Archived repository with a removal notice and no Lua payload"
+    },
+    {
+      "repository": "YimMenu-Lua-heist-editior",
+      "reason": "Empty repository"
+    }
+  ],
+  "items": [
+    {
+      "id": "menu-yim-lua-acidlab-script",
+      "name": "AcidLab-Script",
+      "category": "lua",
+      "description": "AcidLab_features_like_product_value_changer_capacity_changer_and_etc",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Acid Lab",
+        "business management",
+        "product capacity"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "AcidLab-Script.zip",
+          "url": "/assets/downloads/yim/acidlab-script.zip"
+        }
+      ],
+      "credits": "wanz1337",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/AcidLab-Script",
+        "commit": "13415b17c24da2e7a62f91294b9a9f03b28ac029"
+      }
+    },
+    {
+      "id": "menu-yim-lua-alestarov-menu",
+      "name": "Alestarov-Menu",
+      "category": "lua",
+      "description": "This is a lua build that contains the best ways to cheat Money, Clear statistics, Heist editor and much more. The script will be constantly updated. It contains the best features from other scripts.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "heist editor",
+        "character stats",
+        "progression"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Alestarov-Menu.zip",
+          "url": "/assets/downloads/yim/alestarov-menu.zip"
+        }
+      ],
+      "credits": "Alestarov",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Alestarov-Menu",
+        "commit": "de3aeddd466f26c2eb1dfc891ed618d52be2d917",
+        "images": [
+          "https://github.com/Alestarov/Almenu/assets/108485130/31e2df49-f300-4a9a-ac3f-98a3e7f14d24",
+          "https://github.com/Alestarov/Almenu/assets/108485130/5854e37c-9488-4ddb-b616-ec01797a2a56",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/3fe3db2c-592b-4fbb-9209-e9d141ee134f",
+          "https://github.com/Alestarov/Almenu/assets/108485130/3cc25428-a7fe-4abf-aba4-31f8b99aa067",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/114df4b5-3b18-4d79-900a-8fbe1e93fcca",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/1a1b47ea-1b65-4212-9b26-a1725a777f56",
+          "https://github.com/Alestarov/Almenu/assets/108485130/b2cbbcf1-ef20-485d-9e61-1c617b9117bc",
+          "https://github.com/YimMenu-Lua/Alestarov-Menu/assets/108485130/c5ab6734-ba05-4349-adc4-37deb316c39d",
+          "https://github.com/YimMenu-Lua/Alestarov-Menu/assets/108485130/4582fd79-ba48-454f-a7c1-c637d1ff3c7b",
+          "https://github.com/Alestarov/Almenu/assets/108485130/80abd0e6-6fc5-4ec5-a945-4488069e5fdd",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/8ee878c3-267a-42ff-b96b-49cf032b7cb9",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/79db794f-6938-4c8c-a0ed-98cb3bcda413"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/alestarov-menu-4.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/alestarov-menu-4.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-1.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-2.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-3.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-5.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-6.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-7.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-8.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-9.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-10.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-11.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-12.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-arcadegames",
+      "name": "ArcadeGames",
+      "category": "lua",
+      "description": "Allows you to manipulate Arcade games.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "arcade games",
+        "minigames"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "ArcadeGames.zip",
+          "url": "/assets/downloads/yim/arcadegames.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/ArcadeGames",
+        "commit": "fb1b658437ba9f1a7fafde5f3413fa95e119366c"
+      }
+    },
+    {
+      "id": "menu-yim-lua-billionare-services",
+      "name": "Billionare-Services",
+      "category": "lua",
+      "description": "Lua script that provides VIP services for GTA V players.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "VIP services",
+        "private jet"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Billionare-Services.zip",
+          "url": "/assets/downloads/yim/billionare-services.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Billionare-Services",
+        "commit": "ab4e07d17893e2dd4122f91d78f9309f5fea9bfc",
+        "images": [
+          "https://github.com/xesdoog/Billionaire-Script/assets/66764345/8760ebbc-3f94-462b-acea-2dadbc4a7e6e",
+          "https://github.com/xesdoog/Billionaire-Script/assets/66764345/a885f376-7fba-4322-a2a7-58c69a66d84f",
+          "https://github.com/xesdoog/Billionaire-Script/assets/66764345/07b1c8f3-6511-4dd6-9a4f-c7f86d84898d"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/billionare-services-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/billionare-services-1.png",
+        "/assets/images/resource-previews/yim/billionare-services-2.png",
+        "/assets/images/resource-previews/yim/billionare-services-3.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-bunkerresearchunlocker",
+      "name": "BunkerResearchUnlocker",
+      "category": "lua",
+      "description": "A simple script that goes into the self tab of YimMenu. This script gives you the option to unlock all bunker research items at once or individually.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "bunker research",
+        "research unlocks"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "BunkerResearchUnlocker.zip",
+          "url": "/assets/downloads/yim/bunkerresearchunlocker.zip"
+        }
+      ],
+      "credits": "Faresito",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/BunkerResearchUnlocker",
+        "commit": "b3f52955ac3b43e82fc559b6261bc7a0bf37198b"
+      }
+    },
+    {
+      "id": "menu-yim-lua-casino-pacino",
+      "name": "Casino-Pacino",
+      "category": "lua",
+      "description": "Allows you to game the Casino by cheating at all the games, and also manipulating the casino heists.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Diamond Casino",
+        "casino games",
+        "casino heist"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Casino-Pacino.zip",
+          "url": "/assets/downloads/yim/casino-pacino.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Casino-Pacino",
+        "commit": "cd15b5feefa9bc9014b5c464fcc39b011a158e1d"
+      }
+    },
+    {
+      "id": "menu-yim-lua-cheatcodes",
+      "name": "CheatCodes",
+      "category": "lua",
+      "description": "Enables cheat codes in GTA Online.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "cheat codes",
+        "GTA Online"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "CheatCodes.zip",
+          "url": "/assets/downloads/yim/cheatcodes.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/CheatCodes",
+        "commit": "816990760e3af4a6cadd7774c405e7f2b50ca64a"
+      }
+    },
+    {
+      "id": "menu-yim-lua-clawcrane",
+      "name": "ClawCrane",
+      "category": "lua",
+      "description": "Aims to fix the broken grab offset of Shiny Wasabi Kitty plushie so that you can actually grab it.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "claw crane",
+        "Shiny Wasabi Kitty",
+        "arcade games"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "ClawCrane.zip",
+          "url": "/assets/downloads/yim/clawcrane.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/ClawCrane",
+        "commit": "5c42e25508b5daa35b01423795f5d26ad17fb4b8"
+      }
+    },
+    {
+      "id": "menu-yim-lua-cutscene-player",
+      "name": "Cutscene-Player",
+      "category": "lua",
+      "description": "Allows you to play cutscenes.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "cutscenes",
+        "cinematics"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Cutscene-Player.zip",
+          "url": "/assets/downloads/yim/cutscene-player.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Cutscene-Player",
+        "commit": "71ac25cd5cf1b434d4fc6e37bf06f06bbda8f77b"
+      }
+    },
+    {
+      "id": "menu-yim-lua-dailycollectibles",
+      "name": "DailyCollectibles",
+      "category": "lua",
+      "description": "A lua script that allows you to view daily collectibles' locations, teleport, and more stuff.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "daily collectibles",
+        "map locations"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "DailyCollectibles.zip",
+          "url": "/assets/downloads/yim/dailycollectibles.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/DailyCollectibles",
+        "commit": "321839c372688b4f0d09644c1fda8f06481b9073"
+      }
+    },
+    {
+      "id": "menu-yim-lua-dlcvehicles",
+      "name": "DLCVehicles",
+      "category": "lua",
+      "description": "Enables all tunable vehicles. This should work for future DLCs as well without requiring an update.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "DLC vehicles",
+        "vehicle availability"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "DLCVehicles.zip",
+          "url": "/assets/downloads/yim/dlcvehicles.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/DLCVehicles",
+        "commit": "3ed2e364474a9f15e8d7ff7e8e5b2692b06b6cef"
+      }
+    },
+    {
+      "id": "menu-yim-lua-elexon",
+      "name": "Elexon",
+      "category": "lua",
+      "description": "Elexon is a script mainly focused on recovery options. Its a W.I.P and help is appreciated",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "progression"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Elexon.zip",
+          "url": "/assets/downloads/yim/elexon.zip"
+        }
+      ],
+      "credits": "thecookietho",
+      "license": "GPL-3.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Elexon",
+        "commit": "1df399c1586589779ab313db775e845e8eb9408f"
+      }
+    },
+    {
+      "id": "menu-yim-lua-elitetracker",
+      "name": "EliteTracker",
+      "category": "lua",
+      "description": "Allows you to track your Elite Challenge progresses.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Elite Challenge",
+        "heist tracker"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "EliteTracker.zip",
+          "url": "/assets/downloads/yim/elitetracker.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/EliteTracker",
+        "commit": "cbbb1bbd69c4dc8824ac3d32299b630b1e310532"
+      }
+    },
+    {
+      "id": "menu-yim-lua-eudora",
+      "name": "Eudora",
+      "category": "lua",
+      "description": "A comprehensive utility menu for character progression, money drops, stat maximization, custom rank/K/D editing, and unlocking exclusive vehicles.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "character progression",
+        "rank editor",
+        "vehicle unlocks"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Eudora.zip",
+          "url": "/assets/downloads/yim/eudora.zip"
+        }
+      ],
+      "credits": "yamato-0x",
+      "license": "MIT",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Eudora",
+        "commit": "76d45b7e9c4ebf83bb58c27cf231107c6c0967df",
+        "release": "https://github.com/YimMenu-Lua/Eudora/releases/download/BUG_FIX/Eudora.zip"
+      }
+    },
+    {
+      "id": "menu-yim-lua-fmtransactiontriggerer",
+      "name": "ServiceTransactions",
+      "category": "lua",
+      "description": "Allows you to trigger service transactions by calling a script function. Experimental only, use at your own risk.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "service transactions",
+        "freemode",
+        "experimental"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "FMTransactionTriggerer.zip",
+          "url": "/assets/downloads/yim/fmtransactiontriggerer.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/FMTransactionTriggerer",
+        "commit": "416a4cb56fa600159da29547440afa417f808dc5"
+      }
+    },
+    {
+      "id": "menu-yim-lua-fullsnacks",
+      "name": "FullSnacks",
+      "category": "lua",
+      "description": "Fills your snacks every so often",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "snacks",
+        "inventory"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "FullSnacks.zip",
+          "url": "/assets/downloads/yim/fullsnacks.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/FullSnacks",
+        "commit": "62a343c57dd2c853a17b9f249de8159a010c7ca5"
+      }
+    },
+    {
+      "id": "menu-yim-lua-g9ec",
+      "name": "G9EC",
+      "category": "lua",
+      "description": "Enables next-gen exclusive (PlayStation 5 & Xbox Series X|S) clothing items in the store.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "clothing",
+        "outfits"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "G9EC.zip",
+          "url": "/assets/downloads/yim/g9ec.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/G9EC",
+        "commit": "772262449905f6c90617078eacbe23dc17472bc3"
+      }
+    },
+    {
+      "id": "menu-yim-lua-goldengets-menu",
+      "name": "GoldenGets-Menu",
+      "category": "lua",
+      "description": "Lua script for YimMenu which is useful for your GTA Online progress",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "progression",
+        "GTA Online"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "GoldenGets-Menu.zip",
+          "url": "/assets/downloads/yim/goldengets-menu.zip"
+        }
+      ],
+      "credits": "GoldenGets",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/GoldenGets-Menu",
+        "commit": "8c3cc9baf98d219386b376799a8a263831460d43"
+      }
+    },
+    {
+      "id": "menu-yim-lua-groundfireworks",
+      "name": "GroundFireworks",
+      "category": "lua",
+      "description": "Adds ground fireworks that work similar to ground fireworks from old GTA Online",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "fireworks",
+        "visual effects"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "GroundFireworks.zip",
+          "url": "/assets/downloads/yim/groundfireworks.zip"
+        }
+      ],
+      "credits": "tupoy-ya",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/GroundFireworks",
+        "commit": "8c6336d905ec1fcdeeaff61ad477b92ef4628871"
+      }
+    },
+    {
+      "id": "menu-yim-lua-gunvan",
+      "name": "GunVan",
+      "category": "lua",
+      "description": "Allows you to edit Gun Van weapons and more.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Gun Van",
+        "weapon inventory"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "GunVan.zip",
+          "url": "/assets/downloads/yim/gunvan.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/GunVan",
+        "commit": "fe337ed48bb619994a53bfde77f64b6fc7e6d724"
+      }
+    },
+    {
+      "id": "menu-yim-lua-harmless-scripts",
+      "name": "Harmless-Scripts",
+      "category": "lua",
+      "description": "Repo for Lua scripts made by Harmless for YimMenu",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "script collection",
+        "utilities"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Harmless-Scripts.zip",
+          "url": "/assets/downloads/yim/harmless-scripts.zip"
+        }
+      ],
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Harmless-Scripts",
+        "commit": "e56f3c0296d5db93cb362a8707c324359617226a"
+      }
+    },
+    {
+      "id": "menu-yim-lua-internet",
+      "name": "Internet",
+      "category": "lua",
+      "description": "Allows you to open various computers.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "in-game computers",
+        "websites"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Internet.zip",
+          "url": "/assets/downloads/yim/internet.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Internet",
+        "commit": "55b3abf798b214b11d3e1bf672f899f08a7958f9"
+      }
+    },
+    {
+      "id": "menu-yim-lua-kaifkolmenu",
+      "name": "KaifKolMenu",
+      "category": "lua",
+      "description": "This is a small menu for online version 1.69",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "utilities",
+        "GTA Online 1.69"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "KaifKolMenu.zip",
+          "url": "/assets/downloads/yim/kaifkolmenu.zip"
+        }
+      ],
+      "credits": "KaifKol",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/KaifKolMenu",
+        "commit": "7755b41c6823004244f24441883729eaf958931a"
+      }
+    },
+    {
+      "id": "menu-yim-lua-minigamehack",
+      "name": "MiniGameHack",
+      "category": "lua",
+      "description": "Minigame instant complete, skip hacking process",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "minigames",
+        "mission tools"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "MiniGameHack.zip",
+          "url": "/assets/downloads/yim/minigamehack.zip"
+        }
+      ],
+      "credits": "sch-lda",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/MiniGameHack",
+        "commit": "5fff9ceb93118458b2c6aa3e90987bf3653f70c7"
+      }
+    },
+    {
+      "id": "menu-yim-lua-missiontools",
+      "name": "MissionTools",
+      "category": "lua",
+      "description": "A versatile YimMenu script featuring mission selectors, skip tools, cooldown management, session switching, and much more.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "mission tools",
+        "mission selection",
+        "cooldowns"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "MissionTools.zip",
+          "url": "/assets/downloads/yim/missiontools.zip"
+        }
+      ],
+      "credits": "L7NEG",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/MissionTools",
+        "commit": "13dea0296e87a4cbc64f76bc0435507c03f2b3ad"
+      }
+    },
+    {
+      "id": "menu-yim-lua-nohesi",
+      "name": "NoHesi",
+      "category": "lua",
+      "description": "A simple and barebones implementation of NoHesi into YimMenu-Lua: Earn points by cutting up traffic at high speed.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "driving",
+        "traffic",
+        "score challenge"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "NoHesi.zip",
+          "url": "/assets/downloads/yim/nohesi.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/NoHesi",
+        "commit": "147df28656d599cf912722e94836e733cc5be244",
+        "images": [
+          "https://github.com/user-attachments/assets/3c751eab-5e21-4fa6-a7aa-c82c9a7a57e5"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/nohesi-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/nohesi-1.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-patrickmcreary",
+      "name": "PatrickMcReary",
+      "category": "lua",
+      "description": "A Lua script for the Patrick McReary random event.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Patrick McReary",
+        "random events"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "PatrickMcReary.zip",
+          "url": "/assets/downloads/yim/patrickmcreary.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PatrickMcReary",
+        "commit": "bd19ac7aaf65e26e909a2e506b4205e5035e71a3"
+      }
+    },
+    {
+      "id": "menu-yim-lua-pauseonline",
+      "name": "PauseOnline",
+      "category": "lua",
+      "description": "Allows you to pause the game in GTA Online.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "pause menu",
+        "session utilities"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "PauseOnline.zip",
+          "url": "/assets/downloads/yim/pauseonline.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PauseOnline",
+        "commit": "7ec18be04c8147c664449bf81e8ac2d1ee9aa23a"
+      }
+    },
+    {
+      "id": "menu-yim-lua-payphonehits",
+      "name": "PayphoneHits",
+      "category": "lua",
+      "description": "A Lua script for Payphone Hits.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Payphone Hits",
+        "missions"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "PayphoneHits.zip",
+          "url": "/assets/downloads/yim/payphonehits.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PayphoneHits",
+        "commit": "8fb2c8843a0adb84c5f8ab5025bc47092baad6e1"
+      }
+    },
+    {
+      "id": "menu-yim-lua-pesiv2-updated",
+      "name": "Pessi v2 Updated",
+      "category": "lua",
+      "description": "Pessi is mainly a recovery script, with various methods, ranging from a 1M fast loop to various limited transactions",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Pessi v2",
+        "recovery",
+        "progression"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Pesiv2-Updated.zip",
+          "url": "/assets/downloads/yim/pesiv2-updated.zip"
+        }
+      ],
+      "credits": "abuazizv & gir489",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Pesiv2-Updated",
+        "commit": "ca0c8e7f369e86c19669fd874e6a4f531a9ef6d4"
+      }
+    },
+    {
+      "id": "menu-yim-lua-pessi",
+      "name": "Pessi",
+      "category": "lua",
+      "description": "Pessi is mainly a recovery script, with various methods, ranging from a 1M fast loop to various limited transactions",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "progression"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Pessi.zip",
+          "url": "/assets/downloads/yim/pessi.zip"
+        }
+      ],
+      "credits": "abuazizv",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Pessi",
+        "commit": "a83c20577d1c8554db12d8c7e0899ced0d06ac49"
+      }
+    },
+    {
+      "id": "menu-yim-lua-phone-editor",
+      "name": "Phone-Editor",
+      "category": "lua",
+      "description": "A script that allows you to change the player's phone",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "in-game phone",
+        "phone customization"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Phone-Editor.zip",
+          "url": "/assets/downloads/yim/phone-editor.zip"
+        }
+      ],
+      "credits": "celeronishe",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Phone-Editor",
+        "commit": "0ece9b5dc5a5a29b61dc54a8d00838738396dcb1"
+      }
+    },
+    {
+      "id": "menu-yim-lua-playerabilities",
+      "name": "PlayerAbilities",
+      "category": "lua",
+      "description": "Manipulates your online character abilities.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "character abilities",
+        "player settings"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "PlayerAbilities.zip",
+          "url": "/assets/downloads/yim/playerabilities.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PlayerAbilities",
+        "commit": "10d149ea4c3300a49b239d0e2cb8922a6b5b0c73",
+        "images": [
+          "https://github.com/user-attachments/assets/b31c1d18-c117-4862-8f34-b0049ba8f6a6"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/playerabilities-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/playerabilities-1.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-prizevehicles",
+      "name": "PrizeVehicles",
+      "category": "lua",
+      "description": "Allows you to edit prize vehicles such as Podium, LSCM, etc.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "prize vehicles",
+        "podium vehicle",
+        "LS Car Meet"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "PrizeVehicles.zip",
+          "url": "/assets/downloads/yim/prizevehicles.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PrizeVehicles",
+        "commit": "4e19b0338cebd110356aa6fea1bc37c4ad799fbc"
+      }
+    },
+    {
+      "id": "menu-yim-lua-randomevents",
+      "name": "RandomEvents",
+      "category": "lua",
+      "description": "A Lua script for YimMenu about Random Events.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "random events",
+        "freemode events"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "RandomEvents.zip",
+          "url": "/assets/downloads/yim/randomevents.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/RandomEvents",
+        "commit": "be8e5ba51b16a461b4207a3fe08c5e9f47c6811d"
+      }
+    },
+    {
+      "id": "menu-yim-lua-rankeditor",
+      "name": "RankEditor",
+      "category": "lua",
+      "description": "Allows you to edit your character rank, LSCM REP Tier, and Arena War Sponsorship Tier.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "rank editor",
+        "LS Car Meet reputation",
+        "Arena War"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "RankEditor.zip",
+          "url": "/assets/downloads/yim/rankeditor.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/RankEditor",
+        "commit": "24380657f681fbf74d71fc93bd525e714146bdb6"
+      }
+    },
+    {
+      "id": "menu-yim-lua-removed-vehicles",
+      "name": "Removed-vehicles",
+      "category": "lua",
+      "description": "Re-activate the option to purchase the removed vehicles through the web pages.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "removed vehicles",
+        "vehicle shops"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Removed-vehicles.zip",
+          "url": "/assets/downloads/yim/removed-vehicles.zip"
+        }
+      ],
+      "credits": "visionary2709",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Removed-vehicles",
+        "commit": "757064af72a7317938c7e0a8451d4618409d83fb"
+      }
+    },
+    {
+      "id": "menu-yim-lua-salvageyard",
+      "name": "SalvageYard",
+      "category": "lua",
+      "description": "Allows you to manage your Salvage Yard business.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Salvage Yard",
+        "business management"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "SalvageYard.zip",
+          "url": "/assets/downloads/yim/salvageyard.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SalvageYard",
+        "commit": "cc3d21a10b657056bdc924b77686f33761d64ffc"
+      }
+    },
+    {
+      "id": "menu-yim-lua-samurai-animations",
+      "name": "SAMURAI-Animations",
+      "category": "lua",
+      "description": "Lua script to play GTA Online Animations using YimMenu.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "animations",
+        "roleplay"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "SAMURAI-Animations.zip",
+          "url": "/assets/downloads/yim/samurai-animations.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SAMURAI-Animations",
+        "commit": "d5b519548c8d9dd847d0de4f30a1e7e87beac2b0",
+        "images": [
+          "https://github.com/YimMenu-Lua/SAMURAI-Animations/assets/66764345/0cb0f9df-97d5-40ff-a3a2-8a3edbc2f0ef",
+          "https://github.com/YimMenu-Lua/SAMURAI-Animations/assets/66764345/c9cd495d-70a6-4a1e-bcf8-a08b5d61d40d"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/samurai-animations-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/samurai-animations-1.png",
+        "/assets/images/resource-previews/yim/samurai-animations-2.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-samurai-scenarios",
+      "name": "SAMURAI-Scenarios",
+      "category": "lua",
+      "description": "Lua script to play GTA Online scenarios using YimMenu.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "scenarios",
+        "roleplay"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "SAMURAI-Scenarios.zip",
+          "url": "/assets/downloads/yim/samurai-scenarios.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SAMURAI-Scenarios",
+        "commit": "ee373dbeec985c43fbabe947d44b87c217694227",
+        "images": [
+          "https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/0158d270-f870-415e-9033-cfd48d727573",
+          "https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/f2d76cf7-e9e0-4bdc-889a-544d3ac3134b"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/samurai-scenarios-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/samurai-scenarios-1.png",
+        "/assets/images/resource-previews/yim/samurai-scenarios-2.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-samurais-scripts",
+      "name": "Samurai's Scripts",
+      "category": "lua",
+      "description": "A Lua script written for YimMenu and Tupoye-Menu, centered around roleplaying and having fun in a game full of ad bots and toxic cheaters.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "roleplay",
+        "utility menu",
+        "YimMenu V2",
+        "GTA 5 Enhanced",
+        "GTA 5 Legacy"
+      ],
+      "requirementLabel": "Includes separate YimMenu builds for GTA 5 Legacy and Enhanced.",
+      "files": [
+        {
+          "name": "Samurais-Scripts.zip",
+          "url": "/assets/downloads/yim/samurais-scripts.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "license": "GPL-3.0",
+      "edition": "both",
+      "version": "v2.0.4",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Samurais-Scripts",
+        "commit": "561be39d486cf9a4c9eb0c88314deaa8f793eaab",
+        "release": "https://github.com/YimMenu-Lua/Samurais-Scripts/releases/download/v2.0.4/Samurais_Scripts_v2.0.4.zip",
+        "images": [
+          "https://github.com/YimMenu-Lua/Samurais-Scripts/blob/561be39d486cf9a4c9eb0c88314deaa8f793eaab/docs/ss.png"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/samurais-scripts-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/samurais-scripts-1.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-sightseeing",
+      "name": "Sightseeing",
+      "category": "lua",
+      "description": "A proper script for the Halloween Sightseeing event.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Halloween",
+        "sightseeing",
+        "seasonal events"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Sightseeing.zip",
+          "url": "/assets/downloads/yim/sightseeing.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Sightseeing",
+        "commit": "6aef744faff67666599ae40d8bbeb1dc18260776"
+      }
+    },
+    {
+      "id": "menu-yim-lua-singleplayer-menu",
+      "name": "Singleplayer-Menu",
+      "category": "lua",
+      "description": "Simple singleplayer cheats.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "single-player",
+        "story mode"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Singleplayer-Menu.zip",
+          "url": "/assets/downloads/yim/singleplayer-menu.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Singleplayer-Menu",
+        "commit": "9fbf0f3ea87a3366b99cdc1c5377c97a683e53f3"
+      }
+    },
+    {
+      "id": "menu-yim-lua-solomissions",
+      "name": "SoloMissions",
+      "category": "lua",
+      "description": "Allows you to play the heists and missions alone.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "solo heists",
+        "solo missions",
+        "mission tools"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "SoloMissions.zip",
+          "url": "/assets/downloads/yim/solomissions.zip"
+        }
+      ],
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SoloMissions",
+        "commit": "2d6004a41d4df9ae89e6f09150eb5e7684f9412d"
+      }
+    },
+    {
+      "id": "menu-yim-lua-tokyodrift",
+      "name": "TokyoDrift",
+      "category": "lua",
+      "description": "Adds a few fun features for car enthusiasts.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "drifting",
+        "driving",
+        "vehicle utilities"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "TokyoDrift.zip",
+          "url": "/assets/downloads/yim/tokyodrift.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/TokyoDrift",
+        "commit": "94187790cc974eaa574e27debf0f0eaf18c00a12",
+        "images": [
+          "https://github.com/user-attachments/assets/c267b174-944d-4e23-b9ef-5af581c9fe87"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/tokyodrift-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/tokyodrift-1.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-ultimatemenurevived",
+      "name": "Ultimate Menu Revived",
+      "category": "lua",
+      "description": "A powerful menu script featuring advanced recovery options, money tools, a Heist Editor, and much more.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "heist editor",
+        "recovery",
+        "GTA 5 Legacy"
+      ],
+      "requirementLabel": "Requires GTA 5 Legacy and a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "UltimateMenuRevived.zip",
+          "url": "/assets/downloads/yim/ultimatemenurevived.zip"
+        }
+      ],
+      "credits": "L7NEG",
+      "edition": "legacy",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/UltimateMenuRevived",
+        "commit": "db7ca6b90dd793a6a5707ea49395c7939802c012",
+        "release": "https://github.com/YimMenu-Lua/UltimateMenuRevived/releases/download/UltimateMenu_For_YimMenu_V3/Ultimate_Menu_V3_1.73_Legacy.lua",
+        "images": [
+          "https://ultimatemenu.github.io/ScreenShots/YimMenu/15.png"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/ultimatemenurevived-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/ultimatemenurevived-1.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-unlockeverything",
+      "name": "UnlockEverything",
+      "category": "lua",
+      "description": "Unlocks everything",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "unlocks",
+        "progression"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "UnlockEverything.zip",
+          "url": "/assets/downloads/yim/unlockeverything.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/UnlockEverything",
+        "commit": "8921da4701d96c7f3582359dc3f545b3f2367df2"
+      }
+    },
+    {
+      "id": "menu-yim-lua-uthensia_1-70",
+      "name": "Uthensia_1.70",
+      "category": "lua",
+      "description": "a menu which lets us to get money, edit our ranks, max out our character stats, and edit our k/ds.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "rank editor",
+        "character stats",
+        "progression"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Uthensia_1.70.zip",
+          "url": "/assets/downloads/yim/uthensia_1.70.zip"
+        }
+      ],
+      "credits": "3it7",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Uthensia_1.70",
+        "commit": "c92e8dc6d94d6e7570980de91d2ef725edd81d60"
+      }
+    },
+    {
+      "id": "menu-yim-lua-vehiclereward",
+      "name": "VehicleReward",
+      "category": "lua",
+      "description": "Allows you to claim the vehicle you are in as your personal vehicle.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "personal vehicles",
+        "vehicle rewards"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "VehicleReward.zip",
+          "url": "/assets/downloads/yim/vehiclereward.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/VehicleReward",
+        "commit": "ed8cb010b1952a437fdf9314c298ace61e3965e2"
+      }
+    },
+    {
+      "id": "menu-yim-lua-wardrobe",
+      "name": "Wardrobe",
+      "category": "lua",
+      "description": "Allows you to access your wardrobe remotely.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "wardrobe",
+        "outfits"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Wardrobe.zip",
+          "url": "/assets/downloads/yim/wardrobe.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Wardrobe",
+        "commit": "6f4bb19d4139fadf272b4929f20e298a09f9fd24"
+      }
+    },
+    {
+      "id": "menu-yim-lua-weapon-editor",
+      "name": "Weapon-Editor",
+      "category": "lua",
+      "description": "WeaponEditor is a lua script that lets you mod weapons.meta externally while the game is running. You can mod weapon behaviour, add attachments etc. without actually changing the game files.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "weapon customization",
+        "weapon attachments",
+        "weapon settings"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "Weapon-Editor.zip",
+          "url": "/assets/downloads/yim/weapon-editor.zip"
+        }
+      ],
+      "credits": "George0828Zhang",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Weapon-Editor",
+        "commit": "484ab9a7c01a5bdc33edfbb077161d0975d5d506"
+      }
+    },
+    {
+      "id": "menu-yim-lua-yimactions",
+      "name": "YimActions",
+      "category": "lua",
+      "description": "Play GTA V Animations & Scenarios Using YimMenu",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "animations",
+        "scenarios",
+        "roleplay"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "YimActions.zip",
+          "url": "/assets/downloads/yim/yimactions.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "license": "CC BY-NC 4.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimActions",
+        "commit": "712447e6abc981ed07dfa84944cddc7ae1c95157",
+        "release": "https://github.com/YimMenu-Lua/YimActions/releases/download/final/YimActions.zip",
+        "images": [
+          "https://github.com/xesdoog/YimActions/assets/66764345/9bdde22d-0efa-4d6c-8385-6c0be1d79a99",
+          "https://github.com/user-attachments/assets/cc79c2b5-d05a-41f3-b59e-4e32770dbf25",
+          "https://github.com/xesdoog/YimActions/assets/66764345/e26f12c0-d1de-41ea-a2c1-df23c79deb8b"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/yimactions-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/yimactions-1.png",
+        "/assets/images/resource-previews/yim/yimactions-2.png",
+        "/assets/images/resource-previews/yim/yimactions-3.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimconfig",
+      "name": "YimConfig",
+      "category": "lua",
+      "description": "Universal Config System For YimMenu-Lua",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "developer tools",
+        "Lua library",
+        "configuration"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "YimConfig.zip",
+          "url": "/assets/downloads/yim/yimconfig.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimConfig",
+        "commit": "59f630c359db28e4895d510c8f683af21380dc57"
+      }
+    },
+    {
+      "id": "menu-yim-lua-yimlls",
+      "name": "YimLLS",
+      "category": "lua",
+      "description": "LuaLS meta files for the YimMenu API, only for script developers.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "developer tools",
+        "Lua Language Server",
+        "Lua API",
+        "editor tooling"
+      ],
+      "requirementLabel": "Requires the Lua Language Server.",
+      "files": [
+        {
+          "name": "YimLLS.zip",
+          "url": "/assets/downloads/yim/yimlls.zip"
+        }
+      ],
+      "credits": "tupoy-ya",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimLLS",
+        "commit": "e0e4ebecdcc51e2da82299056d15bd9aece949d3"
+      }
+    },
+    {
+      "id": "menu-yim-lua-yimresupplier",
+      "name": "YimResupplier",
+      "category": "lua",
+      "description": "A Lua script that instantly resupplies MC businesses in GTA Online.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "MC businesses",
+        "business resupply"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "YimResupplier.zip",
+          "url": "/assets/downloads/yim/yimresupplier.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimResupplier",
+        "commit": "2f8b9c8c77f3fefbf4eb0aebca876c540d398f55",
+        "release": "https://github.com/YimMenu-Lua/YimResupplier/releases/download/latest/YimResupplier.zip",
+        "images": [
+          "https://github.com/user-attachments/assets/b8c433c3-d8b9-4e94-963a-5e8b09f2c0d9"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/yimresupplier-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/yimresupplier-1.png"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimtoast",
+      "name": "YimToast",
+      "category": "lua",
+      "description": "Lightweight GUI notification system for Lua developers.",
+      "format": "Lua",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "developer tools",
+        "Lua library",
+        "GUI notifications"
+      ],
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "files": [
+        {
+          "name": "YimToast.zip",
+          "url": "/assets/downloads/yim/yimtoast.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimToast",
+        "commit": "3fafa053c2723f1bf7818c59713f8cde040cea26",
+        "images": [
+          "https://github.com/user-attachments/assets/7a09b9a2-4bea-4998-a977-7fe29498665f"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/yimtoast-1.gif",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/yimtoast-1.gif"
+      ]
+    }
+  ]
+}

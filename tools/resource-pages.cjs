@@ -85,6 +85,7 @@ function fileURL(file, base) {
   if (file?.url && /^https:\/\//.test(file.url)) return file.url;
   if (/^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i.test(file?.url || '')) return file.url;
   if (/^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.(?:lua|json|zip|rar|7z)$/i.test(file?.url || '')) return file.url;
+  if (/^\/assets\/downloads\/yim\/[\w.-]+\.zip$/i.test(file?.url || '')) return file.url;
   if (!file?.path || file.path.startsWith('/') || file.path.includes('\\') || file.path.split('/').some(part => part === '..' || part === '.')) return '';
   return new URL(file.path.split('/').map(encodeURIComponent).join('/'), base).href;
 }
@@ -201,13 +202,16 @@ function buildData() {
         const first = categories.map(group => candidates.find(item => hasCategory(item, group.id))).filter(Boolean);
         candidates = [...new Map([...first, ...candidates].map(item => [item.id, item])).values()];
       }
-      const samples = game === 'cs2' && ['skyboxes', 'textures'].includes(category) ? candidates : candidates.slice(0, 12);
+      const fullList = (game === 'cs2' && ['skyboxes', 'textures'].includes(category)) || (menu === 'yim' && category === 'lua');
+      const samples = fullList ? candidates : candidates.slice(0, 12);
       const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category, menu).name : 'Resources';
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
-      const scopeName = `${config.name}${availableMenus.length > 1 ? ' ' + menuName : ''}`;
+      const yim = menu === 'yim';
+      const scopeName = `${config.name}${availableMenus.length > 1 ? ' ' + (yim ? 'YimMenu' : menuName) : ''}`;
       const redmGraphics = game === 'redm' && category === 'graphics-packs';
       const title = redmGraphics ? 'RedM Graphics Packs for PvP, RP & Cinematic Play | Scooby' :
+        yim && category === 'lua' ? 'GTA 5 YimMenu Lua Scripts & Downloads — Scooby' :
         category ? `${scopeName} ${label}${pendingOnly ? ' — Coming Soon' : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — Coming Soon' : ' & Downloads'} — Scooby`;
       const wordsFor = id => categoryInfo(game, id, menu).words;
       const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
@@ -216,9 +220,20 @@ function buildData() {
       const topics = availableMenus.length > 1
         ? (category ? [category] : categories.map(group => group.id)).map(id => menuTopic(menu, id)).filter(Boolean)
         : [];
+      if (yim) topics.push(
+        'GTA 5 YimMenu Lua scripts', 'GTA V YimMenu scripts', 'Yim Lua scripts', 'Yim Menu Lua scripts',
+        'YimMenu Lua downloads', 'YimMenu ZIP downloads', 'YimMenu Lua installation',
+        'YimMenu V2 Lua', 'YimMenuV2 scripts', 'YimMenu Lua API', 'YimMenu Lua libraries',
+        'GTA Online mission scripts', 'YimMenu vehicle utilities', 'YimMenu animations'
+      );
+      if (yim && category === 'lua') {
+        topics.push(...subset.map(item => item.name).sort((a, b) => a.localeCompare(b, 'en')));
+      }
       const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
-      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, `${menuName} resources`, config.name, config.full, ...topics, ...config.aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
-      const intro = menu === 'nenyoo' && category === 'lua'
+      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, menuTopic(menu, 'resources'), config.name, config.full, ...topics, ...config.aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
+      const intro = yim
+        ? 'Download GTA 5 Lua scripts and developer tools for YimMenu. Check the included instructions for your YimMenu build and keep each script’s supporting files together.'
+        : menu === 'nenyoo' && category === 'lua'
         ? game === 'rdr2' ? 'Browse built-in Nenyoo Lua modules for Red Dead Redemption 2, including HUD and camera overlays.'
           : 'Browse Nenyoo Lua downloads and built-in modules for GTA V. Use the GTA V Nenyoo runtime for these files.'
         : scoobyThemes
@@ -230,13 +245,16 @@ function buildData() {
       const description = pendingOnly
         ? `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} listings. Downloads are coming soon. Check requirements and changelogs.`
         : redmGraphics ? intro
+        : yim ? category === 'lua'
+          ? 'Download YimMenu Lua scripts for GTA 5. Browse mission tools, vehicle utilities, animations and Lua developer libraries, with screenshots where available.'
+          : 'Browse the GTA 5 YimMenu resource collection for Lua script downloads, developer tools, screenshots and installation instructions.'
         : category ? `${scopeName} resources. ${firstSentence}`
         : !gameItems.length ? `${config.name} resource installation and setup guides from Scooby. No downloads are published in this collection yet.`
         : menu === 'scooby' ? config.intro
         : `Browse ${menuName} resources for ${config.name}, including ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}. Check formats and install guides.`;
       const graphicsTopics = game === 'redm' && (!category || redmGraphics)
         ? REDM_GRAPHICS_TOPICS.filter(topic => subset.some(item => redmGraphicsTopics(item).includes(topic))) : [];
-      pages.push({ file: route(game, category, menu).slice(1) + 'index.html', url: SITE + route(game, category, menu), game, menu, menuName, category, name: label, title, description, keywords,
+      pages.push({ file: route(game, category, menu).slice(1) + 'index.html', url: SITE + route(game, category, menu), game, menu, menuName, scopeName, category, name: label, title, description, keywords,
         itemCount: subset.length, pendingCount, gameItemCount: gameItems.length, categories, availableMenus, samples, intro, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
       };
       makePage();
@@ -320,10 +338,11 @@ function renderPage(page, guideRoutes = {}) {
     const changelog = (item.category === 'lua' && !item.builtInLua) || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
     const requirementText = item.requirementLabel || (item.game === 'l4d' ? item.compatibility : '') || (!menus.compatibleWith(item, page.menu) ? 'Requires the original menu format and a compatible loader or importer.' : '');
     const requirement = requirementText ? `<p class="resource-requirement">${escape(requirementText)}</p>` : '';
-    const gallery = item.imagePaths?.length && /^https:\/\//.test(item.imageBaseUrl || '')
-      ? `<details class="resource-inline-details"><summary>Images (${item.imagePaths.length})</summary><ul>${item.imagePaths.map(file => {
+    const localGallery = item.imageBaseUrl === '/assets/images/resource-previews/yim/';
+    const gallery = item.imagePaths?.length && (localGallery || /^https:\/\//.test(item.imageBaseUrl || ''))
+      ? `<details class="resource-inline-details"><summary>Images (${item.imagePaths.length})</summary><ul>${item.imagePaths.map((file, index) => {
         const url = item.imageBaseUrl + file.split('/').map(encodeURIComponent).join('/');
-        return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(file)}</a></li>`;
+        return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${localGallery ? `Image ${index + 1}` : escape(file)}</a></li>`;
       }).join('')}</ul></details>` : '';
     const setup = serverRecipe && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
     const type = serverRecipe ? 'txAdmin recipe' : item.builtInLua ? 'Built-in Lua module' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
@@ -333,7 +352,7 @@ function renderPage(page, guideRoutes = {}) {
     { '@type': 'CollectionPage', '@id': page.url + '#collection', url: page.url, name: page.title, description: page.description, keywords: page.keywords, inLanguage: 'en', about: { '@type': 'VideoGame', name: game.full }, isPartOf: { '@id': SITE + '/resources/#collection' }, mainEntity: { '@id': page.url + '#resources' } },
     { '@type': 'ItemList', '@id': page.url + '#resources', name: `${game.name} ${menuChoice ? page.menuName + ' ' : ''}${page.name}`, numberOfItems: page.samples.length, itemListElement: page.samples.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: resourceName(item).visible, url: page.url + resourceHash(item.id) })) }
   ] };
-  const scopeName = game.name + (menuChoice ? ' ' + page.menuName : '');
+  const { scopeName } = page;
   const breadcrumb = page.menu !== 'scooby' ? `<a href="${route(page.game)}">${game.name}</a><span>/</span>${page.category ? `<a href="${route(page.game, undefined, page.menu)}">${escape(page.menuName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(page.menuName)}</span>`}` : page.category ? `<a href="${route(page.game)}">${escape(scopeName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(scopeName)}</span>`;
   const heading = scopeName + ' ' + (page.category ? page.name : 'resources');
   const guideURL = guideAddress(page, guideRoutes);

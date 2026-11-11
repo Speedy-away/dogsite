@@ -13,6 +13,8 @@ const publish = process.argv.includes('--publish-assets');
 const l4dDownload = /^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i;
 const l4dPreview = /^\/assets\/images\/resource-previews\/l4d\/[\w.-]+\.(?:jpe?g|png|webp)$/i;
 const standPreview = /^\/assets\/images\/resource-previews\/stand\/[\w.-]+\.(?:jpe?g|png|webp)$/i;
+const yimDownload = /^\/assets\/downloads\/yim\/[\w.-]+\.zip$/i;
+const yimPreview = /^\/assets\/images\/resource-previews\/yim\/[\w.-]+\.(?:png|gif)$/i;
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const base = read(path.join(ROOT, 'community/data/library.json'));
 const baseItems = new Map(base.items.map(item => [item.id, item]));
@@ -75,6 +77,14 @@ function clean(entry, origin) {
     else if (result.game === 'l4d' && l4dPreview.test(entry.preview) && fs.existsSync(path.join(ROOT, entry.preview))) result.preview = entry.preview;
     else if (result.game === 'gta5' && result.sourceMenu === 'stand' && standPreview.test(entry.preview) &&
       fs.existsSync(path.join(ROOT, entry.preview.slice(1)))) result.preview = entry.preview;
+    else if (origin === 'yim' && yimPreview.test(entry.preview) && fs.existsSync(path.join(ROOT, entry.preview))) {
+      result.preview = entry.preview;
+      const images = (entry.images || []).filter(url => yimPreview.test(url) && fs.existsSync(path.join(ROOT, url)));
+      if (images.length > 1) {
+        result.imageBaseUrl = '/assets/images/resource-previews/yim/';
+        result.imagePaths = images.map(url => path.posix.basename(url));
+      }
+    }
     else if (/^https:\/\//.test(entry.preview) || entry.preview.startsWith('previews/') || entry.preview.startsWith('/community/media/')) result.preview = entry.preview;
     if (result.preview) {
       const thumbnail = result.preview.match(/^previews\/gta5\/menus\/xforce\/([a-f0-9]{20})\.(?:png|jpe?g|gif|webp)$/i);
@@ -93,7 +103,14 @@ function clean(entry, origin) {
     result.preview = entry.preview;
   }
   const reviewedRedmLua = result.game === 'redm' && origin === 'redm-submitted' && entry.reviewedLua === true;
-  if (result.category === 'lua' && !reviewedRedmLua) {
+  if (origin === 'yim' && result.game === 'gta5' && result.category === 'lua') {
+    result.files = (entry.files || []).filter(file => yimDownload.test(file.url) && fs.existsSync(path.join(ROOT, file.url))).map(file => {
+      const bytes = fs.readFileSync(path.join(ROOT, file.url));
+      return { ...file, size: bytes.length, sha256: hash(bytes) };
+    });
+    result.downloadStatus = result.files.length ? 'available' : 'pending';
+    result.status = result.files.length ? 'download' : 'pending';
+  } else if (result.category === 'lua' && !reviewedRedmLua) {
     result.downloadStatus = 'pending'; result.status = 'pending'; result.files = [];
     result.sourceFilename = result.sourceFilename || (typeof entry.source?.path === 'string' ? path.posix.basename(entry.source.path) : typeof entry.member === 'string' ? path.posix.basename(entry.member) : undefined);
     const extension = result.sourceFilename?.match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -204,7 +221,7 @@ function importManifest(menu, defaultGame = 'gta5') {
   }
   output.coverage.push({ menu, source: `project/community-menu-sources/${menu}.json`, summary: source.summary || {}, coverage: source.coverage || [], completeness: source.completeness || 'Source snapshot only' });
 }
-for (const menu of ['stand-submitted', 'stand', 'stand-discord-reviewed', 'xforce', 'inbox', 'biggerscript-public', 'gta5-addon-packs']) importManifest(menu);
+for (const menu of ['stand-submitted', 'stand', 'stand-discord-reviewed', 'xforce', 'yim', 'inbox', 'biggerscript-public', 'gta5-addon-packs']) importManifest(menu);
 importManifest('redm', 'redm');
 importManifest('redm-submitted', 'redm');
 importManifest('redm-public-releases', 'redm');

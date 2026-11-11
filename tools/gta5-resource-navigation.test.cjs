@@ -26,8 +26,7 @@ function categorySidebar(html) {
 test('GTA 5 category manifest and static sidebars follow the published menu routes', () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(root, 'resources/gta5/categories.json'), 'utf8'));
   assert.deepEqual(Object.keys(manifest).sort(), activeMenus.map(menu => menu.id).sort());
-  assert(!gtaPages.some(page => page.menu === 'yim'), 'Yim is deferred');
-  assert.deepEqual(menus.gtaCategoryGroups('yim', []), []);
+  assert.deepEqual(manifest.yim, ['lua']);
 
   for (const menu of activeMenus) {
     const menuPages = gtaPages.filter(page => page.menu === menu.id);
@@ -53,6 +52,51 @@ test('GTA 5 category manifest and static sidebars follow the published menu rout
   assert(!manifest.xforce.includes('paintjobs') && !manifest.xforce.includes('liveries'));
   assert(manifest.scooby.includes('paintjobs') && manifest.scooby.includes('liveries'));
   assert(menus.gtaCategoryGroups('scooby', manifest.scooby).at(-1)[1].includes('addon-vehicles'));
+});
+
+test('Yim Lua scripts use site-hosted packages and preview galleries', () => {
+  const manifest = require('../project/community-menu-sources/yim.json');
+  const page = gtaPages.find(page => page.menu === 'yim' && page.category === 'lua');
+  assert(page);
+  const html = fs.readFileSync(path.join(root, page.file), 'utf8');
+  const scripts = items.filter(item => item.sourceMenu === 'yim');
+  assert.equal(scripts.length, manifest.items.length);
+  assert.equal(page.samples.length, scripts.length);
+  assert.doesNotMatch(html, /https?:\/\/[^"\s]*github/i);
+  const keywords = new Set(page.keywords.split(', '));
+  for (const item of scripts) {
+    assert.equal(item.category, 'lua', item.id);
+    assert.equal(item.downloadStatus, 'available', item.id);
+    assert.deepEqual(activeMenus.filter(menu => menus.supports(item, menu.id)).map(menu => menu.id), ['yim'], item.id);
+    assert(keywords.has(item.name), item.id);
+    assert(tagsFor(item).includes('yimmenu lua scripts'), item.id);
+    assert(item.tags.filter(tag => !['Yim', 'YimMenu', 'Lua'].includes(tag)).length >= 2, item.id);
+    assert(item.files.every(file => html.includes(file.url) && fs.existsSync(path.join(root, file.url))), item.id);
+    if (item.preview) assert(fs.existsSync(path.join(root, item.preview)), item.id);
+    for (const file of item.imagePaths || []) {
+      const url = item.imageBaseUrl + file;
+      assert(html.includes(url) && fs.existsSync(path.join(root, url)), item.id);
+    }
+  }
+  assert(tagsFor(scripts.find(item => item.id === 'menu-yim-lua-yimlls')).includes('lua language server'));
+  assert(tagsFor(scripts.find(item => item.id === 'menu-yim-lua-solomissions')).includes('solo heists'));
+});
+
+test('YimMenu resources and installation guide have canonical search metadata and sitemap links', () => {
+  const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  const directory = fs.readFileSync(path.join(root, 'sitemap/index.html'), 'utf8');
+  const hub = fs.readFileSync(path.join(root, 'resources/index.html'), 'utf8');
+  assert.match(hub, /name="keywords" content="[^"]*YimMenu Lua scripts/);
+  for (const href of ['/resources/gta5/yim/', '/resources/gta5/yim/lua/', '/resources/guides/gta5/yim/']) {
+    const html = fs.readFileSync(path.join(root, href.slice(1), 'index.html'), 'utf8');
+    assert.match(html, /<title>[^<]*YimMenu/);
+    assert.match(html, /name="keywords" content="[^"]*YimMenu Lua/);
+    assert.match(html, /property="og:description" content="[^"]*YimMenu/);
+    assert(html.includes(`<link rel="canonical" href="${origin + href}">`), href);
+    assert(sitemap.includes(`<loc>${origin + href}</loc>`), href);
+    assert(directory.includes(`href="${href}"`), href);
+  }
+  assert(!sitemap.includes(`<loc>${origin}/resources/guides/gta5/yim/lua/</loc>`));
 });
 
 test('Original Cherax ClickGUI packages appear only in the Cherax collection', () => {

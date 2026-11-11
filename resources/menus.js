@@ -8,7 +8,7 @@
   const MENUS = [
     { id: 'scooby', name: 'Scooby' }, { id: 'nenyoo', name: 'Nenyoo', source: { url: 'https://github.com/walteryo1337/Nenyoo-Resources', label: 'Nenyoo resources on GitHub ↗' } },
     { id: 'cherax', name: 'Cherax' }, { id: 'stand', name: 'Stand', source: { url: 'https://github.com/calamity-inc/Stand-OSS', label: 'Stand source on GitHub ↗' } },
-    { id: 'xforce', name: 'X-Force' }, { id: 'yim', name: 'Yim', deferred: true }
+    { id: 'xforce', name: 'X-Force' }, { id: 'yim', name: 'Yim' }
   ];
   const key = value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const canonical = value => MENUS.find(menu => menu.id === key(value))?.id || '';

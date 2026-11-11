@@ -67,10 +67,10 @@
     scooby: ['scooby', 'scooby style']
   };
   const MENU_NAMES = {
-    scooby: 'Scooby', nenyoo: 'Nenyoo', cherax: 'Cherax', stand: 'Stand', xforce: 'X-Force'
+    scooby: 'Scooby', nenyoo: 'Nenyoo', cherax: 'Cherax', stand: 'Stand', xforce: 'X-Force', yim: 'YimMenu'
   };
   const MENU_TOPICS = {
-    lua: 'Lua scripts', outfits: 'outfits', vehicles: 'vehicles', modded: 'modded vehicles',
+    resources: 'resources', lua: 'Lua scripts', outfits: 'outfits', vehicles: 'vehicles', modded: 'modded vehicles',
     maps: 'maps', themes: 'themes', configs: 'configs', languages: 'translations',
     'addon-packs': 'addon packs', 'addon-vehicles': 'addon vehicles', 'addon-peds': 'addon peds',
     'addon-objects': 'object addons', 'addon-maps': 'map addons',
@@ -135,9 +135,9 @@
       if (item.editionSupport === 'both') add('both');
     }
     if (game === 'gta5' || game === 'rdr2') {
-      const origin = MENU_NAMES[normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '')];
-      if (origin) {
-        add(origin);
+      const origin = normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '');
+      if (MENU_NAMES[origin]) {
+        add(MENU_NAMES[origin]);
         categories.forEach(category => add(menuTopic(origin, category)));
       }
     }

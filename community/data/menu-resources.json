@@ -109063,6 +109063,2285 @@
       "previewVerified": true,
       "previewKind": "source-theme",
       "previewCaption": "Screenshot from the original theme share"
+    },
+    {
+      "name": "AcidLab-Script",
+      "category": "lua",
+      "description": "AcidLab_features_like_product_value_changer_capacity_changer_and_etc",
+      "format": "Lua",
+      "credits": "wanz1337",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Acid Lab",
+        "business management",
+        "product capacity",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "AcidLab-Script.zip",
+          "url": "/assets/downloads/yim/acidlab-script.zip",
+          "size": 1296,
+          "sha256": "d421d271ac2039227ea54f8187aeaa57763dd1cb78e150f9b2a9b8dae90d2e81"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-acidlab-script",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Alestarov-Menu",
+      "category": "lua",
+      "description": "This is a lua build that contains the best ways to cheat Money, Clear statistics, Heist editor and much more. The script will be constantly updated. It contains the best features from other scripts.",
+      "format": "Lua",
+      "credits": "Alestarov",
+      "license": "GPL-2.0",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "heist editor",
+        "character stats",
+        "progression",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/alestarov-menu-4.png",
+      "imageBaseUrl": "/assets/images/resource-previews/yim/",
+      "imagePaths": [
+        "alestarov-menu-4.png",
+        "alestarov-menu-1.png",
+        "alestarov-menu-2.png",
+        "alestarov-menu-3.png",
+        "alestarov-menu-5.png",
+        "alestarov-menu-6.png",
+        "alestarov-menu-7.png",
+        "alestarov-menu-8.png",
+        "alestarov-menu-9.png",
+        "alestarov-menu-10.png",
+        "alestarov-menu-11.png",
+        "alestarov-menu-12.png"
+      ],
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "Alestarov-Menu.zip",
+          "url": "/assets/downloads/yim/alestarov-menu.zip",
+          "size": 14601,
+          "sha256": "b4c1e96dc6a85dec5a02d578d510d533900870cb5cd7ffbb1be140b173914c5e"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-alestarov-menu",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "ArcadeGames",
+      "category": "lua",
+      "description": "Allows you to manipulate Arcade games.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "arcade games",
+        "minigames",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "ArcadeGames.zip",
+          "url": "/assets/downloads/yim/arcadegames.zip",
+          "size": 2407,
+          "sha256": "4a21691b1e84ee356a0ec523af89c9ec42f4b7aa0b7d4946e0a7227635513a6d"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-arcadegames",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Billionare-Services",
+      "category": "lua",
+      "description": "Lua script that provides VIP services for GTA V players.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "VIP services",
+        "private jet",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/billionare-services-1.png",
+      "imageBaseUrl": "/assets/images/resource-previews/yim/",
+      "imagePaths": [
+        "billionare-services-1.png",
+        "billionare-services-2.png",
+        "billionare-services-3.png"
+      ],
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "Billionare-Services.zip",
+          "url": "/assets/downloads/yim/billionare-services.zip",
+          "size": 37887,
+          "sha256": "63e3a6ace51abc7cc4b8af250090734ad86db96c221d2ea556744ef212b13c17"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-billionare-services",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "BunkerResearchUnlocker",
+      "category": "lua",
+      "description": "A simple script that goes into the self tab of YimMenu. This script gives you the option to unlock all bunker research items at once or individually.",
+      "format": "Lua",
+      "credits": "Faresito",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "bunker research",
+        "research unlocks",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "BunkerResearchUnlocker.zip",
+          "url": "/assets/downloads/yim/bunkerresearchunlocker.zip",
+          "size": 3734,
+          "sha256": "02f226de0b08dbe816c67d3816f1c4bd9b8b9211984e4e437798013b2a68f1b6"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-bunkerresearchunlocker",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Casino-Pacino",
+      "category": "lua",
+      "description": "Allows you to game the Casino by cheating at all the games, and also manipulating the casino heists.",
+      "format": "Lua",
+      "credits": "gir489returns",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Diamond Casino",
+        "casino games",
+        "casino heist",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Casino-Pacino.zip",
+          "url": "/assets/downloads/yim/casino-pacino.zip",
+          "size": 9757,
+          "sha256": "f045aef6383020009c5b50df36813d27b51109b2943cd30767fee5aa882d250c"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-casino-pacino",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "CheatCodes",
+      "category": "lua",
+      "description": "Enables cheat codes in GTA Online.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "cheat codes",
+        "GTA Online",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "CheatCodes.zip",
+          "url": "/assets/downloads/yim/cheatcodes.zip",
+          "size": 1766,
+          "sha256": "656c8878e063d00640ad09f268c4ba3621cfd885016da182dc4c71cfda08275e"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-cheatcodes",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "ClawCrane",
+      "category": "lua",
+      "description": "Aims to fix the broken grab offset of Shiny Wasabi Kitty plushie so that you can actually grab it.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "claw crane",
+        "Shiny Wasabi Kitty",
+        "arcade games",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "ClawCrane.zip",
+          "url": "/assets/downloads/yim/clawcrane.zip",
+          "size": 2394,
+          "sha256": "bbd153eb2dc6111d9016fd0d27cdd7db538617cc682e0c2eb5429ba248129a45"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-clawcrane",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Cutscene-Player",
+      "category": "lua",
+      "description": "Allows you to play cutscenes.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "cutscenes",
+        "cinematics",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Cutscene-Player.zip",
+          "url": "/assets/downloads/yim/cutscene-player.zip",
+          "size": 4319,
+          "sha256": "c0235f194074879f6702111573022d26eaac524494d69947c4e71ddbf26789ab"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-cutscene-player",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "DailyCollectibles",
+      "category": "lua",
+      "description": "A lua script that allows you to view daily collectibles' locations, teleport, and more stuff.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "daily collectibles",
+        "map locations",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "DailyCollectibles.zip",
+          "url": "/assets/downloads/yim/dailycollectibles.zip",
+          "size": 8564,
+          "sha256": "0ee21291a7d070b5f62303e208300f4b4b1d2b9e3169044d6c290f5bf7fb3cad"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-dailycollectibles",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "DLCVehicles",
+      "category": "lua",
+      "description": "Enables all tunable vehicles. This should work for future DLCs as well without requiring an update.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "DLC vehicles",
+        "vehicle availability",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "DLCVehicles.zip",
+          "url": "/assets/downloads/yim/dlcvehicles.zip",
+          "size": 777,
+          "sha256": "a9c5f5288a8ae1ef744922354e61d5ecee429e6f58b0043a33eae0d6a51e9189"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-dlcvehicles",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Elexon",
+      "category": "lua",
+      "description": "Elexon is a script mainly focused on recovery options. Its a W.I.P and help is appreciated",
+      "format": "Lua",
+      "credits": "thecookietho",
+      "license": "GPL-3.0",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "progression",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Elexon.zip",
+          "url": "/assets/downloads/yim/elexon.zip",
+          "size": 62226,
+          "sha256": "9a893b448225e07bda6e78708756ef843659fc6fc73fa2e6dcbe7bd578a8b959"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-elexon",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "EliteTracker",
+      "category": "lua",
+      "description": "Allows you to track your Elite Challenge progresses.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Elite Challenge",
+        "heist tracker",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "EliteTracker.zip",
+          "url": "/assets/downloads/yim/elitetracker.zip",
+          "size": 3456,
+          "sha256": "fd1945dc35fa515133c68a5c58d96a0f7427e5a11a9d08c8a4619b6218dfd33f"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-elitetracker",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Eudora",
+      "category": "lua",
+      "description": "A comprehensive utility menu for character progression, money drops, stat maximization, custom rank/K/D editing, and unlocking exclusive vehicles.",
+      "format": "Lua",
+      "credits": "yamato-0x",
+      "license": "MIT",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "character progression",
+        "rank editor",
+        "vehicle unlocks",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Eudora.zip",
+          "url": "/assets/downloads/yim/eudora.zip",
+          "size": 80802,
+          "sha256": "55e82f6aee811442d7cf0819970c29ad48a09deef501dbeb37d6f807271d4f87"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-eudora",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "ServiceTransactions",
+      "category": "lua",
+      "description": "Allows you to trigger service transactions by calling a script function. Experimental only, use at your own risk.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "service transactions",
+        "freemode",
+        "experimental",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "FMTransactionTriggerer.zip",
+          "url": "/assets/downloads/yim/fmtransactiontriggerer.zip",
+          "size": 3480,
+          "sha256": "f8dde90b50db75c0f0613b423de87a16b3d4ef0bb020c5bf2e592f640d600bc9"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-fmtransactiontriggerer",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "FullSnacks",
+      "category": "lua",
+      "description": "Fills your snacks every so often",
+      "format": "Lua",
+      "credits": "gir489returns",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "snacks",
+        "inventory",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "FullSnacks.zip",
+          "url": "/assets/downloads/yim/fullsnacks.zip",
+          "size": 958,
+          "sha256": "ac4facbeb9eb3bb9c4529a25a4de51570a089b52374050f2fd3c885061438864"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-fullsnacks",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "G9EC",
+      "category": "lua",
+      "description": "Enables next-gen exclusive (PlayStation 5 & Xbox Series X|S) clothing items in the store.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "clothing",
+        "outfits",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "G9EC.zip",
+          "url": "/assets/downloads/yim/g9ec.zip",
+          "size": 953,
+          "sha256": "0f0465b9252093ecfa88f6f8bbb0ad18ee05d152b7c79ba25798b659146a4b9f"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-g9ec",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "GoldenGets-Menu",
+      "category": "lua",
+      "description": "Lua script for YimMenu which is useful for your GTA Online progress",
+      "format": "Lua",
+      "credits": "GoldenGets",
+      "license": "GPL-2.0",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "progression",
+        "GTA Online",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "GoldenGets-Menu.zip",
+          "url": "/assets/downloads/yim/goldengets-menu.zip",
+          "size": 102699,
+          "sha256": "9a4b8bc39fb0cde7f147a067fc476f71f49394e7eb48e3373562107c4c200b4f"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-goldengets-menu",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "GroundFireworks",
+      "category": "lua",
+      "description": "Adds ground fireworks that work similar to ground fireworks from old GTA Online",
+      "format": "Lua",
+      "credits": "tupoy-ya",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "fireworks",
+        "visual effects",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "GroundFireworks.zip",
+          "url": "/assets/downloads/yim/groundfireworks.zip",
+          "size": 3000,
+          "sha256": "89a404e2620332ae917917953892db8f9826935c366bf8a8f3505d7daf70b689"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-groundfireworks",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "GunVan",
+      "category": "lua",
+      "description": "Allows you to edit Gun Van weapons and more.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Gun Van",
+        "weapon inventory",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "GunVan.zip",
+          "url": "/assets/downloads/yim/gunvan.zip",
+          "size": 3252,
+          "sha256": "c665bdb2630aeb51df4d232a8bc39c6ea00c60e09f510a93826cd1280f1a4d74"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-gunvan",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Harmless-Scripts",
+      "category": "lua",
+      "description": "Repo for Lua scripts made by Harmless for YimMenu",
+      "format": "Lua",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "script collection",
+        "utilities",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Harmless-Scripts.zip",
+          "url": "/assets/downloads/yim/harmless-scripts.zip",
+          "size": 17383,
+          "sha256": "2db42d88d0a4fb1a3f97060af8035100ecf0e82762b51d6ccdc91c6709525ddb"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-harmless-scripts",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Internet",
+      "category": "lua",
+      "description": "Allows you to open various computers.",
+      "format": "Lua",
+      "credits": "gir489returns",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "in-game computers",
+        "websites",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Internet.zip",
+          "url": "/assets/downloads/yim/internet.zip",
+          "size": 1359,
+          "sha256": "2901bdacd8ca69c03442e28a4fe4f04f876ad8ce5eda8600c7c076d4cbf89d90"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-internet",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "KaifKolMenu",
+      "category": "lua",
+      "description": "This is a small menu for online version 1.69",
+      "format": "Lua",
+      "credits": "KaifKol",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "utilities",
+        "GTA Online 1.69",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "KaifKolMenu.zip",
+          "url": "/assets/downloads/yim/kaifkolmenu.zip",
+          "size": 2045,
+          "sha256": "53ec2ff6aa77ebac7793f40b404aa873b1e449e70b49f86e45c88146d4ff02dd"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-kaifkolmenu",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "MiniGameHack",
+      "category": "lua",
+      "description": "Minigame instant complete, skip hacking process",
+      "format": "Lua",
+      "credits": "sch-lda",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "minigames",
+        "mission tools",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "MiniGameHack.zip",
+          "url": "/assets/downloads/yim/minigamehack.zip",
+          "size": 5833,
+          "sha256": "225890e82800c52b9f79c313cd949ec3f8380b4f2cd5cffef7f3ab89ee02a4cb"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-minigamehack",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "MissionTools",
+      "category": "lua",
+      "description": "A versatile YimMenu script featuring mission selectors, skip tools, cooldown management, session switching, and much more.",
+      "format": "Lua",
+      "credits": "L7NEG",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "mission tools",
+        "mission selection",
+        "cooldowns",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "MissionTools.zip",
+          "url": "/assets/downloads/yim/missiontools.zip",
+          "size": 6175,
+          "sha256": "2e9c0f24fd19f818bab7a2a3fb6d86a5acb594865945703555fb7719b1204732"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-missiontools",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "NoHesi",
+      "category": "lua",
+      "description": "A simple and barebones implementation of NoHesi into YimMenu-Lua: Earn points by cutting up traffic at high speed.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "driving",
+        "traffic",
+        "score challenge",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/nohesi-1.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "NoHesi.zip",
+          "url": "/assets/downloads/yim/nohesi.zip",
+          "size": 13453,
+          "sha256": "48f3279e196b7170c7a55f31f419bd7c2206dac2959223f281625bb1a98ee607"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-nohesi",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "PatrickMcReary",
+      "category": "lua",
+      "description": "A Lua script for the Patrick McReary random event.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Patrick McReary",
+        "random events",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "PatrickMcReary.zip",
+          "url": "/assets/downloads/yim/patrickmcreary.zip",
+          "size": 909,
+          "sha256": "e27adf07fcfa631f6aa0298c2a54a5394b31d7cda2aca53332d2501a124da2fe"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-patrickmcreary",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "PauseOnline",
+      "category": "lua",
+      "description": "Allows you to pause the game in GTA Online.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "pause menu",
+        "session utilities",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "PauseOnline.zip",
+          "url": "/assets/downloads/yim/pauseonline.zip",
+          "size": 797,
+          "sha256": "9c6714c8a035b5543e8fbb96bdb4d6e0a1ee325c4cb6ba6656eacb555731cd56"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-pauseonline",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "PayphoneHits",
+      "category": "lua",
+      "description": "A Lua script for Payphone Hits.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Payphone Hits",
+        "missions",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "PayphoneHits.zip",
+          "url": "/assets/downloads/yim/payphonehits.zip",
+          "size": 2098,
+          "sha256": "82fffdad97c711bd8e4d790e3bb87c708fcab121cbba3cd603613c0b6d54d06b"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-payphonehits",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Pessi v2 Updated",
+      "category": "lua",
+      "description": "Pessi is mainly a recovery script, with various methods, ranging from a 1M fast loop to various limited transactions",
+      "format": "Lua",
+      "credits": "abuazizv & gir489",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Pessi v2",
+        "recovery",
+        "progression",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Pesiv2-Updated.zip",
+          "url": "/assets/downloads/yim/pesiv2-updated.zip",
+          "size": 1909,
+          "sha256": "9eae2e4b563d445786a7a9c5e5ce41977becc7f4f15f03a4d739a4f5293b67c3"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-pesiv2-updated",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Pessi",
+      "category": "lua",
+      "description": "Pessi is mainly a recovery script, with various methods, ranging from a 1M fast loop to various limited transactions",
+      "format": "Lua",
+      "credits": "abuazizv",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "progression",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Pessi.zip",
+          "url": "/assets/downloads/yim/pessi.zip",
+          "size": 2117,
+          "sha256": "75ae2f4874bb5f8e40392cb507597766f4a161039eb0e815b76da42e43687f9b"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-pessi",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Phone-Editor",
+      "category": "lua",
+      "description": "A script that allows you to change the player's phone",
+      "format": "Lua",
+      "credits": "celeronishe",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "in-game phone",
+        "phone customization",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Phone-Editor.zip",
+          "url": "/assets/downloads/yim/phone-editor.zip",
+          "size": 2720,
+          "sha256": "4e76c56d5e125bd802d065a9226540556ecd7797fbe498c31b16d59830e33add"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-phone-editor",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "PlayerAbilities",
+      "category": "lua",
+      "description": "Manipulates your online character abilities.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "character abilities",
+        "player settings",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/playerabilities-1.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "PlayerAbilities.zip",
+          "url": "/assets/downloads/yim/playerabilities.zip",
+          "size": 1585,
+          "sha256": "1f3d034b942f1d0b488decc3807e7fa5c45f6ed0f2f028a2f6a8dd4e66947cb6"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-playerabilities",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "PrizeVehicles",
+      "category": "lua",
+      "description": "Allows you to edit prize vehicles such as Podium, LSCM, etc.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "prize vehicles",
+        "podium vehicle",
+        "LS Car Meet",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "PrizeVehicles.zip",
+          "url": "/assets/downloads/yim/prizevehicles.zip",
+          "size": 2443,
+          "sha256": "dff0e0a63a3480a2a5f5b857f3ad1e0b5be536d52523dc794ce058ab26de6235"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-prizevehicles",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "RandomEvents",
+      "category": "lua",
+      "description": "A Lua script for YimMenu about Random Events.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "random events",
+        "freemode events",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "RandomEvents.zip",
+          "url": "/assets/downloads/yim/randomevents.zip",
+          "size": 9954,
+          "sha256": "7bb2ae109ac2766c14ba4d91cceeb0df7ada2572bd78b1c43c1c43088dd39c4f"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-randomevents",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "RankEditor",
+      "category": "lua",
+      "description": "Allows you to edit your character rank, LSCM REP Tier, and Arena War Sponsorship Tier.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "rank editor",
+        "LS Car Meet reputation",
+        "Arena War",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "RankEditor.zip",
+          "url": "/assets/downloads/yim/rankeditor.zip",
+          "size": 1779,
+          "sha256": "3f50f29921cb8eb3a8cc8276597def820cecfc260ca6606fefc5704b63e2ad50"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-rankeditor",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Removed-vehicles",
+      "category": "lua",
+      "description": "Re-activate the option to purchase the removed vehicles through the web pages.",
+      "format": "Lua",
+      "credits": "visionary2709",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "removed vehicles",
+        "vehicle shops",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Removed-vehicles.zip",
+          "url": "/assets/downloads/yim/removed-vehicles.zip",
+          "size": 1273,
+          "sha256": "7b85404d9258258c674f6262b2b7ea2adc6430d0761f2f119f9057f108b7b6bb"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-removed-vehicles",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "SalvageYard",
+      "category": "lua",
+      "description": "Allows you to manage your Salvage Yard business.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Salvage Yard",
+        "business management",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "SalvageYard.zip",
+          "url": "/assets/downloads/yim/salvageyard.zip",
+          "size": 2102,
+          "sha256": "0974aaa4df413f182679acd926e3eefa1536804ea9f493a69a2942ecd5db978d"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-salvageyard",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "SAMURAI-Animations",
+      "category": "lua",
+      "description": "Lua script to play GTA Online Animations using YimMenu.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "animations",
+        "roleplay",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/samurai-animations-1.png",
+      "imageBaseUrl": "/assets/images/resource-previews/yim/",
+      "imagePaths": [
+        "samurai-animations-1.png",
+        "samurai-animations-2.png"
+      ],
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "SAMURAI-Animations.zip",
+          "url": "/assets/downloads/yim/samurai-animations.zip",
+          "size": 8226,
+          "sha256": "e8861b5f1d8731c941fb808cc279c3fd9c833a2230d845799a914783b8eaca58"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-samurai-animations",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "SAMURAI-Scenarios",
+      "category": "lua",
+      "description": "Lua script to play GTA Online scenarios using YimMenu.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "scenarios",
+        "roleplay",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/samurai-scenarios-1.png",
+      "imageBaseUrl": "/assets/images/resource-previews/yim/",
+      "imagePaths": [
+        "samurai-scenarios-1.png",
+        "samurai-scenarios-2.png"
+      ],
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "SAMURAI-Scenarios.zip",
+          "url": "/assets/downloads/yim/samurai-scenarios.zip",
+          "size": 3497,
+          "sha256": "2559395c5e988838eb6bbd2eee417ef6cbfcfc630e18f384764bbbbd7ba1742d"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-samurai-scenarios",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Samurai's Scripts",
+      "category": "lua",
+      "description": "A Lua script written for YimMenu and Tupoye-Menu, centered around roleplaying and having fun in a game full of ad bots and toxic cheaters.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "license": "GPL-3.0",
+      "version": "v2.0.4",
+      "requirementLabel": "Includes separate YimMenu builds for GTA 5 Legacy and Enhanced.",
+      "edition": "both",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "roleplay",
+        "utility menu",
+        "YimMenu V2",
+        "GTA 5 Enhanced",
+        "GTA 5 Legacy",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/samurais-scripts-1.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "Samurais-Scripts.zip",
+          "url": "/assets/downloads/yim/samurais-scripts.zip",
+          "size": 2051799,
+          "sha256": "ec81f21c7bd7b5636d5d496c85f8578523853c2f7a16174cb3de47b925bbd8c6"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-samurais-scripts",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Sightseeing",
+      "category": "lua",
+      "description": "A proper script for the Halloween Sightseeing event.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "Halloween",
+        "sightseeing",
+        "seasonal events",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Sightseeing.zip",
+          "url": "/assets/downloads/yim/sightseeing.zip",
+          "size": 2851,
+          "sha256": "62de69f631c993544eaa7882b6585621ca16fc34e7e11add2782051f52a2a85a"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-sightseeing",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Singleplayer-Menu",
+      "category": "lua",
+      "description": "Simple singleplayer cheats.",
+      "format": "Lua",
+      "credits": "gir489returns",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "single-player",
+        "story mode",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Singleplayer-Menu.zip",
+          "url": "/assets/downloads/yim/singleplayer-menu.zip",
+          "size": 1309,
+          "sha256": "656edb5c2473feb39ee32d3ef90a7ad46002e285d7ed73ef4690b79478fe6a20"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-singleplayer-menu",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "SoloMissions",
+      "category": "lua",
+      "description": "Allows you to play the heists and missions alone.",
+      "format": "Lua",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "solo heists",
+        "solo missions",
+        "mission tools",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "SoloMissions.zip",
+          "url": "/assets/downloads/yim/solomissions.zip",
+          "size": 16202,
+          "sha256": "ca4e41883b8282b6f7fca0a59b433596ad0fd3d5d1fe1827a44ea23d926f43af"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-solomissions",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "TokyoDrift",
+      "category": "lua",
+      "description": "Adds a few fun features for car enthusiasts.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "drifting",
+        "driving",
+        "vehicle utilities",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/tokyodrift-1.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "TokyoDrift.zip",
+          "url": "/assets/downloads/yim/tokyodrift.zip",
+          "size": 13703,
+          "sha256": "ad72f0fb76e564515a5066a9ec9f0501fb7d1894f0ac06a4cf439390eb855857"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-tokyodrift",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Ultimate Menu Revived",
+      "category": "lua",
+      "description": "A powerful menu script featuring advanced recovery options, money tools, a Heist Editor, and much more.",
+      "format": "Lua",
+      "credits": "L7NEG",
+      "requirementLabel": "Requires GTA 5 Legacy and a compatible YimMenu build.",
+      "edition": "legacy",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "heist editor",
+        "recovery",
+        "GTA 5 Legacy",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/ultimatemenurevived-1.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "UltimateMenuRevived.zip",
+          "url": "/assets/downloads/yim/ultimatemenurevived.zip",
+          "size": 70137,
+          "sha256": "3205a8e4e321beea60f7a145d6e507e722b94679c63d74c13d70ba98b92d75c6"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-ultimatemenurevived",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "UnlockEverything",
+      "category": "lua",
+      "description": "Unlocks everything",
+      "format": "Lua",
+      "credits": "gir489returns",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "unlocks",
+        "progression",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "UnlockEverything.zip",
+          "url": "/assets/downloads/yim/unlockeverything.zip",
+          "size": 29319,
+          "sha256": "fc198121c8afb7bca7e3dd492651c5d30c8125cd1ca29c156b3fac5024a8effc"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-unlockeverything",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Uthensia_1.70",
+      "category": "lua",
+      "description": "a menu which lets us to get money, edit our ranks, max out our character stats, and edit our k/ds.",
+      "format": "Lua",
+      "credits": "3it7",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "rank editor",
+        "character stats",
+        "progression",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Uthensia_1.70.zip",
+          "url": "/assets/downloads/yim/uthensia_1.70.zip",
+          "size": 79707,
+          "sha256": "1908f5261396151a7da4088b1736b44276324a5c17c94721d5770bd6be71e908"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-uthensia_1-70",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "VehicleReward",
+      "category": "lua",
+      "description": "Allows you to claim the vehicle you are in as your personal vehicle.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "personal vehicles",
+        "vehicle rewards",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "VehicleReward.zip",
+          "url": "/assets/downloads/yim/vehiclereward.zip",
+          "size": 1628,
+          "sha256": "6f2caeaf57cfad7e9def5b83706b07dad1774be5840de1a7acc33da78a819dc4"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-vehiclereward",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Wardrobe",
+      "category": "lua",
+      "description": "Allows you to access your wardrobe remotely.",
+      "format": "Lua",
+      "credits": "ShinyWasabi",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "wardrobe",
+        "outfits",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Wardrobe.zip",
+          "url": "/assets/downloads/yim/wardrobe.zip",
+          "size": 1827,
+          "sha256": "bcbe96ffa160c26b12622b5ba0c3e94c67521a36f3498d7e0d5aa9cb54dc07c5"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-wardrobe",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "Weapon-Editor",
+      "category": "lua",
+      "description": "WeaponEditor is a lua script that lets you mod weapons.meta externally while the game is running. You can mod weapon behaviour, add attachments etc. without actually changing the game files.",
+      "format": "Lua",
+      "credits": "George0828Zhang",
+      "license": "GPL-2.0",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "weapon customization",
+        "weapon attachments",
+        "weapon settings",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "Weapon-Editor.zip",
+          "url": "/assets/downloads/yim/weapon-editor.zip",
+          "size": 40393,
+          "sha256": "8577c41ecb06d5cdbf49e9d4a996f1d374044e1a1cf4226519c205f993766f56"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-weapon-editor",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "YimActions",
+      "category": "lua",
+      "description": "Play GTA V Animations & Scenarios Using YimMenu",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "license": "CC BY-NC 4.0",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "animations",
+        "scenarios",
+        "roleplay",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/yimactions-1.png",
+      "imageBaseUrl": "/assets/images/resource-previews/yim/",
+      "imagePaths": [
+        "yimactions-1.png",
+        "yimactions-2.png",
+        "yimactions-3.png"
+      ],
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "YimActions.zip",
+          "url": "/assets/downloads/yim/yimactions.zip",
+          "size": 68791,
+          "sha256": "3c93544e607b8e11eb3d3cd448cef595ba9908e3e3060d8dfdef9c2efe9cde65"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-yimactions",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "YimConfig",
+      "category": "lua",
+      "description": "Universal Config System For YimMenu-Lua",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "developer tools",
+        "Lua library",
+        "configuration",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "YimConfig.zip",
+          "url": "/assets/downloads/yim/yimconfig.zip",
+          "size": 13497,
+          "sha256": "8f95437c3bc353af8027c7af8d64bad8d5226ebecb5300ae0c5dfc3fe73e761d"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-yimconfig",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "YimLLS",
+      "category": "lua",
+      "description": "LuaLS meta files for the YimMenu API, only for script developers.",
+      "format": "Lua",
+      "credits": "tupoy-ya",
+      "license": "GPL-2.0",
+      "requirementLabel": "Requires the Lua Language Server.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "developer tools",
+        "Lua Language Server",
+        "Lua API",
+        "editor tooling",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "name": "YimLLS.zip",
+          "url": "/assets/downloads/yim/yimlls.zip",
+          "size": 169982,
+          "sha256": "d288d869d464f23013157dece7ed2c5b19d828e01cb7ff50ec8943217f38b256"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-yimlls",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "YimResupplier",
+      "category": "lua",
+      "description": "A Lua script that instantly resupplies MC businesses in GTA Online.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "MC businesses",
+        "business resupply",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/yimresupplier-1.png",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "YimResupplier.zip",
+          "url": "/assets/downloads/yim/yimresupplier.zip",
+          "size": 10746,
+          "sha256": "d75abc1929c59760924109809990bf451a9f34914ee2ae7b740ecb9c1910c961"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-yimresupplier",
+      "addedAt": "2026-11-11T06:30:55.431Z"
+    },
+    {
+      "name": "YimToast",
+      "category": "lua",
+      "description": "Lightweight GUI notification system for Lua developers.",
+      "format": "Lua",
+      "credits": "xesdoog",
+      "requirementLabel": "Requires a compatible YimMenu build.",
+      "tags": [
+        "YimMenu",
+        "Lua",
+        "developer tools",
+        "Lua library",
+        "GUI notifications",
+        "Yim"
+      ],
+      "sourceMenu": "yim",
+      "game": "gta5",
+      "supportedMenus": [
+        "yim"
+      ],
+      "listedMenus": [
+        "yim"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/yim/yimtoast-1.gif",
+      "previewVerified": true,
+      "files": [
+        {
+          "name": "YimToast.zip",
+          "url": "/assets/downloads/yim/yimtoast.zip",
+          "size": 3663,
+          "sha256": "2f85e71c43bef380115b7a9823f9ba735bc3309a37f2d29e5075fe23ff8ae580"
+        }
+      ],
+      "downloadStatus": "available",
+      "status": "download",
+      "guide": "/resources/guides/?game=gta5&menu=yim&category=lua",
+      "id": "menu-yim-lua-yimtoast",
+      "addedAt": "2026-11-11T06:30:55.431Z"
     }
   ],
   "libraryOverrides": [
@@ -297514,6 +299793,17 @@
         }
       ],
       "completeness": "Bounded local/public source audit with exact current/old channel IDs verified through the official CLI registry. All 13 channel histories remain incomplete until the authorized export is finished and inspected."
+    },
+    {
+      "menu": "yim",
+      "source": "project/community-menu-sources/yim.json",
+      "summary": {
+        "repositories": 63,
+        "packages": 56,
+        "screenshots": 29
+      },
+      "coverage": [],
+      "completeness": "Public organization snapshot. Includes repositories with a Lua payload in the current branch or latest published release."
     }
   ],
   "downloadBaseUrl": "https://raw.githubusercontent.com/Speedy-away/cool-repo/main/",

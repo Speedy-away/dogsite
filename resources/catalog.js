@@ -115,6 +115,11 @@ function readState() {
 
 function updatePageTab(url = new URL(location.href)) {
   const hub = url.pathname.replace(/\/index\.html$/, '/') === routes.base && !url.search;
+  if (!hub && state.menu === 'yim') {
+    const category = state.category === 'lua' ? 'Lua Scripts' : 'Resources';
+    document.title = `GTA 5 YimMenu ${category} & Downloads — Scooby`;
+    return;
+  }
   const category = state.category === 'all' ? 'Resources' : categoryLabel(state.game, state.category);
   const title = [GAMES[state.game].name, state.menu === 'scooby' ? '' : menuName(), category].filter(Boolean).join(' ');
   document.title = `${hub ? 'Resources' : title} — Scooby`;
@@ -742,23 +747,25 @@ function tagLinks(entry) {
   return section;
 }
 
-function themeImageGallery(entry) {
+function resourceImageGallery(entry) {
   const base = safeURL(entry.imageBaseUrl);
   if (!base || !entry.imagePaths?.length) return null;
 
+  const imageLabel = entry.category === 'themes' ? 'theme image' : 'preview image';
+  const galleryLabel = imageLabel[0].toUpperCase() + imageLabel.slice(1) + 's';
   const gallery = node('section', null, 'theme-gallery');
-  gallery.setAttribute('aria-label', 'Theme images');
+  gallery.setAttribute('aria-label', galleryLabel);
   const controls = node('div', null, 'theme-gallery-controls');
-  const label = node('label', `Theme images (${entry.imagePaths.length})`);
+  const label = node('label', `${galleryLabel} (${entry.imagePaths.length})`);
   const picker = node('select');
-  entry.imagePaths.forEach((file, index) => picker.add(new Option(file, String(index))));
+  entry.imagePaths.forEach((file, index) => picker.add(new Option(entry.category === 'themes' ? file : `Image ${index + 1}`, String(index))));
   label.append(picker);
   const navigation = node('div', null, 'theme-gallery-navigation');
   const previous = node('button', 'Previous');
   const next = node('button', 'Next');
   previous.type = next.type = 'button';
-  previous.setAttribute('aria-label', 'Previous theme image');
-  next.setAttribute('aria-label', 'Next theme image');
+  previous.setAttribute('aria-label', `Previous ${imageLabel}`);
+  next.setAttribute('aria-label', `Next ${imageLabel}`);
   const original = link('Open original ↗', base, true);
   navigation.append(previous, next, original);
   controls.append(label, navigation);
@@ -772,7 +779,7 @@ function themeImageGallery(entry) {
     previous.disabled = index === 0;
     next.disabled = index === entry.imagePaths.length - 1;
     original.href = url;
-    figure.replaceChildren(image(url, `${entry.name} — ${file}`, true));
+    figure.replaceChildren(image(url, `${entry.name} — ${picker.options[index].text}`, true));
   }
 
   picker.onchange = () => selectImage(Number(picker.value));
@@ -815,7 +822,7 @@ function showDetails(entry, files) {
   linkedPreviewHash = hash;
   $('preview-title').textContent = visibleText(entry, entry.name);
   const preview = previewURL(entry);
-  const gallery = themeImageGallery(entry);
+  const gallery = resourceImageGallery(entry);
   const pictures = $('pictures');
   pictures.replaceChildren();
   pictures.hidden = !gallery && !preview;

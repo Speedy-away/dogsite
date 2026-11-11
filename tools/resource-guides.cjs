@@ -29,7 +29,7 @@ function buildGuideData(inventory) {
   for (const collection of inventory.pages.filter(page => !page.category)) {
     const { game, menu, menuName, availableMenus } = collection;
     const gameName = inventory.games[game].name;
-    const scope = availableMenus.length > 1 ? `${gameName} ${menuName}` : gameName;
+    const scope = availableMenus.length > 1 ? `${gameName} ${menu === 'yim' ? 'YimMenu' : menuName}` : gameName;
     const available = topics.filter(topic => matches(topic.games, game) && matches(topic.menus, menu));
     if (!available.length) continue;
     const categoryIds = new Set(available.flatMap(topic => topic.categories));
@@ -46,11 +46,17 @@ function buildGuideData(inventory) {
       const label = category === 'all' ? 'All installation guides' :
         menus.categoryLabel(menu, category) || roleplayCategoryLabel(game, category) || inventory.categories[category]?.name || selected[0].heading;
       if (category !== 'all') groups.set(href, label);
-      const title = category === 'all' ? `${scope} Resource Installation Guides` : `${scope} ${label} Installation Guide`;
+      const title = menu === 'yim' ? 'YimMenu Lua Installation Guide for GTA 5' :
+        category === 'all' ? `${scope} Resource Installation Guides` : `${scope} ${label} Installation Guide`;
       const detail = selected.slice(0, 3).map(topic => topic.heading).join(', ');
       const intro = category === 'all' ? `Find installation instructions for ${scope} resources.` : `Find ${scope} installation instructions for ${label.toLowerCase()}.`;
-      const description = `${intro} ${detail}.`;
-      pages.push({ file: `${href.slice(1)}index.html`, href, title, description, keywords: `${scope} resources, ${scope} installation, ${detail}`,
+      const description = menu === 'yim'
+        ? 'Install YimMenu Lua scripts for GTA 5. Learn how to extract script packages, keep dependencies together and reload scripts in YimMenu.'
+        : `${intro} ${detail}.`;
+      const keywords = menu === 'yim'
+        ? 'YimMenu Lua installation, GTA 5 YimMenu guide, YimMenu scripts folder, YimMenu Lua dependencies'
+        : `${scope} resources, ${scope} installation, ${detail}`;
+      pages.push({ file: `${href.slice(1)}index.html`, href, title, description, keywords,
         game, menu, availableMenus, category, label, scope, groups, topics: selected });
     }
   }

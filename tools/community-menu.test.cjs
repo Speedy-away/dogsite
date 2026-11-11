@@ -30,7 +30,7 @@ test('menu selection has a Scooby default and separates discovery from runtime r
   assert.equal(menus.menuFor('gta5', ''), 'scooby');
   assert.equal(menus.menuFor('gta5', 'X-Force'), 'xforce');
   assert.equal(menus.menuFor('cs2', 'stand'), 'scooby');
-  assert(menus.MENUS.find(menu => menu.id === 'yim').deferred);
+  assert.equal(menus.menuFor('gta5', 'Yim'), 'yim');
   const source = { game: 'gta5', category: 'lua', sourceMenu: 'cherax', supportedMenus: ['cherax'], listedMenus: ['cherax', 'scooby', 'nenyoo'] };
   assert(menus.supports(source, 'cherax'));
   assert(!menus.supports(source, 'scooby') && !menus.supports(source, 'nenyoo'));
@@ -38,7 +38,7 @@ test('menu selection has a Scooby default and separates discovery from runtime r
   assert(!menus.supports(source, 'stand'));
   assert.deepEqual(menus.menuIds({ game: 'gta5', category: 'themes', menu: 'Scooby' }), ['scooby']);
 });
-test('Lua listings expose local Cherax releases or an honest unavailable state', () => {
+test('Lua listings expose local downloads or an honest unavailable state', () => {
   const scripts = supplement.items.filter(item => item.category === 'lua' && item.game !== 'redm');
   const standSubmissions = new Map(require('../project/community-menu-sources/stand-submitted.json').items.map(item => [item.id, item]));
   const visibleMenus = item => menus.MENUS.filter(menu => menus.supports(item, menu.id)).map(menu => menu.id);
@@ -47,12 +47,14 @@ test('Lua listings expose local Cherax releases or an honest unavailable state',
   for (const item of scripts) {
     assert(!ids.has(item.id), item.id); ids.add(item.id);
     if (item.files.length) {
-      assert.equal(item.sourceMenu, 'cherax', item.id);
+      assert(['cherax', 'yim'].includes(item.sourceMenu), item.id);
       assert.equal(item.downloadStatus, 'available', item.id);
       assert.equal(new Set(item.files.map(file => file.versionLabel)).size, item.files.length, item.id);
       assert.equal(new Set(item.files.map(file => file.sha256)).size, item.files.length, item.id);
       for (const file of item.files) {
-        assert.match(file.url, /^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.lua$/);
+        assert.match(file.url, item.sourceMenu === 'yim'
+          ? /^\/assets\/downloads\/yim\/[\w.-]+\.zip$/
+          : /^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.lua$/);
         const bytes = fs.readFileSync(path.join(ROOT, file.url));
         assert.equal(bytes.length, file.size, file.name);
         assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), file.sha256, file.name);
