@@ -79,8 +79,12 @@ function hasCategory(item, category) {
 function fileURL(file, base) {
   if (file?.url && /^https:\/\//.test(file.url)) return file.url;
   if (/^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i.test(file?.url || '')) return file.url;
+  if (/^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.(?:lua|json|zip|rar|7z)$/i.test(file?.url || '')) return file.url;
   if (!file?.path || file.path.startsWith('/') || file.path.includes('\\') || file.path.split('/').some(part => part === '..' || part === '.')) return '';
   return new URL(file.path.split('/').map(encodeURIComponent).join('/'), base).href;
+}
+function hasPreview(item) {
+  return Boolean(item.preview) && item.previewVerified !== false && (item.category !== 'themes' || item.previewVerified === true);
 }
 function fileExtension(file) {
   const name = String(file?.formatPath || file?.name || file?.path || file?.url || '').split(/[?#]/)[0];
@@ -165,7 +169,7 @@ function buildData() {
       const categories = Object.keys(CATEGORIES).map(id => ({ id, ...categoryInfo(game, id), count: gameItems.filter(item => hasCategory(item, id)).length })).filter(category => category.count);
       const makePage = category => {
       const subset = category ? gameItems.filter(item => hasCategory(item, category)) : gameItems;
-      let candidates = subset.slice().sort((a, b) => Number(Boolean(b.preview)) - Number(Boolean(a.preview)));
+      let candidates = subset.slice().sort((a, b) => Number(hasPreview(b)) - Number(hasPreview(a)));
       if (game === 'redm' && category === 'graphics-packs') {
         const authorHosted = candidates.filter(item => item.status === 'author-hosted' && item.previewVerified);
         candidates = [...new Set([...authorHosted, ...candidates])];
@@ -192,7 +196,7 @@ function buildData() {
       const wordsFor = id => categoryInfo(game, id).words;
       const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
         group.id === 'graphics-packs' && game === 'redm' ? group.words : group.words.slice(0, 2));
-      const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style]).filter(Boolean))];
+      const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style].flat()).filter(Boolean))];
       const topics = game === 'gta5'
         ? (category ? [category] : categories.map(group => group.id)).map(id => menuTopic(menu, id)).filter(Boolean)
         : [];
@@ -201,7 +205,7 @@ function buildData() {
       const intro = scoobyThemes
         ? 'Browse native Scooby ClickUI colors and ListUI styles. Some Scooby-compatible presets look like other menus. Check the file requirements before installing.'
         : game === 'gta5' && menu === 'cherax' && category === 'themes'
-          ? 'Browse original Cherax ClickGUI packages. Use the Cherax theme loader and keep the settings and artwork together.'
+          ? 'Browse Cherax ClickGUI and ListUI themes. Choose a package for your active interface and keep the settings and artwork together.'
           : category ? categoryInfo(game, category).description.replace(/the selected menu/g, menuName).replace(/selected menu/g, menuName) : menu === 'scooby' ? config.intro : `Browse ${config.name} resources listed for ${menuName}. Check each resource’s original menu format, download availability and any required compatibility layer before installing.`;
       const firstSentence = intro.split(/(?<=[.!?])\s/)[0];
       const description = pendingOnly
@@ -251,19 +255,20 @@ function renderPage(page) {
   const samples = page.samples.map(item => {
     const href = '#resource-' + item.id.replace(/[^a-z0-9_-]/gi, '-');
     const serverRecipe = item.game === 'fivem' && item.category === 'server-dumps';
-    const preview = item.previewVerified === false || (item.category === 'themes' && item.previewVerified !== true) ? '' : typeof item.preview === 'string' ? item.preview : item.preview?.path || item.preview?.url;
+    const preview = hasPreview(item) ? typeof item.preview === 'string' ? item.preview : item.preview.path || item.preview.url : '';
     const remotePreview = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? fileURL({ path: preview }, page.downloadBaseUrl) : preview;
     const local = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? ` data-resource-image="${escape(preview)}"` : '';
-    const fallback = ` data-resource-image-fallback="${SCOOBY_PREVIEW_LOGO}"`;
+    const cheraxPreview = item.game === 'gta5' && (page.menu === 'cherax' || menus.canonical(item.sourceMenu) === 'cherax');
+    const fallback = cheraxPreview ? ' data-resource-image-unavailable' : ` data-resource-image-fallback="${SCOOBY_PREVIEW_LOGO}"`;
     const gtaAddon = item.game === 'gta5' && item.category.startsWith('addon-');
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : serverRecipe ? '' : `<div class="resource-preview">${gtaAddon ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
+      : serverRecipe ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
     const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
-    const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod })).filter(file => file.url);
+    const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod, versionLabel: file.versionLabel })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
     const suffix = extension ? ` <span class="resource-extension ext-${extension.slice(1)}">${escape(extension)}</span>` : '';
-    const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.name) : ' ↓'}</button>`;
+    const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.versionLabel || file.name) : ' ↓'}</button>`;
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
     const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${serverRecipe ? 'Download from source ↗' : 'Get from the author ↗'}</a>` : '';
     const install = authorHosted && /^https:\/\//.test(item.installUrl || '') ? `<p><a href="${escape(item.installUrl)}" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p>` : '';
@@ -273,7 +278,8 @@ function renderPage(page) {
     const badge = edition ? `<span class="edition-badge edition-${edition}" title="${escape(editions.title(item.game, edition))}">${escape(editions.badge(item.game, edition))}</span>`
       : gtaAddon ? '<span class="edition-badge edition-unlisted">Edition unlisted</span>' : '';
     const access = item.access === 'free' ? '<span class="resource-access">Free</span>' : item.access === 'paid' ? '<span class="resource-access">Paid</span>' : '';
-    const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? '<button type="button" class="resource-download" disabled>Download — Coming soon</button>' : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>Download ↓</summary>${files.map(download).join('')}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
+    const downloadLabel = files.every(file => file.versionLabel) ? 'Choose version' : 'Download ↓';
+    const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? `<button type="button" class="resource-download" disabled>${escape(item.downloadLabel || 'Download — Coming soon')}</button>` : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>${downloadLabel}</summary>${files.map(download).join('')}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
     const notes = (Array.isArray(item.changelog) ? item.changelog : typeof item.changelog === 'string' ? [item.changelog] : []).flatMap(note => {
       if (typeof note === 'string') return [note];
       if (!note || typeof note !== 'object') return [];
@@ -299,7 +305,10 @@ function renderPage(page) {
   const source = page.game === 'gta5' ? page.availableMenus.find(menu => menu.id === page.menu)?.source : undefined;
   const sourceLink = source ? `<a class="menu-source-link" href="${escape(source.url)}">${escape(source.label)}</a>` : '';
   const clickUILink = page.game === 'gta5' && page.menu === 'scooby' && page.category === 'themes'
-    ? ` <a class="resource-open" href="${escape(queryURL('gta5', 'themes') + '&ui=clickui')}">Browse Scooby ClickUI themes →</a>` : '';
+    ? ` <a class="resource-open" href="${escape(queryURL('gta5', 'themes') + '&ui=clickui')}">Browse Scooby ClickUI themes →</a>`
+    : page.game === 'gta5' && page.menu === 'cherax' && page.category === 'themes'
+      ? ` <a class="resource-open" href="${escape(queryURL('gta5', 'themes', undefined, 'cherax') + '&ui=listui')}">Browse Cherax ListUI themes →</a>`
+      : '';
   const graphicsLinks = page.graphicsTopics?.length
     ? `<nav class="resource-menus" aria-label="RedM graphics pack types">${page.graphicsTopics.map(topic =>
       `<a href="${escape(queryURL('redm', 'graphics-packs', topic.query))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';

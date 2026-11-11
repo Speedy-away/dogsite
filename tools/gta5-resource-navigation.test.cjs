@@ -98,6 +98,16 @@ test('GTA 5 addon expansion preserves source downloads, previews and edition evi
   for (const edition of ['legacy', 'enhanced', 'both']) assert(additions.some(item => editions.support(item) === edition));
 });
 
+test('Cherax ListUI themes preserve the verified interfaces and the collection filter', () => {
+  const page = gtaPages.find(page => page.menu === 'cherax' && page.category === 'themes');
+  const themes = items.filter(item => menus.isCheraxTheme(item) && [].concat(menus.themeInterface(item)).includes('ListUI'));
+  assert(themes.some(item => item.name === 'Impulse ListUI' && menus.themeInterface(item) === 'ListUI'));
+  const red = themes.find(item => item.name === 'Transparent Red');
+  assert.deepEqual(menus.themeInterface(red), ['ClickGUI', 'ListUI']);
+  assert(themes.every(item => menus.compatibleWith(item, 'cherax') && !menus.supports(item, 'scooby')));
+  assert.match(renderPage(page), /ui=listui[^"]*">Browse Cherax ListUI themes/);
+});
+
 test('Scooby Themes keeps native ClickUI colors and compatible ListUI styles', () => {
   const scoobyPage = gtaPages.find(page => page.menu === 'scooby' && page.category === 'themes');
   assert(scoobyPage, 'Scooby Themes route is missing');

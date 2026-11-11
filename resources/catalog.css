@@ -153,3 +153,6 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 .edition-unlisted{color:#a8a8a8;border-color:#3a3a3a;background:#171717}
 .preview-unavailable{color:#a8a8a8;font-size:12px}
 .resource-preview .preview-placeholder,.shot .preview-placeholder{width:min(52%,136px);height:auto;max-height:64%;object-fit:contain}
+.version-download{display:flex;flex-wrap:wrap;align-items:end;gap:8px;max-width:100%}
+.version-download label{display:grid;gap:4px;color:#aaa;font-size:11px}
+.version-download select{width:auto;max-width:min(190px,100%);font-size:11px}

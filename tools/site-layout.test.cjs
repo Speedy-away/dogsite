@@ -12,7 +12,20 @@ const digest = file => crypto.createHash('sha256').update(fs.readFileSync(file))
 test('publishing package preserves every public file and excludes project/tooling folders', () => {
   const { publishRoot, files } = build();
   assert(files.length > 500);
-  for (const relative of files) assert.equal(digest(path.join(publishRoot, relative)), digest(path.join(siteRoot, relative)), relative);
+  const expectedHost = 'https://raw.githubusercontent.com/Speedy-away/dogsite/main';
+  for (const relative of files) {
+    const source = path.join(siteRoot, relative);
+    const published = path.join(publishRoot, relative);
+    if (relative.replaceAll(path.sep, '/') === 'community/data/menu-resources.json' || (relative.startsWith('resources' + path.sep) && relative.endsWith('.html'))) {
+      assert.equal(fs.readFileSync(published, 'utf8').replaceAll(expectedHost + '/assets/', '/assets/'), fs.readFileSync(source, 'utf8'), relative);
+    } else assert.equal(digest(published), digest(source), relative);
+  }
+  assert(!fs.existsSync(path.join(publishRoot, 'assets/downloads/cherax')));
+  assert(!fs.existsSync(path.join(publishRoot, 'assets/images/resource-previews/cherax')));
+  const catalog = JSON.parse(fs.readFileSync(path.join(publishRoot, 'community/data/menu-resources.json'), 'utf8'));
+  const driftGod = catalog.items.find(item => item.id === 'cherax-lua-driftgod');
+  assert(driftGod.files.some(file => file.versionLabel === 'v1.0.6' && file.url.startsWith(expectedHost + '/assets/downloads/cherax/')));
+  assert(driftGod.preview.startsWith(expectedHost + '/assets/images/resource-previews/cherax/'));
   for (const privatePath of ['tools','project','build','node_modules','.git','.agents','output','hidden_files']) assert(!fs.existsSync(path.join(publishRoot, privatePath)), privatePath);
   for (const file of Object.keys(pages)) assert(fs.existsSync(path.join(publishRoot, file)), 'Public page missing: ' + file);
   assert(fs.existsSync(path.join(publishRoot, 'products/mta-sa/index.html')));

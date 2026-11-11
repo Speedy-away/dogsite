@@ -4,6 +4,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const menus = require('../resources/menus.js');
 const { buildMarketplaceItems } = require('./community-mod-marketplace.cjs');
+const { applyCheraxCatalog } = require('./cherax-catalog.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const SOURCES = path.join(ROOT, 'project/community-menu-sources');
 const targetIndex = process.argv.indexOf('--target');
@@ -281,6 +282,7 @@ for (const entry of legacy.values()) {
     ...(entry.sourceUrl ? { sourceUrl: entry.sourceUrl } : {}), ...(entry.previewVerified === false ? { previewVerified: false } : {}) });
 }
 output.legacyGroups = [...groups.values()];
+applyCheraxCatalog(output);
 const body = JSON.stringify(output, null, 2) + '\n';
 const outputFile = path.join(ROOT, 'community/data/menu-resources.json'), temporary = `${outputFile}.tmp-${process.pid}`;
 fs.writeFileSync(temporary, body); fs.renameSync(temporary, outputFile);

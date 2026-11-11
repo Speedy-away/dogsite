@@ -33,7 +33,7 @@
     canonical(entry.sourceMenu) === 'cherax' || entry.source === 'ModVerse public catalog' ||
     /^(?:menu-cherax-theme-|gta5-modverse-themes-)/.test(entry.id || '')
   );
-  const themeInterface = entry => isCheraxTheme(entry) ? 'ClickGUI' : entry?.uiStyle;
+  const themeInterface = entry => entry?.uiStyle || (isCheraxTheme(entry) ? 'ClickGUI' : undefined);
   function menuIds(entry) {
     if (!entry || entry.game !== 'gta5') return ['scooby'];
     if (isCheraxTheme(entry)) return ['cherax'];

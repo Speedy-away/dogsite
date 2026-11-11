@@ -142,6 +142,10 @@ function previewAllowed(entry) {
   return entry.previewVerified !== false && (entry.category !== 'themes' || entry.previewVerified === true);
 }
 
+function cheraxPreview(entry) {
+  return entry.game === 'gta5' && (state.menu === 'cherax' || menuSystem?.canonical(entry.sourceMenu) === 'cherax');
+}
+
 function previewURL(entry) {
   if (!previewAllowed(entry)) return '';
   if (!entry.preview) return '';
@@ -172,12 +176,18 @@ function link(text, href, external = false) {
   return result;
 }
 
-function image(src, name) {
+function image(src, name, showUnavailable = false) {
+  const unavailable = () => node('span', 'Preview unavailable', 'preview-unavailable');
+  if (!src && showUnavailable) return unavailable();
   const result = node('img');
   result.alt = name;
   result.loading = 'lazy';
   result.decoding = 'async';
   const showLogo = () => {
+    if (showUnavailable) {
+      result.replaceWith(unavailable());
+      return;
+    }
     result.classList.add('preview-placeholder');
     result.alt = '';
     result.src = SCOOBY_PREVIEW_LOGO;
@@ -316,23 +326,24 @@ function setSelect(id, value) {
   if ($(id).value !== value) { $(id).value = ''; state[id] = ''; }
 }
 
-function addMetadataOptions() {
-  for (const id of ['style']) {
-    for (const entry of entries) for (const value of [].concat(entry[id] || [])) {
-      const normalized = normalize(value);
-      if (normalized && ![...$(id).options].some(option => option.value === normalized)) $(id).add(new Option(String(value), normalized));
-    }
-  }
-}
-
-function updateThemeInterfaceOptions() {
-  const interfaces = $('ui');
-  const labels = state.game === 'gta5'
-    ? ['ClickUI', 'ClickGUI', 'ListUI'].filter(label => entries.some(entry =>
-      entry.category === 'themes' && [].concat(entry.uiStyle || []).includes(label)))
-    : ['ClickUI', 'ListUI'];
-  interfaces.replaceChildren(new Option('All interfaces', ''), ...labels.map(label => new Option(label, normalize(label))));
+function updateThemeFilters() {
+  const themes = state.category === 'themes' ? selectedEntries() : [];
+  const interfaces = new Set(themes.flatMap(entry => [].concat(entry.uiStyle || [])));
+  const labels = ['ClickUI', 'ClickGUI', 'ListUI'].filter(label => interfaces.has(label));
+  $('ui').replaceChildren(new Option('All interfaces', ''), ...labels.map(label => new Option(label, normalize(label))));
   if (state.game === 'gta5' && state.menu === 'cherax' && normalize(state.ui) === 'clickui') state.ui = 'clickgui';
+  setSelect('ui', state.ui);
+  const styles = new Map();
+  for (const theme of themes) {
+    if (state.ui && ![].concat(theme.uiStyle || []).some(label => normalize(label) === state.ui)) continue;
+    for (const style of [].concat(theme.style || [])) if (normalize(style)) styles.set(normalize(style), style);
+  }
+  const options = [...styles].sort((a, b) => a[1].localeCompare(b[1]));
+  $('style').replaceChildren(new Option('All styles', ''), ...options.map(([value, label]) => new Option(label, value)));
+  setSelect('style', state.style);
+  $('ui-field').hidden = !labels.length;
+  $('style-field').hidden = !styles.size;
+  return Boolean(labels.length || styles.size);
 }
 
 function updateControls() {
@@ -394,13 +405,8 @@ function updateControls() {
   $('model').replaceChildren(new Option('All models', ''));
   [...models].sort((a, b) => a[1].localeCompare(b[1])).forEach(([value, label]) => $('model').add(new Option(label, value)));
   $('model-field').hidden = !models.size;
-  addMetadataOptions();
-  updateThemeInterfaceOptions();
-  for (const id of ['model', 'ui', 'style', 'sort']) setSelect(id, state[id]);
-  const themeFilters = state.category === 'themes' && (state.game === 'rdr2' || (state.game === 'gta5' && gtaCategoryCounts.has('themes')));
-  $('ui-field').hidden = !themeFilters;
-  $('style-field').hidden = !themeFilters;
-  if (!themeFilters) { state.ui = ''; state.style = ''; $('ui').value = ''; $('style').value = ''; }
+  for (const id of ['model', 'sort']) setSelect(id, state[id]);
+  const themeFilters = updateThemeFilters();
   $('filters').hidden = !models.size && !themeFilters;
   const attachments = state.game === 'gta5' && ['all', 'vehicles', 'modded'].includes(state.category);
   $('sort').querySelector('[value=attachments]').disabled = !attachments;
@@ -603,12 +609,25 @@ function changelogButton(entry) {
   return button;
 }
 
-function comingSoonButton() {
-  const button = node('button', 'Download — Coming soon', 'download-pending');
+function pendingDownloadButton(entry) {
+  const button = node('button', entry.downloadLabel || 'Download — Coming soon', 'download-pending');
   button.type = 'button';
   button.disabled = true;
-  button.setAttribute('aria-label', 'Download — Coming soon');
   return button;
+}
+
+function versionDownload(files) {
+  const control = node('div', null, 'version-download');
+  const label = node('label', 'Version');
+  const select = node('select');
+  const action = node('div');
+  files.forEach((file, index) => select.add(new Option(file.versionLabel || file.name, String(index))));
+  const update = () => action.replaceChildren(downloadButton(files[Number(select.value)], action));
+  select.onchange = update;
+  label.append(select);
+  control.append(label, action);
+  update();
+  return control;
 }
 
 function showChangelog(entry) {
@@ -679,7 +698,7 @@ function showDetails(entry, files) {
   $('pictures').replaceChildren();
   if (preview) {
     const figure = node('figure', null, 'preview-figure');
-    figure.append(image(preview, entry.name));
+    figure.append(image(preview, entry.name, cheraxPreview(entry)));
     if (entry.previewCaption) {
       const caption = node('figcaption', null, 'preview-caption');
       const source = safeURL(entry.previewSource);
@@ -711,7 +730,7 @@ function showDetails(entry, files) {
     details.append(section);
   }
   if (entry.format) details.append(node('p', `Format: ${visibleText(entry, entry.format)}`));
-  if (entry.uiStyle || entry.style) details.append(node('p', [entry.uiStyle, entry.style && `Appearance: ${entry.style}`].filter(Boolean).join(' · ')));
+  if (entry.uiStyle || entry.style) details.append(node('p', [textMetadata(entry.uiStyle), entry.style && `Appearance: ${entry.style}`].filter(Boolean).join(' · ')));
   if (entry.author || entry.credits) details.append(node('p', `Credits: ${visibleText(entry, entry.credits || entry.author)}`));
   if (entry.license) details.append(node('p', `License: ${visibleText(entry, entry.license)}`));
   if (authorPage(entry)) {
@@ -719,7 +738,9 @@ function showDetails(entry, files) {
     source.className = 'external-primary';
     details.append(source);
   } else if (pendingDownload(entry)) {
-    details.append(comingSoonButton());
+    details.append(pendingDownloadButton(entry));
+  } else if (entry.category === 'lua' && files.length > 1 && files.every(file => file.versionLabel)) {
+    details.append(versionDownload(files));
   } else if (files.length) {
     const list = node('div', null, 'file-list');
     for (const file of files) {
@@ -750,7 +771,7 @@ async function card(entry) {
   const preview = previewURL(entry);
   const gtaAddon = entry.game === 'gta5' && entry.category.startsWith('addon-');
   if (entry.category === 'themes' && preview) article.className += ' has-verified-preview';
-  shot.append(!preview && gtaAddon ? node('span', 'Preview unavailable', 'preview-unavailable') : image(preview, entry.name));
+  shot.append(image(preview, entry.name, cheraxPreview(entry) || (!preview && gtaAddon)));
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -777,7 +798,7 @@ async function card(entry) {
   }
   if (ACCESS_LABELS[entry.access]) info.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
   if (entry.status === 'preview-only') info.append(node('p', 'Download unavailable', 'meta'));
-  if (entry.uiStyle || entry.style) info.append(node('p', [entry.uiStyle, entry.style && `${entry.style} style`].filter(Boolean).join(' · '), 'meta'));
+  if (entry.uiStyle || entry.style) info.append(node('p', [textMetadata(entry.uiStyle), entry.style && `${entry.style} style`].filter(Boolean).join(' · '), 'meta'));
   const actions = node('div', null, 'card-actions');
   const source = authorPage(entry);
   if (source) {
@@ -792,7 +813,7 @@ async function card(entry) {
       requirements.onclick = () => showDetails(entry, files);
       actions.append(requirements);
     }
-  } else if (pendingDownload(entry)) actions.append(comingSoonButton());
+  } else if (pendingDownload(entry)) actions.append(pendingDownloadButton(entry));
   else if (!files.length) {
     const details = node('button', 'Details');
     details.type = 'button';
@@ -802,6 +823,8 @@ async function card(entry) {
   }
   if (files.length === 1) {
     actions.append(downloadButton(files[0], info));
+  } else if (entry.category === 'lua' && files.length > 1 && files.every(file => file.versionLabel)) {
+    actions.append(versionDownload(files));
   } else if (files.length > 1) {
     const details = node('button', 'Download ↓');
     details.type = 'button';
@@ -984,6 +1007,7 @@ $('search').oninput = () => {
 for (const id of ['model', 'ui', 'style', 'sort']) $(id).onchange = () => {
   state[id] = $(id).value;
   state.page = 1;
+  if (id === 'ui') updateThemeFilters();
   saveState();
   render();
 };

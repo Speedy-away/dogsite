@@ -2,19 +2,27 @@
 // Static resource content and links work without JavaScript. Local previews
 // reuse the allowlisted download-repository route used by the main browser.
 const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-for (const image of document.querySelectorAll('[data-resource-image], [data-resource-image-fallback]')) {
+for (const image of document.querySelectorAll('[data-resource-image], [data-resource-image-fallback], [data-resource-image-unavailable]')) {
   const path = image.dataset.resourceImage;
   const fallback = image.dataset.resourceImageFallback;
+  const unavailable = image.hasAttribute('data-resource-image-unavailable');
   const showFallback = () => {
-    image.classList.add('preview-placeholder');
     image.closest('a')?.setAttribute('aria-label', image.alt.replace(/ preview$/, ''));
+    if (unavailable) {
+      const message = document.createElement('span');
+      message.className = 'preview-unavailable';
+      message.textContent = 'Preview unavailable';
+      image.replaceWith(message);
+      return;
+    }
+    image.classList.add('preview-placeholder');
     image.alt = '';
     image.src = fallback;
   };
-  if (fallback) image.addEventListener('error', showFallback, { once: true });
+  if (fallback || unavailable) image.addEventListener('error', showFallback, { once: true });
   if (localPreview && path && !path.startsWith('/') && !path.includes('\\') && !path.split('/').some(part => part === '..' || part === '.')) {
     image.src = '/community-files/' + path.split('/').map(encodeURIComponent).join('/');
-  } else if (fallback && image.complete && !image.naturalWidth) {
+  } else if ((fallback || unavailable) && image.complete && !image.naturalWidth) {
     image.removeEventListener('error', showFallback);
     showFallback();
   }

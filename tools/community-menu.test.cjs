@@ -35,24 +35,37 @@ test('menu selection has a Scooby default and separates discovery from runtime r
   assert(!menus.supports(source, 'stand'));
   assert.deepEqual(menus.menuIds({ game: 'gta5', category: 'themes', menu: 'Scooby' }), ['scooby']);
 });
-test('new Lua listings have honest pending downloads, explicit source APIs and no Discord links', () => {
+test('Lua listings expose local Cherax releases or an honest unavailable state', () => {
   const scripts = supplement.items.filter(item => item.category === 'lua' && item.game !== 'redm');
   assert(scripts.length >= 59);
   const ids = new Set();
   for (const item of scripts) {
     assert(!ids.has(item.id), item.id); ids.add(item.id);
-    assert.equal(item.downloadStatus, 'pending', item.id);
-    assert.deepEqual(item.files, [], item.id);
+    if (item.files.length) {
+      assert.equal(item.sourceMenu, 'cherax', item.id);
+      assert.equal(item.downloadStatus, 'available', item.id);
+      assert.equal(new Set(item.files.map(file => file.versionLabel)).size, item.files.length, item.id);
+      assert.equal(new Set(item.files.map(file => file.sha256)).size, item.files.length, item.id);
+      for (const file of item.files) {
+        assert.match(file.url, /^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.lua$/);
+        const bytes = fs.readFileSync(path.join(ROOT, file.url));
+        assert.equal(bytes.length, file.size, file.name);
+        assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), file.sha256, file.name);
+      }
+    } else assert.equal(item.downloadStatus, 'pending', item.id);
     assert.equal(item.sourceCatalog, 'menu-resources', item.id);
     assert(item.supportedMenus.length && item.sourceMenu, item.id);
     assert(menus.supports(item, 'scooby') && menus.supports(item, 'nenyoo'), item.id);
     assert(!/https?:\/\/(?:\w+\.)?discord(?:app)?\.(?:com|gg)/i.test(JSON.stringify(item)), item.id);
   }
-  const notes = scripts.find(item => item.id === 'menu-cherax-lua-host-tools-1-9-0');
+  const notes = scripts.find(item => item.id === 'cherax-lua-host-tools');
   assert.equal(notes.changelog[0].version, '1.9.0');
   assert.equal(notes.changelog[0].date, '2026-11-08');
   assert(notes.changelog[0].changes.length);
   assert(!base.items.some(item => item.category === 'lua'), 'Removed broken examples remain outside the base catalog');
+  const drift = scripts.filter(item => item.sourceMenu === 'cherax' && /driftgod/i.test(item.name));
+  assert.equal(drift.length, 1);
+  assert(drift[0].files.some(file => file.versionLabel === 'v1.0.6'));
 });
 test('reviewed RedM scripts download and preview-only menus have no payloads', () => {
   const redm = supplement.items.filter(item => item.game === 'redm');
