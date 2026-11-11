@@ -240,6 +240,19 @@
   </ol>
   <a href="https://docs.fivem.net/docs/client-manual/console-commands/#cl_drawperf-bool">Cfx.re performance overlay commands →</a>
 </section>
+<section id="fivem-crosshair" data-games="fivem" data-categories="graphics-packs">
+  <p class="topic-game">FIVEM</p>
+  <h2>Check whether your FiveM client supports the old custom crosshair</h2>
+  <p>In September 2026, Cfx removed its crosshair guide and the drawing code from the FiveM source repository. The old commands may be unavailable on your installed build.</p>
+  <ol>
+    <li>On a test server you administer, or in FiveM single-player, press <kbd>F8</kbd> and enter <code>cl_customCrosshair</code> by itself. If the console returns a setting, record its value and try <code>cl_customCrosshair true</code>. If the setting is unknown or the reticle never appears, use the game’s available HUD options.</li>
+    <li>If the reticle appears, try <code>cl_crosshairsize 3</code> for line length and <code>cl_crosshair_drawoutline true</code> for an outline. Record the original values before changing them. Compare the result on a bright wall and against a dark background at the resolution you play at.</li>
+    <li>Restore the values you recorded. To disable the old custom reticle, use <code>cl_customCrosshair false</code> on builds that support it. If a server disables the setting, follow the server’s HUD rules.</li>
+  </ol>
+  <p>PNG and GIF crosshair packs are image files. The old F8 commands draw a reticle from settings such as line length and color. For a server HUD that supports images, use the file format and dimensions its maintainer specifies.</p>
+  <a href="https://github.com/citizenfx/fivem-docs/blob/87d92b2e7ab8570b9c1fcf5cb634ee15f9aa0329/content/docs/client-manual/crosshair.md">Archived Cfx crosshair reference →</a>
+  <a href="https://github.com/citizenfx/fivem/commit/c90e919a28bf2e5fb64e9f1627d84295a63b9727">Cfx source change →</a>
+</section>
 <section id="fivem-sky-and-lighting" data-games="fivem" data-categories="graphics-packs">
   <p class="topic-game">FIVEM</p>
   <h2>Test sky colors, timecycles and vehicle lights</h2>
