@@ -194,7 +194,7 @@
   function roleplayCategoryLabel(game, id) {
     return game === 'fivem' && id === 'mod-menus' ? 'Lua Menus' : ROLEPLAY_LABELS[id];
   }
-  const roleplayResources = ['outfits', 'mod-menus', 'lua', 'triggers', 'server-dumps', 'misc'];
+  const roleplayResources = ['outfits', 'mod-menus', 'triggers', 'server-dumps', 'misc'];
   const roleplayVisions = ['weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings'];
 
   function roleplayCategoryId(game, id) {
@@ -214,7 +214,7 @@
 
   function roleplayCategoryGroups(game, categories) {
     if (game !== 'redm' && game !== 'fivem') return null;
-    const files = ['configs', 'themes', ...categories.filter(id => id === 'languages' || id === 'wallpapers')];
+    const files = ['configs', 'themes', 'lua', ...categories.filter(id => id === 'languages' || id === 'wallpapers')];
     const visions = roleplayVisions.filter(id => id === 'graphics-packs' || categories.includes(id));
     const addons = categories.filter(id => id.startsWith('addon-'));
     const grouped = new Set([...roleplayResources, ...files, ...visions, ...addons, 'textures', 'paintjobs']);

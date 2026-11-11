@@ -1,0 +1,103 @@
+{
+  "items": [
+    {
+      "id": "scooby-gta5-lua-imgui-demo",
+      "game": "gta5",
+      "category": "lua",
+      "name": "ImGui C++ Demo",
+      "description": "Demonstrates ImGui controls, tables and window layout in the Scooby GTA 5 Lua runtime.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/gta5/examples/ImGuiCppDemo.lua", "name": "ImGuiCppDemo.lua" }]
+    },
+    {
+      "id": "scooby-gta5-lua-native-feature-page",
+      "game": "gta5",
+      "category": "lua",
+      "name": "Native Feature Page",
+      "description": "Adds a Lua Content page to ClickUI and ListUI using an existing Scooby GTA 5 feature.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/gta5/examples/NativeFeaturePage.lua", "name": "NativeFeaturePage.lua" }]
+    },
+    {
+      "id": "scooby-gta5-lua-shared-feature-ui",
+      "game": "gta5",
+      "category": "lua",
+      "name": "Shared Feature UI",
+      "description": "Builds a searchable ImGui panel for Scooby GTA 5 features and keeps its controls in sync with the menu.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/gta5/examples/SharedFeatureUI.lua", "name": "SharedFeatureUI.lua" }]
+    },
+    {
+      "id": "scooby-rdr2-lua-imgui-demo",
+      "game": "rdr2",
+      "category": "lua",
+      "name": "ImGui C++ Demo",
+      "description": "Demonstrates ImGui controls, tables and window layout in the Scooby RDR2 Lua runtime.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/rdr2/examples/ImGuiCppDemo.lua", "name": "ImGuiCppDemo.lua" }]
+    },
+    {
+      "id": "scooby-rdr2-lua-native-feature-page",
+      "game": "rdr2",
+      "category": "lua",
+      "name": "Native Feature Page",
+      "description": "Adds a Lua Content page to ClickUI and ListUI using an existing Scooby RDR2 feature.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/rdr2/examples/NativeFeaturePage.lua", "name": "NativeFeaturePage.lua" }]
+    },
+    {
+      "id": "scooby-rdr2-lua-shared-feature-ui",
+      "game": "rdr2",
+      "category": "lua",
+      "name": "Shared Feature UI",
+      "description": "Builds a searchable ImGui panel for Scooby RDR2 features and keeps its controls in sync with the menu.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/rdr2/examples/SharedFeatureUI.lua", "name": "SharedFeatureUI.lua" }]
+    },
+    {
+      "id": "scooby-cs2-lua-crosshair",
+      "game": "cs2",
+      "category": "lua",
+      "name": "Crosshair",
+      "description": "Demonstrates a scalable crosshair overlay and an F7 toggle in Scooby CS2.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/cs2/templates/Crosshair.lua", "name": "Crosshair.lua" }]
+    },
+    {
+      "id": "scooby-cs2-lua-speed-hud",
+      "game": "cs2",
+      "category": "lua",
+      "name": "Speed HUD",
+      "description": "Displays horizontal movement speed with frame-rate-independent smoothing in Scooby CS2.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/cs2/templates/Speed%20HUD.lua", "name": "Speed HUD.lua" }]
+    },
+    {
+      "id": "scooby-l4d-lua-player-hud",
+      "game": "l4d",
+      "category": "lua",
+      "name": "L4D Player HUD",
+      "description": "Displays local player health, movement and weapon information. Requires Scooby L4D Lua API 1.0.",
+      "sourceMenu": "scooby",
+      "supportedMenus": ["scooby"],
+      "status": "download",
+      "files": [{ "url": "/docs/l4d/templates/L4D%20Player%20HUD.lua", "name": "L4D Player HUD.lua" }]
+    }
+  ]
+}

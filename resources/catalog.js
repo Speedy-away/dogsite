@@ -49,6 +49,7 @@ let menuResources = { items: [] };
 let gtaEditionCatalog = { items: [], verified: {} };
 let gtaAddonCatalog = { items: [] };
 let nenyooCatalog = { items: [] };
+let scoobyLuaCatalog = { items: [] };
 let libraryError = false;
 let entries = [];
 let menuCategoryCounts = new Map();
@@ -253,8 +254,9 @@ function prettySize(size) {
 }
 
 async function loadLibrary() {
-  const [base, supplemental, reviewed, addons, nenyoo] = await Promise.allSettled([
-    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json'), json('/community/data/gta5-addons.json'), json('/community/data/nenyoo.json')
+  const [base, supplemental, reviewed, addons, nenyoo, scoobyLua] = await Promise.allSettled([
+    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json'), json('/community/data/gta5-addons.json'), json('/community/data/nenyoo.json'),
+    json('/community/data/scooby-lua.json')
   ]);
   libraryError = false;
   if (base.status === 'fulfilled' && Array.isArray(base.value.items)) library = base.value;
@@ -266,6 +268,8 @@ async function loadLibrary() {
   if (addons.status === 'fulfilled' && Array.isArray(addons.value.items)) gtaAddonCatalog = addons.value;
   else libraryError = true;
   if (nenyoo.status === 'fulfilled' && Array.isArray(nenyoo.value.items)) nenyooCatalog = nenyoo.value;
+  else libraryError = true;
+  if (scoobyLua.status === 'fulfilled' && Array.isArray(scoobyLua.value.items)) scoobyLuaCatalog = scoobyLua.value;
   else libraryError = true;
 }
 
@@ -302,7 +306,7 @@ function libraryEntries() {
   const merged = new Map();
   const overrides = new Map((Array.isArray(menuResources.libraryOverrides) ? menuResources.libraryOverrides : []).filter(override => override.id).map(override => [override.id, override]));
   for (const item of library.items) merged.set(item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`, { ...item, ...overrides.get(item.id), id: item.id });
-  for (const item of [...menuResources.items, ...gtaEditionCatalog.items, ...gtaAddonCatalog.items, ...nenyooCatalog.items]) {
+  for (const item of [...menuResources.items, ...gtaEditionCatalog.items, ...gtaAddonCatalog.items, ...nenyooCatalog.items, ...scoobyLuaCatalog.items]) {
     const id = item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`;
     merged.set(id, { ...merged.get(id), ...item });
   }
@@ -460,7 +464,8 @@ function updateControls() {
     ? menuSystem.categoryGroups(state.menu, menuCategoryCounts.keys())
     : state.game === 'l4d' ? [
       ['Custom content', assets.filter(category => entries.some(entry => inCategory(entry, category)))],
-      ['Settings and translations', MENU_CATEGORIES.filter(category => entries.some(entry => inCategory(entry, category)))]
+      ['Settings and translations', MENU_CATEGORIES.filter(category => category !== 'lua' && entries.some(entry => inCategory(entry, category)))],
+      ['Scooby files', entries.some(entry => inCategory(entry, 'lua')) ? ['lua'] : []]
     ]
     : roleplay || [
     [`${menuName()}’s resources`, assets.filter(category => !category.startsWith('addon-'))],

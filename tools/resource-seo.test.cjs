@@ -105,9 +105,11 @@ function expectedInventory() {
     assert(!items.has(item.id), `Reviewed listing duplicates ${item.id}`);
     items.set(item.id, item);
   }
-  for (const item of json('community/data/nenyoo.json').items) {
-    assert(!items.has(item.id), `Nenyoo listing duplicates ${item.id}`);
-    items.set(item.id, item);
+  for (const catalog of ['nenyoo', 'scooby-lua']) {
+    for (const item of json(`community/data/${catalog}.json`).items) {
+      assert(!items.has(item.id), `${catalog} listing duplicates ${item.id}`);
+      items.set(item.id, item);
+    }
   }
   const downloadSources = new Set([...items.values()].filter(item => item.game === 'gta5' && item.status !== 'author-hosted').map(item => item.sourceUrl));
   for (const item of json('community/data/gta5-addons.json').items) {

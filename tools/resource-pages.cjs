@@ -83,6 +83,7 @@ function hasCategory(item, category) {
 }
 function fileURL(file, base) {
   if (file?.url && /^https:\/\//.test(file.url)) return file.url;
+  if (/^\/docs\/(?:gta5\/examples|rdr2\/examples|cs2\/templates|l4d\/templates)\/(?:[\w-]|%20)+\.lua$/.test(file?.url || '')) return file.url;
   if (/^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i.test(file?.url || '')) return file.url;
   if (/^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.(?:lua|json|zip|rar|7z)$/i.test(file?.url || '')) return file.url;
   if (/^\/assets\/downloads\/yim\/[\w.-]+\.zip$/i.test(file?.url || '')) return file.url;
@@ -150,7 +151,8 @@ function buildData() {
     ...library.items.filter(item => item.category !== 'lua').map(item => ({ ...item, ...libraryOverrides.get(item.id), id: item.id })),
     ...extra.filter(item => item.category !== 'lua' || approvedLua(item)),
     ...gtaEditionCatalog.items,
-    ...read('community/data/nenyoo.json').items
+    ...read('community/data/nenyoo.json').items,
+    ...read('community/data/scooby-lua.json').items
   ];
   const sourceUrls = new Set(primary.filter(item => item.game === 'gta5' && item.status !== 'author-hosted' && item.sourceUrl).map(item => item.sourceUrl));
   const items = [...new Map([...primary, ...gtaAddonCatalog.items.filter(item => !sourceUrls.has(item.sourceUrl))]
@@ -308,7 +310,10 @@ function renderPage(page, guideRoutes = {}) {
   ]) : [
     [page.game === 'l4d' ? 'Custom content' : `${page.menuName} resources`, page.categories.filter(category => !category.id.startsWith('addon-') && !fileCategories.has(category.id))],
     ['Addons', page.categories.filter(category => category.id.startsWith('addon-'))],
-    [page.game === 'l4d' ? 'Settings and translations' : `${page.menuName} files`, page.categories.filter(category => fileCategories.has(category.id))]
+    ...(page.game === 'l4d' ? [
+      ['Settings and translations', page.categories.filter(category => fileCategories.has(category.id) && category.id !== 'lua')],
+      ['Scooby files', page.categories.filter(category => category.id === 'lua')]
+    ] : [[`${page.menuName} files`, page.categories.filter(category => fileCategories.has(category.id))]])
   ];
   const categoryLinks = `<a href="${route(page.game, undefined, page.menu)}"${!page.category ? ' aria-current="page"' : ''}>All resources <span>${page.gameItemCount.toLocaleString('en-GB')}</span></a>` + groups.filter(([, categories]) => categories.length).map(([label, categories]) => `<div class="category-group"><p class="category-group-label">${escape(label)}</p>${categories.map(categoryChoice).join('')}</div>`).join('');
   const samples = page.samples.map(item => {
@@ -327,7 +332,11 @@ function renderPage(page, guideRoutes = {}) {
     const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod, versionLabel: file.versionLabel })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
     const suffix = extension ? ` <span class="resource-extension ext-${extension.slice(1)}">${escape(extension)}</span>` : '';
-    const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.versionLabel || file.name) : ' ↓'}</button>`;
+    const download = file => {
+      const label = `Download${files.length > 1 ? ' ' + escape(file.versionLabel || file.name) : ' ↓'}`;
+      if (file.url.startsWith('/docs/')) return `<a class="resource-download" href="${escape(file.url)}" download="${escape(file.name)}">${label}</a>`;
+      return `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">${label}</button>`;
+    };
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
     const authorLabel = item.builtInLua ? 'View module source ↗' : item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : serverRecipe ? 'Download from source ↗' : 'Get from the author ↗';
     const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${authorLabel}</a>` : '';
