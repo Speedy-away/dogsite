@@ -70,7 +70,7 @@ test('Resources shares game-specific previews and exposes RedM graphics search t
   assert.match(keywords, /RedM PvP packs/);
   assert.match(keywords, /RedM RP packs/);
   assert.match(keywords, /RedM cinematic packs/);
-  const queries = links(redm).filter(url => url.searchParams.get('category') === 'graphics-packs').map(url => url.searchParams.get('q'));
+  const queries = links(redm).filter(url => url.pathname === '/resources/redm/graphics-packs/').map(url => url.searchParams.get('q'));
   const { items } = require('./resource-pages.cjs').buildData();
   const packs = items.filter(item => item.game === 'redm' && item.category === 'graphics-packs');
   for (const topic of taxonomy.REDM_GRAPHICS_TOPICS) {
@@ -253,11 +253,11 @@ test('game and category links are crawlable and every resource page appears in b
     } else if (page.menu !== 'scooby') {
       assert(links(`resources/${page.game}/index.html`).some(href => href.href === url), `Default collection omits menu directory ${url}`);
     }
-    const browseLinks = hrefs.filter(href => href.pathname === '/resources/' && href.searchParams.get('game') === page.game);
-    assert(browseLinks.length, `Missing interactive browse link: ${page.file}`);
-    if (page.game === 'gta5') for (const href of browseLinks) assert.equal(href.searchParams.get('menu'), page.menu, page.file);
+    assert(hrefs.some(href => href.href === `${url}#collection`), `Missing interactive browse link: ${page.file}`);
+    assert(!hrefs.some(href => href.pathname === '/resources/' && href.searchParams.has('game')), page.file);
   }
   const expectedURLs = new Set(pages.map(page => pageUrl(page.file)));
+  assert.deepEqual(json('resources/routes.json').map(route => ORIGIN + route).sort(), [...expectedURLs].sort());
   for (const url of locations.filter(url => /^https:\/\/scoobymenu\.cc\/resources\/(?:gta5|rdr2|cs2|fivem|redm|l4d)\//.test(url))) assert(expectedURLs.has(url), `Stale resource route in sitemap: ${url}`);
 });
 
@@ -276,6 +276,36 @@ test('old resource bookmarks redirect to the matching page with filters and anch
     vm.runInNewContext(script, { location: { search, hash, replace: url => { redirected = url; } } });
     assert.equal(redirected, route + search + hash);
   }
+});
+
+test('installation guides have clean scoped links, unique SEO pages and canonical aliases', () => {
+  const { buildGuideData } = require('./resource-guides.cjs');
+  const guides = buildGuideData(require('./resource-pages.cjs').buildData());
+  const manifest = json('resources/guides/routes.json');
+  assert.deepEqual(manifest, guides.routes);
+  const sitemap = read('sitemap.xml');
+  const directory = read('sitemap/index.html');
+  const titles = new Set();
+  for (const guide of guides.pages) {
+    const html = read(guide.file);
+    const url = ORIGIN + guide.href;
+    assert(!titles.has(guide.title), guide.file);
+    titles.add(guide.title);
+    assert.equal(metadata(html, 'og:url')[0], url);
+    assert(html.includes(`<link rel="canonical" href="${url}">`), guide.file);
+    assert(html.includes(`<section id="${guide.topics[0].id}"`), guide.file);
+    assert(sitemap.includes(`<loc>${url}</loc>`), guide.file);
+    assert(directory.includes(`href="${guide.href}"`), guide.file);
+  }
+  for (const [alias, canonical] of Object.entries(manifest)) {
+    if (alias === canonical) continue;
+    const redirect = read(`${alias.slice(1)}index.html`);
+    assert.match(redirect, /content="noindex, follow"/);
+    assert(redirect.includes(`location.replace(${JSON.stringify(canonical)} + location.search + location.hash)`));
+    assert(!sitemap.includes(`<loc>${ORIGIN + alias}</loc>`), alias);
+    assert(!directory.includes(`href="${alias}"`), alias);
+  }
+  assert(links('resources/gta5/cherax/lua/index.html').some(url => url.pathname === '/resources/guides/gta5/cherax/lua/' && !url.search));
 });
 
 test('GTA edition filters use verified packages and author-hosted cards retain their own actions', () => {
@@ -417,18 +447,19 @@ test('resource structured data describes visible collections and real sample ent
 test('pending downloads and verified theme captures render honest static actions', () => {
   const { renderPage } = require('./resource-pages.cjs');
   const base = inventory().find(page => page.game === 'gta5' && page.menu === 'scooby');
+  const cherax = inventory().find(page => page.game === 'gta5' && page.menu === 'cherax' && page.category === 'lua');
   const entry = {
     id: 'availability-regression', game: 'gta5', category: 'lua', name: 'API-specific script listing',
     menuResource: true, sourceCatalog: 'menu-resources', supportedMenus: ['cherax'],
     downloadStatus: 'pending', files: [], changelog: [{ version: '1.0', changes: ['Published source description'] }]
   };
-  const pending = renderPage({ ...base, menu: 'cherax', menuName: 'Cherax', samples: [entry], itemCount: 1, pendingCount: 1 });
+  const pending = renderPage({ ...cherax, samples: [entry], itemCount: 1, pendingCount: 1 });
   const article = pending.match(/<article\b[^>]*>[\s\S]*?<\/article>/)?.[0];
   assert(article, 'Missing pending source listing');
   assert(/<button\b[^>]*\bdisabled\b[^>]*>Download — Coming soon<\/button>/.test(article));
   assert(!article.includes('data-download-file='), 'Pending metadata must not expose a pretend download');
   assert(article.includes('Published source description') && article.includes('Changelog'));
-  assert(article.includes('menu=cherax'), 'Pending listing tags must preserve their menu context');
+  assert(article.includes('href="/resources/gta5/cherax/lua/?q='), 'Pending listing tags must preserve their menu context');
   const withoutNotes = renderPage({ ...base, samples: [{ ...entry, changelog: undefined }] });
   assert(withoutNotes.includes('data-resource-changelog=') && withoutNotes.includes('&quot;notes&quot;:[]'), 'Missing changelogs need an honest empty popup');
   assert(withoutNotes.includes('id="resource-changelog" aria-labelledby="resource-changelog-title"'), 'The changelog dialog needs an accessible title');

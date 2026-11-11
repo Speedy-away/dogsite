@@ -30,6 +30,11 @@ const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const taxonomy = globalThis.ScoobyTaxonomy;
 const menuSystem = globalThis.ScoobyMenus;
 const editions = globalThis.ScoobyEditions;
+const routes = globalThis.ScoobyResourceRoutes;
+const initialPath = location.pathname.replace(/\/index\.html$/, '/');
+const initialTitle = document.title;
+const publishedRoutes = new Set(initialPath === routes.base ? [] : [initialPath]);
+let publishedGuides = {};
 const tagCache = new WeakMap();
 const searchCache = new WeakMap();
 const cache = new Map();
@@ -45,9 +50,11 @@ let entries = [];
 let menuCategoryCounts = new Map();
 let revision = 0;
 let loadRevision = 0;
+let catalogReady = false;
 let gameLoading = false;
 let state = readState();
 let inputTimer;
+let linkedPreviewHash = '';
 
 function node(tag, text, className) {
   const result = document.createElement(tag);
@@ -84,9 +91,13 @@ function categories(game = state.game, menu = state.menu) {
 }
 function readState() {
   const query = new URLSearchParams(location.search);
-  const game = Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5';
-  const menu = menuFor(game, query.get('menu'));
-  const requested = categoryId(game, query.get('category'), menu);
+  const [, gameSlug, scope, nestedCategory] = location.pathname.replace(/\/index\.html$/, '/').split('/').filter(Boolean);
+  const scopedGame = Object.hasOwn(GAMES, gameSlug) ? gameSlug : '';
+  const game = scopedGame || (Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5');
+  const scopedMenu = menuSystem?.menusFor(scopedGame).find(menu => menu.id === menuSystem.canonical(scope))?.id;
+  const scopedCategory = scopedMenu ? nestedCategory : scope;
+  const menu = menuFor(game, scopedMenu || (scopedCategory ? 'scooby' : query.get('menu')));
+  const requested = categoryId(game, scopedCategory || query.get('category'), menu);
   const category = categories(game, menu).includes(requested) ? requested : 'all';
   const themeFilters = category === 'themes' && ['gta5', 'rdr2'].includes(game);
   return {
@@ -99,15 +110,13 @@ function readState() {
 }
 
 function saveState(replace = false) {
-  const url = new URL(location.href);
-  url.search = '';
-  url.searchParams.set('game', state.game);
-  if (hasMenuChoice(state.game) && state.menu !== 'scooby') url.searchParams.set('menu', state.menu);
-  if (state.category !== 'all') url.searchParams.set('category', state.category);
-  if (state.edition) url.searchParams.set('edition', state.edition);
-  for (const key of ['q', 'model', 'ui', 'style', 'sort']) if (state[key]) url.searchParams.set(key, state[key]);
-  if (state.page > 1) url.searchParams.set('page', state.page);
+  let href = routes.catalogURL(state, publishedRoutes);
+  if (replace && initialPath === routes.base && location.pathname === routes.base && !location.search && href === '/resources/gta5/') href = routes.base;
+  const url = new URL(href + location.hash, location.origin);
   if (url.href !== location.href) history[replace ? 'replaceState' : 'pushState'](null, '', url);
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.href = new URL(url.pathname, canonical.href).href;
+  document.title = url.pathname === initialPath ? initialTitle : `${state.category === 'all' ? '' : `${categoryLabel(state.game, state.category)} | `}${collectionTitle()}`;
 }
 
 async function json(url) {
@@ -118,7 +127,7 @@ async function json(url) {
   return cache.get(url);
 }
 
-function safeURL(value, base = location.href) {
+function safeURL(value, base = new URL(routes.base, location.origin)) {
   if (!value) return '';
   try {
     const url = new URL(value, base);
@@ -162,17 +171,17 @@ function previewURL(entry) {
 }
 
 function guideURL(entry) {
-  const value = entry?.guide;
+  const value = typeof entry?.guide === 'string' ? entry.guide : '';
+  const game = entry?.game || state.game;
+  const menu = menuFor(game, state.menu);
+  const category = categoryId(game, entry?.category || state.category, menu);
+  if (value.startsWith('/guides/') && menu === 'scooby') return value;
   if (/^\/(?:community|resources)\/guides\//.test(value || '')) {
     const url = new URL(value.replace(/^\/community\//, '/resources/'), location.href);
-    if (hasMenuChoice(state.game)) url.searchParams.set('menu', state.menu);
-    if (url.searchParams.get('category') === 'dlc') url.searchParams.set('category', entry.category);
-    return url.pathname + url.search + url.hash;
+    const requested = categoryId(game, url.searchParams.get('category') || category, menu);
+    return routes.guideURL({ game, menu, category: requested }, publishedGuides, url.hash);
   }
-  const game = entry?.game || state.game;
-  const query = new URLSearchParams({ game, category: categoryId(game, entry?.category || state.category) });
-  if (hasMenuChoice(state.game)) query.set('menu', state.menu);
-  return `/resources/guides/?${query}`;
+  return routes.guideURL({ game, menu, category }, publishedGuides);
 }
 
 function link(text, href, external = false) {
@@ -180,6 +189,10 @@ function link(text, href, external = false) {
   result.href = href;
   if (external) { result.target = '_blank'; result.rel = 'noopener noreferrer'; }
   return result;
+}
+
+function resourceURL(entry) {
+  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category }, publishedRoutes) + routes.resourceHash(entry.id);
 }
 
 function image(src, name, showUnavailable = false) {
@@ -305,11 +318,7 @@ function categoryButton(category, label = categoryLabel(state.game, category)) {
   const menuChoice = hasMenuChoice(state.game);
   const count = menuChoice && category !== 'all' ? menuCategoryCounts.get(category) || 0 : entries.filter(entry =>
     inCategory(entry, category) && (state.game !== 'l4d' || editions.matches(entry, state.edition))).length;
-  const params = new URLSearchParams({ game: state.game, ...(state.menu !== 'scooby' ? { menu: state.menu } : {}),
-    ...(category !== 'all' ? { category } : {}), ...(state.edition ? { edition: state.edition } : {}) });
-  const directory = menuChoice && state.menu !== 'scooby' ? `${state.game}/${state.menu}` : state.game;
-  button.href = state.edition || (!count && (category !== 'all' || (menuChoice && state.menu !== 'scooby')))
-    ? `/resources/?${params}` : `/resources/${directory}/${category === 'all' ? '' : category + '/'}`;
+  button.href = routes.catalogURL({ game: state.game, menu: state.menu, category, edition: state.edition }, publishedRoutes);
   button.append(node('span', label), node('small', count.toLocaleString()));
   button.onclick = event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button > 0) return;
@@ -378,6 +387,12 @@ function updateControls() {
   if (source) sourceLink.href = source.url;
   else sourceLink.removeAttribute('href');
   $('context-guide').href = guideURL();
+  const graphicsTopics = $('graphics-topics');
+  const topics = state.game === 'redm' && ['all', 'graphics-packs'].includes(state.category)
+    ? new Set(entries.flatMap(taxonomy.redmGraphicsTopics)) : new Set();
+  graphicsTopics.hidden = !topics.size;
+  graphicsTopics.firstElementChild.replaceChildren(...taxonomy.REDM_GRAPHICS_TOPICS.filter(topic => topics.has(topic)).map(topic =>
+    link(topic.name, routes.catalogURL({ game: state.game, category: 'graphics-packs', q: topic.query }, publishedRoutes))));
   $('search').value = state.q;
   $('search').placeholder = {
     gta5: 'Search outfits, vehicles or files…', rdr2: 'Search outfits or files…',
@@ -475,6 +490,7 @@ async function loadGame() {
     setLoading(false);
     updateControls();
     await render();
+    if (token === loadRevision) await openLinkedResource(token);
   } catch {
     if (token === loadRevision) { setLoading(false); failure(loadGame); }
   }
@@ -689,7 +705,7 @@ function tagLinks(entry) {
   section.append(node('h3', 'Tags'));
   const links = node('div');
   for (const tag of tags) {
-    const url = `/resources/?${new URLSearchParams({ game: state.game, ...(state.menu !== 'scooby' ? { menu: state.menu } : {}), ...(state.category !== 'all' ? { category: state.category } : {}), ...(state.edition ? { edition: state.edition } : {}), q: tag })}`;
+    const url = routes.catalogURL({ game: state.game, menu: state.menu, category: state.category, edition: state.edition, q: tag, sort: state.sort }, publishedRoutes);
     const choice = link(tag, url);
     choice.title = `Search for ${tag}`;
     choice.onclick = event => {
@@ -750,6 +766,8 @@ function themeImageGallery(entry) {
 }
 
 function showDetails(entry, files) {
+  const hash = routes.resourceHash(entry.id);
+  linkedPreviewHash = location.hash === hash ? hash : '';
   $('preview-title').textContent = visibleText(entry, entry.name);
   const preview = previewURL(entry);
   const gallery = themeImageGallery(entry);
@@ -817,7 +835,19 @@ function showDetails(entry, files) {
   if (tags) details.append(tags);
   if (entry.category === 'lua') details.append(changelogButton(entry));
   details.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)));
+  const permalink = node('p');
+  permalink.append(link('Resource permalink', resourceURL(entry)));
+  details.append(permalink);
   if (!$('preview').open) $('preview').showModal();
+}
+
+async function openLinkedResource(token) {
+  const hash = location.hash;
+  if (!hash.startsWith('#resource-')) return;
+  const entry = entries.find(entry => routes.resourceHash(entry.id) === hash);
+  if (!entry) return;
+  const files = pendingDownload(entry) ? [] : await resolveFiles(entry).catch(() => []);
+  if (token === loadRevision && hash === location.hash) showDetails(entry, files);
 }
 
 async function card(entry) {
@@ -838,6 +868,10 @@ async function card(entry) {
   const knownExtension = pendingDownload(entry) && pendingExtension === normalize(entry.formatExtension) ? pendingExtension : '';
   const title = resourceTitle(visibleText(entry, entry.name), files, knownExtension);
   title.title = title.textContent;
+  const name = title.firstElementChild;
+  const permalink = link(name.textContent, resourceURL(entry));
+  permalink.className = name.className;
+  name.replaceWith(permalink);
   info.append(title);
   info.append(node('p', [entry.modelLabel || categoryLabel(entry.game, entry.category), entry.attachments > 0 && `${entry.attachments} attachments`, files.length === 1 && prettySize(files[0].size), entry.status === 'in-menu' && 'In-menu', entry.status === 'workshop' && 'Workshop'].filter(Boolean).join(' · ')));
   const edition = editions.support(entry);
@@ -1012,7 +1046,7 @@ function openGtaMenuDialog() {
 
 function selectResourceGame(game, menu = 'scooby') {
   const selectedMenu = menuFor(game, menu);
-  if (game === state.game && selectedMenu === state.menu) return;
+  if (game === state.game && selectedMenu === state.menu) { saveState(); return; }
   clearTimeout(inputTimer);
   const sameGame = game === state.game;
   state = {
@@ -1103,9 +1137,36 @@ $('preview').addEventListener('click', event => {
   const rect = $('preview').getBoundingClientRect();
   if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('preview').close();
 });
-window.addEventListener('popstate', () => { clearTimeout(inputTimer); state = readState(); loadGame(); });
+window.addEventListener('popstate', () => {
+  clearTimeout(inputTimer);
+  if (linkedPreviewHash && linkedPreviewHash !== location.hash) {
+    $('preview').close();
+    linkedPreviewHash = '';
+  }
+  state = readState();
+  if (catalogReady) loadGame();
+});
+window.addEventListener('hashchange', () => {
+  if (location.hash.startsWith('#resource-') && publishedRoutes.has(location.pathname)) location.reload();
+});
 const mobileFilters = matchMedia('(max-width: 760px)');
 $('filter-panel').open = !mobileFilters.matches;
 mobileFilters.addEventListener('change', event => { $('filter-panel').open = !event.matches; });
 
-(async () => { setLoading(true); await loadLibrary(); await loadGame(); })();
+(async () => {
+  setLoading(true);
+  const libraryReady = loadLibrary();
+  const [collections, guides] = await Promise.allSettled([json('/resources/routes.json'), json('/resources/guides/routes.json')]);
+  if (collections.status === 'fulfilled') for (const pathname of collections.value) publishedRoutes.add(pathname);
+  if (guides.status === 'fulfilled') publishedGuides = guides.value;
+  const resourceAnchor = location.hash.startsWith('#resource-');
+  const target = routes.catalogURL(state, publishedRoutes);
+  if (resourceAnchor && location.pathname === routes.base && !target.startsWith(`${routes.base}?`)) {
+    location.replace(target + location.hash);
+    return;
+  }
+  saveState(true);
+  await libraryReady;
+  catalogReady = true;
+  await loadGame();
+})();

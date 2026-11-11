@@ -6,6 +6,8 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const vm = require('node:vm');
 const menus = require('../resources/menus.js');
+const routes = require('../resources/routes.js');
+const { categoryId } = require('../resources/taxonomy.js');
 const supplement = require('../community/data/menu-resources.json');
 const base = require('../community/data/library.json');
 const ROOT = path.resolve(__dirname, '..');
@@ -13,15 +15,14 @@ test('resource guides retain the selected menu even when a shared item came from
   const script = fs.readFileSync(path.join(ROOT, 'resources/catalog.js'), 'utf8');
   const implementation = script.match(/function guideURL\(entry\) \{[\s\S]+?(?=\nfunction link\()/)?.[0];
   assert(implementation);
-  for (const [game, selected] of [['gta5', 'scooby'], ['gta5', 'nenyoo'], ['gta5', 'stand'], ['rdr2', 'nenyoo']]) {
-    const context = { URL, URLSearchParams, hasMenuChoice: game => menus.menusFor(game).length > 1,
-      state: { game, category: 'themes', menu: selected }, location: { href: 'https://scoobymenu.cc/resources/' } };
+  const publishedGuides = require('../resources/guides/routes.json');
+  for (const [game, selected, category] of [['gta5', 'scooby', 'themes'], ['gta5', 'nenyoo', 'themes'], ['gta5', 'stand', 'themes'], ['rdr2', 'nenyoo', 'languages']]) {
+    const context = { URL, routes, publishedGuides, categoryId, menuFor: menus.menuFor,
+      state: { game, category, menu: selected }, location: { href: 'https://scoobymenu.cc/resources/' } };
     const guide = vm.runInNewContext(`(${implementation})`, context);
     for (const prefix of ['community', 'resources']) {
-      const address = new URL(guide({ guide: `/${prefix}/guides/?game=${game}&menu=cherax&category=themes` }), context.location.href);
-      assert.equal(address.pathname, '/resources/guides/');
-      assert.equal(address.searchParams.get('menu'), selected);
-      assert.equal(address.searchParams.get('category'), 'themes');
+      const address = guide({ guide: `/${prefix}/guides/?game=${game}&menu=cherax&category=${category}` });
+      assert.equal(address, routes.guidePath(game, category, selected));
     }
   }
 });

@@ -172,7 +172,6 @@ test('Scooby Themes keeps native ClickUI colors and compatible ListUI styles', (
   const html = fs.readFileSync(path.join(root, scoobyPage.file), 'utf8');
   const links = [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)]
     .map(([, href]) => new URL(href.replace(/&amp;/g, '&'), origin));
-  assert(links.some(url => url.origin === origin && url.pathname === '/resources/' &&
-    url.searchParams.get('game') === 'gta5' && (url.searchParams.get('menu') || 'scooby') === 'scooby' &&
-    url.searchParams.get('category') === 'themes' && url.searchParams.get('ui') === 'clickui'));
+  assert(links.some(url => url.origin === origin && url.pathname === '/resources/gta5/themes/' &&
+    url.search === '?ui=clickui'));
 });

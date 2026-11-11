@@ -94,3 +94,59 @@ if (changelogDialog) {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) changelogDialog.close();
   });
 }
+
+function loadCatalogScript(name) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `/resources/${name}.js`;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.append(script);
+  });
+}
+
+async function mountCatalog() {
+  const directory = document.querySelector('.resource-directory');
+  const response = await fetch('/resources/', { signal: AbortSignal.timeout(10000) });
+  if (!response.ok) return;
+  const shell = new DOMParser().parseFromString(await response.text(), 'text/html');
+  const main = shell.querySelector('main:has(#collection)');
+  const dialogs = [...shell.querySelectorAll('#gta-menu-dialog, #preview, #changelog')];
+  if (!main || dialogs.length !== 3) return;
+  main.id = directory.id;
+
+  await Promise.all(['taxonomy', 'menus', 'editions', 'routes'].map(loadCatalogScript));
+  if (hasLinkedSample()) return;
+  const ad = directory.querySelector('.ad-sidebar');
+  const adPosition = document.createComment('advertisement');
+  if (ad) {
+    ad.before(adPosition);
+    main.querySelector('.ad-sidebar').replaceWith(ad);
+  }
+  const skip = document.querySelector('.skip');
+  directory.replaceWith(main);
+  document.body.append(...dialogs);
+  try {
+    await loadCatalogScript('catalog');
+    if (skip) skip.href = '#collection';
+    if (location.hash === '#collection') document.getElementById('collection').scrollIntoView();
+  } catch {
+    if (ad) adPosition.replaceWith(ad);
+    main.replaceWith(directory);
+    for (const dialog of dialogs) dialog.remove();
+  }
+}
+
+function hasLinkedSample() {
+  return location.hash.startsWith('#resource-') && document.getElementById(location.hash.slice(1))?.matches('.resource-sample');
+}
+
+let catalogMount;
+function openCatalog() {
+  if (catalogMount || document.getElementById('collection')) return;
+  catalogMount = mountCatalog().catch(() => {}).finally(() => { catalogMount = undefined; });
+}
+
+document.querySelector('.resource-browse')?.addEventListener('click', openCatalog);
+window.addEventListener('hashchange', () => { if (!hasLinkedSample()) openCatalog(); });
+if (!hasLinkedSample()) openCatalog();

@@ -27,9 +27,10 @@ test('public HTML navigation uses canonical routes and has no missing local targ
   const root = path.resolve(__dirname, '..');
   const files = walk(root).map(file => path.relative(root, file).replace(/\\/g, '/'));
   const routes = routeMap(files);
+  const guides = require('../resources/guides/routes.json');
   for (const file of files) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
-    assert.equal(normalizeLinks(file, html, routes), html, 'Run npm run seo:links: ' + file);
+    assert.equal(normalizeLinks(file, html, routes, guides), html, 'Run npm run seo:links: ' + file);
     const markup = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>|<!--[^]*?-->/gi, '');
     for (const match of markup.matchAll(/<a\b[^>]*\shref=["']([^"']+)["']/gi)) {
       const url = new URL(match[1], pageUrl(file));
@@ -37,6 +38,17 @@ test('public HTML navigation uses canonical routes and has no missing local targ
       assert(fs.existsSync(path.join(root, decodeURIComponent(url.pathname))), file + ' links to missing ' + url.pathname);
     }
   }
+});
+
+test('resource link migration keeps filters and anchors on the canonical scope', () => {
+  const { routeMap, normalizeLinks } = require('./seo-links');
+  const collection = '/resources/gta5/cherax/lua/';
+  const guide = '/resources/guides/gta5/cherax/lua/';
+  const routes = routeMap([collection.slice(1) + 'index.html', guide.slice(1) + 'index.html']);
+  const html = '<a href="/resources/?game=gta5&amp;menu=Cherax&amp;category=lua&amp;q=two+words&amp;page=2#resource-one">Resource</a>' +
+    '<a href="/community/guides/?game=gta5&amp;menu=cherax&amp;category=lua#cherax-lua">Guide</a>';
+  assert.equal(normalizeLinks('index.html', html, routes, { [guide]: guide }),
+    `<a href="${collection}?q=two+words&amp;page=2#resource-one">Resource</a><a href="${guide}#cherax-lua">Guide</a>`);
 });
 
 test('metadata preserves noindex pages and redirect stubs, regardless of attribute order', () => {

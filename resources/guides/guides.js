@@ -4,6 +4,7 @@
   const $ = id => document.getElementById(id);
   const menus = window.ScoobyMenus;
   const taxonomy = window.ScoobyTaxonomy;
+  const routes = window.ScoobyResourceRoutes;
   const GAMES = {
     gta5: { name: 'GTA 5' },
     rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
@@ -26,7 +27,11 @@
   };
   const FILES = ['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc'];
   const sections = [...document.querySelectorAll('.guide-topics > section')];
+  const collectionLinks = document.querySelectorAll('a[href="/resources/"]');
+  const pluginLinks = document.querySelectorAll('[data-resource-category]');
   const mobile = matchMedia('(max-width: 760px)');
+  let publishedRoutes = new Set(Object.keys(GAMES).map(game => routes.collectionPath(game)));
+  let publishedGuides = Object.fromEntries(Object.keys(GAMES).map(game => [routes.guidePath(game), routes.guidePath(game)]));
   const menuCategories = {};
   let state = readState();
 
@@ -72,10 +77,12 @@
     return { game, category, menu };
   }
   function address(game, category, menu = state.menu) {
-    return `/resources/guides/?${new URLSearchParams({ game, category, menu: menus.menuFor(game, menu) })}`;
+    return routes.guideURL({ game, category, menu: menus.menuFor(game, menu) }, publishedGuides);
   }
   function saveState() {
-    const url = address(state.game, state.category);
+    const published = address(state.game, state.category);
+    if (published !== routes.guideBase) { location.assign(published); return; }
+    const url = `${routes.guideBase}?${new URLSearchParams(state)}`;
     if (location.pathname + location.search !== url) history.pushState({}, '', url);
   }
   function restoreState() {
@@ -102,6 +109,7 @@
     choice.setAttribute('aria-current', state.category === category ? 'page' : 'false');
     choice.onclick = event => {
       if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (choice.pathname !== routes.guideBase) return;
       event.preventDefault();
       if (state.category === category) return;
       state.category = category;
@@ -152,18 +160,10 @@
     const currentLabel = menus.categoryLabel(state.menu, state.category) || (state.category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(state.game, state.category) : undefined) || LABELS[state.category];
     $('guide-status').textContent = `${GAMES[state.game].name} · ${menuName} · ${currentLabel}${count ? '' : ' · Guide not available yet'}`;
     $('guide-empty').hidden = count > 0;
-    const collection = new URLSearchParams({ game: state.game, menu: state.menu });
-    if (state.category !== 'all') collection.set('category', state.category);
-    $('back-collection').href = `/resources/?${collection}`;
-    $('guide-empty-resources').href = `/resources/?${collection}`;
-    for (const link of document.querySelectorAll('a[href]')) {
-      const url = new URL(link.href, location.href);
-      if (url.origin !== location.origin || url.pathname !== '/resources/') continue;
-      if (link.closest('.guide-topics')) {
-        const game = url.searchParams.get('game') || state.game;
-        url.searchParams.set('menu', menus.menuFor(game, state.menu));
-      } else url.search = collection.toString();
-      link.href = url.pathname + url.search + url.hash;
+    const collection = routes.catalogURL(state, publishedRoutes);
+    for (const link of collectionLinks) link.href = collection;
+    for (const link of pluginLinks) {
+      link.href = routes.catalogURL({ game: 'gta5', menu: state.menu, category: link.dataset.resourceCategory }, publishedRoutes);
     }
   }
 
@@ -176,6 +176,7 @@
   for (const choice of document.querySelectorAll('[data-game]')) {
     choice.onclick = event => {
       if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (choice.pathname !== routes.guideBase) return;
       event.preventDefault();
       if (choice.dataset.game === state.game) return;
       const game = choice.dataset.game;
@@ -205,4 +206,31 @@
   }
   for (const game of ['gta5', 'rdr2']) loadMenuCategories(game);
 
+  async function loadResourceRoutes() {
+    try {
+      const response = await fetch('/resources/routes.json');
+      if (!response.ok) return;
+      publishedRoutes = new Set(await response.json());
+    } catch { return; }
+    update();
+  }
+  loadResourceRoutes();
+
+  async function loadGuideRoutes() {
+    try {
+      const response = await fetch('/resources/guides/routes.json');
+      if (!response.ok) return;
+      publishedGuides = await response.json();
+    } catch { return; }
+    const query = new URLSearchParams(location.search);
+    const game = query.get('game');
+    if (Object.hasOwn(GAMES, game)) {
+      const menu = menus.menuFor(game, query.get('menu'));
+      const category = taxonomy.categoryId(game, query.get('category'), menu);
+      const target = publishedGuides[routes.guidePath(game, category, menu)];
+      if (target) { location.replace(target + location.hash); return; }
+    }
+    update();
+  }
+  loadGuideRoutes();
 })();

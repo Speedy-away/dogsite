@@ -111,6 +111,9 @@ const resourceInventory = buildResourceData();
 for (const page of resourceInventory.pages) {
  add(page.file, page.title, page.description, page.keywords);
 }
+for (const guide of require('./resource-guides.cjs').buildGuideData(resourceInventory).pages) {
+ add(guide.file, guide.title, guide.description, guide.keywords);
+}
 const resourceMenus = [...new Set(resourceInventory.pages.filter(page => page.game === 'gta5').map(page => page.menuName))];
 const resourceTopics = resourceInventory.pages
  .filter(page => page.game === 'gta5' && page.menu !== 'scooby' && featuredTopics.includes(page.category))

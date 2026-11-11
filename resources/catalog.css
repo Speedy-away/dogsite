@@ -167,3 +167,5 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 .theme-gallery-navigation a{display:inline-flex;align-items:center}
 .theme-gallery-image{display:grid;place-items:center;min-height:clamp(160px,36dvh,340px);margin:0;padding:12px;background:#1b1b1b;border:1px solid #333;border-radius:8px}
 #pictures .theme-gallery-image img{margin:0}
+
+.resource-name[href]:hover{text-decoration:underline}
