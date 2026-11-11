@@ -37,6 +37,8 @@ test('menu selection has a Scooby default and separates discovery from runtime r
 });
 test('Lua listings expose local Cherax releases or an honest unavailable state', () => {
   const scripts = supplement.items.filter(item => item.category === 'lua' && item.game !== 'redm');
+  const standSubmissions = new Map(require('../project/community-menu-sources/stand-submitted.json').items.map(item => [item.id, item]));
+  const visibleMenus = item => menus.MENUS.filter(menu => menus.supports(item, menu.id)).map(menu => menu.id);
   assert(scripts.length >= 59);
   const ids = new Set();
   for (const item of scripts) {
@@ -55,8 +57,15 @@ test('Lua listings expose local Cherax releases or an honest unavailable state',
     } else assert.equal(item.downloadStatus, 'pending', item.id);
     assert.equal(item.sourceCatalog, 'menu-resources', item.id);
     assert(item.supportedMenus.length && item.sourceMenu, item.id);
-    assert(menus.supports(item, 'scooby') && menus.supports(item, 'nenyoo'), item.id);
+    if (standSubmissions.has(item.id)) assert.deepEqual(visibleMenus(item), ['stand'], item.id);
+    else assert(menus.supports(item, 'scooby') && menus.supports(item, 'nenyoo'), item.id);
     assert(!/https?:\/\/(?:\w+\.)?discord(?:app)?\.(?:com|gg)/i.test(JSON.stringify(item)), item.id);
+  }
+  for (const [id, submission] of standSubmissions) {
+    const item = scripts.find(script => script.id === id);
+    assert.equal(item?.preview, submission.preview, id);
+    assert.equal(item.previewVerified, true, id);
+    assert(fs.existsSync(path.join(ROOT, item.preview)), id);
   }
   const notes = scripts.find(item => item.id === 'cherax-lua-host-tools');
   assert.equal(notes.changelog[0].version, '1.9.0');

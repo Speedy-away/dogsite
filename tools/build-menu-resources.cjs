@@ -12,6 +12,7 @@ const target = path.resolve(targetIndex >= 0 ? process.argv[targetIndex + 1] : p
 const publish = process.argv.includes('--publish-assets');
 const l4dDownload = /^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i;
 const l4dPreview = /^\/assets\/images\/resource-previews\/l4d\/[\w.-]+\.(?:jpe?g|png|webp)$/i;
+const standPreview = /^\/assets\/images\/resource-previews\/stand\/[\w.-]+\.(?:jpe?g|png|webp)$/i;
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const base = read(path.join(ROOT, 'community/data/library.json'));
 const baseItems = new Map(base.items.map(item => [item.id, item]));
@@ -71,6 +72,8 @@ function clean(entry, origin) {
     else if (checked && !checked.verified) result.previewVerified = false;
     else if (entry.preview.startsWith('project/community-menu-sources/')) result.preview = asset(entry.preview, result.sourceMenu, 'previews', result.game);
     else if (result.game === 'l4d' && l4dPreview.test(entry.preview) && fs.existsSync(path.join(ROOT, entry.preview))) result.preview = entry.preview;
+    else if (result.game === 'gta5' && result.sourceMenu === 'stand' && standPreview.test(entry.preview) &&
+      fs.existsSync(path.join(ROOT, entry.preview.slice(1)))) result.preview = entry.preview;
     else if (/^https:\/\//.test(entry.preview) || entry.preview.startsWith('previews/') || entry.preview.startsWith('/community/media/')) result.preview = entry.preview;
     if (result.preview) {
       const thumbnail = result.preview.match(/^previews\/gta5\/menus\/xforce\/([a-f0-9]{20})\.(?:png|jpe?g|gif|webp)$/i);
@@ -137,6 +140,7 @@ function add(entry, origin) {
       (origin === 'fivem-server-recipes' && normalized.game === 'fivem' && normalized.category === 'server-dumps') ||
       (origin === 'fivem-lua-menus' && normalized.game === 'fivem' && normalized.category === 'mod-menus') ||
       (origin === 'redm-public-releases' && normalized.game === 'redm' && normalized.category === 'graphics-packs') ||
+      (origin === 'gta5-addon-packs' && normalized.game === 'gta5' && normalized.category === 'addon-packs') ||
       (origin === 'stand-discord-reviewed' && normalized.category === 'asi-mods'))
       && normalized.status === 'author-hosted' && /^https:\/\//.test(normalized.sourceUrl || ''))) {
     additions.set(entry.id, { ...additions.get(entry.id), ...normalized, id: entry.id });
@@ -199,7 +203,7 @@ function importManifest(menu, defaultGame = 'gta5') {
   }
   output.coverage.push({ menu, source: `project/community-menu-sources/${menu}.json`, summary: source.summary || {}, coverage: source.coverage || [], completeness: source.completeness || 'Source snapshot only' });
 }
-for (const menu of ['stand', 'stand-discord-reviewed', 'xforce', 'inbox', 'biggerscript-public', 'gta5-addon-packs']) importManifest(menu);
+for (const menu of ['stand-submitted', 'stand', 'stand-discord-reviewed', 'xforce', 'inbox', 'biggerscript-public', 'gta5-addon-packs']) importManifest(menu);
 importManifest('redm', 'redm');
 importManifest('redm-submitted', 'redm');
 importManifest('redm-public-releases', 'redm');

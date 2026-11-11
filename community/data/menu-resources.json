@@ -2,6 +2,77 @@
   "version": 1,
   "items": [
     {
+      "name": "Addict Script",
+      "category": "lua",
+      "description": "A GTA V script for Stand’s Lua engine.",
+      "sourceMenu": "stand",
+      "supportedMenus": [
+        "stand"
+      ],
+      "listedMenus": [
+        "stand"
+      ],
+      "sourceFilename": "2026AddictScript.rar",
+      "requirements": [
+        "Stand for GTA V"
+      ],
+      "tags": [
+        "Lua",
+        "Addict Script",
+        "Stand"
+      ],
+      "previewKind": "submitted-image",
+      "game": "gta5",
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/stand/addict-script.png",
+      "previewVerified": true,
+      "downloadStatus": "pending",
+      "status": "pending",
+      "files": [],
+      "guide": "/resources/guides/?game=gta5&menu=stand&category=lua",
+      "id": "stand-lua-addict-script",
+      "addedAt": "2026-11-11T05:39:58.900Z"
+    },
+    {
+      "name": "CoaLwiX Pack",
+      "category": "addon-packs",
+      "description": "An all-in-one pack for Stand with menu profiles, modded vehicles and outfits, map spawns, vehicle constructs, teleport locations, themes, headers, and Lua scripts.",
+      "sourceMenu": "stand",
+      "supportedMenus": [
+        "stand"
+      ],
+      "listedMenus": [
+        "stand"
+      ],
+      "author": "landnthrn",
+      "sourceUrl": "https://github.com/landnthrn/CoaLwiX",
+      "requirements": [
+        "Stand for GTA V"
+      ],
+      "tags": [
+        "CoaLwiX",
+        "all-in-one",
+        "mod pack",
+        "constructs",
+        "profiles",
+        "Stand"
+      ],
+      "game": "gta5",
+      "credits": "landnthrn",
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "/assets/images/resource-previews/stand/coalwix-pack.png",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "guide": "/resources/guides/?game=gta5&menu=stand&category=addon-packs",
+      "id": "gta5-stand-addon-packs-coalwix",
+      "addedAt": "2026-11-11T05:36:00.561Z"
+    },
+    {
       "name": "Constructor",
       "category": "lua",
       "description": "Builds and loads vehicle, map and player-skin constructs from existing GTA assets. The script's Stand API requirement is distinct from the formats of construct data.",
@@ -295910,6 +295981,13 @@
     }
   ],
   "coverage": [
+    {
+      "menu": "stand-submitted",
+      "source": "project/community-menu-sources/stand-submitted.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
     {
       "menu": "stand",
       "source": "project/community-menu-sources/stand.json",

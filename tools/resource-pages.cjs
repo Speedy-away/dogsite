@@ -120,7 +120,13 @@ const cs2Categories = {
 const gameCategories = { cs2: cs2Categories, l4d: l4dCategories };
 const fivemLuaMenus = { name: roleplayCategoryLabel('fivem', 'mod-menus'), words: ['Lua menus', 'menu libraries', 'FiveM UI'], description: 'Browse Lua menu libraries for FiveM resources. Compare standalone and framework options and open the maintainers’ setup instructions.' };
 const fivemCategories = { 'server-dumps': fivemServerRecipes, 'mod-menus': fivemLuaMenus };
-const categoryInfo = (game, category) => (game === 'fivem' ? fivemCategories[category] : undefined) || (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
+const standPacks = {
+  name: 'Addon packs',
+  words: ['mod packs', 'Stand bundles', 'all-in-one packs'],
+  description: 'Browse packs for Stand in GTA 5. Check each pack’s included profiles, presets and scripts, and follow the author’s installation instructions.'
+};
+const categoryInfo = (game, category, menu) => (game === 'gta5' && menu === 'stand' && category === 'addon-packs' ? standPacks : undefined) ||
+  (game === 'fivem' ? fivemCategories[category] : undefined) || (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
   gameCategories[game]?.[category] || CATEGORIES[category];
 function buildData() {
   const library = read('community/data/library.json');
@@ -166,7 +172,7 @@ function buildData() {
     for (const selectedMenu of availableMenus) {
       const menu = selectedMenu.id, menuName = selectedMenu.name;
       const gameItems = allGameItems.filter(item => menus.supports(item, menu));
-      const categories = Object.keys(CATEGORIES).map(id => ({ id, ...categoryInfo(game, id), count: gameItems.filter(item => hasCategory(item, id)).length })).filter(category => category.count);
+      const categories = Object.keys(CATEGORIES).map(id => ({ id, ...categoryInfo(game, id, menu), count: gameItems.filter(item => hasCategory(item, id)).length })).filter(category => category.count);
       const makePage = category => {
       const subset = category ? gameItems.filter(item => hasCategory(item, category)) : gameItems;
       let candidates = subset.slice().sort((a, b) => Number(hasPreview(b)) - Number(hasPreview(a)));
@@ -186,14 +192,14 @@ function buildData() {
         candidates = [...new Map([...first, ...candidates].map(item => [item.id, item])).values()];
       }
       const samples = game === 'cs2' && ['skyboxes', 'textures'].includes(category) ? candidates : candidates.slice(0, 12);
-      const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category).name : 'Resources';
+      const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category, menu).name : 'Resources';
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
       const scopeName = `${config.name}${game === 'gta5' ? ' ' + menuName : ''}`;
       const redmGraphics = game === 'redm' && category === 'graphics-packs';
       const title = redmGraphics ? 'RedM Graphics Packs for PvP, RP & Cinematic Play | Scooby' :
         category ? `${scopeName} ${label}${pendingOnly ? ' — Coming Soon' : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — Coming Soon' : ' & Downloads'} — Scooby`;
-      const wordsFor = id => categoryInfo(game, id).words;
+      const wordsFor = id => categoryInfo(game, id, menu).words;
       const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
         group.id === 'graphics-packs' && game === 'redm' ? group.words : group.words.slice(0, 2));
       const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style].flat()).filter(Boolean))];
@@ -206,7 +212,7 @@ function buildData() {
         ? 'Browse native Scooby ClickUI colors and ListUI styles. Some Scooby-compatible presets look like other menus. Check the file requirements before installing.'
         : game === 'gta5' && menu === 'cherax' && category === 'themes'
           ? 'Browse Cherax ClickGUI and ListUI themes. Choose a package for your active interface and keep the settings and artwork together.'
-          : category ? categoryInfo(game, category).description.replace(/the selected menu/g, menuName).replace(/selected menu/g, menuName) : menu === 'scooby' ? config.intro : `Browse ${config.name} resources listed for ${menuName}. Check each resource’s original menu format, download availability and any required compatibility layer before installing.`;
+          : category ? categoryInfo(game, category, menu).description.replace(/the selected menu/g, menuName).replace(/selected menu/g, menuName) : menu === 'scooby' ? config.intro : `Browse ${config.name} resources listed for ${menuName}. Check each resource’s original menu format, download availability and any required compatibility layer before installing.`;
       const firstSentence = intro.split(/(?<=[.!?])\s/)[0];
       const description = pendingOnly
         ? `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} listings. Downloads are coming soon. Check requirements and changelogs.`

@@ -2,6 +2,24 @@
   "version": 1,
   "items": [
     {
+      "id": "gta5-stand-addon-packs-coalwix",
+      "game": "gta5",
+      "category": "addon-packs",
+      "sourceMenu": "stand",
+      "supportedMenus": ["stand"],
+      "listedMenus": ["stand"],
+      "name": "CoaLwiX Pack",
+      "description": "An all-in-one pack for Stand with menu profiles, modded vehicles and outfits, map spawns, vehicle constructs, teleport locations, themes, headers, and Lua scripts.",
+      "author": "landnthrn",
+      "sourceUrl": "https://github.com/landnthrn/CoaLwiX",
+      "status": "author-hosted",
+      "requirements": ["Stand for GTA V"],
+      "preview": "/assets/images/resource-previews/stand/coalwix-pack.png",
+      "previewVerified": true,
+      "tags": ["CoaLwiX", "all-in-one", "mod pack", "constructs", "profiles"],
+      "files": []
+    },
+    {
       "id": "gta5-scooby-addon-peds-black-knight",
       "game": "gta5",
       "category": "addon-peds",
