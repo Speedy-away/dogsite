@@ -49,7 +49,8 @@ for (const button of document.querySelectorAll('[data-download-file]')) {
       }
       const archive = /\.(?:zip|rar|7z|gz)(?:\.\d{3})?$/i.test(file.formatPath || file.name || url.pathname);
       const stored = url.origin === location.origin || (url.hostname === 'raw.githubusercontent.com' && url.pathname.startsWith('/Speedy-away/cool-repo/main/'));
-      const largeArchive = stored && Number(file.size) >= 50 * 1024 * 1024 && archive;
+      const large = Number(file.size) >= 50 * 1024 * 1024;
+      const largeArchive = stored && large && archive && file.downloadMethod !== 'named';
       // Cross-origin download attributes do not save renderable JSON/XML/text.
       // Only verified binary archives can use a native transfer.
       const native = archive && (file.downloadMethod === 'direct' || largeArchive || (url.hostname === 'github.com' && url.pathname.includes('/releases/download/')));
@@ -58,7 +59,7 @@ for (const button of document.querySelectorAll('[data-download-file]')) {
       let object;
       if (native) anchor.href = url.href;
       else {
-        const response = await fetch(url, { signal: AbortSignal.timeout(30000) });
+        const response = await fetch(url, { signal: AbortSignal.timeout(large ? 300000 : 30000) });
         if (!response.ok || /text\/html/i.test(response.headers.get('content-type') || '')) throw Error('Download unavailable');
         object = URL.createObjectURL(await response.blob());
         anchor.href = object;

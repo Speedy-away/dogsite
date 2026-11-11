@@ -199,7 +199,9 @@ function buildData() {
   const gtaEditionCatalog = read('community/data/gta5-editions.json');
   const gtaAddonCatalog = read('community/data/gta5-addons.json');
   const menuFile = path.join(ROOT, 'community/data/menu-resources.json');
-  const supplement = fs.existsSync(menuFile) ? read('community/data/menu-resources.json') : {};
+  const cheraxFile = 'community/data/cherax-resources.json';
+  const archive = fs.existsSync(path.join(ROOT, cheraxFile)) ? read(cheraxFile) : null;
+  const supplement = menus.mergeCheraxResources(fs.existsSync(menuFile) ? read('community/data/menu-resources.json') : {}, archive);
   const extra = supplement.items || [];
   const libraryOverrides = new Map((supplement.libraryOverrides || []).filter(item => typeof item.id === 'string').map(item => [item.id, item]));
   const legacyOverrides = menus.legacyOverrideMap(supplement);
@@ -481,7 +483,7 @@ function renderPage(page, guideRoutes = {}) {
     ? `<nav class="resource-menus" aria-label="RedM graphics pack types">${page.graphicsTopics.map(topic =>
       `<a href="${escape(browseURL({ category: 'graphics-packs', q: topic.query }))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';
   const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=resource-popups" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=cherax-archive" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
 <link rel="stylesheet" href="/assets/css/ad-sidebar.css">
 <script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>
 </head>

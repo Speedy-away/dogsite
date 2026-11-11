@@ -193,5 +193,30 @@
     }
     return result;
   }
-  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, defaultResourceSort, resourceUpdateDate, compareResourceUpdates, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, listingMenuIds, supports, compatibleWith, cheraxLuaLayerNote, isCheraxTheme, isStandLua, themeInterface, legacyOverrideMap, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
+  function mergeCheraxResources(supplement, archive) {
+    if (archive?.version !== 1 || !/^[a-f0-9]{40}$/.test(archive.assetRevision || '')) return supplement;
+    const base = `https://raw.githubusercontent.com/Speedy-away/cool-repo/${archive.assetRevision}/`;
+    const assetURL = value => /^(?:downloads|previews)\/gta5\/menus\/cherax\/[a-f0-9]{20}\.[a-z0-9]+$/.test(value || '') ? base + value : '';
+    const merge = (existing, imported, requireCategory = false) => {
+      const entries = new Map((existing || []).map(entry => [entry.id, entry]));
+      for (const entry of imported || []) {
+        const original = entries.get(entry.id);
+        if (!original && !entry.category && requireCategory) continue;
+        const next = { ...original, ...entry };
+        if (entry.files && !original?.files?.some(file => file.url?.startsWith('/assets/downloads/cherax/'))) {
+          next.files = entry.files.map(file => ({ ...file, url: assetURL(file.path), downloadMethod: 'named' })).filter(file => file.url);
+        } else if (entry.files) {
+          for (const key of ['files', 'status', 'downloadStatus']) next[key] = original[key];
+        }
+        if (entry.preview) next.preview = assetURL(entry.preview);
+        if (original?.preview?.startsWith?.('/assets/images/resource-previews/cherax/')) {
+          for (const key of ['preview', 'previewVerified', 'previewKind', 'previewCaption']) next[key] = original[key];
+        }
+        entries.set(entry.id, next);
+      }
+      return [...entries.values()];
+    };
+    return { ...supplement, items: merge(supplement.items, archive.items, true), libraryOverrides: merge(supplement.libraryOverrides, archive.libraryOverrides) };
+  }
+  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, defaultResourceSort, resourceUpdateDate, compareResourceUpdates, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, listingMenuIds, supports, compatibleWith, cheraxLuaLayerNote, isCheraxTheme, isStandLua, themeInterface, legacyOverrideMap, mergeCheraxResources, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
 });

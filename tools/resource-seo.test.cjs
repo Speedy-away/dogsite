@@ -85,7 +85,8 @@ test('Resources shares game-specific previews and exposes RedM graphics search t
 });
 
 function expectedInventory() {
-  const supplement = fs.existsSync(path.join(ROOT, 'community/data/menu-resources.json')) ? json('community/data/menu-resources.json') : {};
+  const prepared = fs.existsSync(path.join(ROOT, 'community/data/menu-resources.json')) ? json('community/data/menu-resources.json') : {};
+  const supplement = menus.mergeCheraxResources(prepared, json('community/data/cherax-resources.json'));
   const overrides = new Map((supplement.libraryOverrides || []).map(item => [item.id, item]));
   const legacy = menus.legacyOverrideMap(supplement);
   const items = new Map();
