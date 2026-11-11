@@ -39,9 +39,16 @@
     return path + hash;
   }
 
-  function resourceHash(id) {
-    return `#resource-${String(id).replace(/[^a-z0-9_-]/gi, '-')}`;
+  function resourceHash(id, view = 'preview') {
+    const prefix = view === 'changelog' ? 'changelog' : 'resource';
+    return `#${prefix}-${String(id).replace(/[^a-z0-9_-]/gi, '-')}`;
   }
 
-  return { base, collectionPath, catalogURL, guideBase, guidePath, guideURL, resourceHash };
+  function resourceView(hash) {
+    if (hash.startsWith('#resource-')) return 'preview';
+    if (hash.startsWith('#changelog-')) return 'changelog';
+    return '';
+  }
+
+  return { base, collectionPath, catalogURL, guideBase, guidePath, guideURL, resourceHash, resourceView };
 });

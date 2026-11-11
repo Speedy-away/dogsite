@@ -60,7 +60,7 @@ let catalogReady = false;
 let gameLoading = false;
 let state = readState();
 let inputTimer;
-let linkedPreviewHash = '';
+const resourceDialogs = globalThis.ScoobyResourceDialogs.create([$('preview'), $('changelog')]);
 
 function node(tag, text, className) {
   const result = document.createElement(tag);
@@ -216,10 +216,10 @@ function link(text, href, external = false) {
   return result;
 }
 
-function resourceURL(entry) {
+function resourceURL(entry, view) {
   const loader = menuSystem.presetLoader(entry, state.menu);
   const format = loader === 'lua' ? 'lua-loader' : loader === 'importer' ? 'all-formats' : '';
-  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category, format }, publishedRoutes) + routes.resourceHash(entry.id);
+  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category, format }, publishedRoutes) + routes.resourceHash(entry.id, view);
 }
 
 function image(src, name, showUnavailable = false) {
@@ -711,11 +711,16 @@ function versionDownload(files) {
   return control;
 }
 
+function hasChangelog(entry) {
+  return !entry.builtInLua && (entry.category === 'lua' || Boolean(entry.changelog?.length));
+}
+
 function showChangelog(entry) {
   $('changelog-title').textContent = `${visibleText(entry, entry.name)} · Changelog`;
   const content = $('changelog-content');
   content.replaceChildren();
-  const releases = Array.isArray(entry.changelog) ? entry.changelog.filter(release => release && typeof release === 'object') : [];
+  const releases = [].concat(entry.changelog || []).filter(Boolean).map(release =>
+    typeof release === 'string' ? { changes: [release] } : release);
   if (!releases.length) content.append(node('p', 'No changelog has been published for this resource.'));
   for (const release of releases) {
     const section = node('section', null, 'changelog-entry');
@@ -726,7 +731,8 @@ function showChangelog(entry) {
       if (/^\d{4}-\d{2}-\d{2}/.test(String(release.date))) time.dateTime = String(release.date);
       section.append(time);
     }
-    const changes = Array.isArray(release.changes) ? release.changes.map(change => visibleText(entry, change)).filter(Boolean) : [];
+    const changes = [release.changes, release.notes, release.description].flat()
+      .filter(change => typeof change === 'string').map(change => visibleText(entry, change)).filter(Boolean);
     if (changes.length) {
       const list = node('ul');
       changes.forEach(change => list.append(node('li', change)));
@@ -734,7 +740,7 @@ function showChangelog(entry) {
     } else section.append(node('p', 'No release notes were provided for this version.'));
     content.append(section);
   }
-  if (!$('changelog').open) $('changelog').showModal();
+  resourceDialogs.present($('changelog'), resourceURL(entry, 'changelog'));
   content.scrollTop = 0;
 }
 
@@ -763,7 +769,7 @@ function tagLinks(entry) {
       state = { ...state, q: tag, model: '', ui: '', style: '', page: 1 };
       updateControls();
       saveState(true, '');
-      $('preview').close();
+      resourceDialogs.dismiss();
       render();
       $('search').focus({ preventScroll: true });
     };
@@ -815,37 +821,7 @@ function resourceImageGallery(entry) {
   return gallery;
 }
 
-function copyResourceLink(entry) {
-  const button = node('button', 'Copy link');
-  button.type = 'button';
-  button.setAttribute('aria-live', 'polite');
-  button.onclick = async () => {
-    const url = new URL(resourceURL(entry), location.origin).href;
-    try {
-      await navigator.clipboard.writeText(url);
-      button.textContent = 'Link copied';
-    } catch {
-      const field = node('input');
-      field.type = 'url';
-      field.readOnly = true;
-      field.value = url;
-      field.setAttribute('aria-label', 'Resource link');
-      button.replaceWith(field);
-      field.focus();
-      field.select();
-    }
-  };
-  return button;
-}
-
 function showDetails(entry, files) {
-  const hash = routes.resourceHash(entry.id);
-  if (location.hash !== hash) {
-    const url = new URL(location.href);
-    url.hash = hash;
-    history.pushState({ resourcePreview: hash }, '', url);
-  }
-  linkedPreviewHash = hash;
   $('preview-title').textContent = visibleText(entry, entry.name);
   const preview = previewURL(entry);
   const gallery = resourceImageGallery(entry);
@@ -918,19 +894,23 @@ function showDetails(entry, files) {
   const tags = tagLinks(entry);
   if (tags) details.append(tags);
   const links = node('div', null, 'preview-links');
-  if (entry.category === 'lua' && !entry.builtInLua) links.append(changelogButton(entry));
-  links.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)),
-    copyResourceLink(entry));
+  if (hasChangelog(entry)) links.append(changelogButton(entry));
+  links.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)));
   details.append(links);
-  if (!$('preview').open) $('preview').showModal();
+  resourceDialogs.present($('preview'), resourceURL(entry));
   pictures.parentElement.scrollTop = 0;
 }
 
 async function openLinkedResource(token) {
   const hash = location.hash;
-  if (!hash.startsWith('#resource-') || ($('preview').open && hash === linkedPreviewHash)) return;
-  const entry = entries.find(entry => routes.resourceHash(entry.id) === hash);
+  const view = routes.resourceView(hash);
+  if (!view || resourceDialogs.matches(hash)) return;
+  const entry = entries.find(entry => routes.resourceHash(entry.id, view) === hash);
   if (!entry) return;
+  if (view === 'changelog') {
+    if (hasChangelog(entry)) showChangelog(entry);
+    return;
+  }
   const files = pendingDownload(entry) ? [] : await resolveFiles(entry).catch(() => []);
   if (token === loadRevision && hash === location.hash) showDetails(entry, files);
 }
@@ -1023,7 +1003,7 @@ async function card(entry) {
     images.onclick = () => showDetails(entry, files);
     actions.append(images);
   }
-  if (entry.category === 'lua' && !entry.builtInLua) actions.append(changelogButton(entry));
+  if (hasChangelog(entry)) actions.append(changelogButton(entry));
   if (compactLua && (files.length || source || (pendingDownload(entry) && !cheraxPreview(entry)))) {
     const details = node('button', 'Details', 'theme-details');
     details.type = 'button';
@@ -1229,37 +1209,9 @@ for (const [id, step] of [['prev', -1], ['next', 1]]) $(id).onclick = () => {
   render();
   $('collection-title').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
 };
-$('close').onclick = () => $('preview').close();
-$('preview').addEventListener('close', () => {
-  if ($('preview').open) return;
-  const hash = linkedPreviewHash;
-  linkedPreviewHash = '';
-  if (!hash || hash !== location.hash) return;
-  if (history.state?.resourcePreview === hash) history.back();
-  else {
-    const url = new URL(location.href);
-    url.hash = '';
-    history.replaceState(history.state, '', url);
-  }
-});
-$('close-changelog').onclick = () => $('changelog').close();
-$('changelog').addEventListener('click', event => {
-  if (event.target !== $('changelog')) return;
-  const rect = $('changelog').getBoundingClientRect();
-  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('changelog').close();
-});
-$('preview').addEventListener('click', event => {
-  if (event.target !== $('preview')) return;
-  const rect = $('preview').getBoundingClientRect();
-  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('preview').close();
-});
 window.addEventListener('popstate', () => {
   clearTimeout(inputTimer);
-  if (linkedPreviewHash && linkedPreviewHash !== location.hash) {
-    linkedPreviewHash = '';
-    if ($('changelog').open) $('changelog').close();
-    $('preview').close();
-  }
+  resourceDialogs.syncLocation();
   const nextState = readState();
   if (JSON.stringify(nextState) === JSON.stringify(state)) {
     if (catalogReady) openLinkedResource(loadRevision);
@@ -1302,7 +1254,7 @@ if (initialPath === routes.base && !location.search && !location.hash && typeof 
   const [collections, guides] = await Promise.allSettled([json('/resources/routes.json'), json('/resources/guides/routes.json')]);
   if (collections.status === 'fulfilled') for (const pathname of collections.value) publishedRoutes.add(pathname);
   if (guides.status === 'fulfilled') publishedGuides = guides.value;
-  const resourceAnchor = location.hash.startsWith('#resource-');
+  const resourceAnchor = routes.resourceView(location.hash);
   const target = routes.catalogURL(state, publishedRoutes);
   if (resourceAnchor && location.pathname === routes.base && !target.startsWith(`${routes.base}?`)) {
     location.replace(target + location.hash);

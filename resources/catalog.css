@@ -240,6 +240,16 @@ html:has(.resource-dialog[open]) { overflow: hidden; }
   transition: background-color .15s;
 }
 .resource-dialog-close:hover { background: #312d35; }
+.resource-dialog-actions { display: flex; align-items: center; gap: 6px; }
+.resource-dialog-share { display: flex; }
+.resource-copy-link {
+  min-inline-size: 78px;
+  min-height: 36px;
+  padding: 6px 8px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.resource-dialog-share input { width: clamp(78px, 24vw, 150px); }
 .resource-dialog-scroll {
   min-height: 0;
   padding: var(--dialog-inset);
@@ -313,7 +323,6 @@ html:has(.resource-dialog[open]) { overflow: hidden; }
 .preview-links a { padding-block: 4px; }
 .preview-links a:hover { color: #fff; text-decoration: underline; }
 .preview-links button { padding: 7px 10px; font-size: inherit; }
-.preview-links input { flex-basis: 100%; min-width: 0; }
 .changelog-entry + .changelog-entry { border-top: 1px solid #343138; padding-top: 12px; margin-top: 12px; }
 #pictures .theme-gallery { gap: 10px; margin: 0; }
 #pictures .theme-gallery-image { min-height: 0; padding: 8px; }

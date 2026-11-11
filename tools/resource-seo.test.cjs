@@ -466,6 +466,7 @@ test('pending downloads and verified theme captures render honest static actions
   assert(!/Download unavailable|Coming soon/.test(pending), 'Pending Cherax entries should avoid download placeholders');
   assert(!article.includes('data-download-file='), 'Pending metadata must not expose a pretend download');
   assert(article.includes('Published source description') && article.includes('Changelog'));
+  assert(article.includes('&quot;hash&quot;:&quot;#changelog-availability-regression&quot;'), 'Changelogs need a distinct shareable URL');
   assert(article.includes('href="/resources/gta5/cherax/lua/?q='), 'Pending listing tags must preserve their menu context');
   const withoutNotes = renderPage({ ...base, samples: [{ ...entry, changelog: undefined }] });
   assert(withoutNotes.includes('data-resource-changelog=') && withoutNotes.includes('&quot;notes&quot;:[]'), 'Missing changelogs need an honest empty popup');
