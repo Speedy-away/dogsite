@@ -15,12 +15,14 @@ const LABELS = {
   paintjobs: 'LSC paintjobs', liveries: 'Liveries', players: 'Player models', weapons: 'Weapon models', knives: 'Knife models',
   throwables: 'Throwables', bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs',
   lua: 'Lua scripts', languages: 'Translations / Languages', misc: 'Miscellaneous',
+  'loader-translations': 'Loader translations', fonts: 'Fonts', emotes: 'Emote audio',
   'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods', 'addon-packs': 'Packs', wallpapers: 'Wallpapers',
   'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
   'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
   'mod-menus': 'Lua Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
 };
 const MENU_CATEGORIES = ['themes', 'configs', 'lua', 'languages', 'misc'];
+const NENYOO_CATEGORIES = ['loader-translations', 'fonts', 'emotes', 'textures'];
 const L4D_LABELS = { maps: 'Maps & campaigns', players: 'Survivor & infected models', weapons: 'Weapon models & skins' };
 const PAGE_SIZE = 24;
 const ACCESS_LABELS = { free: 'Free', paid: 'Paid' };
@@ -37,9 +39,10 @@ let library = { items: [], downloadBaseUrl: 'https://raw.githubusercontent.com/S
 let menuResources = { items: [] };
 let gtaEditionCatalog = { items: [], verified: {} };
 let gtaAddonCatalog = { items: [] };
+let nenyooCatalog = { items: [] };
 let libraryError = false;
 let entries = [];
-let gtaCategoryCounts = new Map();
+let menuCategoryCounts = new Map();
 let revision = 0;
 let loadRevision = 0;
 let gameLoading = false;
@@ -55,7 +58,9 @@ function node(tag, text, className) {
 
 function normalize(value) { return String(value || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
 function menuFor(game, id) { return menuSystem ? menuSystem.menuFor(game, id) : 'scooby'; }
+function hasMenuChoice(game) { return menuSystem?.menusFor(game).length > 1; }
 function menuName(id = state.menu) { return menuSystem ? menuSystem.displayName(id) : 'Scooby'; }
+function collectionTitle() { return `${hasMenuChoice(state.game) ? `${menuName()}'s ` : ''}${GAMES[state.game].name} resources`; }
 function supportsMenu(entry) { return menuSystem ? menuSystem.supports(entry, state.menu) : state.menu === 'scooby'; }
 function pendingDownload(entry) { return entry.category === 'lua' && entry.downloadStatus === 'pending'; }
 function normalizeSearch(value) { return taxonomy ? taxonomy.normalizeTag(value) : String(value || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); }
@@ -73,16 +78,16 @@ function roleplayGroups(game) {
 
 function categoryId(game, id, menu) { return taxonomy?.categoryId(game, id, menu) ?? id; }
 
-function categories(game = state.game) {
+function categories(game = state.game, menu = state.menu) {
   const groups = roleplayGroups(game);
-  return groups ? groups.flatMap(([, ids]) => ids) : [...GAMES[game].assets, ...MENU_CATEGORIES];
+  return groups ? groups.flatMap(([, ids]) => ids) : [...new Set([...GAMES[game].assets, ...MENU_CATEGORIES, ...(menu === 'nenyoo' ? NENYOO_CATEGORIES : [])])];
 }
 function readState() {
   const query = new URLSearchParams(location.search);
   const game = Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5';
   const menu = menuFor(game, query.get('menu'));
   const requested = categoryId(game, query.get('category'), menu);
-  const category = categories(game).includes(requested) ? requested : 'all';
+  const category = categories(game, menu).includes(requested) ? requested : 'all';
   const themeFilters = category === 'themes' && ['gta5', 'rdr2'].includes(game);
   return {
     game, category, menu, edition: editions.choice(game, query.get('edition')), q: query.get('q') || '',
@@ -97,7 +102,7 @@ function saveState(replace = false) {
   const url = new URL(location.href);
   url.search = '';
   url.searchParams.set('game', state.game);
-  if (state.game === 'gta5' && state.menu !== 'scooby') url.searchParams.set('menu', state.menu);
+  if (hasMenuChoice(state.game) && state.menu !== 'scooby') url.searchParams.set('menu', state.menu);
   if (state.category !== 'all') url.searchParams.set('category', state.category);
   if (state.edition) url.searchParams.set('edition', state.edition);
   for (const key of ['q', 'model', 'ui', 'style', 'sort']) if (state[key]) url.searchParams.set(key, state[key]);
@@ -135,6 +140,7 @@ function authorPage(entry) {
 const isFiveMRecipe = entry => entry.game === 'fivem' && entry.category === 'server-dumps';
 
 function authorAction(entry) {
+  if (entry.source === 'Nenyoo Resources' && entry.category === 'themes') return 'Open theme folder ↗';
   return isFiveMRecipe(entry) ? 'Download from source ↗' : 'Get from the author ↗';
 }
 
@@ -159,13 +165,13 @@ function guideURL(entry) {
   const value = entry?.guide;
   if (/^\/(?:community|resources)\/guides\//.test(value || '')) {
     const url = new URL(value.replace(/^\/community\//, '/resources/'), location.href);
-    if (state.game === 'gta5') url.searchParams.set('menu', state.menu);
+    if (hasMenuChoice(state.game)) url.searchParams.set('menu', state.menu);
     if (url.searchParams.get('category') === 'dlc') url.searchParams.set('category', entry.category);
     return url.pathname + url.search + url.hash;
   }
   const game = entry?.game || state.game;
   const query = new URLSearchParams({ game, category: categoryId(game, entry?.category || state.category) });
-  if (state.game === 'gta5') query.set('menu', state.menu);
+  if (hasMenuChoice(state.game)) query.set('menu', state.menu);
   return `/resources/guides/?${query}`;
 }
 
@@ -208,8 +214,8 @@ function prettySize(size) {
 }
 
 async function loadLibrary() {
-  const [base, supplemental, reviewed, addons] = await Promise.allSettled([
-    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json'), json('/community/data/gta5-addons.json')
+  const [base, supplemental, reviewed, addons, nenyoo] = await Promise.allSettled([
+    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json'), json('/community/data/gta5-addons.json'), json('/community/data/nenyoo.json')
   ]);
   libraryError = false;
   if (base.status === 'fulfilled' && Array.isArray(base.value.items)) library = base.value;
@@ -219,6 +225,8 @@ async function loadLibrary() {
   if (reviewed.status === 'fulfilled' && Array.isArray(reviewed.value.items)) gtaEditionCatalog = reviewed.value;
   else libraryError = true;
   if (addons.status === 'fulfilled' && Array.isArray(addons.value.items)) gtaAddonCatalog = addons.value;
+  else libraryError = true;
+  if (nenyoo.status === 'fulfilled' && Array.isArray(nenyoo.value.items)) nenyooCatalog = nenyoo.value;
   else libraryError = true;
 }
 
@@ -255,7 +263,7 @@ function libraryEntries() {
   const merged = new Map();
   const overrides = new Map((Array.isArray(menuResources.libraryOverrides) ? menuResources.libraryOverrides : []).filter(override => override.id).map(override => [override.id, override]));
   for (const item of library.items) merged.set(item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`, { ...item, ...overrides.get(item.id), id: item.id });
-  for (const item of [...menuResources.items, ...gtaEditionCatalog.items, ...gtaAddonCatalog.items]) {
+  for (const item of [...menuResources.items, ...gtaEditionCatalog.items, ...gtaAddonCatalog.items, ...nenyooCatalog.items]) {
     const id = item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`;
     merged.set(id, { ...merged.get(id), ...item });
   }
@@ -285,7 +293,7 @@ function inCategory(entry, category) {
 }
 
 function categoryLabel(game, category) {
-  return (category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(game, category) : undefined) ||
+  return menuSystem?.categoryLabel(state.menu, category) || (category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(game, category) : undefined) ||
     (game === 'l4d' ? L4D_LABELS[category] : undefined) || LABELS[category];
 }
 
@@ -294,13 +302,13 @@ function categoryButton(category, label = categoryLabel(state.game, category)) {
   button.setAttribute('role', 'button');
   button.dataset.category = category;
   button.setAttribute('aria-pressed', String(state.category === category));
-  const gta = state.game === 'gta5';
-  const count = gta && category !== 'all' ? gtaCategoryCounts.get(category) || 0 : entries.filter(entry =>
+  const menuChoice = hasMenuChoice(state.game);
+  const count = menuChoice && category !== 'all' ? menuCategoryCounts.get(category) || 0 : entries.filter(entry =>
     inCategory(entry, category) && (state.game !== 'l4d' || editions.matches(entry, state.edition))).length;
   const params = new URLSearchParams({ game: state.game, ...(state.menu !== 'scooby' ? { menu: state.menu } : {}),
     ...(category !== 'all' ? { category } : {}), ...(state.edition ? { edition: state.edition } : {}) });
-  const directory = gta && state.menu !== 'scooby' ? `${state.game}/${state.menu}` : state.game;
-  button.href = state.edition || (!count && (category !== 'all' || (gta && state.menu !== 'scooby')))
+  const directory = menuChoice && state.menu !== 'scooby' ? `${state.game}/${state.menu}` : state.game;
+  button.href = state.edition || (!count && (category !== 'all' || (menuChoice && state.menu !== 'scooby')))
     ? `/resources/?${params}` : `/resources/${directory}/${category === 'all' ? '' : category + '/'}`;
   button.append(node('span', label), node('small', count.toLocaleString()));
   button.onclick = event => {
@@ -348,10 +356,12 @@ function updateThemeFilters() {
 
 function updateControls() {
   document.querySelectorAll('[data-game]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.game === state.game)));
-  $('collection-title').textContent = state.game === 'gta5' ? `${menuName()}'s GTA 5 resources` : `${GAMES[state.game].name} resources`;
+  const menuChoice = hasMenuChoice(state.game);
+  $('collection-title').textContent = collectionTitle();
   const editionGroup = editions.group(state.game);
-  $('collection-selectors').hidden = !editionGroup;
-  $('menu-field').hidden = state.game !== 'gta5';
+  $('collection-selectors').hidden = !editionGroup && !menuChoice;
+  $('menu-field').hidden = !menuChoice;
+  $('edition').parentElement.hidden = !editionGroup;
   if (editionGroup && $('edition').dataset.game !== state.game) {
     $('edition-label').textContent = editionGroup.label;
     $('edition').replaceChildren(new Option(editionGroup.all, ''), ...Object.entries(editionGroup.options).map(([value, label]) => new Option(label, value)));
@@ -359,9 +369,9 @@ function updateControls() {
   }
   $('edition').value = state.edition;
   $('menu').replaceChildren();
-  for (const menu of menuSystem?.MENUS || [{ id: 'scooby', name: 'Scooby' }]) $('menu').add(new Option(menu.name + (menu.deferred ? ' · Coming soon' : ''), menu.id));
+  for (const menu of menuSystem?.menusFor(state.game) || [{ id: 'scooby', name: 'Scooby' }]) $('menu').add(new Option(menu.name + (menu.deferred ? ' · Coming soon' : ''), menu.id));
   $('menu').value = state.menu;
-  const source = state.game === 'gta5' ? menuSystem?.MENUS.find(menu => menu.id === state.menu)?.source : undefined;
+  const source = menuSystem?.menusFor(state.game).find(menu => menu.id === state.menu)?.source;
   const sourceLink = $('menu-source');
   sourceLink.hidden = !source;
   sourceLink.textContent = source?.label || '';
@@ -377,8 +387,8 @@ function updateControls() {
   $('categories').replaceChildren(categoryButton('all'));
   const assets = GAMES[state.game].assets;
   const roleplay = roleplayGroups(state.game);
-  const groups = state.game === 'gta5' && menuSystem
-    ? menuSystem.gtaCategoryGroups(state.menu, gtaCategoryCounts.keys())
+  const groups = menuChoice
+    ? menuSystem.categoryGroups(state.menu, menuCategoryCounts.keys())
     : state.game === 'l4d' ? [
       ['Custom content', assets.filter(category => entries.some(entry => inCategory(entry, category)))],
       ['Settings and translations', MENU_CATEGORIES.filter(category => entries.some(entry => inCategory(entry, category)))]
@@ -411,7 +421,7 @@ function updateControls() {
   const attachments = state.game === 'gta5' && ['all', 'vehicles', 'modded'].includes(state.category);
   $('sort').querySelector('[value=attachments]').disabled = !attachments;
   if (!attachments && state.sort === 'attachments') { state.sort = ''; $('sort').value = ''; }
-  $('install-note').textContent = state.game === 'gta5' && state.menu !== 'scooby'
+  $('install-note').textContent = hasMenuChoice(state.game) && state.menu !== 'scooby'
     ? `Keep the complete download together and follow its installation guide. Choose files made for ${menuName()} and your game version.`
     : ['gta5', 'rdr2'].includes(state.game)
     ? 'Keep the complete download together and follow its installation guide. A theme’s appearance can resemble another menu while using Scooby’s own format. Choose a theme that supports your ClickUI or ListUI interface.'
@@ -454,11 +464,12 @@ async function loadGame() {
       const entry = editions.withVerification(item, gtaEditionCatalog);
       return menuSystem?.isCheraxTheme(entry) ? { ...entry, uiStyle: menuSystem.themeInterface(entry) } : entry;
     });
-    if (game === 'gta5') {
-      gtaCategoryCounts = new Map(categories(game).map(id => [id, entries.filter(entry => inCategory(entry, id)).length]).filter(([, count]) => count));
-      if (state.category !== 'all' && !gtaCategoryCounts.has(state.category)) {
+    if (hasMenuChoice(game)) {
+      menuCategoryCounts = new Map(categories(game).map(id => [id, entries.filter(entry => inCategory(entry, id)).length]).filter(([, count]) => count));
+      if (state.category !== 'all' && !menuCategoryCounts.has(state.category)) {
         state.category = 'all';
         state.page = 1;
+        saveState(true);
       }
     }
     setLoading(false);
@@ -692,11 +703,53 @@ function tagLinks(entry) {
   return section;
 }
 
+function themeImageGallery(entry) {
+  const base = safeURL(entry.imageBaseUrl);
+  if (!base || !entry.imagePaths?.length) return null;
+
+  const gallery = node('section', null, 'theme-gallery');
+  gallery.setAttribute('aria-label', 'Theme images');
+  const controls = node('div', null, 'theme-gallery-controls');
+  const label = node('label', `Theme images (${entry.imagePaths.length})`);
+  const picker = node('select');
+  entry.imagePaths.forEach((file, index) => picker.add(new Option(file, String(index))));
+  label.append(picker);
+  const navigation = node('div', null, 'theme-gallery-navigation');
+  const previous = node('button', 'Previous');
+  const next = node('button', 'Next');
+  previous.type = next.type = 'button';
+  previous.setAttribute('aria-label', 'Previous theme image');
+  next.setAttribute('aria-label', 'Next theme image');
+  const original = link('Open original ↗', base, true);
+  navigation.append(previous, next, original);
+  controls.append(label, navigation);
+  const figure = node('figure', null, 'theme-gallery-image');
+  gallery.append(controls, figure);
+
+  function selectImage(index) {
+    const file = entry.imagePaths[index];
+    const url = safeURL(file.split('/').map(encodeURIComponent).join('/'), base);
+    picker.value = String(index);
+    previous.disabled = index === 0;
+    next.disabled = index === entry.imagePaths.length - 1;
+    original.href = url;
+    figure.replaceChildren(image(url, `${entry.name} — ${file}`, true));
+  }
+
+  picker.onchange = () => selectImage(Number(picker.value));
+  previous.onclick = () => selectImage(Number(picker.value) - 1);
+  next.onclick = () => selectImage(Number(picker.value) + 1);
+  selectImage(0);
+  return gallery;
+}
+
 function showDetails(entry, files) {
   $('preview-title').textContent = visibleText(entry, entry.name);
   const preview = previewURL(entry);
+  const gallery = themeImageGallery(entry);
   $('pictures').replaceChildren();
-  if (preview) {
+  if (gallery) $('pictures').append(gallery);
+  else if (preview) {
     const figure = node('figure', null, 'preview-figure');
     figure.append(image(preview, entry.name, cheraxPreview(entry)));
     if (entry.previewCaption) {
@@ -831,6 +884,12 @@ async function card(entry) {
     details.onclick = () => showDetails(entry, files);
     actions.append(details);
   }
+  if (entry.imagePaths?.length) {
+    const images = node('button', `Images (${entry.imagePaths.length})`);
+    images.type = 'button';
+    images.onclick = () => showDetails(entry, files);
+    actions.append(images);
+  }
   if (entry.category === 'lua') actions.append(changelogButton(entry));
   info.append(actions);
   if (source || files.length || entry.status === 'in-menu' || pendingDownload(entry)) {
@@ -883,11 +942,13 @@ async function render() {
   if (gameLoading) return;
   const token = ++revision;
   const matches = selectedEntries().filter(matchesFilters);
+  const nenyooThemes = state.menu === 'nenyoo' && state.category === 'themes';
+  const importedTheme = entry => nenyooThemes && entry.source === 'Nenyoo Resources' && previewAllowed(entry);
   matches.sort(state.sort === 'name'
     ? (a, b) => a.name.localeCompare(b.name)
     : state.sort === 'attachments'
       ? (a, b) => (b.attachments || 0) - (a.attachments || 0)
-      : (a, b) => Number(Boolean(b.preview) && previewAllowed(b)) - Number(Boolean(a.preview) && previewAllowed(a)));
+      : (a, b) => Number(importedTheme(b)) - Number(importedTheme(a)) || Number(Boolean(b.preview) && previewAllowed(b)) - Number(Boolean(a.preview) && previewAllowed(a)));
   const pages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
   state.page = Math.min(state.page, pages);
   saveState(true);
@@ -983,7 +1044,7 @@ document.querySelectorAll('[data-game]').forEach(button => {
 });
 $('menu').onchange = () => {
   const selected = $('menu').value;
-  if (rememberedGtaMenu() && menuSystem?.MENUS.some(menu => menu.id === selected && !menu.deferred)) rememberGtaMenu(selected);
+  if (state.game === 'gta5' && rememberedGtaMenu() && menuSystem?.MENUS.some(menu => menu.id === selected && !menu.deferred)) rememberGtaMenu(selected);
   selectResourceGame(state.game, selected);
 };
 $('edition').onchange = () => {

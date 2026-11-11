@@ -13,7 +13,8 @@ const headAd = '<script data-cfasync="false" src="https://accountut.com/1/21bac2
 
 function placeHeadAd(html) {
   if (!html.includes(headAd)) return html;
-  return html.replace(headAd + '\n', '').replace('</head>', headAd + '\n</head>');
+  return html.replaceAll(headAd + '\r\n', '').replaceAll(headAd + '\n', '').replaceAll(headAd, '')
+    .replace('</head>', headAd + '\n</head>');
 }
 const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
@@ -56,6 +57,9 @@ const CATEGORIES = {
   configs: { name: 'Configs', words: ['configuration profiles', 'saved settings', 'config presets'], description: 'Browse settings profiles and their original menu requirements. Back up your current configuration and use a profile made for the same game and supported build.' },
   lua: { name: 'Lua scripts', words: ['Lua scripts', 'menu Lua', 'scripting'], description: 'Browse Lua script listings for the selected menu. Check the required menu API and download availability; scripts are not interchangeable between menu runtimes.' },
   languages: { name: 'Languages', words: ['translations', 'language files', 'localization'], description: 'Browse translation and language catalogs. Match the original menu, game and host build, and preserve existing custom language overrides.' },
+  'loader-translations': { name: 'Loader translations', words: ['launcher translations', 'loader languages'], description: 'Browse translations for the Nenyoo launcher used by GTA 5 and RDR2.' },
+  fonts: { name: 'Fonts', words: ['interface fonts', 'typefaces'], description: 'Browse fonts bundled with Nenyoo for this game.' },
+  emotes: { name: 'Emote audio', words: ['emote audio', 'emote sounds'], description: 'Browse audio files bundled with Nenyoo emotes.' },
   misc: { name: 'Miscellaneous', words: ['HUD presets', 'resource files'], description: 'Browse additional resource files for the selected menu. Read the item details for its format, required version and installation steps.' },
   'mod-menus': { name: 'Lua Menus', words: ['Lua menus', 'menu screenshots'], description: 'Browse Lua menu listings and screenshots. Each listing shows whether a download is available.' },
   triggers: { name: 'Triggers', words: ['triggers'], description: 'Browse trigger resources and their stated requirements.' },
@@ -64,8 +68,8 @@ const CATEGORIES = {
   'dotnet-mods': { name: '.NET mods', words: ['dotnet mods', 'ScriptHookVDotNet', 'C# scripts'], description: 'Browse .NET game mods and their original requirements. Use the matching script runtime and follow the author’s installation instructions.' }
 };
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const queryURL = (game, category, q, menu = 'scooby', edition) => '/resources/?' + new URLSearchParams({ game, ...(game === 'gta5' ? { menu: menus.menuFor(game, menu) } : {}), ...(category ? { category } : {}), ...(q ? { q } : {}), ...(edition ? { edition } : {}) });
-const route = (game, category, menu = 'scooby') => `/resources/${game}/${game === 'gta5' && menus.menuFor(game, menu) !== 'scooby' ? menus.menuFor(game, menu) + '/' : ''}${category ? category + '/' : ''}`;
+const queryURL = (game, category, q, menu = 'scooby', edition) => '/resources/?' + new URLSearchParams({ game, ...(menus.menusFor(game).length > 1 ? { menu: menus.menuFor(game, menu) } : {}), ...(category ? { category } : {}), ...(q ? { q } : {}), ...(edition ? { edition } : {}) });
+const route = (game, category, menu = 'scooby') => `/resources/${game}/${menus.menuFor(game, menu) !== 'scooby' ? menus.menuFor(game, menu) + '/' : ''}${category ? category + '/' : ''}`;
 function read(relative) { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); }
 function tagsFor(item, menu) {
   const taxonomy = path.join(ROOT, 'resources/taxonomy.js');
@@ -143,7 +147,8 @@ function buildData() {
   const primary = [
     ...library.items.filter(item => item.category !== 'lua').map(item => ({ ...item, ...libraryOverrides.get(item.id), id: item.id })),
     ...extra.filter(item => item.category !== 'lua' || approvedLua(item)),
-    ...gtaEditionCatalog.items
+    ...gtaEditionCatalog.items,
+    ...read('community/data/nenyoo.json').items
   ];
   const sourceUrls = new Set(primary.filter(item => item.game === 'gta5' && item.status !== 'author-hosted' && item.sourceUrl).map(item => item.sourceUrl));
   const items = [...new Map([...primary, ...gtaAddonCatalog.items.filter(item => !sourceUrls.has(item.sourceUrl))]
@@ -168,7 +173,7 @@ function buildData() {
   const pages = [];
   for (const [game, config] of Object.entries(GAMES)) {
     const allGameItems = items.filter(item => item.game === game);
-    const availableMenus = menus.MENUS.filter(menu => !menu.deferred && (menu.id === 'scooby' || (game === 'gta5' && allGameItems.some(item => menus.supports(item, menu.id)))));
+    const availableMenus = menus.menusFor(game).filter(menu => !menu.deferred && (menu.id === 'scooby' || allGameItems.some(item => menus.supports(item, menu.id))));
     for (const selectedMenu of availableMenus) {
       const menu = selectedMenu.id, menuName = selectedMenu.name;
       const gameItems = allGameItems.filter(item => menus.supports(item, menu));
@@ -187,6 +192,10 @@ function buildData() {
         const clickUI = candidates.filter(item => item.uiStyle === 'ClickUI' && menus.compatibleWith(item, 'scooby')).slice(0, 2);
         candidates = [...new Set([...clickUI, ...candidates])];
       }
+      if (menu === 'nenyoo' && category === 'themes') {
+        const sourceThemes = candidates.filter(item => item.source === 'Nenyoo Resources' && hasPreview(item));
+        candidates = [...new Set([...sourceThemes, ...candidates])];
+      }
       if (!category) {
         const first = categories.map(group => candidates.find(item => hasCategory(item, group.id))).filter(Boolean);
         candidates = [...new Map([...first, ...candidates].map(item => [item.id, item])).values()];
@@ -195,7 +204,7 @@ function buildData() {
       const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category, menu).name : 'Resources';
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
-      const scopeName = `${config.name}${game === 'gta5' ? ' ' + menuName : ''}`;
+      const scopeName = `${config.name}${availableMenus.length > 1 ? ' ' + menuName : ''}`;
       const redmGraphics = game === 'redm' && category === 'graphics-packs';
       const title = redmGraphics ? 'RedM Graphics Packs for PvP, RP & Cinematic Play | Scooby' :
         category ? `${scopeName} ${label}${pendingOnly ? ' — Coming Soon' : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — Coming Soon' : ' & Downloads'} — Scooby`;
@@ -203,7 +212,7 @@ function buildData() {
       const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
         group.id === 'graphics-packs' && game === 'redm' ? group.words : group.words.slice(0, 2));
       const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style].flat()).filter(Boolean))];
-      const topics = game === 'gta5'
+      const topics = availableMenus.length > 1
         ? (category ? [category] : categories.map(group => group.id)).map(id => menuTopic(menu, id)).filter(Boolean)
         : [];
       const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
@@ -220,7 +229,7 @@ function buildData() {
         : category ? `${scopeName} resources. ${firstSentence}`
         : !gameItems.length ? `${config.name} resource installation and setup guides from Scooby. No downloads are published in this collection yet.`
         : menu === 'scooby' ? config.intro
-        : `Browse ${menuName} resources for GTA 5, including ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}. Check formats and install guides.`;
+        : `Browse ${menuName} resources for ${config.name}, including ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}. Check formats and install guides.`;
       const graphicsTopics = game === 'redm' && (!category || redmGraphics)
         ? REDM_GRAPHICS_TOPICS.filter(topic => subset.some(item => redmGraphicsTopics(item).includes(topic))) : [];
       pages.push({ file: route(game, category, menu).slice(1) + 'index.html', url: SITE + route(game, category, menu), game, menu, menuName, category, name: label, title, description, keywords,
@@ -235,21 +244,22 @@ function buildData() {
 function renderPage(page) {
   const game = GAMES[page.game];
   const gameLinks = Object.entries(GAMES).map(([id, config]) => `<a href="${route(id, undefined, id === page.game ? page.menu : 'scooby')}"${id === page.game ? ' aria-current="page"' : ''}><img src="${config.logo}" alt="" width="38" height="28"><span>${config.name}</span></a>`).join('');
-  const menuLinks = page.game === 'gta5' ? `<nav class="resource-menus" aria-label="GTA 5 menu resources">${page.availableMenus.map(menu => `<a href="${route(page.game, undefined, menu.id)}"${menu.id === page.menu ? ' aria-current="page"' : ''}>${escape(menu.name)}</a>`).join('')}</nav>` : '';
+  const menuChoice = page.availableMenus.length > 1;
+  const menuLinks = menuChoice ? `<nav class="resource-menus" aria-label="${game.name} menu resources">${page.availableMenus.map(menu => `<a href="${route(page.game, undefined, menu.id)}"${menu.id === page.menu ? ' aria-current="page"' : ''}>${escape(menu.name)}</a>`).join('')}</nav>` : '';
   const gameFilters = page.game === 'l4d' ? `<nav class="resource-menus" aria-label="Filter by Left 4 Dead game">${Object.entries(editions.group('l4d').options).map(([edition, label]) =>
     `<a href="${escape(queryURL(page.game, page.category, undefined, page.menu, edition))}">${escape(label)} resources</a>`).join('')}</nav>` : '';
   const byId = new Map(page.categories.map(category => [category.id, category]));
   const roleplayGroups = roleplayCategoryGroups(page.game, [...byId.keys()]);
   const categoryChoice = category => {
     const href = category.count ? route(page.game, category.id, page.menu) : queryURL(page.game, category.id, undefined, page.menu);
-    const label = (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || (category.id === 'addon-packs' ? 'Packs' : category.name.replace(/^Addon /, ''));
+    const label = menus.categoryLabel(page.menu, category.id) || (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || (category.id === 'addon-packs' ? 'Packs' : category.name.replace(/^Addon /, ''));
     const current = category.id === page.category ? ' aria-current="page"' : '';
     const count = category.count ? ` <span>${category.count.toLocaleString('en-GB')}</span>` : '';
     return `<a href="${escape(href)}"${current}>${escape(label)}${count}</a>`;
   };
   const fileCategories = new Set(['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc']);
-  const gtaGroups = page.game === 'gta5' ? menus.gtaCategoryGroups(page.menu, byId.keys()) : null;
-  const groups = gtaGroups ? gtaGroups.map(([label, ids]) => [label, ids.map(id => byId.get(id))])
+  const menuGroups = menuChoice ? menus.categoryGroups(page.menu, byId.keys()) : null;
+  const groups = menuGroups ? menuGroups.map(([label, ids]) => [label, ids.map(id => byId.get(id))])
     : roleplayGroups ? roleplayGroups.map(([label, ids]) => [
     label, ids.map(id => byId.get(id) || { id, ...CATEGORIES[id], count: 0 })
   ]) : [
@@ -276,7 +286,8 @@ function renderPage(page) {
     const suffix = extension ? ` <span class="resource-extension ext-${extension.slice(1)}">${escape(extension)}</span>` : '';
     const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.versionLabel || file.name) : ' ↓'}</button>`;
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
-    const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${serverRecipe ? 'Download from source ↗' : 'Get from the author ↗'}</a>` : '';
+    const authorLabel = item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : serverRecipe ? 'Download from source ↗' : 'Get from the author ↗';
+    const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${authorLabel}</a>` : '';
     const install = authorHosted && /^https:\/\//.test(item.installUrl || '') ? `<p><a href="${escape(item.installUrl)}" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p>` : '';
     const author = item.author || (item.game === 'l4d' ? item.credits : '');
     const credit = authorHosted && author ? `<p>By ${escape(author)}</p>` : '';
@@ -296,19 +307,24 @@ function renderPage(page) {
     const changelog = item.category === 'lua' || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
     const requirementText = item.requirementLabel || (item.game === 'l4d' ? item.compatibility : '') || (!menus.compatibleWith(item, page.menu) ? 'Requires the original menu format and a compatible loader or importer.' : '');
     const requirement = requirementText ? `<p class="resource-requirement">${escape(requirementText)}</p>` : '';
+    const gallery = item.imagePaths?.length && /^https:\/\//.test(item.imageBaseUrl || '')
+      ? `<details class="resource-inline-details"><summary>Images (${item.imagePaths.length})</summary><ul>${item.imagePaths.map(file => {
+        const url = item.imageBaseUrl + file.split('/').map(encodeURIComponent).join('/');
+        return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(file)}</a></li>`;
+      }).join('')}</ul></details>` : '';
     const setup = serverRecipe && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
     const type = serverRecipe ? 'txAdmin recipe' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
-    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(type)}</p>${badge}${access}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(tag => `<a href="${escape(queryURL(page.game, item.category, tag, page.menu))}">${escape(tag)}</a>`).join(' ')}</p>${actions}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
+    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(type)}</p>${badge}${access}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(tag => `<a href="${escape(queryURL(page.game, item.category, tag, page.menu))}">${escape(tag)}</a>`).join(' ')}</p>${actions}${gallery}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
   }).join('\n');
   const collection = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'CollectionPage', '@id': page.url + '#collection', url: page.url, name: page.title, description: page.description, keywords: page.keywords, inLanguage: 'en', about: { '@type': 'VideoGame', name: game.full }, isPartOf: { '@id': SITE + '/resources/#collection' }, mainEntity: { '@id': page.url + '#resources' } },
-    { '@type': 'ItemList', '@id': page.url + '#resources', name: `${game.name} ${page.game === 'gta5' ? page.menuName + ' ' : ''}${page.name}`, numberOfItems: page.samples.length, itemListElement: page.samples.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: resourceName(item).visible, url: page.url + '#resource-' + item.id.replace(/[^a-z0-9_-]/gi, '-') })) }
+    { '@type': 'ItemList', '@id': page.url + '#resources', name: `${game.name} ${menuChoice ? page.menuName + ' ' : ''}${page.name}`, numberOfItems: page.samples.length, itemListElement: page.samples.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: resourceName(item).visible, url: page.url + '#resource-' + item.id.replace(/[^a-z0-9_-]/gi, '-') })) }
   ] };
-  const scopeName = game.name + (page.game === 'gta5' ? ' ' + page.menuName : '');
+  const scopeName = game.name + (menuChoice ? ' ' + page.menuName : '');
   const breadcrumb = page.menu !== 'scooby' ? `<a href="${route(page.game)}">${game.name}</a><span>/</span>${page.category ? `<a href="${route(page.game, undefined, page.menu)}">${escape(page.menuName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(page.menuName)}</span>`}` : page.category ? `<a href="${route(page.game)}">${escape(scopeName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(scopeName)}</span>`;
   const heading = scopeName + ' ' + (page.category ? page.name : 'resources');
-  const guideURL = `/resources/guides/?game=${page.game}${page.game === 'gta5' ? '&menu=' + page.menu : ''}${page.category ? '&category=' + page.category : ''}`;
-  const source = page.game === 'gta5' ? page.availableMenus.find(menu => menu.id === page.menu)?.source : undefined;
+  const guideURL = `/resources/guides/?game=${page.game}${menuChoice ? '&menu=' + page.menu : ''}${page.category ? '&category=' + page.category : ''}`;
+  const source = page.availableMenus.find(menu => menu.id === page.menu)?.source;
   const sourceLink = source ? `<a class="menu-source-link" href="${escape(source.url)}">${escape(source.label)}</a>` : '';
   const clickUILink = page.game === 'gta5' && page.menu === 'scooby' && page.category === 'themes'
     ? ` <a class="resource-open" href="${escape(queryURL('gta5', 'themes') + '&ui=clickui')}">Browse Scooby ClickUI themes →</a>`
@@ -384,11 +400,12 @@ function build({ gta5Only = false } = {}) {
 </html>
 `);
   }
-  const gtaMenus = data.pages.filter(page => page.game === 'gta5' && !page.category);
-  const guideCategories = Object.fromEntries(gtaMenus.map(page => [
-    page.menu, menus.gtaCategoryGroups(page.menu, page.categories.map(category => category.id)).flatMap(([, ids]) => ids)
-  ]));
-  fs.writeFileSync(path.join(ROOT, 'resources/gta5/categories.json'), JSON.stringify(guideCategories, null, 2) + '\n');
+  for (const game of gta5Only ? ['gta5'] : ['gta5', 'rdr2']) {
+    const guideCategories = Object.fromEntries(data.pages.filter(page => page.game === game && !page.category).map(page => [
+      page.menu, menus.categoryGroups(page.menu, page.categories.map(category => category.id)).flatMap(([, ids]) => ids)
+    ]));
+    fs.writeFileSync(path.join(ROOT, `resources/${game}/categories.json`), JSON.stringify(guideCategories, null, 2) + '\n');
+  }
   const rootFile = path.join(ROOT, 'resources/index.html');
   let rootHtml = fs.readFileSync(rootFile, 'utf8').replace(/<script\b[^>]*id="resource-collection-data"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   const rootUrl = SITE + '/resources/';

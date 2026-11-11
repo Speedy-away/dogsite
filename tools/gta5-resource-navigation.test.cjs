@@ -69,6 +69,53 @@ test('Original Cherax ClickGUI packages appear only in the Cherax collection', (
   assert(cheraxPage?.samples.some(theme => clickGuiPackages.includes(theme)));
 });
 
+test('Nenyoo source assets stay with their game and menu, and RDR2 links both collections', () => {
+  const snapshot = require('../community/data/nenyoo.json');
+  const imported = items.filter(item => item.source === 'Nenyoo Resources');
+  assert.equal(imported.length, snapshot.items.length);
+  assert(imported.some(item => item.game === 'gta5' && item.category === 'themes' && item.previewVerified && item.status === 'author-hosted'));
+  for (const item of imported) {
+    assert(menus.supports(item, 'nenyoo') && !menus.supports(item, 'scooby'), item.id);
+    const source = new URL(item.sourceUrl);
+    const folder = item.category === 'loader-translations' ? 'Loader' : item.game === 'rdr2' ? 'RDR2' : 'GTAV';
+    assert(source.pathname.includes(`/${snapshot.commit}/${folder}/`), item.id);
+  }
+  assert.deepEqual(menus.menusFor('rdr2').map(menu => menu.id), ['scooby', 'nenyoo']);
+  const rdr2 = pages.filter(page => page.game === 'rdr2');
+  for (const menu of ['scooby', 'nenyoo']) {
+    const home = rdr2.find(page => page.menu === menu && !page.category);
+    const html = fs.readFileSync(path.join(root, home.file), 'utf8');
+    assert(html.includes('href="/resources/rdr2/"') && html.includes('href="/resources/rdr2/nenyoo/"'));
+    assert.deepEqual(categorySidebar(html), menus.categoryGroups(menu, home.categories.map(category => category.id))
+      .map(([label, ids]) => [label, ids.map(id => route('rdr2', id, menu))]));
+    const sourceCategory = menu === 'nenyoo' ? 'loader-translations' : 'outfits';
+    assert(rdr2.some(page => page.menu === menu && page.category === sourceCategory && page.samples.some(item => item.files.length)));
+  }
+  const nenyoo = gtaPages.find(page => page.menu === 'nenyoo' && !page.category);
+  const groups = menus.categoryGroups('nenyoo', nenyoo.categories.map(category => category.id));
+  assert.deepEqual(groups.map(([label]) => label), ['Nenyoo Files', 'Nenyoo Resources', 'Addons']);
+  assert(groups[1][1].indexOf('addon-packs') < groups[1][1].indexOf('asi-mods'));
+});
+
+test('Nenyoo theme galleries use the original artwork and retain their catalog previews', () => {
+  const snapshot = require('../community/data/nenyoo.json');
+  const themes = snapshot.items.filter(item => item.category === 'themes');
+  for (const theme of themes) {
+    const folder = new URL(theme.imageBaseUrl);
+    assert.equal(folder.hostname, 'raw.githubusercontent.com');
+    assert(folder.pathname.includes(`/${snapshot.commit}/GTAV/Themes/`));
+    assert(theme.imagePaths.length, theme.name);
+    assert.equal(new Set(theme.imagePaths).size, theme.imagePaths.length, theme.name);
+    assert.equal(theme.preview, theme.imageBaseUrl + theme.imagePaths[0].split('/').map(encodeURIComponent).join('/'));
+  }
+  const theme = themes.find(item => item.name === '2Take1');
+  assert(theme.imagePaths.includes('textures/header.bmp'));
+  const page = gtaPages.find(page => page.menu === 'nenyoo' && page.category === 'themes');
+  const html = fs.readFileSync(path.join(root, page.file), 'utf8');
+  assert(html.includes(`Images (${theme.imagePaths.length})`));
+  assert(html.includes(`${theme.imageBaseUrl}textures/header.bmp`));
+});
+
 test('Old DLC paths redirect to the matching package collection', () => {
   assert(!gtaPages.some(page => page.category === 'dlc'));
   for (const [menu, category] of [['scooby', 'addon-packs'], ['nenyoo', 'addon-packs'], ['cherax', 'addon-packs'], ['xforce', 'addon-vehicles']]) {

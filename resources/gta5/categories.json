@@ -28,6 +28,9 @@
     "configs",
     "lua",
     "languages",
+    "loader-translations",
+    "fonts",
+    "emotes",
     "misc",
     "vehicles",
     "modded",
@@ -36,14 +39,14 @@
     "textures",
     "paintjobs",
     "liveries",
+    "addon-packs",
     "asi-mods",
     "addon-vehicles",
     "addon-peds",
     "addon-objects",
     "addon-animations",
     "addon-maps",
-    "addon-clothing",
-    "addon-packs"
+    "addon-clothing"
   ],
   "cherax": [
     "themes",

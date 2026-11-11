@@ -13,11 +13,12 @@ test('resource guides retain the selected menu even when a shared item came from
   const script = fs.readFileSync(path.join(ROOT, 'resources/catalog.js'), 'utf8');
   const implementation = script.match(/function guideURL\(entry\) \{[\s\S]+?(?=\nfunction link\()/)?.[0];
   assert(implementation);
-  for (const selected of ['scooby', 'nenyoo', 'stand']) {
-    const context = { URL, URLSearchParams, state: { game: 'gta5', category: 'themes', menu: selected }, location: { href: 'https://scoobymenu.cc/resources/' } };
+  for (const [game, selected] of [['gta5', 'scooby'], ['gta5', 'nenyoo'], ['gta5', 'stand'], ['rdr2', 'nenyoo']]) {
+    const context = { URL, URLSearchParams, hasMenuChoice: game => menus.menusFor(game).length > 1,
+      state: { game, category: 'themes', menu: selected }, location: { href: 'https://scoobymenu.cc/resources/' } };
     const guide = vm.runInNewContext(`(${implementation})`, context);
     for (const prefix of ['community', 'resources']) {
-      const address = new URL(guide({ guide: `/${prefix}/guides/?game=gta5&menu=cherax&category=themes` }), context.location.href);
+      const address = new URL(guide({ guide: `/${prefix}/guides/?game=${game}&menu=cherax&category=themes` }), context.location.href);
       assert.equal(address.pathname, '/resources/guides/');
       assert.equal(address.searchParams.get('menu'), selected);
       assert.equal(address.searchParams.get('category'), 'themes');

@@ -105,6 +105,10 @@ function expectedInventory() {
     assert(!items.has(item.id), `Reviewed listing duplicates ${item.id}`);
     items.set(item.id, item);
   }
+  for (const item of json('community/data/nenyoo.json').items) {
+    assert(!items.has(item.id), `Nenyoo listing duplicates ${item.id}`);
+    items.set(item.id, item);
+  }
   const downloadSources = new Set([...items.values()].filter(item => item.game === 'gta5' && item.status !== 'author-hosted').map(item => item.sourceUrl));
   for (const item of json('community/data/gta5-addons.json').items) {
     if (downloadSources.has(item.sourceUrl)) continue;
@@ -125,7 +129,7 @@ function expectedInventory() {
       ? { ...original, category: original.sourceMenu === 'xforce' ? 'addon-vehicles' : 'addon-packs' }
       : original;
     assert(GAMES.includes(item.game), `Unsupported resource game: ${item.game}`);
-    for (const menu of menus.MENUS.filter(menu => !menu.deferred && (menu.id === 'scooby' || item.game === 'gta5'))) {
+    for (const menu of menus.menusFor(item.game).filter(menu => !menu.deferred)) {
       if (!menus.supports(item, menu.id)) continue;
       const key = `${item.game}:${menu.id}`;
       if (!scopes.has(key)) scopes.set(key, { game: item.game, menu: menu.id, total: 0, categories: new Map(), items: [] });

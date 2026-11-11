@@ -50,6 +50,9 @@
     configs: ['configs', 'config', 'configuration', 'configurations', 'settings', 'presets'],
     lua: ['lua', 'lua scripts', 'scripts', 'script'],
     languages: ['languages', 'language', 'translations', 'translation', 'localization', 'localisation'],
+    'loader-translations': ['launcher translations', 'loader languages', 'localization'],
+    fonts: ['fonts', 'font', 'typefaces'],
+    emotes: ['emote audio', 'emote sounds'],
     misc: ['misc', 'miscellaneous', 'resources']
   };
   const UI_ALIASES = {
@@ -73,7 +76,8 @@
     'addon-objects': 'object addons', 'addon-maps': 'map addons',
     'addon-animations': 'animation addons', 'addon-clothing': 'clothing addons',
     textures: 'textures', paintjobs: 'paintjobs', liveries: 'liveries',
-    wallpapers: 'wallpapers', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods'
+    wallpapers: 'wallpapers', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods',
+    'loader-translations': 'loader translations', fonts: 'fonts', emotes: 'emote audio'
   };
   const REDM_GRAPHICS_TOPICS = [
     { name: 'PvP graphics packs', query: 'pvp graphics packs', match: /\bpvp\b/, tags: ['PvP packs', 'PvP graphics packs'] },
@@ -130,7 +134,7 @@
       if (['enhanced', 'both'].includes(item.editionSupport)) add('enhanced');
       if (item.editionSupport === 'both') add('both');
     }
-    if (game === 'gta5') {
+    if (game === 'gta5' || game === 'rdr2') {
       const origin = MENU_NAMES[normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '')];
       if (origin) {
         add(origin);
