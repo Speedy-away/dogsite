@@ -1,0 +1,158 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 100,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "notify_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 171,
+            "green" : 117,
+            "red" : 72,
+            "smoothness" : 5
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 39,
+            "green" : 36,
+            "red" : 31
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 171,
+            "green" : 117,
+            "red" : 72
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 39,
+            "green" : 36,
+            "red" : 31
+         },
+         "custom_name" : "C:/X-Folder/textures/gw.png",
+         "gif_delay" : 5,
+         "gif_index" : 0,
+         "image_index" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 171,
+            "green" : 117,
+            "red" : 72
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 120,
+            "green" : 57,
+            "red" : 32
+         }
+      },
+      "max_options" : 13,
+      "notify_x" : 0,
+      "notify_y" : 0,
+      "pos_x" : 0.66666662693023682,
+      "pos_y" : 0.15384615957736969,
+      "show_warning" : true,
+      "show_watermark" : true,
+      "size" : {
+         "header_y" : 0.14999997615814209,
+         "multiplier" : 0.86500000953674316,
+         "option_size_x" : 0.25500082969665527,
+         "option_size_y" : 0.026000000536441803
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.31000000238418579,
+         "text_size_y" : 0.28900027275085449,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "scrollbar" : {
+            "alpha" : 153,
+            "blue" : 77,
+            "green" : 64,
+            "red" : 51
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 230,
+            "green" : 230,
+            "red" : 230
+         },
+         "title" : {
+            "alpha" : 222,
+            "blue" : 193,
+            "green" : 193,
+            "red" : 71
+         }
+      }
+   }
+}

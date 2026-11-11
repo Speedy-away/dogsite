@@ -1,0 +1,161 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 84,
+            "green" : 69,
+            "red" : 66
+         },
+         "notify_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "scroller" : {
+            "alpha" : 226,
+            "blue" : 179,
+            "green" : 156,
+            "red" : 154,
+            "smoothness" : 2
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 84,
+            "green" : 69,
+            "red" : 66
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 84,
+            "green" : 69,
+            "red" : 66
+         },
+         "custom_name" : "C:/X-Folder/textures/KeyboardForce.jpeg",
+         "gif_delay" : 5,
+         "gif_index" : 0,
+         "image_index" : 13,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 32,
+            "green" : 30,
+            "red" : 29
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         }
+      },
+      "keyboard_x" : 0.5,
+      "keyboard_y" : 0.95000004768371582,
+      "max_options" : 27,
+      "notify_right" : true,
+      "notify_x" : 0.97000002861022949,
+      "notify_y" : 0.45000052452087402,
+      "pos_x" : 0.064534880220890045,
+      "pos_y" : 0.29236111044883728,
+      "show_warning" : true,
+      "show_watermark" : true,
+      "size" : {
+         "header_y" : 0.16500000655651093,
+         "multiplier" : 0.66200262308120728,
+         "option_size_x" : 0.25700080394744873,
+         "option_size_y" : 0.032999999821186066
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         },
+         "text_size_x" : 0.31000000238418579,
+         "text_size_y" : 0.31000000238418579,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 50,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "scrollbar" : {
+            "alpha" : 0,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 56,
+            "green" : 88,
+            "red" : 185
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "title" : {
+            "alpha" : 50,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         }
+      }
+   }
+}

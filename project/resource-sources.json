@@ -53,7 +53,7 @@
     {
       "id": "menu-share-manifests",
       "kind": "menus",
-      "paths": ["project/community-menu-sources/cherax.json", "project/community-menu-sources/stand.json", "project/community-menu-sources/stand-discord-reviewed.json", "project/community-menu-sources/xforce.json", "project/community-menu-sources/redm.json", "project/community-menu-sources/biggerscript-public.json", "project/community-menu-sources/gta5-addon-packs.json", "project/community-menu-sources/cherax-lua-enrichment.json", "project/community-menu-sources/cherax-public-audit.json", "project/community-menu-sources/cherax-network-checks.json", "project/community-menu-sources/menu-image-checks.json", "project/community-marketplace", "../cherax-luas/luas"]
+      "paths": ["project/community-menu-sources/cherax-site.json", "project/community-menu-sources/cherax.json", "project/community-menu-sources/stand.json", "project/community-menu-sources/stand-discord-reviewed.json", "project/community-menu-sources/stand-submitted.json", "project/community-menu-sources/xforce.json", "project/community-menu-sources/yim.json", "assets/downloads/yim", "assets/downloads/stand", "assets/images/resource-previews/yim", "project/community-menu-sources/redm.json", "project/community-menu-sources/biggerscript-public.json", "project/community-menu-sources/gta5-addon-packs.json", "project/community-menu-sources/cherax-lua-enrichment.json", "project/community-menu-sources/cherax-public-audit.json", "project/community-menu-sources/cherax-network-checks.json", "project/community-menu-sources/menu-image-checks.json", "project/community-marketplace", "../cherax-luas/luas"]
     },
     {
       "id": "cs2-gamebanana-skyboxes",
@@ -75,6 +75,54 @@
       "kind": "menus",
       "games": ["fivem"],
       "paths": ["project/community-menu-sources/fivem-server-recipes.json", "project/community-menu-sources/fivem-lua-menus.json"]
+    },
+    {
+      "id": "fivem-graphics",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-graphics.json"]
+    },
+    {
+      "id": "fivem-addon-maps",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-addon-maps.json"]
+    },
+    {
+      "id": "fivem-addon-vehicles",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-addon-vehicles.json"]
+    },
+    {
+      "id": "fivem-addon-clothing",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-addon-clothing.json"]
+    },
+    {
+      "id": "fivem-addon-objects",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-addon-objects.json"]
+    },
+    {
+      "id": "fivem-addon-animations",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-addon-animations.json"]
+    },
+    {
+      "id": "fivem-addon-peds",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-addon-peds.json"]
+    },
+    {
+      "id": "fivem-sound-packs",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-sound-packs.json"]
     },
     {
       "id": "resource-inbox",

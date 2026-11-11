@@ -1,0 +1,301 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 36,
+            "green" : 26,
+            "red" : 33
+         },
+         "notify_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 79,
+            "green" : 200,
+            "red" : 254,
+            "smoothness" : 8
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "visual_options" : 14
+      },
+      "display" : {
+         "chat" : {
+            "pos_x" : 0.64999997615814209,
+            "pos_y" : 0.75999999046325684,
+            "size_x" : 0.2199999988079071
+         },
+         "fps" : {
+            "pos_x" : 0.98000001907348633,
+            "pos_y" : 0.0099999997764825821
+         },
+         "log" : {
+            "pos_x" : 0.87999999523162842,
+            "pos_y" : 0.75999999046325684,
+            "size_x" : 0.2199999988079071
+         }
+      },
+      "extended" : {
+         "c_glyph_range" : true,
+         "font" : "",
+         "font_size" : 16,
+         "footer_box" : {
+            "alpha1" : 255,
+            "alpha2" : 255,
+            "alpha3" : 255,
+            "alpha4" : 255,
+            "blue1" : 36,
+            "blue2" : 48,
+            "blue3" : 48,
+            "blue4" : 36,
+            "enabled" : true,
+            "green1" : 26,
+            "green2" : 46,
+            "green3" : 46,
+            "green4" : 26,
+            "red1" : 33,
+            "red2" : 97,
+            "red3" : 97,
+            "red4" : 33
+         },
+         "footer_line" : {
+            "alpha1" : 255,
+            "alpha2" : 255,
+            "alpha3" : 255,
+            "alpha4" : 255,
+            "blue1" : 85,
+            "blue2" : 79,
+            "blue3" : 79,
+            "blue4" : 85,
+            "enabled" : true,
+            "green1" : 147,
+            "green2" : 200,
+            "green3" : 200,
+            "green4" : 147,
+            "red1" : 233,
+            "red2" : 254,
+            "red3" : 254,
+            "red4" : 233
+         },
+         "header_box" : {
+            "alpha1" : 255,
+            "alpha2" : 255,
+            "alpha3" : 255,
+            "alpha4" : 255,
+            "blue1" : 36,
+            "blue2" : 48,
+            "blue3" : 48,
+            "blue4" : 36,
+            "enabled" : true,
+            "green1" : 26,
+            "green2" : 46,
+            "green3" : 46,
+            "green4" : 26,
+            "red1" : 33,
+            "red2" : 97,
+            "red3" : 97,
+            "red4" : 33
+         },
+         "header_line" : {
+            "alpha1" : 255,
+            "alpha2" : 255,
+            "alpha3" : 255,
+            "alpha4" : 255,
+            "blue1" : 85,
+            "blue2" : 79,
+            "blue3" : 79,
+            "blue4" : 85,
+            "enabled" : true,
+            "green1" : 147,
+            "green2" : 200,
+            "green3" : 200,
+            "green4" : 147,
+            "red1" : 233,
+            "red2" : 254,
+            "red3" : 254,
+            "red4" : 233
+         },
+         "keyboard_line" : {
+            "alpha1" : 255,
+            "alpha2" : 255,
+            "alpha3" : 255,
+            "alpha4" : 255,
+            "blue1" : 85,
+            "blue2" : 79,
+            "blue3" : 79,
+            "blue4" : 85,
+            "enabled" : true,
+            "green1" : 147,
+            "green2" : 200,
+            "green3" : 200,
+            "green4" : 147,
+            "red1" : 233,
+            "red2" : 254,
+            "red3" : 254,
+            "red4" : 233
+         },
+         "offset_y" : 0,
+         "scroller" : {
+            "alpha1" : 255,
+            "alpha2" : 255,
+            "alpha3" : 255,
+            "alpha4" : 255,
+            "blue1" : 79,
+            "blue2" : 85,
+            "blue3" : 85,
+            "blue4" : 79,
+            "enabled" : true,
+            "green1" : 200,
+            "green2" : 147,
+            "green3" : 147,
+            "green4" : 200,
+            "red1" : 254,
+            "red2" : 233,
+            "red3" : 233,
+            "red4" : 254
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 36,
+            "green" : 26,
+            "red" : 33
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 85,
+            "green" : 147,
+            "red" : 233
+         },
+         "max" : false,
+         "never" : false,
+         "smooth" : false
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 36,
+            "green" : 26,
+            "red" : 33
+         },
+         "custom_name" : "C:\\X-Folder\\textures\\mountain.png",
+         "gif_delay" : 5,
+         "gif_index" : 0,
+         "image_index" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 85,
+            "green" : 147,
+            "red" : 233
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 36,
+            "green" : 26,
+            "red" : 33
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         }
+      },
+      "keyboard_x" : 0.5,
+      "keyboard_y" : 0.75,
+      "max_options" : 14,
+      "notify_right" : false,
+      "notify_x" : 0.0099999997764825821,
+      "notify_y" : 0.0099999997764825821,
+      "pos_x" : 0.66600000858306885,
+      "pos_y" : 0.15299999713897705,
+      "show_warning" : false,
+      "show_watermark" : false,
+      "size" : {
+         "header_y" : 0.14990000426769257,
+         "multiplier" : 0.86500000953674316,
+         "option_size_x" : 0.25499999523162842,
+         "option_size_y" : 0.026000000536441803
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.69999998807907104,
+         "text_size_y" : 0.69999998807907104,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 36,
+            "green" : 26,
+            "red" : 33
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         },
+         "scrollbar" : {
+            "alpha" : 153,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         },
+         "scroller" : {
+            "alpha" : 102,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 230,
+            "green" : 230,
+            "red" : 230
+         },
+         "title" : {
+            "alpha" : 222,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         }
+      }
+   }
+}

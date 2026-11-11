@@ -1,0 +1,150 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 100,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 216,
+            "green" : 42,
+            "red" : 110,
+            "smoothness" : 5
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 216,
+            "green" : 42,
+            "red" : 110
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 213,
+            "green" : 197,
+            "red" : 203
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 216,
+            "green" : 42,
+            "red" : 110
+         },
+         "custom_name" : "C:/X-Folder/textures/purple x force000.gif",
+         "gif_delay" : 5,
+         "gif_index" : 0,
+         "image_index" : 14,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 213,
+            "green" : 197,
+            "red" : 203
+         },
+         "type" : 1
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 100,
+            "red" : 255
+         }
+      },
+      "max_options" : 14,
+      "pos_x" : 0.83020836114883423,
+      "pos_y" : 0.10648147761821747,
+      "show_warning" : true,
+      "show_watermark" : false,
+      "size" : {
+         "header_y" : 0.18599998950958252,
+         "multiplier" : 0.86500000953674316,
+         "option_size_x" : 0.34099963307380676,
+         "option_size_y" : 0.031999997794628143
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.31000000238418579,
+         "text_size_y" : 0.31099998950958252,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "scrollbar" : {
+            "alpha" : 255,
+            "blue" : 216,
+            "green" : 42,
+            "red" : 110
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 213,
+            "green" : 197,
+            "red" : 203
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 230,
+            "green" : 230,
+            "red" : 230
+         },
+         "title" : {
+            "alpha" : 255,
+            "blue" : 216,
+            "green" : 42,
+            "red" : 110
+         }
+      }
+   }
+}

@@ -1,0 +1,103 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 167,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 255,
+            "red" : 0
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 101,
+            "red" : 0
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 12,
+            "green" : 255,
+            "red" : 12
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 29,
+            "green" : 29,
+            "red" : 29
+         },
+         "custom_name" : "C:/X-Folder/textures/Geforce.png",
+         "gif_index" : 1,
+         "image_index" : 11,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 12,
+            "green" : 255,
+            "red" : 12
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 120,
+            "green" : 57,
+            "red" : 32
+         }
+      },
+      "max_options" : 14,
+      "pos_x" : 0.6572917103767395,
+      "pos_y" : 0.19537036120891571,
+      "show_warning" : true,
+      "show_watermark" : false,
+      "size" : {
+         "header_y" : 0.15699999034404755,
+         "option_size_x" : 0.31000012159347534,
+         "option_size_y" : 0.032999999821186066
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.31899988651275635,
+         "text_size_y" : 0.33599966764450073,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 101,
+            "red" : 0
+         }
+      }
+   }
+}

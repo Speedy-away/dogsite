@@ -1,0 +1,150 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 220,
+            "blue" : 30,
+            "green" : 30,
+            "red" : 30
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255,
+            "smoothness" : 2
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 100,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 220,
+            "blue" : 30,
+            "green" : 30,
+            "red" : 30
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 30,
+            "green" : 30,
+            "red" : 30
+         },
+         "custom_name" : "C:/X-Folder/textures/blackorange.png",
+         "gif_delay" : 5,
+         "gif_index" : 1,
+         "image_index" : 18,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255
+         }
+      },
+      "max_options" : 30,
+      "pos_x" : 0.59166669845581055,
+      "pos_y" : 0.060833334922790527,
+      "show_warning" : false,
+      "show_watermark" : false,
+      "size" : {
+         "header_y" : 0.16300000250339508,
+         "multiplier" : 0.86500000953674316,
+         "option_size_x" : 0.3329998254776001,
+         "option_size_y" : 0.029000001028180122
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 100,
+            "red" : 255
+         },
+         "text_size_x" : 1,
+         "text_size_y" : 0.26400014758110046,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 100,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 200,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scrollbar" : {
+            "alpha" : 100,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 102,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 160,
+            "red" : 255
+         },
+         "title" : {
+            "alpha" : 255,
+            "blue" : 30,
+            "green" : 30,
+            "red" : 30
+         }
+      }
+   }
+}

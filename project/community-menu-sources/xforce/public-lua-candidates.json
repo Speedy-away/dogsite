@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-11",
+  "sourceMenu": "X-Force",
+  "scope": "Public author Lua candidates; source inspection only, with no runtime compatibility claim.",
+  "policy": {
+    "downloadStatus": "pending",
+    "files": [],
+    "visibleDiscordLinks": false,
+    "previouslyExcludedBrokenExamplesRemainExcluded": true,
+    "releaseDateRule": "Git commit dates are recorded in sourceHistory as commit dates, never as script release dates.",
+    "previewRule": "No script-specific author preview was found. Official menu images are reference evidence only."
+  },
+  "officialMenuReference": {
+    "sourceUrl": "https://xforce.menu/",
+    "imageUrl": "https://xforce.menu/assets/img/menu.png",
+    "kind": "menu-reference",
+    "caption": "Official X-Force menu screenshot; not a preview of any candidate Lua.",
+    "verifiedAt": "2026-11-11",
+    "httpStatus": 200,
+    "contentType": "image/png",
+    "bytes": 97706
+  },
+  "items": [
+    {
+      "id": "gta5-lua-xforce-22s-business-manager",
+      "game": "gta5",
+      "category": "lua",
+      "name": "22's Business Manager",
+      "author": "2230x",
+      "sourceMenu": "X-Force",
+      "supportedMenus": ["X-Force"],
+      "sourceUrl": "https://github.com/2230x/Business-Manager/blob/c525331a69c3b5651a94b08cd7efe3ac8265e8ca/22s_Business_Manager_XForce.lua",
+      "repositoryUrl": "https://github.com/2230x/Business-Manager",
+      "revision": "c525331a69c3b5651a94b08cd7efe3ac8265e8ca",
+      "member": "22s_Business_Manager_XForce.lua",
+      "sourceProvenance": {
+        "type": "public-author-repository",
+        "repositoryDescription": "Business manager for XForce GTA 5 Enhanced PC",
+        "scriptTitle": "22's Business Manager - X-Force Lua",
+        "bytes": 16808,
+        "sha256": "f215e93873e267f68d2e63af439c9ba4150b78dad8058380d11f52c0d89a273f",
+        "upstreamNote": "The author describes this as a conversion of a supplied YimMenuV2 script. This record covers the X-Force conversion only.",
+        "license": null,
+        "licenseNote": "The inspected repository tree contains only the Lua file; no license or redistribution grant was established."
+      },
+      "version": null,
+      "versionNote": "No explicit Lua version or tagged release was found. The pinned source revision identifies this inspection.",
+      "collectionStatus": "current",
+      "collectionStatusNote": "Public source uploaded in 2026; this does not establish current runtime compatibility.",
+      "verificationStatus": "source-inspected-runtime-unverified",
+      "description": "Author's X-Force conversion of a business-management Lua with restock, business and sale controls.",
+      "tags": ["xforce", "x-force", "lua", "business manager", "enhanced", "2230x", "source inspected", "pending download"],
+      "requirements": ["X-Force Lua host and its original API", "GTA V Enhanced, as stated by the repository author", "Game-build-specific business offsets and tunables require verification"],
+      "compatibility": "Original X-Force Lua API required. This conversion does not establish YimMenu, Scooby, Nenyoo, Stand or Cherax compatibility. The author states that supplied business offsets and tunables were preserved and asks for individual function testing.",
+      "apiEvidence": ["g_lua.register", "g_gui.add_toast", "g_util.joaat", "g_util.yield", "g_tunables.set_int", "SCRIPT.GET_GLOBAL_I", "SCRIPT.SET_GLOBAL_I", "SCRIPT.GET_LOCAL_I", "SCRIPT.SET_LOCAL_I", "STATS", "PLAYER"],
+      "sourceHistory": [
+        {
+          "date": "2026-09-16",
+          "dateType": "git-commit",
+          "timestamp": "2026-09-16T18:58:38Z",
+          "revision": "c525331a69c3b5651a94b08cd7efe3ac8265e8ca",
+          "sourceUrl": "https://github.com/2230x/Business-Manager/commit/c525331a69c3b5651a94b08cd7efe3ac8265e8ca",
+          "commitMessage": "Add files via upload",
+          "note": "Single public repository commit observed; not a separately declared script release date."
+        }
+      ],
+      "changelog": [],
+      "downloadStatus": "pending",
+      "files": []
+    },
+    {
+      "id": "gta5-lua-xforce-anditv21-dadmenuproto",
+      "game": "gta5",
+      "category": "lua",
+      "name": "DadMenuProTo21.1.69",
+      "author": "anditv21",
+      "sourceMenu": "X-Force",
+      "supportedMenus": ["X-Force"],
+      "sourceUrl": "https://github.com/anditv21/x-luas/blob/536b2267801f3a00487a03714031939a47d2d963/DadMenuProTo21.1.69.lua",
+      "repositoryUrl": "https://github.com/anditv21/x-luas",
+      "revision": "536b2267801f3a00487a03714031939a47d2d963",
+      "member": "DadMenuProTo21.1.69.lua",
+      "sourceProvenance": {
+        "type": "public-author-repository",
+        "repositoryDescription": "My Luas for the X-Force GTA-V mod menu",
+        "readmeCreditRequest": "The author requests attribution for using the Lua or parts of its code.",
+        "scriptTitle": "DadMenuProTo",
+        "bytes": 51904,
+        "sha256": "b8222b13d030e7b64df873d9dccedb49a066344fe032dcabc47688d68f16880a",
+        "upstreamNote": "The script describes itself as honoring the old dad_menu.",
+        "license": null,
+        "licenseNote": "No license file was observed. The credit request alone is not a general redistribution license."
+      },
+      "version": null,
+      "versionNote": "The source filename includes 1.69, but no explicit Lua release version was established; do not treat a filename marker as a version guarantee.",
+      "collectionStatus": "archival",
+      "collectionStatusNote": "The pinned source is from August 2024. Current game-build and X-Force API compatibility was not tested.",
+      "verificationStatus": "source-inspected-runtime-unverified",
+      "description": "Historical DadMenuProTo Lua from the original X-Force author's collection.",
+      "tags": ["xforce", "x-force", "lua", "dadmenuproto", "anditv21", "archival", "2024", "pending download"],
+      "requirements": ["Original X-Force Lua host and API", "Compatible GTA V build for the historical source"],
+      "compatibility": "Uses X-Force g_lua and g_gui APIs plus game natives and stats. No cross-menu or current-build compatibility was established.",
+      "apiEvidence": ["g_lua.register", "g_gui.add_toast", "g_gui.add_submenu", "g_gui.add_button", "g_gui.add_input_int", "g_gui.add_toggle", "g_util.joaat", "STATS"],
+      "sourceHistory": [
+        {
+          "date": "2024-08-09",
+          "dateType": "git-commit",
+          "timestamp": "2024-08-09T20:59:37Z",
+          "revision": "536b2267801f3a00487a03714031939a47d2d963",
+          "sourceUrl": "https://github.com/anditv21/x-luas/commit/536b2267801f3a00487a03714031939a47d2d963",
+          "commitMessage": "Update DadMenuProTo21.1.69.lua",
+          "note": "Verified repository commit date, not a declared Lua release date. No detailed author release notes were found."
+        }
+      ],
+      "changelog": [],
+      "downloadStatus": "pending",
+      "files": []
+    },
+    {
+      "id": "gta5-lua-xforce-anditv21-casino-bypass",
+      "game": "gta5",
+      "category": "lua",
+      "name": "Casino Bypass",
+      "author": "anditv21",
+      "sourceMenu": "X-Force",
+      "supportedMenus": ["X-Force"],
+      "sourceUrl": "https://github.com/anditv21/x-luas/blob/536b2267801f3a00487a03714031939a47d2d963/casino-bypass.lua",
+      "repositoryUrl": "https://github.com/anditv21/x-luas",
+      "revision": "536b2267801f3a00487a03714031939a47d2d963",
+      "member": "casino-bypass.lua",
+      "sourceProvenance": {
+        "type": "public-author-repository",
+        "repositoryDescription": "My Luas for the X-Force GTA-V mod menu",
+        "readmeCreditRequest": "The author requests attribution for using the Lua or parts of its code.",
+        "bytes": 3113,
+        "sha256": "6c6077f5150edc6e55f3048e77a78721b52f2bbaf914c388fbb13ab02ba6bae1",
+        "license": null,
+        "licenseNote": "No license file was observed. The credit request alone is not a general redistribution license."
+      },
+      "version": null,
+      "versionNote": "No explicit Lua version or tagged release was found.",
+      "collectionStatus": "archival",
+      "collectionStatusNote": "Observed named commits for this script are from February and March 2023; the inspected repository snapshot is from August 2024.",
+      "verificationStatus": "source-inspected-runtime-unverified",
+      "description": "Historical casino-related Lua from anditv21's X-Force collection.",
+      "tags": ["xforce", "x-force", "lua", "casino", "anditv21", "archival", "2023", "pending download"],
+      "requirements": ["Original X-Force Lua host and API", "Compatible GTA V build for the historical stats and natives"],
+      "compatibility": "Uses X-Force g_lua, g_gui, g_logger and game stats. No cross-menu or current-build compatibility was established.",
+      "apiEvidence": ["g_lua.register", "g_gui.add_toast", "g_gui.add_submenu", "g_gui.add_button", "g_gui.add_input_int", "g_gui.add_toggle", "g_logger.log_info", "g_util.joaat", "STATS.STAT_SET_INT"],
+      "sourceHistory": [
+        {
+          "date": "2023-03-07",
+          "dateType": "git-commit",
+          "timestamp": "2023-03-07T18:41:36Z",
+          "revision": "319d8c8647eae221018f50902a9f4ba37c05a1a2",
+          "sourceUrl": "https://github.com/anditv21/x-luas/commit/319d8c8647eae221018f50902a9f4ba37c05a1a2",
+          "commitMessage": "Improved casino lua",
+          "note": "Named commit observed in repository history; not asserted to be the file's latest change or a release date."
+        }
+      ],
+      "changelog": [],
+      "downloadStatus": "pending",
+      "files": []
+    },
+    {
+      "id": "gta5-lua-xforce-anditv21-snacks",
+      "game": "gta5",
+      "category": "lua",
+      "name": "Snacks",
+      "author": "anditv21",
+      "sourceMenu": "X-Force",
+      "supportedMenus": ["X-Force"],
+      "sourceUrl": "https://github.com/anditv21/x-luas/blob/536b2267801f3a00487a03714031939a47d2d963/snacks.lua",
+      "repositoryUrl": "https://github.com/anditv21/x-luas",
+      "revision": "536b2267801f3a00487a03714031939a47d2d963",
+      "member": "snacks.lua",
+      "sourceProvenance": {
+        "type": "public-author-repository",
+        "repositoryDescription": "My Luas for the X-Force GTA-V mod menu",
+        "readmeCreditRequest": "The author requests attribution for using the Lua or parts of its code.",
+        "bytes": 2260,
+        "sha256": "8844d338481e0dc30b2a47cc18130009fd0f0cc0fd47baec33cd17405db907f0",
+        "license": null,
+        "licenseNote": "No license file was observed. The credit request alone is not a general redistribution license."
+      },
+      "version": null,
+      "versionNote": "No explicit Lua version or tagged release was found.",
+      "collectionStatus": "archival",
+      "collectionStatusNote": "Observed named commits for this script are from February and March 2023; the inspected repository snapshot is from August 2024.",
+      "verificationStatus": "source-inspected-runtime-unverified",
+      "description": "Historical snack inventory Lua from anditv21's X-Force collection.",
+      "tags": ["xforce", "x-force", "lua", "snacks", "inventory", "anditv21", "archival", "2023", "pending download"],
+      "requirements": ["Original X-Force Lua host and API", "Compatible GTA V build for the historical stats and natives"],
+      "compatibility": "Uses X-Force g_lua, g_gui, g_logger and game stats. No cross-menu or current-build compatibility was established.",
+      "apiEvidence": ["g_lua.register", "g_gui.add_toast", "g_gui.add_submenu", "g_gui.add_button", "g_gui.add_toggle", "g_logger.log_info", "g_util.joaat", "STATS.STAT_SET_INT"],
+      "sourceHistory": [
+        {
+          "date": "2023-03-11",
+          "dateType": "git-commit",
+          "timestamp": "2023-03-11T15:36:03Z",
+          "revision": "592e558b867610ebfdd7d52b339814fe8b852d71",
+          "sourceUrl": "https://github.com/anditv21/x-luas/commit/592e558b867610ebfdd7d52b339814fe8b852d71",
+          "commitMessage": "Update snacks.lua",
+          "note": "Named commit observed in repository history; not asserted to be the file's latest change or a release date."
+        }
+      ],
+      "changelog": [],
+      "downloadStatus": "pending",
+      "files": []
+    }
+  ],
+  "excludedPublicSearchHits": [
+    {
+      "sourceUrl": "https://github.com/xforce-gta/xforce",
+      "reason": "Promotional website repository; no original resource collection or affiliation with xforce.menu was established."
+    },
+    {
+      "sourceUrl": "https://github.com/xf0rcemm/xforce",
+      "reason": "Promotional HTML/JavaScript repository; no original resource collection or affiliation with xforce.menu was established."
+    },
+    {
+      "sourceUrl": "https://github.com/CaptainRemain/X-Force-Mod-Menu",
+      "reason": "README-only promotional repository; not a source of the requested UI, data or Lua resources."
+    }
+  ],
+  "acquisitionGaps": [
+    "No public author collection was established for ui-configs, custom-header, asi-scripts, outfits, translations, custom-dlc-addons, xml-vehicles, xml-maps or misc-files beyond the separately audited local Rendererrr UI packs.",
+    "The historical public forum host forum.xforce.menu failed DNS resolution during this audit. No forum thread was inspected.",
+    "The official landing page confirms the Lua engine and provides a menu screenshot, but exposes no public user-resource index in the inspected page.",
+    "No script-specific preview, explicit release version or author release changelog was found for these four candidates.",
+    "GitHub's public unauthenticated API rate limit was reached during per-file-history follow-up. Source-history records above use already observed repository commit data and do not claim exhaustive file histories.",
+    "No Discord channels were read or controlled by this audit. Discord-only shares require separate visible evidence."
+  ]
+}

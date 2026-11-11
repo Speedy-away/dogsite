@@ -1,0 +1,3779 @@
+{
+  "schemaVersion": 1,
+  "sourceMenu": "stand",
+  "sourceCollection": "ST512",
+  "auditedAt": "2026-11-11",
+  "scope": "Every ST512-indexed vehicle/outfit record in the current site data. Every referenced local payload was read, hashed and signature-inspected; every referenced preview was statted. Other collections and Discord were not inspected by this helper.",
+  "noRuntimeCompatibilityClaim": true,
+  "limitations": [
+    "Legacy collection membership establishes source provenance, not verified Discord channel/post coverage.",
+    "Format-eligible candidates indicate both inspected adapters accept the static text-value schema; they do not establish identical rendering or gameplay operation.",
+    "No file dates are promoted to author release/changelog dates. JSON metadata is retained as supplied.",
+    "XML checks inspect root and field signatures, not full syntax or engine acceptance.",
+    "Source code evidence is limited to the three explicitly requested loader files. Non-TXT formats require additional Scooby loader evidence before shared compatibility labels."
+  ],
+  "inputFiles": [
+    {
+      "path": "community/data/vehicles/index.json",
+      "bytes": 1749811,
+      "sha256": "f78bf64c88d59004a91ab8c60ef2c7113e067251a2807bd1b12b531c4c1cc273"
+    },
+    {
+      "path": "community/data/vehicles/local-assets.json",
+      "bytes": 1808662,
+      "sha256": "a014c1a956e4d9009e38b86315bac1d65b106c169201f298b9645cbaf3f7211d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/000.json",
+      "bytes": 33750,
+      "sha256": "7df79d724d66d73be6f1ef759e20a9999aa5a65a0e895c214b7fa8fb61844e38"
+    },
+    {
+      "path": "community/data/vehicles/chunks/001.json",
+      "bytes": 41021,
+      "sha256": "5c70b7b019774a6aae193f76f10bfaeeb9ed1414b5d48557f4caa1f5463db77c"
+    },
+    {
+      "path": "community/data/vehicles/chunks/002.json",
+      "bytes": 32252,
+      "sha256": "52fce4e9b464794fdfb4425111f37efff06da28b99bd2a397c3cf3fa0e2ae2d4"
+    },
+    {
+      "path": "community/data/vehicles/chunks/003.json",
+      "bytes": 33035,
+      "sha256": "a266bdee78afea7d2bc994e93fe078ab8e8c4a2651feacd070d21c5a5a900568"
+    },
+    {
+      "path": "community/data/vehicles/chunks/004.json",
+      "bytes": 36114,
+      "sha256": "2f5ed576e783b558e8cb89f6db09913612f99d6e500da31c829e20fb06612633"
+    },
+    {
+      "path": "community/data/vehicles/chunks/005.json",
+      "bytes": 34669,
+      "sha256": "00d0ce841fa90d4e073747ffc29d6d70cd8ba724a78292d199bd13922484a676"
+    },
+    {
+      "path": "community/data/vehicles/chunks/006.json",
+      "bytes": 31862,
+      "sha256": "531530f26ae2c9b43bcd4fc59fa68c5b6a3806d56dc846f1f755cb26801b2bae"
+    },
+    {
+      "path": "community/data/vehicles/chunks/007.json",
+      "bytes": 35908,
+      "sha256": "edbb160af5eb1bb1c1b221a696f601acffaa31b47e56881c52fe6f91b0526742"
+    },
+    {
+      "path": "community/data/vehicles/chunks/008.json",
+      "bytes": 34498,
+      "sha256": "6e33d62a1c10ee7f5239447ed49f7f3931d708665f2a9b4e8442827aa8e74f09"
+    },
+    {
+      "path": "community/data/vehicles/chunks/009.json",
+      "bytes": 40065,
+      "sha256": "523995ff3b06552bdba68eb5841cb1ae0c0364866111a4d8d542603429a66c6a"
+    },
+    {
+      "path": "community/data/vehicles/chunks/010.json",
+      "bytes": 34492,
+      "sha256": "38a95a1b615c88d298f8fa985a39c6d0ca9278687d2acf8df690b9ed73a1010e"
+    },
+    {
+      "path": "community/data/vehicles/chunks/011.json",
+      "bytes": 35229,
+      "sha256": "f34ca1b3301a5e748952f65f97580bc5d3e820998b18512d69cf228cca0ca96f"
+    },
+    {
+      "path": "community/data/vehicles/chunks/012.json",
+      "bytes": 34719,
+      "sha256": "7c517cbdd16ec20adca2bf573bc1abce625a8538ce73bc950277f1464c36e62d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/013.json",
+      "bytes": 35246,
+      "sha256": "d824e325639ecc69d4ceee2e49a5f0a808bef9388df6ecfb975119b2a3f656e9"
+    },
+    {
+      "path": "community/data/vehicles/chunks/014.json",
+      "bytes": 33267,
+      "sha256": "04d21d60ee75cd9080853c54131c42df20a888ca78ad9c81b4402c3fbcd55703"
+    },
+    {
+      "path": "community/data/vehicles/chunks/015.json",
+      "bytes": 34853,
+      "sha256": "395f914faffc4ae39baaa934d001210ebf16d8361d9f977f839304783d05d630"
+    },
+    {
+      "path": "community/data/vehicles/chunks/016.json",
+      "bytes": 31344,
+      "sha256": "054d0c6d4c3e6f3c2d78102d273b09c6dc5e2d5cb117df33af0fe6a23366f2fa"
+    },
+    {
+      "path": "community/data/vehicles/chunks/017.json",
+      "bytes": 35715,
+      "sha256": "d5402e2a6f713b97dbdaeedd7d03efc250340ba3d27f7cb1990a05dcc0f28400"
+    },
+    {
+      "path": "community/data/vehicles/chunks/018.json",
+      "bytes": 30459,
+      "sha256": "9be1430dde56f7bcc0b7e2b9e5cf8fc8084a3d960c707f4f32efcbacf77cea3e"
+    },
+    {
+      "path": "community/data/vehicles/chunks/019.json",
+      "bytes": 35563,
+      "sha256": "5e393bd8b7e8a3f659a71a23e6d985a5e1555a1d593af636217e916f64ac62c1"
+    },
+    {
+      "path": "community/data/vehicles/chunks/020.json",
+      "bytes": 29645,
+      "sha256": "46889fee10174ff1041f32d039205f4fc828d6ebbb7d876395e5c157ad1172bf"
+    },
+    {
+      "path": "community/data/vehicles/chunks/021.json",
+      "bytes": 39942,
+      "sha256": "df0dda86f0108eefe02bae9cb64272b75c088f5913fe18f2c3bceabbbc4064dd"
+    },
+    {
+      "path": "community/data/vehicles/chunks/022.json",
+      "bytes": 31686,
+      "sha256": "6b294b647dd8f05de21af8aaf71d2cde57cbbdbf572f1edaf12e31104ec2ad6d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/023.json",
+      "bytes": 38284,
+      "sha256": "ec695a1ae615164f855b3f45ebcaf64bf16c431e071e3559ef5770f92fad9fd5"
+    },
+    {
+      "path": "community/data/vehicles/chunks/024.json",
+      "bytes": 35999,
+      "sha256": "33ae158b14a1618d3e73075be673750a81971a1a1b93360b27dd8c4d3ed3497a"
+    },
+    {
+      "path": "community/data/vehicles/chunks/025.json",
+      "bytes": 34440,
+      "sha256": "cf09a37e36a3c4bd6abfeb4ebcb54dda3746355df1efd2839822c8bac35346fe"
+    },
+    {
+      "path": "community/data/vehicles/chunks/026.json",
+      "bytes": 36429,
+      "sha256": "37e829d27ab82a42e906864e749133a8ed67131b8347a8d604a5816b49bc7f9a"
+    },
+    {
+      "path": "community/data/vehicles/chunks/027.json",
+      "bytes": 46710,
+      "sha256": "45aa627da488cebcee53598a55da321cc36e0ffee8f7da8c03e01d1d40f2e55c"
+    },
+    {
+      "path": "community/data/vehicles/chunks/028.json",
+      "bytes": 40593,
+      "sha256": "4cb8f5ef39076c4731e8d53495ad982cef5af226e2a8985d0c6441b40b579014"
+    },
+    {
+      "path": "community/data/vehicles/chunks/029.json",
+      "bytes": 32566,
+      "sha256": "d23c2fb74d875adb3528492b1ab512dc0ce65dfeb6a7fe59364b153b4e37b334"
+    },
+    {
+      "path": "community/data/vehicles/chunks/030.json",
+      "bytes": 28393,
+      "sha256": "d85b6eb084fb20e79bfcbfe9fb1efbe0d54bf9229a5431e56c5829eb0228b3c5"
+    },
+    {
+      "path": "community/data/vehicles/chunks/031.json",
+      "bytes": 30772,
+      "sha256": "24ba2b1b49da59af0ed2b2584870417e57f5c31aec2382952ed32ac761ad3381"
+    },
+    {
+      "path": "community/data/vehicles/chunks/032.json",
+      "bytes": 30387,
+      "sha256": "47eb0351dbfd92b348c1f388fe045d5893c8a4e05e4f0306fcb90d23174e73ed"
+    },
+    {
+      "path": "community/data/vehicles/chunks/033.json",
+      "bytes": 37595,
+      "sha256": "b4673336e2ed1a5b53f07a1e800f74037b14588dca423b450fe6b7420edfc559"
+    },
+    {
+      "path": "community/data/vehicles/chunks/034.json",
+      "bytes": 29644,
+      "sha256": "a69d3cd27b8d58d8568fade8c28800bc1d7104497624f7cea387b74a27fd2098"
+    },
+    {
+      "path": "community/data/vehicles/chunks/035.json",
+      "bytes": 31616,
+      "sha256": "83c3af85a94591c2c5249d9388ff16ea7cdbd761ce18d68b33072fff2489150a"
+    },
+    {
+      "path": "community/data/vehicles/chunks/036.json",
+      "bytes": 34359,
+      "sha256": "c921a768534e8571521cffef950e98d7ea98375e443fb8ed5aa8bf57ae0fe62f"
+    },
+    {
+      "path": "community/data/vehicles/chunks/037.json",
+      "bytes": 33736,
+      "sha256": "42fc91cdb20e78dd36f75f38050a695fd6adf6c5172f2227d59ac14eb921f660"
+    },
+    {
+      "path": "community/data/vehicles/chunks/038.json",
+      "bytes": 33830,
+      "sha256": "dcf59de1cd47d011805f80db0809dfe386baeeda5301d5fbbebd5cb9444908bd"
+    },
+    {
+      "path": "community/data/vehicles/chunks/039.json",
+      "bytes": 33643,
+      "sha256": "1366a8fa0b28b378d09f3c21d4b8e44177d79683a0fd22a98e3e5e1a445cfac2"
+    },
+    {
+      "path": "community/data/vehicles/chunks/040.json",
+      "bytes": 29337,
+      "sha256": "e26d7963cbb142db8118d010d12c02aa2dc51a211b8fc15442f97a931ef9ae35"
+    },
+    {
+      "path": "community/data/vehicles/chunks/041.json",
+      "bytes": 29664,
+      "sha256": "aedeeceff4b9894784493ece5e3ed33e51827945e0c7878e2fa1778579bf90df"
+    },
+    {
+      "path": "community/data/vehicles/chunks/042.json",
+      "bytes": 27653,
+      "sha256": "21606d2c9a08093a5694f24e8d9a4d657304c5072a0f3ef4cb68ad3dffd6896e"
+    },
+    {
+      "path": "community/data/vehicles/chunks/043.json",
+      "bytes": 28369,
+      "sha256": "2828f0dcf129bbe93851b0623f93a73f63a0bf0a949e82cbbbb61294a0212af9"
+    },
+    {
+      "path": "community/data/vehicles/chunks/044.json",
+      "bytes": 36584,
+      "sha256": "432c6dd71351f61aaf6ae5d32f633404e982755730890c65af5902e423e3b698"
+    },
+    {
+      "path": "community/data/vehicles/chunks/045.json",
+      "bytes": 35512,
+      "sha256": "c1f275ec8e99c4e789c33062082502bf7fa4843f870d26e2f485967e0782c593"
+    },
+    {
+      "path": "community/data/vehicles/chunks/046.json",
+      "bytes": 30568,
+      "sha256": "f5d927c8a2638f815f0a491f36669323646b55925e116af1764fa68154971173"
+    },
+    {
+      "path": "community/data/vehicles/chunks/047.json",
+      "bytes": 32289,
+      "sha256": "3bca6e59cf334af2445ec888d545a5028dea3cabfe63e9e77fe7779619a06048"
+    },
+    {
+      "path": "community/data/vehicles/chunks/048.json",
+      "bytes": 33103,
+      "sha256": "e2ecb446b7cdc00a4579670c135af1b74372080ceaa7f8f5cd23842122b30a9d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/049.json",
+      "bytes": 33000,
+      "sha256": "8ff6d148cc7462c4d99075339abc7afeecd8b1b314ac3d1c6db15e778cd5bf75"
+    },
+    {
+      "path": "community/data/vehicles/chunks/050.json",
+      "bytes": 34391,
+      "sha256": "3b3d4d0e3e25e6468718559ee72a9872f240087854d4b7e791e69dc8aee9ae00"
+    },
+    {
+      "path": "community/data/vehicles/chunks/051.json",
+      "bytes": 32091,
+      "sha256": "1e9ce3ac07828bdc55db53a27d78f795d69569ba7afd7c8765142e7e6b14764d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/052.json",
+      "bytes": 36122,
+      "sha256": "2dfd4af594e411a6e5572b8e860ecbd46e4e397acce1b6139bbfbd0118cfac43"
+    },
+    {
+      "path": "community/data/vehicles/chunks/053.json",
+      "bytes": 37962,
+      "sha256": "4ea7c6d130ff55714a759bb19c2a409782f8f787379afead6dd678ce6cfa3c7e"
+    },
+    {
+      "path": "community/data/vehicles/chunks/054.json",
+      "bytes": 42256,
+      "sha256": "98dc9ca1ac79ed5d394f3c708d617c295b26f839df56967121e4a6373e88324e"
+    },
+    {
+      "path": "community/data/vehicles/chunks/055.json",
+      "bytes": 38969,
+      "sha256": "8a317494c02430d25afba43767111974c93a8cd2d46a81c0024d40f5e26df857"
+    },
+    {
+      "path": "community/data/vehicles/chunks/056.json",
+      "bytes": 32667,
+      "sha256": "5c1ab9d3b361606bdbfaad4ae20151e087479246ad307fdf19b18c2fe2de9ea8"
+    },
+    {
+      "path": "community/data/vehicles/chunks/057.json",
+      "bytes": 32275,
+      "sha256": "bf062d5196cf49411f3857fad5d1dc417dc505dfa5ff4f3994d5a3387bfc93f3"
+    },
+    {
+      "path": "community/data/vehicles/chunks/058.json",
+      "bytes": 33302,
+      "sha256": "dc88adfe8a918c0de7f10f72ccb0a033882b4311dfc8d37dcf9162e53cc62214"
+    },
+    {
+      "path": "community/data/vehicles/chunks/059.json",
+      "bytes": 31293,
+      "sha256": "957c5db49306320103473add1374286edc6731d7cfa639f50c6564304c1e8b3d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/060.json",
+      "bytes": 31444,
+      "sha256": "d8acd779b39c3700069c1674f478f6d191b9733cb36644f55d75329919923a42"
+    },
+    {
+      "path": "community/data/vehicles/chunks/061.json",
+      "bytes": 40877,
+      "sha256": "dd2abfb2e609350072e8cb3e54155857c8a3409950b91f9dce756a6954cf68e3"
+    },
+    {
+      "path": "community/data/vehicles/chunks/062.json",
+      "bytes": 29334,
+      "sha256": "cca5ca0153af4ccb6757b6df066c020e39983062d9c42e8509303c1c822abf3f"
+    },
+    {
+      "path": "community/data/vehicles/chunks/063.json",
+      "bytes": 30333,
+      "sha256": "6b5081c458c155452cbf7fb813e28c9588be7d6705153cb45735d5578c15f97c"
+    },
+    {
+      "path": "community/data/vehicles/chunks/064.json",
+      "bytes": 29944,
+      "sha256": "89d92e6d58f3b579649219f10632e0cbc6811ddadc2fed058eda5ad5508886e6"
+    },
+    {
+      "path": "community/data/vehicles/chunks/065.json",
+      "bytes": 30821,
+      "sha256": "0e4f22b482163356b9e1bb4e16fcfb6edcf17573858bd2cd07c1b2eef0023bb4"
+    },
+    {
+      "path": "community/data/vehicles/chunks/066.json",
+      "bytes": 31436,
+      "sha256": "d4164dc953e367c32d33575728ab04b938ce0f7dce9974a914b35d917538d12b"
+    },
+    {
+      "path": "community/data/vehicles/chunks/067.json",
+      "bytes": 29567,
+      "sha256": "0049c6ea0adfe013946d3074f64d1b40a79c7f651d61450ea8f6e7e00cda1e3d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/068.json",
+      "bytes": 31013,
+      "sha256": "3d5ca4b7e70c2a266ce6490a6540ecec81d7b6cadf79f0decb77965de17eb453"
+    },
+    {
+      "path": "community/data/vehicles/chunks/069.json",
+      "bytes": 29558,
+      "sha256": "0814f1d4d881f1f4ddfb5f9558a792aa26b7e2bd3311342b3c6e4bb040f6fdac"
+    },
+    {
+      "path": "community/data/vehicles/chunks/070.json",
+      "bytes": 30576,
+      "sha256": "3fa35c340e49b34a26ee5692f4a66ac3a44695f93c3fdcecfc1c638164d85c7f"
+    },
+    {
+      "path": "community/data/vehicles/chunks/071.json",
+      "bytes": 28389,
+      "sha256": "d32747f28c0122d5cea08e0b75c9c6fea1310e61a158ad211c8e09e17b061778"
+    },
+    {
+      "path": "community/data/vehicles/chunks/072.json",
+      "bytes": 31355,
+      "sha256": "5dc7ef03e34f5138ccf3a5331ea3d952ff29c3d730be9cf8c4569759456bb9de"
+    },
+    {
+      "path": "community/data/vehicles/chunks/073.json",
+      "bytes": 30326,
+      "sha256": "587b449a79b8e121940c054b9daa096476e63deab14eac7462e078bdb4372a14"
+    },
+    {
+      "path": "community/data/vehicles/chunks/074.json",
+      "bytes": 31382,
+      "sha256": "8be72d5ddf71e1705df478610e0b1454fd33d4ed745d23c81d90c80308844ad4"
+    },
+    {
+      "path": "community/data/vehicles/chunks/075.json",
+      "bytes": 31078,
+      "sha256": "9067496cc774d61e2fd35edd4f48608e72b7b25577ee138c7a0efcb10901d073"
+    },
+    {
+      "path": "community/data/vehicles/chunks/076.json",
+      "bytes": 28240,
+      "sha256": "f1097e59a2c0f2f7549881ad7a94892dcfcbf69aa254ebd5d2f87c2d1349d1d1"
+    },
+    {
+      "path": "community/data/vehicles/chunks/077.json",
+      "bytes": 32064,
+      "sha256": "7eb26dae5d82acc6a63ea3ffe3d19622ff5849d22320a3476585efa00d7083b0"
+    },
+    {
+      "path": "community/data/vehicles/chunks/078.json",
+      "bytes": 32911,
+      "sha256": "5159ad39d61002a029b32c2a203b257756e8355e0696c350431ea9044d743bd5"
+    },
+    {
+      "path": "community/data/vehicles/chunks/079.json",
+      "bytes": 40983,
+      "sha256": "31a95f824e95abe4a8da983ea65c90d55e51451db22629d09aad76fc3a3a671b"
+    },
+    {
+      "path": "community/data/vehicles/chunks/080.json",
+      "bytes": 34917,
+      "sha256": "d23ebf96b9907c254127e23044b4a6617dd00cde2eb50dfc23d7491b145b654d"
+    },
+    {
+      "path": "community/data/vehicles/chunks/081.json",
+      "bytes": 37960,
+      "sha256": "812059d8a7a93e89c3c21506a2d9e7d907a25a9e68ceed06812f51bfc8bbd04f"
+    },
+    {
+      "path": "community/data/vehicles/chunks/082.json",
+      "bytes": 37605,
+      "sha256": "b57110e108e3f8c10f7cc0f841ca83102e5d85cb65b005d37a3b7236a0d9bf5a"
+    },
+    {
+      "path": "community/data/vehicles/chunks/083.json",
+      "bytes": 23225,
+      "sha256": "c41feb0a50e5ea61349a8cbe043d237f4510db0317834db2a5b15a611085ad42"
+    },
+    {
+      "path": "community/data/outfits/index.json",
+      "bytes": 32087,
+      "sha256": "062ec563d8ae45a8c9222032d0a0a3099a5b20e2d50364fc014c4e28a308ba8c"
+    },
+    {
+      "path": "community/data/outfits/local-assets.json",
+      "bytes": 50432,
+      "sha256": "4243d04b6945e53de7b81def5eeef295ff6fdc18f475d95bd02fac63b4a70cb2"
+    },
+    {
+      "path": "community/data/outfits/chunks/000.json",
+      "bytes": 25939,
+      "sha256": "97dac473d182167eaaac6b23bb435acdbb39ad8aab460c6f5701edf2ccb1f7e5"
+    },
+    {
+      "path": "community/data/outfits/chunks/001.json",
+      "bytes": 26014,
+      "sha256": "eaf18b21f3609250709d5fbf843946508c4201624674bff733037c789a9ce84f"
+    },
+    {
+      "path": "community/data/outfits/chunks/002.json",
+      "bytes": 32376,
+      "sha256": "f1b7bcc079d3ba2fae488c949b747e18d4f1ea9d9e20d5aa395aabe43bb67c63"
+    }
+  ],
+  "loaderEvidence": [
+    {
+      "menu": "Nenyoo",
+      "path": "project-native-gui/GTAV/src/spooner/preset_loader.cpp",
+      "bytes": 69137,
+      "sha256": "f762f95290cb171e8e8406bb6353908b78d4a5d8a03ec01a16d000dca75a3d73",
+      "relevantLines": [
+        68,
+        72,
+        510,
+        530,
+        539,
+        667,
+        734,
+        762,
+        776,
+        797
+      ]
+    },
+    {
+      "menu": "Scooby vehicles",
+      "path": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/frontend/submenus/OtherMenus/Stand/StandVehicles.cpp",
+      "bytes": 7780,
+      "sha256": "1bdc1a5fe71c51557cc9572573edb85e6ba388b1c40d58566d0f1be5df0cd0c0",
+      "relevantLines": [
+        100,
+        114,
+        131,
+        172,
+        188,
+        197,
+        204,
+        237
+      ]
+    },
+    {
+      "menu": "Scooby outfits",
+      "path": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/frontend/submenus/OtherMenus/Stand/StandOutfits.cpp",
+      "bytes": 6114,
+      "sha256": "04423cff36c3405c6df97ebcc98fdbe874464b9071e5ac02b6fe693818837924",
+      "relevantLines": [
+        75,
+        140,
+        153,
+        163,
+        174,
+        186,
+        194
+      ]
+    }
+  ],
+  "recordInventorySha256": "cae197a87d4cbfa084ff409b9459e8082e930844712d32cab5ff3ca7e4bb14c3",
+  "inventoryDigestDefinition": "SHA256 of ordered JSON lines over every selected vehicle, then outfit, containing metadata, source path/URL, local paths, payload size/hash, preview size and detected shape. Re-run the helper to reproduce; full rows intentionally omitted from this grouped evidence report.",
+  "totalRecords": 21021,
+  "eligibleCandidateRecords": 19679,
+  "reviewNeededRecords": 1342,
+  "kinds": {
+    "vehicles": {
+      "selectedRecords": 20781,
+      "indexedTotal": 21451,
+      "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+      "sourceBaseUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/",
+      "byFormat": {
+        "XML": 1151,
+        "TXT": 19451,
+        "INI": 152,
+        "JSON": 27
+      },
+      "payloadFilesPresent": 20781,
+      "payloadFilesMissing": 0,
+      "payloadBytes": 60173430,
+      "previewsPresent": 20702,
+      "previewsMissing": 79,
+      "previewBytes": 569893748,
+      "originalPreviewReferences": 21068,
+      "metadataValues": {
+        "menyoo_ver": {
+          "0.999859b": 21,
+          "0.999836b": 11,
+          "0.9998743b": 14,
+          "0.999874b": 18,
+          "0.99987681b": 133,
+          "0.99987b": 92,
+          "0.99986b": 16,
+          "0.9998751b": 64,
+          "0.999876b": 11,
+          "0.999864b": 10,
+          "0.999876782b": 109,
+          "0.999876778b": 52,
+          "0.999862b": 11,
+          "0.9997b": 18,
+          "0.999876791b": 1,
+          "0.9998745b": 4,
+          "0.999876796b": 8,
+          "0.99985b": 20,
+          "1.0.1": 56,
+          "0.999873b": 27,
+          "0.99983b": 3,
+          "0.999869b": 6,
+          "0.9998762b": 1,
+          "0.9998746b": 17,
+          "0.9998754b": 5,
+          "0.9998744b": 81,
+          "0.99987674b": 13,
+          "0.999875b": 2,
+          "0.9998753b": 4,
+          "0.999876792b": 15,
+          "0.9998766b": 6,
+          "0.99987672b": 4,
+          "0.9998a": 8,
+          "0.99987676b": 2,
+          "0.999876776b": 7,
+          "0.999876774b": 7,
+          "0.9998748b": 9,
+          "0.9998b": 43,
+          "0.9998764b": 1,
+          "0.999861b": 16,
+          "0.9998756b": 4,
+          "1.4.0": 32,
+          "0.999856b": 16,
+          "0.9998771b": 9,
+          "1.3.0": 42,
+          "0.999876795b": 19,
+          "0.999868b": 2,
+          "0.999852b": 4,
+          "0.99984b": 6,
+          "0.999857b": 2,
+          "1.0.0": 11,
+          "0.9998769b": 4,
+          "0.99987663b": 1,
+          "0.9998763b": 5,
+          "0.999876779b": 4,
+          "1.1.0": 5,
+          "1.1.1": 1,
+          "1.5.0": 2,
+          "0.9996b": 1,
+          "0.999876796.1": 1,
+          "0.999844b": 1,
+          "0.999871b": 18,
+          "0.999867b": 2,
+          "0.99987661b": 1,
+          "0.9998755b": 1,
+          "0.9998747b": 1
+        },
+        "author": {
+          "Discandy": 1,
+          "TonyElcucuy04": 2,
+          "WandaMaxximoff": 2,
+          "hexarobi": 1,
+          "hexarobo": 2,
+          "Sheriff": 1,
+          "Alee": 1,
+          "---Rydonz---": 1
+        },
+        "version": {
+          "Jackz Builder 1.6.0": 4,
+          "Constructor 0.24 / 3.21.8": 1,
+          "Constructor 0.24.1 / 3.21.9 / 0.8.5": 3,
+          "Jackz Custom Vehicle 1.3.0": 1,
+          "Constructor 0.17 / Lib 3.16": 1,
+          "Jackz Builder 1.5.0": 2,
+          "Constructor 0.24.1 / 3.21.9 / 0.8.4": 1,
+          "Constructor 0.20.6b2 / Lib 3.21.4b12": 1
+        },
+        "created": {
+          "1661711663": 1,
+          "1662756829": 1,
+          "1662913517": 1,
+          "1663461173": 1,
+          "1663540303": 1,
+          "1664198784": 1,
+          "1664716282": 1,
+          "2022-10-23T13:06:47Z": 1,
+          "2022-10-27T17:11:07Z": 1,
+          "2022-09-25T21:34:25Z": 1,
+          "2022-10-29T15:14:35Z": 1,
+          "2022-10-29T22:38:55Z": 1,
+          "2022-10-25T11:03:15Z": 1,
+          "2022-10-15T19:53:17Z": 1
+        },
+        "name": {
+          "SerialKillerVan": 1,
+          "BUFFALO4": 1,
+          "AdvFighter": 1,
+          "freighttruck": 1,
+          "ghostrider": 1,
+          "Monster Romero": 1,
+          "Oppressor X": 1,
+          "Policecentipede": 1,
+          "RPGvsInsurgents": 1,
+          "SuperGarbageTruck": 1,
+          "TDF": 1,
+          "TieFighter": 1,
+          "Treadmill": 1,
+          "TrophyLifted0": 1,
+          "wheelchair": 1
+        },
+        "target_version": {
+          "3.21.8": 1,
+          "3.21.9": 4,
+          "3.16": 1,
+          "3.1": 1,
+          "3.21.4b12": 1
+        },
+        "gta": {
+          "1.42+more": 1
+        },
+        "made-for": {
+          "D3SK1ING and MENYOO": 1
+        },
+        "Name": {
+          "VECTRE": 6
+        },
+        "Format": {
+          "JSTAND 1.1": 6
+        },
+        "Type": {
+          "0": 6,
+          "Sports Classics": 6
+        }
+      },
+      "eligibleCandidates": 19442,
+      "reviewNeeded": 1339,
+      "sourcePathsContainingOldFolders": 374,
+      "missingPreviewSamples": [
+        {
+          "index": 93,
+          "name": "JamezModz Mr. Roboto v2.0",
+          "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Robots/-JamezModz- Mr. Roboto v2.0.ini",
+          "localPreview": null
+        },
+        {
+          "index": 94,
+          "name": "JamezModz Mr. Roboto v2.0",
+          "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Robots/-JamezModz- Mr. Roboto v2.0.ini",
+          "localPreview": null
+        },
+        {
+          "index": 95,
+          "name": "Rocket Express Limo",
+          "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/Rocket Express Limo  .ini",
+          "localPreview": null
+        },
+        {
+          "index": 96,
+          "name": "Rocket Express Limo",
+          "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/Rocket Express Limo  .ini",
+          "localPreview": null
+        },
+        {
+          "index": 100,
+          "name": "LSC Windmill (byChr1s0bjeX)",
+          "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Random abomincations/LSC Windmill (byChr1s0bjeX).ini",
+          "localPreview": null
+        },
+        {
+          "index": 101,
+          "name": "LSC Windmill (byChr1s0bjeX)",
+          "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Random abomincations/LSC Windmill (byChr1s0bjeX).ini",
+          "localPreview": null
+        },
+        {
+          "index": 102,
+          "name": "Mobile Windmill",
+          "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Random abomincations/Mobile Windmill.ini",
+          "localPreview": null
+        },
+        {
+          "index": 103,
+          "name": "Mobile Windmill",
+          "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Random abomincations/Mobile Windmill.ini",
+          "localPreview": null
+        },
+        {
+          "index": 755,
+          "name": "JamezModz Fast Food Fly'n",
+          "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Air/---JamezModz- Fast Food Fly'n .ini",
+          "localPreview": null
+        },
+        {
+          "index": 756,
+          "name": "JamezModz Fast Food Fly'n",
+          "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Air/---JamezModz- Fast Food Fly'n .ini",
+          "localPreview": null
+        }
+      ],
+      "samples": [
+        {
+          "index": 0,
+          "kind": "vehicles",
+          "name": "#GhostBusters",
+          "originalFilename": "#GhostBusters.xml",
+          "modelHash": "3078201489",
+          "model": "adder",
+          "category": "ST512",
+          "format": "XML",
+          "sourcePath": "Vehicles/ST512/cool vehicles/Ground/#GhostBusters.xml",
+          "originalPreviews": [
+            "Vehicles/ST512/cool vehicles/Ground/nenyoo_preview_b8063a5d15f8.png"
+          ],
+          "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+          "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/cool%20vehicles/Ground/%23GhostBusters.xml",
+          "localFile": "./media/vehicles-0.xml",
+          "localPreview": "./media/vehicles-0.webp",
+          "payloadBytes": 41308,
+          "payloadSha256": "3a7e56c0774759adfa874770b5699d14588601daf910aa5458ba460a921ce264",
+          "previewBytes": 17198,
+          "inspection": {
+            "shape": "xml:Vehicle",
+            "root": "Vehicle",
+            "rootClosed": true,
+            "model": "0xff22d208",
+            "vehicleProperties": true,
+            "placements": 0,
+            "attachments": 48,
+            "metadata": {
+              "menyoo_ver": "0.999859b"
+            },
+            "validation": "Root/field signature inspection; no full XML parser or entity expansion used."
+          }
+        },
+        {
+          "index": 2,
+          "kind": "vehicles",
+          "name": "adder 2",
+          "originalFilename": "adder_2.txt",
+          "modelHash": "3078201489",
+          "model": "adder",
+          "category": "ST512",
+          "format": "TXT",
+          "sourcePath": "Vehicles/ST512/adder/adder_2.txt",
+          "originalPreviews": [
+            "Vehicles/ST512/adder/nenyoo_preview_06c9abbad789.png"
+          ],
+          "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+          "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_2.txt",
+          "localFile": "./media/vehicles-2.txt",
+          "localPreview": "./media/vehicles-2.webp",
+          "payloadBytes": 1280,
+          "payloadSha256": "05baaac5a730c7922f6545d96c1cadfbae93db0bc4950cc33afbd26edb73fbbd",
+          "previewBytes": 16732,
+          "inspection": {
+            "shape": "stand-vehicle-values",
+            "model": "adder",
+            "modelKey": "Model",
+            "modelColonLine": true,
+            "sectionCount": 0,
+            "firstSection": null,
+            "sectionFamilies": [],
+            "valueCount": 86,
+            "recognizedVehicleKeys": 12,
+            "recognizedComponents": 0,
+            "recognizedProps": 0,
+            "componentNumbersValid": true,
+            "metadata": {}
+          }
+        },
+        {
+          "index": 3,
+          "kind": "vehicles",
+          "name": "adder 28",
+          "originalFilename": "adder_28.txt",
+          "modelHash": "3078201489",
+          "model": "adder",
+          "category": "ST512",
+          "format": "TXT",
+          "sourcePath": "Vehicles/ST512/adder/adder_28.txt",
+          "originalPreviews": [
+            "Vehicles/ST512/adder/nenyoo_preview_be4c54f0a7c1.png"
+          ],
+          "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+          "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_28.txt",
+          "localFile": "./media/vehicles-3.txt",
+          "localPreview": "./media/vehicles-3.webp",
+          "payloadBytes": 634,
+          "payloadSha256": "ac2be8d87c8ac3f5204e5afec79b6d51050259fd16eb5f4c377251da6e26876a",
+          "previewBytes": 16692,
+          "inspection": {
+            "shape": "stand-vehicle-values",
+            "model": "adder",
+            "modelKey": "Model",
+            "modelColonLine": true,
+            "sectionCount": 0,
+            "firstSection": null,
+            "sectionFamilies": [],
+            "valueCount": 37,
+            "recognizedVehicleKeys": 11,
+            "recognizedComponents": 0,
+            "recognizedProps": 0,
+            "componentNumbersValid": true,
+            "metadata": {}
+          }
+        }
+      ],
+      "uniquePayloadHashes": 13584,
+      "byteIdenticalDuplicateRecords": 7197,
+      "groups": [
+        {
+          "kind": "vehicles",
+          "key": "XML/xml:Vehicle/review-needed",
+          "format": "XML",
+          "shape": "xml:Vehicle",
+          "count": 1151,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 1151,
+          "payloadBytes": 41875940,
+          "sectionCountRange": null,
+          "xmlClosedRoots": 1151,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 0,
+              "kind": "vehicles",
+              "name": "#GhostBusters",
+              "originalFilename": "#GhostBusters.xml",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "XML",
+              "sourcePath": "Vehicles/ST512/cool vehicles/Ground/#GhostBusters.xml",
+              "originalPreviews": [
+                "Vehicles/ST512/cool vehicles/Ground/nenyoo_preview_b8063a5d15f8.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/cool%20vehicles/Ground/%23GhostBusters.xml",
+              "localFile": "./media/vehicles-0.xml",
+              "localPreview": "./media/vehicles-0.webp",
+              "payloadBytes": 41308,
+              "payloadSha256": "3a7e56c0774759adfa874770b5699d14588601daf910aa5458ba460a921ce264",
+              "previewBytes": 17198,
+              "inspection": {
+                "shape": "xml:Vehicle",
+                "root": "Vehicle",
+                "rootClosed": true,
+                "model": "0xff22d208",
+                "vehicleProperties": true,
+                "placements": 0,
+                "attachments": 48,
+                "metadata": {
+                  "menyoo_ver": "0.999859b"
+                },
+                "validation": "Root/field signature inspection; no full XML parser or entity expansion used."
+              }
+            },
+            {
+              "index": 74,
+              "kind": "vehicles",
+              "name": "BensonZfinal",
+              "originalFilename": "BensonZfinal.xml",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "XML",
+              "sourcePath": "Vehicles/ST512/cool vehicles/Ground/BensonZfinal.xml",
+              "originalPreviews": [
+                "Vehicles/ST512/cool vehicles/Ground/nenyoo_preview_55bf56852960.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/cool%20vehicles/Ground/BensonZfinal.xml",
+              "localFile": "./media/vehicles-74.xml",
+              "localPreview": "./media/vehicles-74.webp",
+              "payloadBytes": 39341,
+              "payloadSha256": "a766560d5a8d1ec5dc891dbc09ed4fbbb6d7a392240ff2da3e497b562c200f56",
+              "previewBytes": 18720,
+              "inspection": {
+                "shape": "xml:Vehicle",
+                "root": "Vehicle",
+                "rootClosed": true,
+                "model": "0x7a61b330",
+                "vehicleProperties": true,
+                "placements": 0,
+                "attachments": 60,
+                "metadata": {
+                  "menyoo_ver": "0.999836b"
+                },
+                "validation": "Root/field signature inspection; no full XML parser or entity expansion used."
+              }
+            },
+            {
+              "index": 75,
+              "kind": "vehicles",
+              "name": "Cargo Plane Car Haul",
+              "originalFilename": "Cargo Plane Car Haul.xml",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "XML",
+              "sourcePath": "Vehicles/ST512/old_folders/16 moded cars/Json and xml/Cargo Plane Car Haul.xml",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/16 moded cars/Json and xml/nenyoo_preview_9e9bc30b96bb.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/16%20moded%20cars/Json%20and%20xml/Cargo%20Plane%20Car%20Haul.xml",
+              "localFile": "./media/vehicles-75.xml",
+              "localPreview": "./media/vehicles-75.webp",
+              "payloadBytes": 70199,
+              "payloadSha256": "9491927d28032c7141dda14e1d69c9f1c7bc4f07d401b5e130ea57a2d9d590b4",
+              "previewBytes": 14234,
+              "inspection": {
+                "shape": "xml:Vehicle",
+                "root": "Vehicle",
+                "rootClosed": true,
+                "model": "0x15f27762",
+                "vehicleProperties": true,
+                "placements": 0,
+                "attachments": 32,
+                "metadata": {
+                  "menyoo_ver": "0.9998743b"
+                },
+                "validation": "Root/field signature inspection; no full XML parser or entity expansion used."
+              }
+            },
+            {
+              "index": 76,
+              "kind": "vehicles",
+              "name": "Cargo Plane Car Haul",
+              "originalFilename": "Cargo Plane Car Haul.xml",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "XML",
+              "sourcePath": "Vehicles/ST512/old_folders/3646_CARS/16 moded cars/Json and xml/Cargo Plane Car Haul.xml",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/3646_CARS/16 moded cars/Json and xml/nenyoo_preview_c367cf2cff23.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/3646_CARS/16%20moded%20cars/Json%20and%20xml/Cargo%20Plane%20Car%20Haul.xml",
+              "localFile": "./media/vehicles-76.xml",
+              "localPreview": "./media/vehicles-76.webp",
+              "payloadBytes": 70199,
+              "payloadSha256": "9491927d28032c7141dda14e1d69c9f1c7bc4f07d401b5e130ea57a2d9d590b4",
+              "previewBytes": 17930,
+              "inspection": {
+                "shape": "xml:Vehicle",
+                "root": "Vehicle",
+                "rootClosed": true,
+                "model": "0x15f27762",
+                "vehicleProperties": true,
+                "placements": 0,
+                "attachments": 32,
+                "metadata": {
+                  "menyoo_ver": "0.9998743b"
+                },
+                "validation": "Root/field signature inspection; no full XML parser or entity expansion used."
+              }
+            },
+            {
+              "index": 77,
+              "kind": "vehicles",
+              "name": "Cargo Plane Car Haul",
+              "originalFilename": "Cargo Plane Car Haul.xml",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "XML",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/16 moded cars/Json and xml/Cargo Plane Car Haul.xml",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/16 moded cars/Json and xml/nenyoo_preview_4383944a59a6.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/16%20moded%20cars/Json%20and%20xml/Cargo%20Plane%20Car%20Haul.xml",
+              "localFile": "./media/vehicles-77.xml",
+              "localPreview": "./media/vehicles-77.webp",
+              "payloadBytes": 70199,
+              "payloadSha256": "9491927d28032c7141dda14e1d69c9f1c7bc4f07d401b5e130ea57a2d9d590b4",
+              "previewBytes": 18792,
+              "inspection": {
+                "shape": "xml:Vehicle",
+                "root": "Vehicle",
+                "rootClosed": true,
+                "model": "0x15f27762",
+                "vehicleProperties": true,
+                "placements": 0,
+                "attachments": 32,
+                "metadata": {
+                  "menyoo_ver": "0.9998743b"
+                },
+                "validation": "Root/field signature inspection; no full XML parser or entity expansion used."
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "TXT/stand-vehicle-values/format-eligible-with-limitations",
+          "format": "TXT",
+          "shape": "stand-vehicle-values",
+          "count": 19442,
+          "disposition": "format-eligible-with-limitations",
+          "supportedMenuCandidates": [
+            "scooby",
+            "nenyoo"
+          ],
+          "reason": "Both inspected adapters read Model and named Stand vehicle values. Exact appearance parity needs review: Nenyoo subtracts 1 for named mods; Scooby Normalize copies their values directly. Install in the correct Stand vehicle import folder.",
+          "previewsPresent": 19441,
+          "payloadBytes": 14374687,
+          "sectionCountRange": [
+            0,
+            0
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 19442,
+          "samples": [
+            {
+              "index": 2,
+              "kind": "vehicles",
+              "name": "adder 2",
+              "originalFilename": "adder_2.txt",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/adder/adder_2.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/adder/nenyoo_preview_06c9abbad789.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_2.txt",
+              "localFile": "./media/vehicles-2.txt",
+              "localPreview": "./media/vehicles-2.webp",
+              "payloadBytes": 1280,
+              "payloadSha256": "05baaac5a730c7922f6545d96c1cadfbae93db0bc4950cc33afbd26edb73fbbd",
+              "previewBytes": 16732,
+              "inspection": {
+                "shape": "stand-vehicle-values",
+                "model": "adder",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 86,
+                "recognizedVehicleKeys": 12,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 3,
+              "kind": "vehicles",
+              "name": "adder 28",
+              "originalFilename": "adder_28.txt",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/adder/adder_28.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/adder/nenyoo_preview_be4c54f0a7c1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_28.txt",
+              "localFile": "./media/vehicles-3.txt",
+              "localPreview": "./media/vehicles-3.webp",
+              "payloadBytes": 634,
+              "payloadSha256": "ac2be8d87c8ac3f5204e5afec79b6d51050259fd16eb5f4c377251da6e26876a",
+              "previewBytes": 16692,
+              "inspection": {
+                "shape": "stand-vehicle-values",
+                "model": "adder",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 37,
+                "recognizedVehicleKeys": 11,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 4,
+              "kind": "vehicles",
+              "name": "adder 178",
+              "originalFilename": "adder_178.txt",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/adder/adder_178.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/adder/nenyoo_preview_4fe13a347fde.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_178.txt",
+              "localFile": "./media/vehicles-4.txt",
+              "localPreview": "./media/vehicles-4.webp",
+              "payloadBytes": 568,
+              "payloadSha256": "b88d5ae1957183e31079654d65be478fb67468ae0c4b16565a9055f3d75ae76d",
+              "previewBytes": 15958,
+              "inspection": {
+                "shape": "stand-vehicle-values",
+                "model": "adder",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 34,
+                "recognizedVehicleKeys": 11,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 5,
+              "kind": "vehicles",
+              "name": "adder 221",
+              "originalFilename": "adder_221.txt",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/adder/adder_221.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/adder/nenyoo_preview_b4d757711dd1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_221.txt",
+              "localFile": "./media/vehicles-5.txt",
+              "localPreview": "./media/vehicles-5.webp",
+              "payloadBytes": 620,
+              "payloadSha256": "f50f9ae795d6433d50f8eef2889b1e7ece054326f3a2a26025bcdf41694b74d9",
+              "previewBytes": 16442,
+              "inspection": {
+                "shape": "stand-vehicle-values",
+                "model": "adder",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 37,
+                "recognizedVehicleKeys": 11,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 6,
+              "kind": "vehicles",
+              "name": "adder 1033",
+              "originalFilename": "adder_1033.txt",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/adder/adder_1033.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/adder/nenyoo_preview_e4b42b6ab5c0.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/adder/adder_1033.txt",
+              "localFile": "./media/vehicles-6.txt",
+              "localPreview": "./media/vehicles-6.webp",
+              "payloadBytes": 1267,
+              "payloadSha256": "32e243d2525adbac808fbdeb176ae1e1fd16c9d2cd0fab5cac2129b0922963d7",
+              "previewBytes": 16992,
+              "inspection": {
+                "shape": "stand-vehicle-values",
+                "model": "adder",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 86,
+                "recognizedVehicleKeys": 12,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "INI/sectioned-values:Vehicle0/review-needed",
+          "format": "INI",
+          "shape": "sectioned-values:Vehicle0",
+          "count": 55,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 55,
+          "payloadBytes": 3198795,
+          "sectionCountRange": [
+            21,
+            807
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 85,
+              "kind": "vehicles",
+              "name": "JiaoBanJi2 fsx",
+              "originalFilename": "JiaoBanJi2-fsx.ini",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/JiaoBanJi2-fsx.ini",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/nenyoo_preview_e505b40900a2.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Modded_Vehicles_2/Modded%20Vehicles%202/Ramps%20%26%20long%20cars/JiaoBanJi2-fsx.ini",
+              "localFile": "./media/vehicles-85.ini",
+              "localPreview": "./media/vehicles-85.webp",
+              "payloadBytes": 33547,
+              "payloadSha256": "1f44fee706035a8f4a651a06169b078e14708fcd870663549c49797d2657df75",
+              "previewBytes": 7720,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle0",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 77,
+                "firstSection": "Object0",
+                "sectionFamilies": [
+                  "Object#",
+                  "AllObjects",
+                  "Vehicle#",
+                  "Vehicle#Mods",
+                  "Vehicle#Toggles",
+                  "Vehicle#Extras",
+                  "Vehicle#TireSmoke",
+                  "Vehicle#Neon",
+                  "Vehicle#PaintFade",
+                  "Vehicle#NeonColor",
+                  "Vehicle#VehicleColors",
+                  "Vehicle#ExtraColors",
+                  "Vehicle#CustomPrimaryColor",
+                  "Vehicle#CustomSecondaryColor",
+                  "Vehicle#WheelType",
+                  "Vehicle#Numberplate",
+                  "Vehicle#WindowTint",
+                  "Vehicle#IsCustomPrimary",
+                  "Vehicle#IsCustomSecondary",
+                  "AllVehicles",
+                  "AllPeds"
+                ],
+                "valueCount": 1979,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 86,
+              "kind": "vehicles",
+              "name": "JiaoBanJi2 fsx",
+              "originalFilename": "JiaoBanJi2-fsx.ini",
+              "modelHash": "3078201489",
+              "model": "adder",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/JiaoBanJi2-fsx.ini",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/nenyoo_preview_001532aa3e73.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded%20Vehicles%202/Ramps%20%26%20long%20cars/JiaoBanJi2-fsx.ini",
+              "localFile": "./media/vehicles-86.ini",
+              "localPreview": "./media/vehicles-86.webp",
+              "payloadBytes": 33547,
+              "payloadSha256": "1f44fee706035a8f4a651a06169b078e14708fcd870663549c49797d2657df75",
+              "previewBytes": 7728,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle0",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 77,
+                "firstSection": "Object0",
+                "sectionFamilies": [
+                  "Object#",
+                  "AllObjects",
+                  "Vehicle#",
+                  "Vehicle#Mods",
+                  "Vehicle#Toggles",
+                  "Vehicle#Extras",
+                  "Vehicle#TireSmoke",
+                  "Vehicle#Neon",
+                  "Vehicle#PaintFade",
+                  "Vehicle#NeonColor",
+                  "Vehicle#VehicleColors",
+                  "Vehicle#ExtraColors",
+                  "Vehicle#CustomPrimaryColor",
+                  "Vehicle#CustomSecondaryColor",
+                  "Vehicle#WheelType",
+                  "Vehicle#Numberplate",
+                  "Vehicle#WindowTint",
+                  "Vehicle#IsCustomPrimary",
+                  "Vehicle#IsCustomSecondary",
+                  "AllVehicles",
+                  "AllPeds"
+                ],
+                "valueCount": 1979,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 290,
+              "kind": "vehicles",
+              "name": "chongzi fsx",
+              "originalFilename": "chongzi-fsx.ini",
+              "modelHash": "767087018",
+              "model": "alpha",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Robots/chongzi-fsx.ini",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Robots/nenyoo_preview_858b8915e455.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Modded_Vehicles_2/Modded%20Vehicles%202/Robots/chongzi-fsx.ini",
+              "localFile": "./media/vehicles-290.ini",
+              "localPreview": "./media/vehicles-290.webp",
+              "payloadBytes": 74297,
+              "payloadSha256": "1d85f290d8d48e274095f4e7ef187c86d19db28554f1e6a156465c46836ec42a",
+              "previewBytes": 20498,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle0",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 394,
+                "firstSection": "AllObjects",
+                "sectionFamilies": [
+                  "AllObjects",
+                  "Vehicle#",
+                  "Vehicle#Mods",
+                  "Vehicle#Toggles",
+                  "Vehicle#Extras",
+                  "Vehicle#TireSmoke",
+                  "Vehicle#Neon",
+                  "Vehicle#PaintFade",
+                  "Vehicle#NeonColor",
+                  "Vehicle#VehicleColors",
+                  "Vehicle#ExtraColors",
+                  "Vehicle#CustomPrimaryColor",
+                  "Vehicle#CustomSecondaryColor",
+                  "Vehicle#WheelType",
+                  "Vehicle#Numberplate",
+                  "Vehicle#WindowTint",
+                  "Vehicle#IsCustomPrimary",
+                  "Vehicle#IsCustomSecondary",
+                  "AllVehicles",
+                  "AllPeds"
+                ],
+                "valueCount": 4759,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 291,
+              "kind": "vehicles",
+              "name": "chongzi fsx",
+              "originalFilename": "chongzi-fsx.ini",
+              "modelHash": "767087018",
+              "model": "alpha",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Robots/chongzi-fsx.ini",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Robots/nenyoo_preview_dc23758a79ea.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded%20Vehicles%202/Robots/chongzi-fsx.ini",
+              "localFile": "./media/vehicles-291.ini",
+              "localPreview": "./media/vehicles-291.webp",
+              "payloadBytes": 74297,
+              "payloadSha256": "1d85f290d8d48e274095f4e7ef187c86d19db28554f1e6a156465c46836ec42a",
+              "previewBytes": 20574,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle0",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 394,
+                "firstSection": "AllObjects",
+                "sectionFamilies": [
+                  "AllObjects",
+                  "Vehicle#",
+                  "Vehicle#Mods",
+                  "Vehicle#Toggles",
+                  "Vehicle#Extras",
+                  "Vehicle#TireSmoke",
+                  "Vehicle#Neon",
+                  "Vehicle#PaintFade",
+                  "Vehicle#NeonColor",
+                  "Vehicle#VehicleColors",
+                  "Vehicle#ExtraColors",
+                  "Vehicle#CustomPrimaryColor",
+                  "Vehicle#CustomSecondaryColor",
+                  "Vehicle#WheelType",
+                  "Vehicle#Numberplate",
+                  "Vehicle#WindowTint",
+                  "Vehicle#IsCustomPrimary",
+                  "Vehicle#IsCustomSecondary",
+                  "AllVehicles",
+                  "AllPeds"
+                ],
+                "valueCount": 4759,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 294,
+              "kind": "vehicles",
+              "name": "Cidiantank fsx",
+              "originalFilename": "Cidiantank-fsx.ini",
+              "modelHash": "767087018",
+              "model": "alpha",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Robots/Cidiantank-fsx.ini",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Robots/nenyoo_preview_2bf99307668b.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Modded_Vehicles_2/Modded%20Vehicles%202/Robots/Cidiantank-fsx.ini",
+              "localFile": "./media/vehicles-294.ini",
+              "localPreview": "./media/vehicles-294.webp",
+              "payloadBytes": 103101,
+              "payloadSha256": "bc6ec4f88e31d8409a410429d32ad9c2e90adbd23e31ca36b559e69bf08053cb",
+              "previewBytes": 17754,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle0",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 478,
+                "firstSection": "Object0",
+                "sectionFamilies": [
+                  "Object#",
+                  "AllObjects",
+                  "Vehicle#",
+                  "Vehicle#Mods",
+                  "Vehicle#Toggles",
+                  "Vehicle#Extras",
+                  "Vehicle#TireSmoke",
+                  "Vehicle#Neon",
+                  "Vehicle#PaintFade",
+                  "Vehicle#NeonColor",
+                  "Vehicle#VehicleColors",
+                  "Vehicle#ExtraColors",
+                  "Vehicle#CustomPrimaryColor",
+                  "Vehicle#CustomSecondaryColor",
+                  "Vehicle#WheelType",
+                  "Vehicle#Numberplate",
+                  "Vehicle#WindowTint",
+                  "Vehicle#IsCustomPrimary",
+                  "Vehicle#IsCustomSecondary",
+                  "Vehicle#ExtrasTurnedOn",
+                  "AllVehicles",
+                  "AllPeds"
+                ],
+                "valueCount": 6329,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "INI/sectioned-values:Vehicle/review-needed",
+          "format": "INI",
+          "shape": "sectioned-values:Vehicle",
+          "count": 97,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 25,
+          "payloadBytes": 382470,
+          "sectionCountRange": [
+            2,
+            224
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 93,
+              "kind": "vehicles",
+              "name": "JamezModz Mr. Roboto v2.0",
+              "originalFilename": "-JamezModz- Mr. Roboto v2.0.ini",
+              "modelHash": "1283517198",
+              "model": "Airbus",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Robots/-JamezModz- Mr. Roboto v2.0.ini",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Modded_Vehicles_2/Modded%20Vehicles%202/Robots/-JamezModz-%20Mr.%20Roboto%20v2.0.ini",
+              "localFile": "./media/vehicles-93.ini",
+              "localPreview": null,
+              "payloadBytes": 31491,
+              "payloadSha256": "0b66e3aa93aba1454ab5a6cff3af6dda57011fcd98ef8965724dd45b23eea392",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle",
+                "model": "3743513820",
+                "modelKey": "Model",
+                "modelColonLine": false,
+                "sectionCount": 224,
+                "firstSection": "Vehicle",
+                "sectionFamilies": [
+                  "Vehicle",
+                  "Vehicle Mods",
+                  "Vehicle Toggles",
+                  "Vehicle Extras",
+                  "#",
+                  "Attached Object #"
+                ],
+                "valueCount": 1907,
+                "recognizedVehicleKeys": 2,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 94,
+              "kind": "vehicles",
+              "name": "JamezModz Mr. Roboto v2.0",
+              "originalFilename": "-JamezModz- Mr. Roboto v2.0.ini",
+              "modelHash": "1283517198",
+              "model": "Airbus",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Robots/-JamezModz- Mr. Roboto v2.0.ini",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded%20Vehicles%202/Robots/-JamezModz-%20Mr.%20Roboto%20v2.0.ini",
+              "localFile": "./media/vehicles-94.ini",
+              "localPreview": null,
+              "payloadBytes": 31491,
+              "payloadSha256": "0b66e3aa93aba1454ab5a6cff3af6dda57011fcd98ef8965724dd45b23eea392",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle",
+                "model": "3743513820",
+                "modelKey": "Model",
+                "modelColonLine": false,
+                "sectionCount": 224,
+                "firstSection": "Vehicle",
+                "sectionFamilies": [
+                  "Vehicle",
+                  "Vehicle Mods",
+                  "Vehicle Toggles",
+                  "Vehicle Extras",
+                  "#",
+                  "Attached Object #"
+                ],
+                "valueCount": 1907,
+                "recognizedVehicleKeys": 2,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 95,
+              "kind": "vehicles",
+              "name": "Rocket Express Limo",
+              "originalFilename": "Rocket Express Limo  .ini",
+              "modelHash": "1283517198",
+              "model": "Airbus",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/Rocket Express Limo  .ini",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Modded_Vehicles_2/Modded%20Vehicles%202/Ramps%20%26%20long%20cars/Rocket%20Express%20Limo%20%20.ini",
+              "localFile": "./media/vehicles-95.ini",
+              "localPreview": null,
+              "payloadBytes": 1182,
+              "payloadSha256": "56ce56bf33193d447ab29eb7bc50985c748b0fe5d8cfe736de318cd49a55a4c5",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle",
+                "model": "3724565325",
+                "modelKey": "Model",
+                "modelColonLine": false,
+                "sectionCount": 6,
+                "firstSection": "Vehicle",
+                "sectionFamilies": [
+                  "Vehicle",
+                  "Vehicle Mods",
+                  "Vehicle Toggles",
+                  "Vehicle Extras",
+                  "Attached Object #"
+                ],
+                "valueCount": 174,
+                "recognizedVehicleKeys": 2,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 96,
+              "kind": "vehicles",
+              "name": "Rocket Express Limo",
+              "originalFilename": "Rocket Express Limo  .ini",
+              "modelHash": "1283517198",
+              "model": "Airbus",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded Vehicles 2/Ramps & long cars/Rocket Express Limo  .ini",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/megapack_brazil/Vehicles/Modded_Vehicles_2/Modded%20Vehicles%202/Ramps%20%26%20long%20cars/Rocket%20Express%20Limo%20%20.ini",
+              "localFile": "./media/vehicles-96.ini",
+              "localPreview": null,
+              "payloadBytes": 1182,
+              "payloadSha256": "56ce56bf33193d447ab29eb7bc50985c748b0fe5d8cfe736de318cd49a55a4c5",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle",
+                "model": "3724565325",
+                "modelKey": "Model",
+                "modelColonLine": false,
+                "sectionCount": 6,
+                "firstSection": "Vehicle",
+                "sectionFamilies": [
+                  "Vehicle",
+                  "Vehicle Mods",
+                  "Vehicle Toggles",
+                  "Vehicle Extras",
+                  "Attached Object #"
+                ],
+                "valueCount": 174,
+                "recognizedVehicleKeys": 2,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 100,
+              "kind": "vehicles",
+              "name": "LSC Windmill (byChr1s0bjeX)",
+              "originalFilename": "LSC Windmill (byChr1s0bjeX).ini",
+              "modelHash": "1560980623",
+              "model": "Airtug",
+              "category": "ST512",
+              "format": "INI",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Modded_Vehicles_2/Modded Vehicles 2/Random abomincations/LSC Windmill (byChr1s0bjeX).ini",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Modded_Vehicles_2/Modded%20Vehicles%202/Random%20abomincations/LSC%20Windmill%20(byChr1s0bjeX).ini",
+              "localFile": "./media/vehicles-100.ini",
+              "localPreview": null,
+              "payloadBytes": 1151,
+              "payloadSha256": "15d5ba200f4f8486eed77a3c34da1c48745d195d78e4c83aee411104fd0bf636",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "sectioned-values:Vehicle",
+                "model": "1777231328",
+                "modelKey": "Model",
+                "modelColonLine": false,
+                "sectionCount": 7,
+                "firstSection": "Vehicle",
+                "sectionFamilies": [
+                  "Vehicle",
+                  "#"
+                ],
+                "valueCount": 182,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "TXT/sectioned-txt/review-needed",
+          "format": "TXT",
+          "shape": "sectioned-txt",
+          "count": 1,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 1,
+          "payloadBytes": 45141,
+          "sectionCountRange": [
+            230,
+            230
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 431,
+              "kind": "vehicles",
+              "name": "Unknown 1428",
+              "originalFilename": "Unknown_1428.txt",
+              "modelHash": "767087018",
+              "model": "alpha",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Unknown/Unknown_1428.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/Unknown/nenyoo_preview_b961fb0586dd.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Unknown/Unknown_1428.txt",
+              "localFile": "./media/vehicles-431.txt",
+              "localPreview": "./media/vehicles-431.webp",
+              "payloadBytes": 45141,
+              "payloadSha256": "52d1c2610552294f33eb66552bedba56ffa1e99881057c9836544ac2b44b04f8",
+              "previewBytes": 17736,
+              "inspection": {
+                "shape": "sectioned-txt",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 230,
+                "firstSection": "Object0",
+                "sectionFamilies": [
+                  "Object#",
+                  "AllObjects",
+                  "Vehicle#",
+                  "Vehicle#Mods",
+                  "Vehicle#Toggles",
+                  "Vehicle#Extras",
+                  "Vehicle#TireSmoke",
+                  "Vehicle#Neon",
+                  "Vehicle#PaintFade",
+                  "Vehicle#NeonColor",
+                  "Vehicle#VehicleColors",
+                  "Vehicle#ExtraColors",
+                  "Vehicle#CustomPrimaryColor",
+                  "Vehicle#CustomSecondaryColor",
+                  "Vehicle#WheelType",
+                  "Vehicle#Numberplate",
+                  "Vehicle#WindowTint",
+                  "Vehicle#IsCustomPrimary",
+                  "Vehicle#IsCustomSecondary",
+                  "AllVehicles",
+                  "AllPeds"
+                ],
+                "valueCount": 2939,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "JSON/json:build-collection/review-needed",
+          "format": "JSON",
+          "shape": "json:build-collection",
+          "count": 7,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 7,
+          "payloadBytes": 64169,
+          "sectionCountRange": null,
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 585,
+              "kind": "vehicles",
+              "name": "SerialKillerVan",
+              "originalFilename": "SerialKillerVan.json",
+              "modelHash": "1118611807",
+              "model": "asbo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/SerialKillerVan/SerialKillerVan.json",
+              "originalPreviews": [
+                "Vehicles/ST512/SerialKillerVan/image_1.jpg",
+                "Vehicles/ST512/SerialKillerVan/image_2.jpg",
+                "Vehicles/ST512/SerialKillerVan/image_3.jpg"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/SerialKillerVan/SerialKillerVan.json",
+              "localFile": "./media/vehicles-585.json",
+              "localPreview": "./media/vehicles-585.webp",
+              "payloadBytes": 15020,
+              "payloadSha256": "b4591ec2c81fd1ffc8588585b66f3f58d87bc4a1dd748ef95a1d88e223c46922",
+              "previewBytes": 14076,
+              "inspection": {
+                "shape": "json:build-collection",
+                "rootKeys": [
+                  "allowPlayerSpawning",
+                  "author",
+                  "base",
+                  "blipIcon",
+                  "builds",
+                  "created",
+                  "name",
+                  "objects",
+                  "particles",
+                  "peds",
+                  "vehicles",
+                  "version"
+                ],
+                "flags": {
+                  "vehicles": "array",
+                  "peds": "array",
+                  "objects": "array",
+                  "base": "object",
+                  "builds": "array"
+                },
+                "type": null,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "author": "Discandy",
+                  "version": "Jackz Builder 1.6.0",
+                  "created": 1664716282,
+                  "name": "SerialKillerVan"
+                }
+              }
+            },
+            {
+              "index": 2750,
+              "kind": "vehicles",
+              "name": "freighttruck",
+              "originalFilename": "freighttruck.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/freighttruck/freighttruck.json",
+              "originalPreviews": [
+                "Vehicles/ST512/freighttruck/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/freighttruck/freighttruck.json",
+              "localFile": "./media/vehicles-2750.json",
+              "localPreview": "./media/vehicles-2750.webp",
+              "payloadBytes": 6276,
+              "payloadSha256": "337cf5a2ad7e7f51882034440c8baa33ff46e737c32e532a84a1075e26f48fa0",
+              "previewBytes": 19654,
+              "inspection": {
+                "shape": "json:build-collection",
+                "rootKeys": [
+                  "author",
+                  "base",
+                  "blip_icon",
+                  "created",
+                  "name",
+                  "objects",
+                  "peds",
+                  "vehicles",
+                  "version"
+                ],
+                "flags": {
+                  "vehicles": "array",
+                  "peds": "array",
+                  "objects": "array",
+                  "base": "object"
+                },
+                "type": null,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "author": "hexarobi",
+                  "version": "Jackz Custom Vehicle 1.3.0",
+                  "created": 1661711663,
+                  "name": "freighttruck"
+                }
+              }
+            },
+            {
+              "index": 3001,
+              "kind": "vehicles",
+              "name": "Monster Romero",
+              "originalFilename": "Monster_Romero.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/Monster_Romero/Monster_Romero.json",
+              "originalPreviews": [
+                "Vehicles/ST512/Monster_Romero/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Monster_Romero/Monster_Romero.json",
+              "localFile": "./media/vehicles-3001.json",
+              "localPreview": "./media/vehicles-3001.webp",
+              "payloadBytes": 5050,
+              "payloadSha256": "e674f7eb5d951a748dccc361adf0886eed1bcf72f0140f7f597a8c45fa840e3e",
+              "previewBytes": 19420,
+              "inspection": {
+                "shape": "json:build-collection",
+                "rootKeys": [
+                  "base",
+                  "blipIcon",
+                  "builds",
+                  "created",
+                  "name",
+                  "objects",
+                  "peds",
+                  "vehicles",
+                  "version"
+                ],
+                "flags": {
+                  "vehicles": "array",
+                  "peds": "array",
+                  "objects": "array",
+                  "base": "object",
+                  "builds": "array"
+                },
+                "type": null,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "version": "Jackz Builder 1.5.0",
+                  "created": 1662913517,
+                  "name": "Monster Romero"
+                }
+              }
+            },
+            {
+              "index": 3083,
+              "kind": "vehicles",
+              "name": "Oppressor X",
+              "originalFilename": "Oppressor_X.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/Oppressor_X/Oppressor_X.json",
+              "originalPreviews": [
+                "Vehicles/ST512/Oppressor_X/image_1.png",
+                "Vehicles/ST512/Oppressor_X/image_2.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Oppressor_X/Oppressor_X.json",
+              "localFile": "./media/vehicles-3083.json",
+              "localPreview": "./media/vehicles-3083.webp",
+              "payloadBytes": 8618,
+              "payloadSha256": "1e78c8ae4ca446aa7aa8832f6fd63ea2624dd733ad3789f72f3d786c27aff68e",
+              "previewBytes": 12276,
+              "inspection": {
+                "shape": "json:build-collection",
+                "rootKeys": [
+                  "allowPlayerSpawning",
+                  "base",
+                  "blipIcon",
+                  "builds",
+                  "created",
+                  "name",
+                  "objects",
+                  "particles",
+                  "peds",
+                  "vehicles",
+                  "version"
+                ],
+                "flags": {
+                  "vehicles": "array",
+                  "peds": "array",
+                  "objects": "array",
+                  "base": "object",
+                  "builds": "array"
+                },
+                "type": null,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "version": "Jackz Builder 1.6.0",
+                  "created": 1664198784,
+                  "name": "Oppressor X"
+                }
+              }
+            },
+            {
+              "index": 3235,
+              "kind": "vehicles",
+              "name": "RPGvsInsurgents",
+              "originalFilename": "RPGvsInsurgents.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/RPGvsInsurgents/RPGvsInsurgents.json",
+              "originalPreviews": [
+                "Vehicles/ST512/RPGvsInsurgents/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/RPGvsInsurgents/RPGvsInsurgents.json",
+              "localFile": "./media/vehicles-3235.json",
+              "localPreview": "./media/vehicles-3235.webp",
+              "payloadBytes": 18878,
+              "payloadSha256": "f93c469856e1501691838aa678f1b90c97568864dab113599e6cbab8c8d89b76",
+              "previewBytes": 18544,
+              "inspection": {
+                "shape": "json:build-collection",
+                "rootKeys": [
+                  "author",
+                  "base",
+                  "blipIcon",
+                  "builds",
+                  "created",
+                  "name",
+                  "objects",
+                  "peds",
+                  "vehicles",
+                  "version"
+                ],
+                "flags": {
+                  "vehicles": "array",
+                  "peds": "array",
+                  "objects": "array",
+                  "base": "object",
+                  "builds": "array"
+                },
+                "type": null,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "author": "Sheriff",
+                  "version": "Jackz Builder 1.5.0",
+                  "created": 1662756829,
+                  "name": "RPGvsInsurgents"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "JSON/json:constructor-vehicle/review-needed",
+          "format": "JSON",
+          "shape": "json:constructor-vehicle",
+          "count": 8,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 8,
+          "payloadBytes": 161767,
+          "sectionCountRange": null,
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 1987,
+              "kind": "vehicles",
+              "name": "BUFFALO4",
+              "originalFilename": "BUFFALO4.json",
+              "modelHash": "3990165190",
+              "model": "buffalo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/BUFFALO4/BUFFALO4.json",
+              "originalPreviews": [
+                "Vehicles/ST512/BUFFALO4/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/BUFFALO4/BUFFALO4.json",
+              "localFile": "./media/vehicles-1987.json",
+              "localPreview": "./media/vehicles-1987.webp",
+              "payloadBytes": 8503,
+              "payloadSha256": "42f556271084ec16e41a641dd2cf911727b278d1f54693ef9fefa5fd6e35d818",
+              "previewBytes": 10716,
+              "inspection": {
+                "shape": "json:constructor-vehicle",
+                "rootKeys": [
+                  "author",
+                  "blip_color",
+                  "blip_handle",
+                  "blip_icon",
+                  "blip_sprite",
+                  "children",
+                  "created",
+                  "hash",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "vehicle_attributes",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "vehicle_attributes": "object",
+                  "children": "array"
+                },
+                "type": "VEHICLE",
+                "model": "BUFFALO4",
+                "children": 3,
+                "metadata": {
+                  "author": "TonyElcucuy04",
+                  "version": "Constructor 0.24 / 3.21.8",
+                  "target_version": "3.21.8",
+                  "created": "2022-10-23T13:06:47Z",
+                  "name": "BUFFALO4"
+                }
+              }
+            },
+            {
+              "index": 2226,
+              "kind": "vehicles",
+              "name": "AdvFighter",
+              "originalFilename": "AdvFighter.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/AdvFighter/AdvFighter.json",
+              "originalPreviews": [
+                "Vehicles/ST512/AdvFighter/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/AdvFighter/AdvFighter.json",
+              "localFile": "./media/vehicles-2226.json",
+              "localPreview": "./media/vehicles-2226.webp",
+              "payloadBytes": 16183,
+              "payloadSha256": "bb4be4f1742ecb21b3c1b470a66f4a5fdea1f10792bea821fc02d0e315383ccd",
+              "previewBytes": 5626,
+              "inspection": {
+                "shape": "json:constructor-vehicle",
+                "rootKeys": [
+                  "author",
+                  "blip_color",
+                  "blip_icon",
+                  "blip_sprite",
+                  "children",
+                  "created",
+                  "hash",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "vehicle_attributes",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "vehicle_attributes": "object",
+                  "children": "array"
+                },
+                "type": "VEHICLE",
+                "model": "OPPRESSOR2",
+                "children": 21,
+                "metadata": {
+                  "author": "WandaMaxximoff",
+                  "version": "Constructor 0.24.1 / 3.21.9 / 0.8.5",
+                  "target_version": "3.21.9",
+                  "created": "2022-10-27T17:11:07Z",
+                  "name": "AdvFighter"
+                }
+              }
+            },
+            {
+              "index": 2774,
+              "kind": "vehicles",
+              "name": "ghostrider",
+              "originalFilename": "ghostrider.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/ghostrider/ghostrider.json",
+              "originalPreviews": [
+                "Vehicles/ST512/ghostrider/image_1.png",
+                "Vehicles/ST512/ghostrider/image_2.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/ghostrider/ghostrider.json",
+              "localFile": "./media/vehicles-2774.json",
+              "localPreview": "./media/vehicles-2774.webp",
+              "payloadBytes": 2622,
+              "payloadSha256": "af929d06b08cf496d166fade75ced7b86b8819732c980f46002929ecdef82ec1",
+              "previewBytes": 5576,
+              "inspection": {
+                "shape": "json:constructor-vehicle",
+                "rootKeys": [
+                  "author",
+                  "children",
+                  "created",
+                  "hash",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "update_position",
+                  "vehicle_attributes",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "vehicle_attributes": "object",
+                  "children": "array"
+                },
+                "type": "VEHICLE",
+                "model": "SANCTUS",
+                "children": 1,
+                "metadata": {
+                  "author": "hexarobo",
+                  "version": "Constructor 0.17 / Lib 3.16",
+                  "target_version": "3.16",
+                  "created": "2022-09-25T21:34:25Z",
+                  "name": "ghostrider"
+                }
+              }
+            },
+            {
+              "index": 3144,
+              "kind": "vehicles",
+              "name": "Policecentipede",
+              "originalFilename": "Policecentipede.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/Policecentipede/Policecentipede.json",
+              "originalPreviews": [
+                "Vehicles/ST512/Policecentipede/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Policecentipede/Policecentipede.json",
+              "localFile": "./media/vehicles-3144.json",
+              "localPreview": "./media/vehicles-3144.webp",
+              "payloadBytes": 113264,
+              "payloadSha256": "e6a7eb6f60d30844439989704019486208c428a31c91158b3bdcc7a75e6c7c07",
+              "previewBytes": 2068,
+              "inspection": {
+                "shape": "json:constructor-vehicle",
+                "rootKeys": [
+                  "children",
+                  "hash",
+                  "model",
+                  "name",
+                  "options",
+                  "original_vehicle",
+                  "save_data",
+                  "target_version",
+                  "type",
+                  "vehicle_attributes"
+                ],
+                "flags": {
+                  "vehicle_attributes": "object",
+                  "children": "array"
+                },
+                "type": "VEHICLE",
+                "model": "TURISMOR",
+                "children": 69,
+                "metadata": {
+                  "target_version": "3.1",
+                  "name": "Policecentipede"
+                }
+              }
+            },
+            {
+              "index": 3371,
+              "kind": "vehicles",
+              "name": "TieFighter",
+              "originalFilename": "TieFighter.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/TieFighter/TieFighter.json",
+              "originalPreviews": [
+                "Vehicles/ST512/TieFighter/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/TieFighter/TieFighter.json",
+              "localFile": "./media/vehicles-3371.json",
+              "localPreview": "./media/vehicles-3371.webp",
+              "payloadBytes": 12163,
+              "payloadSha256": "2e2a307cf9e55901ea3f9ad466d3f9077a59fd9040ac1ea588c69c1661d2c986",
+              "previewBytes": 11716,
+              "inspection": {
+                "shape": "json:constructor-vehicle",
+                "rootKeys": [
+                  "author",
+                  "blip_color",
+                  "blip_icon",
+                  "blip_sprite",
+                  "children",
+                  "created",
+                  "hash",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "vehicle_attributes",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "vehicle_attributes": "object",
+                  "children": "array"
+                },
+                "type": "VEHICLE",
+                "model": "OPPRESSOR2",
+                "children": 14,
+                "metadata": {
+                  "author": "WandaMaxximoff",
+                  "version": "Constructor 0.24.1 / 3.21.9 / 0.8.5",
+                  "target_version": "3.21.9",
+                  "created": "2022-10-29T15:14:35Z",
+                  "name": "TieFighter"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "JSON/json:JSTAND-1.1/review-needed",
+          "format": "JSON",
+          "shape": "json:JSTAND-1.1",
+          "count": 6,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 6,
+          "payloadBytes": 7824,
+          "sectionCountRange": null,
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 3421,
+              "kind": "vehicles",
+              "name": "untouchedforever vectre white",
+              "originalFilename": "untouchedforever_vectre white.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/3646_CARS/Randoms/untouchedforever_vectre white.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/3646_CARS/Randoms/nenyoo_preview_7a8ac2db4ed9.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/3646_CARS/Randoms/untouchedforever_vectre%20white.json",
+              "localFile": "./media/vehicles-3421.json",
+              "localPreview": "./media/vehicles-3421.webp",
+              "payloadBytes": 1304,
+              "payloadSha256": "b3f8385d37930735a0d6d62b71991a713582775cc4a0a28685f39789e7ba4e19",
+              "previewBytes": 18158,
+              "inspection": {
+                "shape": "json:JSTAND-1.1",
+                "rootKeys": [
+                  "Bulletproof Tires",
+                  "Colors",
+                  "Dashboard Color",
+                  "Dirt Level",
+                  "Engine Running",
+                  "Format",
+                  "Interior Color",
+                  "License Plate",
+                  "Lights",
+                  "Livery",
+                  "Manufacturer",
+                  "Model",
+                  "Mods",
+                  "Name",
+                  "Tire Smoke",
+                  "Type",
+                  "Window Tint"
+                ],
+                "flags": {
+                  "Format": "string"
+                },
+                "type": "Sports Classics",
+                "model": -1540373595,
+                "children": null,
+                "metadata": {
+                  "Name": "VECTRE",
+                  "Format": "JSTAND 1.1",
+                  "Type": "Sports Classics"
+                }
+              }
+            },
+            {
+              "index": 3422,
+              "kind": "vehicles",
+              "name": "untouchedforever vectre white",
+              "originalFilename": "untouchedforever_vectre white.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Randoms/untouchedforever_vectre white.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/Randoms/nenyoo_preview_0ce2940fe860.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/Randoms/untouchedforever_vectre%20white.json",
+              "localFile": "./media/vehicles-3422.json",
+              "localPreview": "./media/vehicles-3422.webp",
+              "payloadBytes": 1304,
+              "payloadSha256": "b3f8385d37930735a0d6d62b71991a713582775cc4a0a28685f39789e7ba4e19",
+              "previewBytes": 18422,
+              "inspection": {
+                "shape": "json:JSTAND-1.1",
+                "rootKeys": [
+                  "Bulletproof Tires",
+                  "Colors",
+                  "Dashboard Color",
+                  "Dirt Level",
+                  "Engine Running",
+                  "Format",
+                  "Interior Color",
+                  "License Plate",
+                  "Lights",
+                  "Livery",
+                  "Manufacturer",
+                  "Model",
+                  "Mods",
+                  "Name",
+                  "Tire Smoke",
+                  "Type",
+                  "Window Tint"
+                ],
+                "flags": {
+                  "Format": "string"
+                },
+                "type": "Sports Classics",
+                "model": -1540373595,
+                "children": null,
+                "metadata": {
+                  "Name": "VECTRE",
+                  "Format": "JSTAND 1.1",
+                  "Type": "Sports Classics"
+                }
+              }
+            },
+            {
+              "index": 3423,
+              "kind": "vehicles",
+              "name": "untouchedforever vectre white",
+              "originalFilename": "untouchedforever_vectre white.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/vehicule/Randoms/untouchedforever_vectre white.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/vehicule/Randoms/nenyoo_preview_4db634522164.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/vehicule/Randoms/untouchedforever_vectre%20white.json",
+              "localFile": "./media/vehicles-3423.json",
+              "localPreview": "./media/vehicles-3423.webp",
+              "payloadBytes": 1304,
+              "payloadSha256": "b3f8385d37930735a0d6d62b71991a713582775cc4a0a28685f39789e7ba4e19",
+              "previewBytes": 17988,
+              "inspection": {
+                "shape": "json:JSTAND-1.1",
+                "rootKeys": [
+                  "Bulletproof Tires",
+                  "Colors",
+                  "Dashboard Color",
+                  "Dirt Level",
+                  "Engine Running",
+                  "Format",
+                  "Interior Color",
+                  "License Plate",
+                  "Lights",
+                  "Livery",
+                  "Manufacturer",
+                  "Model",
+                  "Mods",
+                  "Name",
+                  "Tire Smoke",
+                  "Type",
+                  "Window Tint"
+                ],
+                "flags": {
+                  "Format": "string"
+                },
+                "type": "Sports Classics",
+                "model": -1540373595,
+                "children": null,
+                "metadata": {
+                  "Name": "VECTRE",
+                  "Format": "JSTAND 1.1",
+                  "Type": "Sports Classics"
+                }
+              }
+            },
+            {
+              "index": 3424,
+              "kind": "vehicles",
+              "name": "untouchedforever vectre white",
+              "originalFilename": "untouchedforever_vectre white.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/fd/vehicule/Randoms/untouchedforever_vectre white.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/fd/vehicule/Randoms/nenyoo_preview_9c2863108b8c.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/fd/vehicule/Randoms/untouchedforever_vectre%20white.json",
+              "localFile": "./media/vehicles-3424.json",
+              "localPreview": "./media/vehicles-3424.webp",
+              "payloadBytes": 1304,
+              "payloadSha256": "b3f8385d37930735a0d6d62b71991a713582775cc4a0a28685f39789e7ba4e19",
+              "previewBytes": 18218,
+              "inspection": {
+                "shape": "json:JSTAND-1.1",
+                "rootKeys": [
+                  "Bulletproof Tires",
+                  "Colors",
+                  "Dashboard Color",
+                  "Dirt Level",
+                  "Engine Running",
+                  "Format",
+                  "Interior Color",
+                  "License Plate",
+                  "Lights",
+                  "Livery",
+                  "Manufacturer",
+                  "Model",
+                  "Mods",
+                  "Name",
+                  "Tire Smoke",
+                  "Type",
+                  "Window Tint"
+                ],
+                "flags": {
+                  "Format": "string"
+                },
+                "type": "Sports Classics",
+                "model": -1540373595,
+                "children": null,
+                "metadata": {
+                  "Name": "VECTRE",
+                  "Format": "JSTAND 1.1",
+                  "Type": "Sports Classics"
+                }
+              }
+            },
+            {
+              "index": 3425,
+              "kind": "vehicles",
+              "name": "untouchedforever vectre white",
+              "originalFilename": "untouchedforever_vectre white.json",
+              "modelHash": "2598821281",
+              "model": "bullet",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/vehicule/Randoms/untouchedforever_vectre white.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/megapack_brazil/Vehicles/vehicule/Randoms/nenyoo_preview_7752d5e57e26.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/megapack_brazil/Vehicles/vehicule/Randoms/untouchedforever_vectre%20white.json",
+              "localFile": "./media/vehicles-3425.json",
+              "localPreview": "./media/vehicles-3425.webp",
+              "payloadBytes": 1304,
+              "payloadSha256": "b3f8385d37930735a0d6d62b71991a713582775cc4a0a28685f39789e7ba4e19",
+              "previewBytes": 18416,
+              "inspection": {
+                "shape": "json:JSTAND-1.1",
+                "rootKeys": [
+                  "Bulletproof Tires",
+                  "Colors",
+                  "Dashboard Color",
+                  "Dirt Level",
+                  "Engine Running",
+                  "Format",
+                  "Interior Color",
+                  "License Plate",
+                  "Lights",
+                  "Livery",
+                  "Manufacturer",
+                  "Model",
+                  "Mods",
+                  "Name",
+                  "Tire Smoke",
+                  "Type",
+                  "Window Tint"
+                ],
+                "flags": {
+                  "Format": "string"
+                },
+                "type": "Sports Classics",
+                "model": -1540373595,
+                "children": null,
+                "metadata": {
+                  "Name": "VECTRE",
+                  "Format": "JSTAND 1.1",
+                  "Type": "Sports Classics"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "TXT/unrecognized-values/review-needed",
+          "format": "TXT",
+          "shape": "unrecognized-values",
+          "count": 6,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 2,
+          "payloadBytes": 48066,
+          "sectionCountRange": [
+            0,
+            0
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 9222,
+              "kind": "vehicles",
+              "name": "Color Templates I Use",
+              "originalFilename": "Color Templates I Use.txt",
+              "modelHash": "2494797253",
+              "model": "Gauntlet",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/zz Other Stuff/Color Templates I Use.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/zz Other Stuff/nenyoo_preview_980fa4299419.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/zz%20Other%20Stuff/Color%20Templates%20I%20Use.txt",
+              "localFile": "./media/vehicles-9222.txt",
+              "localPreview": "./media/vehicles-9222.webp",
+              "payloadBytes": 20443,
+              "payloadSha256": "694377097ed77c39d9909026bccd91b5acd94c298038eaa1813fb37ca0e9de62",
+              "previewBytes": 17032,
+              "inspection": {
+                "shape": "unrecognized-values",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 5,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 9492,
+              "kind": "vehicles",
+              "name": "Unknown 1083",
+              "originalFilename": "Unknown_1083.txt",
+              "modelHash": "2494797253",
+              "model": "Gauntlet",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Unknown/Unknown_1083.txt",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Unknown/Unknown_1083.txt",
+              "localFile": "./media/vehicles-9492.txt",
+              "localPreview": null,
+              "payloadBytes": 369,
+              "payloadSha256": "cd7861054fdba17a083a86942c13f1b72133c7ec15caa80f6d62fd270628f8df",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "unrecognized-values",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 0,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 9493,
+              "kind": "vehicles",
+              "name": "Unknown 1187",
+              "originalFilename": "Unknown_1187.txt",
+              "modelHash": "2494797253",
+              "model": "Gauntlet",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Unknown/Unknown_1187.txt",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Unknown/Unknown_1187.txt",
+              "localFile": "./media/vehicles-9493.txt",
+              "localPreview": null,
+              "payloadBytes": 538,
+              "payloadSha256": "cb5d0a6ce0bb3098a115fa44ba6b1ae276ccc544ea1cf8b497fd45ac4dc6b5c9",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "unrecognized-values",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 0,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 9494,
+              "kind": "vehicles",
+              "name": "Unknown 287882",
+              "originalFilename": "Unknown_287882.txt",
+              "modelHash": "2494797253",
+              "model": "Gauntlet",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Unknown/Unknown_287882.txt",
+              "originalPreviews": [
+                "Vehicles/ST512/Unknown/nenyoo_preview_96ca32204a48.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Unknown/Unknown_287882.txt",
+              "localFile": "./media/vehicles-9494.txt",
+              "localPreview": "./media/vehicles-9494.webp",
+              "payloadBytes": 20443,
+              "payloadSha256": "694377097ed77c39d9909026bccd91b5acd94c298038eaa1813fb37ca0e9de62",
+              "previewBytes": 17090,
+              "inspection": {
+                "shape": "unrecognized-values",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 5,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 19432,
+              "kind": "vehicles",
+              "name": "Unknown 1178",
+              "originalFilename": "Unknown_1178.txt",
+              "modelHash": "2674840994",
+              "model": "neo",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Unknown/Unknown_1178.txt",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Unknown/Unknown_1178.txt",
+              "localFile": "./media/vehicles-19432.txt",
+              "localPreview": null,
+              "payloadBytes": 470,
+              "payloadSha256": "eb9129d8a518b3e41fe3c92635f3c013e961cba7e12f689323f979b5664e93b4",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "unrecognized-values",
+                "model": null,
+                "modelKey": null,
+                "modelColonLine": false,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 0,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 0,
+                "recognizedProps": 0,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "TXT/outfit-values-in-vehicle-index/review-needed",
+          "format": "TXT",
+          "shape": "outfit-values-in-vehicle-index",
+          "count": 2,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "The vehicle index contains named outfit component/prop values. Review category and import through an outfit loader; do not mark it as a compatible vehicle.",
+          "previewsPresent": 0,
+          "payloadBytes": 1197,
+          "sectionCountRange": [
+            0,
+            0
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 2,
+          "samples": [
+            {
+              "index": 13629,
+              "kind": "vehicles",
+              "name": "Online Male 1670",
+              "originalFilename": "Online Male_1670.txt",
+              "modelHash": "1885233650",
+              "model": "MP_M_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Online Male/Online Male_1670.txt",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Online%20Male/Online%20Male_1670.txt",
+              "localFile": "./media/vehicles-13629.txt",
+              "localPreview": null,
+              "payloadBytes": 595,
+              "payloadSha256": "d6cac829f5efa2f798360a7136e0df533835da7bc5eb7ce57b0133a003d05d05",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "outfit-values-in-vehicle-index",
+                "model": "Online Male",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 13630,
+              "kind": "vehicles",
+              "name": "Online Male 354628",
+              "originalFilename": "Online Male_354628.txt",
+              "modelHash": "1885233650",
+              "model": "MP_M_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Vehicles/ST512/Online Male/Online Male_354628.txt",
+              "originalPreviews": [],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/Online%20Male/Online%20Male_354628.txt",
+              "localFile": "./media/vehicles-13630.txt",
+              "localPreview": null,
+              "payloadBytes": 602,
+              "payloadSha256": "7720f73aa285ad47547066b43ebea2d1e7bff7956d3d16f847dda13c721a625d",
+              "previewBytes": null,
+              "inspection": {
+                "shape": "outfit-values-in-vehicle-index",
+                "model": "Online Male",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "vehicles",
+          "key": "JSON/json:Main-wrapper/review-needed",
+          "format": "JSON",
+          "shape": "json:Main-wrapper",
+          "count": 6,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Nenyoo lists the extension, but inspected Scooby Stand converters do not establish this schema. Extension and source collection alone are insufficient compatibility evidence.",
+          "previewsPresent": 6,
+          "payloadBytes": 13374,
+          "sectionCountRange": null,
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 13993,
+              "kind": "vehicles",
+              "name": "hellion offroad",
+              "originalFilename": "hellion_offroad.json",
+              "modelHash": "2674840994",
+              "model": "neo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/16 moded cars/Json and xml/hellion_offroad.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/16 moded cars/Json and xml/nenyoo_preview_3c821c1c63f8.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/16%20moded%20cars/Json%20and%20xml/hellion_offroad.json",
+              "localFile": "./media/vehicles-13993.json",
+              "localPreview": "./media/vehicles-13993.webp",
+              "payloadBytes": 2229,
+              "payloadSha256": "f98019ab2f87afc31a39249c73624a8ea19fb189986f4a1a38f31b351af069ba",
+              "previewBytes": 37192,
+              "inspection": {
+                "shape": "json:Main-wrapper",
+                "rootKeys": [
+                  "Main",
+                  "Type"
+                ],
+                "flags": {
+                  "Main": "object"
+                },
+                "type": 0,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "Type": 0
+                }
+              }
+            },
+            {
+              "index": 13994,
+              "kind": "vehicles",
+              "name": "hellion offroad",
+              "originalFilename": "hellion_offroad.json",
+              "modelHash": "2674840994",
+              "model": "neo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/3646_CARS/16 moded cars/Json and xml/hellion_offroad.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/3646_CARS/16 moded cars/Json and xml/nenyoo_preview_1215d01743cb.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/3646_CARS/16%20moded%20cars/Json%20and%20xml/hellion_offroad.json",
+              "localFile": "./media/vehicles-13994.json",
+              "localPreview": "./media/vehicles-13994.webp",
+              "payloadBytes": 2229,
+              "payloadSha256": "f98019ab2f87afc31a39249c73624a8ea19fb189986f4a1a38f31b351af069ba",
+              "previewBytes": 37376,
+              "inspection": {
+                "shape": "json:Main-wrapper",
+                "rootKeys": [
+                  "Main",
+                  "Type"
+                ],
+                "flags": {
+                  "Main": "object"
+                },
+                "type": 0,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "Type": 0
+                }
+              }
+            },
+            {
+              "index": 13995,
+              "kind": "vehicles",
+              "name": "hellion offroad",
+              "originalFilename": "hellion_offroad.json",
+              "modelHash": "2674840994",
+              "model": "neo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/16 moded cars/Json and xml/hellion_offroad.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/16 moded cars/Json and xml/nenyoo_preview_51b478ce634d.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/16%20moded%20cars/Json%20and%20xml/hellion_offroad.json",
+              "localFile": "./media/vehicles-13995.json",
+              "localPreview": "./media/vehicles-13995.webp",
+              "payloadBytes": 2229,
+              "payloadSha256": "f98019ab2f87afc31a39249c73624a8ea19fb189986f4a1a38f31b351af069ba",
+              "previewBytes": 37120,
+              "inspection": {
+                "shape": "json:Main-wrapper",
+                "rootKeys": [
+                  "Main",
+                  "Type"
+                ],
+                "flags": {
+                  "Main": "object"
+                },
+                "type": 0,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "Type": 0
+                }
+              }
+            },
+            {
+              "index": 13996,
+              "kind": "vehicles",
+              "name": "hellion offroad",
+              "originalFilename": "hellion_offroad.json",
+              "modelHash": "2674840994",
+              "model": "neo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/vehicule/16 moded cars/Json and xml/hellion_offroad.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack- QAEX/vehicule/16 moded cars/Json and xml/nenyoo_preview_ed8b814fb517.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/CoolPack-_QAEX/CoolPack-%20QAEX/vehicule/16%20moded%20cars/Json%20and%20xml/hellion_offroad.json",
+              "localFile": "./media/vehicles-13996.json",
+              "localPreview": "./media/vehicles-13996.webp",
+              "payloadBytes": 2229,
+              "payloadSha256": "f98019ab2f87afc31a39249c73624a8ea19fb189986f4a1a38f31b351af069ba",
+              "previewBytes": 37502,
+              "inspection": {
+                "shape": "json:Main-wrapper",
+                "rootKeys": [
+                  "Main",
+                  "Type"
+                ],
+                "flags": {
+                  "Main": "object"
+                },
+                "type": 0,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "Type": 0
+                }
+              }
+            },
+            {
+              "index": 13997,
+              "kind": "vehicles",
+              "name": "hellion offroad",
+              "originalFilename": "hellion_offroad.json",
+              "modelHash": "2674840994",
+              "model": "neo",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Vehicles/ST512/old_folders/fd/vehicule/16 moded cars/Json and xml/hellion_offroad.json",
+              "originalPreviews": [
+                "Vehicles/ST512/old_folders/fd/vehicule/16 moded cars/Json and xml/nenyoo_preview_159e2e83256d.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Vehicles/ST512/old_folders/fd/vehicule/16%20moded%20cars/Json%20and%20xml/hellion_offroad.json",
+              "localFile": "./media/vehicles-13997.json",
+              "localPreview": "./media/vehicles-13997.webp",
+              "payloadBytes": 2229,
+              "payloadSha256": "f98019ab2f87afc31a39249c73624a8ea19fb189986f4a1a38f31b351af069ba",
+              "previewBytes": 37522,
+              "inspection": {
+                "shape": "json:Main-wrapper",
+                "rootKeys": [
+                  "Main",
+                  "Type"
+                ],
+                "flags": {
+                  "Main": "object"
+                },
+                "type": 0,
+                "model": null,
+                "children": null,
+                "metadata": {
+                  "Type": 0
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "outfits": {
+      "selectedRecords": 240,
+      "indexedTotal": 649,
+      "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+      "sourceBaseUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/",
+      "byFormat": {
+        "TXT": 237,
+        "JSON": 3
+      },
+      "payloadFilesPresent": 240,
+      "payloadFilesMissing": 0,
+      "payloadBytes": 159182,
+      "previewsPresent": 240,
+      "previewsMissing": 0,
+      "previewBytes": 4242926,
+      "originalPreviewReferences": 292,
+      "metadataValues": {
+        "author": {
+          "Draki": 1,
+          "hexarobo": 1,
+          "L bozo": 1
+        },
+        "version": {
+          "Constructor 0.25b1 / 3.21.9b1": 1,
+          "Constructor 0.21 / Lib 3.21.5": 2
+        },
+        "target_version": {
+          "3.21.9b1": 1,
+          "3.21.5": 2
+        },
+        "created": {
+          "2022-10-22T14:11:02Z": 1,
+          "2022-10-11T01:24:10Z": 1,
+          "2022-10-15T11:48:34Z": 1
+        },
+        "name": {
+          "Ela": 1,
+          "casino-luckywheel": 1,
+          "Hitman": 1
+        }
+      },
+      "eligibleCandidates": 237,
+      "reviewNeeded": 3,
+      "sourcePathsContainingOldFolders": 0,
+      "missingPreviewSamples": [],
+      "samples": [
+        {
+          "index": 6,
+          "kind": "outfits",
+          "name": "1",
+          "originalFilename": "1.txt",
+          "modelHash": "-1667301416",
+          "model": "MP_F_Freemode_01",
+          "category": "ST512",
+          "format": "TXT",
+          "sourcePath": "Outfits/ST512/Female/1.txt",
+          "originalPreviews": [
+            "Outfits/ST512/Female/nenyoo_preview_38be8e1ca22b.png"
+          ],
+          "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+          "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Female/1.txt",
+          "localFile": "./media/outfits-6.txt",
+          "localPreview": "./media/outfits-6.webp",
+          "payloadBytes": 598,
+          "payloadSha256": "021d7cbc71afd9932b2077380e86d1f89bcbb6c04e707551cca4025901f45825",
+          "previewBytes": 17352,
+          "inspection": {
+            "shape": "stand-outfit-values",
+            "model": "Online Female",
+            "modelKey": "Model",
+            "modelColonLine": true,
+            "sectionCount": 0,
+            "firstSection": null,
+            "sectionFamilies": [],
+            "valueCount": 35,
+            "recognizedVehicleKeys": 0,
+            "recognizedComponents": 12,
+            "recognizedProps": 5,
+            "componentNumbersValid": true,
+            "metadata": {}
+          }
+        },
+        {
+          "index": 10,
+          "kind": "outfits",
+          "name": "2",
+          "originalFilename": "2.txt",
+          "modelHash": "-1667301416",
+          "model": "MP_F_Freemode_01",
+          "category": "ST512",
+          "format": "TXT",
+          "sourcePath": "Outfits/ST512/Female/2.txt",
+          "originalPreviews": [
+            "Outfits/ST512/Female/nenyoo_preview_4d6a9faabb01.png"
+          ],
+          "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+          "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Female/2.txt",
+          "localFile": "./media/outfits-10.txt",
+          "localPreview": "./media/outfits-10.webp",
+          "payloadBytes": 601,
+          "payloadSha256": "071b206f6defe5ab8d0ced2b21c19ec80000acfadbea3d84675d84253267c219",
+          "previewBytes": 19090,
+          "inspection": {
+            "shape": "stand-outfit-values",
+            "model": "Online Female",
+            "modelKey": "Model",
+            "modelColonLine": true,
+            "sectionCount": 0,
+            "firstSection": null,
+            "sectionFamilies": [],
+            "valueCount": 35,
+            "recognizedVehicleKeys": 0,
+            "recognizedComponents": 12,
+            "recognizedProps": 5,
+            "componentNumbersValid": true,
+            "metadata": {}
+          }
+        },
+        {
+          "index": 12,
+          "kind": "outfits",
+          "name": "3",
+          "originalFilename": "3.txt",
+          "modelHash": "-1667301416",
+          "model": "MP_F_Freemode_01",
+          "category": "ST512",
+          "format": "TXT",
+          "sourcePath": "Outfits/ST512/Female/3.txt",
+          "originalPreviews": [
+            "Outfits/ST512/Female/nenyoo_preview_86af1e1fb788.png"
+          ],
+          "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+          "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Female/3.txt",
+          "localFile": "./media/outfits-12.txt",
+          "localPreview": "./media/outfits-12.webp",
+          "payloadBytes": 603,
+          "payloadSha256": "906f91b112ebdb4620cbe17e735237b7565748e266afc452ba32b1cb5106d7b5",
+          "previewBytes": 17830,
+          "inspection": {
+            "shape": "stand-outfit-values",
+            "model": "Online Female",
+            "modelKey": "Model",
+            "modelColonLine": true,
+            "sectionCount": 0,
+            "firstSection": null,
+            "sectionFamilies": [],
+            "valueCount": 35,
+            "recognizedVehicleKeys": 0,
+            "recognizedComponents": 12,
+            "recognizedProps": 5,
+            "componentNumbersValid": true,
+            "metadata": {}
+          }
+        }
+      ],
+      "uniquePayloadHashes": 240,
+      "byteIdenticalDuplicateRecords": 0,
+      "groups": [
+        {
+          "kind": "outfits",
+          "key": "TXT/stand-outfit-values/format-eligible-with-limitations",
+          "format": "TXT",
+          "shape": "stand-outfit-values",
+          "count": 237,
+          "disposition": "format-eligible-with-limitations",
+          "supportedMenuCandidates": [
+            "scooby",
+            "nenyoo"
+          ],
+          "reason": "Both inspected adapters recognize Model and named component/prop values. This establishes static clothing format support only; hair colour, face data and every optional field are not proven to transfer.",
+          "previewsPresent": 237,
+          "payloadBytes": 142834,
+          "sectionCountRange": [
+            0,
+            0
+          ],
+          "xmlClosedRoots": 0,
+          "modelColonLines": 237,
+          "samples": [
+            {
+              "index": 6,
+              "kind": "outfits",
+              "name": "1",
+              "originalFilename": "1.txt",
+              "modelHash": "-1667301416",
+              "model": "MP_F_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Outfits/ST512/Female/1.txt",
+              "originalPreviews": [
+                "Outfits/ST512/Female/nenyoo_preview_38be8e1ca22b.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Female/1.txt",
+              "localFile": "./media/outfits-6.txt",
+              "localPreview": "./media/outfits-6.webp",
+              "payloadBytes": 598,
+              "payloadSha256": "021d7cbc71afd9932b2077380e86d1f89bcbb6c04e707551cca4025901f45825",
+              "previewBytes": 17352,
+              "inspection": {
+                "shape": "stand-outfit-values",
+                "model": "Online Female",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 10,
+              "kind": "outfits",
+              "name": "2",
+              "originalFilename": "2.txt",
+              "modelHash": "-1667301416",
+              "model": "MP_F_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Outfits/ST512/Female/2.txt",
+              "originalPreviews": [
+                "Outfits/ST512/Female/nenyoo_preview_4d6a9faabb01.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Female/2.txt",
+              "localFile": "./media/outfits-10.txt",
+              "localPreview": "./media/outfits-10.webp",
+              "payloadBytes": 601,
+              "payloadSha256": "071b206f6defe5ab8d0ced2b21c19ec80000acfadbea3d84675d84253267c219",
+              "previewBytes": 19090,
+              "inspection": {
+                "shape": "stand-outfit-values",
+                "model": "Online Female",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 12,
+              "kind": "outfits",
+              "name": "3",
+              "originalFilename": "3.txt",
+              "modelHash": "-1667301416",
+              "model": "MP_F_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Outfits/ST512/Female/3.txt",
+              "originalPreviews": [
+                "Outfits/ST512/Female/nenyoo_preview_86af1e1fb788.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Female/3.txt",
+              "localFile": "./media/outfits-12.txt",
+              "localPreview": "./media/outfits-12.webp",
+              "payloadBytes": 603,
+              "payloadSha256": "906f91b112ebdb4620cbe17e735237b7565748e266afc452ba32b1cb5106d7b5",
+              "previewBytes": 17830,
+              "inspection": {
+                "shape": "stand-outfit-values",
+                "model": "Online Female",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 13,
+              "kind": "outfits",
+              "name": "3 Black Shorts",
+              "originalFilename": "3_Black_Shorts.txt",
+              "modelHash": "-1667301416",
+              "model": "MP_F_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Outfits/ST512/3_Black_Shorts/3_Black_Shorts.txt",
+              "originalPreviews": [
+                "Outfits/ST512/3_Black_Shorts/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/3_Black_Shorts/3_Black_Shorts.txt",
+              "localFile": "./media/outfits-13.txt",
+              "localPreview": "./media/outfits-13.webp",
+              "payloadBytes": 600,
+              "payloadSha256": "47f90793650a20ccef79a5baa9362f0032472a570cd581a5033d8f4cc4ca6834",
+              "previewBytes": 8056,
+              "inspection": {
+                "shape": "stand-outfit-values",
+                "model": "Online Female",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            },
+            {
+              "index": 14,
+              "kind": "outfits",
+              "name": "4",
+              "originalFilename": "4.txt",
+              "modelHash": "-1667301416",
+              "model": "MP_F_Freemode_01",
+              "category": "ST512",
+              "format": "TXT",
+              "sourcePath": "Outfits/ST512/4/4.txt",
+              "originalPreviews": [
+                "Outfits/ST512/4/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/4/4.txt",
+              "localFile": "./media/outfits-14.txt",
+              "localPreview": "./media/outfits-14.webp",
+              "payloadBytes": 603,
+              "payloadSha256": "047857cba092c36e5e0b0a9e45b7df6acafe5cd464ffb9a8fcdcf7e1cec99afd",
+              "previewBytes": 11708,
+              "inspection": {
+                "shape": "stand-outfit-values",
+                "model": "Online Female",
+                "modelKey": "Model",
+                "modelColonLine": true,
+                "sectionCount": 0,
+                "firstSection": null,
+                "sectionFamilies": [],
+                "valueCount": 35,
+                "recognizedVehicleKeys": 0,
+                "recognizedComponents": 12,
+                "recognizedProps": 5,
+                "componentNumbersValid": true,
+                "metadata": {}
+              }
+            }
+          ]
+        },
+        {
+          "kind": "outfits",
+          "key": "JSON/json:constructor-ped/review-needed",
+          "format": "JSON",
+          "shape": "json:constructor-ped",
+          "count": 3,
+          "disposition": "review-needed",
+          "supportedMenuCandidates": [],
+          "reason": "Constructor ped_attributes/children are not handled by the inspected Nenyoo outfit JSON branch; Scooby StandOutfits proves text-value normalization only.",
+          "previewsPresent": 3,
+          "payloadBytes": 16348,
+          "sectionCountRange": null,
+          "xmlClosedRoots": 0,
+          "modelColonLines": 0,
+          "samples": [
+            {
+              "index": 103,
+              "kind": "outfits",
+              "name": "Ela",
+              "originalFilename": "Ela.json",
+              "modelHash": "-1667301416",
+              "model": "MP_F_Freemode_01",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Outfits/ST512/Ela/Ela.json",
+              "originalPreviews": [
+                "Outfits/ST512/Ela/image_1.png",
+                "Outfits/ST512/Ela/image_2.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Ela/Ela.json",
+              "localFile": "./media/outfits-103.json",
+              "localPreview": "./media/outfits-103.webp",
+              "payloadBytes": 3589,
+              "payloadSha256": "64bdbc1b811ad8f4aeee2c4c72efa83b90cc2292ee346005df3bcc6e1e5e66a0",
+              "previewBytes": 7588,
+              "inspection": {
+                "shape": "json:constructor-ped",
+                "rootKeys": [
+                  "author",
+                  "blip_color",
+                  "blip_icon",
+                  "blip_sprite",
+                  "children",
+                  "created",
+                  "hash",
+                  "is_player",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "ped_attributes",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "ped_attributes": "object",
+                  "children": "array"
+                },
+                "type": "PED",
+                "model": "mp_f_freemode_01",
+                "children": 2,
+                "metadata": {
+                  "author": "Draki",
+                  "version": "Constructor 0.25b1 / 3.21.9b1",
+                  "target_version": "3.21.9b1",
+                  "created": "2022-10-22T14:11:02Z",
+                  "name": "Ela"
+                }
+              }
+            },
+            {
+              "index": 401,
+              "kind": "outfits",
+              "name": "casino luckywheel",
+              "originalFilename": "casino-luckywheel.json",
+              "modelHash": "1885233650",
+              "model": "MP_M_Freemode_01",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Outfits/ST512/casino-luckywheel/casino-luckywheel.json",
+              "originalPreviews": [
+                "Outfits/ST512/casino-luckywheel/image_1.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/casino-luckywheel/casino-luckywheel.json",
+              "localFile": "./media/outfits-401.json",
+              "localPreview": "./media/outfits-401.webp",
+              "payloadBytes": 5462,
+              "payloadSha256": "b2c25c87dbc4df825c33309c23618ce5be6cf3c02d66eb5b08a21b738c7ee937",
+              "previewBytes": 16460,
+              "inspection": {
+                "shape": "json:constructor-ped",
+                "rootKeys": [
+                  "author",
+                  "blip_color",
+                  "blip_icon",
+                  "blip_sprite",
+                  "children",
+                  "created",
+                  "hash",
+                  "is_player",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "ped_attributes",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "ped_attributes": "object",
+                  "children": "array"
+                },
+                "type": "PED",
+                "model": "mp_m_freemode_01",
+                "children": 3,
+                "metadata": {
+                  "author": "hexarobo",
+                  "version": "Constructor 0.21 / Lib 3.21.5",
+                  "target_version": "3.21.5",
+                  "created": "2022-10-11T01:24:10Z",
+                  "name": "casino-luckywheel"
+                }
+              }
+            },
+            {
+              "index": 646,
+              "kind": "outfits",
+              "name": "Hitman",
+              "originalFilename": "Hitman.json",
+              "modelHash": "-245247470",
+              "model": "S_M_M_HighSec_01",
+              "category": "ST512",
+              "format": "JSON",
+              "sourcePath": "Outfits/ST512/Hitman/Hitman.json",
+              "originalPreviews": [
+                "Outfits/ST512/Hitman/image_1.png",
+                "Outfits/ST512/Hitman/image_2.png"
+              ],
+              "sourceRevision": "e2d3ee589778ff6d9a901aafe7626bf9c8889fc3",
+              "sourceUrl": "https://raw.githubusercontent.com/XXTOUCOXX/INF_DATA/refs/heads/main/Outfits/ST512/Hitman/Hitman.json",
+              "localFile": "./media/outfits-646.json",
+              "localPreview": "./media/outfits-646.webp",
+              "payloadBytes": 7297,
+              "payloadSha256": "44be47c29364ac987d98d56d07b819414466f2047ea672f134f2744104b482dd",
+              "previewBytes": 4812,
+              "inspection": {
+                "shape": "json:constructor-ped",
+                "rootKeys": [
+                  "author",
+                  "blip_color",
+                  "blip_icon",
+                  "blip_sprite",
+                  "children",
+                  "created",
+                  "hash",
+                  "is_player",
+                  "model",
+                  "name",
+                  "num_bones",
+                  "offset",
+                  "options",
+                  "ped_attributes",
+                  "position",
+                  "rotation",
+                  "target_version",
+                  "type",
+                  "version",
+                  "world_rotation"
+                ],
+                "flags": {
+                  "ped_attributes": "object",
+                  "children": "array"
+                },
+                "type": "PED",
+                "model": "s_m_m_highsec_01",
+                "children": 6,
+                "metadata": {
+                  "author": "L bozo",
+                  "version": "Constructor 0.21 / Lib 3.21.5",
+                  "target_version": "3.21.5",
+                  "created": "2022-10-15T11:48:34Z",
+                  "name": "Hitman"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

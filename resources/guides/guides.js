@@ -4,6 +4,7 @@
   const $ = id => document.getElementById(id);
   const menus = window.ScoobyMenus;
   const taxonomy = window.ScoobyTaxonomy;
+  const routes = window.ScoobyResourceRoutes;
   const GAMES = {
     gta5: { name: 'GTA 5' },
     rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
@@ -14,31 +15,37 @@
   };
   const LABELS = {
     all: 'All guides', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
-    'addon-vehicles': 'Vehicles', 'addon-peds': 'Peds', 'addon-objects': 'Objects', 'addon-animations': 'Animations', 'addon-maps': 'Maps', 'addon-clothing': 'Clothing', maps: 'Maps', textures: 'Textures',
+    'addon-vehicles': 'Vehicles', 'addon-peds': 'Peds', 'addon-weapons': 'Weapons', 'addon-objects': 'Objects', 'addon-animations': 'Animations', 'addon-maps': 'Maps', 'addon-clothing': 'Clothing', maps: 'Maps', textures: 'Textures',
     paintjobs: 'Paintjobs', liveries: 'Liveries', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods',
     players: 'Player models', weapons: 'Weapon models', knives: 'Knife models', throwables: 'Throwables',
     bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs', lua: 'Lua scripts',
     languages: 'Translations / Languages', wallpapers: 'Wallpapers', 'addon-packs': 'Packs', misc: 'Miscellaneous',
+    'loader-translations': 'Loader translations', fonts: 'Fonts', emotes: 'Emote audio',
     'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
     'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
     'mod-menus': 'Lua Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
   };
   const FILES = ['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc'];
   const sections = [...document.querySelectorAll('.guide-topics > section')];
-  const mobile = matchMedia('(max-width: 760px)');
-  let gtaCategories = null;
+  const collectionLinks = document.querySelectorAll('a[href="/resources/"]');
+  const pluginLinks = document.querySelectorAll('[data-resource-category]');
+  const mobile = matchMedia('(max-width: 900px)');
+  let publishedRoutes = new Set(Object.keys(GAMES).map(game => routes.collectionPath(game)));
+  let publishedGuides = Object.fromEntries(Object.keys(GAMES).map(game => [routes.guidePath(game), routes.guidePath(game)]));
+  const menuCategories = {};
   let state = readState();
 
-  function gtaCategoryIds(menu) { return gtaCategories?.[menu] || []; }
+  function hasMenuChoice(game) { return menus.menusFor(game).length > 1; }
   function roleplayGroups(game) { return taxonomy?.roleplayCategoryGroups?.(game, [...GAMES[game].assets, ...FILES]); }
   function categories(game, menu) {
-    if (game === 'gta5') return gtaCategoryIds(menu);
+    if (game === 'rdr2' && menu === 'scooby') return [...GAMES[game].assets, ...FILES];
+    if (hasMenuChoice(game)) return menuCategories[game]?.[menu] || [];
     const groups = roleplayGroups(game);
     return groups ? groups.flatMap(([, ids]) => ids) : [...GAMES[game].assets, ...FILES];
   }
   function categoryFor(game, menu, requested) {
     if (requested === 'all' || categories(game, menu).includes(requested)) return requested;
-    return game === 'gta5' ? 'all' : GAMES[game].assets[0];
+    return hasMenuChoice(game) ? 'all' : GAMES[game].assets[0];
   }
   function contains(value, candidate) { return String(value || '').split(/\s+/).some(part => part === 'all' || part === candidate); }
   function relevant(section, game, category, menu) {
@@ -58,10 +65,11 @@
     const menu = menus.menuFor(game, params.get('menu') || targetMenu);
     const choices = categories(game, menu);
     const requested = taxonomy?.categoryId(game, params.get('category'), menu) ?? params.get('category');
-    if (game === 'gta5') {
+    if (hasMenuChoice(game)) {
       const linkedSection = target && relevant(target, game, 'all', menu);
       const targetCategory = linkedSection && target.dataset.categories.split(/\s+/).find(category => choices.includes(category));
-      const category = categoryFor(game, menu, requested || (linkedSection ? targetCategory || 'all' : 'vehicles'));
+      const defaultCategory = game === 'gta5' ? 'vehicles' : menu === 'scooby' ? 'outfits' : 'all';
+      const category = categoryFor(game, menu, requested || (linkedSection ? targetCategory || 'all' : defaultCategory));
       return { game, category, menu };
     }
     const targetCategory = contains(target?.dataset.games, game) ? String(target?.dataset.categories || '').split(/\s+/).find(category => choices.includes(category)) : '';
@@ -69,15 +77,17 @@
     return { game, category, menu };
   }
   function address(game, category, menu = state.menu) {
-    return `/resources/guides/?${new URLSearchParams({ game, category, menu: menus.menuFor(game, menu) })}`;
+    return routes.guideURL({ game, category, menu: menus.menuFor(game, menu) }, publishedGuides);
   }
   function saveState() {
-    const url = address(state.game, state.category);
+    const published = address(state.game, state.category);
+    if (published !== routes.guideBase) { location.assign(published); return; }
+    const url = `${routes.guideBase}?${new URLSearchParams(state)}`;
     if (location.pathname + location.search !== url) history.pushState({}, '', url);
   }
   function restoreState() {
     state = readState();
-    if (state.game === 'gta5' && gtaCategories) {
+    if (menuCategories[state.game]) {
       const url = new URL(location.href);
       if (url.searchParams.has('category') && url.searchParams.get('category') !== state.category) {
         url.searchParams.set('category', state.category);
@@ -99,6 +109,7 @@
     choice.setAttribute('aria-current', state.category === category ? 'page' : 'false');
     choice.onclick = event => {
       if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (choice.pathname !== routes.guideBase) return;
       event.preventDefault();
       if (state.category === category) return;
       state.category = category;
@@ -111,8 +122,9 @@
   }
   function update() {
     const menuName = menus.menuName(state.menu);
-    const gta = state.game === 'gta5';
-    $('guide-menu-control').hidden = !gta;
+    const menuChoice = hasMenuChoice(state.game);
+    $('guide-menu-control').hidden = !menuChoice;
+    $('guide-menu').replaceChildren(...menus.menusFor(state.game).map(menu => new Option(menu.name + (menu.deferred ? ' — later' : ''), menu.id)));
     $('guide-menu').value = state.menu;
     document.querySelectorAll('[data-game]').forEach(choice => {
       choice.setAttribute('aria-pressed', String(choice.dataset.game === state.game));
@@ -121,8 +133,8 @@
     });
     $('guide-categories').replaceChildren(categoryLink('all'));
     const assets = GAMES[state.game].assets;
-    const roleplay = gta ? null : roleplayGroups(state.game);
-    const groups = gta ? menus.gtaCategoryGroups(state.menu, gtaCategoryIds(state.menu)) : roleplay || [
+    const roleplay = menuChoice ? null : roleplayGroups(state.game);
+    const groups = menuChoice ? menus.categoryGroups(state.menu, categories(state.game, state.menu)) : roleplay || [
       [`${menuName} resources`, assets.filter(category => !category.startsWith('addon-'))],
       ['Addons', assets.filter(category => category.startsWith('addon-'))],
       [`${menuName} files`, FILES]
@@ -131,7 +143,7 @@
       if (!list.length) continue;
       const group = node('div', '', 'category-group');
       group.append(node('p', label, 'category-group-label'));
-      for (const category of list) group.append(categoryLink(category, roleplay ? taxonomy.roleplayCategoryLabel(state.game, category) : undefined));
+      for (const category of list) group.append(categoryLink(category, menus.categoryLabel(state.menu, category) || (roleplay ? taxonomy.roleplayCategoryLabel(state.game, category) : undefined)));
       $('guide-categories').append(group);
     }
     let count = 0;
@@ -145,38 +157,26 @@
       }
     }
     document.querySelectorAll('[data-menu-name]').forEach(element => { element.textContent = menuName; });
-    const currentLabel = state.category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(state.game, state.category) || LABELS[state.category] : LABELS[state.category];
+    const currentLabel = menus.categoryLabel(state.menu, state.category) || (state.category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(state.game, state.category) : undefined) || LABELS[state.category];
     $('guide-status').textContent = `${GAMES[state.game].name} · ${menuName} · ${currentLabel}${count ? '' : ' · Guide not available yet'}`;
     $('guide-empty').hidden = count > 0;
-    const collection = new URLSearchParams({ game: state.game, menu: state.menu });
-    if (state.category !== 'all') collection.set('category', state.category);
-    $('back-collection').href = `/resources/?${collection}`;
-    $('guide-empty-resources').href = `/resources/?${collection}`;
-    for (const link of document.querySelectorAll('a[href]')) {
-      const url = new URL(link.href, location.href);
-      if (url.origin !== location.origin || url.pathname !== '/resources/') continue;
-      if (link.closest('.guide-topics')) {
-        const game = url.searchParams.get('game') || state.game;
-        url.searchParams.set('menu', menus.menuFor(game, state.menu));
-      } else url.search = collection.toString();
-      link.href = url.pathname + url.search + url.hash;
+    const collection = routes.catalogURL(state, publishedRoutes);
+    for (const link of collectionLinks) link.href = collection;
+    for (const link of pluginLinks) {
+      link.href = routes.catalogURL({ game: 'gta5', menu: state.menu, category: link.dataset.resourceCategory }, publishedRoutes);
     }
   }
 
-  for (const menu of menus.MENUS) {
-    const option = node('option', menu.name + (menu.deferred ? ' — later' : ''));
-    option.value = menu.id;
-    $('guide-menu').append(option);
-  }
   $('guide-menu').onchange = () => {
     state.menu = menus.menuFor(state.game, $('guide-menu').value);
-    if (state.game === 'gta5') state.category = categoryFor(state.game, state.menu, state.category);
+    state.category = categoryFor(state.game, state.menu, state.category);
     saveState();
     update();
   };
   for (const choice of document.querySelectorAll('[data-game]')) {
     choice.onclick = event => {
       if (event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (choice.pathname !== routes.guideBase) return;
       event.preventDefault();
       if (choice.dataset.game === state.game) return;
       const game = choice.dataset.game;
@@ -193,16 +193,44 @@
   window.addEventListener('hashchange', restoreState);
   update();
 
-  async function loadGtaCategories() {
+  async function loadMenuCategories(game) {
     try {
-      const response = await fetch('/resources/gta5/categories.json');
+      const response = await fetch(`/resources/${game}/categories.json`);
       if (!response.ok) return;
-      gtaCategories = await response.json();
+      menuCategories[game] = await response.json();
     } catch { return; }
-    if (state.game !== 'gta5') return;
+    if (state.game !== game) return;
     restoreState();
     const target = targetSection();
     if (target && !target.hidden) target.scrollIntoView();
   }
-  loadGtaCategories();
+  for (const game of ['gta5', 'rdr2']) loadMenuCategories(game);
+
+  async function loadResourceRoutes() {
+    try {
+      const response = await fetch('/resources/routes.json');
+      if (!response.ok) return;
+      publishedRoutes = new Set(await response.json());
+    } catch { return; }
+    update();
+  }
+  loadResourceRoutes();
+
+  async function loadGuideRoutes() {
+    try {
+      const response = await fetch('/resources/guides/routes.json');
+      if (!response.ok) return;
+      publishedGuides = await response.json();
+    } catch { return; }
+    const query = new URLSearchParams(location.search);
+    const game = query.get('game');
+    if (Object.hasOwn(GAMES, game)) {
+      const menu = menus.menuFor(game, query.get('menu'));
+      const category = taxonomy.categoryId(game, query.get('category'), menu);
+      const target = publishedGuides[routes.guidePath(game, category, menu)];
+      if (target) { location.replace(target + location.hash); return; }
+    }
+    update();
+  }
+  loadGuideRoutes();
 })();

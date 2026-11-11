@@ -7,6 +7,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const { plain, pageUrl } = require('./seo-structured');
 const menus = require('../resources/menus.js');
+const { gtaAddonCategory } = require('../resources/taxonomy.js');
 
 const ROOT = path.resolve(__dirname, '..');
 const ORIGIN = 'https://scoobymenu.cc';
@@ -70,7 +71,7 @@ test('Resources shares game-specific previews and exposes RedM graphics search t
   assert.match(keywords, /RedM PvP packs/);
   assert.match(keywords, /RedM RP packs/);
   assert.match(keywords, /RedM cinematic packs/);
-  const queries = links(redm).filter(url => url.searchParams.get('category') === 'graphics-packs').map(url => url.searchParams.get('q'));
+  const queries = links(redm).filter(url => url.pathname === '/resources/redm/graphics-packs/').map(url => url.searchParams.get('q'));
   const { items } = require('./resource-pages.cjs').buildData();
   const packs = items.filter(item => item.game === 'redm' && item.category === 'graphics-packs');
   for (const topic of taxonomy.REDM_GRAPHICS_TOPICS) {
@@ -96,7 +97,8 @@ function expectedInventory() {
     if (item.category === 'lua') {
       assert.equal(item.menuResource, true, item.id);
       assert.equal(item.sourceCatalog, 'menu-resources', item.id);
-      assert(item.files?.length || (item.downloadStatus === 'pending' && Array.isArray(item.files) && !item.files.length), item.id);
+      assert(item.files?.length || (item.downloadStatus === 'pending' && Array.isArray(item.files) && !item.files.length) ||
+        (menus.isStandLua(item) && item.status === 'author-hosted' && /^https:\/\/github\.com\//.test(item.sourceUrl)), item.id);
       assert(Array.isArray(item.supportedMenus) && item.supportedMenus.length, `Lua needs explicit menu API compatibility: ${item.id}`);
     }
     items.set(item.id, item);
@@ -104,6 +106,12 @@ function expectedInventory() {
   for (const item of json('community/data/gta5-editions.json').items) {
     assert(!items.has(item.id), `Reviewed listing duplicates ${item.id}`);
     items.set(item.id, item);
+  }
+  for (const catalog of ['nenyoo', 'scooby-lua']) {
+    for (const item of json(`community/data/${catalog}.json`).items) {
+      assert(!items.has(item.id), `${catalog} listing duplicates ${item.id}`);
+      items.set(item.id, item);
+    }
   }
   const downloadSources = new Set([...items.values()].filter(item => item.game === 'gta5' && item.status !== 'author-hosted').map(item => item.sourceUrl));
   for (const item of json('community/data/gta5-addons.json').items) {
@@ -113,29 +121,34 @@ function expectedInventory() {
   }
   for (const kind of ['vehicles', 'outfits']) {
     const index = json(`community/data/${kind}/index.json`);
+    const assets = json(`community/data/${kind}/local-assets.json`);
     assert.equal(index.items.length, index.totalItems);
     index.items.forEach((entry, position) => {
       const id = `${kind}-${position}`;
-      items.set(id, { id, game: 'gta5', category: kind, format: index.formats?.[entry[5]], attachments: index.attachments?.[position] || 0, ...legacy.get(`${kind}:${position}`), id });
+      const formatExtension = menus.fileExtension({ formatPath: assets[position]?.file || entry[1] });
+      items.set(id, { id, game: 'gta5', category: kind, format: index.formats?.[entry[5]], attachments: index.attachments?.[position] || 0, ...legacy.get(`${kind}:${position}`), formatExtension, id });
     });
   }
-  const scopes = new Map(GAMES.map(game => [`${game}:scooby`, { game, menu: 'scooby', total: 0, categories: new Map(), items: [] }]));
+  const scopes = new Map(GAMES.map(game => [`${game}:scooby`, { game, menu: 'scooby', categories: new Set(), items: [] }]));
   for (const original of items.values()) {
-    const item = original.game === 'gta5' && original.category === 'dlc'
-      ? { ...original, category: original.sourceMenu === 'xforce' ? 'addon-vehicles' : 'addon-packs' }
-      : original;
-    assert(GAMES.includes(item.game), `Unsupported resource game: ${item.game}`);
-    for (const menu of menus.MENUS.filter(menu => !menu.deferred && (menu.id === 'scooby' || item.game === 'gta5'))) {
-      if (!menus.supports(item, menu.id)) continue;
+    assert(GAMES.includes(original.game), `Unsupported resource game: ${original.game}`);
+    for (const menu of menus.menusFor(original.game).filter(menu => !menu.deferred)) {
+      if (!menus.supports(original, menu.id)) continue;
+      const item = gtaAddonCategory(original, menu.id);
       const key = `${item.game}:${menu.id}`;
-      if (!scopes.has(key)) scopes.set(key, { game: item.game, menu: menu.id, total: 0, categories: new Map(), items: [] });
+      if (!scopes.has(key)) scopes.set(key, { game: item.game, menu: menu.id, categories: new Set(), items: [] });
       const bucket = scopes.get(key);
-      bucket.total++; bucket.items.push(item);
+      bucket.items.push(item);
       const categories = [item.category, ...(item.categories || [])];
       if (item.category === 'vehicles' && item.attachments > 0) categories.push('modded');
-      for (const category of new Set(categories)) bucket.categories.set(category, (bucket.categories.get(category) || 0) + 1);
+      for (const category of categories) bucket.categories.add(category);
     }
   }
+  const stand = scopes.get('gta5:stand');
+  const archive = stand.items.filter(item => item.oldShares);
+  const archiveCategories = new Set(archive.flatMap(item => [item.category, ...(item.categories || []),
+    ...(item.category === 'vehicles' && item.attachments > 0 ? ['modded'] : [])]));
+  scopes.set('gta5:stand:old-shares', { game: 'gta5', menu: 'stand', archive: 'old-shares', items: archive, categories: archiveCategories });
   return scopes;
 }
 
@@ -146,7 +159,7 @@ test('resource routes cover actual menu-compatible collections without empty cat
   assert.equal(files.size, pages.length, 'Duplicate resource landing route');
   const required = new Set();
   for (const bucket of expected.values()) {
-    const prefix = `resources/${bucket.game}/${bucket.menu === 'scooby' ? '' : bucket.menu + '/'}`;
+    const prefix = `resources/${bucket.game}/${bucket.menu === 'scooby' ? '' : bucket.menu + '/'}${bucket.archive ? bucket.archive + '/' : ''}`;
     required.add(`${prefix}index.html`);
     for (const category of bucket.categories.keys()) required.add(`${prefix}${category}/index.html`);
   }
@@ -154,16 +167,18 @@ test('resource routes cover actual menu-compatible collections without empty cat
   for (const page of pages) {
     assert(GAMES.includes(page.game), page.file);
     const category = page.category && page.category !== 'all' ? page.category : null;
-    const bucket = expected.get(`${page.game}:${page.menu}`);
+    const bucket = expected.get(`${page.game}:${page.menu}${page.archive ? ':' + page.archive : ''}`);
     assert(bucket, `Unexpected menu route: ${page.file}`);
-    const count = category ? bucket.categories.get(category) : bucket.total;
+    const listed = category ? bucket.items.filter(item => item.category === category || item.categories?.includes(category) || (category === 'modded' && item.category === 'vehicles' && item.attachments > 0)) : bucket.items;
+    const { nativeDefault } = menus.presetFormatScope(listed, page.menu, category || 'all');
+    const subset = nativeDefault ? listed.filter(item => menus.presetLoader(item, page.menu) !== 'lua') : listed;
+    const count = subset.length;
     assert.equal(page.itemCount, count, `Stale or invented resource count: ${page.file}`);
     if (category) assert(count > 0, `Empty category should not have an indexable page: ${page.file}`);
-    const subset = category ? bucket.items.filter(item => item.category === category || item.categories?.includes(category) || (category === 'modded' && item.category === 'vehicles' && item.attachments > 0)) : bucket.items;
     for (const item of page.samples) assert(subset.some(expected => expected.id === item.id), `Incompatible sample on ${page.file}: ${item.id}`);
     if (!subset.some(item => item.category === 'lua' || item.category === 'mod-menus')) assert(!/\blua\b/i.test([page.title, page.description, page.keywords].join(' ')), page.file);
     if (subset.length && subset.every(item => item.downloadStatus === 'pending' && !item.files?.length)) {
-      assert(/coming soon/i.test(page.title + ' ' + page.description), page.file);
+      assert((page.menu === 'stand' ? /unavailable/i : /coming soon/i).test(page.title + ' ' + page.description), page.file);
     }
   }
 });
@@ -244,16 +259,18 @@ test('game and category links are crawlable and every resource page appears in b
       assert(fs.existsSync(target), `${page.file} links to a missing target: ${href.pathname}`);
     }
     if (page.category && page.category !== 'all') {
-      const parent = `resources/${page.game}/${page.menu === 'scooby' ? '' : page.menu + '/'}index.html`;
+      const parent = `resources/${page.game}/${page.menu === 'scooby' ? '' : page.menu + '/'}${page.archive ? page.archive + '/' : ''}index.html`;
       assert(links(parent).some((href) => href.href === url), `Game directory omits ${url}`);
+    } else if (page.archive) {
+      assert(links(`resources/${page.game}/${page.menu}/index.html`).some(href => href.href === url), `Menu omits its archive ${url}`);
     } else if (page.menu !== 'scooby') {
       assert(links(`resources/${page.game}/index.html`).some(href => href.href === url), `Default collection omits menu directory ${url}`);
     }
-    const browseLinks = hrefs.filter(href => href.pathname === '/resources/' && href.searchParams.get('game') === page.game);
-    assert(browseLinks.length, `Missing interactive browse link: ${page.file}`);
-    if (page.game === 'gta5') for (const href of browseLinks) assert.equal(href.searchParams.get('menu'), page.menu, page.file);
+    assert(hrefs.some(href => href.href === `${url}#collection`), `Missing interactive browse link: ${page.file}`);
+    assert(!hrefs.some(href => href.pathname === '/resources/' && href.searchParams.has('game')), page.file);
   }
   const expectedURLs = new Set(pages.map(page => pageUrl(page.file)));
+  assert.deepEqual(json('resources/routes.json').map(route => ORIGIN + route).sort(), [...expectedURLs].sort());
   for (const url of locations.filter(url => /^https:\/\/scoobymenu\.cc\/resources\/(?:gta5|rdr2|cs2|fivem|redm|l4d)\//.test(url))) assert(expectedURLs.has(url), `Stale resource route in sitemap: ${url}`);
 });
 
@@ -272,6 +289,36 @@ test('old resource bookmarks redirect to the matching page with filters and anch
     vm.runInNewContext(script, { location: { search, hash, replace: url => { redirected = url; } } });
     assert.equal(redirected, route + search + hash);
   }
+});
+
+test('installation guides have clean scoped links, unique SEO pages and canonical aliases', () => {
+  const { buildGuideData } = require('./resource-guides.cjs');
+  const guides = buildGuideData(require('./resource-pages.cjs').buildData());
+  const manifest = json('resources/guides/routes.json');
+  assert.deepEqual(manifest, guides.routes);
+  const sitemap = read('sitemap.xml');
+  const directory = read('sitemap/index.html');
+  const titles = new Set();
+  for (const guide of guides.pages) {
+    const html = read(guide.file);
+    const url = ORIGIN + guide.href;
+    assert(!titles.has(guide.title), guide.file);
+    titles.add(guide.title);
+    assert.equal(metadata(html, 'og:url')[0], url);
+    assert(html.includes(`<link rel="canonical" href="${url}">`), guide.file);
+    assert(html.includes(`<section id="${guide.topics[0].id}"`), guide.file);
+    assert(sitemap.includes(`<loc>${url}</loc>`), guide.file);
+    assert(directory.includes(`href="${guide.href}"`), guide.file);
+  }
+  for (const [alias, canonical] of Object.entries(manifest)) {
+    if (alias === canonical) continue;
+    const redirect = read(`${alias.slice(1)}index.html`);
+    assert.match(redirect, /content="noindex, follow"/);
+    assert(redirect.includes(`location.replace(${JSON.stringify(canonical)} + location.search + location.hash)`));
+    assert(!sitemap.includes(`<loc>${ORIGIN + alias}</loc>`), alias);
+    assert(!directory.includes(`href="${alias}"`), alias);
+  }
+  assert(links('resources/gta5/cherax/lua/index.html').some(url => url.pathname === '/resources/guides/gta5/cherax/lua/' && !url.search));
 });
 
 test('GTA edition filters use verified packages and author-hosted cards retain their own actions', () => {
@@ -413,18 +460,23 @@ test('resource structured data describes visible collections and real sample ent
 test('pending downloads and verified theme captures render honest static actions', () => {
   const { renderPage } = require('./resource-pages.cjs');
   const base = inventory().find(page => page.game === 'gta5' && page.menu === 'scooby');
+  const cherax = inventory().find(page => page.game === 'gta5' && page.menu === 'cherax' && page.category === 'lua');
   const entry = {
     id: 'availability-regression', game: 'gta5', category: 'lua', name: 'API-specific script listing',
-    menuResource: true, sourceCatalog: 'menu-resources', supportedMenus: ['cherax'],
+    menuResource: true, sourceCatalog: 'menu-resources', sourceMenu: 'cherax', supportedMenus: ['cherax'],
     downloadStatus: 'pending', files: [], changelog: [{ version: '1.0', changes: ['Published source description'] }]
   };
-  const pending = renderPage({ ...base, menu: 'cherax', menuName: 'Cherax', samples: [entry], itemCount: 1, pendingCount: 1 });
+  const pending = renderPage({ ...cherax, samples: [entry], itemCount: 1, pendingCount: 1 });
   const article = pending.match(/<article\b[^>]*>[\s\S]*?<\/article>/)?.[0];
   assert(article, 'Missing pending source listing');
-  assert(/<button\b[^>]*\bdisabled\b[^>]*>Download — Coming soon<\/button>/.test(article));
+  assert(!article.includes('Download — Coming soon'), 'Cherax source-only cards omit the disabled download action');
+  const standArchive = inventory().find(page => page.archive && page.category === 'lua');
+  const unavailable = renderPage({ ...standArchive, samples: [{ ...entry, sourceMenu: 'stand', supportedMenus: ['stand'], downloadLabel: 'Download unavailable' }] });
+  assert.match(unavailable, /<button\b[^>]*\bdisabled\b[^>]*>Download unavailable<\/button>/);
   assert(!article.includes('data-download-file='), 'Pending metadata must not expose a pretend download');
   assert(article.includes('Published source description') && article.includes('Changelog'));
-  assert(article.includes('menu=cherax'), 'Pending listing tags must preserve their menu context');
+  assert(!article.includes('class="resource-tags"'), 'Search tags should stay out of the listing');
+  assert(article.includes('In Scooby, use the Cherax Lua compatibility layer to load this script.'));
   const withoutNotes = renderPage({ ...base, samples: [{ ...entry, changelog: undefined }] });
   assert(withoutNotes.includes('data-resource-changelog=') && withoutNotes.includes('&quot;notes&quot;:[]'), 'Missing changelogs need an honest empty popup');
   assert(withoutNotes.includes('id="resource-changelog" aria-labelledby="resource-changelog-title"'), 'The changelog dialog needs an accessible title');
@@ -439,4 +491,18 @@ test('pending downloads and verified theme captures render honest static actions
   assert(!unverified.includes('captured-menu.png'), 'Unverified theme imagery must stay hidden');
   const verified = renderPage({ ...base, samples: [{ ...theme, previewVerified: true }] });
   assert(verified.includes('src="https://example.invalid/captured-menu.png"'), 'A verified source capture may be displayed');
+  assert(!verified.includes('In Scooby, use the Cherax Lua compatibility layer'));
+});
+
+test('Lua search tags keep script-specific names, source filenames and topics', () => {
+  const { tagsFor, searchText } = require('../resources/taxonomy.js');
+  const entry = {
+    game: 'gta5', category: 'lua', sourceMenu: 'stand', name: 'Chat Translator',
+    sourceFilename: 'translator_v2.pluto', tags: ['Translation', 'Chat']
+  };
+  const tags = tagsFor(entry);
+  for (const tag of ['chat translator', 'translator v2', 'pluto', 'translation']) {
+    assert(tags.includes(tag), tag);
+    assert(searchText(entry).includes(tag), tag);
+  }
 });

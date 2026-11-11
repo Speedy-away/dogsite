@@ -1,0 +1,156 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 200,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "notify_text" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189,
+            "smoothness" : 3
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 200,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "custom_name" : "C:/X-Folder/textures/gold.png",
+         "gif_delay" : 5,
+         "gif_index" : 1,
+         "image_index" : 18,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         }
+      },
+      "max_options" : 30,
+      "pos_x" : 0.60781252384185791,
+      "pos_y" : 0.060833334922790527,
+      "show_warning" : false,
+      "show_watermark" : false,
+      "size" : {
+         "header_y" : 0.16300000250339508,
+         "multiplier" : 0.86500000953674316,
+         "option_size_x" : 0.3329998254776001,
+         "option_size_y" : 0.029000001028180122
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         },
+         "text_size_x" : 1,
+         "text_size_y" : 0.26400014758110046,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 75,
+            "green" : 212,
+            "red" : 251
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 200,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 222,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scrollbar" : {
+            "alpha" : 40,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 133,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 53,
+            "green" : 159,
+            "red" : 189
+         },
+         "title" : {
+            "alpha" : 222,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         }
+      }
+   }
+}

@@ -38,7 +38,7 @@ body[data-product-scene]::before {
 }
 
 body[data-product-scene] .main-content {
-    padding-top: 184px;
+    padding-top: clamp(124px, 13vw, 184px);
 }
 
 body[data-product-scene] :is(.product-heading, .tlou-heading) h1 {
@@ -73,7 +73,4 @@ body[data-product-scene] :is(.screenshots-section, .purchase-card, .description-
         background: linear-gradient(180deg, #08080855 0%, #08080888 38%, #080808cc 72%, #080808 100%);
     }
 
-    body[data-product-scene] .main-content {
-        padding-top: 140px;
-    }
 }

@@ -2,6 +2,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { siteRoot, repoRoot, publicEntries, isPublic } = require('./site-layout.cjs');
 const publishRoot = path.join(repoRoot, 'project', 'build', 'publish');
+const cheraxGitHub = 'https://raw.githubusercontent.com/Speedy-away/dogsite/main';
+const cheraxAssets = new Set(['assets/downloads/cherax', 'assets/images/resource-previews/cherax']);
+const cheraxURL = /\/assets\/(?:downloads|images\/resource-previews)\/cherax\/[a-f0-9]{20}\.(?:lua|json|zip|rar|7z|webp)\b/g;
+
 function build() {
   if (!process.env.SCOOBY_RESOURCE_SYNC) require('./resource-sync.cjs').syncOnce({ seo: false });
   require('./build-resource-seo.cjs').build();
@@ -13,7 +17,8 @@ function build() {
   }
   const files = [];
   function collect(relative) {
-    if (!isPublic(relative)) return;
+    const publicPath = relative.split(path.sep).join('/');
+    if (cheraxAssets.has(publicPath) || !isPublic(relative)) return;
     const source = path.join(siteRoot, relative), stat = fs.lstatSync(source);
     if (stat.isSymbolicLink()) throw Error('Public files must not be symlinks: ' + relative);
     if (stat.isDirectory()) for (const name of fs.readdirSync(source)) collect(path.join(relative, name));
@@ -25,7 +30,12 @@ function build() {
   for (const relative of files) {
     const destination = path.join(publishRoot, relative);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
-    fs.copyFileSync(path.join(siteRoot, relative), destination);
+    const source = path.join(siteRoot, relative);
+    const publicPath = relative.split(path.sep).join('/');
+    if (publicPath === 'community/data/menu-resources.json' || (publicPath.startsWith('resources/') && publicPath.endsWith('.html'))) {
+      const markup = fs.readFileSync(source, 'utf8');
+      fs.writeFileSync(destination, markup.replace(cheraxURL, url => cheraxGitHub + url));
+    } else fs.copyFileSync(source, destination);
   }
   console.log(`Packaged ${files.length} files into ${publishRoot}`);
   return { publishRoot, files };

@@ -1,0 +1,149 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255,
+            "smoothness" : 5
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "custom_name" : "C:/X-Folder/textures/code.gif",
+         "gif_delay" : 6,
+         "gif_index" : 0,
+         "image_index" : 2,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "type" : 1
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 120,
+            "green" : 57,
+            "red" : 32
+         }
+      },
+      "max_options" : 14,
+      "pos_x" : 0.68000000715255737,
+      "pos_y" : 0.17000000178813934,
+      "show_warning" : false,
+      "show_watermark" : false,
+      "size" : {
+         "header_y" : 0.16500000655651093,
+         "option_size_x" : 0.31999999284744263,
+         "option_size_y" : 0.032999999821186066
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.31000000238418579,
+         "text_size_y" : 0.31000000238418579,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "scrollbar" : {
+            "alpha" : 153,
+            "blue" : 77,
+            "green" : 64,
+            "red" : 51
+         },
+         "scroller" : {
+            "alpha" : 102,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 230,
+            "green" : 230,
+            "red" : 230
+         },
+         "title" : {
+            "alpha" : 222,
+            "blue" : 161,
+            "green" : 82,
+            "red" : 82
+         }
+      }
+   }
+}

@@ -1,0 +1,2437 @@
+{
+  "version": 1,
+  "summary": {
+    "repositories": 63,
+    "packages": 58,
+    "screenshots": 29,
+    "projects": 56,
+    "presetPacks": 7
+  },
+  "completeness": "Public Lua organization snapshot plus the supplied YimMenu v1 preset archives.",
+  "excluded": [
+    {
+      "repository": "Example",
+      "reason": "Example metadata template without a Lua payload"
+    },
+    {
+      "repository": "heist-editior",
+      "reason": "Placeholder without a Lua payload"
+    },
+    {
+      "repository": "Heist-Editor",
+      "reason": "README and metadata only; no published Lua payload"
+    },
+    {
+      "repository": "mikedrugs-ngad-g",
+      "reason": "Empty repository"
+    },
+    {
+      "repository": "submission",
+      "reason": "Repository submission bot"
+    },
+    {
+      "repository": "Utimate-Menu",
+      "reason": "Archived repository with a removal notice and no Lua payload"
+    },
+    {
+      "repository": "YimMenu-Lua-heist-editior",
+      "reason": "Empty repository"
+    }
+  ],
+  "items": [
+    {
+      "id": "menu-yim-lua-acidlab-script",
+      "name": "AcidLab-Script",
+      "category": "lua",
+      "description": "AcidLab_features_like_product_value_changer_capacity_changer_and_etc",
+      "format": "Lua",
+      "tags": [
+        "Acid Lab",
+        "Business management",
+        "Product capacity"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "AcidLab-Script.zip",
+          "url": "/assets/downloads/yim/acidlab-script.zip"
+        }
+      ],
+      "credits": "wanz1337",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/AcidLab-Script",
+        "commit": "13415b17c24da2e7a62f91294b9a9f03b28ac029"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2023-11-06T16:52:03.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-alestarov-menu",
+      "name": "Alestarov-Menu",
+      "category": "lua",
+      "description": "This is a lua build that contains the best ways to cheat Money, Clear statistics, Heist editor and much more. The script will be constantly updated. It contains the best features from other scripts.",
+      "format": "Lua",
+      "tags": [
+        "Heist editor",
+        "Heists",
+        "Character stats",
+        "Recovery tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Alestarov-Menu.zip",
+          "url": "/assets/downloads/yim/alestarov-menu.zip"
+        }
+      ],
+      "credits": "Alestarov",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Alestarov-Menu",
+        "commit": "de3aeddd466f26c2eb1dfc891ed618d52be2d917",
+        "images": [
+          "https://github.com/Alestarov/Almenu/assets/108485130/31e2df49-f300-4a9a-ac3f-98a3e7f14d24",
+          "https://github.com/Alestarov/Almenu/assets/108485130/5854e37c-9488-4ddb-b616-ec01797a2a56",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/3fe3db2c-592b-4fbb-9209-e9d141ee134f",
+          "https://github.com/Alestarov/Almenu/assets/108485130/3cc25428-a7fe-4abf-aba4-31f8b99aa067",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/114df4b5-3b18-4d79-900a-8fbe1e93fcca",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/1a1b47ea-1b65-4212-9b26-a1725a777f56",
+          "https://github.com/Alestarov/Almenu/assets/108485130/b2cbbcf1-ef20-485d-9e61-1c617b9117bc",
+          "https://github.com/YimMenu-Lua/Alestarov-Menu/assets/108485130/c5ab6734-ba05-4349-adc4-37deb316c39d",
+          "https://github.com/YimMenu-Lua/Alestarov-Menu/assets/108485130/4582fd79-ba48-454f-a7c1-c637d1ff3c7b",
+          "https://github.com/Alestarov/Almenu/assets/108485130/80abd0e6-6fc5-4ec5-a945-4488069e5fdd",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/8ee878c3-267a-42ff-b96b-49cf032b7cb9",
+          "https://github.com/Alestarov/YimMenu-lua-script-Alestarov_Menu/assets/108485130/79db794f-6938-4c8c-a0ed-98cb3bcda413"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/alestarov-menu-4.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/alestarov-menu-4.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-1.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-2.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-3.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-5.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-6.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-7.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-8.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-9.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-10.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-11.png",
+        "/assets/images/resource-previews/yim/alestarov-menu-12.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-02-26T21:21:05.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "progression"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-arcadegames",
+      "name": "ArcadeGames",
+      "category": "lua",
+      "description": "Allows you to manipulate Arcade games.",
+      "format": "Lua",
+      "tags": [
+        "Arcade games",
+        "Minigames"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "ArcadeGames.zip",
+          "url": "/assets/downloads/yim/arcadegames.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/ArcadeGames",
+        "commit": "fb1b658437ba9f1a7fafde5f3413fa95e119366c"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-16T15:12:09.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-billionare-services",
+      "name": "Billionare-Services",
+      "category": "lua",
+      "description": "Lua script that provides VIP services for GTA V players.",
+      "format": "Lua",
+      "tags": [
+        "VIP services",
+        "Private jet"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Billionare-Services.zip",
+          "url": "/assets/downloads/yim/billionare-services.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Billionare-Services",
+        "commit": "ab4e07d17893e2dd4122f91d78f9309f5fea9bfc",
+        "images": [
+          "https://github.com/xesdoog/Billionaire-Script/assets/66764345/8760ebbc-3f94-462b-acea-2dadbc4a7e6e",
+          "https://github.com/xesdoog/Billionaire-Script/assets/66764345/a885f376-7fba-4322-a2a7-58c69a66d84f",
+          "https://github.com/xesdoog/Billionaire-Script/assets/66764345/07b1c8f3-6511-4dd6-9a4f-c7f86d84898d"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/billionare-services-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/billionare-services-1.png",
+        "/assets/images/resource-previews/yim/billionare-services-2.png",
+        "/assets/images/resource-previews/yim/billionare-services-3.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-06-16T15:53:01.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-bunkerresearchunlocker",
+      "name": "BunkerResearchUnlocker",
+      "category": "lua",
+      "description": "A simple script that goes into the self tab of YimMenu. This script gives you the option to unlock all bunker research items at once or individually.",
+      "format": "Lua",
+      "tags": [
+        "Bunker research",
+        "Unlocks"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "bunkerresearchunlocker-legacy.zip",
+          "url": "/assets/downloads/yim/bunkerresearchunlocker-legacy.zip"
+        }
+      ],
+      "credits": "Faresito",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/BunkerResearchUnlocker",
+        "commit": "b3f52955ac3b43e82fc559b6261bc7a0bf37198b"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "editionSupport": "legacy",
+      "sourceFilename": "Bunker Research Unlocker.lua",
+      "updatedAt": "2026-09-04T01:25:14.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "research unlocks",
+        "YimMenu v1",
+        "GTA 5 Legacy"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-casino-pacino",
+      "name": "Casino-Pacino",
+      "category": "lua",
+      "description": "Allows you to game the Casino by cheating at all the games, and also manipulating the casino heists.",
+      "format": "Lua",
+      "tags": [
+        "Diamond Casino",
+        "Casino games",
+        "Heists",
+        "Heist editor"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Casino-Pacino.zip",
+          "url": "/assets/downloads/yim/casino-pacino.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Casino-Pacino",
+        "commit": "cd15b5feefa9bc9014b5c464fcc39b011a158e1d"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-08-01T15:17:29.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "casino heist"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-cheatcodes",
+      "name": "CheatCodes",
+      "category": "lua",
+      "description": "Enables cheat codes in GTA Online.",
+      "format": "Lua",
+      "tags": [
+        "Cheat codes"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "CheatCodes.zip",
+          "url": "/assets/downloads/yim/cheatcodes.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/CheatCodes",
+        "commit": "816990760e3af4a6cadd7774c405e7f2b50ca64a"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-24T09:56:13.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "GTA Online"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-clawcrane",
+      "name": "ClawCrane",
+      "category": "lua",
+      "description": "Aims to fix the broken grab offset of Shiny Wasabi Kitty plushie so that you can actually grab it.",
+      "format": "Lua",
+      "tags": [
+        "Arcade games",
+        "Claw crane",
+        "Shiny Wasabi Kitty"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "ClawCrane.zip",
+          "url": "/assets/downloads/yim/clawcrane.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/ClawCrane",
+        "commit": "5c42e25508b5daa35b01423795f5d26ad17fb4b8"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-14T14:34:38.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-cutscene-player",
+      "name": "Cutscene-Player",
+      "category": "lua",
+      "description": "Allows you to play cutscenes.",
+      "format": "Lua",
+      "tags": [
+        "Cutscenes"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Cutscene-Player.zip",
+          "url": "/assets/downloads/yim/cutscene-player.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Cutscene-Player",
+        "commit": "71ac25cd5cf1b434d4fc6e37bf06f06bbda8f77b"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-15T08:37:26.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "cinematics"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-dailycollectibles",
+      "name": "DailyCollectibles",
+      "category": "lua",
+      "description": "A lua script that allows you to view daily collectibles' locations, teleport, and more stuff.",
+      "format": "Lua",
+      "tags": [
+        "Collectibles",
+        "Map locations",
+        "Teleport"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "DailyCollectibles.zip",
+          "url": "/assets/downloads/yim/dailycollectibles.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/DailyCollectibles",
+        "commit": "321839c372688b4f0d09644c1fda8f06481b9073"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-14T08:43:18.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "daily collectibles"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-dlcvehicles",
+      "name": "DLCVehicles",
+      "category": "lua",
+      "description": "Enables all tunable vehicles. This should work for future DLCs as well without requiring an update.",
+      "format": "Lua",
+      "tags": [
+        "DLC vehicles",
+        "Vehicle unlocks"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "DLCVehicles.zip",
+          "url": "/assets/downloads/yim/dlcvehicles.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/DLCVehicles",
+        "commit": "3ed2e364474a9f15e8d7ff7e8e5b2692b06b6cef"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-09-03T14:37:04.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "vehicle availability"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-elexon",
+      "name": "Elexon",
+      "category": "lua",
+      "description": "Elexon is a script mainly focused on recovery options. Its a W.I.P and help is appreciated",
+      "format": "Lua",
+      "tags": [
+        "Recovery tools",
+        "Character progression"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Elexon.zip",
+          "url": "/assets/downloads/yim/elexon.zip"
+        }
+      ],
+      "credits": "thecookietho",
+      "license": "GPL-3.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Elexon",
+        "commit": "1df399c1586589779ab313db775e845e8eb9408f"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "editionSupport": "legacy",
+      "updatedAt": "2025-12-31T11:59:59.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "progression"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-elitetracker",
+      "name": "EliteTracker",
+      "category": "lua",
+      "description": "Allows you to track your Elite Challenge progresses.",
+      "format": "Lua",
+      "tags": [
+        "Heists",
+        "Elite Challenge",
+        "Heist tracking"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "EliteTracker.zip",
+          "url": "/assets/downloads/yim/elitetracker.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/EliteTracker",
+        "commit": "cbbb1bbd69c4dc8824ac3d32299b630b1e310532"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-16T14:32:47.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "heist tracker"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-eudora",
+      "name": "Eudora",
+      "category": "lua",
+      "description": "A comprehensive utility menu for character progression, money drops, stat maximization, custom rank/K/D editing, and unlocking exclusive vehicles.",
+      "format": "Lua",
+      "tags": [
+        "Character progression",
+        "Rank editor",
+        "Character stats",
+        "Vehicle unlocks"
+      ],
+      "requirementLabel": "Uses the YimMenu v1 Lua API. Confirm the supported GTA 5 build with the author.",
+      "files": [
+        {
+          "name": "Eudora.zip",
+          "url": "/assets/downloads/yim/eudora.zip"
+        }
+      ],
+      "credits": "yamato-0x",
+      "license": "MIT",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Eudora",
+        "commit": "76d45b7e9c4ebf83bb58c27cf231107c6c0967df",
+        "release": "https://github.com/YimMenu-Lua/Eudora/releases/download/BUG_FIX/Eudora.zip"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2026-10-17T00:56:55.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-fmtransactiontriggerer",
+      "name": "ServiceTransactions",
+      "category": "lua",
+      "description": "Allows you to trigger service transactions by calling a script function. Experimental only, use at your own risk.",
+      "format": "Lua",
+      "tags": [
+        "Service transactions",
+        "Freemode"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "FMTransactionTriggerer.zip",
+          "url": "/assets/downloads/yim/fmtransactiontriggerer.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/FMTransactionTriggerer",
+        "commit": "416a4cb56fa600159da29547440afa417f808dc5"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-29T06:28:26.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "experimental"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-fullsnacks",
+      "name": "FullSnacks",
+      "category": "lua",
+      "description": "Fills your snacks every so often",
+      "format": "Lua",
+      "tags": [
+        "Snacks",
+        "Inventory"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "FullSnacks.zip",
+          "url": "/assets/downloads/yim/fullsnacks.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/FullSnacks",
+        "commit": "62a343c57dd2c853a17b9f249de8159a010c7ca5"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-10-25T23:56:49.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-g9ec",
+      "name": "G9EC",
+      "category": "lua",
+      "description": "Enables next-gen exclusive (PlayStation 5 & Xbox Series X|S) clothing items in the store.",
+      "format": "Lua",
+      "tags": [
+        "Clothing unlocks",
+        "Clothing stores"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "G9EC.zip",
+          "url": "/assets/downloads/yim/g9ec.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/G9EC",
+        "commit": "772262449905f6c90617078eacbe23dc17472bc3"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-14T14:36:56.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "clothing",
+        "outfits"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-goldengets-menu",
+      "name": "GoldenGets-Menu",
+      "category": "lua",
+      "description": "Lua script for YimMenu which is useful for your GTA Online progress",
+      "format": "Lua",
+      "tags": [
+        "Character progression",
+        "Utility menus"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "GoldenGets-Menu.zip",
+          "url": "/assets/downloads/yim/goldengets-menu.zip"
+        }
+      ],
+      "credits": "GoldenGets",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/GoldenGets-Menu",
+        "commit": "8c3cc9baf98d219386b376799a8a263831460d43"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-11-04T20:42:29.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "progression",
+        "GTA Online"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-groundfireworks",
+      "name": "GroundFireworks",
+      "category": "lua",
+      "description": "Adds ground fireworks that work similar to ground fireworks from old GTA Online",
+      "format": "Lua",
+      "tags": [
+        "Fireworks",
+        "Visual effects"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "GroundFireworks.zip",
+          "url": "/assets/downloads/yim/groundfireworks.zip"
+        }
+      ],
+      "credits": "tupoy-ya",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/GroundFireworks",
+        "commit": "8c6336d905ec1fcdeeaff61ad477b92ef4628871"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-08-03T09:24:13.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-gunvan",
+      "name": "GunVan",
+      "category": "lua",
+      "description": "Allows you to edit Gun Van weapons and more.",
+      "format": "Lua",
+      "tags": [
+        "Gun Van",
+        "Weapon inventory"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "GunVan.zip",
+          "url": "/assets/downloads/yim/gunvan.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/GunVan",
+        "commit": "fe337ed48bb619994a53bfde77f64b6fc7e6d724"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-14T12:47:54.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-harmless-scripts",
+      "name": "Harmless-Scripts",
+      "category": "lua",
+      "description": "Repo for Lua scripts made by Harmless for YimMenu",
+      "format": "Lua",
+      "tags": [
+        "Script collections",
+        "HUD",
+        "Radar"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Harmless-Scripts.zip",
+          "url": "/assets/downloads/yim/harmless-scripts.zip"
+        }
+      ],
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Harmless-Scripts",
+        "commit": "e56f3c0296d5db93cb362a8707c324359617226a"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-08-17T09:57:39.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "script collection",
+        "utilities"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-internet",
+      "name": "Internet",
+      "category": "lua",
+      "description": "Allows you to open various computers.",
+      "format": "Lua",
+      "tags": [
+        "In-game computers",
+        "In-game websites"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Internet.zip",
+          "url": "/assets/downloads/yim/internet.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Internet",
+        "commit": "55b3abf798b214b11d3e1bf672f899f08a7958f9"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-07-08T17:47:12.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "websites"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-kaifkolmenu",
+      "name": "KaifKolMenu",
+      "category": "lua",
+      "description": "This is a small menu for online version 1.69",
+      "format": "Lua",
+      "tags": [
+        "Utility menus"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "KaifKolMenu.zip",
+          "url": "/assets/downloads/yim/kaifkolmenu.zip"
+        }
+      ],
+      "credits": "KaifKol",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/KaifKolMenu",
+        "commit": "7755b41c6823004244f24441883729eaf958931a"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-03-06T21:37:01.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "utilities",
+        "GTA Online 1.69"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-minigamehack",
+      "name": "MiniGameHack",
+      "category": "lua",
+      "description": "Minigame instant complete, skip hacking process",
+      "format": "Lua",
+      "tags": [
+        "Minigames",
+        "Mission tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "MiniGameHack.zip",
+          "url": "/assets/downloads/yim/minigamehack.zip"
+        }
+      ],
+      "credits": "sch-lda",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/MiniGameHack",
+        "commit": "5fff9ceb93118458b2c6aa3e90987bf3653f70c7"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-12-22T14:07:11.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-missiontools",
+      "name": "MissionTools",
+      "category": "lua",
+      "description": "A versatile YimMenu script featuring mission selectors, skip tools, cooldown management, session switching, and much more.",
+      "format": "Lua",
+      "tags": [
+        "Mission tools",
+        "Mission selection",
+        "Cooldowns",
+        "Session switching"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "MissionTools.zip",
+          "url": "/assets/downloads/yim/missiontools.zip"
+        }
+      ],
+      "credits": "L7NEG",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/MissionTools",
+        "commit": "13dea0296e87a4cbc64f76bc0435507c03f2b3ad"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2026-07-31T17:21:47.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-nohesi",
+      "name": "NoHesi",
+      "category": "lua",
+      "description": "A simple and barebones implementation of NoHesi into YimMenu-Lua: Earn points by cutting up traffic at high speed.",
+      "format": "Lua",
+      "tags": [
+        "Driving",
+        "Traffic",
+        "Driving challenges"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "NoHesi.zip",
+          "url": "/assets/downloads/yim/nohesi.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/NoHesi",
+        "commit": "147df28656d599cf912722e94836e733cc5be244",
+        "images": [
+          "https://github.com/user-attachments/assets/3c751eab-5e21-4fa6-a7aa-c82c9a7a57e5"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/nohesi-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/nohesi-1.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-03-30T22:00:24.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "score challenge"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-patrickmcreary",
+      "name": "PatrickMcReary",
+      "category": "lua",
+      "description": "A Lua script for the Patrick McReary random event.",
+      "format": "Lua",
+      "tags": [
+        "Random events",
+        "Patrick McReary"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "PatrickMcReary.zip",
+          "url": "/assets/downloads/yim/patrickmcreary.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PatrickMcReary",
+        "commit": "bd19ac7aaf65e26e909a2e506b4205e5035e71a3"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-14T14:07:22.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-pauseonline",
+      "name": "PauseOnline",
+      "category": "lua",
+      "description": "Allows you to pause the game in GTA Online.",
+      "format": "Lua",
+      "tags": [
+        "Pause menu",
+        "Session tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "PauseOnline.zip",
+          "url": "/assets/downloads/yim/pauseonline.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PauseOnline",
+        "commit": "7ec18be04c8147c664449bf81e8ac2d1ee9aa23a"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-15T10:40:02.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "session utilities"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-payphonehits",
+      "name": "PayphoneHits",
+      "category": "lua",
+      "description": "A Lua script for Payphone Hits.",
+      "format": "Lua",
+      "tags": [
+        "Payphone Hits",
+        "Missions"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "PayphoneHits.zip",
+          "url": "/assets/downloads/yim/payphonehits.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PayphoneHits",
+        "commit": "8fb2c8843a0adb84c5f8ab5025bc47092baad6e1"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-14T09:18:07.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-pesiv2-updated",
+      "name": "Pessi v2 Updated",
+      "category": "lua",
+      "description": "Pessi is mainly a recovery script, with various methods, ranging from a 1M fast loop to various limited transactions",
+      "format": "Lua",
+      "tags": [
+        "Recovery tools",
+        "Service transactions",
+        "Character progression"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Pesiv2-Updated.zip",
+          "url": "/assets/downloads/yim/pesiv2-updated.zip"
+        }
+      ],
+      "credits": "abuazizv & gir489",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Pesiv2-Updated",
+        "commit": "ca0c8e7f369e86c19669fd874e6a4f531a9ef6d4"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-07-05T00:33:59.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "Pessi v2",
+        "recovery",
+        "progression"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-pessi",
+      "name": "Pessi",
+      "category": "lua",
+      "description": "Pessi is mainly a recovery script, with various methods, ranging from a 1M fast loop to various limited transactions",
+      "format": "Lua",
+      "tags": [
+        "Recovery tools",
+        "Service transactions",
+        "Character progression"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Pessi.zip",
+          "url": "/assets/downloads/yim/pessi.zip"
+        }
+      ],
+      "credits": "abuazizv",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Pessi",
+        "commit": "a83c20577d1c8554db12d8c7e0899ced0d06ac49"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-07-14T15:56:02.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "progression"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-phone-editor",
+      "name": "Phone-Editor",
+      "category": "lua",
+      "description": "A script that allows you to change the player's phone",
+      "format": "Lua",
+      "tags": [
+        "Phone customization",
+        "In-game phone"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Phone-Editor.zip",
+          "url": "/assets/downloads/yim/phone-editor.zip"
+        }
+      ],
+      "credits": "celeronishe",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Phone-Editor",
+        "commit": "0ece9b5dc5a5a29b61dc54a8d00838738396dcb1"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-09-07T10:48:20.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-playerabilities",
+      "name": "PlayerAbilities",
+      "category": "lua",
+      "description": "Manipulates your online character abilities.",
+      "format": "Lua",
+      "tags": [
+        "Character abilities",
+        "Player settings"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "PlayerAbilities.zip",
+          "url": "/assets/downloads/yim/playerabilities.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PlayerAbilities",
+        "commit": "10d149ea4c3300a49b239d0e2cb8922a6b5b0c73",
+        "images": [
+          "https://github.com/user-attachments/assets/b31c1d18-c117-4862-8f34-b0049ba8f6a6"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/playerabilities-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/playerabilities-1.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-01-17T15:38:40.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-prizevehicles",
+      "name": "PrizeVehicles",
+      "category": "lua",
+      "description": "Allows you to edit prize vehicles such as Podium, LSCM, etc.",
+      "format": "Lua",
+      "tags": [
+        "Prize vehicles",
+        "Podium vehicles",
+        "LS Car Meet"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "PrizeVehicles.zip",
+          "url": "/assets/downloads/yim/prizevehicles.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/PrizeVehicles",
+        "commit": "4e19b0338cebd110356aa6fea1bc37c4ad799fbc"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-04-19T16:46:08.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "podium vehicle"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-randomevents",
+      "name": "RandomEvents",
+      "category": "lua",
+      "description": "A Lua script for YimMenu about Random Events.",
+      "format": "Lua",
+      "tags": [
+        "Random events",
+        "Freemode events"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "RandomEvents.zip",
+          "url": "/assets/downloads/yim/randomevents.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/RandomEvents",
+        "commit": "be8e5ba51b16a461b4207a3fe08c5e9f47c6811d"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2026-01-03T10:08:21.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-rankeditor",
+      "name": "RankEditor",
+      "category": "lua",
+      "description": "Allows you to edit your character rank, LSCM REP Tier, and Arena War Sponsorship Tier.",
+      "format": "Lua",
+      "tags": [
+        "Rank editor",
+        "LS Car Meet reputation",
+        "Arena War"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "RankEditor.zip",
+          "url": "/assets/downloads/yim/rankeditor.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/RankEditor",
+        "commit": "24380657f681fbf74d71fc93bd525e714146bdb6"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-16T14:38:48.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-removed-vehicles",
+      "name": "Removed-vehicles",
+      "category": "lua",
+      "description": "Re-activate the option to purchase the removed vehicles through the web pages.",
+      "format": "Lua",
+      "tags": [
+        "Removed vehicles",
+        "Vehicle shops"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Removed-vehicles.zip",
+          "url": "/assets/downloads/yim/removed-vehicles.zip"
+        }
+      ],
+      "credits": "visionary2709",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Removed-vehicles",
+        "commit": "757064af72a7317938c7e0a8451d4618409d83fb"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-07-16T02:04:03.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-salvageyard",
+      "name": "SalvageYard",
+      "category": "lua",
+      "description": "Allows you to manage your Salvage Yard business.",
+      "format": "Lua",
+      "tags": [
+        "Salvage Yard",
+        "Business management"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "SalvageYard.zip",
+          "url": "/assets/downloads/yim/salvageyard.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SalvageYard",
+        "commit": "cc3d21a10b657056bdc924b77686f33761d64ffc"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2023-12-20T14:28:46.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-samurai-animations",
+      "name": "SAMURAI-Animations",
+      "category": "lua",
+      "description": "Lua script to play GTA Online Animations using YimMenu.",
+      "format": "Lua",
+      "tags": [
+        "Animations",
+        "Roleplay"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "SAMURAI-Animations.zip",
+          "url": "/assets/downloads/yim/samurai-animations.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SAMURAI-Animations",
+        "commit": "d5b519548c8d9dd847d0de4f30a1e7e87beac2b0",
+        "images": [
+          "https://github.com/YimMenu-Lua/SAMURAI-Animations/assets/66764345/0cb0f9df-97d5-40ff-a3a2-8a3edbc2f0ef",
+          "https://github.com/YimMenu-Lua/SAMURAI-Animations/assets/66764345/c9cd495d-70a6-4a1e-bcf8-a08b5d61d40d"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/samurai-animations-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/samurai-animations-1.png",
+        "/assets/images/resource-previews/yim/samurai-animations-2.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-03-11T23:46:00.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-samurai-scenarios",
+      "name": "SAMURAI-Scenarios",
+      "category": "lua",
+      "description": "Lua script to play GTA Online scenarios using YimMenu.",
+      "format": "Lua",
+      "tags": [
+        "Scenarios",
+        "Roleplay"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "SAMURAI-Scenarios.zip",
+          "url": "/assets/downloads/yim/samurai-scenarios.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SAMURAI-Scenarios",
+        "commit": "ee373dbeec985c43fbabe947d44b87c217694227",
+        "images": [
+          "https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/0158d270-f870-415e-9033-cfd48d727573",
+          "https://github.com/YimMenu-Lua/SAMURAI-Scenarios/assets/66764345/f2d76cf7-e9e0-4bdc-889a-544d3ac3134b"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/samurai-scenarios-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/samurai-scenarios-1.png",
+        "/assets/images/resource-previews/yim/samurai-scenarios-2.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-03-11T23:46:31.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-samurais-scripts",
+      "name": "Samurai's Scripts",
+      "category": "lua",
+      "description": "A Lua script written for YimMenu and Tupoye-Menu, centered around roleplaying and having fun in a game full of ad bots and toxic cheaters.",
+      "format": "Lua",
+      "tags": [
+        "Roleplay",
+        "Utility menus"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "samurais-scripts-legacy.zip",
+          "url": "/assets/downloads/yim/samurais-scripts-legacy.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "license": "GPL-3.0",
+      "version": "v2.0.4",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Samurais-Scripts",
+        "commit": "561be39d486cf9a4c9eb0c88314deaa8f793eaab",
+        "release": "https://github.com/YimMenu-Lua/Samurais-Scripts/releases/download/v2.0.4/Samurais_Scripts_v2.0.4.zip",
+        "images": [
+          "https://github.com/YimMenu-Lua/Samurais-Scripts/blob/561be39d486cf9a4c9eb0c88314deaa8f793eaab/docs/ss.png"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/samurais-scripts-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/samurais-scripts-1.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "editionSupport": "legacy",
+      "sourceFilename": "samurais_scripts.lua",
+      "updatedAt": "2026-11-01T14:42:14.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "utility menu",
+        "YimMenu v1",
+        "GTA 5 Legacy"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-sightseeing",
+      "name": "Sightseeing",
+      "category": "lua",
+      "description": "A proper script for the Halloween Sightseeing event.",
+      "format": "Lua",
+      "tags": [
+        "Halloween",
+        "Sightseeing",
+        "Seasonal events"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Sightseeing.zip",
+          "url": "/assets/downloads/yim/sightseeing.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Sightseeing",
+        "commit": "6aef744faff67666599ae40d8bbeb1dc18260776"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-16T15:00:29.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-singleplayer-menu",
+      "name": "Singleplayer-Menu",
+      "category": "lua",
+      "description": "Simple singleplayer cheats.",
+      "format": "Lua",
+      "tags": [
+        "Story mode",
+        "Utility menus"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Singleplayer-Menu.zip",
+          "url": "/assets/downloads/yim/singleplayer-menu.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Singleplayer-Menu",
+        "commit": "9fbf0f3ea87a3366b99cdc1c5377c97a683e53f3"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-07-23T16:38:12.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "single-player"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-solomissions",
+      "name": "SoloMissions",
+      "category": "lua",
+      "description": "Allows you to play the heists and missions alone.",
+      "format": "Lua",
+      "tags": [
+        "Solo heists",
+        "Heists",
+        "Solo missions",
+        "Mission tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "SoloMissions.zip",
+          "url": "/assets/downloads/yim/solomissions.zip"
+        }
+      ],
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/SoloMissions",
+        "commit": "2d6004a41d4df9ae89e6f09150eb5e7684f9412d"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2026-07-30T13:42:16.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-tokyodrift",
+      "name": "TokyoDrift",
+      "category": "lua",
+      "description": "Adds a few fun features for car enthusiasts.",
+      "format": "Lua",
+      "tags": [
+        "Drifting",
+        "Driving",
+        "Vehicle tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "TokyoDrift.zip",
+          "url": "/assets/downloads/yim/tokyodrift.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/TokyoDrift",
+        "commit": "94187790cc974eaa574e27debf0f0eaf18c00a12",
+        "images": [
+          "https://github.com/user-attachments/assets/c267b174-944d-4e23-b9ef-5af581c9fe87"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/tokyodrift-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/tokyodrift-1.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-08-14T14:06:18.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "vehicle utilities"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-ultimatemenurevived",
+      "name": "Ultimate Menu Revived",
+      "category": "lua",
+      "description": "A powerful menu script featuring advanced recovery options, money tools, a Heist Editor, and much more.",
+      "format": "Lua",
+      "tags": [
+        "Heist editor",
+        "Heists",
+        "Recovery tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "UltimateMenuRevived.zip",
+          "url": "/assets/downloads/yim/ultimatemenurevived.zip"
+        }
+      ],
+      "credits": "L7NEG",
+      "edition": "legacy",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/UltimateMenuRevived",
+        "commit": "db7ca6b90dd793a6a5707ea49395c7939802c012",
+        "release": "https://github.com/YimMenu-Lua/UltimateMenuRevived/releases/download/UltimateMenu_For_YimMenu_V3/Ultimate_Menu_V3_1.73_Legacy.lua",
+        "images": [
+          "https://ultimatemenu.github.io/ScreenShots/YimMenu/15.png"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/ultimatemenurevived-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/ultimatemenurevived-1.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "editionSupport": "legacy",
+      "updatedAt": "2026-11-09T00:59:32.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "recovery",
+        "GTA 5 Legacy"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-unlockeverything",
+      "name": "UnlockEverything",
+      "category": "lua",
+      "description": "Unlocks everything",
+      "format": "Lua",
+      "tags": [
+        "Unlocks",
+        "Character progression"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "UnlockEverything.zip",
+          "url": "/assets/downloads/yim/unlockeverything.zip"
+        }
+      ],
+      "credits": "gir489returns",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/UnlockEverything",
+        "commit": "8921da4701d96c7f3582359dc3f545b3f2367df2"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-12-25T10:26:53.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "progression"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-uthensia_1-70",
+      "name": "Uthensia_1.70",
+      "category": "lua",
+      "description": "a menu which lets us to get money, edit our ranks, max out our character stats, and edit our k/ds.",
+      "format": "Lua",
+      "tags": [
+        "Rank editor",
+        "Character stats",
+        "Character progression",
+        "Recovery tools"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Uthensia_1.70.zip",
+          "url": "/assets/downloads/yim/uthensia_1.70.zip"
+        }
+      ],
+      "credits": "3it7",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Uthensia_1.70",
+        "commit": "c92e8dc6d94d6e7570980de91d2ef725edd81d60"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2026-09-17T00:02:35.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "progression"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-vehiclereward",
+      "name": "VehicleReward",
+      "category": "lua",
+      "description": "Allows you to claim the vehicle you are in as your personal vehicle.",
+      "format": "Lua",
+      "tags": [
+        "Personal vehicles",
+        "Vehicle rewards"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "VehicleReward.zip",
+          "url": "/assets/downloads/yim/vehiclereward.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/VehicleReward",
+        "commit": "ed8cb010b1952a437fdf9314c298ace61e3965e2"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2026-07-24T07:29:17.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-wardrobe",
+      "name": "Wardrobe",
+      "category": "lua",
+      "description": "Allows you to access your wardrobe remotely.",
+      "format": "Lua",
+      "tags": [
+        "Wardrobe",
+        "Outfit changes"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Wardrobe.zip",
+          "url": "/assets/downloads/yim/wardrobe.zip"
+        }
+      ],
+      "credits": "ShinyWasabi",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Wardrobe",
+        "commit": "6f4bb19d4139fadf272b4929f20e298a09f9fd24"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-02-24T10:17:51.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "outfits"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-weapon-editor",
+      "name": "Weapon-Editor",
+      "category": "lua",
+      "description": "WeaponEditor is a lua script that lets you mod weapons.meta externally while the game is running. You can mod weapon behaviour, add attachments etc. without actually changing the game files.",
+      "format": "Lua",
+      "tags": [
+        "Weapon customization",
+        "Weapon attachments",
+        "Weapon settings"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "Weapon-Editor.zip",
+          "url": "/assets/downloads/yim/weapon-editor.zip"
+        }
+      ],
+      "credits": "George0828Zhang",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Weapon-Editor",
+        "commit": "484ab9a7c01a5bdc33edfbb077161d0975d5d506"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-01-16T11:45:00.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimactions",
+      "name": "YimActions",
+      "category": "lua",
+      "description": "Play GTA V Animations & Scenarios Using YimMenu",
+      "format": "Lua",
+      "tags": [
+        "Animations",
+        "Scenarios",
+        "Roleplay"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "YimActions.zip",
+          "url": "/assets/downloads/yim/yimactions.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "license": "CC BY-NC 4.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimActions",
+        "commit": "712447e6abc981ed07dfa84944cddc7ae1c95157",
+        "release": "https://github.com/YimMenu-Lua/YimActions/releases/download/final/YimActions.zip",
+        "images": [
+          "https://github.com/xesdoog/YimActions/assets/66764345/9bdde22d-0efa-4d6c-8385-6c0be1d79a99",
+          "https://github.com/user-attachments/assets/cc79c2b5-d05a-41f3-b59e-4e32770dbf25",
+          "https://github.com/xesdoog/YimActions/assets/66764345/e26f12c0-d1de-41ea-a2c1-df23c79deb8b"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/yimactions-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/yimactions-1.png",
+        "/assets/images/resource-previews/yim/yimactions-2.png",
+        "/assets/images/resource-previews/yim/yimactions-3.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-11-06T03:48:07.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimconfig",
+      "name": "YimConfig",
+      "category": "lua",
+      "description": "Universal Config System For YimMenu-Lua",
+      "format": "Lua",
+      "tags": [
+        "Developer tools",
+        "Lua libraries",
+        "Configuration"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "YimConfig.zip",
+          "url": "/assets/downloads/yim/yimconfig.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimConfig",
+        "commit": "59f630c359db28e4895d510c8f683af21380dc57"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-03-25T22:19:02.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "Lua library"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimlls",
+      "name": "YimLLS",
+      "category": "lua",
+      "description": "LuaLS meta files for the YimMenu API, only for script developers.",
+      "format": "Lua",
+      "tags": [
+        "Developer tools",
+        "Lua Language Server",
+        "Lua API",
+        "Editor tooling"
+      ],
+      "requirementLabel": "Requires the Lua Language Server.",
+      "files": [
+        {
+          "name": "YimLLS.zip",
+          "url": "/assets/downloads/yim/yimlls.zip"
+        }
+      ],
+      "credits": "tupoy-ya",
+      "license": "GPL-2.0",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimLLS",
+        "commit": "e0e4ebecdcc51e2da82299056d15bd9aece949d3"
+      },
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2024-11-03T09:59:41.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimresupplier",
+      "name": "YimResupplier",
+      "category": "lua",
+      "description": "A Lua script that instantly resupplies MC businesses in GTA Online.",
+      "format": "Lua",
+      "tags": [
+        "MC businesses",
+        "Business resupply",
+        "Business management"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "YimResupplier.zip",
+          "url": "/assets/downloads/yim/yimresupplier.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimResupplier",
+        "commit": "2f8b9c8c77f3fefbf4eb0aebca876c540d398f55",
+        "release": "https://github.com/YimMenu-Lua/YimResupplier/releases/download/latest/YimResupplier.zip",
+        "images": [
+          "https://github.com/user-attachments/assets/b8c433c3-d8b9-4e94-963a-5e8b09f2c0d9"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/yimresupplier-1.png",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/yimresupplier-1.png"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-12-24T14:00:09.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua"
+      ]
+    },
+    {
+      "id": "menu-yim-lua-yimtoast",
+      "name": "YimToast",
+      "category": "lua",
+      "description": "Lightweight GUI notification system for Lua developers.",
+      "format": "Lua",
+      "tags": [
+        "Developer tools",
+        "Lua libraries",
+        "GUI notifications"
+      ],
+      "requirementLabel": "Requires YimMenu v1 for GTA 5 Legacy. Check the package for game build requirements.",
+      "files": [
+        {
+          "name": "YimToast.zip",
+          "url": "/assets/downloads/yim/yimtoast.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/YimToast",
+        "commit": "3fafa053c2723f1bf7818c59713f8cde040cea26",
+        "images": [
+          "https://github.com/user-attachments/assets/7a09b9a2-4bea-4998-a977-7fe29498665f"
+        ]
+      },
+      "preview": "/assets/images/resource-previews/yim/yimtoast-1.gif",
+      "previewVerified": true,
+      "images": [
+        "/assets/images/resource-previews/yim/yimtoast-1.gif"
+      ],
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "updatedAt": "2025-03-25T11:47:34.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "Lua library"
+      ]
+    },
+    {
+      "id": "menu-yimv2-lua-bunkerresearchunlocker",
+      "name": "Bunker Research Unlocker",
+      "category": "lua",
+      "description": "Native YimMenu v2 build of Bunker Research Unlocker for GTA 5 Enhanced.",
+      "format": "Lua",
+      "tags": [
+        "Bunker research",
+        "Unlocks"
+      ],
+      "requirementLabel": "Requires YimMenu v2 for GTA 5 Enhanced.",
+      "files": [
+        {
+          "name": "bunkerresearchunlocker-enhanced.zip",
+          "url": "/assets/downloads/yim/bunkerresearchunlocker-enhanced.zip"
+        }
+      ],
+      "credits": "Faresito",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/BunkerResearchUnlocker",
+        "commit": "b3f52955ac3b43e82fc559b6261bc7a0bf37198b"
+      },
+      "sourceMenu": "yimv2",
+      "supportedMenus": [
+        "yimv2"
+      ],
+      "editionSupport": "enhanced",
+      "sourceFilename": "Bunker Research Unlocker YimmenuV2.lua",
+      "updatedAt": "2026-09-04T01:25:14.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "research unlocks",
+        "YimMenu v2",
+        "GTA 5 Enhanced"
+      ]
+    },
+    {
+      "id": "menu-yimv2-lua-samurais-scripts",
+      "name": "Samurai's Scripts",
+      "category": "lua",
+      "description": "Native YimMenu v2 build of Samurai’s Scripts for GTA 5 Enhanced. Includes its supporting Lua modules.",
+      "format": "Lua",
+      "tags": [
+        "Roleplay",
+        "Utility menus"
+      ],
+      "requirementLabel": "Requires YimMenu v2 for GTA 5 Enhanced.",
+      "files": [
+        {
+          "name": "samurais-scripts-enhanced.zip",
+          "url": "/assets/downloads/yim/samurais-scripts-enhanced.zip"
+        }
+      ],
+      "credits": "xesdoog",
+      "license": "GPL-3.0",
+      "version": "v2.0.4",
+      "upstream": {
+        "repo": "https://github.com/YimMenu-Lua/Samurais-Scripts",
+        "commit": "561be39d486cf9a4c9eb0c88314deaa8f793eaab",
+        "release": "https://github.com/YimMenu-Lua/Samurais-Scripts/releases/download/v2.0.4/Samurais_Scripts_v2.0.4.zip"
+      },
+      "sourceMenu": "yimv2",
+      "supportedMenus": [
+        "yimv2"
+      ],
+      "editionSupport": "enhanced",
+      "sourceFilename": "samurais_v2.lua",
+      "updatedAt": "2026-11-01T14:42:14.000Z",
+      "keywords": [
+        "YimMenu",
+        "Lua",
+        "utility menu",
+        "YimMenu v2",
+        "GTA 5 Enhanced"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-modded-vehicles-1",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "Yim Modded Vehicles 1",
+      "category": "vehicles",
+      "categories": ["pack-vehicles"],
+      "description": "Contains 34 saved JSON vehicle presets for YimMenu v1.",
+      "format": "YimMenu JSON vehicle pack",
+      "sourceFormat": "YimMenu JSON vehicle pack",
+      "formatExtension": "json",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the JSON presets to %AppData%\\YimMenu\\saved_json_vehicles.",
+      "tags": [
+        "Saved vehicles",
+        "JSON vehicle packs",
+        "Modded vehicles"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/yim/Yim_Modded_Vehicles_1.zip",
+          "name": "Yim_Modded_Vehicles_1.zip"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1400245377910964356/Yim_Modded_Vehicles_1.zip"
+      },
+      "archiveInspection": {
+        "entries": 34,
+        "strictParseFailures": 0
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "JSON",
+        "vehicle pack"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-modded-vehicles-2",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "Yim Modded Vehicles 2",
+      "category": "vehicles",
+      "categories": ["pack-vehicles"],
+      "description": "Contains 300 saved JSON vehicle presets for YimMenu v1.",
+      "format": "YimMenu JSON vehicle pack",
+      "sourceFormat": "YimMenu JSON vehicle pack",
+      "formatExtension": "json",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the JSON presets to %AppData%\\YimMenu\\saved_json_vehicles.",
+      "tags": [
+        "Saved vehicles",
+        "JSON vehicle packs",
+        "Modded vehicles"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/yim/Yim_Modded_Vehicles_2.zip",
+          "name": "Yim_Modded_Vehicles_2.zip"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1400245377327960144/Yim_Modded_Vehicles_2.zip"
+      },
+      "archiveInspection": {
+        "entries": 300,
+        "strictParseFailures": 0
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "JSON",
+        "vehicle pack"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-bennys-vehicles",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "Yim Modded Vehicles 3 — Benny’s",
+      "category": "vehicles",
+      "categories": ["pack-vehicles"],
+      "description": "Contains 11 saved JSON vehicle presets for YimMenu v1.",
+      "format": "YimMenu JSON vehicle pack",
+      "sourceFormat": "YimMenu JSON vehicle pack",
+      "formatExtension": "json",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the JSON presets to %AppData%\\YimMenu\\saved_json_vehicles.",
+      "tags": [
+        "Saved vehicles",
+        "JSON vehicle packs",
+        "Modded vehicles",
+        "Benny’s"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/yim/Yim_Modded_Vehicles_3_Bennys.zip",
+          "name": "Yim_Modded_Vehicles_3_Bennys.zip"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1400245377591935107/Yim_Modded_Vehicles_3_Bennys.zip"
+      },
+      "archiveInspection": {
+        "entries": 11,
+        "strictParseFailures": 0
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "JSON",
+        "vehicle pack",
+        "custom vehicles"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-y9si-vehicles",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "100 Vehicles Pack by y9si",
+      "category": "vehicles",
+      "categories": ["pack-vehicles"],
+      "description": "Contains 100 saved JSON vehicle presets for YimMenu v1.",
+      "format": "YimMenu JSON vehicle pack",
+      "sourceFormat": "YimMenu JSON vehicle pack",
+      "formatExtension": "json",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the JSON presets to %AppData%\\YimMenu\\saved_json_vehicles.",
+      "tags": [
+        "Saved vehicles",
+        "JSON vehicle packs"
+      ],
+      "author": "y9si",
+      "credits": "y9si",
+      "files": [
+        {
+          "url": "/assets/downloads/yim/100_vehicles_pack_by_y9si.rar",
+          "name": "100_vehicles_pack_by_y9si.rar"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1401156428902826035/100_vehicles_pack_by_y9si.rar"
+      },
+      "archiveInspection": {
+        "entries": 100,
+        "strictParseFailures": 0
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "JSON",
+        "vehicle pack",
+        "y9si"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-xml-vehicles-grand-collection",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "XML Vehicles Grand Collection",
+      "category": "vehicles",
+      "categories": ["pack-vehicles"],
+      "description": "Contains 2,061 XML files in the original vehicle collection. Some entries use other XML layouts or may fail to import.",
+      "format": "YimMenu XML vehicle pack",
+      "sourceFormat": "YimMenu XML vehicle pack",
+      "formatExtension": "xml",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the XML presets to %AppData%\\YimMenu\\xml_vehicles.",
+      "tags": [
+        "Saved vehicles",
+        "XML vehicle packs",
+        "Modded vehicles"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/yim/XML_VEHICLES_GRAND_COLLECTION.zip",
+          "name": "XML_VEHICLES_GRAND_COLLECTION.zip"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1399864552958595122/XML_VEHICLES_GRAND_COLLECTION.zip"
+      },
+      "archiveInspection": {
+        "entries": 2061,
+        "strictParseFailures": 43,
+        "xmlRoots": {
+          "SpoonerPlacements": 29,
+          "VehicleList": 1,
+          "Vehicle": 1987,
+          "Base": 4,
+          "Object0": 11,
+          "AnimalRidingData": 1
+        }
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "XML",
+        "vehicle pack"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-xml-maps-grand-collection",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "XML Maps Grand Collection",
+      "category": "maps",
+      "categories": ["pack-maps"],
+      "description": "Contains 479 XML files in the original map collection. Some entries use other XML layouts or may fail to import.",
+      "format": "YimMenu XML map pack",
+      "sourceFormat": "YimMenu XML map pack",
+      "formatExtension": "xml",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the XML presets to %AppData%\\YimMenu\\xml_maps.",
+      "tags": [
+        "XML map packs",
+        "Object placement",
+        "Menyoo"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/yim/XML_MAPS_GRAND_COLLECTION.zip",
+          "name": "XML_MAPS_GRAND_COLLECTION.zip"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1399864553310785638/XML_MAPS_GRAND_COLLECTION.zip"
+      },
+      "archiveInspection": {
+        "entries": 479,
+        "strictParseFailures": 27,
+        "xmlRoots": {
+          "SpoonerPlacements": 432,
+          "Map": 16,
+          "Vehicle": 5
+        }
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "XML",
+        "map pack",
+        "Spooner placements"
+      ]
+    },
+    {
+      "id": "menu-yim-preset-modded-outfits",
+      "game": "gta5",
+      "sourceMenu": "yim",
+      "supportedMenus": [
+        "yim"
+      ],
+      "name": "72 Modded Outfits for YimMenu",
+      "category": "outfits",
+      "categories": ["pack-outfits"],
+      "description": "Contains 72 saved JSON outfit presets for YimMenu v1.",
+      "format": "YimMenu JSON outfit pack",
+      "sourceFormat": "YimMenu JSON outfit pack",
+      "formatExtension": "json",
+      "editionSupport": "legacy",
+      "requirementLabel": "Extract the archive and copy the JSON presets to %AppData%\\YimMenu\\saved_outfits.",
+      "tags": [
+        "Saved outfits",
+        "JSON outfit packs",
+        "Modded outfits"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/yim/72_Modded_Outfits_Yim_Menu.zip",
+          "name": "72_Modded_Outfits_Yim_Menu.zip"
+        }
+      ],
+      "upstream": {
+        "attachment": "https://cdn.discordapp.com/attachments/1374200354333528146/1379989784268640256/72_Modded_Outfits_Yim_Menu.zip"
+      },
+      "archiveInspection": {
+        "entries": 72,
+        "strictParseFailures": 0
+      },
+      "keywords": [
+        "YimMenu v1",
+        "GTA 5 Legacy",
+        "JSON",
+        "outfit pack"
+      ]
+    }
+  ]
+}

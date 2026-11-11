@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "purpose": "Public FiveM clothing resources with creator links and server setup notes.",
+  "items": [
+    {
+      "id": "fivem-clothing-graffiti-hoodies",
+      "category": "addon-clothing",
+      "name": "Graffiti Hoodies Pack",
+      "author": "FlaaDev",
+      "description": "Male and female freemode hoodies in hood-up and hood-down versions, each with eight graffiti textures.",
+      "sourceUrl": "https://github.com/FlaaDev/FlaaDev-Kit/tree/main/flaadev-8graffitih",
+      "installUrl": "https://forum.cfx.re/t/free-addon-released-graffiti-hoodies-pack-mp-m-f/5251704",
+      "requirementLabel": "FiveM server · Male and female freemode",
+      "requirements": [
+        "Install the flaadev-8graffitih folder and add ensure flaadev-8graffitih to server.cfg.",
+        "Check both freemode models in your server’s appearance menu after the resource starts."
+      ],
+      "tags": ["hoodies", "freemode", "clothing add-on"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-clothing-judge-robe",
+      "category": "addon-clothing",
+      "name": "Judge Robe",
+      "author": "jimgordon20",
+      "credits": "jimgordon20 adapted and released the set. Buckeye923 made the original male robe and grzybeek contributed fixes.",
+      "description": "Courtroom robes for male and female freemode characters.",
+      "sourceUrl": "https://github.com/jimgordon20/jim_g_Judge_Robe_fivem_f_and_m",
+      "installUrl": "https://forum.cfx.re/t/free-jim-g-judge-robe-f-and-m/5230403",
+      "requirementLabel": "FiveM server · Male and female freemode",
+      "requirements": [
+        "Use the current Judge_Robe_fivem_f_and_m resource folder from the repository. Start it from server.cfg.",
+        "Check the add-on entries in your appearance menu on both freemode models. The author documents fixes in the current release."
+      ],
+      "tags": ["robe", "freemode", "clothing add-on"],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/5/8/b/e/58bee5ffd6b1c4aefa8c4fdcc905d3567afb9f97.png",
+      "previewKind": "author-preview",
+      "previewCaption": "Screenshot from the creator’s Judge Robe release.",
+      "previewVerified": true,
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-clothing-summer-dress",
+      "category": "addon-clothing",
+      "name": "Simple Summer Dress",
+      "author": "Popcorn Roleplay",
+      "description": "An original female freemode dress with moving fabric and multiple textures.",
+      "sourceUrl": "https://popcornrp-store.tebex.io/package/7271848",
+      "installUrl": "https://forum.cfx.re/t/simple-summer-dress-with-physics-addon-clothing/5385363",
+      "requirementLabel": "FiveM server · Female freemode · Free Tebex checkout",
+      "requirements": [
+        "Claim the free item through the creator’s store. The creator ties use to the purchaser’s FiveM server license.",
+        "Install the supplied resource according to the creator’s instructions and test the dress while walking and sitting."
+      ],
+      "tags": ["dress", "female freemode", "clothing add-on"],
+      "preview": "https://dunb17ur4ymx4.cloudfront.net/packages/images/8c1e13f31bea3d4953684a1cadc301e2a58cb44a.png",
+      "previewKind": "author-preview",
+      "previewCaption": "Product image from Popcorn Roleplay’s dress release.",
+      "previewVerified": true,
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-clothing-felis-missing-textures",
+      "category": "addon-clothing",
+      "name": "Felis Missing Clothing Textures",
+      "author": "Felis Development",
+      "description": "Replacement textures for existing male and female clothing and props that show a checkerboard pattern.",
+      "sourceUrl": "https://github.com/FelisDevelopment/fd_missing_textures/",
+      "installUrl": "https://forum.cfx.re/t/free-missing-checkerboard-texture-replacements-900-lore-friendly-textures-male-female/5376249",
+      "requirementLabel": "FiveM server · Texture replacements",
+      "requirements": [
+        "Start fd_missing_textures before the clothing group, as shown in the README. The separate ydd and images folders are optional reference files.",
+        "Test the original clothing slots again after starting the resource. This pack replaces textures in those slots."
+      ],
+      "tags": ["clothing textures", "texture replacements", "freemode"],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/2/c/e/6/2ce6246cf2ae10115a426ae670b0390d6732558e.jpeg",
+      "previewKind": "author-preview",
+      "previewCaption": "Texture examples from Felis Development’s release.",
+      "previewVerified": true,
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

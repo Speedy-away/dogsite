@@ -1,0 +1,23 @@
+{
+  "testedAt": "2026-11-11T03:49:54.585Z",
+  "fixture": "C:\\Users\\whatw\\Documents\\GitHub\\dogsite\\project\\community-menu-sources\\cherax-push-test\\run-oFIGHU",
+  "remoteKind": "local-bare-only",
+  "realRemoteWrites": 0,
+  "assertions": [
+    "read-only plan writes no refs/objects/index",
+    "all pending blobs include deleted unpublished ancestor data",
+    "bounded subset trees and chained parents",
+    "dirty HEAD/index/worktree preserved byte-for-byte",
+    "interrupted seed upload resumes",
+    "main uses exact original target/history",
+    "only task-created temporary ref is removed",
+    "all blob objects arrive at bare remote",
+    "fixture is ignored by parent repository"
+  ],
+  "chunks": 3,
+  "pendingBlobs": 5,
+  "pendingBlobBytes": 129024,
+  "mainTarget": "c246fb832e70006355e2816160199c409b33521a",
+  "stateFile": "C:\\Users\\whatw\\Documents\\GitHub\\dogsite\\project\\community-menu-sources\\cherax-push-test\\run-oFIGHU\\state\\c246fb832e70-21fc9d886fe59fe6\\state.json",
+  "result": "passed"
+}

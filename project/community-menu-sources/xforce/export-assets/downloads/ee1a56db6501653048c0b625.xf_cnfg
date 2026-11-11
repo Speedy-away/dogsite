@@ -1,0 +1,103 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 254,
+            "green" : 254,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 0,
+            "blue" : 36,
+            "green" : 36,
+            "red" : 36
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "custom_name" : "C:/X-Folder/textures/2TAKE1.png",
+         "gif_index" : 1,
+         "image_index" : 18,
+         "line" : {
+            "alpha" : 0,
+            "blue" : 38,
+            "green" : 182,
+            "red" : 114
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 38,
+            "green" : 182,
+            "red" : 114
+         }
+      },
+      "max_options" : 12,
+      "pos_x" : 0.80937504768371582,
+      "pos_y" : 0.15092591941356659,
+      "show_warning" : true,
+      "show_watermark" : true,
+      "size" : {
+         "header_y" : 0.16099999845027924,
+         "option_size_x" : 0.28500044345855713,
+         "option_size_y" : 0.037999991327524185
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 0,
+            "blue" : 38,
+            "green" : 182,
+            "red" : 114
+         },
+         "text_size_x" : 0.31399995088577271,
+         "text_size_y" : 0.31199997663497925,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 0,
+            "blue" : 38,
+            "green" : 182,
+            "red" : 114
+         }
+      }
+   }
+}

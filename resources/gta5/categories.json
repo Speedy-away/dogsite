@@ -4,7 +4,6 @@
     "configs",
     "lua",
     "languages",
-    "misc",
     "vehicles",
     "modded",
     "outfits",
@@ -17,18 +16,22 @@
     "dotnet-mods",
     "addon-vehicles",
     "addon-peds",
+    "addon-weapons",
     "addon-objects",
     "addon-animations",
     "addon-maps",
     "addon-clothing",
-    "addon-packs"
+    "pack-vehicles",
+    "pack-all-in-one",
+    "pack-maps"
   ],
   "nenyoo": [
     "themes",
-    "configs",
     "lua",
     "languages",
-    "misc",
+    "loader-translations",
+    "fonts",
+    "emotes",
     "vehicles",
     "modded",
     "outfits",
@@ -36,14 +39,16 @@
     "textures",
     "paintjobs",
     "liveries",
-    "asi-mods",
     "addon-vehicles",
     "addon-peds",
+    "addon-weapons",
     "addon-objects",
     "addon-animations",
     "addon-maps",
     "addon-clothing",
-    "addon-packs"
+    "pack-vehicles",
+    "pack-all-in-one",
+    "pack-maps"
   ],
   "cherax": [
     "themes",
@@ -52,7 +57,8 @@
     "modded",
     "outfits",
     "maps",
-    "addon-packs"
+    "addon-vehicles",
+    "pack-vehicles"
   ],
   "stand": [
     "themes",
@@ -63,7 +69,12 @@
     "modded",
     "outfits",
     "maps",
-    "asi-mods"
+    "asi-mods",
+    "addon-vehicles",
+    "pack-vehicles",
+    "pack-outfits",
+    "pack-all-in-one",
+    "pack-maps"
   ],
   "xforce": [
     "themes",
@@ -75,6 +86,21 @@
     "outfits",
     "maps",
     "asi-mods",
-    "addon-vehicles"
+    "addon-vehicles",
+    "pack-vehicles",
+    "pack-outfits",
+    "pack-maps"
+  ],
+  "yim": [
+    "lua",
+    "vehicles",
+    "outfits",
+    "maps",
+    "pack-vehicles",
+    "pack-outfits",
+    "pack-maps"
+  ],
+  "yimv2": [
+    "lua"
   ]
 }

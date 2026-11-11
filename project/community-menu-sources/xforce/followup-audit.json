@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-11",
+  "sourceMenu": "X-Force",
+  "scope": "Follow-up audit of the local download mirror and public forum archives. No new resource cards or download links were established.",
+  "coverage": {
+    "existingPresetOverrides": 17,
+    "newCatalogRecords": 19,
+    "headerCards": 15,
+    "headerCardsWithVerifiedMirrorPreview": 13,
+    "luaPendingCards": 4,
+    "xforceDiscordMessagesInspected": 0,
+    "unresolvedChannels": [
+      "asi-scripts",
+      "outfits",
+      "translations",
+      "custom-dlc-addons",
+      "xml-vehicles",
+      "xml-maps",
+      "misc-files"
+    ]
+  },
+  "mirror": {
+    "catalog": "cool-repo/catalog/menu-resources.json",
+    "archive": "downloads/shared/themes/x-force/ListUI-XForce-v6-All-02.zip",
+    "sha256": "19a04697a1ca5680863f6d0f39661e0cae6505038e634237b0f0af6773ad6956",
+    "notes": [
+      "Checked both local normalized catalogs against all 19 source item IDs and matched all 17 existing preset overrides in the mirror.",
+      "The 13 published header preview copies match their archive-derived source images byte for byte. Two locally generated header images are not marked as verified original previews.",
+      "All four Lua records remain pending with no files and only X-Force in supportedMenus."
+    ]
+  },
+  "historicalForum": [
+    {
+      "snapshot": "https://web.archive.org/web/20231208135420id_/https://forum.xforce.menu/index.php",
+      "capturedAt": "2023-12-08T13:54:20Z",
+      "status": 200,
+      "observation": "Public forum index showed Giveaways, Announcements, and Changelogs only. No media-sharing categories were visible."
+    },
+    {
+      "snapshot": "https://web.archive.org/web/20240228002859id_/https://forum.xforce.menu/index.php?forums/changelogs.8/",
+      "capturedAt": "2024-02-28T00:28:59Z",
+      "status": 200,
+      "observation": "No threads were visible in the archived public Changelogs section."
+    },
+    {
+      "snapshot": "https://web.archive.org/web/20240228000815id_/https://forum.xforce.menu/index.php?forums/announcements.7/",
+      "capturedAt": "2024-02-28T00:08:15Z",
+      "status": 200,
+      "observation": "No threads were visible in the archived public Announcements section."
+    }
+  ],
+  "externalLeads": [
+    {
+      "url": "https://docs.hzz.im/gta5/exit/menu/xforce/update",
+      "type": "secondary-translated-host-changelog",
+      "observation": "Historical format clues for native map and vehicle XML, custom vehicle DLC and older outfits. No asset-level provenance or verified current compatibility; version/date order is inconsistent."
+    },
+    {
+      "url": "https://www.gta5xforce.com/set-up/",
+      "type": "reseller-setup-guide",
+      "observation": "Documents an in-menu Chinese language choice; no standalone localization package or release history was supplied."
+    }
+  ],
+  "exclusions": [
+    "A Cherax export attachment named XForce20Theme is a Cherax theme lead, not evidence of an X-Force channel share.",
+    "Brazil (Animated) is existing Scooby-authored artwork for its native X-Force style, not an additional X-Force release."
+  ],
+  "nextEvidence": "A user-authorized X-Force export or original author attachment with a version/build and actual payload is needed to expand the remaining media categories."
+}

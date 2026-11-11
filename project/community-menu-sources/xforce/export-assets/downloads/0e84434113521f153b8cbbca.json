@@ -1,0 +1,72 @@
+{
+   "outfit" : {
+      "Accessories" : {
+         "DrawId" : 0,
+         "TexId" : 0
+      },
+      "Badge" : {
+         "DrawId" : 0,
+         "TexId" : 0
+      },
+      "Face" : {
+         "DrawId" : 0,
+         "TexId" : 0
+      },
+      "Hair" : {
+         "DrawId" : 37,
+         "TexId" : 0
+      },
+      "Kevlar" : {
+         "DrawId" : 17,
+         "TexId" : 9
+      },
+      "Legs" : {
+         "DrawId" : 59,
+         "TexId" : 9
+      },
+      "Mask" : {
+         "DrawId" : 0,
+         "TexId" : 0
+      },
+      "Parachute" : {
+         "DrawId" : 0,
+         "TexId" : 0
+      },
+      "Shoes" : {
+         "DrawId" : 55,
+         "TexId" : 9
+      },
+      "Torso" : {
+         "DrawId" : 1,
+         "TexId" : 0
+      },
+      "Torso 2" : {
+         "DrawId" : 139,
+         "TexId" : 3
+      },
+      "Undershirt" : {
+         "DrawId" : 15,
+         "TexId" : 0
+      },
+      "ears" : {
+         "DrawId" : -1,
+         "TexId" : -1,
+         "attach" : true
+      },
+      "glasses" : {
+         "DrawId" : 1,
+         "TexId" : 0,
+         "attach" : true
+      },
+      "hat" : {
+         "DrawId" : 59,
+         "TexId" : 9,
+         "attach" : true
+      },
+      "watches" : {
+         "DrawId" : -1,
+         "TexId" : -1,
+         "attach" : true
+      }
+   }
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "stand-lua-addict-script",
+      "name": "Addict Script",
+      "game": "gta5",
+      "category": "lua",
+      "sourceMenu": "stand",
+      "supportedMenus": ["stand"],
+      "listedMenus": ["stand"],
+      "description": "A GTA V script for Stand’s Lua engine.",
+      "sourceFilename": "2026AddictScript.rar",
+      "preview": "/assets/images/resource-previews/stand/addict-script.png",
+      "previewVerified": true,
+      "previewKind": "submitted-image",
+      "requirements": ["Stand for GTA V"],
+      "tags": ["Lua", "Addict Script"],
+      "downloadStatus": "pending",
+      "files": []
+    }
+  ]
+}

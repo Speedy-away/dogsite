@@ -62,6 +62,7 @@
 }
 @media(max-width:760px) {
  .why-heading { flex-direction:column; align-items:flex-start; gap:24px; margin-bottom:28px; }
+ .why-heading > * { min-width:0; max-width:100%; }
  .why-heading h2 { font-size:clamp(34px,8vw,44px); letter-spacing:-1.4px; }
  .why-intro { max-width:440px; padding:0; }
  .why-intro p { font-size:13px; margin-bottom:10px; }

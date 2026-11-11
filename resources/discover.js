@@ -2,19 +2,27 @@
 // Static resource content and links work without JavaScript. Local previews
 // reuse the allowlisted download-repository route used by the main browser.
 const localPreview = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-for (const image of document.querySelectorAll('[data-resource-image], [data-resource-image-fallback]')) {
+for (const image of document.querySelectorAll('[data-resource-image], [data-resource-image-fallback], [data-resource-image-unavailable]')) {
   const path = image.dataset.resourceImage;
   const fallback = image.dataset.resourceImageFallback;
+  const unavailable = image.hasAttribute('data-resource-image-unavailable');
   const showFallback = () => {
-    image.classList.add('preview-placeholder');
     image.closest('a')?.setAttribute('aria-label', image.alt.replace(/ preview$/, ''));
+    if (unavailable) {
+      const message = document.createElement('span');
+      message.className = 'preview-unavailable';
+      message.textContent = 'Preview unavailable';
+      image.replaceWith(message);
+      return;
+    }
+    image.classList.add('preview-placeholder');
     image.alt = '';
     image.src = fallback;
   };
-  if (fallback) image.addEventListener('error', showFallback, { once: true });
+  if (fallback || unavailable) image.addEventListener('error', showFallback, { once: true });
   if (localPreview && path && !path.startsWith('/') && !path.includes('\\') && !path.split('/').some(part => part === '..' || part === '.')) {
     image.src = '/community-files/' + path.split('/').map(encodeURIComponent).join('/');
-  } else if (fallback && image.complete && !image.naturalWidth) {
+  } else if ((fallback || unavailable) && image.complete && !image.naturalWidth) {
     image.removeEventListener('error', showFallback);
     showFallback();
   }
@@ -78,6 +86,7 @@ if (changelogDialog) {
       content.append(list);
     } else content.textContent = 'No changelog has been published for this resource.';
     changelogDialog.showModal();
+    content.scrollTop = 0;
   });
   document.getElementById('close-resource-changelog').addEventListener('click', () => changelogDialog.close());
   changelogDialog.addEventListener('click', event => {
@@ -86,3 +95,57 @@ if (changelogDialog) {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) changelogDialog.close();
   });
 }
+
+function loadCatalogScript(source) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = source;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.append(script);
+  });
+}
+
+async function mountCatalog() {
+  const directory = document.querySelector('.resource-directory');
+  const response = await fetch('/resources/', { signal: AbortSignal.timeout(10000) });
+  if (!response.ok) return;
+  const shell = new DOMParser().parseFromString(await response.text(), 'text/html');
+  const main = shell.querySelector('main:has(#collection)');
+  const dialogs = [...shell.querySelectorAll('#gta-menu-dialog, #preview, #changelog')];
+  const catalogSource = shell.querySelector('head script[src^="/resources/catalog.js"]')?.getAttribute('src');
+  if (!main || dialogs.length !== 3 || !catalogSource) return;
+  main.id = directory.id;
+
+  const dependencies = ['taxonomy', 'menus', 'editions', 'routes'].map(name =>
+    shell.querySelector(`head script[src^="/resources/${name}.js"]`)?.getAttribute('src') || `/resources/${name}.js`);
+  await Promise.all(dependencies.map(loadCatalogScript));
+  const ad = directory.querySelector('.ad-sidebar');
+  const adPosition = document.createComment('advertisement');
+  if (ad) {
+    ad.before(adPosition);
+    main.querySelector('.ad-sidebar').replaceWith(ad);
+  }
+  const skip = document.querySelector('.skip');
+  directory.replaceWith(main);
+  document.body.append(...dialogs);
+  try {
+    await loadCatalogScript(catalogSource);
+    if (skip) skip.href = '#collection';
+    if (location.hash === '#collection') document.getElementById('collection').scrollIntoView();
+  } catch {
+    if (ad) adPosition.replaceWith(ad);
+    main.replaceWith(directory);
+    for (const dialog of dialogs) dialog.remove();
+  }
+}
+
+let catalogMount;
+function openCatalog() {
+  if (catalogMount || document.getElementById('collection')) return;
+  catalogMount = mountCatalog().catch(() => {}).finally(() => { catalogMount = undefined; });
+}
+
+document.querySelector('.resource-browse')?.addEventListener('click', openCatalog);
+window.addEventListener('hashchange', openCatalog);
+openCatalog();

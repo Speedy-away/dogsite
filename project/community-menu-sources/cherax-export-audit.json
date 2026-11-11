@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-11T01:10:04.234Z",
+  "menu": "cherax",
+  "mode": "offline-export-evidence-review",
+  "schemaSource": "https://github.com/Tyrrrz/DiscordChatExporter/blob/prime/DiscordChatExporter.Core/Exporting/JsonMessageWriter.cs",
+  "inputPath": "project/community-menu-sources/cherax-exports",
+  "sourceBounds": {
+    "root": "project/community-menu-sources/cherax-exports",
+    "maxJsonBytes": 134217728,
+    "maxAssetBytes": 16777216
+  },
+  "channelRegistry": [
+    {
+      "id": "1240968464739602454",
+      "name": "outfit-shares",
+      "collection": "unknown",
+      "evidence": "project/community-marketplace/modverse.json source_channel_id; current/old identity requires exact export metadata."
+    },
+    {
+      "id": "1240968657191047198",
+      "name": "dlc-shares",
+      "collection": "unknown",
+      "evidence": "project/community-marketplace/modverse.json source_channel_id; current/old identity requires exact export metadata."
+    },
+    {
+      "id": "1007005077904568360",
+      "name": "theme-shares",
+      "collection": "unknown",
+      "evidence": "project/community-marketplace/modverse.json source_channel_id; current/old identity requires exact export metadata."
+    },
+    {
+      "id": "1256941518036406273",
+      "name": "json-vehicles",
+      "collection": "unknown",
+      "evidence": "project/community-marketplace/modverse.json source_channel_id; current/old identity requires exact export metadata."
+    }
+  ],
+  "summary": {
+    "inventoriedFiles": 1,
+    "inspectedExportFiles": 0,
+    "acceptedExportFiles": 0,
+    "rejectedChannelExports": 0,
+    "skippedExportFiles": 0,
+    "sourceMessagesInAcceptedExports": 0,
+    "uniqueResourceCandidates": 0,
+    "candidatesByCategory": {},
+    "candidatesByCollection": {},
+    "localAssetsAvailable": 0,
+    "recognizedVehicleOutfitStructures": 0,
+    "luaPendingCandidates": 0,
+    "luaPayloadPendingCandidates": 0,
+    "versionMessagesForReview": 0
+  },
+  "inventoryIssues": [],
+  "exports": [],
+  "skipped": [],
+  "items": [],
+  "versionMessagesForReview": [],
+  "gaps": [
+    "This audit covers only the local export files inspected, not every server share or absent/deleted/restricted post.",
+    "Export completion and all-threads/all-time selection must be verified against the export UI separately.",
+    "Source senders are not automatically original developers. Package and preview redistribution permissions are not established by an export.",
+    "All Lua downloads remain pending with empty files. Original-menu API requirements remain separate from vehicle/outfit data-format candidates.",
+    "Assets are not downloaded, executed or extracted; remote URLs may expire and require fresh acquisition.",
+    "Generated changelog paraphrases and source image associations require human review before catalog integration.",
+    "Vehicle/outfit structural recognition is not a live host/game compatibility test. Themes, translations and DLCs receive no blanket cross-menu compatibility label."
+  ],
+  "discoveredChannels": [],
+  "shareChannelCoverage": [
+    {
+      "name": "lua-scripts",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "outfit-shares",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "dlc-shares",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "theme-shares",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "json-vehicles",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "translation-shares",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "cherax-wallpaper",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "outfit-shares-old",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "dlc-shares-old",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "theme-shares-old",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "json-vehicles-old",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "translation-shares-old",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    },
+    {
+      "name": "cherax-wallpaper-old",
+      "inspectedExportFiles": 0,
+      "sourceMessageRows": 0,
+      "candidates": 0,
+      "status": "No approved export inspected."
+    }
+  ]
+}

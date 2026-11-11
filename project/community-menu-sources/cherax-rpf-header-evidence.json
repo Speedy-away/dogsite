@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "auditedAt": "2026-11-11",
+  "scope": "Local author source header evidence; no RPF payload executed, no asset index accessed.",
+  "findings": {
+    "magic": {
+      "read": "uint32 little-endian at offset 0",
+      "value": "0x52504637",
+      "storedHex": "37465052",
+      "storedASCII": "7FPR"
+    },
+    "encryption": {
+      "read": "uint32 little-endian at offset 12",
+      "value": "0x4e45504f",
+      "storedHex": "4f50454e",
+      "storedASCII": "OPEN"
+    },
+    "correction": "The original downloader incorrectly compared the first bytes with ASCII RPF7. It now compares the explicit little-endian integer and requires the OPEN field."
+  },
+  "sources": [
+    {
+      "path": "C:/Users/whatw/Documents/GitHub/Scooby-Op/GTA5/EE/GTA - Main Src/src/game/features/addons/AddonArchive.cpp",
+      "sha256": "b14250fcaf94c63bf6457fed41a0e67af72d5427bff0c93c0fa722ed01c5fa33"
+    },
+    {
+      "path": "C:/Users/whatw/Documents/GitHub/Scooby-Op/GTA5/EE/GTA - Main Src/src/game/features/addons/AddonPacker.cpp",
+      "sha256": "3d488838999e9a1df4db0fef0ed4ce012262a5fff930c4acc52b22aeb6e7873e"
+    }
+  ],
+  "sourceLocations": [
+    {
+      "file": "AddonArchive.cpp",
+      "lines": [
+        24,
+        25,
+        33,
+        34,
+        35,
+        36,
+        37,
+        403,
+        404
+      ]
+    },
+    {
+      "file": "AddonPacker.cpp",
+      "lines": [
+        11,
+        12,
+        145,
+        148,
+        151
+      ]
+    }
+  ],
+  "validation": [
+    "Correct little-endian magic and OPEN field accepted.",
+    "ASCII RPF7 byte order rejected.",
+    "Non-OPEN encryption field rejected.",
+    "Node syntax check passed."
+  ]
+}

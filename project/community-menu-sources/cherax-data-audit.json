@@ -1,0 +1,846 @@
+{
+  "schemaVersion": 1,
+  "menu": "Cherax",
+  "auditedAt": "2026-11-11T01:06:34.743Z",
+  "scope": "Offline vehicle/outfit catalog audit with nine previously acquired public JSON samples and explicit local importer source evidence. No Discord UI access, game execution, Lua execution or shared importer/library writes.",
+  "snapshot": {
+    "path": "project/community-marketplace/modverse.json",
+    "sha256": "199fa045b123b87684853c624f3113617dbd817ebeff9fb9f45661fe6116a0fd",
+    "repository": "xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace",
+    "revision": "76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1",
+    "fetchedAt": "2026-11-11T00:31:35.917Z"
+  },
+  "coverage": {
+    "catalogFilesInspected": 7,
+    "catalogEntriesInspected": 2952,
+    "namedCandidates": 2951,
+    "namedCandidatesAlreadyInMainLibrary": 2951,
+    "sourcePayloadsIndividuallyInspected": 9,
+    "distinctCatalogIds": 2952,
+    "distinctPublisherHashes": 2952,
+    "excludedEmptyNames": [
+      {
+        "id": "1240968464739602454-1518612367670378497-fc7da5e822bd",
+        "catalog": "marketplace/outfits/catalog-6.json",
+        "reason": "Source display name is empty; not converted into an invented resource name."
+      }
+    ]
+  },
+  "catalogs": [
+    {
+      "path": "marketplace/outfits/catalog-2.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/catalog-2.json",
+      "catalogVersion": 1,
+      "updatedAt": null,
+      "entries": 500,
+      "namedEntries": 500,
+      "sourceChannelCounts": {
+        "1240968464739602454": 500
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "Cherax_outfit_structure_verified; in_game_unverified": 500
+      },
+      "thumbnailKindCounts": {
+        "catalog_cover": 480,
+        "source_image": 20
+      },
+      "missingPublicFilePaths": []
+    },
+    {
+      "path": "marketplace/outfits/catalog-3.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/catalog-3.json",
+      "catalogVersion": 1,
+      "updatedAt": null,
+      "entries": 500,
+      "namedEntries": 500,
+      "sourceChannelCounts": {
+        "1240968464739602454": 500
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "Cherax_outfit_structure_verified; in_game_unverified": 500
+      },
+      "thumbnailKindCounts": {
+        "catalog_cover": 417,
+        "source_image": 83
+      },
+      "missingPublicFilePaths": []
+    },
+    {
+      "path": "marketplace/outfits/catalog-4.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/catalog-4.json",
+      "catalogVersion": 1,
+      "updatedAt": null,
+      "entries": 500,
+      "namedEntries": 500,
+      "sourceChannelCounts": {
+        "1240968464739602454": 500
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "Cherax_outfit_structure_verified; in_game_unverified": 500
+      },
+      "thumbnailKindCounts": {
+        "source_image": 284,
+        "catalog_cover": 216
+      },
+      "missingPublicFilePaths": []
+    },
+    {
+      "path": "marketplace/outfits/catalog-5.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/catalog-5.json",
+      "catalogVersion": 1,
+      "updatedAt": null,
+      "entries": 500,
+      "namedEntries": 500,
+      "sourceChannelCounts": {
+        "1240968464739602454": 500
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "Cherax_outfit_structure_verified; in_game_unverified": 500
+      },
+      "thumbnailKindCounts": {
+        "catalog_cover": 279,
+        "source_image": 221
+      },
+      "missingPublicFilePaths": []
+    },
+    {
+      "path": "marketplace/outfits/catalog-6.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/catalog-6.json",
+      "catalogVersion": 1,
+      "updatedAt": null,
+      "entries": 332,
+      "namedEntries": 331,
+      "sourceChannelCounts": {
+        "1240968464739602454": 332
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "Cherax_outfit_structure_verified; in_game_unverified": 332
+      },
+      "thumbnailKindCounts": {
+        "source_image": 190,
+        "catalog_cover": 142
+      },
+      "missingPublicFilePaths": []
+    },
+    {
+      "path": "marketplace/outfits/catalog.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/catalog.json",
+      "catalogVersion": 1,
+      "updatedAt": "2026-10-13",
+      "entries": 500,
+      "namedEntries": 500,
+      "sourceChannelCounts": {
+        "1240968464739602454": 500
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "Cherax_outfit_structure_verified; in_game_unverified": 500
+      },
+      "thumbnailKindCounts": {
+        "source_image": 72,
+        "catalog_cover": 428
+      },
+      "missingPublicFilePaths": []
+    },
+    {
+      "path": "marketplace/vehicles/catalog.json",
+      "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/vehicles/catalog.json",
+      "catalogVersion": 3,
+      "updatedAt": "2026-10-12",
+      "entries": 120,
+      "namedEntries": 120,
+      "sourceChannelCounts": {
+        "unspecified": 1,
+        "1256941518036406273": 119
+      },
+      "sourceChannelNames": "Not established by this catalog. Bind IDs to visible channel evidence separately; do not infer old/current from message date.",
+      "publisherCompatibilityCounts": {
+        "unspecified": 1,
+        "user_confirmed_in_game": 21,
+        "format_and_sha256_verified_only": 98
+      },
+      "thumbnailKindCounts": {
+        "unspecified": 120
+      },
+      "missingPublicFilePaths": []
+    }
+  ],
+  "compatibility": {
+    "suggestedSupportedMenus": [
+      "Scooby",
+      "Nenyoo",
+      "Cherax"
+    ],
+    "categories": [
+      "vehicles",
+      "outfits"
+    ],
+    "level": "source_importer_support",
+    "runtimeVerified": false,
+    "basis": "The user states Cherax vehicle/outfit data works in Scooby and Nenyoo, and both local source trees expose matching JSON format importers. Nine public JSON samples match those general structures. This is not an individual game test of all catalog entries.",
+    "publisherStatusInterpretation": {
+      "user_confirmed_in_game": "Publisher statement about the source preset; target menu/build and test conditions are not established here.",
+      "format_and_sha256_verified_only": "Publisher format/integrity claim; runtime unverified.",
+      "Cherax_outfit_structure_verified; in_game_unverified": "Publisher structure check; runtime unverified.",
+      "unspecified": "No publisher compatibility status; the vehicle catalog includes one direct creator submission in this state."
+    },
+    "limitations": [
+      "Scooby Cherax outfit normalization currently resolves the named Hands component to slot 3 via StandOutfits; Nenyoo uses slot 5. Clothing fidelity can differ.",
+      "Scooby normalized outfit application passes palette 0 and handles clothing/props; complete Cherax appearance fields are not established by this path.",
+      "Nenyoo named-prop import handles slots 0..7 and omits Hip; named Cherax face_features are not the featureN keys read in its face-feature branch.",
+      "Nenyoo vehicle apply_cherax handles a subset of Cherax vehicle fields; Scooby and Nenyoo may differ in attachment and cosmetic fidelity.",
+      "Model availability, clothing indices and DLC resources depend on the installed GTA edition/build.",
+      "No compatibility extension to Lua, themes or translations is inferred from these data importers."
+    ],
+    "dlc": {
+      "sourceImporterSupport": [
+        "Scooby",
+        "Nenyoo"
+      ],
+      "individualPackagesVerified": false,
+      "runtimeVerified": false,
+      "publisherStatus": "RPF7_OPEN_header_verified; in_game_unverified",
+      "recommendation": "Keep the 15 ModVerse DLC packages as conditional importer candidates until their archive TOC, actual resources and edition are inspected. Source support for RPF7 OPEN does not prove each package works."
+    }
+  },
+  "sourceEvidence": [
+    {
+      "repositoryPath": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/backend/SavedVehicles.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\Scooby-Op\\GTA5\\EE\\GTA - Main Src\\src\\game\\backend\\SavedVehicles.cpp",
+      "available": true,
+      "sha256": "12a038d9d8f3849ee93db8ac16526646c1c6cf8353c4207111a027dae18de031",
+      "claims": [
+        {
+          "line": 710,
+          "matched": true,
+          "claim": "Scooby recognizes the Cherax Entity format marker."
+        },
+        {
+          "line": 104,
+          "matched": true,
+          "claim": "Scooby applies named Cherax vehicle settings, mods, colours, extras and other supported fields."
+        },
+        {
+          "line": 854,
+          "matched": true,
+          "claim": "Scooby spawns the model and applies Cherax vehicle data and attachments."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/frontend/submenus/OtherMenus/other-menus-outfits/cheraxOutfit.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\Scooby-Op\\GTA5\\EE\\GTA - Main Src\\src\\game\\frontend\\submenus\\OtherMenus\\other-menus-outfits\\cheraxOutfit.cpp",
+      "available": true,
+      "sha256": "1d31b9bc8fa65afb998223f495fd1b6da93cf46ca59e3bc4456ab26d0476abca",
+      "claims": [
+        {
+          "line": 145,
+          "matched": true,
+          "claim": "Scooby normalizes model plus named/array component and prop objects."
+        },
+        {
+          "line": 173,
+          "matched": true,
+          "claim": "Scooby resolves Cherax named components through its Stand component-name map."
+        },
+        {
+          "line": 342,
+          "matched": true,
+          "claim": "Scooby applies normalized clothing and props; this does not establish full appearance fidelity."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/frontend/submenus/OtherMenus/Stand/StandOutfits.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\Scooby-Op\\GTA5\\EE\\GTA - Main Src\\src\\game\\frontend\\submenus\\OtherMenus\\Stand\\StandOutfits.cpp",
+      "available": true,
+      "sha256": "04423cff36c3405c6df97ebcc98fdbe874464b9071e5ac02b6fe693818837924",
+      "claims": [
+        {
+          "line": 140,
+          "matched": true,
+          "claim": "The shared component map used by Cherax import maps Hands to slot 3, alongside Torso; this differs from the Cherax slot-5 Hands mapping in Nenyoo."
+        },
+        {
+          "line": 153,
+          "matched": true,
+          "claim": "Scooby resolves named Cherax props, including Hip, through a shared map."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "project-native-gui/GTAV/src/spooner/preset_loader.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\project-native-gui\\GTAV\\src\\spooner\\preset_loader.cpp",
+      "available": true,
+      "sha256": "f762f95290cb171e8e8406bb6353908b78d4a5d8a03ec01a16d000dca75a3d73",
+      "claims": [
+        {
+          "line": 200,
+          "matched": true,
+          "claim": "Nenyoo accepts model/hash keys used by Cherax presets."
+        },
+        {
+          "line": 287,
+          "matched": true,
+          "claim": "Nenyoo applies Cherax vehicle mods, extras, colours, plates, tyres and neon settings."
+        },
+        {
+          "line": 510,
+          "matched": true,
+          "claim": "Nenyoo routes supported vehicle JSON to the matching vehicle handler."
+        },
+        {
+          "line": 667,
+          "matched": true,
+          "claim": "Nenyoo accepts Cherax named components and props, arrays, and other supported outfit structures."
+        },
+        {
+          "line": 687,
+          "matched": true,
+          "claim": "Nenyoo named-component ordering places Torso at slot 3 and Hands at slot 5."
+        },
+        {
+          "line": 703,
+          "matched": true,
+          "claim": "Nenyoo named props include slots 0 through 7; the Hip key is not handled in that branch."
+        },
+        {
+          "line": 728,
+          "matched": true,
+          "claim": "Nenyoo face-feature parsing expects feature-prefixed numeric keys; the sampled Cherax data uses named facial keys."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/features/addons/AddonArchive.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\Scooby-Op\\GTA5\\EE\\GTA - Main Src\\src\\game\\features\\addons\\AddonArchive.cpp",
+      "available": true,
+      "sha256": "b14250fcaf94c63bf6457fed41a0e67af72d5427bff0c93c0fa722ed01c5fa33",
+      "claims": [
+        {
+          "line": 404,
+          "matched": true,
+          "claim": "Scooby requires an RPF7 archive with an OPEN key. Header compatibility alone does not verify the contained pack."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "Scooby-Op/GTA5/EE/GTA - Main Src/src/game/features/addons/AddonCatalog.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\Scooby-Op\\GTA5\\EE\\GTA - Main Src\\src\\game\\features\\addons\\AddonCatalog.cpp",
+      "available": true,
+      "sha256": "1a6f5f746a653eaddb2b3ed0b59fd7bb42f015136126fa80c410dfea4de76ecc",
+      "claims": [
+        {
+          "line": 506,
+          "matched": true,
+          "claim": "Scooby accepts an add-on folder or dlc.rpf."
+        },
+        {
+          "line": 665,
+          "matched": true,
+          "claim": "Scooby rejects unverified pack edition rather than assuming Legacy/Enhanced compatibility."
+        },
+        {
+          "line": 667,
+          "matched": true,
+          "claim": "Scooby enforces edition compatibility during pack import."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "project-native-gui/GTAV/src/features/dlc_library.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\project-native-gui\\GTAV\\src\\features\\dlc_library.cpp",
+      "available": true,
+      "sha256": "85e89c58fc7f43a4ae92138e96f2eec3f75b2f798995b1dc42e78c5a2c0dbef8",
+      "claims": [
+        {
+          "line": 434,
+          "matched": true,
+          "claim": "Nenyoo discovers dlc.rpf folders in imported packages and selects the running edition branch."
+        },
+        {
+          "line": 461,
+          "matched": true,
+          "claim": "Nenyoo has a conversion path for Legacy OPEN RPF packages; it does not imply every package converts."
+        }
+      ]
+    },
+    {
+      "repositoryPath": "project-native-gui/GTAV/src/features/custom_dlc_mgr.cpp",
+      "absolutePath": "C:\\Users\\whatw\\Documents\\GitHub\\project-native-gui\\GTAV\\src\\features\\custom_dlc_mgr.cpp",
+      "available": true,
+      "sha256": "903dda46b485a82fb357565b12b833eb59d9aa0f915a9f45890d6839471f45c7",
+      "claims": [
+        {
+          "line": 297,
+          "matched": true,
+          "claim": "Nenyoo refuses packs containing remaining incompatible Legacy model files when conversion fails."
+        }
+      ]
+    }
+  ],
+  "fieldMapping": {
+    "id": "gta5-modverse-{vehicles|outfits}-{item.id}",
+    "name": "Exact nonempty item.name; blank-name items remain excluded.",
+    "category": {
+      "vehicles": "vehicles",
+      "outfits": "outfits"
+    },
+    "sourceCategory": {
+      "vehicles": "json-vehicles",
+      "outfits": "outfit-shares"
+    },
+    "sourceMenu": "Cherax",
+    "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/{kind}/files/{item.id}.json (require exact path membership in snapshot.paths)",
+    "publicSourceUrl": "https://github.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/blob/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/{kind}/files/{item.id}.json",
+    "preview": "thumbnail_kind=source_image only; require exact file path membership or publisher thumbnail_url.",
+    "catalogCover": "thumbnail_kind=catalog_cover; do not misrepresent a generated title cover as an asset preview.",
+    "unclassifiedThumbnail": "All 120 vehicle thumbnail kinds are unspecified in publisher metadata. They remain candidates for separate visual evidence; do not label screenshot provenance from the missing field.",
+    "credits": "Keep creator and shared_by distinct, including Original developer unverified.",
+    "tags": [
+      "gta5",
+      "Cherax",
+      "ModVerse",
+      "{kind}",
+      "{format}",
+      "{creator}",
+      "{shared_by}",
+      "{model when present}"
+    ],
+    "version": "Resource version absent. catalog_version is only a catalog version; do not present it as an asset release version.",
+    "changelog": "No per-resource changelog supplied by these vehicle/outfit catalogs. Keep an empty list. updated_at describes the catalog, and post_date describes a share rather than a release changelog.",
+    "checksum": "Keep item.sha256/size_bytes under publisherChecksum until served bytes are independently checked. Seven sampled outfit downloads differ from the publisher byte claims.",
+    "collection": "Pinned public collection snapshot. Current/-old Discord channel identity is not established by catalog ID/date alone."
+  },
+  "sampleProbes": {
+    "path": "project/community-menu-sources/cherax-data-sample-probes.json",
+    "checkedAt": "2026-11-11T00:50:13.590Z",
+    "samples": [
+      {
+        "id": "1240968464739602454-1364344221103820890-38ba748f3780",
+        "name": "Cherax Bleu",
+        "catalog": "marketplace/outfits/catalog-2.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1364344221103820890-38ba748f3780.json",
+        "status": 200,
+        "sha256": "e19d25117fe0721d53cc1c31493d31623dadf55920d59bd976238a9d994ea0fa",
+        "bytes": 2930,
+        "publisherSha256": "38ba748f378028dd0efaf4f7cbb8e534736303fbe0cd1544028a7421ee19485f",
+        "publisherBytes": 3059,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 1885233650,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      },
+      {
+        "id": "1240968464739602454-1383077720317100102-9adcca2690af",
+        "name": "Cherax 1Jeti Made male",
+        "catalog": "marketplace/outfits/catalog-3.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1383077720317100102-9adcca2690af.json",
+        "status": 200,
+        "sha256": "e5320051a2ae99540bf6b93dae0443916c1da4175d3d155cb37d80421254d40b",
+        "bytes": 2928,
+        "publisherSha256": "9adcca2690af65ca6ce1e320e20f2883b71e654928d10d81ac998a37dc311175",
+        "publisherBytes": 3057,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 1885233650,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      },
+      {
+        "id": "1240968464739602454-1449221195810472147-eed5dad5dac6",
+        "name": "White CAMO",
+        "catalog": "marketplace/outfits/catalog-4.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1449221195810472147-eed5dad5dac6.json",
+        "status": 200,
+        "sha256": "53d1fa4b35b03ad87e82e0a35268cd7080db26a230f1464ad267d05308062b60",
+        "bytes": 2043,
+        "publisherSha256": "eed5dad5dac6b07a0fab7401ddcc220f52365961ca6376e2c7d14f1374c54451",
+        "publisherBytes": 2172,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 2627665880,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      },
+      {
+        "id": "1240968464739602454-1477673016996659419-fdfab84f1709",
+        "name": "Cherax TRYHART",
+        "catalog": "marketplace/outfits/catalog-5.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1477673016996659419-fdfab84f1709.json",
+        "status": 200,
+        "sha256": "4b63e2cd34bb6bb1520c80fa92a709054e81f08cacd49b755508199fa85e1040",
+        "bytes": 2038,
+        "publisherSha256": "fdfab84f17094299662806869518a62fdc5ce93ce112ec7a0cef3ddc3ff2b12c",
+        "publisherBytes": 2167,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 1885233650,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      },
+      {
+        "id": "1240968464739602454-1518108958030561454-7afc4b1d1b55",
+        "name": "123",
+        "catalog": "marketplace/outfits/catalog-6.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1518108958030561454-7afc4b1d1b55.json",
+        "status": 200,
+        "sha256": "dbfc0bd37d10198e727c118f66ea15c49e3cafd03610f3f0e8caf6dd81fe5116",
+        "bytes": 2039,
+        "publisherSha256": "7afc4b1d1b553be519f4abbfce75dc151bc0476cdd2a3ce9566f9333f4691ec1",
+        "publisherBytes": 2168,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 2627665880,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      },
+      {
+        "id": "1240968464739602454-1240969804030939217-9732c9c6421a",
+        "name": "PURBLE",
+        "catalog": "marketplace/outfits/catalog.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1240969804030939217-9732c9c6421a.json",
+        "status": 200,
+        "sha256": "64c59a55d01f4a423f9bca4df259315298924d1b9a74090be1ab71a4155d07b2",
+        "bytes": 2294,
+        "publisherSha256": "9732c9c6421aa6191f229b7b741194a0907e1a2b838cf014f0015b9fba2c13e1",
+        "publisherBytes": 2423,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 1885233650,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      },
+      {
+        "id": "1256941518036406273-202610121927000001",
+        "name": "ZentornoGalaxyPink",
+        "catalog": "marketplace/vehicles/catalog.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/vehicles/files/1256941518036406273-202610121927000001.json",
+        "status": 200,
+        "sha256": "7dfad2131c31e067d447a3585bdc9182f649e4766397ba630ab038b6412d5714",
+        "bytes": 3691,
+        "publisherSha256": "7dfad2131c31e067d447a3585bdc9182f649e4766397ba630ab038b6412d5714",
+        "publisherBytes": 3691,
+        "publisherChecksumMatchesServedBytes": true,
+        "format": "Cherax Entity",
+        "type": 1,
+        "model": 2891838741,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "mods",
+          "wheelType",
+          "tyreSmokeColor",
+          "neonKits",
+          "primaryColor",
+          "secondaryColor",
+          "pearlescentColor",
+          "isPrimaryColorCustom",
+          "customPrimaryColor",
+          "isSecondaryColorCustom",
+          "customSecondaryColor",
+          "windowTint",
+          "wheelColor",
+          "interiorColor",
+          "dashBoardColor",
+          "plateText",
+          "plateTextIndex"
+        ]
+      },
+      {
+        "id": "1256941518036406273-1463750818132922492",
+        "name": "custom car.json",
+        "catalog": "marketplace/vehicles/catalog.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/vehicles/files/1256941518036406273-1463750818132922492.json",
+        "status": 200,
+        "sha256": "38d6cf6009640448a16bdde9239fe9684da0fb8148d7d6719304c2b5a386893d",
+        "bytes": 4087,
+        "publisherSha256": "38d6cf6009640448a16bdde9239fe9684da0fb8148d7d6719304c2b5a386893d",
+        "publisherBytes": 4087,
+        "publisherChecksumMatchesServedBytes": true,
+        "format": "Cherax Entity",
+        "type": 1,
+        "model": 2754593701,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "mods",
+          "extras",
+          "wheelType",
+          "tyreSmokeColor",
+          "neonKits",
+          "primaryColor",
+          "secondaryColor",
+          "pearlescentColor",
+          "isPrimaryColorCustom",
+          "customPrimaryColor",
+          "isSecondaryColorCustom",
+          "customSecondaryColor",
+          "windowTint",
+          "wheelColor",
+          "interiorColor",
+          "dashBoardColor",
+          "plateText",
+          "plateTextIndex",
+          "bulletproofTyres",
+          "driftTyres"
+        ]
+      },
+      {
+        "id": "1240968464739602454-1364344221103820890-65751337c48f",
+        "name": "Cherax BlackFemale",
+        "catalog": "marketplace/outfits/catalog.json",
+        "url": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1364344221103820890-65751337c48f.json",
+        "status": 200,
+        "sha256": "76e747f56d29ced37788fa503595d86bb6c449f02b1b0ec950da84950086f667",
+        "bytes": 2928,
+        "publisherSha256": "65751337c48f13bcc1325843f6d01e9df098cf416c67bcadd922db020bc6e6b9",
+        "publisherBytes": 3057,
+        "publisherChecksumMatchesServedBytes": false,
+        "format": "Cherax Entity",
+        "type": 2,
+        "model": 2627665880,
+        "keys": [
+          "format",
+          "type",
+          "model",
+          "baseFlags",
+          "components",
+          "props",
+          "face_features",
+          "primary_hair_tint",
+          "secondary_hair_tint"
+        ]
+      }
+    ],
+    "checksumCaution": "Seven sampled outfits are 129 bytes smaller than the publisher size and have different hashes. A formatting/line-ending transformation is plausible but not proven by the saved parsed-content probes; do not claim verified normalization."
+  },
+  "exampleCandidates": [
+    {
+      "id": "gta5-modverse-outfits-1240968464739602454-1364344221103820890-38ba748f3780",
+      "name": "Cherax Bleu",
+      "category": "outfits",
+      "sourceCategory": "outfit-shares",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/outfits/catalog-2.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1364344221103820890-38ba748f3780.json",
+      "fileName": "mMV_Cherax_Bleu_38ba748f3780.json",
+      "sourceChannelId": "1240968464739602454",
+      "sourceMessageId": "1364344221103820890",
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1364344221103820890-38ba748f3780.jpg",
+      "thumbnailKind": "catalog_cover",
+      "preview": null,
+      "catalogCover": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1364344221103820890-38ba748f3780.jpg",
+      "publisherCompatibilityStatus": "Cherax_outfit_structure_verified; in_game_unverified",
+      "publisherSha256": "38ba748f378028dd0efaf4f7cbb8e534736303fbe0cd1544028a7421ee19485f",
+      "publisherSize": 3059
+    },
+    {
+      "id": "gta5-modverse-outfits-1240968464739602454-1383077720317100102-9adcca2690af",
+      "name": "Cherax 1Jeti Made male",
+      "category": "outfits",
+      "sourceCategory": "outfit-shares",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/outfits/catalog-3.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1383077720317100102-9adcca2690af.json",
+      "fileName": "mMV_Cherax_1Jeti_Made_male_9adcca2690af.json",
+      "sourceChannelId": "1240968464739602454",
+      "sourceMessageId": "1383077720317100102",
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1383077720317100102-9adcca2690af.jpg",
+      "thumbnailKind": "catalog_cover",
+      "preview": null,
+      "catalogCover": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1383077720317100102-9adcca2690af.jpg",
+      "publisherCompatibilityStatus": "Cherax_outfit_structure_verified; in_game_unverified",
+      "publisherSha256": "9adcca2690af65ca6ce1e320e20f2883b71e654928d10d81ac998a37dc311175",
+      "publisherSize": 3057
+    },
+    {
+      "id": "gta5-modverse-outfits-1240968464739602454-1449221195810472147-eed5dad5dac6",
+      "name": "White CAMO",
+      "category": "outfits",
+      "sourceCategory": "outfit-shares",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/outfits/catalog-4.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1449221195810472147-eed5dad5dac6.json",
+      "fileName": "mMV_White_CAMO_eed5dad5dac6.json",
+      "sourceChannelId": "1240968464739602454",
+      "sourceMessageId": "1449221195810472147",
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1449221195810472147-eed5dad5dac6.jpg",
+      "thumbnailKind": "source_image",
+      "preview": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1449221195810472147-eed5dad5dac6.jpg",
+      "catalogCover": null,
+      "publisherCompatibilityStatus": "Cherax_outfit_structure_verified; in_game_unverified",
+      "publisherSha256": "eed5dad5dac6b07a0fab7401ddcc220f52365961ca6376e2c7d14f1374c54451",
+      "publisherSize": 2172
+    },
+    {
+      "id": "gta5-modverse-outfits-1240968464739602454-1477673016996659419-fdfab84f1709",
+      "name": "Cherax TRYHART",
+      "category": "outfits",
+      "sourceCategory": "outfit-shares",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/outfits/catalog-5.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1477673016996659419-fdfab84f1709.json",
+      "fileName": "mMV_Cherax_TRYHART_fdfab84f1709.json",
+      "sourceChannelId": "1240968464739602454",
+      "sourceMessageId": "1477673016996659419",
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1477673016996659419-fdfab84f1709.jpg",
+      "thumbnailKind": "catalog_cover",
+      "preview": null,
+      "catalogCover": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1477673016996659419-fdfab84f1709.jpg",
+      "publisherCompatibilityStatus": "Cherax_outfit_structure_verified; in_game_unverified",
+      "publisherSha256": "fdfab84f17094299662806869518a62fdc5ce93ce112ec7a0cef3ddc3ff2b12c",
+      "publisherSize": 2167
+    },
+    {
+      "id": "gta5-modverse-outfits-1240968464739602454-1518108958030561454-7afc4b1d1b55",
+      "name": "123",
+      "category": "outfits",
+      "sourceCategory": "outfit-shares",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/outfits/catalog-6.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1518108958030561454-7afc4b1d1b55.json",
+      "fileName": "mMV_123_7afc4b1d1b55.json",
+      "sourceChannelId": "1240968464739602454",
+      "sourceMessageId": "1518108958030561454",
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1518108958030561454-7afc4b1d1b55.jpg",
+      "thumbnailKind": "source_image",
+      "preview": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1518108958030561454-7afc4b1d1b55.jpg",
+      "catalogCover": null,
+      "publisherCompatibilityStatus": "Cherax_outfit_structure_verified; in_game_unverified",
+      "publisherSha256": "7afc4b1d1b553be519f4abbfce75dc151bc0476cdd2a3ce9566f9333f4691ec1",
+      "publisherSize": 2168
+    },
+    {
+      "id": "gta5-modverse-outfits-1240968464739602454-1240969804030939217-9732c9c6421a",
+      "name": "PURBLE",
+      "category": "outfits",
+      "sourceCategory": "outfit-shares",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/outfits/catalog.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/files/1240968464739602454-1240969804030939217-9732c9c6421a.json",
+      "fileName": "mMV_PURBLE_9732c9c6421a.json",
+      "sourceChannelId": "1240968464739602454",
+      "sourceMessageId": "1240969804030939217",
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1240969804030939217-9732c9c6421a.jpg",
+      "thumbnailKind": "source_image",
+      "preview": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/outfits/thumbnails/1240968464739602454-1240969804030939217-9732c9c6421a.jpg",
+      "catalogCover": null,
+      "publisherCompatibilityStatus": "Cherax_outfit_structure_verified; in_game_unverified",
+      "publisherSha256": "9732c9c6421aa6191f229b7b741194a0907e1a2b838cf014f0015b9fba2c13e1",
+      "publisherSize": 2423
+    },
+    {
+      "id": "gta5-modverse-vehicles-1256941518036406273-202610121927000001",
+      "name": "ZentornoGalaxyPink",
+      "category": "vehicles",
+      "sourceCategory": "json-vehicles",
+      "existingLibraryEntry": true,
+      "sourceCatalog": "marketplace/vehicles/catalog.json",
+      "fileUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/vehicles/files/1256941518036406273-202610121927000001.json",
+      "fileName": "mMV_ZentornoGalaxyPink_7dfad213.json",
+      "sourceChannelId": null,
+      "sourceMessageId": null,
+      "sourceChannelName": null,
+      "channelCollectionStatus": "unverified_from_catalog_metadata",
+      "sourceThumbnailUrl": "https://raw.githubusercontent.com/xReVoLTiThemeDev/GTAV-Cherax-ModVerse-Marketplace/76aa8d94d1948da7776aa4f6f5f4921f6a89a5f1/marketplace/vehicles/thumbnails/1256941518036406273-202610121927000001.jpg",
+      "thumbnailKind": "unspecified",
+      "preview": null,
+      "catalogCover": null,
+      "publisherCompatibilityStatus": null,
+      "publisherSha256": "7dfad2131c31e067d447a3585bdc9182f649e4766397ba630ab038b6412d5714",
+      "publisherSize": 3691
+    }
+  ],
+  "acquisitionGaps": [
+    "The catalog contains 2,832 outfits and 120 vehicles. Only nine actual payloads were read in this audit; do not claim all source payloads or all Discord shares were inspected.",
+    "Current forum channels and -old text-channel mapping require visible Discord evidence or an explicit export manifest; never infer that mapping from dates.",
+    "Source-image outfit previews number 870 across all catalog records (869 among named candidates); 1,962 other outfit thumbnails are generated catalog covers.",
+    "Vehicle thumbnails have no thumbnail_kind metadata. Real screenshot provenance needs separate evidence.",
+    "The 15 DLC payloads were not acquired or installed in this audit; only publisher metadata and local importer capabilities were inspected.",
+    "Game runtime, exact target build support and complete cross-menu appearance fidelity were not tested.",
+    "Original creator identity remains unverified for most catalog entries; uploader credit is preserved separately."
+  ]
+}

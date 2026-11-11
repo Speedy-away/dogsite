@@ -111,11 +111,19 @@ const resourceInventory = buildResourceData();
 for (const page of resourceInventory.pages) {
  add(page.file, page.title, page.description, page.keywords);
 }
-const resourceMenus = [...new Set(resourceInventory.pages.filter(page => page.game === 'gta5').map(page => page.menuName))];
+const resourceGuides = require('./resource-guides.cjs').buildGuideData(resourceInventory).pages;
+for (const guide of resourceGuides) {
+ add(guide.file, guide.title, guide.description, guide.keywords);
+}
+const resourceMenus = [...new Set(resourceInventory.pages.filter(page => page.game === 'gta5').map(page => menuTopic(page.menu, 'resources')))];
 const resourceTopics = resourceInventory.pages
  .filter(page => page.game === 'gta5' && page.menu !== 'scooby' && featuredTopics.includes(page.category))
  .map(page => menuTopic(page.menu, page.category)).filter(Boolean);
-appendKeywords('resources/index.html', [...resourceMenus.map(menu => menu + ' resources'), ...resourceTopics]);
+const yimPresetTopics = resourceInventory.pages.find(page => page.menu === 'yim' && !page.category)?.categories
+ .filter(category => category.id !== 'lua').flatMap(category => category.words.slice(0, 2)) || [];
+appendKeywords('resources/index.html', [...resourceMenus, ...resourceTopics, ...yimPresetTopics]);
+appendKeywords('resources/guides/index.html', resourceGuides.filter(guide => ['yim', 'yimv2'].includes(guide.menu))
+ .map(guide => guide.keywords.split(', ')[0]));
 for (const [slug, game] of [['gta5','GTA 5'],['fivem','FiveM'],['redm','RedM']]) add(`api/${slug}_api_reference.html`, `${game} Lua API Reference - Scooby Developer Docs`, `Read the Scooby ${game} Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.`, `${game} Lua API, Scooby ${game} scripting, ${game} Lua functions`);
 for (const [slug, game, base] of [['fivem','FiveM','GTA V'],['redm','RedM','RDR2']]) add(`docs/${slug}/index.html`, `${game} Native Reference: ${base} & Scooby Functions`, `Search ${game} and ${base} native functions by namespace. Browse signatures, parameters and custom Scooby natives for scripting, memory and HTTP requests.`, `${game} native reference, ${base} natives, Scooby natives`);
 const groups = [

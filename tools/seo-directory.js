@@ -10,7 +10,7 @@ const sections = [
   ['languages', 'Languages', file => Boolean(pages[file].language)],
   ['games', 'Games & editions', file => file.startsWith('products/') || ['source-games/index.html', 'more-games/index.html'].includes(file)],
   ['features', 'Feature libraries', file => file.includes('features/')],
-  ['guides', 'Setup & troubleshooting', file => file.startsWith('guides/')],
+  ['guides', 'Setup & troubleshooting', file => file.startsWith('guides/') || file.startsWith('resources/guides/')],
   ['developers', 'Developer documentation', file => file.startsWith('docs/') || file.endsWith('_api_reference.html')],
   ['resources', 'Store & resources', () => true],
 ];

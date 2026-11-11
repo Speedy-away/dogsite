@@ -2,6 +2,83 @@
   "version": 1,
   "items": [
     {
+      "id": "gta5-stand-addon-packs-coalwix",
+      "game": "gta5",
+      "category": "pack-all-in-one",
+      "sourceMenu": "stand",
+      "supportedMenus": [
+        "stand"
+      ],
+      "listedMenus": [
+        "stand"
+      ],
+      "name": "CoaLwiX Pack",
+      "description": "An all-in-one pack for Stand with menu profiles, modded vehicles and outfits, map spawns, vehicle constructs, teleport locations, themes, headers, and Lua scripts.",
+      "sourceUrl": "https://github.com/landnthrn/CoaLwiX/releases/tag/CoaLwiX_v2.1.4",
+      "status": "download",
+      "requirements": [
+        "Stand for GTA V"
+      ],
+      "preview": "/assets/images/resource-previews/stand/coalwix-pack.png",
+      "previewVerified": true,
+      "tags": [
+        "CoaLwiX",
+        "all-in-one",
+        "mod pack",
+        "constructs",
+        "profiles"
+      ],
+      "files": [
+        {
+          "url": "https://github.com/landnthrn/CoaLwiX/releases/download/CoaLwiX_v2.1.4/CoaLwiX.THE.ULTIMATE.SUPREME.PACKAGE.zip",
+          "name": "CoaLwiX.THE.ULTIMATE.SUPREME.PACKAGE.zip",
+          "size": 299232366,
+          "sha256": "18ccf64031b286aecd8ac73018278d45991f26966ce07cc28ef5ceaa25309dbf",
+          "downloadMethod": "direct"
+        }
+      ],
+      "version": "2.1.4"
+    },
+    {
+      "id": "gta5-stand-pack-100-female-outfits",
+      "game": "gta5",
+      "category": "pack-outfits",
+      "sourceMenu": "stand",
+      "supportedMenus": [
+        "stand"
+      ],
+      "listedMenus": [
+        "stand"
+      ],
+      "name": "100 Female Outfits",
+      "description": "The 100 Stand outfit presets from the original Old Shares collection in one ZIP.",
+      "sourceFormat": "Stand outfit TXT",
+      "format": "ZIP of Stand TXT outfits",
+      "requirements": [
+        "Extract the ZIP into the Stand outfit wardrobe folder.",
+        "Use the freemode female character model."
+      ],
+      "collection": "old",
+      "collectionStatus": "archival",
+      "archival": true,
+      "tags": [
+        "outfit pack",
+        "female outfits",
+        "Stand",
+        "TXT",
+        "old shares",
+        "archival"
+      ],
+      "files": [
+        {
+          "url": "/assets/downloads/stand/100-female-outfits.zip",
+          "name": "100-female-outfits.zip",
+          "size": 31958,
+          "sha256": "84871c79877ae1e2a59332ea1743d23f624923b7912dd884c8a662f9ee99130e"
+        }
+      ]
+    },
+    {
       "id": "gta5-scooby-addon-peds-black-knight",
       "game": "gta5",
       "category": "addon-peds",
@@ -325,5 +402,22 @@
   ],
   "summary": {
     "verifiedPackages": 11
-  }
+  },
+  "libraryOverrides": [
+    {
+      "id": "gta5-addon-collection",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "categories": [
+        "addon-vehicles",
+        "addon-peds",
+        "pack-all-in-one"
+      ],
+      "sourceMenu": "scooby",
+      "supportedMenus": [
+        "scooby",
+        "nenyoo"
+      ]
+    }
+  ]
 }

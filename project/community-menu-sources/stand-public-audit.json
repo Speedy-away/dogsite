@@ -1,0 +1,1096 @@
+{
+  "schemaVersion": 1,
+  "menu": "Stand",
+  "auditedOn": "2026-11-11",
+  "scope": "Public author Lua sources and official Stand package index; no Discord channel inventory or runtime testing.",
+  "method": "Read public GitHub repository metadata, source declarations, READMEs, releases and commit metadata. Source text was not executed. Public GitHub API and public raw/patch endpoints were used without credentials.",
+  "datePolicy": "Changelog dates have an explicit dateBasis. Commit-author dates are source-local calendar dates when sourced from patch headers; ISO API timestamps are UTC. Source dates do not establish release dates.",
+  "compatibilityPolicy": "Lua supportedMenus stays Stand. Data-format compatibility and theme payload support require separate file-level or native-loader evidence. No claim of Scooby/Nenyoo Lua compatibility.",
+  "collectionPolicy": "current means the script remains listed in the audited official package index; it is not a runtime/maintenance guarantee. unclassified means current/old Discord placement or an explicit maintenance state was not established. No script is marked archival merely because its last inspected commit is old.",
+  "officialPackageIndex": {
+    "repository": "https://github.com/calamity-inc/Stand-Repository",
+    "commit": "17650d4d9530c9d7cf5cae5c04dd047e9de1b518",
+    "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php",
+    "date": "2026-07-17",
+    "dateBasis": "commit-author-date",
+    "lastCommitSummary": "Updated Heist Control package metadata."
+  },
+  "excludedOrUnresolved": [
+    {
+      "name": "BiggerScript",
+      "repository": "https://github.com/themilkman554/BiggerScript",
+      "reason": "Current main is a Cherax subscriber redirect stub using GUI.AddToast and SetShouldUnload. README points to the BiggestScript branch and cherax.menu/scripts/22. No current Stand resource or vehicle/map payload was evidenced in inspected main.",
+      "sourceUrl": "https://github.com/themilkman554/BiggerScript/blob/fcfebfc274f39918595a4fcf05360548f8016e2e/BiggerScript.lua",
+      "commit": "fcfebfc274f39918595a4fcf05360548f8016e2e",
+      "date": "2026-02-27",
+      "dateBasis": "commit-author-date",
+      "acquisitionGap": "Requires original chat's visible Shares evidence or a separately audited author asset source. Do not place this current stub in the Stand Lua catalog."
+    },
+    {
+      "name": "JinxScript",
+      "repository": "https://github.com/Prisuhm/JinxScript",
+      "reason": "Public author repository returned HTTP 404 during audit; no replacement source verified."
+    },
+    {
+      "name": "Jackz Vehicle Builder",
+      "repository": "https://github.com/jackz/jackz_vehicle_builder",
+      "reason": "Historical author URL returned HTTP 404; no current replacement source verified."
+    },
+    {
+      "name": "Jackz Vehicles",
+      "repository": "https://github.com/jackz/jackz_vehicles",
+      "reason": "Historical author URL returned HTTP 404; no current replacement source verified."
+    },
+    {
+      "name": "Original IceDoomfist Heist Control URL",
+      "repository": "https://github.com/IceDoomfist/Stand-Heist-Control",
+      "reason": "Historical URL returned HTTP 404. Current official package source is the inspected calamity-inc/Stand-Heist-Control repository."
+    }
+  ],
+  "coverage": {
+    "luaEntries": 15,
+    "officiallyIndexed": 8,
+    "unclassifiedCollection": 7,
+    "downloadFiles": 0,
+    "inspectedDiscordShares": 0,
+    "completeSharesInventory": false
+  },
+  "acquisitionGaps": [
+    "No Shares or Old Shares channel history was read by this audit. Public author evidence does not establish complete Stand community coverage.",
+    "Outfits, vehicles, maps, custom DLCs, ASI mods, themes and misc data require the main audit's independent source evidence.",
+    "BiggerScript vehicles/maps remain unverified for Stand; current public main belongs to Cherax.",
+    "No runtime compatibility test was run. No Lua payload was published; all Lua download placeholders intentionally remain pending."
+  ],
+  "items": [
+    {
+      "id": "stand-lua-constructor",
+      "name": "Constructor",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Builds and loads vehicle, map and player-skin constructs from existing GTA assets. The script's Stand API requirement is distinct from the formats of construct data.",
+      "tags": [
+        "Lua",
+        "constructs",
+        "vehicles",
+        "maps",
+        "skins",
+        "JSON",
+        "XML",
+        "INI"
+      ],
+      "version": "0.51.6",
+      "versionBasis": "SCRIPT_VERSION in author main",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/hexarobi/stand-lua-constructor",
+        "path": "Constructor.lua",
+        "ref": "06761fc151b367c5cae7e9d3fdd19c3847531cde",
+        "commit": "06761fc151b367c5cae7e9d3fdd19c3847531cde",
+        "sourceUrl": "https://github.com/hexarobi/stand-lua-constructor/blob/06761fc151b367c5cae7e9d3fdd19c3847531cde/Constructor.lua",
+        "date": "2024-06-19",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/Constructor",
+        "version": "0.51.2r",
+        "scriptCommit": "58c082c534e20528e24cdd07c556801db73535fa",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "collection": "current",
+      "collectionBasis": "Listed in the audited official package index; this does not verify current game runtime compatibility.",
+      "maintenanceStatus": "officially-indexed",
+      "preview": "https://raw.githubusercontent.com/hexarobi/stand-lua-constructor/06761fc151b367c5cae7e9d3fdd19c3847531cde/lib/constructor/constructor_logo.png",
+      "previewKind": "author-logo",
+      "changelog": [
+        {
+          "version": null,
+          "date": "2024-06-13",
+          "changes": [
+            "Corrected rebuilding of looping particles."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-constructor/commit/0dd4f4644976392304e89ca786510e48d9524e0a",
+          "dateBasis": "commit-author-date"
+        },
+        {
+          "version": null,
+          "date": "2024-06-13",
+          "changes": [
+            "Corrected handling of nonpersistent particles."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-constructor/commit/9e993b34fe50e23fcbb1ac17836a0a3cc502c252",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "Author main version and the official package version differ. Neither is presented as a verified release date.",
+        "README confirms construct formats JSON/XML/INI/TXT, but that is not proof every data file loads in Scooby or Nenyoo."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Hexarobi",
+      "sourceUrl": "https://github.com/hexarobi/stand-lua-constructor/blob/06761fc151b367c5cae7e9d3fdd19c3847531cde/Constructor.lua",
+      "sourceRevision": "06761fc151b367c5cae7e9d3fdd19c3847531cde",
+      "sourceDate": "2024-06-19",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/hexarobi/stand-lua-constructor/blob/06761fc151b367c5cae7e9d3fdd19c3847531cde/Constructor.lua",
+          "repository": "https://github.com/hexarobi/stand-lua-constructor",
+          "revision": "06761fc151b367c5cae7e9d3fdd19c3847531cde",
+          "date": "2024-06-19",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-lancescript",
+      "name": "LanceScript",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "A broad Stand Pluto script with player, vehicle and world options.",
+      "tags": [
+        "Lua",
+        "Pluto",
+        "vehicles",
+        "world",
+        "utilities"
+      ],
+      "version": "6281844",
+      "versionBasis": "Official Stand package commit identifier; no explicit script semantic version found",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/calamity-inc/LanceScript",
+        "path": "LanceScript.pluto",
+        "ref": "6281844e47189497f7de06d66267ba00a7c22ee2",
+        "commit": "6281844e47189497f7de06d66267ba00a7c22ee2",
+        "sourceUrl": "https://github.com/calamity-inc/LanceScript/blob/6281844e47189497f7de06d66267ba00a7c22ee2/LanceScript.pluto",
+        "date": "2024-10-26",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/LanceScript",
+        "version": "6281844",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "collection": "current",
+      "collectionBasis": "Listed in audited official package index.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": "6281844",
+          "date": "2024-10-26",
+          "changes": [
+            "Replaced conditional syntax deprecated by Pluto."
+          ],
+          "sourceUrl": "https://github.com/calamity-inc/LanceScript/commit/6281844e47189497f7de06d66267ba00a7c22ee2",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "pluto_use 0.5.0 declares a language requirement and is not the script version."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Lance / stonerchrist; Calamity, Inc. maintenance",
+      "sourceUrl": "https://github.com/calamity-inc/LanceScript/blob/6281844e47189497f7de06d66267ba00a7c22ee2/LanceScript.pluto",
+      "sourceRevision": "6281844e47189497f7de06d66267ba00a7c22ee2",
+      "sourceDate": "2024-10-26",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/calamity-inc/LanceScript/blob/6281844e47189497f7de06d66267ba00a7c22ee2/LanceScript.pluto",
+          "repository": "https://github.com/calamity-inc/LanceScript",
+          "revision": "6281844e47189497f7de06d66267ba00a7c22ee2",
+          "date": "2024-10-26",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-jerryscript",
+      "name": "JerryScript",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Stand utility and player-interaction script with translated menus and command documentation.",
+      "tags": [
+        "Lua",
+        "Pluto",
+        "utilities",
+        "translations",
+        "vehicles"
+      ],
+      "version": "5a800e2",
+      "versionBasis": "Current official Stand package commit identifier",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/calamity-inc/JerryScript",
+        "path": "JerryScript.lua",
+        "ref": "5a800e203443797052132b3338ffd5683ac58ce9",
+        "commit": "5a800e203443797052132b3338ffd5683ac58ce9",
+        "sourceUrl": "https://github.com/calamity-inc/JerryScript/blob/5a800e203443797052132b3338ffd5683ac58ce9/JerryScript.lua",
+        "date": "2024-10-26",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/JerryScript",
+        "version": "5a800e2",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "originalAuthorRepository": "https://github.com/Jerrrry123/JerryScript",
+      "verifiedRelease": {
+        "version": "1.14.8",
+        "date": "2023-04-18",
+        "dateBasis": "GitHub release published_at",
+        "sourceUrl": "https://github.com/Jerrrry123/JerryScript/releases/tag/1.14.8",
+        "summary": "Repaired the translation system."
+      },
+      "collection": "current",
+      "collectionBasis": "Current official index points to maintained Calamity fork and original author's translation assets.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": "5a800e2",
+          "date": "2024-10-26",
+          "changes": [
+            "Updated deprecated Pluto conditional expressions."
+          ],
+          "sourceUrl": "https://github.com/calamity-inc/JerryScript/commit/5a800e203443797052132b3338ffd5683ac58ce9",
+          "dateBasis": "commit-author-date"
+        },
+        {
+          "version": "1.14.8",
+          "date": "2023-04-18",
+          "changes": [
+            "Repaired the translation system."
+          ],
+          "sourceUrl": "https://github.com/Jerrrry123/JerryScript/releases/tag/1.14.8",
+          "dateBasis": "GitHub release published_at"
+        }
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Jerry123 / Jerrrry123; Calamity, Inc. maintenance",
+      "sourceUrl": "https://github.com/calamity-inc/JerryScript/blob/5a800e203443797052132b3338ffd5683ac58ce9/JerryScript.lua",
+      "sourceRevision": "5a800e203443797052132b3338ffd5683ac58ce9",
+      "sourceDate": "2024-10-26",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/calamity-inc/JerryScript/blob/5a800e203443797052132b3338ffd5683ac58ce9/JerryScript.lua",
+          "repository": "https://github.com/calamity-inc/JerryScript",
+          "revision": "5a800e203443797052132b3338ffd5683ac58ce9",
+          "date": "2024-10-26",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-wiriscript",
+      "name": "WiriScript",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Stand script containing vehicle weapons, weapon effects, a UFO tractor beam and bodyguard options.",
+      "tags": [
+        "Lua",
+        "vehicles",
+        "weapons",
+        "bodyguards",
+        "UFO"
+      ],
+      "version": "29.51",
+      "versionBasis": "gVersion in v29.51 source; version also matches audited official Stand package index",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/acjoker8818/WiriScript",
+        "path": "WiriScript.lua",
+        "ref": "f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6",
+        "commit": "f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6",
+        "sourceUrl": "https://github.com/acjoker8818/WiriScript/blob/f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6/WiriScript.lua",
+        "date": "2023-06-14",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/WiriScript",
+        "version": "29.51",
+        "author": "acjoker8818, Nowiry",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "legacySource": {
+        "repository": "https://github.com/nowiry/WiriScript",
+        "version": "29",
+        "versionBasis": "gVersion in original author's main",
+        "commit": "fd3ca74d5be6ea9866ce4f1a2e39a0a083e6f4a6",
+        "date": "2024-03-22",
+        "dateBasis": "README-only commit-author-date; original v29 code version was committed 2022-12-15",
+        "supersededForOfficialPackage": true
+      },
+      "collection": "current",
+      "collectionBasis": "Audited official package index points to acjoker8818 v29.51 rather than original Nowiry v29.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": null,
+          "date": "2022-12-15",
+          "changes": [
+            "Original Nowiry script was adapted to GTA 1.64 build 2802 (Drug Wars)."
+          ],
+          "sourceUrl": "https://github.com/nowiry/WiriScript/commit/be824d59cd952fde8179b6f98de51950da02551c",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "The v29.51 tag commit message is only a generic upload description; no feature changes are inferred from it."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Nowiry; acjoker8818 maintenance",
+      "sourceUrl": "https://github.com/acjoker8818/WiriScript/blob/f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6/WiriScript.lua",
+      "sourceRevision": "f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6",
+      "sourceDate": "2023-06-14",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/acjoker8818/WiriScript/blob/f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6/WiriScript.lua",
+          "repository": "https://github.com/acjoker8818/WiriScript",
+          "revision": "f09cd4e7c9112e2c4f37a3c5ca883b804e97dcd6",
+          "date": "2023-06-14",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-themerepo",
+      "name": "ThemeRepo",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Applies Stand theme profiles and custom headers from a public author repository.",
+      "tags": [
+        "Lua",
+        "Pluto",
+        "themes",
+        "headers",
+        "profiles"
+      ],
+      "version": "1.5.3",
+      "versionBasis": "SCRIPT_VERSION in author main",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/stagnate6628/stand-themerepo",
+        "path": "ThemeRepo.pluto",
+        "ref": "6c0da7eb37637a877e3aa59f33db99abec00789d",
+        "commit": "6c0da7eb37637a877e3aa59f33db99abec00789d",
+        "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/blob/6c0da7eb37637a877e3aa59f33db99abec00789d/ThemeRepo.pluto",
+        "date": "2024-06-27",
+        "dateBasis": "commit-author-date"
+      },
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement was not independently established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [
+        {
+          "version": "1.5.3",
+          "date": "2024-06-27",
+          "changes": [
+            "Removed applying changes directly to the active profile and refreshed the theme/header collection."
+          ],
+          "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/commit/d53ed456dc6dfe877d9ac5fb757272a46a2325ba",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "This Lua loader is Stand-only. Individual theme payload compatibility requires separate evidence.",
+        "README states applying a header replaces Custom Headers; applying a theme replaces Theme and Custom Headers."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "stagnate6628",
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/blob/6c0da7eb37637a877e3aa59f33db99abec00789d/ThemeRepo.pluto",
+      "sourceRevision": "6c0da7eb37637a877e3aa59f33db99abec00789d",
+      "sourceDate": "2024-06-27",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/stagnate6628/stand-themerepo/blob/6c0da7eb37637a877e3aa59f33db99abec00789d/ThemeRepo.pluto",
+          "repository": "https://github.com/stagnate6628/stand-themerepo",
+          "revision": "6c0da7eb37637a877e3aa59f33db99abec00789d",
+          "date": "2024-06-27",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-businessmonitor",
+      "name": "BusinessMonitor",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Customizable passive business monitoring overlay for Stand.",
+      "tags": [
+        "Lua",
+        "Pluto",
+        "overlay",
+        "business",
+        "monitoring"
+      ],
+      "version": "0.1.1",
+      "versionBasis": "SCRIPT_VERSION in BusinessMonitor.pluto; repository version file reads 0.1",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/stagnate6628/stand-businessmonitor",
+        "path": "BusinessMonitor.pluto",
+        "ref": "8c3802bd054621b5a75a64da3e89c4e5ad96cbbf",
+        "commit": "8c3802bd054621b5a75a64da3e89c4e5ad96cbbf",
+        "sourceUrl": "https://github.com/stagnate6628/stand-businessmonitor/blob/8c3802bd054621b5a75a64da3e89c4e5ad96cbbf/BusinessMonitor.pluto",
+        "date": "2024-05-13",
+        "dateBasis": "commit-author-date"
+      },
+      "preview": "https://raw.githubusercontent.com/stagnate6628/stand-businessmonitor/8c3802bd054621b5a75a64da3e89c4e5ad96cbbf/preview.png",
+      "previewKind": "author-screenshot",
+      "previewEvidence": "README Preview section and root file listing",
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement not established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [
+        {
+          "version": null,
+          "date": "2024-05-13",
+          "changes": [
+            "Removed a walrus operator from the script."
+          ],
+          "sourceUrl": "https://github.com/stagnate6628/stand-businessmonitor/commit/8fe6978c67d176464b7a47d7b50174e7ada9aaf7",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "Version mismatch is preserved rather than silently choosing the version file."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "stagnate6628",
+      "sourceUrl": "https://github.com/stagnate6628/stand-businessmonitor/blob/8c3802bd054621b5a75a64da3e89c4e5ad96cbbf/BusinessMonitor.pluto",
+      "sourceRevision": "8c3802bd054621b5a75a64da3e89c4e5ad96cbbf",
+      "sourceDate": "2024-05-13",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/stagnate6628/stand-businessmonitor/blob/8c3802bd054621b5a75a64da3e89c4e5ad96cbbf/BusinessMonitor.pluto",
+          "repository": "https://github.com/stagnate6628/stand-businessmonitor",
+          "revision": "8c3802bd054621b5a75a64da3e89c4e5ad96cbbf",
+          "date": "2024-05-13",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-scriptmanager",
+      "name": "ScriptManager",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Manages installation and updates for Stand Lua scripts from curated and GitHub sources.",
+      "tags": [
+        "Lua",
+        "script manager",
+        "installer",
+        "utilities"
+      ],
+      "version": "0.13",
+      "versionBasis": "SCRIPT_VERSION in author main",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/hexarobi/stand-lua-scriptmanager",
+        "path": "ScriptManager.lua",
+        "ref": "f491b617f1e5f62d2e63371fc08c77725142bedf",
+        "commit": "f491b617f1e5f62d2e63371fc08c77725142bedf",
+        "sourceUrl": "https://github.com/hexarobi/stand-lua-scriptmanager/blob/f491b617f1e5f62d2e63371fc08c77725142bedf/ScriptManager.lua",
+        "date": "2024-03-05",
+        "dateBasis": "commit-author-date"
+      },
+      "preview": "https://raw.githubusercontent.com/hexarobi/stand-lua-scriptmanager/f491b617f1e5f62d2e63371fc08c77725142bedf/docs/script_manager_stand_menu.png",
+      "previewKind": "author-screenshot",
+      "additionalPreviews": [
+        "https://raw.githubusercontent.com/hexarobi/stand-lua-scriptmanager/f491b617f1e5f62d2e63371fc08c77725142bedf/docs/script_manager_install_screen.png"
+      ],
+      "previewEvidence": "Author README usage screenshots",
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement not established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [
+        {
+          "version": "0.13",
+          "date": "2024-03-05",
+          "changes": [
+            "Updated the curated script repository list."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-scriptmanager/commit/f491b617f1e5f62d2e63371fc08c77725142bedf",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "Author installer executable was listed but was not downloaded or run. Lua catalog download stays pending."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Hexarobi",
+      "sourceUrl": "https://github.com/hexarobi/stand-lua-scriptmanager/blob/f491b617f1e5f62d2e63371fc08c77725142bedf/ScriptManager.lua",
+      "sourceRevision": "f491b617f1e5f62d2e63371fc08c77725142bedf",
+      "sourceDate": "2024-03-05",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/hexarobi/stand-lua-scriptmanager/blob/f491b617f1e5f62d2e63371fc08c77725142bedf/ScriptManager.lua",
+          "repository": "https://github.com/hexarobi/stand-lua-scriptmanager",
+          "revision": "f491b617f1e5f62d2e63371fc08c77725142bedf",
+          "date": "2024-03-05",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-chatcommander",
+      "name": "ChatCommander",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Adds configurable chat commands, vehicle spawning, access controls and a help system to Stand.",
+      "tags": [
+        "Lua",
+        "chat",
+        "vehicles",
+        "utilities",
+        "access controls"
+      ],
+      "version": "0.19.1",
+      "versionBasis": "SCRIPT_VERSION in author main; official package is 0.19.1r",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/hexarobi/stand-lua-chatcommander",
+        "path": "ChatCommander.lua",
+        "ref": "9f46121d61f6ea689e1f7a73dbb97d56bada8209",
+        "commit": "9f46121d61f6ea689e1f7a73dbb97d56bada8209",
+        "sourceUrl": "https://github.com/hexarobi/stand-lua-chatcommander/blob/9f46121d61f6ea689e1f7a73dbb97d56bada8209/ChatCommander.lua",
+        "date": "2024-08-04",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/ChatCommander",
+        "version": "0.19.1r",
+        "scriptCommit": "eca565ca9b1aff98ae6e09e380f22d22bfac14ef",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "preview": "https://i.imgur.com/TO6rdtv.png",
+      "previewKind": "author-logo",
+      "previewEvidence": "Image linked by author's README; remote image bytes not independently captured",
+      "collection": "current",
+      "collectionBasis": "Listed in audited official package index.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": "0.19.1",
+          "date": "2024-08-04",
+          "changes": [
+            "Removed the gift command."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-chatcommander/commit/9f46121d61f6ea689e1f7a73dbb97d56bada8209",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Hexarobi",
+      "sourceUrl": "https://github.com/hexarobi/stand-lua-chatcommander/blob/9f46121d61f6ea689e1f7a73dbb97d56bada8209/ChatCommander.lua",
+      "sourceRevision": "9f46121d61f6ea689e1f7a73dbb97d56bada8209",
+      "sourceDate": "2024-08-04",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/hexarobi/stand-lua-chatcommander/blob/9f46121d61f6ea689e1f7a73dbb97d56bada8209/ChatCommander.lua",
+          "repository": "https://github.com/hexarobi/stand-lua-chatcommander",
+          "revision": "9f46121d61f6ea689e1f7a73dbb97d56bada8209",
+          "date": "2024-08-04",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-policify",
+      "name": "Policify",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Adds controllable police lights and sirens to vehicles and saves policified vehicle configurations.",
+      "tags": [
+        "Lua",
+        "vehicles",
+        "police",
+        "sirens",
+        "lights"
+      ],
+      "version": "3.3",
+      "versionBasis": "SCRIPT_VERSION in author main",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/hexarobi/stand-lua-policify",
+        "path": "Policify.lua",
+        "ref": "94a556012b8d6e475cf2ae86bb4a3ef2d6735878",
+        "commit": "94a556012b8d6e475cf2ae86bb4a3ef2d6735878",
+        "sourceUrl": "https://github.com/hexarobi/stand-lua-policify/blob/94a556012b8d6e475cf2ae86bb4a3ef2d6735878/Policify.lua",
+        "date": "2023-03-26",
+        "dateBasis": "commit-author-date"
+      },
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement not established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [
+        {
+          "version": "3.3",
+          "date": "2023-03-26",
+          "changes": [
+            "Adjusted the script for Stand API changes."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-policify/commit/94a556012b8d6e475cf2ae86bb4a3ef2d6735878",
+          "dateBasis": "commit-author-date"
+        },
+        {
+          "version": "3.1",
+          "date": "2022-09-18",
+          "changes": [
+            "Added horn-based siren cycling, corrected pink neon setup, and improved updater and missing-dependency messages."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-policify/commit/5e8476023a83ce9393ed11d4acb938e9f973ed48",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Hexarobi",
+      "sourceUrl": "https://github.com/hexarobi/stand-lua-policify/blob/94a556012b8d6e475cf2ae86bb4a3ef2d6735878/Policify.lua",
+      "sourceRevision": "94a556012b8d6e475cf2ae86bb4a3ef2d6735878",
+      "sourceDate": "2023-03-26",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/hexarobi/stand-lua-policify/blob/94a556012b8d6e475cf2ae86bb4a3ef2d6735878/Policify.lua",
+          "repository": "https://github.com/hexarobi/stand-lua-policify",
+          "revision": "94a556012b8d6e475cf2ae86bb4a3ef2d6735878",
+          "date": "2023-03-26",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-hornsongs",
+      "name": "HornSongs",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Plays note sequences through vehicle horns and loads author .horn song data.",
+      "tags": [
+        "Lua",
+        "vehicles",
+        "horns",
+        "music"
+      ],
+      "version": "1.6",
+      "versionBasis": "SCRIPT_VERSION in author main",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/hexarobi/stand-lua-hornsongs",
+        "path": "HornSongs.lua",
+        "ref": "5f68e26f829f563752877c64bddca0db6524b6c6",
+        "commit": "5f68e26f829f563752877c64bddca0db6524b6c6",
+        "sourceUrl": "https://github.com/hexarobi/stand-lua-hornsongs/blob/5f68e26f829f563752877c64bddca0db6524b6c6/HornSongs.lua",
+        "date": "2023-07-30",
+        "dateBasis": "commit-author-date"
+      },
+      "preview": "https://img.youtube.com/vi/5raK9kn4BTo/0.jpg",
+      "previewKind": "author-video-thumbnail",
+      "previewEvidence": "Author README links this video thumbnail",
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement not established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [],
+      "notes": [
+        "Latest commits are generic file updates; no release changes were inferred. Source date is not a release date."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Hexarobi",
+      "sourceUrl": "https://github.com/hexarobi/stand-lua-hornsongs/blob/5f68e26f829f563752877c64bddca0db6524b6c6/HornSongs.lua",
+      "sourceRevision": "5f68e26f829f563752877c64bddca0db6524b6c6",
+      "sourceDate": "2023-07-30",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/hexarobi/stand-lua-hornsongs/blob/5f68e26f829f563752877c64bddca0db6524b6c6/HornSongs.lua",
+          "repository": "https://github.com/hexarobi/stand-lua-hornsongs",
+          "revision": "5f68e26f829f563752877c64bddca0db6524b6c6",
+          "date": "2023-07-30",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-sprunkstop",
+      "name": "SprunkStop",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Adds Sprunk-themed vehicle customization and prop effects.",
+      "tags": [
+        "Lua",
+        "vehicles",
+        "Sprunk",
+        "props"
+      ],
+      "version": "1.3.2",
+      "versionBasis": "SCRIPT_VERSION in author main",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/hexarobi/stand-lua-sprunkstop",
+        "path": "SprunkStop.lua",
+        "ref": "be4204e4bf4fa8f65c012f3bb7eb918736735a1d",
+        "commit": "be4204e4bf4fa8f65c012f3bb7eb918736735a1d",
+        "sourceUrl": "https://github.com/hexarobi/stand-lua-sprunkstop/blob/be4204e4bf4fa8f65c012f3bb7eb918736735a1d/SprunkStop.lua",
+        "date": "2022-09-10",
+        "dateBasis": "commit-author-date"
+      },
+      "preview": "https://media.giphy.com/media/Rm3L6LwwWQYEyfvAp9/giphy.gif",
+      "previewKind": "author-illustration",
+      "previewEvidence": "Author README image, not asserted to be an in-game screenshot",
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement not established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [
+        {
+          "version": "1.3.2",
+          "date": "2022-09-10",
+          "changes": [
+            "Fixed an error in the Sprunk drop option."
+          ],
+          "sourceUrl": "https://github.com/hexarobi/stand-lua-sprunkstop/commit/be4204e4bf4fa8f65c012f3bb7eb918736735a1d",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Hexarobi",
+      "sourceUrl": "https://github.com/hexarobi/stand-lua-sprunkstop/blob/be4204e4bf4fa8f65c012f3bb7eb918736735a1d/SprunkStop.lua",
+      "sourceRevision": "be4204e4bf4fa8f65c012f3bb7eb918736735a1d",
+      "sourceDate": "2022-09-10",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/hexarobi/stand-lua-sprunkstop/blob/be4204e4bf4fa8f65c012f3bb7eb918736735a1d/SprunkStop.lua",
+          "repository": "https://github.com/hexarobi/stand-lua-sprunkstop",
+          "revision": "be4204e4bf4fa8f65c012f3bb7eb918736735a1d",
+          "date": "2022-09-10",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-dolos",
+      "name": "Dolos",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Stand Pluto script focused on player-interaction and trolling options.",
+      "tags": [
+        "Lua",
+        "Pluto",
+        "player options"
+      ],
+      "version": "43ec215",
+      "versionBasis": "Official Stand package commit identifier; no script semantic version found in inspected source",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/calamity-inc/Dolos",
+        "path": "Dolos.pluto",
+        "ref": "43ec215a4434439ce29c7eeb5b1bb5c0b2874f84",
+        "commit": "43ec215a4434439ce29c7eeb5b1bb5c0b2874f84",
+        "sourceUrl": "https://github.com/calamity-inc/Dolos/blob/43ec215a4434439ce29c7eeb5b1bb5c0b2874f84/Dolos.pluto",
+        "date": "2024-10-26",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/Dolos",
+        "version": "43ec215",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "collection": "current",
+      "collectionBasis": "Listed in audited official package index.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": "43ec215",
+          "date": "2024-10-26",
+          "changes": [
+            "Replaced deprecated Pluto conditional syntax."
+          ],
+          "sourceUrl": "https://github.com/calamity-inc/Dolos/commit/43ec215a4434439ce29c7eeb5b1bb5c0b2874f84",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Lance / stonerchrist; Calamity, Inc. maintenance",
+      "sourceUrl": "https://github.com/calamity-inc/Dolos/blob/43ec215a4434439ce29c7eeb5b1bb5c0b2874f84/Dolos.pluto",
+      "sourceRevision": "43ec215a4434439ce29c7eeb5b1bb5c0b2874f84",
+      "sourceDate": "2024-10-26",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/calamity-inc/Dolos/blob/43ec215a4434439ce29c7eeb5b1bb5c0b2874f84/Dolos.pluto",
+          "repository": "https://github.com/calamity-inc/Dolos",
+          "revision": "43ec215a4434439ce29c7eeb5b1bb5c0b2874f84",
+          "date": "2024-10-26",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-musiness-banager",
+      "name": "Musiness Banager",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Stand business utility script published through the official Lua repository.",
+      "tags": [
+        "Lua",
+        "business",
+        "utilities"
+      ],
+      "version": "90d686e",
+      "versionBasis": "Official Stand package commit identifier; inspected source also contains THIS_RELEASE_VERSION 1.0.0 with release mode disabled and a separate version 0.3.2 field",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/calamity-inc/MusinessBanager",
+        "path": "MusinessBanagersource.lua",
+        "ref": "90d686e04d0955c79d2a2bf5b6050dfccca7fb36",
+        "commit": "90d686e04d0955c79d2a2bf5b6050dfccca7fb36",
+        "sourceUrl": "https://github.com/calamity-inc/MusinessBanager/blob/90d686e04d0955c79d2a2bf5b6050dfccca7fb36/MusinessBanagersource.lua",
+        "date": "2026-07-16",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/MusinessBanager",
+        "version": "90d686e",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "collection": "current",
+      "collectionBasis": "Official package index and explicit 2026 game-version update.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": "90d686e",
+          "date": "2026-07-16",
+          "changes": [
+            "Updated the script for GTA 1.73 build 3889.0."
+          ],
+          "sourceUrl": "https://github.com/calamity-inc/MusinessBanager/commit/90d686e04d0955c79d2a2bf5b6050dfccca7fb36",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "The source author timestamp is 2026-07-16 19:06:28 -0400. Its UTC date is also 2026-07-16."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Calamity, Inc.; formerly ICYPhoenix and Ren",
+      "sourceUrl": "https://github.com/calamity-inc/MusinessBanager/blob/90d686e04d0955c79d2a2bf5b6050dfccca7fb36/MusinessBanagersource.lua",
+      "sourceRevision": "90d686e04d0955c79d2a2bf5b6050dfccca7fb36",
+      "sourceDate": "2026-07-16",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/calamity-inc/MusinessBanager/blob/90d686e04d0955c79d2a2bf5b6050dfccca7fb36/MusinessBanagersource.lua",
+          "repository": "https://github.com/calamity-inc/MusinessBanager",
+          "revision": "90d686e04d0955c79d2a2bf5b6050dfccca7fb36",
+          "date": "2026-07-16",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-heist-control",
+      "name": "Heist Control",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Stand heist utility script with translated menus and heist setup/control options.",
+      "tags": [
+        "Lua",
+        "heists",
+        "utilities",
+        "translations"
+      ],
+      "version": "3.5.3",
+      "versionBasis": "HC_VERSION V 3.5.3 in inspected source; official package version 55fa0c1",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/calamity-inc/Stand-Heist-Control",
+        "path": "Heist Control.lua",
+        "ref": "55fa0c1f5b685e423101bcb744555d28260f6b29",
+        "commit": "55fa0c1f5b685e423101bcb744555d28260f6b29",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Heist-Control/blob/55fa0c1f5b685e423101bcb744555d28260f6b29/Heist%20Control.lua",
+        "date": "2026-07-16",
+        "dateBasis": "commit-author-date"
+      },
+      "officialPackage": {
+        "id": "lua/Heist Control",
+        "version": "55fa0c1",
+        "sourceUrl": "https://github.com/calamity-inc/Stand-Repository/blob/17650d4d9530c9d7cf5cae5c04dd047e9de1b518/data/packages.php"
+      },
+      "collection": "current",
+      "collectionBasis": "Official package index and explicit 2026 game-version update.",
+      "maintenanceStatus": "officially-indexed",
+      "changelog": [
+        {
+          "version": "3.5.3",
+          "date": "2026-07-16",
+          "changes": [
+            "Updated the script for GTA 1.73 build 3889.0."
+          ],
+          "sourceUrl": "https://github.com/calamity-inc/Stand-Heist-Control/commit/55fa0c1f5b685e423101bcb744555d28260f6b29",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "notes": [
+        "The patch author timestamp is 2026-07-16 20:51:12 -0400, equivalent to 2026-07-17 UTC. The displayed changelog date preserves the source-local commit-author date and is not a release date.",
+        "Source explicitly says it requires the Stand Lua API."
+      ],
+      "downloadStatus": "pending",
+      "files": [],
+      "creator": "Calamity, Inc.; formerly IceDoomfist",
+      "sourceUrl": "https://github.com/calamity-inc/Stand-Heist-Control/blob/55fa0c1f5b685e423101bcb744555d28260f6b29/Heist%20Control.lua",
+      "sourceRevision": "55fa0c1f5b685e423101bcb744555d28260f6b29",
+      "sourceDate": "2026-07-16",
+      "sourceDateBasis": "commit-author-date",
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/calamity-inc/Stand-Heist-Control/blob/55fa0c1f5b685e423101bcb744555d28260f6b29/Heist%20Control.lua",
+          "repository": "https://github.com/calamity-inc/Stand-Heist-Control",
+          "revision": "55fa0c1f5b685e423101bcb744555d28260f6b29",
+          "date": "2026-07-16",
+          "dateBasis": "commit-author-date"
+        }
+      ]
+    },
+    {
+      "id": "stand-lua-infoverlay",
+      "name": "InfOverlay",
+      "creator": "lev / Lev200501",
+      "game": "gta5",
+      "category": "lua",
+      "sourceMenu": "Stand",
+      "supportedMenus": [
+        "Stand"
+      ],
+      "description": "Player information overlay for Stand, with its controls under Players > Settings > InfOverlay Settings.",
+      "tags": [
+        "Lua",
+        "overlay",
+        "player information"
+      ],
+      "version": "1.1",
+      "versionBasis": "SCRIPT_VERSION in the pinned InfOverlay.lua and version-change patch.",
+      "sourceUrl": "https://github.com/Lev200501/InfOverlay/blob/8edf227f192624f47c1990da6c417dd0690699ee/InfOverlay.lua",
+      "sourceRevision": "8edf227f192624f47c1990da6c417dd0690699ee",
+      "sourceDate": "2023-02-05",
+      "sourceDateBasis": "commit-author-date",
+      "source": {
+        "kind": "public-author-repository",
+        "repository": "https://github.com/Lev200501/InfOverlay",
+        "path": "InfOverlay.lua",
+        "ref": "8edf227f192624f47c1990da6c417dd0690699ee",
+        "commit": "8edf227f192624f47c1990da6c417dd0690699ee",
+        "sourceUrl": "https://github.com/Lev200501/InfOverlay/blob/8edf227f192624f47c1990da6c417dd0690699ee/InfOverlay.lua",
+        "date": "2023-02-05",
+        "dateBasis": "commit-author-date"
+      },
+      "sourceProvenance": [
+        {
+          "kind": "public-author-source",
+          "url": "https://github.com/Lev200501/InfOverlay/blob/8edf227f192624f47c1990da6c417dd0690699ee/InfOverlay.lua",
+          "repository": "https://github.com/Lev200501/InfOverlay",
+          "revision": "8edf227f192624f47c1990da6c417dd0690699ee",
+          "date": "2023-02-05",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "preview": "https://user-images.githubusercontent.com/67374474/214446395-8f8623d4-cdb4-41cd-889b-63973b2ef5c0.PNG",
+      "previewKind": "author-screenshot",
+      "previewEvidence": "Image linked by the pinned author README.",
+      "collection": "unclassified",
+      "collectionBasis": "Public author source inspected; maintenance or Discord current/old placement not established.",
+      "maintenanceStatus": "unverified",
+      "changelog": [
+        {
+          "version": "1.1",
+          "date": "2023-02-05",
+          "changes": [
+            "Updated the declared script version from 0.10 to 1.1."
+          ],
+          "sourceUrl": "https://github.com/Lev200501/InfOverlay/commit/8edf227f192624f47c1990da6c417dd0690699ee",
+          "dateBasis": "commit-author-date"
+        }
+      ],
+      "downloadStatus": "pending",
+      "files": []
+    }
+  ],
+  "validationNotes": [
+    "All 15 items are Lua cards with files:[] and downloadStatus:pending.",
+    "No Discord URL fields are present.",
+    "Collection unclassified is intentional for 7 sources without an inspected official-index or explicit maintenance state; do not infer archival from age.",
+    "Changelog version remains null when the specific historical change commit's script version was not independently established."
+  ]
+}

@@ -32,13 +32,35 @@
 .scene-button .scene-play, .scene-button[aria-pressed="true"] .scene-pause { display: none; }
 .scene-button[aria-pressed="true"] .scene-play { display: block; }
 @media (max-width: 760px) {
-  .hero { min-height: max(740px, 100svh); align-items: flex-end; }
+  .hero { min-height: 100svh; align-items: flex-end; }
   .hero-scene img { object-position: 78% center; }
   .hero .hero-overlay { background: linear-gradient(0deg, #080808 0%, rgba(8,8,8,.91) 22%, rgba(8,8,8,.5) 48%, rgba(8,8,8,.08) 75%, rgba(8,8,8,.3) 100%); }
-  .hero .hero-inner { padding-top: 320px; padding-bottom: 135px; }
-  .hero-badge { margin-bottom: 18px; }
-  .scene-controls { left: 24px; right: auto; bottom: 24px; padding: 9px 10px 9px 15px; }
-  .scene-caption { width: 140px; }
+  .hero .hero-inner { padding: clamp(100px, 24svh, 230px) clamp(16px, 4vw, 24px) 106px; }
+  .hero-badge { margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(3rem, 13vw, 5rem); margin-bottom: 12px; }
+  .hero-title-detail { margin-top: 8px; }
+  .hero p.lead { margin-bottom: 22px; }
+  .hero-cta { gap: 8px; }
+  .hero-cta .btn-hero { min-height: 46px; padding: 10px 14px; white-space: normal; }
+  .scene-controls { inset-inline: clamp(16px, 4vw, 24px) auto; bottom: 18px; max-width: calc(100% - 32px); padding: 7px 9px 7px 12px; }
+  .scene-caption { width: 140px; min-width: 0; flex-shrink: 1; }
+  .scene-button { width: 44px; height: 44px; }
+}
+@media (max-height: 540px) and (max-width: 1100px) {
+  .hero .hero-inner { padding-top: 88px; padding-bottom: 94px; }
+  .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 10px; }
+  .hero-badge { margin-bottom: 12px; }
+  .hero p.lead { margin-bottom: 16px; }
+  .scene-controls { bottom: 16px; }
+}
+@media (max-height: 400px) and (min-width: 520px) and (max-width: 760px) {
+  .hero-badge { margin-bottom: 8px; }
+  .hero-title-detail { margin-top: 4px; font-size: 1rem; }
+  .hero p.lead { max-width: 580px; margin-bottom: 12px; font-size: .9rem; line-height: 1.45; }
+}
+@media (max-height: 400px) and (min-width: 520px) and (max-width: 600px) {
+  .hero .hero-inner { padding-top: 68px; }
+  .hero p.lead { margin-bottom: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-scene, .scene-step { transition: none; }

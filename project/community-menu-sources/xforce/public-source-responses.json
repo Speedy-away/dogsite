@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-11-11",
+  "method": "Public GitHub REST metadata and pinned raw.githubusercontent.com response inspection. SHA-256 hashes cover response body bytes from RawContentStream.ToArray(). No source was executed or placed in a downloadable files entry.",
+  "responses": [
+    {
+      "repository": "2230x/Business-Manager",
+      "revision": "c525331a69c3b5651a94b08cd7efe3ac8265e8ca",
+      "member": "22s_Business_Manager_XForce.lua",
+      "sourceUrl": "https://raw.githubusercontent.com/2230x/Business-Manager/c525331a69c3b5651a94b08cd7efe3ac8265e8ca/22s_Business_Manager_XForce.lua",
+      "httpStatus": 200,
+      "bytes": 16808,
+      "sha256": "f215e93873e267f68d2e63af439c9ba4150b78dad8058380d11f52c0d89a273f",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "repository": "anditv21/x-luas",
+      "revision": "536b2267801f3a00487a03714031939a47d2d963",
+      "member": "DadMenuProTo21.1.69.lua",
+      "sourceUrl": "https://raw.githubusercontent.com/anditv21/x-luas/536b2267801f3a00487a03714031939a47d2d963/DadMenuProTo21.1.69.lua",
+      "httpStatus": 200,
+      "bytes": 51904,
+      "sha256": "b8222b13d030e7b64df873d9dccedb49a066344fe032dcabc47688d68f16880a",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "repository": "anditv21/x-luas",
+      "revision": "536b2267801f3a00487a03714031939a47d2d963",
+      "member": "casino-bypass.lua",
+      "sourceUrl": "https://raw.githubusercontent.com/anditv21/x-luas/536b2267801f3a00487a03714031939a47d2d963/casino-bypass.lua",
+      "httpStatus": 200,
+      "bytes": 3113,
+      "sha256": "6c6077f5150edc6e55f3048e77a78721b52f2bbaf914c388fbb13ab02ba6bae1",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "repository": "anditv21/x-luas",
+      "revision": "536b2267801f3a00487a03714031939a47d2d963",
+      "member": "snacks.lua",
+      "sourceUrl": "https://raw.githubusercontent.com/anditv21/x-luas/536b2267801f3a00487a03714031939a47d2d963/snacks.lua",
+      "httpStatus": 200,
+      "bytes": 2260,
+      "sha256": "8844d338481e0dc30b2a47cc18130009fd0f0cc0fd47baec33cd17405db907f0",
+      "contentType": "text/plain; charset=utf-8"
+    }
+  ],
+  "repositoryMetadataObservations": [
+    {
+      "metadataUrl": "https://api.github.com/repos/2230x/Business-Manager",
+      "full_name": "2230x/Business-Manager",
+      "description": "Business manager for XForce GTA 5 Enhanced PC ",
+      "default_branch": "main",
+      "created_at": "2026-09-16T18:58:13Z",
+      "updated_at": "2026-09-16T18:58:49Z",
+      "pushed_at": "2026-09-16T18:58:44Z",
+      "archived": false,
+      "license": null,
+      "tree": [
+        {"path": "22s_Business_Manager_XForce.lua", "type": "blob", "size": 16808}
+      ],
+      "commits": [
+        {"sha": "c525331a69c3b5651a94b08cd7efe3ac8265e8ca", "date": "2026-09-16T18:58:38Z", "message": "Add files via upload"}
+      ]
+    },
+    {
+      "metadataUrl": "https://api.github.com/repos/anditv21/x-luas",
+      "full_name": "anditv21/x-luas",
+      "description": "My Luas for the X-Force GTA-V mod menu",
+      "created_at": "2023-02-06T18:22:40Z",
+      "pushed_at": "2024-08-09T20:59:47Z",
+      "archived": false,
+      "license": null,
+      "tree": [
+        {"path": "DadMenuProTo21.1.69.lua", "type": "blob", "size": 51904},
+        {"path": "README.md", "type": "blob", "size": 125},
+        {"path": "casino-bypass.lua", "type": "blob", "size": 3113},
+        {"path": "snacks.lua", "type": "blob", "size": 2260}
+      ],
+      "relevantObservedCommits": [
+        {"sha": "536b2267801f3a00487a03714031939a47d2d963", "date": "2024-08-09T20:59:37Z", "message": "Update DadMenuProTo21.1.69.lua"},
+        {"sha": "592e558b867610ebfdd7d52b339814fe8b852d71", "date": "2023-03-11T15:36:03Z", "message": "Update snacks.lua"},
+        {"sha": "319d8c8647eae221018f50902a9f4ba37c05a1a2", "date": "2023-03-07T18:41:36Z", "message": "Improved casino lua"},
+        {"sha": "0101d3be6fba63d4415008f864400e0bbd65e5f8", "date": "2023-02-25T09:02:01Z", "message": "Added visitor bonus bypass"},
+        {"sha": "b27ef435a9d5b5dbf0d3ae563e02032ded120c2a", "date": "2023-02-09T20:55:48Z", "message": "Added casino chip bypass"},
+        {"sha": "eca3f14e0e8e83a306f29d743d7116c24466c964", "date": "2023-02-09T20:55:36Z", "message": "Updated snacks lua"},
+        {"sha": "ed548086ad3c7c9755ca60d82449904274ecfaf1", "date": "2023-02-06T18:43:16Z", "message": "Added snack remove loop"}
+      ],
+      "commitMessageNote": "Emoji prefixes omitted from selected messages; dates and SHA values retained. These records are repository history observations, not declared release notes."
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+{
+    "Header Font": "msyh.ttc",
+    "Header Font Size": 14.0,
+    "Menu Bar Font": "msyh.ttc",
+    "Menu Bar Font Size": 14.0,
+    "Text Font": "msyh.ttc",
+    "Text Font Size": 14.0,
+    "Menu Width": 300.0,
+    "Menu Height": 200.0,
+    "Menu X": 100.0,
+    "Menu Y": 80.0,
+    "Header Height": 20.0,
+    "Window Padding X": 15.0,
+    "Item Height": 20.0,
+    "Checkbox Border Thickness": 2.118000030517578,
+    "Checkbox Height": 0.5419999957084656,
+    "Checkmark Padding": 0.0,
+    "Arrow Thickness": 0.1,
+    "Arrow Length": 3.0,
+    "Arrow Padding": 2.0,
+    "Description Box Offset": 5.0,
+    "Description Seperator Height": 0.0,
+    "Scrollbar Offset": -310.0,
+    "Scrollbar Width": 4.0,
+    "Background": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 120
+    },
+    "Ripple": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Text Enabled": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Text Disabled": {
+        "r": 183,
+        "g": 183,
+        "b": 183,
+        "a": 255
+    },
+    "Arrow Enabled": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Arrow Disabled": {
+        "r": 183,
+        "g": 183,
+        "b": 183,
+        "a": 255
+    },
+    "Selection Top Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selection Top Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selection Bottom Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selection Bottom Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selectable Active Top Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selectable Active Top Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selectable Active Bottom Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Selectable Active Bottom Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Checkmark Background Checked Top Left": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Checkmark Background Checked Top Right": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Checkmark Background Checked Bottom Right": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Checkmark Background Checked Bottom Left": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Checkmark Background Top Left": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Checkmark Background Top Right": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Checkmark Background Bottom Right": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Checkmark Background Bottom Left": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 1
+    },
+    "Checkmark": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 255
+    },
+    "Checkbox Border": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Scrollbar Background Top Left": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 72
+    },
+    "Scrollbar Background Top Right": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 72
+    },
+    "Scrollbar Background Bottom Right": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 72
+    },
+    "Scrollbar Background Bottom Left": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 72
+    },
+    "Scrollbar Top Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Scrollbar Top Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Scrollbar Bottom Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Scrollbar Bottom Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Header Top Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Header Top Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Header Bottom Right": {
+        "r": 254,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Header Bottom Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Header Title": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 255
+    },
+    "Option Bar Top Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Option Bar Top Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Option Bar Bottom Right": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Option Bar Bottom Left": {
+        "r": 255,
+        "g": 0,
+        "b": 255,
+        "a": 255
+    },
+    "Description Separator Top Left": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Description Separator Top Right": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Description Separator Bottom Right": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    },
+    "Description Separator Bottom Left": {
+        "r": 0,
+        "g": 0,
+        "b": 0,
+        "a": 0
+    }
+}

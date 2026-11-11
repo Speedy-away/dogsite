@@ -59,7 +59,8 @@
     .guide-directory-intro>p:last-child { font-size:.92rem; line-height:1.65; }
     .guide-game-search { max-width:none; }
     .guide-game-input { gap:10px; padding:0 12px; }
-    .guide-game-input input { font-size:.82rem; }
+    .guide-game-input input { font-size:16px; }
+    .guide-game-input button { min-height:44px; }
     .guide-game-toolbar { align-items:flex-start; gap:10px; }
     .guide-game-categories { gap:4px; }
     .guide-game-categories button { font-size:.72rem; padding:6px 8px; }

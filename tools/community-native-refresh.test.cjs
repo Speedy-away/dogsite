@@ -43,6 +43,7 @@ function tree(root) {
 
 test('CS2 refresh adds/updates source packages and payloads while preserving unrelated catalogs', t => {
   const f = fixture(t), realBefore = digest(fs.readFileSync(SITE_LIBRARY));
+  const originalDate = '2025-11-10T09:00:00Z';
   const preserved = [
     item('gta5-paintjob-native-kept', 'gta5', 'paintjobs', [f.file('downloads/gta5/paintjobs/kept.json', '{}')], { nativePaintjob: true }),
     item('gta5-mods-author-kept', 'gta5', 'addon-vehicles'),
@@ -52,7 +53,7 @@ test('CS2 refresh adds/updates source packages and payloads while preserving unr
     item('menu-cs2-author-config', 'cs2', 'configs'),
   ];
   f.seed([...preserved,
-    item('cs2-model-alpha', 'cs2', 'weapons', [], { name: 'Old Alpha' }),
+    item('cs2-model-alpha', 'cs2', 'weapons', [], { name: 'Old Alpha', addedAt: originalDate }),
     item('cs2-model-retired', 'cs2', 'weapons'),
     item('cs2-configs-retired', 'cs2', 'configs', [f.file('downloads/cs2/configs/retired.json', '{}')]),
     item('cs2-misc-hud-night', 'cs2', 'misc', [f.file('downloads/cs2/misc/hud-night.json', '{"old":true}')]),
@@ -79,7 +80,9 @@ test('CS2 refresh adds/updates source packages and payloads while preserving unr
   for (const row of preserved) assert.deepEqual(byId.get(row.id), row);
   assert.equal(byId.get('cs2-model-alpha').name, 'Updated Alpha');
   assert.equal(byId.get('cs2-model-alpha').category, 'knives');
+  assert.equal(byId.get('cs2-model-alpha').addedAt, originalDate);
   assert.equal(byId.get('cs2-model-new-player').category, 'players');
+  assert(Date.parse(byId.get('cs2-model-new-player').addedAt) > Date.parse(originalDate));
   assert(!byId.has('cs2-model-retired'));
   assert(!byId.has('cs2-configs-retired'));
   assert(byId.has('cs2-configs-new'));

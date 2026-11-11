@@ -18,12 +18,13 @@ function applyBranding(html) {
     }
     return '<a' + attrs + '>' + content + '</a>';
   });
-  // One canonical PNG icon, with the MIME type matching the actual file.
+  // Game-specific pages supply their own favicon.
   let icon = false;
   result = result.replace(/<link\b[^>]*>/gi, tag => {
     if (!/\brel=["'](?:shortcut\s+)?icon["']/i.test(tag)) return tag;
     if (icon) return '';
     icon = true;
+    if (/\sdata-game-icon(?:\s|>)/i.test(tag)) return tag;
     return `<link rel="icon" type="image/png" href="${BRAND_LOGO}">`;
   });
   const nl = result.includes('\r\n') ? '\r\n' : '\n';

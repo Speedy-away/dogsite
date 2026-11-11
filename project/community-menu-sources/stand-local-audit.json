@@ -1,0 +1,2598 @@
+{
+  "auditedAt": "2026-11-11",
+  "sourceRoot": "C:/Users/whatw/Documents/GitHub/Rendererrr.github.io/scooby/GTA5/ListUI/Themes/Stand",
+  "summary": {
+    "profiles": 75,
+    "allinone": [
+      {
+        "path": "Stand/Collections/LuaTheme-All-In-One-Stand/Lua Scripts/LuaTheme-All-In-One-Stand.lua",
+        "archive": "ListUI-Stand-01.zip",
+        "choices": [
+          "default",
+          "2stand1",
+          "2take1",
+          "paragon",
+          "cherax",
+          "luna",
+          "ozark",
+          "soviet",
+          "xcheat",
+          "impulse",
+          "rebound",
+          "standipity",
+          "stanggy",
+          "zanium",
+          "deathride",
+          "modern",
+          "futur",
+          "iphone",
+          "s20",
+          "ipad",
+          "fold",
+          "standwatch",
+          "stand3310",
+          "switch",
+          "wii",
+          "dslite",
+          "dsi",
+          "standfridge",
+          "discord",
+          "guilded",
+          "windows11",
+          "sfr"
+        ],
+        "head": "-- All lua theme in one place - V0.6.4\r\n-- Might have somme issues, to customize it change all the variables below (search for the theme you want to modify..)\r\n-- By CocoW#3060\r\n\r\n--themes list\r\nlocal theme = {{\"default\"},{\"2stand1\"},{\"2take1\"},{\"paragon\"},{\"cherax\"},{\"luna\"},{\"ozark\"},{\"soviet\"},{\"xcheat\"},{\"impulse\"},{\"rebound\"},{\"standipity\"},{\"stanggy\"},{\"zanium\"},{\"deathride\"},{\"modern\"},{\"futur\"},{\"iphone\"},{\"s20\"},{\"ipad\"},{\"fold\"},{\"standwatch\"},{\"stand3310\"},{\"switch\"},{\"wii\"},{\"dslite\""
+      }
+    ],
+    "archives": [
+      {
+        "archive": "ListUI-Stand-01.zip",
+        "entries": 868,
+        "profiles": 0,
+        "lua": 4,
+        "nonThemeCandidates": [
+          "Stand/Collections/InfOverlay-main/resources/Map.png"
+        ]
+      },
+      {
+        "archive": "ListUI-Stand-02.zip",
+        "entries": 1016,
+        "profiles": 0,
+        "lua": 0,
+        "nonThemeCandidates": []
+      },
+      {
+        "archive": "ListUI-Stand-03.zip",
+        "entries": 1258,
+        "profiles": 0,
+        "lua": 0,
+        "nonThemeCandidates": []
+      },
+      {
+        "archive": "ListUI-Stand-04.zip",
+        "entries": 427,
+        "profiles": 0,
+        "lua": 0,
+        "nonThemeCandidates": []
+      },
+      {
+        "archive": "ListUI-Stand-05.zip",
+        "entries": 626,
+        "profiles": 1,
+        "lua": 1,
+        "nonThemeCandidates": []
+      },
+      {
+        "archive": "ListUI-Stand-06.zip",
+        "entries": 598,
+        "profiles": 10,
+        "lua": 3,
+        "nonThemeCandidates": [
+          "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite v2/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Delusion/Theme/Tabs/Vehicle.png"
+        ]
+      },
+      {
+        "archive": "ListUI-Stand-07.zip",
+        "entries": 673,
+        "profiles": 15,
+        "lua": 7,
+        "nonThemeCandidates": [
+          "Stand/Collections/stand-themerepo-main/Themes/Discord/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Discord v2/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Hexy/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Kiddions/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Lewdsex/Theme/Tabs/Vehicle.png"
+        ]
+      },
+      {
+        "archive": "ListUI-Stand-08.zip",
+        "entries": 510,
+        "profiles": 4,
+        "lua": 0,
+        "nonThemeCandidates": [
+          "Stand/Collections/stand-themerepo-main/Themes/Menyoo/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Mercyyy/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Midari Ikishima/Theme/Tabs/Vehicle.png"
+        ]
+      },
+      {
+        "archive": "ListUI-Stand-09.zip",
+        "entries": 794,
+        "profiles": 20,
+        "lua": 9,
+        "nonThemeCandidates": [
+          "Stand/Collections/stand-themerepo-main/Themes/Midnight Violet/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Minimalistic v2/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Nocturnal/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Optimum/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Orange Minimalistic/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/OrangeGray/Theme/Tabs/Vehicle.png"
+        ]
+      },
+      {
+        "archive": "ListUI-Stand-10.zip",
+        "entries": 740,
+        "profiles": 8,
+        "lua": 2,
+        "nonThemeCandidates": [
+          "Stand/Collections/stand-themerepo-main/Themes/Roses/Theme/Tabs/Vehicle.png"
+        ]
+      },
+      {
+        "archive": "ListUI-Stand-11.zip",
+        "entries": 743,
+        "profiles": 17,
+        "lua": 6,
+        "nonThemeCandidates": [
+          "Stand/Collections/stand-themerepo-main/Themes/Standsense/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Standxo/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Trooper/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Windows98/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Youtube/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/stand-themerepo-main/Themes/Zeus/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/standthemes-main/HackTheBox/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/standthemes-main/Nocturnal/Tabs/Vehicle.png",
+          "Stand/Collections/standthemes-main/Nocturnal/Tabs/Vehicle.webp",
+          "Stand/Collections/standthemes-main/Nocturnal/Theme/Tabs/Vehicle.png",
+          "Stand/Collections/standthemes-main/Trooper/Theme/Tabs/Vehicle.png",
+          "Stand/Default/Tabs/Vehicle.png"
+        ]
+      }
+    ],
+    "libraryItems": 236,
+    "libraryByCategory": {
+      "themes": 236
+    },
+    "libraryStandExamples": [
+      {
+        "menu": "Scooby",
+        "tags": [
+          "gta5",
+          "themes",
+          "listui",
+          "stand",
+          "collection",
+          "profiles",
+          "scooby",
+          "zip",
+          "gta 5",
+          "gta v",
+          "grand theft auto 5",
+          "grand theft auto v",
+          "theme",
+          "appearance",
+          "menu themes",
+          "ui themes",
+          "ui styles",
+          "ui style",
+          "list ui",
+          "list interface",
+          "stand style"
+        ],
+        "files": [
+          {
+            "path": "downloads/shared/themes/stand/ListUI-Stand-01.zip",
+            "name": "ListUI-Stand-01.zip",
+            "size": 58045021,
+            "sha256": "ecbc84b366959f3fdfe05129d2d5f2c8ad500f3a63fe342706d67f31d2bf0f5b"
+          }
+        ],
+        "id": "gta5-themes-stand-collection-01",
+        "game": "gta5",
+        "category": "themes",
+        "uiStyle": "ListUI",
+        "style": "Stand",
+        "name": "Stand ListUI collection 01",
+        "description": "Original published collection supported by Scooby’s Stand style. Includes theme profiles, scripts and their supporting artwork.",
+        "credits": "Original Stand collection authors; publisher archive and credits retained.",
+        "compatibility": "Requires a compatible Scooby GTA5 build with the native Stand style. Extract Stand into C:\\scooby\\GTA5\\Themes\\ListUI and refresh Stand Themes.",
+        "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/ListUI/Themes/Stand",
+        "guide": "/community/guides/?game=gta5&category=themes"
+      },
+      {
+        "menu": "Scooby",
+        "tags": [
+          "rdr2",
+          "themes",
+          "listui",
+          "stand",
+          "collection",
+          "profiles",
+          "scooby",
+          "zip",
+          "rdr 2",
+          "red dead redemption 2",
+          "red dead redemption ii",
+          "theme",
+          "appearance",
+          "menu themes",
+          "ui themes",
+          "ui styles",
+          "ui style",
+          "list ui",
+          "list interface",
+          "stand style"
+        ],
+        "files": [
+          {
+            "path": "downloads/shared/themes/stand/ListUI-Stand-01.zip",
+            "name": "ListUI-Stand-01.zip",
+            "size": 58045021,
+            "sha256": "ecbc84b366959f3fdfe05129d2d5f2c8ad500f3a63fe342706d67f31d2bf0f5b"
+          }
+        ],
+        "id": "rdr2-themes-stand-collection-01",
+        "game": "rdr2",
+        "category": "themes",
+        "uiStyle": "ListUI",
+        "style": "Stand",
+        "name": "Stand ListUI collection 01",
+        "description": "Original published collection supported by Scooby’s Stand style. Includes theme profiles, scripts and their supporting artwork.",
+        "credits": "Original Stand collection authors; publisher archive and credits retained.",
+        "compatibility": "Requires a compatible Scooby RDR2 build with the native Stand style. Extract Stand into C:\\scooby\\RDR2\\Themes\\ListUI and refresh Stand Themes.",
+        "sourceUrl": "https://github.com/Rendererrr/Rendererrr.github.io/tree/main/scooby/GTA5/ListUI/Themes/Stand",
+        "guide": "/community/guides/?game=rdr2&category=themes"
+      }
+    ],
+    "themeRepoProfiles": 72,
+    "themeRepoProfilesWithExactAuthorPreviews": 69,
+    "extraCentralDirectoryEntries": "One asset-manifest.json per archive, excluded from packs.json files count; no directory assumption."
+  },
+  "profiles": [
+    {
+      "name": "2Take1",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/2Take1/Profiles/2Take1.txt",
+      "archive": "ListUI-Stand-05.zip",
+      "size": 1106,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/2Take1.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 57113,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/2Take1.png"
+        }
+      ],
+      "artworkCount": 3,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/2Take1/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/2Take1/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/2Take1/Theme/List.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-42404f7e41c218",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-42404f7e41c218",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/2Take1"
+    },
+    {
+      "name": "Anime",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Anime/Profiles/Anime.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1265,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Anime.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 246292,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Anime.png"
+        }
+      ],
+      "artworkCount": 109,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Anime/Headers/Custom Header/video_000.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Anime/Headers/Custom Header/video_001.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Anime/Headers/Custom Header/video_002.jpg"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-2193187feafc01",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-2193187feafc01",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Anime"
+    },
+    {
+      "name": "Aya",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Aya/Profiles/Aya.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1034,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Aya.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 110795,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Aya.png"
+        }
+      ],
+      "artworkCount": 330,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Aya/Headers/Custom Header/uwu000.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Aya/Headers/Custom Header/uwu001.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Aya/Headers/Custom Header/uwu003.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-8563071a7d507e",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-8563071a7d507e",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Aya"
+    },
+    {
+      "name": "BlackNWhite",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite/Profiles/BlackNWhite.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1673,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/BlackNWhite.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 43298,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/BlackNWhite.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite/Headers/Custom Header/BlackNWhite.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-3a2ca51073b19b",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-3a2ca51073b19b",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/BlackNWhite"
+    },
+    {
+      "name": "BlackNWhite v2",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite v2/Profiles/BlackNWhite v2.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1508,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/BlackNWhite v2.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 69411,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/BlackNWhite%20v2.png"
+        }
+      ],
+      "artworkCount": 18,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite v2/Headers/Custom Header/stand_header_wb.png",
+        "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite v2/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/BlackNWhite v2/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-7ecd3a4e1c761b",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-7ecd3a4e1c761b",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/BlackNWhite%20v2"
+    },
+    {
+      "name": "Blue Hour",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Blue Hour/Profiles/Blue Hour.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1096,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Blue Hour.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 118993,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Blue%20Hour.png"
+        }
+      ],
+      "artworkCount": 20,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Blue Hour/Headers/Custom Header/Stand Blue Hour00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Blue Hour/Headers/Custom Header/Stand Blue Hour01.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Blue Hour/Headers/Custom Header/Stand Blue Hour02.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-955655d0a21ab2",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-955655d0a21ab2",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Blue%20Hour"
+    },
+    {
+      "name": "Capybara",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Capybara/Profiles/Capybara.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1433,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Capybara.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 112700,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Capybara.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Capybara/Headers/Custom Header/cap.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-75d9cc107ffcd7",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-75d9cc107ffcd7",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Capybara"
+    },
+    {
+      "name": "Cherax",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Cherax/Profiles/Cherax.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1069,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Cherax.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 206484,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Cherax.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Cherax/Header.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-d5634d973e1cfd",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-d5634d973e1cfd",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Cherax"
+    },
+    {
+      "name": "Circuit",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Circuit/Profiles/Circuit.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 1271,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Circuit.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 27620,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Circuit.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Circuit/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Circuit/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Circuit/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-4f6dfa9de875ee",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-4f6dfa9de875ee",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Circuit"
+    },
+    {
+      "name": "Delusion",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Delusion/Profiles/Delusion.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 2189,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Delusion.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 393002,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Delusion.png"
+        }
+      ],
+      "artworkCount": 50,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Delusion/Headers/Custom Header/Delusion.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Delusion/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Delusion/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-ad4230689acbe6",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-ad4230689acbe6",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Delusion"
+    },
+    {
+      "name": "Discord",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Discord/Profiles/Discord.txt",
+      "archive": "ListUI-Stand-06.zip",
+      "size": 2153,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Discord.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 21394,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Discord.png"
+        }
+      ],
+      "artworkCount": 38,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Discord/Headers/Custom Header/Discord.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Discord/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Discord/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-d0e592b6b9eba6",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-d0e592b6b9eba6",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Discord"
+    },
+    {
+      "name": "Discord v2",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Discord v2/Profiles/Discord v2.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1083,
+      "authorPreviews": [],
+      "artworkCount": 18,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Discord v2/Headers/Custom Header/Discord.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Discord v2/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Discord v2/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-bf499c49f0412f",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-bf499c49f0412f",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Discord%20v2"
+    },
+    {
+      "name": "Epsilon",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Epsilon/Profiles/Epsilon.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1182,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Epsilon.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 62621,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Epsilon.png"
+        }
+      ],
+      "artworkCount": 22,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Epsilon/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Epsilon/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Epsilon/Interaction Header/Header1.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-e8438a33f760a9",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-e8438a33f760a9",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Epsilon"
+    },
+    {
+      "name": "Fragment",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Fragment/Profiles/Fragment.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1149,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Fragment.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 63744,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Fragment.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Fragment/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Fragment/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Fragment/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-f351c32263aa70",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-f351c32263aa70",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Fragment"
+    },
+    {
+      "name": "Gradient Pulsive",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Gradient Pulsive/Profiles/Gradient Pulsive.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1509,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Gradient Pulsive.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 34760,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Gradient%20Pulsive.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Gradient Pulsive/Headers/Custom Header/Gradient Pulsive.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-38ba03b338ec22",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-38ba03b338ec22",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Gradient%20Pulsive"
+    },
+    {
+      "name": "Hexy",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Hexy/Profiles/Hexy.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1851,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Hexy.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 76219,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Hexy.png"
+        }
+      ],
+      "artworkCount": 94,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Hexy/Headers/Custom Header/frame_00_delay-0.03s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Hexy/Headers/Custom Header/frame_01_delay-0.03s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Hexy/Headers/Custom Header/frame_02_delay-0.03s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-88f69d183e47de",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-88f69d183e47de",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Hexy"
+    },
+    {
+      "name": "Impulse",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Impulse/Profiles/Impulse.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1130,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Impulse.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 137018,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Impulse.png"
+        }
+      ],
+      "artworkCount": 53,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Impulse/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Impulse/Header1.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Impulse/Header10.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-5870d6612f481d",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-5870d6612f481d",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Impulse"
+    },
+    {
+      "name": "Japanese Chill",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Japanese Chill/Profiles/Japanese Chill.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 2331,
+      "authorPreviews": [],
+      "artworkCount": 33,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Japanese Chill/Headers/Custom Header/Banner2.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Japanese Chill/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Japanese Chill/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-72d7e510e582db",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-72d7e510e582db",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Japanese%20Chill"
+    },
+    {
+      "name": "JinxOnTop",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/JinxOnTop/Profiles/JinxOnTop.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1439,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/JinxOnTop.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 87116,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/JinxOnTop.png"
+        }
+      ],
+      "artworkCount": 75,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/JinxOnTop/Headers/Custom Header/JinxStandHeader3_100.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/JinxOnTop/Headers/Custom Header/JinxStandHeader3_101.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/JinxOnTop/Headers/Custom Header/JinxStandHeader3_102.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-1ba513ae4d603d",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-1ba513ae4d603d",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/JinxOnTop"
+    },
+    {
+      "name": "Kiddions",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Kiddions/Profiles/Kiddions.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1795,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Kiddions.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 35133,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Kiddions.png"
+        }
+      ],
+      "artworkCount": 50,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Kiddions/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Kiddions/Theme/Custom/01.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Kiddions/Theme/Custom/02.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-1d4330bbd5455b",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-1d4330bbd5455b",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Kiddions"
+    },
+    {
+      "name": "Kokushibo",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Kokushibo/Profiles/Kokushibo.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 833,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Kokushibo.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 131129,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Kokushibo.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Kokushibo/Headers/Custom Header/Kokushibo.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-af58b27156e95d",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-af58b27156e95d",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Kokushibo"
+    },
+    {
+      "name": "Legacy Menu Beta",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Legacy Menu Beta/Profiles/Legacy Menu Beta.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 2076,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Legacy Menu Beta.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 45909,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Legacy%20Menu%20Beta.png"
+        }
+      ],
+      "artworkCount": 73,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Legacy Menu Beta/Headers/Custom Header/16.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Legacy Menu Beta/Headers/Custom Header/17.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Legacy Menu Beta/Headers/Custom Header/18.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-24b08078433010",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-24b08078433010",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Legacy%20Menu%20Beta"
+    },
+    {
+      "name": "Lewdsex",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Lewdsex/Profiles/Lewdsex.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1937,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Lewdsex.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 216704,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Lewdsex.png"
+        }
+      ],
+      "artworkCount": 79,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Lewdsex/Headers/Custom Header/STAND HEADER_00000.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Lewdsex/Headers/Custom Header/STAND HEADER_00001.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Lewdsex/Headers/Custom Header/STAND HEADER_000010.jpg"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-3073bdc929c406",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-3073bdc929c406",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Lewdsex"
+    },
+    {
+      "name": "Luna",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Luna/Profiles/Luna.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1128,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Luna.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 104292,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Luna.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Luna/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Luna/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Luna/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-e8b89f8557af62",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-e8b89f8557af62",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Luna"
+    },
+    {
+      "name": "Luna-Impulse",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Luna-Impulse/Profiles/Luna-Impulse.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1781,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Luna-Impulse.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 226400,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Luna-Impulse.png"
+        }
+      ],
+      "artworkCount": 38,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Luna-Impulse/Headers/Custom Header/frame_00_delay-0.06s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Luna-Impulse/Headers/Custom Header/frame_01_delay-0.06s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Luna-Impulse/Headers/Custom Header/frame_02_delay-0.06s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-36199149d42600",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-36199149d42600",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Luna-Impulse"
+    },
+    {
+      "name": "Marin",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Marin/Profiles/Marin.txt",
+      "archive": "ListUI-Stand-07.zip",
+      "size": 1438,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Marin.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 142627,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Marin.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Marin/Headers/Custom Header/Marin.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-052bac8b081d71",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-052bac8b081d71",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Marin"
+    },
+    {
+      "name": "Matrix",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Matrix/Profiles/Matrix.txt",
+      "archive": "ListUI-Stand-08.zip",
+      "size": 1781,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Matrix.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 331800,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Matrix.png"
+        }
+      ],
+      "artworkCount": 138,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Matrix/Headers/Custom Header/Scene01000.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Matrix/Headers/Custom Header/Scene01001.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Matrix/Headers/Custom Header/Scene01002.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-6feadbcc3f1ab5",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-6feadbcc3f1ab5",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Matrix"
+    },
+    {
+      "name": "Menyoo",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Menyoo/Profiles/Menyoo.txt",
+      "archive": "ListUI-Stand-08.zip",
+      "size": 2306,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Menyoo.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 50735,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Menyoo.png"
+        }
+      ],
+      "artworkCount": 233,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Menyoo/Headers/Custom Header/Comp 1_00022.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Menyoo/Headers/Custom Header/Comp 1_00023.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Menyoo/Headers/Custom Header/Comp 1_00024.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-2e7ea4b08e1985",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-2e7ea4b08e1985",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Menyoo"
+    },
+    {
+      "name": "Mercyyy",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Mercyyy/Profiles/Mercyyy.txt",
+      "archive": "ListUI-Stand-08.zip",
+      "size": 1798,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Mercyyy.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 108123,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Mercyyy.png"
+        }
+      ],
+      "artworkCount": 50,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Mercyyy/Headers/Custom Header/Mercyyy.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Mercyyy/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Mercyyy/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-ed4023fca37d7a",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-ed4023fca37d7a",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Mercyyy"
+    },
+    {
+      "name": "Midari Ikishima",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Midari Ikishima/Profiles/Midari Ikishima.txt",
+      "archive": "ListUI-Stand-08.zip",
+      "size": 1150,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Midari Ikishima.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 230292,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Midari%20Ikishima.png"
+        }
+      ],
+      "artworkCount": 109,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Midari Ikishima/Headers/Custom Header/生志摩 妄-1-0.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Midari Ikishima/Headers/Custom Header/生志摩 妄-1-1.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Midari Ikishima/Headers/Custom Header/生志摩 妄-1-10.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-40f3735fa1c5ec",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-40f3735fa1c5ec",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Midari%20Ikishima"
+    },
+    {
+      "name": "Midnight Violet",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Midnight Violet/Profiles/Midnight Violet.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 2162,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Midnight Violet.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 461961,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Midnight%20Violet.png"
+        }
+      ],
+      "artworkCount": 51,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Midnight Violet/Headers/Custom Header/Midnight Violet.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Midnight Violet/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Midnight Violet/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-e105660a10baf3",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-e105660a10baf3",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Midnight%20Violet"
+    },
+    {
+      "name": "Minimalistic",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Minimalistic/Profiles/Minimalistic.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1323,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Minimalistic.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 62213,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Minimalistic.png"
+        }
+      ],
+      "artworkCount": 10,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic/Headers/Custom Header/Header.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-5068a9405ac3cc",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-5068a9405ac3cc",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Minimalistic"
+    },
+    {
+      "name": "Minimalistic Black & White",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Minimalistic Black & White/Profiles/Minimalistic Black & White.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 797,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Minimalistic Black & White.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 253193,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Minimalistic%20Black%20%26%20White.png"
+        }
+      ],
+      "artworkCount": 35,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic Black & White/Headers/Custom Header/frame_00_delay-0.1s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic Black & White/Headers/Custom Header/frame_01_delay-0.03s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic Black & White/Headers/Custom Header/frame_02_delay-0.04s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-b03fa995dbfb20",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-b03fa995dbfb20",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Minimalistic%20Black%20%26%20White"
+    },
+    {
+      "name": "Minimalistic v2",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Minimalistic v2/Profiles/Minimalistic v2.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1687,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Minimalistic v2.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 26937,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Minimalistic%20v2.png"
+        }
+      ],
+      "artworkCount": 50,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic v2/Headers/Custom Header/White.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic v2/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Minimalistic v2/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-a9b4235b1aced4",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-a9b4235b1aced4",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Minimalistic%20v2"
+    },
+    {
+      "name": "Netflix",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Netflix/Profiles/Netflix.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1054,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Netflix.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 108301,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Netflix.png"
+        }
+      ],
+      "artworkCount": 102,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Netflix/Headers/Custom Header/frame_000_delay-0.04s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Netflix/Headers/Custom Header/frame_001_delay-0.04s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Netflix/Headers/Custom Header/frame_002_delay-0.04s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-f3f0b4e42e95bf",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-f3f0b4e42e95bf",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Netflix"
+    },
+    {
+      "name": "Nocturnal",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Nocturnal/Profiles/Nocturnal.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1318,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Nocturnal.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 49528,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Nocturnal.png"
+        }
+      ],
+      "artworkCount": 18,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Nocturnal/Headers/Custom Header/0.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Nocturnal/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Nocturnal/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-0078e1e6291d37",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-0078e1e6291d37",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Nocturnal"
+    },
+    {
+      "name": "Nordic Dark",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Nordic Dark/Profiles/Nordic Dark.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1207,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Nordic Dark.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 95049,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Nordic%20Dark.png"
+        }
+      ],
+      "artworkCount": 0,
+      "artworkExamples": [],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-d6fbbcf7d81e66",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-d6fbbcf7d81e66",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Nordic%20Dark"
+    },
+    {
+      "name": "NowiryPulsive",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/NowiryPulsive/Profiles/NowiryPulsive.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1843,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/NowiryPulsive.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 34970,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/NowiryPulsive.png"
+        }
+      ],
+      "artworkCount": 43,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/NowiryPulsive/Headers/Custom Header/StandBasic.png",
+        "Stand/Collections/stand-themerepo-main/Themes/NowiryPulsive/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/NowiryPulsive/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-9a837310403246",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-9a837310403246",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/NowiryPulsive"
+    },
+    {
+      "name": "Off-White",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Off-White/Profiles/Off-White.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1219,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Off-White.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 63516,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Off-White.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Off-White/Header.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-f2a76062e176b7",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-f2a76062e176b7",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Off-White"
+    },
+    {
+      "name": "Old UI",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Old UI/Profiles/Old UI.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1000,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Old UI.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 52237,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Old%20UI.png"
+        }
+      ],
+      "artworkCount": 0,
+      "artworkExamples": [],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-f81ec1bd7d1a57",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-f81ec1bd7d1a57",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Old%20UI"
+    },
+    {
+      "name": "Onyx",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Onyx/Profiles/Onyx.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1567,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Onyx.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 147906,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Onyx.png"
+        }
+      ],
+      "artworkCount": 33,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Onyx/Headers/Custom Header/Header.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Onyx/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Onyx/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-acc74eaaa06f7d",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-acc74eaaa06f7d",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Onyx"
+    },
+    {
+      "name": "Optimum",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Optimum/Profiles/Optimum.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1902,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Optimum.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 86649,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Optimum.png"
+        }
+      ],
+      "artworkCount": 38,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Optimum/Headers/Custom Header/0.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Optimum/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Optimum/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-6b74478f5690a7",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-6b74478f5690a7",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Optimum"
+    },
+    {
+      "name": "Orange Minimalistic",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Orange Minimalistic/Profiles/Orange Minimalistic.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1110,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Orange Minimalistic.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 63576,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Orange%20Minimalistic.png"
+        }
+      ],
+      "artworkCount": 17,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Orange Minimalistic/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Orange Minimalistic/Theme/Edit.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Orange Minimalistic/Theme/Enabled.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-55688f448c54e2",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-55688f448c54e2",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Orange%20Minimalistic"
+    },
+    {
+      "name": "OrangeGray",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/OrangeGray/Profiles/OrangeGray.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 2345,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/OrangeGray.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 29846,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/OrangeGray.png"
+        }
+      ],
+      "artworkCount": 38,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/OrangeGray/Headers/Custom Header/6.png",
+        "Stand/Collections/stand-themerepo-main/Themes/OrangeGray/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/OrangeGray/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-efd1ef716e273f",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-efd1ef716e273f",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/OrangeGray"
+    },
+    {
+      "name": "Ozark",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Ozark/Profiles/Ozark.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1147,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Ozark.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 37937,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Ozark.png"
+        }
+      ],
+      "artworkCount": 21,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Ozark/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Ozark/Interaction Header/Header1.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Ozark/Interaction Header/Header10.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-79f72ea4e7fb4a",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-79f72ea4e7fb4a",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Ozark"
+    },
+    {
+      "name": "Paragon",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Paragon/Profiles/Paragon.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1161,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Paragon.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 104282,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Paragon.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Paragon/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Paragon/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Paragon/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-5c276353ec1947",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-5c276353ec1947",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Paragon"
+    },
+    {
+      "name": "Paragone",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Paragone/Profiles/Paragone.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 704,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Paragone.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 387314,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Paragone.png"
+        }
+      ],
+      "artworkCount": 0,
+      "artworkExamples": [],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-4102706d243fe8",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-4102706d243fe8",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Paragone"
+    },
+    {
+      "name": "Phantom X",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Phantom X/Profiles/Phantom X.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1152,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Phantom X.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 157502,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Phantom%20X.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Phantom X/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Phantom X/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Phantom X/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-c6cba51f7d6a68",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-c6cba51f7d6a68",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Phantom%20X"
+    },
+    {
+      "name": "Pink Animated",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Pink Animated/Profiles/Pink Animated.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1198,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Pink Animated.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 126417,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Pink%20Animated.png"
+        }
+      ],
+      "artworkCount": 150,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Pink Animated/Headers/Custom Header/frame_000_delay-0.03s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Pink Animated/Headers/Custom Header/frame_001_delay-0.04s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Pink Animated/Headers/Custom Header/frame_002_delay-0.03s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-1b0171fcf7362f",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-1b0171fcf7362f",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Pink%20Animated"
+    },
+    {
+      "name": "Rebound",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Rebound/Profiles/Rebound.txt",
+      "archive": "ListUI-Stand-09.zip",
+      "size": 1149,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Rebound.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 40527,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Rebound.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Rebound/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Rebound/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/Rebound/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-0ee2cc2812616c",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-0ee2cc2812616c",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Rebound"
+    },
+    {
+      "name": "Rockstar Admin Tool",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tool/Profiles/Rockstar Admin Tool.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 1215,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Rockstar Admin Tool.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 104413,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Rockstar%20Admin%20Tool.png"
+        }
+      ],
+      "artworkCount": 166,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tool/Headers/Custom Header/frame_000_delay-0.04s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tool/Headers/Custom Header/frame_001_delay-0.04s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tool/Headers/Custom Header/frame_002_delay-0.04s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-776394765659b9",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-776394765659b9",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Rockstar%20Admin%20Tool"
+    },
+    {
+      "name": "Rockstar Admin Tools",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tools/Profiles/Rockstar Admin Tools.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 1619,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Rockstar Admin Tools.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 149499,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Rockstar%20Admin%20Tools.png"
+        }
+      ],
+      "artworkCount": 22,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tools/Headers/Custom Header/Rockstar Admin Tools.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tools/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Rockstar Admin Tools/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-d70f3281e49c8d",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-d70f3281e49c8d",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Rockstar%20Admin%20Tools"
+    },
+    {
+      "name": "Roses",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Roses/Profiles/Roses.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 1466,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Roses.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 89038,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Roses.png"
+        }
+      ],
+      "artworkCount": 440,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Roses/Headers/Custom Header/frame_000_delay-0.02s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Roses/Headers/Custom Header/frame_001_delay-0.02s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Roses/Headers/Custom Header/frame_002_delay-0.02s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-882f79f3fb84b0",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-882f79f3fb84b0",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Roses"
+    },
+    {
+      "name": "Sensitive Content",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Sensitive Content/Profiles/Sensitive Content.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 808,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Sensitive Content.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 113335,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Sensitive%20Content.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Sensitive Content/Headers/Custom Header/Sensitive Content.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-9d2677bec436d4",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-9d2677bec436d4",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Sensitive%20Content"
+    },
+    {
+      "name": "Space",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Space/Profiles/Space.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 1893,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Space.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 66426,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Space.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Space/Headers/Custom Header/Space.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-6ee1dd6279eee6",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-6ee1dd6279eee6",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Space"
+    },
+    {
+      "name": "Spotify",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Spotify/Profiles/Spotify.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 1076,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Spotify.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 118205,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Spotify.png"
+        }
+      ],
+      "artworkCount": 152,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Spotify/Headers/Custom Header/frame_000_delay-0.03s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Spotify/Headers/Custom Header/frame_001_delay-0.03s.gif",
+        "Stand/Collections/stand-themerepo-main/Themes/Spotify/Headers/Custom Header/frame_002_delay-0.03s.gif"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-dd8c97dcc6803f",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-dd8c97dcc6803f",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Spotify"
+    },
+    {
+      "name": "SPXC3",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/SPXC3/Profiles/SPXC3.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 2347,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/SPXC3.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 130155,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/SPXC3.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/SPXC3/Headers/Custom Header/SPXC3.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-ff800669dcb9e1",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-ff800669dcb9e1",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/SPXC3"
+    },
+    {
+      "name": "Standsense",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Standsense/Profiles/Standsense.txt",
+      "archive": "ListUI-Stand-10.zip",
+      "size": 1525,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Standsense.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 98075,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Standsense.png"
+        }
+      ],
+      "artworkCount": 14,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Standsense/Headers/Custom Header/gamesense.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Standsense/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Standsense/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-ad6a34531ee40a",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-ad6a34531ee40a",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Standsense"
+    },
+    {
+      "name": "Standxo",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Standxo/Profiles/standxo.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 984,
+      "authorPreviews": [],
+      "artworkCount": 15,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Standxo/Headers/Custom Header/standxo.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Standxo/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Standxo/Theme/Disabled.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-b8364051c73580",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-b8364051c73580",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Standxo"
+    },
+    {
+      "name": "Stoners",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Stoners/Profiles/Stoners.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1375,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Stoners.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 131993,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Stoners.png"
+        }
+      ],
+      "artworkCount": 39,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Stoners/Headers/Custom Header/1.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Stoners/Headers/Custom Header/10.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Stoners/Headers/Custom Header/11.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-f9fdd8bd46ae7d",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-f9fdd8bd46ae7d",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Stoners"
+    },
+    {
+      "name": "Sunset",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Sunset/Profiles/Sunset.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1463,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Sunset.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 228522,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Sunset.png"
+        }
+      ],
+      "artworkCount": 49,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Sunset/Headers/Custom Header/sunsetmom_40_1.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Sunset/Headers/Custom Header/sunsetmom_40_10.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Sunset/Headers/Custom Header/sunsetmom_40_11.jpg"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-35bcbcef2cb7cd",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-35bcbcef2cb7cd",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Sunset"
+    },
+    {
+      "name": "Superior V",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Superior V/Profiles/Superior V.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1569,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Superior V.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 45856,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Superior%20V.png"
+        }
+      ],
+      "artworkCount": 40,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Superior V/Footer.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Superior V/Header.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Superior V/Theme/Custom/00.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-5a0c09a3492b0c",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-5a0c09a3492b0c",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Superior%20V"
+    },
+    {
+      "name": "The Purge",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/The Purge/Profiles/The Purge.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1045,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/The Purge.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 67092,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/The%20Purge.png"
+        }
+      ],
+      "artworkCount": 2,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/The Purge/Headers/Custom Header/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/The Purge/Theme/List.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-4aed5b14275637",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-4aed5b14275637",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/The%20Purge"
+    },
+    {
+      "name": "Trooper",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Trooper/Profiles/Trooper.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1360,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Trooper.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 136638,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Trooper.png"
+        }
+      ],
+      "artworkCount": 17,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Trooper/Headers/Custom Header/0_blank.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Trooper/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Trooper/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-57ec047e2faf6a",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-57ec047e2faf6a",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Trooper"
+    },
+    {
+      "name": "Windows11",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Windows11/Profiles/Windows11.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1148,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Windows11.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 170175,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Windows11.png"
+        }
+      ],
+      "artworkCount": 5,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Windows11/Background.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Windows11/Profile.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Windows11/Theme/Disabled.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-6396e75b8aeb29",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-6396e75b8aeb29",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Windows11"
+    },
+    {
+      "name": "Windows98",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Windows98/Profiles/Windows98.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 990,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Windows98.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 549324,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Windows98.png"
+        }
+      ],
+      "artworkCount": 19,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Windows98/Headers/Custom Header/windows 98.jpeg",
+        "Stand/Collections/stand-themerepo-main/Themes/Windows98/Theme/Disabled.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Windows98/Theme/Edit.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-2516deb0cb3bde",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-2516deb0cb3bde",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Windows98"
+    },
+    {
+      "name": "X-Force",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/X-Force/Profiles/X-Force.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1149,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/X-Force.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 54857,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/X-Force.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/X-Force/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/X-Force/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/X-Force/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-fb29880ddff83e",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-fb29880ddff83e",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/X-Force"
+    },
+    {
+      "name": "XCheats",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/XCheats/Profiles/XCheats.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1150,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/XCheats.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 57339,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/XCheats.png"
+        }
+      ],
+      "artworkCount": 4,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/XCheats/Footer.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/XCheats/Header.bmp",
+        "Stand/Collections/stand-themerepo-main/Themes/XCheats/Subheader.bmp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-b7705037ee770b",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-b7705037ee770b",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/XCheats"
+    },
+    {
+      "name": "Youtube",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Youtube/Profiles/Youtube.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1931,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Youtube.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 45074,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Youtube.png"
+        }
+      ],
+      "artworkCount": 38,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Youtube/Headers/Custom Header/Youtube.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Youtube/Theme/Custom/00.png",
+        "Stand/Collections/stand-themerepo-main/Themes/Youtube/Theme/Custom/01.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-9291b9714e4c21",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-9291b9714e4c21",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Youtube"
+    },
+    {
+      "name": "Zanium",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Zanium/Profiles/Zanium.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1229,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Zanium.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 74349,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Zanium.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Zanium/Background.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-158751bd01f567",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-158751bd01f567",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Zanium"
+    },
+    {
+      "name": "Zenitsu",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Zenitsu/Profiles/Zenitsu.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1266,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Zenitsu.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 216814,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Zenitsu.png"
+        }
+      ],
+      "artworkCount": 1,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Zenitsu/Headers/Custom Header/Zenitsu.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-549e70c218d50e",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-549e70c218d50e",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Zenitsu"
+    },
+    {
+      "name": "Zeus",
+      "profile": "Stand/Collections/stand-themerepo-main/Themes/Zeus/Profiles/Zeus.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 2033,
+      "authorPreviews": [
+        {
+          "path": "Stand/Collections/stand-themerepo-main/Previews/Zeus.png",
+          "archive": "ListUI-Stand-05.zip",
+          "size": 789538,
+          "sourceUrl": "https://raw.githubusercontent.com/stagnate6628/stand-themerepo/main/Previews/Zeus.png"
+        }
+      ],
+      "artworkCount": 264,
+      "artworkExamples": [
+        "Stand/Collections/stand-themerepo-main/Themes/Zeus/Headers/Custom Header/0001.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Zeus/Headers/Custom Header/0002.jpg",
+        "Stand/Collections/stand-themerepo-main/Themes/Zeus/Headers/Custom Header/0003.jpg"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-b64f751c8856e3",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-b64f751c8856e3",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/stagnate6628/stand-themerepo/tree/main/Themes/Zeus"
+    },
+    {
+      "name": "HackTheBox",
+      "profile": "Stand/Collections/standthemes-main/HackTheBox/Profiles/HackTheBox.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1392,
+      "authorPreviews": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/hypercrites/standthemes/main/HackTheBox/hackthebox_preview.png",
+          "evidence": "Author README and bundled archive README"
+        }
+      ],
+      "artworkCount": 20,
+      "artworkExamples": [
+        "Stand/Collections/standthemes-main/HackTheBox/hackthebox_preview.png",
+        "Stand/Collections/standthemes-main/HackTheBox/hackthebox_theme.jpg",
+        "Stand/Collections/standthemes-main/HackTheBox/Headers/Custom Header/0.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-4f869ba754560e",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-4f869ba754560e",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/hypercrites/standthemes/tree/main/HackTheBox"
+    },
+    {
+      "name": "Nocturnal",
+      "profile": "Stand/Collections/standthemes-main/Nocturnal/Profiles/Nocturnal.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1248,
+      "authorPreviews": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/hypercrites/standthemes/main/Nocturnal/nocturnal_preview.webp",
+          "evidence": "Author README and bundled archive README"
+        }
+      ],
+      "artworkCount": 35,
+      "artworkExamples": [
+        "Stand/Collections/standthemes-main/Nocturnal/_extras/0_alt.png",
+        "Stand/Collections/standthemes-main/Nocturnal/Headers/Custom Header/0.png",
+        "Stand/Collections/standthemes-main/Nocturnal/nocturnal_preview.webp"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-796ea96bc877a7",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-796ea96bc877a7",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/hypercrites/standthemes/tree/main/Nocturnal"
+    },
+    {
+      "name": "Trooper",
+      "profile": "Stand/Collections/standthemes-main/Trooper/Profiles/Trooper.txt",
+      "archive": "ListUI-Stand-11.zip",
+      "size": 1335,
+      "authorPreviews": [
+        {
+          "sourceUrl": "https://raw.githubusercontent.com/hypercrites/standthemes/main/Trooper/trooper_preview.webp",
+          "evidence": "Author README and bundled archive README"
+        }
+      ],
+      "artworkCount": 24,
+      "artworkExamples": [
+        "Stand/Collections/standthemes-main/Trooper/_extras/0_basic.png",
+        "Stand/Collections/standthemes-main/Trooper/_extras/0_blank.png",
+        "Stand/Collections/standthemes-main/Trooper/_extras/0_regular.png"
+      ],
+      "catalogMatches": [
+        {
+          "id": "gta5-themes-preset-stand-fe0b38b0e5b938",
+          "game": "gta5"
+        },
+        {
+          "id": "rdr2-themes-preset-stand-fe0b38b0e5b938",
+          "game": "rdr2"
+        }
+      ],
+      "sourceUrl": "https://github.com/hypercrites/standthemes/tree/main/Trooper"
+    }
+  ],
+  "sourceTextEvidence": [
+    {
+      "path": "Stand/Collections/InfOverlay-main/README.md",
+      "archive": "ListUI-Stand-01.zip",
+      "text": "# InfOverlay\nInfo overlay lua script for the GTA V Stand mod menu.\n\nYou can find the settings for the info overlay in Players > Settings > InfOverlay Settings.\n\n![InfOverlay](https://user-images.githubusercontent.com/67374474/214446395-8f8623d4-cdb4-41cd-889b-63973b2ef5c0.PNG)\n\nEnjoy!\n"
+    },
+    {
+      "path": "Stand/Collections/stand-themerepo-main/README.md",
+      "archive": "ListUI-Stand-05.zip",
+      "text": "# ThemeRepo\nLua script to apply headers and themes blazingly fast for Stand\n\n**Installation**\n\n<https://github.com/stagnate6628/stand-themerepo/releases>\n\nFind the latest version and download `ThemeRepo.pluto` to `%appdata%\\Stand\\Lua Scripts`\n\n> [!WARNING]  \n> When downloading a header, the `Custom Headers` folder gets wiped.\n> \n> When downloading a theme, the `Theme` and `Custom Headers` folders get wiped.\n>\n> Create backups as needed.\n"
+    },
+    {
+      "path": "Stand/Collections/standthemes-main/HackTheBox/readme.md",
+      "archive": "ListUI-Stand-11.zip",
+      "text": "# Download\n> [here](https://github.com/hypercrites/standthemes/raw/main/HackTheBox/HackTheBox.zip)\n# Screenshot\n<img src=\"https://raw.githubusercontent.com/hypercrites/standthemes/main/HackTheBox/hackthebox_theme.jpg\">\n"
+    },
+    {
+      "path": "Stand/Collections/standthemes-main/LICENSE",
+      "archive": "ListUI-Stand-11.zip",
+      "text": "This is free and unencumbered software released into the public domain.\n\nAnyone is free to copy, modify, publish, use, compile, sell, or\ndistribute this software, either in source code form or as a compiled\nbinary, for any purpose, commercial or non-commercial, and by any\nmeans.\n\nIn jurisdictions that recognize copyright laws, the author or authors\nof this software dedicate any and all copyright interest in the\nsoftware to the public domain. We make this dedication for the benefit\nof the public at large and to the detriment of our heirs and\nsuccessors. We intend this dedication to be an overt act of\nrelinquishment in perpetuity of all present and future rights to this\nsoftware under copyright law.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR\nOTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,\nARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\nOTHER DEALINGS IN THE SOFTWARE.\n\nFor more information, please refer to <https://unlicense.org>\n"
+    },
+    {
+      "path": "Stand/Collections/standthemes-main/Nocturnal/readme.md",
+      "archive": "ListUI-Stand-11.zip",
+      "text": "# Download\n> [here](https://github.com/hypercrites/standthemes/raw/main/Nocturnal/Nocturnal.zip)\n# Screenshot\n<img src=\"https://raw.githubusercontent.com/hypercrites/standthemes/main/Nocturnal/nocturnal_screenshot.jpg\">\n"
+    },
+    {
+      "path": "Stand/Collections/standthemes-main/README.md",
+      "archive": "ListUI-Stand-11.zip",
+      "text": "# Stand Themes\nA collection of my themes made for the GTA:O mod menu `Stand`.\n\n> [!NOTE]\n> The installation process should always be the same.\n> wich means:\n> 1. Copy the folders *Headers*, *Profiles*, *Tabs* and *Theme* into your Stand-folder.\n> 2. Ingame, go to Stand > Profiles > *Theme name* > Load\n\n> [!TIP]\n> - Some themes have alternative Headers inside a folder named *_extras*, you can replace the header by copying it to *Headers/Custom Header/* and rename it to `0.png`\n> - If you want to use my custom font, download `Font.spritefont` and copy it into the *Theme* folder.\n\n## Previews\n### Nocturnal\n[<img src=\"https://raw.githubusercontent.com/hypercrites/standthemes/main/Nocturnal/nocturnal_preview.webp\">](https://github.com/hypercrites/standthemes/tree/main/Nocturnal)\n\n### Trooper\n[<img src=\"https://raw.githubusercontent.com/hypercrites/standthemes/main/Trooper/trooper_preview.webp\">](https://github.com/hypercrites/standthemes/tree/main/Trooper)\n\n### HackTheBox\n[<img src=\"https://raw.githubusercontent.com/hypercrites/standthemes/main/HackTheBox/hackthebox_preview.png\">](https://github.com/hypercrites/standthemes/tree/main/HackTheBox)\n"
+    },
+    {
+      "path": "Stand/Collections/standthemes-main/Trooper/readme.md",
+      "archive": "ListUI-Stand-11.zip",
+      "text": "# Download\n> [here](https://github.com/hypercrites/standthemes/raw/main/Trooper/Trooper.zip)\n# Screenshot\n<img src=\"https://raw.githubusercontent.com/hypercrites/standthemes/main/Trooper/trooper_screenshot.jpg\">\n"
+    }
+  ],
+  "compatibilityEvidence": {
+    "scope": "Source inspection only; no fresh runtime test executed",
+    "allInOne": {
+      "testSource": "Scooby-Op/GTA5/EE/GTA - Main Src/tests/StandThemeScriptTests.cpp",
+      "lines": [
+        51,
+        78
+      ],
+      "behavior": "Loads original All-in-One source into isolated theme runtime, activates theme option entries and requires custom presets to emit draws; tests demand at least 30 options."
+    },
+    "nativeSelector": {
+      "source": "Scooby-Op/GTA5/EE/GTA - Main Src/src/core/frontend/ListUI/Styles/Stand/Host/Themes/Themes.cpp",
+      "lines": [
+        72,
+        85
+      ],
+      "behavior": "Loads candidate script from Stand/Collections and discovers original collection profiles."
+    },
+    "limitations": [
+      "Native Stand theme integration does not establish compatibility for arbitrary Stand gameplay Lua APIs.",
+      "Nenyoo theme.lua conversions are separate format and must remain separate from original Stand profiles.",
+      "Old UI is an actual named ThemeRepo profile, not evidence that it came from Discord Old Shares."
+    ]
+  },
+  "publicVerification": [
+    {
+      "url": "https://github.com/hypercrites/standthemes",
+      "checkedAt": "2026-11-11",
+      "facts": [
+        "Public author repository lists HackTheBox, Nocturnal, Trooper.",
+        "README documents copying Headers, Profiles, Tabs, Theme and loading the named Stand profile.",
+        "README lists the three real image previews.",
+        "Repository declares Unlicense and no releases published."
+      ]
+    }
+  ]
+}

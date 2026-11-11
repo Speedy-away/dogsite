@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "purpose": "Creator-published FiveM character and animal models with server setup notes.",
+  "items": [
+    {
+      "id": "fivem-ped-popcornrp-pets",
+      "category": "addon-peds",
+      "name": "Popcorn RP Pets",
+      "author": "Popcorn RP and credited contributors",
+      "description": "A free collection of animal models including a Chow Chow, a Dobermann, K9 dogs, an armadillo and a robot dog.",
+      "sourceUrl": "https://github.com/alberttheprince/popcornrp-pets",
+      "installUrl": "https://github.com/alberttheprince/popcornrp-pets#popcornrp-pets",
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/7/6/a/3/76a30fb8a94f12eaef666b855d12752622607827.jpeg",
+      "previewKind": "author-preview",
+      "previewCaption": "Popcorn RP’s preview of its FiveM animal models.",
+      "previewVerified": true,
+      "requirementLabel": "FiveM server · Free · Animal models",
+      "requirements": [
+        "Keep fxmanifest.lua, data and stream together in a resource folder named popcornrp-pets and add ensure popcornrp-pets to server.cfg.",
+        "Read the model name from the matching peds.meta entry. Pet interactions require a separate compatible resource such as keep-companion-ox."
+      ],
+      "tags": ["animals", "dogs", "pet models"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-ped-pablo-taco",
+      "category": "addon-peds",
+      "name": "Pablo ‘Fat Cop’ Taco",
+      "author": "TehHitman",
+      "description": "A free human character model with casual outfits and police uniform variants for LSPD, BCSO and SAHP.",
+      "sourceUrl": "https://github.com/TehHitman/cfx-pablo-hitman",
+      "installUrl": "https://forum.cfx.re/t/free-ped-pablo-fat-cop-taco/5287178",
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/c/f/0/c/cf0c68378a668266265b480670d07317fd6a41c4.jpeg",
+      "previewKind": "author-preview",
+      "previewCaption": "TehHitman’s preview of the Pablo Taco character model.",
+      "previewVerified": true,
+      "requirementLabel": "FiveM server · Free · Human character",
+      "requirements": [
+        "Open cfx-pablo-hitman.zip on the author’s repository and use the enclosed FiveM resource folder.",
+        "Start the resource by its folder name. Use the supplied model name in your server’s ped selector and test the outfit variants."
+      ],
+      "tags": ["human ped", "roleplay", "uniforms"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-ped-serafim-anubis",
+      "category": "addon-peds",
+      "name": "Anubis",
+      "author": "SSERAFIM MODS",
+      "description": "A fantasy character model with multiple eye and body variants and levels of detail for different viewing distances.",
+      "sourceUrl": "https://seraphimmods.tebex.io/package/anubis",
+      "requirementLabel": "FiveM server · Paid Tebex release · Asset Escrow",
+      "requirements": [
+        "Place the supplied sera_anubis folder in your server’s resources folder and add ensure sera_anubis to server.cfg.",
+        "Use sera_anubis as the model name in your server’s ped selector."
+      ],
+      "tags": ["fantasy ped", "character model", "texture variants"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

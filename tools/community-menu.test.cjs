@@ -6,6 +6,8 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const vm = require('node:vm');
 const menus = require('../resources/menus.js');
+const routes = require('../resources/routes.js');
+const { categoryId } = require('../resources/taxonomy.js');
 const supplement = require('../community/data/menu-resources.json');
 const base = require('../community/data/library.json');
 const ROOT = path.resolve(__dirname, '..');
@@ -13,14 +15,14 @@ test('resource guides retain the selected menu even when a shared item came from
   const script = fs.readFileSync(path.join(ROOT, 'resources/catalog.js'), 'utf8');
   const implementation = script.match(/function guideURL\(entry\) \{[\s\S]+?(?=\nfunction link\()/)?.[0];
   assert(implementation);
-  for (const selected of ['scooby', 'nenyoo', 'stand']) {
-    const context = { URL, URLSearchParams, state: { game: 'gta5', category: 'themes', menu: selected }, location: { href: 'https://scoobymenu.cc/resources/' } };
+  const publishedGuides = require('../resources/guides/routes.json');
+  for (const [game, selected, category] of [['gta5', 'scooby', 'themes'], ['gta5', 'nenyoo', 'themes'], ['gta5', 'stand', 'themes'], ['rdr2', 'nenyoo', 'languages']]) {
+    const context = { URL, routes, publishedGuides, categoryId, menuFor: menus.menuFor,
+      state: { game, category, menu: selected }, location: { href: 'https://scoobymenu.cc/resources/' } };
     const guide = vm.runInNewContext(`(${implementation})`, context);
     for (const prefix of ['community', 'resources']) {
-      const address = new URL(guide({ guide: `/${prefix}/guides/?game=gta5&menu=cherax&category=themes` }), context.location.href);
-      assert.equal(address.pathname, '/resources/guides/');
-      assert.equal(address.searchParams.get('menu'), selected);
-      assert.equal(address.searchParams.get('category'), 'themes');
+      const address = guide({ guide: `/${prefix}/guides/?game=${game}&menu=cherax&category=${category}` });
+      assert.equal(address, routes.guidePath(game, category, selected));
     }
   }
 });
@@ -28,31 +30,70 @@ test('menu selection has a Scooby default and separates discovery from runtime r
   assert.equal(menus.menuFor('gta5', ''), 'scooby');
   assert.equal(menus.menuFor('gta5', 'X-Force'), 'xforce');
   assert.equal(menus.menuFor('cs2', 'stand'), 'scooby');
-  assert(menus.MENUS.find(menu => menu.id === 'yim').deferred);
+  assert.equal(menus.menuFor('gta5', 'Yim'), 'yim');
   const source = { game: 'gta5', category: 'lua', sourceMenu: 'cherax', supportedMenus: ['cherax'], listedMenus: ['cherax', 'scooby', 'nenyoo'] };
-  assert(menus.supports(source, 'scooby'));
+  assert(menus.supports(source, 'cherax'));
+  assert(!menus.supports(source, 'scooby') && !menus.supports(source, 'nenyoo'));
   assert(!menus.compatibleWith(source, 'scooby'));
   assert(!menus.supports(source, 'stand'));
+  const stand = { ...source, sourceMenu: 'stand', supportedMenus: ['stand'], listedMenus: ['stand', 'scooby', 'nenyoo'] };
+  assert(menus.supports(stand, 'stand'));
+  assert(!menus.supports(stand, 'scooby'));
+  assert(!menus.supports(stand, 'nenyoo'));
   assert.deepEqual(menus.menuIds({ game: 'gta5', category: 'themes', menu: 'Scooby' }), ['scooby']);
 });
-test('new Lua listings have honest pending downloads, explicit source APIs and no Discord links', () => {
+test('Lua listings expose local downloads or an honest unavailable state', () => {
   const scripts = supplement.items.filter(item => item.category === 'lua' && item.game !== 'redm');
+  const standSubmissions = new Map(require('../project/community-menu-sources/stand-submitted.json').items.map(item => [item.id, item]));
+  const visibleMenus = item => menus.menusFor(item.game).filter(menu => menus.supports(item, menu.id)).map(menu => menu.id);
   assert(scripts.length >= 59);
   const ids = new Set();
   for (const item of scripts) {
     assert(!ids.has(item.id), item.id); ids.add(item.id);
-    assert.equal(item.downloadStatus, 'pending', item.id);
-    assert.deepEqual(item.files, [], item.id);
+    if (item.files.length) {
+      assert(['cherax', 'yim', 'yimv2', 'stand'].includes(item.sourceMenu), item.id);
+      assert.equal(item.downloadStatus, 'available', item.id);
+      assert.equal(new Set(item.files.map(file => file.versionLabel)).size, item.files.length, item.id);
+      assert.equal(new Set(item.files.map(file => file.sha256)).size, item.files.length, item.id);
+      for (const file of item.files) {
+        let location;
+        if (item.sourceMenu === 'stand') {
+          assert(item.oldShares, item.id);
+          assert.match(file.path, /^downloads\/gta5\/menus\/stand\/[a-f0-9]{20}\.(?:lua|pluto|zip)$/);
+          location = path.join(ROOT, '../cool-repo', file.path);
+        } else {
+          assert.match(file.url, item.sourceMenu !== 'cherax'
+            ? /^\/assets\/downloads\/yim\/[\w.-]+\.zip$/
+            : /^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.lua$/);
+          location = path.join(ROOT, file.url);
+        }
+        const bytes = fs.readFileSync(location);
+        assert.equal(bytes.length, file.size, file.name);
+        assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), file.sha256, file.name);
+      }
+    } else if (item.sourceMenu === 'stand' && item.status === 'author-hosted') {
+      assert.equal(item.downloadStatus, 'author-hosted', item.id);
+      assert.equal(new URL(item.sourceUrl).origin, 'https://github.com', item.id);
+    } else assert.equal(item.downloadStatus, 'pending', item.id);
     assert.equal(item.sourceCatalog, 'menu-resources', item.id);
     assert(item.supportedMenus.length && item.sourceMenu, item.id);
-    assert(menus.supports(item, 'scooby') && menus.supports(item, 'nenyoo'), item.id);
+    if (item.game === 'gta5') assert.deepEqual(visibleMenus(item).sort(), [...item.supportedMenus].sort(), item.id);
     assert(!/https?:\/\/(?:\w+\.)?discord(?:app)?\.(?:com|gg)/i.test(JSON.stringify(item)), item.id);
   }
-  const notes = scripts.find(item => item.id === 'menu-cherax-lua-host-tools-1-9-0');
+  for (const [id, submission] of standSubmissions) {
+    const item = scripts.find(script => script.id === id);
+    assert.equal(item?.preview, submission.preview, id);
+    assert.equal(item.previewVerified, true, id);
+    assert(fs.existsSync(path.join(ROOT, item.preview)), id);
+  }
+  const notes = scripts.find(item => item.id === 'cherax-lua-host-tools');
   assert.equal(notes.changelog[0].version, '1.9.0');
   assert.equal(notes.changelog[0].date, '2026-11-08');
   assert(notes.changelog[0].changes.length);
   assert(!base.items.some(item => item.category === 'lua'), 'Removed broken examples remain outside the base catalog');
+  const drift = scripts.filter(item => item.sourceMenu === 'cherax' && /driftgod/i.test(item.name));
+  assert.equal(drift.length, 1);
+  assert(drift[0].files.some(file => file.versionLabel === 'v1.0.6'));
 });
 test('reviewed RedM scripts download and preview-only menus have no payloads', () => {
   const redm = supplement.items.filter(item => item.game === 'redm');
@@ -73,11 +114,12 @@ test('compatibility overrides reuse original resources and compact legacy groups
   const legacy = menus.legacyOverrideMap(supplement);
   assert(legacy.size >= 21021);
   assert(supplement.legacyGroups.length < legacy.size / 10, 'Repeated legacy metadata should be shared');
-  const standKeys = new Set(require('../project/community-menu-sources/stand.json').legacyOverrides.map(item => `${item.family}:${item.index}`));
   for (const [key, value] of legacy) {
     assert.equal(key, `${value.family}:${value.index}`);
-    if (standKeys.has(key)) assert(menus.supports({ ...value, game: 'gta5' }, 'stand'));
-    assert(menus.supports({ ...value, game: 'gta5' }, 'scooby'));
+    if (value.supportedMenus) {
+      const visibleMenus = menus.menusFor('gta5').filter(menu => menus.supports({ ...value, game: 'gta5' }, menu)).map(menu => menu.id);
+      assert.deepEqual(visibleMenus.sort(), [...value.supportedMenus].sort(), key);
+    }
   }
   assert(fs.statSync(path.join(ROOT, 'community/data/menu-resources.json')).size < 12 * 1024 * 1024);
 });

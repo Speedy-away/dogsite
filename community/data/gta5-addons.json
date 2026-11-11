@@ -6030,16 +6030,23 @@
       "id": "gta5-author-addon-32c0b001d3974875",
       "game": "gta5",
       "category": "addon-vehicles",
-      "name": "Vapid Speedo Express [Add-On | Liveries | Legacy | Enhanced]",
-      "author": "TheF3nt0n",
+      "name": "Vapid Speedo Express [Add-On | Legacy | Enhanced]",
+      "author": "TheF3nt0n, TG_Stig & Dani02",
       "source": "GTA5-Mods",
       "sourceUrl": "https://www.gta5-mods.com/vehicles/vapid-speedo-express-add-on-liveries",
       "status": "author-hosted",
       "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/vapid-speedo-express-add-on-liveries/2f6577-1_resized.png",
       "files": [],
       "version": "2.5",
+      "releaseDate": "2026-06-21",
       "editionSupport": "both",
       "editionSource": "https://www.gta5-mods.com/vehicles/vapid-speedo-express-add-on-liveries",
+      "model": "nspeedo",
+      "description": "A lore-friendly Ford Transit-inspired van with nine liveries, tuning parts and custom sounds. Spawn it as nspeedo.",
+      "requirements": [
+        "Choose the package for GTA V Legacy or Enhanced",
+        "Use the installation instructions included with that package"
+      ],
       "tags": [
         "Add-On",
         "Car",
@@ -6047,8 +6054,12 @@
         "Truck",
         "Fictional",
         "Lore Friendly",
-        "Enhanced"
-      ]
+        "Enhanced",
+        "Vapid",
+        "van",
+        "lore friendly"
+      ],
+      "reviewed": true
     },
     {
       "id": "gta5-author-addon-1938bcdc7cbeea22",
@@ -9036,11 +9047,21 @@
       "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/shrek-add-on-ped/17bc4f-GTA5%202016-10-19%2018-37-10-07.jpg",
       "files": [],
       "version": "1.0",
+      "releaseDate": "2016-10-19",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/shrek-add-on-ped",
+      "description": "A playable Shrek model based on his appearance in Shrek the Third.",
+      "requirements": [
+        "Add-On Peds / Ped Selector"
+      ],
       "tags": [
         "Skin",
         "Add-On",
-        "Featured"
-      ]
+        "Featured",
+        "Shrek",
+        "DreamWorks"
+      ],
+      "reviewed": true
     },
     {
       "id": "gta5-author-addon-9bc2994f3cdfd6c2",
@@ -10381,14 +10402,24 @@
       "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/daphne-blake-add-on-ped/dca2b5-PORTAL.jpg",
       "files": [],
       "version": "1.1",
+      "releaseDate": "2026-11-07",
+      "description": "Daphne Blake as she appears in the 2002 live-action Scooby-Doo film.",
+      "requirements": [
+        "Ped Selector",
+        "Check the edition supported by your ped loader"
+      ],
       "tags": [
         "Clothing",
         "Skin",
         "Add-On",
         "USA",
         "Fictional",
-        "North America"
-      ]
+        "North America",
+        "Scooby-Doo",
+        "Mystery Inc.",
+        "Daphne"
+      ],
+      "reviewed": true
     },
     {
       "id": "gta5-author-addon-2977bf5d14dfc102",
@@ -12157,6 +12188,1349 @@
       "tags": [
         "Animation"
       ]
+    },
+    {
+      "id": "gta5-author-addon-f334997ea2ed58a3",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Shaggy Rogers [Add-On Ped]",
+      "author": "avenxares123",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/scooby-doo-shaggy",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/scooby-doo-shaggy/bdee21-Shaggy.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2019-03-21",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/scooby-doo-shaggy",
+      "description": "A playable Shaggy model based on the Jump Force character.",
+      "requirements": [
+        "Add-On Peds / Ped Selector"
+      ],
+      "tags": [
+        "Scooby-Doo",
+        "Mystery Inc.",
+        "Shaggy",
+        "Jump Force",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-9aa27828ef698576",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Iron Spider (Tom Holland) [Add-On Ped]",
+      "author": "nsh3t & azminzainal25",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/iron-spider-avengers-infinity-war-emissive-add-on",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/iron-spider-avengers-infinity-war-emissive-add-on/e6cf42-ncover.jpg",
+      "files": [],
+      "version": "1.4",
+      "releaseDate": "2019-05-18",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/iron-spider-avengers-infinity-war-emissive-add-on",
+      "description": "Infinity War Iron Spider with masked and Tom Holland variants and selectable mechanical arms.",
+      "requirements": [
+        "Add-On Peds",
+        "JulioNIB’s Spider-Man mod for the supplied suit presets"
+      ],
+      "tags": [
+        "Spider-Man",
+        "Marvel",
+        "Infinity War",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-8b05901090b6698c",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Spider-Man PS4 Advanced Suit [Add-On Ped]",
+      "author": "gtav_KWABZ",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/spider-man-ps4-peter-parker-advanced-suit-2-in-1-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/spider-man-ps4-peter-parker-advanced-suit-2-in-1-ped/18f8d0-S1.png",
+      "files": [],
+      "version": "2.0",
+      "releaseDate": "2021-11-12",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/spider-man-ps4-peter-parker-advanced-suit-2-in-1-ped",
+      "description": "The PS4 Advanced Suit with a removable mask, reworked textures and improved rigging.",
+      "requirements": [
+        "Add-On Peds / Ped Selector",
+        "Menyoo or another trainer to toggle the mask"
+      ],
+      "tags": [
+        "Spider-Man",
+        "Marvel",
+        "PS4",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-bb06dce1fc551c11",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Buzz Lightyear [Add-On Ped]",
+      "author": "Scorpion4241",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/buzz-lightyear-add-on-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/buzz-lightyear-add-on-ped/15139f-fasdawear.png",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2023-01-04",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/buzz-lightyear-add-on-ped",
+      "model": "buzz",
+      "description": "The Toy Story space ranger as a non-streamed ped. Register the model as buzz.",
+      "requirements": [
+        "Add-On Peds / Ped Selector"
+      ],
+      "tags": [
+        "Toy Story",
+        "Pixar",
+        "Buzz Lightyear",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-0c7b7f5b43fa06a4",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "The Simpsons Pack [Add-On Peds]",
+      "author": "Fermit the Krog",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/the-simpsons-pack-add-on-peds",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/the-simpsons-pack-add-on-peds/41a44a-simpson.png",
+      "files": [],
+      "version": "4.0",
+      "releaseDate": "2021-11-23",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/the-simpsons-pack-add-on-peds",
+      "description": "Fourteen Springfield characters from The Simpsons: Road Rage, including Homer, Bart, Marge and Lisa.",
+      "requirements": [
+        "A compatible add-on ped loader"
+      ],
+      "tags": [
+        "The Simpsons",
+        "Homer Simpson",
+        "ped pack",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-db639c71789c0c85",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "The Highway Nightmare [Add-On]",
+      "author": "johndoe968 & WibFlip",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/the-highway-nightmare-add-on",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/the-highway-nightmare-add-on/400a2d-nasty1.png",
+      "files": [],
+      "version": "1.2",
+      "releaseDate": "2023-11-24",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/vehicles/the-highway-nightmare-add-on",
+      "model": "highmare",
+      "description": "A lore-friendly take on the live-action Mystery Machine with interior extras and a roof-mounted surfboard. Spawn it as highmare.",
+      "requirements": [
+        "A compatible vehicle DLC loader",
+        "Use the package readme for the DLC folder name"
+      ],
+      "tags": [
+        "Scooby-Doo",
+        "Mystery Machine",
+        "van",
+        "lore friendly",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z",
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ]
+    },
+    {
+      "id": "gta5-author-addon-3cf151a7ed0a0e39",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "1982 Ford E-150 Van [Add-On]",
+      "author": "GreenAid",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/ford-e-150-van-82-add-on-lods-dirtmap-template",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/ford-e-150-van-82-add-on-lods-dirtmap-template/2216e0-GTA5%202019-01-20%2018-14-46-62.jpg",
+      "files": [],
+      "version": "1.2",
+      "releaseDate": "2019-02-06",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/vehicles/ford-e-150-van-82-add-on-lods-dirtmap-template",
+      "model": "e15082",
+      "description": "An add-on Ford van with liveries and a paint template. This is the base vehicle for Schembo’s Mystery Machine livery.",
+      "requirements": [
+        "A compatible vehicle DLC loader",
+        "Follow the package readme"
+      ],
+      "tags": [
+        "Ford",
+        "van",
+        "Mystery Machine",
+        "livery base",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z",
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ]
+    },
+    {
+      "id": "gta5-author-addon-5c198002cf98f5e1",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "K.I.T.T. from Knight Rider [Add-On]",
+      "author": "kjb33",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/k-i-t-t-from-knight-rider-add-on-vehfuncs-v",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/k-i-t-t-from-knight-rider-add-on-vehfuncs-v/121841-1.png",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2025-10-21",
+      "model": "kittfh5",
+      "description": "K.I.T.T. with a digital dashboard, working lights and removable T-tops. Spawn it as kittfh5.",
+      "requirements": [
+        "A compatible DLC loader for the supplied dlc.rpf",
+        "VehFuncs V for the scanner light and wipers"
+      ],
+      "tags": [
+        "Knight Rider",
+        "KITT",
+        "Pontiac",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z",
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ]
+    },
+    {
+      "id": "gta5-author-addon-6eb39d8f79432c95",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "Ghostbusters Ecto-1 [Add-On]",
+      "author": "kjb33 & G1Convoy",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/ecto1-from-ghostbusters-vehfuncs-v",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/ecto1-from-ghostbusters-vehfuncs-v/93d1ee-1.png",
+      "files": [],
+      "version": "0.2",
+      "releaseDate": "2022-02-19",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/vehicles/ecto1-from-ghostbusters-vehfuncs-v",
+      "model": "ecto1",
+      "description": "The Ghostbusters wagon with working lights, room for four and a Ghostbusters II livery. Spawn it as ecto1.",
+      "requirements": [
+        "A compatible vehicle DLC loader",
+        "VehFuncs V for animated equipment and wipers"
+      ],
+      "tags": [
+        "Ghostbusters",
+        "Ecto-1",
+        "Cadillac",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z",
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ]
+    },
+    {
+      "id": "gta5-author-addon-d5eaf044c2e8ec23",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "DeLorean DMC-12 Time Machine [Add-On]",
+      "author": "andre500",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/delorean-dmc-12-time-machine-bttf-add-on-hover-mode-working-tcd-time-travel",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/delorean-dmc-12-time-machine-bttf-add-on-hover-mode-working-tcd-time-travel/930d13-dmc12_cover.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2026-10-05",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/vehicles/delorean-dmc-12-time-machine-bttf-add-on-hover-mode-working-tcd-time-travel",
+      "model": "dmc12",
+      "description": "The Back to the Future DeLorean with hover mode and optional scripted time circuits. Spawn it as dmc12.",
+      "requirements": [
+        "GTA V Legacy. The author documents model conversion for Enhanced through ModDrop V.",
+        "Script Hook V and ScriptHookVDotNet 3 for the scripted displays and time travel"
+      ],
+      "tags": [
+        "Back to the Future",
+        "DeLorean",
+        "DMC-12",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-69520f6fb1cef62f",
+      "game": "gta5",
+      "category": "liveries",
+      "name": "Live-Action Mystery Machine Livery",
+      "author": "Schembo",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/paintjobs/scooby-doo-live-action-2002-mystery-machine",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/scooby-doo-live-action-2002-mystery-machine/868a14-0BNKzVm7Y0qDj1eelQ8ugA_0_0.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2021-01-10",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/paintjobs/scooby-doo-live-action-2002-mystery-machine",
+      "description": "A live-action Scooby-Doo Mystery Machine paint scheme for GreenAid’s 1982 Ford E-150 Van.",
+      "requirements": [
+        "GreenAid’s 1982 Ford E-150 Van add-on",
+        "Follow the author’s texture installation instructions"
+      ],
+      "tags": [
+        "Scooby-Doo",
+        "Mystery Machine",
+        "Ford E-150",
+        "livery",
+        "liveries"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-1bd3fbcfe43a01d8",
+      "game": "gta5",
+      "category": "textures",
+      "name": "Scooby-Doo Texture for Chop",
+      "author": "stefan_menjac",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/scooby-doo-mod",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/scooby-doo-mod/3acf30-GTA5%202015-07-19%2005-07-40-599.jpg",
+      "files": [],
+      "releaseDate": "2015-07-19",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/scooby-doo-mod",
+      "description": "A replacement texture that gives Chop the colors and collar of Scooby-Doo.",
+      "requirements": [
+        "OpenIV",
+        "The original Chop ped model"
+      ],
+      "tags": [
+        "Scooby-Doo",
+        "Chop",
+        "dog",
+        "texture replacement",
+        "textures"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T06:54:21.748Z"
+    },
+    {
+      "id": "gta5-author-addon-914e34d3c30df38b",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Leona from Sudden Attack 2 [Add-On Ped]",
+      "author": "tuankhai",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/leona-from-sudden-attack-2-add-on-replace-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/leona-from-sudden-attack-2-add-on-replace-ped/227cfc-Screenshot%20%28159%29-compressed.jpg",
+      "files": [],
+      "releaseDate": "2018-04-05",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/leona-from-sudden-attack-2-add-on-replace-ped",
+      "description": "Playable Leona model from Sudden Attack 2.",
+      "requirements": [
+        "Add-On Peds / Ped Selector. Keep the model and texture files together."
+      ],
+      "tags": [
+        "Leona",
+        "Sudden Attack 2",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-77b15ec77f1680a7",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Negan from The Walking Dead [Add-On Ped]",
+      "author": "TheFriedturkey",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/the-walking-dead-negan-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/the-walking-dead-negan-ped/05ff28-twd%20negan.jpg",
+      "files": [],
+      "releaseDate": "2017-10-22",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/the-walking-dead-negan-ped",
+      "description": "A rebuilt Negan character model based on The Walking Dead.",
+      "requirements": [
+        "Add-On Peds / Ped Selector. Keep the model and texture files together."
+      ],
+      "tags": [
+        "The Walking Dead",
+        "Negan",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-edcfb49a84439cd3",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Michelle Chang from Tekken [Add-On Ped]",
+      "author": "alex189",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/michelle-chang-from-tekken-add-on-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/michelle-chang-from-tekken-add-on-ped/dcb814-Grand%20Theft%20Auto%20V%2005.27.2017%20-%2022.27.29.23.jpg",
+      "files": [],
+      "releaseDate": "2016-12-02",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/michelle-chang-from-tekken-add-on-ped",
+      "description": "Michelle Chang from Tekken Tag Tournament 2, with facial animation support.",
+      "requirements": [
+        "Add-On Peds / Ped Selector. Keep the model and texture files together."
+      ],
+      "tags": [
+        "Tekken",
+        "Michelle Chang",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-555e97a852978689",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Mr. Wolf from The Bad Guys [Add-On Ped]",
+      "author": "WolfFire23309",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/mr-wolf-the-bad-guys-addon-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/mr-wolf-the-bad-guys-addon-ped/916c55-mainpic-min.png",
+      "files": [],
+      "releaseDate": "2024-05-29",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/mr-wolf-the-bad-guys-addon-ped",
+      "description": "A playable Mr. Wolf character from The Bad Guys.",
+      "requirements": [
+        "Add-On Peds / Ped Selector. Keep the model and texture files together."
+      ],
+      "tags": [
+        "Mr. Wolf",
+        "The Bad Guys",
+        "DreamWorks",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-c208fa6bd4b7abd3",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "Jason Statham [Add-On Ped]",
+      "author": "FatalKnight",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/jason-statham-addon-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/jason-statham-addon-ped/d4077e-a.png",
+      "files": [],
+      "releaseDate": "2020-08-28",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/jason-statham-addon-ped",
+      "description": "A Jason Statham character model with suits and film-inspired outfits.",
+      "requirements": [
+        "Add-On Peds / Ped Selector. Keep the model and texture files together."
+      ],
+      "tags": [
+        "Jason Statham",
+        "The Expendables",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-a893e01d6936abdb",
+      "game": "gta5",
+      "category": "addon-peds",
+      "name": "GTA IV Fat Cop [Add-On Ped]",
+      "author": "WolfFire23309",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/gta-iv-fat-cop-addon-ped",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/gta-iv-fat-cop-addon-ped/eac780-mainpic-min.png",
+      "files": [],
+      "releaseDate": "2024-01-30",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/gta-iv-fat-cop-addon-ped",
+      "description": "A Liberty City police character ported from GTA IV.",
+      "requirements": [
+        "Add-On Peds / Ped Selector. Keep the model and texture files together."
+      ],
+      "tags": [
+        "GTA IV",
+        "Liberty City",
+        "police ped",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-cc0e0545b3f8f97a",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2021 Yamaha MT-09 [Add-On]",
+      "author": "galen_",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/2021-yamaha-mt09-add-on-tuning-enhanced",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/2021-yamaha-mt09-add-on-tuning-enhanced/84f7ac-2.jpg",
+      "files": [],
+      "releaseDate": "2025-09-07",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/2021-yamaha-mt09-add-on-tuning-enhanced",
+      "description": "A Yamaha MT-09 motorcycle with working lights, dials and tuning parts.",
+      "requirements": [
+        "Choose the Legacy or Enhanced archive and follow its DLC loader instructions."
+      ],
+      "tags": [
+        "Yamaha",
+        "motorcycle",
+        "tuning",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-791955b357fa8015",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "PURE Quad / ATV [Add-On]",
+      "author": "TabbedScamper",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/pure-250-parts-add-on-enhanced-legacy",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/pure-250-parts-add-on-enhanced-legacy/b7ea12-Cover.png",
+      "files": [],
+      "releaseDate": "2025-08-18",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/pure-250-parts-add-on-enhanced-legacy",
+      "description": "A quad from PURE with over 250 customization parts.",
+      "requirements": [
+        "Choose the Legacy or Enhanced archive and follow its DLC loader instructions."
+      ],
+      "tags": [
+        "PURE",
+        "quad",
+        "ATV",
+        "off-road",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-50386b6eda16216e",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2010 Lamborghini Murciélago LP 670-4 SV [Add-On]",
+      "author": "navzahed",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/2010-lamborghini-murcielago-lp670-4-sv-add-on-livery-template-vehfuncsv-enhanced",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/2010-lamborghini-murcielago-lp670-4-sv-add-on-livery-template-vehfuncsv-enhanced/c79611-1.jpg",
+      "files": [],
+      "releaseDate": "2025-10-24",
+      "editionSupport": "enhanced",
+      "editionSource": "https://www.gta5-mods.com/vehicles/2010-lamborghini-murcielago-lp670-4-sv-add-on-livery-template-vehfuncsv-enhanced",
+      "description": "A Murciélago SuperVeloce with a livery template and VehFuncs V support.",
+      "requirements": [
+        "GTA V Enhanced",
+        "See the author’s VehFuncs V and DLC loader instructions."
+      ],
+      "tags": [
+        "Lamborghini",
+        "Murcielago",
+        "supercar",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-5735c31530eab772",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2024 Lamborghini Revuelto [Add-On]",
+      "author": "South East Customs",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/2024-lamborghini-revuelto-addon-livery-template-tuning",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/2024-lamborghini-revuelto-addon-livery-template-tuning/04a4e4-1.png",
+      "files": [],
+      "releaseDate": "2025-09-26",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/2024-lamborghini-revuelto-addon-livery-template-tuning",
+      "model": "revueltosec",
+      "description": "A Revuelto with tuning parts, a livery template and separate edition conversions.",
+      "requirements": [
+        "Choose the Legacy or Enhanced archive and follow its DLC loader instructions."
+      ],
+      "tags": [
+        "Lamborghini",
+        "Revuelto",
+        "supercar",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-d27069f954d75a69",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2022 Italjet Dragster 200 [Add-On]",
+      "author": "galen_",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/2022-italjet-dragster-200-add-on-tuning-enhanced",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/2022-italjet-dragster-200-add-on-tuning-enhanced/414546-1.jpg",
+      "files": [],
+      "releaseDate": "2025-09-21",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/2022-italjet-dragster-200-add-on-tuning-enhanced",
+      "model": "22drag",
+      "description": "An Italjet Dragster scooter with tuning parts.",
+      "requirements": [
+        "Legacy uses OpenIV. Enhanced uses CodeWalker and OpenRPF."
+      ],
+      "tags": [
+        "Italjet",
+        "scooter",
+        "tuning",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-f90aa34754e99e88",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2014 Volkswagen Polo GTI Mk5 [Add-On]",
+      "author": "ahmeda1999",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/2014-volkswagen-polo-gti-mk5-add-on-enhanced-legacy-badged-debadged",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/2014-volkswagen-polo-gti-mk5-add-on-enhanced-legacy-badged-debadged/7a19cf-1.jpg",
+      "files": [],
+      "releaseDate": "2025-11-29",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/2014-volkswagen-polo-gti-mk5-add-on-enhanced-legacy-badged-debadged",
+      "description": "A Polo GTI Mk5 with animated details and badged or debadged variants.",
+      "requirements": [
+        "Choose the Legacy or Enhanced archive and follow its DLC loader instructions."
+      ],
+      "tags": [
+        "Volkswagen",
+        "Polo",
+        "hatchback",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-62be9a80f9248e81",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "KTM X-BOW GT2 [Add-On]",
+      "author": "Hammer76",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/ktm-x-bow-gt2-add-on-legacy-enhanced",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/ktm-x-bow-gt2-add-on-legacy-enhanced/e97a0a-1.jpg",
+      "files": [],
+      "version": "1.1",
+      "releaseDate": "2025-12-09",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/ktm-x-bow-gt2-add-on-legacy-enhanced",
+      "model": "bow",
+      "description": "A track-focused KTM X-BOW GT2 with separate Legacy and Enhanced packages.",
+      "requirements": [
+        "Choose the Legacy or Enhanced archive and follow its DLC loader instructions."
+      ],
+      "tags": [
+        "KTM",
+        "race car",
+        "track car",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-b7cfad7e3d7391e0",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2021 BMW 330i M Sport G20 [Add-On]",
+      "author": "ahmeda1999",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/2021-bmw-330i-m-sport-g20-add-on-enahnced-legacy-animated-badged-debadged-tuning",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/2021-bmw-330i-m-sport-g20-add-on-enahnced-legacy-animated-badged-debadged-tuning/66bb13-1.jpg",
+      "files": [],
+      "releaseDate": "2025-11-29",
+      "editionSupport": "both",
+      "editionSource": "https://www.gta5-mods.com/vehicles/2021-bmw-330i-m-sport-g20-add-on-enahnced-legacy-animated-badged-debadged-tuning",
+      "description": "A BMW G20 sedan with animated details, tuning parts and optional badging.",
+      "requirements": [
+        "Choose the Legacy or Enhanced archive and follow its DLC loader instructions."
+      ],
+      "tags": [
+        "BMW",
+        "330i",
+        "G20",
+        "sedan",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-17d1de1a1c2c80e9",
+      "game": "gta5",
+      "category": "addon-vehicles",
+      "name": "2022 Noble M500 [Add-On]",
+      "author": "HarvinoiiD",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/noble-m500-2022-add-on-enhanced",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/noble-m500-2022-add-on-enhanced/05821d-1_7.jpg",
+      "files": [],
+      "releaseDate": "2025-04-18",
+      "editionSupport": "enhanced",
+      "editionSource": "https://www.gta5-mods.com/vehicles/noble-m500-2022-add-on-enhanced",
+      "description": "A Noble M500 sports car packaged for GTA V Enhanced.",
+      "requirements": [
+        "GTA V Enhanced",
+        "CodeWalker and OpenRPF. Follow the author’s installation instructions."
+      ],
+      "tags": [
+        "Noble",
+        "M500",
+        "sports car",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "listedMenus": [
+        "scooby",
+        "nenyoo",
+        "cherax",
+        "stand"
+      ],
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-844ac2821a28ebef",
+      "game": "gta5",
+      "category": "addon-maps",
+      "name": "A House Beyond Hills [MLO]",
+      "author": "smeggo",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/maps/mlo-a-house-beyond-hills-add-on-sp-fivem",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/mlo-a-house-beyond-hills-add-on-sp-fivem/60250f-hillhouse2.JPG",
+      "files": [],
+      "releaseDate": "2026-03-05",
+      "description": "A remote hillside house with a furnished walk-in interior.",
+      "requirements": [
+        "Choose the Singleplayer download and install the hillhouse DLC."
+      ],
+      "tags": [
+        "MLO",
+        "house",
+        "hills",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-57723479f82824b7",
+      "game": "gta5",
+      "category": "addon-maps",
+      "name": "Countryside Home [MLO]",
+      "author": "GJ",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/maps/countryside-home-mlo-sp-fivem",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/countryside-home-mlo-sp-fivem/d9a6aa-4.jpg",
+      "files": [],
+      "version": "1.08",
+      "releaseDate": "2024-01-19",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/maps/countryside-home-mlo-sp-fivem",
+      "description": "A two-room countryside safehouse with an interior and working garage door.",
+      "requirements": [
+        "OpenIV Package Installer for the Story Mode OIV release"
+      ],
+      "tags": [
+        "MLO",
+        "safehouse",
+        "countryside",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-bd407d0997d698ab",
+      "game": "gta5",
+      "category": "addon-maps",
+      "name": "Circuit de Barcelona-Catalunya [Add-On]",
+      "author": "Kevin Balázs",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/maps/circuit-de-barcelona-catalunya-vsr-kevin",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/circuit-de-barcelona-catalunya-vsr-kevin/5b6fda-1.png",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2025-03-16",
+      "description": "The Barcelona-Catalunya race circuit with night lighting, vegetation and trackside props.",
+      "requirements": [
+        "Install both the p8g_barcelona and p8g_props DLC folders."
+      ],
+      "tags": [
+        "Barcelona",
+        "racetrack",
+        "circuit",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-14ba26615680063f",
+      "game": "gta5",
+      "category": "addon-maps",
+      "name": "Spa-Francorchamps 2025 [Add-On]",
+      "author": "Kevin Balázs",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/maps/spa-francorchamps-2025-singleplayer-addon",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/spa-francorchamps-2025-singleplayer-addon/bb6dec-2.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2025-01-26",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/maps/spa-francorchamps-2025-singleplayer-addon",
+      "description": "The 2025 Spa-Francorchamps circuit with night lighting and trackside scenery.",
+      "requirements": [
+        "Install both the p8g_spa_2025 and p8g_props DLC folders."
+      ],
+      "tags": [
+        "Spa-Francorchamps",
+        "racetrack",
+        "circuit",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-0a212e05c9a68cd2",
+      "game": "gta5",
+      "category": "addon-objects",
+      "name": "43 Fall and Halloween Props [Add-On]",
+      "author": "GTAXDEV",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/43-fall-halloween-prop-pack-add-on",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/43-fall-halloween-prop-pack-add-on/b32a0d-image_2026-09-10_201717508.png",
+      "files": [],
+      "version": "1.4",
+      "releaseDate": "2026-09-16",
+      "description": "A seasonal set of pumpkins, harvest displays, market stands and other scenery props.",
+      "requirements": [
+        "Use the single-player gtaxdevfallprops DLC.",
+        "A compatible prop spawner or map editor"
+      ],
+      "tags": [
+        "Halloween",
+        "autumn",
+        "props",
+        "scenery",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-1f26acbdc2f812f5",
+      "game": "gta5",
+      "category": "addon-objects",
+      "name": "Gaming Setup Prop Pack [Add-On]",
+      "author": "XSlow Mapping & Zach998",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/maps/gaming-setup-prop-pack-add-on",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/gaming-setup-prop-pack-add-on/ca9bfc-1.png",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2021-11-22",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/maps/gaming-setup-prop-pack-add-on",
+      "description": "Twenty-seven gaming chairs, desks and keyboards across nine color schemes.",
+      "requirements": [
+        "OpenIV and the supplied archetype and manifest entries",
+        "Menyoo, Map Editor or CodeWalker to place props"
+      ],
+      "tags": [
+        "gaming",
+        "furniture",
+        "prop pack",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-f28b902b5d905014",
+      "game": "gta5",
+      "category": "addon-objects",
+      "name": "Polter’s Misc Props [Add-On]",
+      "author": "polteRGeist",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/polters-props-add-on-sp-fivem",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/polters-props-add-on-sp-fivem/a85be0-thumbnail-min.png",
+      "files": [],
+      "version": "1.1",
+      "releaseDate": "2022-01-07",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/polters-props-add-on-sp-fivem",
+      "description": "A small prop collection featuring animals, a wizard hat and rune stones.",
+      "requirements": [
+        "Choose the single-player DLC package.",
+        "Use a compatible prop spawner or map editor."
+      ],
+      "tags": [
+        "props",
+        "animals",
+        "rune stones",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-0b1156177a48fd07",
+      "game": "gta5",
+      "category": "addon-animations",
+      "name": "Custom Animations Add-On (customanims)",
+      "author": "_Jennie_",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/custom-animations-add-on-customanims",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/custom-animations-add-on-customanims/fafc24-Untitled-1.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2022-05-23",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/custom-animations-add-on-customanims",
+      "description": "A DLC container for installing custom YCD animations alongside the game’s existing clips.",
+      "requirements": [
+        "Use the author’s Story Mode DLC installation instructions."
+      ],
+      "tags": [
+        "YCD",
+        "customanims",
+        "animation dependency",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-f035c721d2a48ec1",
+      "game": "gta5",
+      "category": "addon-animations",
+      "name": "Custom Animations Pack #2",
+      "author": "_Jennie_",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/custom-animations-pack-2",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/custom-animations-pack-2/349063-1.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2022-06-16",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/custom-animations-pack-2",
+      "description": "Custom YCD animations and a list of entries for Menyoo’s animation browser.",
+      "requirements": [
+        "Jennie’s Custom Animations Add-On",
+        "Menyoo and the supplied FavouriteAnims entries"
+      ],
+      "tags": [
+        "YCD",
+        "Menyoo",
+        "customanims",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-f22ed1aceedcb400",
+      "game": "gta5",
+      "category": "addon-animations",
+      "name": "TB Custom Animations Pack",
+      "author": "DDX35",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/tb-custom-anims-pack",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/tb-custom-anims-pack/2cefba-TBpack2.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2024-04-09",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/tb-custom-anims-pack",
+      "description": "Eight custom animations supplied with their clip names for Menyoo.",
+      "requirements": [
+        "Jennie’s Custom Animations Add-On",
+        "Menyoo and the supplied FavouriteAnims entries"
+      ],
+      "tags": [
+        "YCD",
+        "Menyoo",
+        "customanims",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-5920614f39f0a27b",
+      "game": "gta5",
+      "category": "addon-animations",
+      "name": "Sims Pose Pack",
+      "author": "Arron",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/sims-pose-pack",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/sims-pose-pack/325d0c-Preview.jpg",
+      "files": [],
+      "version": "2.0",
+      "releaseDate": "2025-09-24",
+      "description": "A Sims-inspired set of custom poses for screenshots, with revised bone and facial animation in version 2.",
+      "requirements": [
+        "Jennie’s Custom Animations Add-On",
+        "Menyoo and the supplied FavouriteAnims entries"
+      ],
+      "tags": [
+        "The Sims",
+        "poses",
+        "YCD",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-b12bc3bb4e61df7a",
+      "game": "gta5",
+      "category": "addon-animations",
+      "name": "Custom SP & MP Poses #2",
+      "author": "crunchycat",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/custom-sp-mp-poses-2",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/custom-sp-mp-poses-2/ccb143-271590_20230526104737_1.jpg",
+      "files": [],
+      "releaseDate": "2023-06-08",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/custom-sp-mp-poses-2",
+      "description": "Custom character poses for screenshots and scene building.",
+      "requirements": [
+        "Jennie’s Custom Animations Add-On",
+        "Menyoo and the supplied FavouriteAnims entries"
+      ],
+      "tags": [
+        "poses",
+        "YCD",
+        "Menyoo",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-4923b1abeec66e39",
+      "game": "gta5",
+      "category": "addon-animations",
+      "name": "Custom MP Poses",
+      "author": "crunchycat",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/misc/custom-mp-poses",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/custom-mp-poses/a76a3a-2.jpg",
+      "files": [],
+      "releaseDate": "2023-08-21",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/misc/custom-mp-poses",
+      "description": "A set of freemode character poses with instructions for using them in Story Mode.",
+      "requirements": [
+        "Jennie’s Custom Animations Add-On",
+        "Menyoo and the supplied FavouriteAnims entries"
+      ],
+      "tags": [
+        "freemode",
+        "poses",
+        "YCD",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-5f06aa18dff2a573",
+      "game": "gta5",
+      "category": "addon-clothing",
+      "name": "Exclusive Clothing Variations [Add-On]",
+      "author": "HeySlickThatsMe",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/exclusive-clothing-variations-add-on",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/exclusive-clothing-variations-add-on/121f80-F2.jpg",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2026-07-11",
+      "description": "Additional Story Mode wardrobe variations for Franklin, Michael and Trevor, based on GTA Online clothing.",
+      "requirements": [
+        "Use the spclothes001 DLC.",
+        "Use a trainer to select the extra variants."
+      ],
+      "tags": [
+        "Franklin",
+        "Michael",
+        "Trevor",
+        "wardrobe",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-220921b056f348e1",
+      "game": "gta5",
+      "category": "addon-clothing",
+      "name": "Michael Beta Paramedic Outfit [Add-On]",
+      "author": "HeySlickThatsMe",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/michael-beta-paramedic-outfit-dlc-add-on-wardrobe-lore-friendly",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/michael-beta-paramedic-outfit-dlc-add-on-wardrobe-lore-friendly/11af23-p1-min.png",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2025-04-27",
+      "description": "Restores a cut paramedic outfit to Michael’s Story Mode wardrobe.",
+      "requirements": [
+        "Use the author’s Story Mode DLC installation instructions."
+      ],
+      "tags": [
+        "Michael",
+        "paramedic",
+        "wardrobe",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-56ab2e81f7962e19",
+      "game": "gta5",
+      "category": "addon-clothing",
+      "name": "Air Jordan IV for Franklin [Add-On]",
+      "author": "Polkien",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/player/air-jordan-iv-for-franklin-add-on",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/air-jordan-iv-for-franklin-add-on/fdeb5c-p1.jpg",
+      "files": [],
+      "releaseDate": "2017-05-08",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/player/air-jordan-iv-for-franklin-add-on",
+      "description": "An add-on shoe pack with fourteen variations for Franklin.",
+      "requirements": [
+        "A compatible clothing DLC loader and trainer",
+        "Select the new shoes through the trainer."
+      ],
+      "tags": [
+        "Franklin",
+        "shoes",
+        "Jordan",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-757456df8ed5ef3c",
+      "game": "gta5",
+      "category": "addon-weapons",
+      "name": "Katana [Add-On]",
+      "author": "BlackBradHz & Sandra Linson",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/weapons/katana-sword-by-blackbradhz-the-addon-version-sandra-linson",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/katana-sword-by-blackbradhz-the-addon-version-sandra-linson/9fa8b2-katana.jpg",
+      "files": [],
+      "releaseDate": "2016-10-20",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/weapons/katana-sword-by-blackbradhz-the-addon-version-sandra-linson",
+      "model": "weapon_katana",
+      "description": "A standalone katana model for GTA V. Select weapon_katana by model name in the trainer.",
+      "requirements": [
+        "A compatible DLC loader",
+        "Simple Trainer or another trainer with add-on weapon spawning"
+      ],
+      "tags": [
+        "katana",
+        "sword",
+        "melee",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
+    },
+    {
+      "id": "gta5-author-addon-2fb4a84f2a9d396c",
+      "game": "gta5",
+      "category": "addon-weapons",
+      "name": "Shrewsbury Auto-Crossbow [Add-On]",
+      "author": "HeySlickThatsMe",
+      "source": "GTA5-Mods",
+      "sourceUrl": "https://www.gta5-mods.com/weapons/shrewsbury-auto-crossbow-add-on-sound-animated-tints-lore-friendly",
+      "status": "author-hosted",
+      "preview": "https://img.gta5-mods.com/q75-w500-h333-cfill/images/shrewsbury-auto-crossbow-add-on-sound-animated-tints-lore-friendly/af0bc7-Cross1-min.png",
+      "files": [],
+      "version": "1.0",
+      "releaseDate": "2024-07-05",
+      "editionSupport": "legacy",
+      "editionSource": "https://www.gta5-mods.com/weapons/shrewsbury-auto-crossbow-add-on-sound-animated-tints-lore-friendly",
+      "model": "weapon_autocross",
+      "description": "A fictional GTA V crossbow with an animated model and selectable tints.",
+      "requirements": [
+        "Install the slick_autocross DLC.",
+        "Use a compatible trainer with add-on weapon spawning."
+      ],
+      "tags": [
+        "crossbow",
+        "lore friendly",
+        "weapon DLC",
+        "Add-On"
+      ],
+      "reviewed": true,
+      "addedAt": "2026-11-11T07:34:42.608Z"
     }
   ],
   "previews": {

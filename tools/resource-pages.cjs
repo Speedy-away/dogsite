@@ -7,13 +7,16 @@ const SITE = 'https://scoobymenu.cc';
 const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const menus = require('../resources/menus.js');
 const editions = require('../resources/editions.js');
+const { collectionPath, catalogURL, guideURL: guideAddress, resourceHash } = require('../resources/routes.js');
+const { buildGuideData, writeGuides } = require('./resource-guides.cjs');
 const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryLabel } = require('../resources/taxonomy.js');
 const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'addon-packs'];
 const headAd = '<script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>';
 
 function placeHeadAd(html) {
   if (!html.includes(headAd)) return html;
-  return html.replace(headAd + '\n', '').replace('</head>', headAd + '\n</head>');
+  return html.replaceAll(headAd + '\r\n', '').replaceAll(headAd + '\n', '').replaceAll(headAd, '')
+    .replace('</head>', headAd + '\n</head>');
 }
 const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
@@ -33,7 +36,12 @@ const CATEGORIES = {
   'addon-animations': { name: 'Animation addons', words: ['animation packs', 'custom animations', 'animation clips'], description: 'Browse downloadable animation packages. Keep animation dictionaries and supporting metadata together and use the loader specified by the package.' },
   'addon-maps': { name: 'Map addons', words: ['streamed maps', 'YMAP addons', 'map assets', 'MLO'], description: 'Browse streamed map asset packages and their dependencies. These addon assets are separate from the Menyoo/XML and Simple Trainer placement presets in Maps.' },
   'addon-clothing': { name: 'Clothing addons', words: ['clothing mods', 'wardrobe assets', 'ped clothing'], description: 'Browse clothing model and texture packages. Match the intended character model and follow the package’s installation requirements.' },
+  'addon-weapons': { name: 'Addon weapons', words: ['weapon mods', 'weapon models', 'weapon DLC'], description: 'Browse GTA 5 weapon model add-ons. Check the supported edition, required loader and in-game model name on the original release page.' },
   'addon-packs': { name: 'Addon packs', words: ['DLC packs', 'addon packs', 'downloadable content'], description: 'Browse GTA 5 addon packages. Keep the original package structure, match the game edition and install the required loader and dependencies.' },
+  'pack-vehicles': { name: 'Vehicle packs', words: ['vehicle packs', 'car collections', 'vehicle bundles'], description: 'Browse collections of GTA 5 vehicles and saved vehicle presets. Check the archive’s format and installation requirements.' },
+  'pack-outfits': { name: 'Outfit packs', words: ['outfit packs', 'outfit bundles', 'saved outfits'], description: 'Browse bundled GTA 5 outfit presets. Use the importer for the files in the archive and match the intended character model.' },
+  'pack-all-in-one': { name: 'All-in-one packs', words: ['all-in-one packs', 'GTA 5 bundles', 'mod packs'], description: 'Browse bundles that combine several kinds of GTA 5 resources. Check the package instructions for where to install each component.' },
+  'pack-maps': { name: 'Map packs', words: ['map packs', 'map collections', 'placement archives'], description: 'Browse collections of GTA 5 maps and placement presets. Check which editor or importer the archive requires.' },
   wallpapers: { name: 'Wallpapers', words: ['wallpapers', 'menu backgrounds', 'background images'], description: 'Browse wallpaper and menu background images. Use the image format and dimensions supported by the selected menu.' },
   maps: { name: 'Menyoo & placement maps', words: ['Menyoo maps', 'XML maps', 'INI maps', 'Simple Trainer maps'], description: 'Browse Menyoo/XML and Simple Trainer/INI object-placement presets, including ramps and custom scenes. Use a compatible placement loader and install any referenced model dependencies.' },
   textures: { name: 'Textures', words: ['custom textures', 'texture images', 'materials'], description: 'Find texture artwork and material resources. Choose a supported target and keep the original image or material structure when importing.' },
@@ -56,6 +64,9 @@ const CATEGORIES = {
   configs: { name: 'Configs', words: ['configuration profiles', 'saved settings', 'config presets'], description: 'Browse settings profiles and their original menu requirements. Back up your current configuration and use a profile made for the same game and supported build.' },
   lua: { name: 'Lua scripts', words: ['Lua scripts', 'menu Lua', 'scripting'], description: 'Browse Lua script listings for the selected menu. Check the required menu API and download availability; scripts are not interchangeable between menu runtimes.' },
   languages: { name: 'Languages', words: ['translations', 'language files', 'localization'], description: 'Browse translation and language catalogs. Match the original menu, game and host build, and preserve existing custom language overrides.' },
+  'loader-translations': { name: 'Loader translations', words: ['launcher translations', 'loader languages'], description: 'Browse translations for the Nenyoo launcher used by GTA 5 and RDR2.' },
+  fonts: { name: 'Fonts', words: ['interface fonts', 'typefaces'], description: 'Browse fonts bundled with Nenyoo for this game.' },
+  emotes: { name: 'Emote audio', words: ['emote audio', 'emote sounds'], description: 'Browse audio files bundled with Nenyoo emotes.' },
   misc: { name: 'Miscellaneous', words: ['HUD presets', 'resource files'], description: 'Browse additional resource files for the selected menu. Read the item details for its format, required version and installation steps.' },
   'mod-menus': { name: 'Lua Menus', words: ['Lua menus', 'menu screenshots'], description: 'Browse Lua menu listings and screenshots. Each listing shows whether a download is available.' },
   triggers: { name: 'Triggers', words: ['triggers'], description: 'Browse trigger resources and their stated requirements.' },
@@ -64,13 +75,8 @@ const CATEGORIES = {
   'dotnet-mods': { name: '.NET mods', words: ['dotnet mods', 'ScriptHookVDotNet', 'C# scripts'], description: 'Browse .NET game mods and their original requirements. Use the matching script runtime and follow the author’s installation instructions.' }
 };
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-const queryURL = (game, category, q, menu = 'scooby', edition) => '/resources/?' + new URLSearchParams({ game, ...(game === 'gta5' ? { menu: menus.menuFor(game, menu) } : {}), ...(category ? { category } : {}), ...(q ? { q } : {}), ...(edition ? { edition } : {}) });
-const route = (game, category, menu = 'scooby') => `/resources/${game}/${game === 'gta5' && menus.menuFor(game, menu) !== 'scooby' ? menus.menuFor(game, menu) + '/' : ''}${category ? category + '/' : ''}`;
+const route = (game, category, menu, archive) => collectionPath(game, category, menus.menuFor(game, menu), archive);
 function read(relative) { return JSON.parse(fs.readFileSync(path.join(ROOT, relative), 'utf8')); }
-function tagsFor(item, menu) {
-  const taxonomy = path.join(ROOT, 'resources/taxonomy.js');
-  return fs.existsSync(taxonomy) ? require(taxonomy).tagsFor(item, { menu: menus.menuName(menu) }) : [...new Set([GAMES[item.game]?.name, CATEGORIES[item.category]?.name, menus.menuName(menu), ...(item.tags || [])].filter(Boolean))];
-}
 function hasCategory(item, category) {
   return categoryId(item.game, item.category) === category ||
     item.categories?.some(id => categoryId(item.game, id) === category) ||
@@ -78,9 +84,15 @@ function hasCategory(item, category) {
 }
 function fileURL(file, base) {
   if (file?.url && /^https:\/\//.test(file.url)) return file.url;
+  if (/^\/docs\/(?:gta5\/examples|rdr2\/examples|cs2\/templates|l4d\/templates)\/(?:[\w-]|%20)+\.lua$/.test(file?.url || '')) return file.url;
   if (/^\/assets\/downloads\/l4d\/[\w.-]+\.(?:cfg|zip)$/i.test(file?.url || '')) return file.url;
+  if (/^\/assets\/downloads\/cherax\/[a-f0-9]{20}\.(?:lua|json|zip|rar|7z)$/i.test(file?.url || '')) return file.url;
+  if (/^\/assets\/downloads\/(?:yim|stand)\/[\w.-]+\.(?:zip|rar)$/i.test(file?.url || '')) return file.url;
   if (!file?.path || file.path.startsWith('/') || file.path.includes('\\') || file.path.split('/').some(part => part === '..' || part === '.')) return '';
   return new URL(file.path.split('/').map(encodeURIComponent).join('/'), base).href;
+}
+function hasPreview(item) {
+  return Boolean(item.preview) && item.previewVerified !== false && (item.category !== 'themes' || item.previewVerified === true);
 }
 function fileExtension(file) {
   const name = String(file?.formatPath || file?.name || file?.path || file?.url || '').split(/[?#]/)[0];
@@ -90,7 +102,7 @@ function fileExtension(file) {
 function resourceName(item) {
   const files = item.files || [];
   const primary = files.find(file => ['.zip', '.rar', '.7z', '.gz'].includes(fileExtension(file))) || files[0];
-  const extension = fileExtension(primary) || (item.category === 'lua' && item.downloadStatus === 'pending' ? String(item.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[0]?.toLowerCase() || '' : '');
+  const extension = fileExtension(primary) || (item.category === 'lua' && (item.downloadStatus === 'pending' || item.builtInLua) ? String(item.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[0]?.toLowerCase() || '' : '');
   const label = String(extension && String(item.name).toLowerCase().endsWith(extension) ? String(item.name).slice(0, -extension.length) : item.name).trim();
   return { label, extension, visible: [label, extension].filter(Boolean).join(' ') };
 }
@@ -105,7 +117,7 @@ const l4dCategories = {
 };
 const graphicsCategories = {
   gta5: { ...CATEGORIES['graphics-packs'], words: ['graphics mods', 'NaturalVision', 'visual overhauls'], description: 'Browse NaturalVision graphics mods and visual overhauls for GTA 5 Legacy and Enhanced. Check the author’s installation requirements for your edition.' },
-  fivem: { ...CATEGORIES['graphics-packs'], words: ['graphics packs', 'ReShade presets', 'road textures', 'minimap textures'], description: 'Browse FiveM ReShade presets, graphics packs, road textures and minimap replacements. Check whether each pack installs on the client or server.' },
+  fivem: { ...CATEGORIES['graphics-packs'], words: ['graphics packs', 'ReShade presets', 'road textures', 'minimap textures', 'timecycles', 'server lighting'], description: 'Browse FiveM graphics packs, ReShade presets, textures, timecycles and server lighting tools. Check whether each pack installs on the client or server.' },
   redm: { ...CATEGORIES['graphics-packs'], words: ['PvP packs', 'PvP graphics packs', 'RP packs', 'roleplay graphics packs', 'cinematic packs', 'sky packs', 'custom sky textures'], description: 'Browse RedM PvP sky packs, RP graphics presets and cinematic packs. Compare skies, weather and lighting previews before installing.' }
 };
 const fivemServerRecipes = { ...CATEGORIES['server-dumps'], words: ['server templates', 'txAdmin recipes', 'roleplay frameworks'], description: 'Start a FiveM server with public txAdmin recipes from their maintainers. Compare the basic Cfx.re servers and roleplay frameworks before you deploy.' };
@@ -115,9 +127,73 @@ const cs2Categories = {
 };
 const gameCategories = { cs2: cs2Categories, l4d: l4dCategories };
 const fivemLuaMenus = { name: roleplayCategoryLabel('fivem', 'mod-menus'), words: ['Lua menus', 'menu libraries', 'FiveM UI'], description: 'Browse Lua menu libraries for FiveM resources. Compare standalone and framework options and open the maintainers’ setup instructions.' };
-const fivemCategories = { 'server-dumps': fivemServerRecipes, 'mod-menus': fivemLuaMenus };
-const categoryInfo = (game, category) => (game === 'fivem' ? fivemCategories[category] : undefined) || (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
+const fivemCategories = {
+  'server-dumps': fivemServerRecipes,
+  'mod-menus': fivemLuaMenus,
+  'addon-peds': {
+    name: 'Character and animal models',
+    words: ['FiveM peds', 'character models', 'animal peds', 'pets'],
+    description: 'Browse FiveM character and animal models from their creators. Check the server resource folder, model name and any companion script requirements before installing.'
+  },
+  'addon-animations': {
+    name: 'Animations and emotes',
+    words: ['FiveM animations', 'emotes', 'YCD', 'pose packs'],
+    description: 'Browse FiveM emote menus and custom animations from their creators. Check which releases need an emote resource and how to add their clips.'
+  },
+  'addon-objects': {
+    name: 'Props and objects',
+    words: ['FiveM props', 'object add-ons', 'prop packs', 'YTYP'],
+    description: 'Browse server-streamed FiveM props from their creators. Find café objects, food props, plants and pieces for building maps.'
+  },
+  'addon-clothing': {
+    name: 'Clothing and textures',
+    words: ['FiveM clothing', 'freemode clothing', 'clothing add-ons', 'clothing textures'],
+    description: 'Browse FiveM clothing add-ons and replacement textures from their creators. Check the supported freemode model and where the item appears in your appearance menu.'
+  },
+  'addon-vehicles': {
+    name: 'Addon vehicles',
+    words: ['FiveM vehicles', 'vehicle add-ons', 'server vehicle packs', 'lore friendly cars'],
+    description: 'Browse standalone FiveM vehicle add-ons and packs from their creators. Check the resource folder and model name before adding a vehicle to your server.'
+  },
+  'addon-maps': {
+    name: 'Addon maps',
+    words: ['FiveM maps', 'YMAP', 'MLO interiors', 'map resources'],
+    description: 'Browse FiveM server maps and interior resources from their maintainers. Check the required resource folder, game build and overlapping maps before installing.'
+  },
+  'sound-packs': {
+    name: 'Sound packs',
+    words: ['sound packs', 'weapon audio', 'engine sounds', 'server sirens'],
+    description: 'Browse FiveM audio releases from their creators. Compare local sound replacements with engine sounds and sirens installed by the server operator.'
+  }
+};
+const cheraxVehicles = {
+  name: 'Addon vehicles',
+  words: ['vehicle DLC packs', 'Cherax vehicle addons', 'ModVerse vehicle DLC'],
+  description: 'Browse vehicle DLC packs from ModVerse and original mod authors. Check each pack’s edition and installation method before adding it to GTA 5.'
+};
+const yimPresets = {
+  vehicles: { ...CATEGORIES.vehicles, words: ['YimMenu JSON vehicle packs', 'YimMenu XML vehicles', 'Benny’s vehicle presets'], description: 'Download YimMenu v1 JSON and XML vehicle packs for GTA 5 Legacy, including Benny’s presets and the XML Vehicles Grand Collection. Find the right import folder.' },
+  maps: { ...CATEGORIES.maps, words: ['YimMenu XML maps', 'Menyoo placement maps', 'Spooner maps'], description: 'Download the XML Maps Grand Collection for YimMenu v1 on GTA 5 Legacy. Browse Menyoo and Spooner placements and follow the XML map import guide.' },
+  outfits: { ...CATEGORIES.outfits, words: ['YimMenu JSON outfits', 'modded outfit packs', 'saved outfits'], description: 'Download 72 modded JSON outfit presets for YimMenu v1 on GTA 5 Legacy. Follow the import guide to add them to the saved outfits library.' }
+};
+const categoryInfo = (game, category, menu) => (game === 'gta5' && menu === 'yim' ? yimPresets[category] : undefined) ||
+  (game === 'gta5' && menu === 'cherax' && category === 'addon-vehicles' ? cheraxVehicles : undefined) ||
+  (game === 'fivem' ? fivemCategories[category] : undefined) || (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
   gameCategories[game]?.[category] || CATEGORIES[category];
+
+function yimTopicKeywords(items, menuName) {
+  const counts = new Map();
+  for (const item of items) {
+    for (const tag of new Set(item.tags || [])) {
+      if (tag !== menuName) counts.set(tag, (counts.get(tag) || 0) + 1);
+    }
+  }
+  return [...counts]
+    .sort(([a, countA], [b, countB]) => countB - countA || a.localeCompare(b, 'en'))
+    .slice(0, 10)
+    .map(([tag]) => tag);
+}
+
 function buildData() {
   const library = read('community/data/library.json');
   const gtaEditionCatalog = read('community/data/gta5-editions.json');
@@ -129,15 +205,18 @@ function buildData() {
   const legacyOverrides = menus.legacyOverrideMap(supplement);
   const approvedLua = item => item.menuResource === true && item.sourceCatalog === 'menu-resources' &&
     Array.isArray(item.supportedMenus) && item.supportedMenus.some(menu => menus.canonical(menu)) &&
-    (item.files?.length || (item.downloadStatus === 'pending' && Array.isArray(item.files) && !item.files.length));
+    (item.files?.length || (item.downloadStatus === 'pending' && Array.isArray(item.files) && !item.files.length) ||
+      (menus.isStandLua(item) && item.status === 'author-hosted' && /^https:\/\/github\.com\//.test(item.sourceUrl)));
   const primary = [
     ...library.items.filter(item => item.category !== 'lua').map(item => ({ ...item, ...libraryOverrides.get(item.id), id: item.id })),
     ...extra.filter(item => item.category !== 'lua' || approvedLua(item)),
-    ...gtaEditionCatalog.items
+    ...gtaEditionCatalog.items,
+    ...read('community/data/nenyoo.json').items,
+    ...read('community/data/scooby-lua.json').items
   ];
   const sourceUrls = new Set(primary.filter(item => item.game === 'gta5' && item.status !== 'author-hosted' && item.sourceUrl).map(item => item.sourceUrl));
   const items = [...new Map([...primary, ...gtaAddonCatalog.items.filter(item => !sourceUrls.has(item.sourceUrl))]
-    .map(gtaAddonCategory).filter(item => GAMES[item.game] && CATEGORIES[item.category]).map(item => [item.id, item])).values()]
+    .map(item => gtaAddonCategory(item)).filter(item => GAMES[item.game] && CATEGORIES[item.category]).map(item => [item.id, item])).values()]
     .map(item => {
       const preview = !item.preview && gtaAddonCatalog.previews?.[item.id];
       const entry = editions.withVerification(preview ? { ...item, ...preview } : item, gtaEditionCatalog);
@@ -158,14 +237,34 @@ function buildData() {
   const pages = [];
   for (const [game, config] of Object.entries(GAMES)) {
     const allGameItems = items.filter(item => item.game === game);
-    const availableMenus = menus.MENUS.filter(menu => !menu.deferred && (menu.id === 'scooby' || (game === 'gta5' && allGameItems.some(item => menus.supports(item, menu.id)))));
+    const availableMenus = menus.menusFor(game).filter(menu => !menu.deferred && (menu.id === 'scooby' || allGameItems.some(item => menus.supports(item, menu.id))));
     for (const selectedMenu of availableMenus) {
       const menu = selectedMenu.id, menuName = selectedMenu.name;
-      const gameItems = allGameItems.filter(item => menus.supports(item, menu));
-      const categories = Object.keys(CATEGORIES).map(id => ({ id, ...categoryInfo(game, id), count: gameItems.filter(item => hasCategory(item, id)).length })).filter(category => category.count);
+      const menuItems = allGameItems.filter(item => menus.supports(item, menu)).map(item => gtaAddonCategory(item, menu));
+      const makeSection = (gameItems, archive = '') => {
+      const formatScope = (items, category) => {
+        const { hasLua, nativeDefault } = menus.presetFormatScope(items, menu, category);
+        return {
+          items: nativeDefault ? items.filter(item => menus.presetLoader(item, menu) !== 'lua') : items,
+          hint: hasLua ? menus.presetFormatHint(menu, nativeDefault, category) : '',
+          nativeDefault
+        };
+      };
+      const defaultGameScope = formatScope(gameItems, 'all');
+      const categories = Object.keys(CATEGORIES).map(id => ({
+        id, ...categoryInfo(game, id, menu), count: formatScope(gameItems.filter(item => hasCategory(item, id)), id).items.length
+      })).filter(category => category.count);
       const makePage = category => {
-      const subset = category ? gameItems.filter(item => hasCategory(item, category)) : gameItems;
-      let candidates = subset.slice().sort((a, b) => Number(Boolean(b.preview)) - Number(Boolean(a.preview)));
+      const scope = category ? formatScope(gameItems.filter(item => hasCategory(item, category)), category) : defaultGameScope;
+      const subset = scope.items;
+      const prioritizeReviewed = game === 'gta5' && Boolean(category);
+      const previewRank = item => hasPreview(item) ? 1 + Number(prioritizeReviewed && item.reviewed === true) : 0;
+      const sortByUpdate = menus.defaultResourceSort({ game, menu, category }) === 'updated';
+      let candidates = subset.slice().sort(sortByUpdate ? menus.compareResourceUpdates : (a, b) => previewRank(b) - previewRank(a));
+      if (menu === 'cherax' && category === 'addon-vehicles') {
+        const modVersePacks = candidates.filter(item => item.sourceFormat === 'Vehicle DLC archive (RPF7)').slice(0, 4);
+        candidates = [...new Set([...modVersePacks, ...candidates])];
+      }
       if (game === 'redm' && category === 'graphics-packs') {
         const authorHosted = candidates.filter(item => item.status === 'author-hosted' && item.previewVerified);
         candidates = [...new Set([...authorHosted, ...candidates])];
@@ -177,95 +276,157 @@ function buildData() {
         const clickUI = candidates.filter(item => item.uiStyle === 'ClickUI' && menus.compatibleWith(item, 'scooby')).slice(0, 2);
         candidates = [...new Set([...clickUI, ...candidates])];
       }
-      if (!category) {
+      if (menu === 'nenyoo' && category === 'themes') {
+        const sourceThemes = candidates.filter(item => item.source === 'Nenyoo Resources' && hasPreview(item));
+        candidates = [...new Set([...sourceThemes, ...candidates])];
+      }
+      if (!category && !sortByUpdate) {
         const first = categories.map(group => candidates.find(item => hasCategory(item, group.id))).filter(Boolean);
         candidates = [...new Map([...first, ...candidates].map(item => [item.id, item])).values()];
       }
-      const samples = game === 'cs2' && ['skyboxes', 'textures'].includes(category) ? candidates : candidates.slice(0, 12);
-      const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category).name : 'Resources';
+      const { yim } = selectedMenu;
+      const fullList = (game === 'cs2' && ['skyboxes', 'textures'].includes(category)) || (yim && category === 'lua');
+      const samples = fullList ? candidates : candidates.slice(0, 12);
+      const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category, menu).name : 'Resources';
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
-      const scopeName = `${config.name}${game === 'gta5' ? ' ' + menuName : ''}`;
+      const scopeName = archive ? 'Stand Old Shares' : `${config.name}${availableMenus.length > 1 ? ' ' + menuName : ''}`;
       const redmGraphics = game === 'redm' && category === 'graphics-packs';
+      const searchTitle = yim?.presetTitles?.[category] || label;
+      const downloadStatusText = menu === 'stand' ? 'Downloads unavailable' : 'Coming Soon';
       const title = redmGraphics ? 'RedM Graphics Packs for PvP, RP & Cinematic Play | Scooby' :
-        category ? `${scopeName} ${label}${pendingOnly ? ' — Coming Soon' : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — Coming Soon' : ' & Downloads'} — Scooby`;
-      const wordsFor = id => categoryInfo(game, id).words;
+        yim && category === 'lua' ? `${scopeName} Lua Scripts & Downloads — Scooby` :
+        category ? `${scopeName} ${searchTitle}${pendingOnly ? ' — ' + downloadStatusText : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — ' + downloadStatusText : ' & Downloads'} — Scooby`;
+      const wordsFor = id => categoryInfo(game, id, menu).words;
       const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
         group.id === 'graphics-packs' && game === 'redm' ? group.words : group.words.slice(0, 2));
-      const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style]).filter(Boolean))];
-      const topics = game === 'gta5'
+      const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style].flat()).filter(Boolean))];
+      const topics = availableMenus.length > 1
         ? (category ? [category] : categories.map(group => group.id)).map(id => menuTopic(menu, id)).filter(Boolean)
         : [];
+      if (yim && (!category || category === 'lua')) topics.push(
+        `${yim.brand} Lua downloads`, `${yim.brand} Lua API`, `${yim.brand} Lua installation`,
+        `GTA 5 ${yim.edition} YimMenu Lua scripts`, 'Yim Lua scripts', 'Yim Menu Lua scripts',
+        ...(menu === 'yim' ? ['YimMenu Legacy Lua', 'YimMenu Lua libraries', 'GTA Online mission scripts', 'YimMenu vehicle utilities', 'YimMenu animations']
+          : ['YimMenuV2 scripts', 'YimMenu Enhanced Lua', 'YimMenu LuaJIT scripts'])
+      );
+      if (yim && category) {
+        topics.push(...yimTopicKeywords(subset, menuName), ...subset.map(item => item.name).sort((a, b) => a.localeCompare(b, 'en')));
+      }
       const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
-      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, `${menuName} resources`, config.name, config.full, ...topics, ...config.aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
-      const intro = scoobyThemes
+      const aliases = yim ? config.aliases.filter(alias => !alias.includes(menu === 'yim' ? 'Enhanced' : 'Legacy')) : config.aliases;
+      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, menuTopic(menu, 'resources'), config.name, config.full, ...topics, ...aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
+      const intro = archive ? `Browse ${category ? label.toLowerCase() : 'resources'} from the Stand Discord Old Shares archive.` : menu === 'yim' && !category
+        ? 'Browse Lua scripts and saved vehicle, map and outfit packs for YimMenu v1 on GTA 5 Legacy.'
+        : menu === 'yim' && (yimPresets[category] || category?.startsWith('pack-')) ? categoryInfo(game, category, menu).description
+        : yim ? `Download Lua scripts for ${yim.brand} on GTA 5 ${yim.edition}. Check the script’s requirements and keep its supporting files together.`
+        : menu === 'nenyoo' && category === 'lua'
+        ? game === 'rdr2' ? 'Browse built-in Nenyoo Lua modules for Red Dead Redemption 2, including HUD and camera overlays.'
+          : 'Browse Nenyoo Lua downloads and built-in modules for GTA V. Use the GTA V Nenyoo runtime for these files.'
+        : scoobyThemes
         ? 'Browse native Scooby ClickUI colors and ListUI styles. Some Scooby-compatible presets look like other menus. Check the file requirements before installing.'
         : game === 'gta5' && menu === 'cherax' && category === 'themes'
-          ? 'Browse original Cherax ClickGUI packages. Use the Cherax theme loader and keep the settings and artwork together.'
-          : category ? categoryInfo(game, category).description.replace(/the selected menu/g, menuName).replace(/selected menu/g, menuName) : menu === 'scooby' ? config.intro : `Browse ${config.name} resources listed for ${menuName}. Check each resource’s original menu format, download availability and any required compatibility layer before installing.`;
+          ? 'Browse Cherax ClickGUI and ListUI themes. Choose a package for your active interface and keep the settings and artwork together.'
+          : category ? categoryInfo(game, category, menu).description.replace(/the selected menu/g, menuName).replace(/selected menu/g, menuName) : menu === 'scooby' ? config.intro : `Browse ${config.name} resources listed for ${menuName}. Check each resource’s original menu format, download availability and any required compatibility layer before installing.`;
       const firstSentence = intro.split(/(?<=[.!?])\s/)[0];
-      const description = pendingOnly
-        ? `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} listings. Downloads are coming soon. Check requirements and changelogs.`
+      const description = archive ? intro : pendingOnly
+        ? `Browse ${subset.length.toLocaleString('en-GB')} ${scopeName} ${label.toLowerCase()} listings. ${menu === 'stand' ? 'Downloads are unavailable.' : 'Downloads are coming soon.'} Check requirements and changelogs.`
         : redmGraphics ? intro
+        : yim ? category === 'lua'
+          ? menu === 'yim'
+            ? 'Download YimMenu v1 Lua scripts for GTA 5 Legacy, including heist editors, mission tools and Lua libraries. Browse by source update date and check the install guide.'
+            : 'Download the Enhanced builds of Samurai’s Scripts and Bunker Research Unlocker for YimMenu v2. Check source update dates and the GTA 5 Enhanced install guide.'
+          : intro
         : category ? `${scopeName} resources. ${firstSentence}`
         : !gameItems.length ? `${config.name} resource installation and setup guides from Scooby. No downloads are published in this collection yet.`
         : menu === 'scooby' ? config.intro
-        : `Browse ${menuName} resources for GTA 5, including ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}. Check formats and install guides.`;
+        : `Browse ${menuName} resources for ${config.name}, including ${categories.slice(0, 4).map(group => group.name.toLowerCase()).join(', ')}. Check formats and install guides.`;
       const graphicsTopics = game === 'redm' && (!category || redmGraphics)
         ? REDM_GRAPHICS_TOPICS.filter(topic => subset.some(item => redmGraphicsTopics(item).includes(topic))) : [];
-      pages.push({ file: route(game, category, menu).slice(1) + 'index.html', url: SITE + route(game, category, menu), game, menu, menuName, category, name: label, title, description, keywords,
-        itemCount: subset.length, pendingCount, gameItemCount: gameItems.length, categories, availableMenus, samples, intro, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
+      pages.push({ file: route(game, category, menu, archive).slice(1) + 'index.html', url: SITE + route(game, category, menu, archive), game, menu, archive, menuName, scopeName, category, name: label, title, description, keywords,
+        itemCount: subset.length, pendingCount, gameItemCount: defaultGameScope.items.length, categories, availableMenus, samples, intro, formatHint: scope.hint, nativeFormatDefault: scope.nativeDefault, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
       };
       makePage();
       for (const category of categories) makePage(category.id);
+      };
+      makeSection(menuItems);
+      if (game === 'gta5' && menu === 'stand') {
+        const archiveItems = menuItems.filter(item => item.oldShares);
+        if (archiveItems.length) makeSection(archiveItems, 'old-shares');
+      }
     }
   }
   return { pages, items, games: GAMES, categories: CATEGORIES, menus: menus.MENUS };
 }
-function renderPage(page) {
+function renderPage(page, guideRoutes = {}) {
   const game = GAMES[page.game];
-  const gameLinks = Object.entries(GAMES).map(([id, config]) => `<a href="${route(id, undefined, id === page.game ? page.menu : 'scooby')}"${id === page.game ? ' aria-current="page"' : ''}><img src="${config.logo}" alt="" width="38" height="28"><span>${config.name}</span></a>`).join('');
-  const menuLinks = page.game === 'gta5' ? `<nav class="resource-menus" aria-label="GTA 5 menu resources">${page.availableMenus.map(menu => `<a href="${route(page.game, undefined, menu.id)}"${menu.id === page.menu ? ' aria-current="page"' : ''}>${escape(menu.name)}</a>`).join('')}</nav>` : '';
+  const currentPath = route(page.game, page.category, page.menu, page.archive);
+  const published = new Set([route(page.game, undefined, page.menu, page.archive), ...page.categories.map(category => route(page.game, category.id, page.menu, page.archive))]);
+  const browseURL = (filters = {}) => catalogURL({ game: page.game, menu: page.menu, category: page.category, archive: page.archive, ...filters }, published);
+  const formatLink = page.nativeFormatDefault ? ` <a class="resource-open" href="${escape(browseURL({ format: 'lua-loader' }))}#collection">Browse Lua loader presets →</a>` : '';
+  const formatNote = page.formatHint ? `<p class="resource-intro">${escape(page.formatHint)}${formatLink}</p>` : '';
+  const gameLinks = Object.entries(GAMES).map(([id, config]) => {
+    const href = page.menu === 'nenyoo' && page.category === 'lua' && menus.menuFor(id, 'nenyoo') === 'nenyoo'
+      ? route(id, 'lua', 'nenyoo') : route(id, undefined, id === page.game ? page.menu : 'scooby');
+    return `<a href="${href}"${id === page.game ? ' aria-current="page"' : ''}><img src="${config.logo}" alt="" width="38" height="28"><span>${config.name}</span></a>`;
+  }).join('');
+  const menuChoice = page.availableMenus.length > 1;
+  const menuLinks = menuChoice ? `<nav class="resource-menus" aria-label="${game.name} menu resources">${page.availableMenus.map(menu => `<a href="${route(page.game, undefined, menu.id)}"${menu.id === page.menu ? ' aria-current="page"' : ''}>${escape(menu.name)}</a>`).join('')}</nav>` : '';
   const gameFilters = page.game === 'l4d' ? `<nav class="resource-menus" aria-label="Filter by Left 4 Dead game">${Object.entries(editions.group('l4d').options).map(([edition, label]) =>
-    `<a href="${escape(queryURL(page.game, page.category, undefined, page.menu, edition))}">${escape(label)} resources</a>`).join('')}</nav>` : '';
+    `<a href="${escape(browseURL({ edition }))}">${escape(label)} resources</a>`).join('')}</nav>` : '';
   const byId = new Map(page.categories.map(category => [category.id, category]));
   const roleplayGroups = roleplayCategoryGroups(page.game, [...byId.keys()]);
   const categoryChoice = category => {
-    const href = category.count ? route(page.game, category.id, page.menu) : queryURL(page.game, category.id, undefined, page.menu);
-    const label = (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || (category.id === 'addon-packs' ? 'Packs' : category.name.replace(/^Addon /, ''));
+    const href = browseURL({ category: category.id });
+    const label = menus.categoryLabel(page.menu, category.id) || (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || (category.id === 'addon-packs' ? 'Packs' : category.name.replace(/^Addon /, ''));
     const current = category.id === page.category ? ' aria-current="page"' : '';
     const count = category.count ? ` <span>${category.count.toLocaleString('en-GB')}</span>` : '';
     return `<a href="${escape(href)}"${current}>${escape(label)}${count}</a>`;
   };
   const fileCategories = new Set(['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc']);
-  const gtaGroups = page.game === 'gta5' ? menus.gtaCategoryGroups(page.menu, byId.keys()) : null;
-  const groups = gtaGroups ? gtaGroups.map(([label, ids]) => [label, ids.map(id => byId.get(id))])
+  const menuGroups = menuChoice ? menus.categoryGroups(page.menu, byId.keys()) : null;
+  const groups = menuGroups ? menuGroups.map(([label, ids]) => [label, ids.map(id => byId.get(id))])
     : roleplayGroups ? roleplayGroups.map(([label, ids]) => [
     label, ids.map(id => byId.get(id) || { id, ...CATEGORIES[id], count: 0 })
   ]) : [
     [page.game === 'l4d' ? 'Custom content' : `${page.menuName} resources`, page.categories.filter(category => !category.id.startsWith('addon-') && !fileCategories.has(category.id))],
     ['Addons', page.categories.filter(category => category.id.startsWith('addon-'))],
-    [page.game === 'l4d' ? 'Settings and translations' : `${page.menuName} files`, page.categories.filter(category => fileCategories.has(category.id))]
+    ...(page.game === 'l4d' ? [
+      ['Settings and translations', page.categories.filter(category => fileCategories.has(category.id) && category.id !== 'lua')],
+      ['Scooby files', page.categories.filter(category => category.id === 'lua')]
+    ] : [[`${page.menuName} files`, page.categories.filter(category => fileCategories.has(category.id))]])
   ];
-  const categoryLinks = `<a href="${route(page.game, undefined, page.menu)}"${!page.category ? ' aria-current="page"' : ''}>All resources <span>${page.gameItemCount.toLocaleString('en-GB')}</span></a>` + groups.filter(([, categories]) => categories.length).map(([label, categories]) => `<div class="category-group"><p class="category-group-label">${escape(label)}</p>${categories.map(categoryChoice).join('')}</div>`).join('');
+  const oldSharesLink = page.game === 'gta5' && page.menu === 'stand'
+    ? page.archive ? '<a href="/resources/gta5/stand/">Back to Stand resources</a>' : '<a href="/resources/gta5/stand/old-shares/">Old Shares</a>' : '';
+  const categoryLinks = oldSharesLink + `<a href="${route(page.game, undefined, page.menu, page.archive)}"${!page.category ? ' aria-current="page"' : ''}>All resources <span>${page.gameItemCount.toLocaleString('en-GB')}</span></a>` + groups.filter(([, categories]) => categories.length).map(([label, categories]) => `<div class="category-group"><p class="category-group-label">${escape(label)}</p>${categories.map(categoryChoice).join('')}</div>`).join('');
   const samples = page.samples.map(item => {
-    const href = '#resource-' + item.id.replace(/[^a-z0-9_-]/gi, '-');
+    const href = resourceHash(item.id);
     const serverRecipe = item.game === 'fivem' && item.category === 'server-dumps';
-    const preview = item.previewVerified === false || (item.category === 'themes' && item.previewVerified !== true) ? '' : typeof item.preview === 'string' ? item.preview : item.preview?.path || item.preview?.url;
+    const fiveMSetup = item.game === 'fivem' && ['server-dumps', 'sound-packs', 'graphics-packs', 'addon-maps', 'addon-vehicles', 'addon-clothing', 'addon-objects', 'addon-animations', 'addon-peds'].includes(item.category);
+    const preview = hasPreview(item) ? typeof item.preview === 'string' ? item.preview : item.preview.path || item.preview.url : '';
     const remotePreview = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? fileURL({ path: preview }, page.downloadBaseUrl) : preview;
     const local = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? ` data-resource-image="${escape(preview)}"` : '';
-    const fallback = ` data-resource-image-fallback="${SCOOBY_PREVIEW_LOGO}"`;
+    const cheraxPreview = item.game === 'gta5' && (page.menu === 'cherax' || menus.canonical(item.sourceMenu) === 'cherax');
+    const unavailablePreview = cheraxPreview || menus.isStandLua(item);
+    const fallback = unavailablePreview ? ' data-resource-image-unavailable' : ` data-resource-image-fallback="${SCOOBY_PREVIEW_LOGO}"`;
     const gtaAddon = item.game === 'gta5' && item.category.startsWith('addon-');
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : serverRecipe ? '' : `<div class="resource-preview">${gtaAddon ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
-    const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
-    const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod })).filter(file => file.url);
+      : fiveMSetup || item.builtInLua || (cheraxPreview && item.category === 'lua') ? '' : `<div class="resource-preview">${gtaAddon || unavailablePreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
+    const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod, versionLabel: file.versionLabel })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
     const suffix = extension ? ` <span class="resource-extension ext-${extension.slice(1)}">${escape(extension)}</span>` : '';
-    const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.name) : ' ↓'}</button>`;
+    const download = file => {
+      const label = `Download${files.length > 1 ? ' ' + escape(file.versionLabel || file.name) : ' ↓'}`;
+      if (file.url.startsWith('/docs/')) return `<a class="resource-download" href="${escape(file.url)}" download="${escape(file.name)}">${label}</a>`;
+      if (file.downloadMethod === 'direct' && /^https:\/\/github\.com\/[^/]+\/[^/]+\/releases\/download\/[^/]+\/[^/]+\.zip$/i.test(file.url)) {
+        return `<a class="resource-download" href="${escape(file.url)}" download="${escape(file.name)}">${label}</a>`;
+      }
+      return `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">${label}</button>`;
+    };
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
-    const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${serverRecipe ? 'Download from source ↗' : 'Get from the author ↗'}</a>` : '';
+    const authorLabel = item.builtInLua ? 'View module source ↗' : menus.isStandLua(item) ? 'Open author source ↗' : item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : fiveMSetup && item.category !== 'graphics-packs' ? 'Download from source ↗' : 'Get from the author ↗';
+    const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${authorLabel}</a>` : '';
     const install = authorHosted && /^https:\/\//.test(item.installUrl || '') ? `<p><a href="${escape(item.installUrl)}" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p>` : '';
     const author = item.author || (item.game === 'l4d' ? item.credits : '');
     const credit = authorHosted && author ? `<p>By ${escape(author)}</p>` : '';
@@ -273,7 +434,10 @@ function renderPage(page) {
     const badge = edition ? `<span class="edition-badge edition-${edition}" title="${escape(editions.title(item.game, edition))}">${escape(editions.badge(item.game, edition))}</span>`
       : gtaAddon ? '<span class="edition-badge edition-unlisted">Edition unlisted</span>' : '';
     const access = item.access === 'free' ? '<span class="resource-access">Free</span>' : item.access === 'paid' ? '<span class="resource-access">Paid</span>' : '';
-    const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? '<button type="button" class="resource-download" disabled>Download — Coming soon</button>' : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>Download ↓</summary>${files.map(download).join('')}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
+    const downloadLabel = files.every(file => file.versionLabel) ? 'Choose version' : 'Download ↓';
+    const cheraxLua = cheraxPreview && item.category === 'lua';
+    const downloadOptions = files.map(download).join('');
+    const actions = item.status === 'preview-only' && !cheraxLua ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length && !cheraxLua ? `<button type="button" class="resource-download" disabled>${escape(item.downloadLabel || 'Download — Coming soon')}</button>` : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>${downloadLabel}</summary>${downloadOptions}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
     const notes = (Array.isArray(item.changelog) ? item.changelog : typeof item.changelog === 'string' ? [item.changelog] : []).flatMap(note => {
       if (typeof note === 'string') return [note];
       if (!note || typeof note !== 'object') return [];
@@ -281,46 +445,65 @@ function renderPage(page) {
       const changes = [note.changes, note.notes, note.description].flat().filter(value => typeof value === 'string');
       return changes.map(change => heading ? `${heading}: ${change}` : change);
     }).filter(Boolean);
-    const changelog = item.category === 'lua' || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
+    const changelog = (item.category === 'lua' && !item.builtInLua) || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
     const requirementText = item.requirementLabel || (item.game === 'l4d' ? item.compatibility : '') || (!menus.compatibleWith(item, page.menu) ? 'Requires the original menu format and a compatible loader or importer.' : '');
-    const requirement = requirementText ? `<p class="resource-requirement">${escape(requirementText)}</p>` : '';
-    const setup = serverRecipe && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
-    const type = serverRecipe ? 'txAdmin recipe' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
-    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(type)}</p>${badge}${access}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(tag => `<a href="${escape(queryURL(page.game, item.category, tag, page.menu))}">${escape(tag)}</a>`).join(' ')}</p>${actions}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
+    const requirement = [menus.presetLoaderNote(item, page.menu), requirementText, menus.cheraxLuaLayerNote(item)].filter(Boolean)
+      .map(text => `<p class="resource-requirement">${escape(text)}</p>`).join('');
+    const localGallery = item.imageBaseUrl === '/assets/images/resource-previews/yim/';
+    const gallery = item.imagePaths?.length && (localGallery || /^https:\/\//.test(item.imageBaseUrl || ''))
+      ? `<details class="resource-inline-details"><summary>Images (${item.imagePaths.length})</summary><ul>${item.imagePaths.map((file, index) => {
+        const url = item.imageBaseUrl + file.split('/').map(encodeURIComponent).join('/');
+        return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${localGallery ? `Image ${index + 1}` : escape(file)}</a></li>`;
+      }).join('')}</ul></details>` : '';
+    const setup = fiveMSetup && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
+    const type = item.category === 'pack-all-in-one' ? '' : serverRecipe ? 'txAdmin recipe' : item.builtInLua ? 'Built-in Lua module' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
+    const updated = menus.resourceUpdateDate(item);
+    const updateDate = updated ? `<p title="Latest push to the source repository">Last updated <time datetime="${escape(item.updatedAt)}">${escape(updated)}</time></p>` : '';
+    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3>${type ? `<p>${escape(type)}</p>` : ''}${badge}${access}${updateDate}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}${actions}${gallery}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
   }).join('\n');
   const collection = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'CollectionPage', '@id': page.url + '#collection', url: page.url, name: page.title, description: page.description, keywords: page.keywords, inLanguage: 'en', about: { '@type': 'VideoGame', name: game.full }, isPartOf: { '@id': SITE + '/resources/#collection' }, mainEntity: { '@id': page.url + '#resources' } },
-    { '@type': 'ItemList', '@id': page.url + '#resources', name: `${game.name} ${page.game === 'gta5' ? page.menuName + ' ' : ''}${page.name}`, numberOfItems: page.samples.length, itemListElement: page.samples.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: resourceName(item).visible, url: page.url + '#resource-' + item.id.replace(/[^a-z0-9_-]/gi, '-') })) }
+    { '@type': 'ItemList', '@id': page.url + '#resources', name: `${game.name} ${menuChoice ? page.menuName + ' ' : ''}${page.name}`, numberOfItems: page.samples.length, itemListElement: page.samples.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: resourceName(item).visible, url: page.url + resourceHash(item.id) })) }
   ] };
-  const scopeName = game.name + (page.game === 'gta5' ? ' ' + page.menuName : '');
+  const { scopeName } = page;
   const breadcrumb = page.menu !== 'scooby' ? `<a href="${route(page.game)}">${game.name}</a><span>/</span>${page.category ? `<a href="${route(page.game, undefined, page.menu)}">${escape(page.menuName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(page.menuName)}</span>`}` : page.category ? `<a href="${route(page.game)}">${escape(scopeName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(scopeName)}</span>`;
   const heading = scopeName + ' ' + (page.category ? page.name : 'resources');
-  const guideURL = `/resources/guides/?game=${page.game}${page.game === 'gta5' ? '&menu=' + page.menu : ''}${page.category ? '&category=' + page.category : ''}`;
-  const source = page.game === 'gta5' ? page.availableMenus.find(menu => menu.id === page.menu)?.source : undefined;
+  const guideURL = guideAddress(page, guideRoutes);
+  const source = page.availableMenus.find(menu => menu.id === page.menu)?.source;
   const sourceLink = source ? `<a class="menu-source-link" href="${escape(source.url)}">${escape(source.label)}</a>` : '';
   const clickUILink = page.game === 'gta5' && page.menu === 'scooby' && page.category === 'themes'
-    ? ` <a class="resource-open" href="${escape(queryURL('gta5', 'themes') + '&ui=clickui')}">Browse Scooby ClickUI themes →</a>` : '';
+    ? ` <a class="resource-open" href="${escape(browseURL({ ui: 'clickui' }))}">Browse Scooby ClickUI themes →</a>`
+    : page.game === 'gta5' && page.menu === 'cherax' && page.category === 'themes'
+      ? ` <a class="resource-open" href="${escape(browseURL({ ui: 'listui' }))}">Browse Cherax ListUI themes →</a>`
+      : '';
   const graphicsLinks = page.graphicsTopics?.length
     ? `<nav class="resource-menus" aria-label="RedM graphics pack types">${page.graphicsTopics.map(topic =>
-      `<a href="${escape(queryURL('redm', 'graphics-packs', topic.query))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';
+      `<a href="${escape(browseURL({ category: 'graphics-packs', q: topic.query }))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';
   const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/discover.js" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/discover.js?v=game-icons" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
 <link rel="stylesheet" href="/assets/css/ad-sidebar.css">
 <script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>
 </head>
 <body><a class="skip" href="#resources">Skip to resources</a><header><a class="scooby-brand" href="/"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a><nav aria-label="Main"><a href="/resources/">Resources</a><a href="/resources/guides/">Install guides</a><a href="/store/">Store ↗</a></nav></header>
-<main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p><p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount ? " · " + page.pendingCount.toLocaleString("en-GB") + " coming soon" : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${escape(queryURL(page.game, page.category, undefined, page.menu))}">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${page.itemCount ? `<div class="resource-samples">${samples}</div>` : `<p class="resource-empty">No ${escape(scopeName)} downloads are published yet. Read the <a href="${escape(guideURL)}">resource installation guide</a>.</p>`}</section>
+<main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${page.itemCount ? `<div class="resource-samples">${samples}</div>` : `<p class="resource-empty">No ${escape(scopeName)} downloads are published yet. Read the <a href="${escape(guideURL)}">resource installation guide</a>.</p>`}</section>
 <aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
   <p class="ad-label">Advertisement</p>
   <div class="ad-content" id="container-916d4be3288f94a3bc49ab6cdaef5ba9"></div>
   <script async="async" data-cfasync="false" src="https://bellnewyork.org/21/916d4be3288f94a3bc49ab6cdaef5ba9"></script>
   <a class="ad-sponsor" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="sponsored nofollow noopener noreferrer">Sponsored offer ↗</a>
 </aside></div></main><footer><a href="/resources/">All resources</a><a href="/sitemap/">Site directory</a></footer></body></html>`;
-  const dialog = '<dialog id="resource-changelog" aria-labelledby="resource-changelog-title"><button type="button" class="dialog-close" id="close-resource-changelog">Close ✕</button><h2 id="resource-changelog-title">Changelog</h2><div id="resource-changelog-content"></div></dialog>';
+  const dialog = `<dialog id="resource-changelog" aria-labelledby="resource-changelog-title" class="resource-dialog">
+  <div class="resource-dialog-heading">
+    <h2 id="resource-changelog-title">Changelog</h2>
+    <button type="button" id="close-resource-changelog" class="resource-dialog-close" aria-label="Close changelog" autofocus>×</button>
+  </div>
+  <div id="resource-changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
+</dialog>`;
   return placeHeadAd(require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>\n</body>')));
 }
 function build({ gta5Only = false } = {}) {
   const data = buildData();
+  const guides = buildGuideData(data);
   const pages = gta5Only ? data.pages.filter(page => page.game === 'gta5') : data.pages;
   const expected = new Set(pages.map(page => path.resolve(ROOT, page.file)));
   // Remove only obsolete generated category documents, never source assets.
@@ -347,12 +530,20 @@ function build({ gta5Only = false } = {}) {
   for (const page of pages) {
     const output = path.join(ROOT, page.file);
     fs.mkdirSync(path.dirname(output), { recursive: true });
-    fs.writeFileSync(output, renderPage(page));
+    fs.writeFileSync(output, renderPage(page, guides.routes));
   }
-  for (const menu of ['scooby', 'nenyoo', 'cherax', 'xforce']) {
-    const previous = route('gta5', 'dlc', menu);
-    const next = route('gta5', categoryId('gta5', 'dlc', menu), menu);
-    if (!data.pages.some(page => page.url === SITE + next)) continue;
+  const redirects = [
+    ...['scooby', 'nenyoo', 'cherax', 'stand', 'xforce'].map(menu => [menu, 'dlc', 'GTA 5 Addons']),
+    ['cherax', 'addon-packs'], ['stand', 'addon-packs'],
+    ...['scooby', 'nenyoo'].flatMap(menu => ['lua', 'addon-packs', 'misc'].map(category => [menu, category])),
+    ['nenyoo', 'configs'], ['nenyoo', 'asi-mods']
+  ];
+  const publishedPages = new Set(data.pages.map(page => page.url));
+  for (const [menu, category, label = `${menus.menuName(menu)} GTA 5 resources`] of redirects) {
+    const previous = route('gta5', category, menu);
+    const renamed = route('gta5', categoryId('gta5', category, menu), menu);
+    const next = publishedPages.has(SITE + renamed) ? renamed : route('gta5', undefined, menu);
+    if (publishedPages.has(SITE + previous) || !publishedPages.has(SITE + next)) continue;
     const output = path.join(ROOT, previous, 'index.html');
     fs.mkdirSync(path.dirname(output), { recursive: true });
     fs.writeFileSync(output, `<!doctype html>
@@ -361,19 +552,23 @@ function build({ gta5Only = false } = {}) {
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="${SITE + next}">
-<title>GTA 5 Addons</title>
+<title>${escape(label)}</title>
 <script>location.replace(${JSON.stringify(next)} + location.search + location.hash);</script>
 <noscript><meta http-equiv="refresh" content="0;url=${next}"></noscript>
 </head>
-<body><p>Continue to <a href="${next}">GTA 5 Addons</a>.</p></body>
+<body><p>Continue to <a href="${next}">${escape(label)}</a>.</p></body>
 </html>
 `);
   }
-  const gtaMenus = data.pages.filter(page => page.game === 'gta5' && !page.category);
-  const guideCategories = Object.fromEntries(gtaMenus.map(page => [
-    page.menu, menus.gtaCategoryGroups(page.menu, page.categories.map(category => category.id)).flatMap(([, ids]) => ids)
-  ]));
-  fs.writeFileSync(path.join(ROOT, 'resources/gta5/categories.json'), JSON.stringify(guideCategories, null, 2) + '\n');
+  for (const game of gta5Only ? ['gta5'] : ['gta5', 'rdr2']) {
+    const guideCategories = Object.fromEntries(data.pages.filter(page => page.game === game && !page.category && !page.archive).map(page => [
+      page.menu, menus.categoryGroups(page.menu, page.categories.map(category => category.id)).flatMap(([, ids]) => ids)
+    ]));
+    fs.writeFileSync(path.join(ROOT, `resources/${game}/categories.json`), JSON.stringify(guideCategories, null, 2) + '\n');
+  }
+  const published = gta5Only ? data.pages.filter(page => fs.existsSync(path.join(ROOT, page.file))) : pages;
+  fs.writeFileSync(path.join(ROOT, 'resources/routes.json'), JSON.stringify(published.map(page => route(page.game, page.category, page.menu, page.archive)), null, 2) + '\n');
+  writeGuides(guides, { ...data, pages: published });
   const rootFile = path.join(ROOT, 'resources/index.html');
   let rootHtml = fs.readFileSync(rootFile, 'utf8').replace(/<script\b[^>]*id="resource-collection-data"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   const rootUrl = SITE + '/resources/';
@@ -387,5 +582,5 @@ function build({ gta5Only = false } = {}) {
   console.log(`Built ${pages.length} crawlable ${gta5Only ? 'GTA 5 ' : ''}resource pages.`);
   return data;
 }
-module.exports = { GAMES, CATEGORIES, buildData, build, renderPage, route, queryURL, placeHeadAd, featuredTopics };
+module.exports = { GAMES, CATEGORIES, buildData, build, renderPage, route, placeHeadAd, featuredTopics };
 if (require.main === module) build({ gta5Only: process.argv.includes('--gta5-only') });

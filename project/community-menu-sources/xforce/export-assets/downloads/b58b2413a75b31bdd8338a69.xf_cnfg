@@ -1,0 +1,161 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 45,
+            "green" : 34,
+            "red" : 36
+         },
+         "notify_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 50,
+            "green" : 25,
+            "red" : 224,
+            "smoothness" : 2
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 45,
+            "green" : 34,
+            "red" : 36
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 50,
+            "green" : 25,
+            "red" : 224
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 45,
+            "green" : 34,
+            "red" : 36
+         },
+         "custom_name" : "C:/X-Folder/textures/RiasGremory_owo.jpeg",
+         "gif_delay" : 5,
+         "gif_index" : 0,
+         "image_index" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 50,
+            "green" : 25,
+            "red" : 224
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 175,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 50,
+            "green" : 25,
+            "red" : 224
+         }
+      },
+      "keyboard_x" : 0.5,
+      "keyboard_y" : 0.75,
+      "max_options" : 14,
+      "notify_right" : false,
+      "notify_x" : 0,
+      "notify_y" : 0,
+      "pos_x" : 0.68599998950958252,
+      "pos_y" : 0.15299999713897705,
+      "show_warning" : true,
+      "show_watermark" : true,
+      "size" : {
+         "header_y" : 0.14299988746643066,
+         "multiplier" : 0.96499872207641602,
+         "option_size_x" : 0.24100004136562347,
+         "option_size_y" : 0.028000000864267349
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.31000000238418579,
+         "text_size_y" : 0.289000004529953,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         },
+         "scrollbar" : {
+            "alpha" : 153,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         },
+         "scroller" : {
+            "alpha" : 102,
+            "blue" : 112,
+            "green" : 140,
+            "red" : 39
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 230,
+            "green" : 230,
+            "red" : 230
+         },
+         "title" : {
+            "alpha" : 255,
+            "blue" : 50,
+            "green" : 25,
+            "red" : 224
+         }
+      }
+   }
+}

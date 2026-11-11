@@ -1,0 +1,2092 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "menu-cherax-lua-auto-translator",
+      "sourceFilename": "Auto-Translator.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Auto-Translator.lua",
+          "sha256": "67204e9f96f9103971ef8a1a41f2960b4b1843fa70b5c3dfc851d2c925bb7c28",
+          "size": 28029,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-body-accessories",
+      "sourceFilename": "Body-Accessories.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Body-Accessories.lua",
+          "sha256": "c83fa45d21fae403a15986fc3448769ae63976a2e82155f7932ccfa5272808b1",
+          "size": 44907,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-bunnyscript",
+      "sourceFilename": "BunnyScript LE & EE v2.5.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/BunnyScript LE & EE v2.5.lua",
+          "sha256": "d6852f17f3fdbbfdfcf5b85fc9ccba1dc2e598ee98cb343e1ae0dafaaff352bc",
+          "size": 1374479,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-chat-commands",
+      "sourceFilename": "Chat Commands v2.0.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Chat Commands v2.0.lua",
+          "sha256": "5054414d233f32c189f5fd6345f93c2638155551b54135a21d3077845a949902",
+          "size": 167473,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Chat Commands v2.0.lua",
+          "line": 2,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Chat Commands v2.0.lua",
+          "line": 4,
+          "basis": "author declaration"
+        }
+      ],
+      "version": "2.0",
+      "author": "MMmitch"
+    },
+    {
+      "id": "menu-cherax-lua-cherax-doom",
+      "sourceFilename": "Cherax-Doom.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Cherax-Doom.lua",
+          "sha256": "a29619b264ef658d44ca6799e4f378fb01ecdb7eefb360e740229b1a74932398",
+          "size": 442533,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-codax",
+      "sourceFilename": "Codax.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Codax.lua",
+          "sha256": "bfc0bf0dda26998cc43e36203ecd0b87b181a2bd5144be3dbc0ed8c50d04c922",
+          "size": 7692612,
+          "encoding": "compiled-lua-uninterpreted",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-daivekit",
+      "sourceFilename": "DaiveKit-v2.7.1.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/DaiveKit-v2.7.1.lua",
+          "sha256": "71d9ba5e82ee716ad68a743d06ddd750a6de634cfbccba279592eb10a7ffc4d6",
+          "size": 906553,
+          "encoding": "compiled-lua-uninterpreted",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-driftgod",
+      "sourceFilename": "DriftGod v1.0.7.lua",
+      "changelog": [
+        {
+          "version": "1.0.7",
+          "changes": [
+            "Expands corner-speed assistance and first-use driving guidance.",
+            "Adds smoke and neon progression, animation presets and persistent activation preferences.",
+            "Improves popup, spawn and onboarding handling while retaining existing saved progress."
+          ]
+        },
+        {
+          "version": "1.0.6",
+          "changes": [
+            "Introduces separate account score profiles, upload pacing and recovery.",
+            "Refreshes live leaderboards and blocks Story Mode submissions; identity and scores remain client-reported."
+          ]
+        },
+        {
+          "version": "1.0.5",
+          "changes": [
+            "Combines online leaderboards, a Rival HUD and separate Drift / Power Glide rankings.",
+            "Adds first-run asset installation, onboarding and score checkpoints."
+          ]
+        },
+        {
+          "version": "1.0.4",
+          "changes": [
+            "Adds Power Glide handling presets and Drift Smoke unlocks.",
+            "Improves dashboard navigation, garage integration and diagnostic dialogs."
+          ]
+        },
+        {
+          "version": "1.0.3",
+          "changes": [
+            "Keeps manually chosen drift presets after startup and unlock checks.",
+            "Prevents chat input from operating HUD menus and improves reload and smoke cleanup."
+          ]
+        },
+        {
+          "version": "1.0.2",
+          "changes": [
+            "Improves low-speed acceleration assistance and enables tuning when a base preset is selected."
+          ]
+        },
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Adds Prime-aware runtime and cleanup handling, recursive garage scanning and configurable garage shortcuts."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Establishes the production package with quieter startup, protected settings and revised rewards and HUD shortcuts."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "sha256": "351eee8b0ddaf1c9826ccd1485a72e4fd1acc27cc0f73ec4675dcd608b635a27",
+          "size": 5499918,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 3,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 48,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 37,
+          "basis": "Documented changelog for 1.0.7"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 38,
+          "basis": "Documented changelog for 1.0.6"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 39,
+          "basis": "Documented changelog for 1.0.5"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 40,
+          "basis": "Documented changelog for 1.0.4"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 41,
+          "basis": "Documented changelog for 1.0.3"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 42,
+          "basis": "Documented changelog for 1.0.2"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 43,
+          "basis": "Documented changelog for 1.0.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/DriftGod v1.0.7.lua",
+          "line": 44,
+          "basis": "Documented changelog for 1.0.0"
+        }
+      ],
+      "version": "1.0.7",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-earplugs",
+      "sourceFilename": "Earplugs.lua",
+      "changelog": [
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Includes flight music in the score-music control."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Removes the debug tab, logging and Now Playing display from the release build."
+          ]
+        },
+        {
+          "version": "0.6.1",
+          "changes": [
+            "Corrects the audio-scene full-level setting."
+          ]
+        },
+        {
+          "version": "0.6.0",
+          "changes": [
+            "Checks the switches against game data and adds the Silenced option."
+          ]
+        },
+        {
+          "version": "0.5.0",
+          "changes": [
+            "Adds controls for radio, weapons, alarms and other-player sounds."
+          ]
+        },
+        {
+          "version": "0.4.2",
+          "changes": [
+            "Corrects handling of audio scenes that end automatically."
+          ]
+        },
+        {
+          "version": "0.4.1",
+          "changes": [
+            "Repairs helicopter and footstep controls."
+          ]
+        },
+        {
+          "version": "0.4.0",
+          "changes": [
+            "Groups additional switches and sub-switches into columns."
+          ]
+        },
+        {
+          "version": "0.3.0",
+          "changes": [
+            "Introduces the Earplugs name, a grid layout and sixteen additional switches."
+          ]
+        },
+        {
+          "version": "0.2.0",
+          "changes": [
+            "Adds weather, aircraft, location, pain, Arena and Car Meet sound controls."
+          ]
+        },
+        {
+          "version": "0.1.0",
+          "changes": [
+            "Provides the initial seventeen-switch audio test interface and logging."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "sha256": "c6c6263534b679c9e15d93a02c41c675d18e3d7ee2555a44d66d5f24b592e56a",
+          "size": 25835,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 20,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 6,
+          "basis": "Documented changelog for 1.0.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 7,
+          "basis": "Documented changelog for 1.0.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 8,
+          "basis": "Documented changelog for 0.6.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 9,
+          "basis": "Documented changelog for 0.6.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 10,
+          "basis": "Documented changelog for 0.5.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 11,
+          "basis": "Documented changelog for 0.4.2"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 12,
+          "basis": "Documented changelog for 0.4.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 13,
+          "basis": "Documented changelog for 0.4.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 14,
+          "basis": "Documented changelog for 0.3.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 15,
+          "basis": "Documented changelog for 0.2.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Earplugs.lua",
+          "line": 16,
+          "basis": "Documented changelog for 0.1.0"
+        }
+      ],
+      "version": "1.0.1"
+    },
+    {
+      "id": "menu-cherax-lua-elloscript",
+      "sourceFilename": "ElloScript-v1.5.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/ElloScript-v1.5.lua",
+          "sha256": "69ce12bd48f02f3c8808e5b758789cf3498499bac6465b7712a44d8a27c27377",
+          "size": 475580,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-extended-constructor",
+      "sourceFilename": "Extended-Constructor.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Extended-Constructor.lua",
+          "sha256": "5c198304d77ac5e167a0352aef34a646316eda57d9ef2fc82c99bc436caba42e",
+          "size": 79222,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-host-tools",
+      "sourceFilename": "Host-Tools-v1.7.2.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Host-Tools-v1.7.2.lua",
+          "sha256": "a166a86d2cd3804bb452d13de2e4b8b2f3c128d5518daa34d9c5a97ddf74c041",
+          "size": 318608,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Host-Tools-v1.7.2.lua",
+          "line": 11,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Host-Tools-v1.7.2.lua",
+          "line": 1,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "review-notes",
+          "notes": [
+            "The older header says 0.28b (v85); 1.7.2 is the explicit runtime version declaration."
+          ]
+        }
+      ],
+      "version": "1.7.2",
+      "author": "Plynko"
+    },
+    {
+      "id": "menu-cherax-lua-hulk-mode",
+      "sourceFilename": "HULK MODE v3.1 .lua",
+      "changelog": [
+        {
+          "version": "4.1",
+          "changes": [
+            "Reorganizes the HULK interface into feature and Playground tabs and consolidates progression state."
+          ]
+        },
+        {
+          "version": "4.0",
+          "changes": [
+            "Adds a saved skill tree, level perks, daily challenges, repeated-target reward reduction and a friends mode."
+          ]
+        },
+        {
+          "version": "3.9",
+          "changes": [
+            "Adds action and combo experience, chained-action bonuses and an on-screen XP feed."
+          ]
+        },
+        {
+          "version": "3.8",
+          "changes": [
+            "Expands the quest pool, adds level-based quest slots and saves progression between sessions."
+          ]
+        },
+        {
+          "version": "3.7",
+          "changes": [
+            "Rechecks punch targets at impact, improves target assistance and introduces layered punch sounds."
+          ]
+        },
+        {
+          "version": "3.6",
+          "changes": [
+            "Smooths trajectory rendering and adds impact markers, distance feedback and preview settings."
+          ]
+        },
+        {
+          "version": "3.5",
+          "changes": [
+            "Restores saved settings, ignores hotkeys during chat or pause and adds trajectory and action sounds."
+          ]
+        },
+        {
+          "version": "3.4",
+          "changes": [
+            "Restores visible living-NPC carry poses and separate handling for dead NPCs."
+          ]
+        },
+        {
+          "version": "3.3",
+          "changes": [
+            "Repairs rage behavior, thrown-NPC collision and zero-valued rage bonuses; improves entity cleanup and menu controls."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "sha256": "c4c9a861e7c8f725c0ef0870678737b0659e49103f4c41f18475e09a902e9646",
+          "size": 245855,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 112,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 10,
+          "basis": "Documented changelog for 4.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 15,
+          "basis": "Documented changelog for 4.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 24,
+          "basis": "Documented changelog for 3.9"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 34,
+          "basis": "Documented changelog for 3.8"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 47,
+          "basis": "Documented changelog for 3.7"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 59,
+          "basis": "Documented changelog for 3.6"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 69,
+          "basis": "Documented changelog for 3.5"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 78,
+          "basis": "Documented changelog for 3.4"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HULK MODE v3.1 .lua",
+          "line": 84,
+          "basis": "Documented changelog for 3.3"
+        },
+        {
+          "kind": "review-notes",
+          "notes": [
+            "The filename/header say v3.1, the runtime identity says vBETA, and the header history reaches v4.1. These are documented source labels, not a verified published release sequence."
+          ]
+        }
+      ],
+      "version": "vBETA"
+    },
+    {
+      "id": "menu-cherax-lua-hustlemeter",
+      "sourceFilename": "HustleMeter-v1.0.9.lua",
+      "changelog": [
+        {
+          "version": "1.0.9",
+          "changes": [
+            "Removes Smart Heists and controls over Silent Night or Codax heist settings."
+          ],
+          "date": "2026-08-14",
+          "dateBasis": "Date encoded in the local script build identifier; publication date not independently verified."
+        },
+        {
+          "version": "1.0.5",
+          "changes": [
+            "Updates Legacy/Enhanced wallet tracking, baseline recovery and deferred resets.",
+            "Expands payout diagnostics and support archive generation."
+          ]
+        },
+        {
+          "version": "1.0.4",
+          "changes": [
+            "Adds balance tracking across transitions, separate edition ledgers and automatic support diagnostics."
+          ]
+        },
+        {
+          "version": "1.0.3",
+          "changes": [
+            "Speeds up payout scanning and expands transition coverage."
+          ]
+        },
+        {
+          "version": "1.0.2",
+          "changes": [
+            "Adds a saved setting that keeps the HUD visible without a timeout."
+          ]
+        },
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Separates ledgers by Rockstar account and tidies the interface."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Introduces rolling one-day and seven-day money tracking."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "sha256": "f88b308348d71cf92db28820c70259fdb36dc4b519bc393678ba56fc39f4061c",
+          "size": 1077668,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 51,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 39,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 31,
+          "basis": "Documented changelog for 1.0.9"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 52,
+          "basis": "Date basis for 1.0.9"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 32,
+          "basis": "Documented changelog for 1.0.5"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 33,
+          "basis": "Documented changelog for 1.0.4"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 34,
+          "basis": "Documented changelog for 1.0.3"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 35,
+          "basis": "Documented changelog for 1.0.2"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 36,
+          "basis": "Documented changelog for 1.0.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/HustleMeter-v1.0.9.lua",
+          "line": 37,
+          "basis": "Documented changelog for 1.0.0"
+        }
+      ],
+      "version": "1.0.9",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-gun-van",
+      "sourceFilename": "J19sw-Gun-Van.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/J19sw-Gun-Van.lua",
+          "sha256": "940a6bce3a55becca4380b162fe1b1d81ad59dd5ef6c1bfa7bf783dfe11d235a",
+          "size": 37777,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-kortz-heist",
+      "sourceFilename": "Kortz-Heist-Helper.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Kortz-Heist-Helper.lua",
+          "sha256": "f8ab82b3a998984ecd39603dd19304042d2b63605df74466826ccc46c71233f6",
+          "size": 30418,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-liquidfit",
+      "sourceFilename": "LiquidFit-Outfit-manager.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/LiquidFit-Outfit-manager.lua",
+          "sha256": "ad6cacbf93851c3cdadfdad7d592ad025cc82836f8a53c0952e300009317437d",
+          "size": 146608,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/LiquidFit-Outfit-manager.lua",
+          "line": 23,
+          "basis": "version declaration"
+        }
+      ],
+      "version": "1.1.1"
+    },
+    {
+      "id": "menu-cherax-lua-minigames",
+      "sourceFilename": "Minigames-1.0.0.lua",
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Introduces the production Minigames package."
+          ],
+          "date": "2026-08-02",
+          "dateBasis": "Explicit release-date declaration in the local script; not independently verified against a public release."
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Minigames-1.0.0.lua",
+          "sha256": "4a3190f5e4d7683bfebe6e976e2cc7f91b47ac959537588ff5c0b52f5099828e",
+          "size": 2112442,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Minigames-1.0.0.lua",
+          "line": 40,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Minigames-1.0.0.lua",
+          "line": 29,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Minigames-1.0.0.lua",
+          "line": 27,
+          "basis": "Documented changelog for 1.0.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Minigames-1.0.0.lua",
+          "line": 41,
+          "basis": "Date basis for 1.0.0"
+        }
+      ],
+      "version": "1.0.0",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-modverse",
+      "sourceFilename": "MODVERSE-1.0.0.lua",
+      "changelog": [
+        {
+          "version": "1.0.0 Build 154",
+          "changes": [
+            "Removes obsolete browser reconstruction helpers while retaining binary image/ZIP checks and the preceding storefront behavior."
+          ]
+        },
+        {
+          "version": "1.0.0 Build 153",
+          "changes": [
+            "Repairs a gallery crash and card rendering, removes stale ASI hints and updates DLC load guidance."
+          ]
+        },
+        {
+          "version": "1.0.0 Build 152",
+          "changes": [
+            "Removes DLL downloading, native library loading, external workers and ASI launch paths.",
+            "Restores DLC index loading with stricter relative-path checks."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/MODVERSE-1.0.0.lua",
+          "sha256": "f8d082ce9adbf567221286d1bc2513eb3acb903a109540323b3d453d8c8f2907",
+          "size": 566038,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/MODVERSE-1.0.0.lua",
+          "line": 34,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/MODVERSE-1.0.0.lua",
+          "line": 3,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/MODVERSE-1.0.0.lua",
+          "line": 11,
+          "basis": "Documented changelog for 1.0.0 Build 154"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/MODVERSE-1.0.0.lua",
+          "line": 15,
+          "basis": "Documented changelog for 1.0.0 Build 153"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/MODVERSE-1.0.0.lua",
+          "line": 20,
+          "basis": "Documented changelog for 1.0.0 Build 152"
+        }
+      ],
+      "version": "1.0.0",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-optimized-bodyguards",
+      "sourceFilename": "OptimizedBodyguards.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/OptimizedBodyguards.lua",
+          "sha256": "d4dbef144d55e3a5b6b76c8e5c9966be6cdc3dab5add70b311b4c8a345a1df57",
+          "size": 194521,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-outfit-editor",
+      "sourceFilename": "Outfit-Editor.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Outfit-Editor.lua",
+          "sha256": "e75af0aae2e29afc9ac13df8d8461e2f05bbf78daaae0b3e8cb0d37a080eaf6b",
+          "size": 4221,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-outfitforge",
+      "sourceFilename": "OutfitForge.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/OutfitForge.lua",
+          "sha256": "23a1f43c3d34c6497b7da8e577c3c681fb3f8de973f382232969cd79a7c392a4",
+          "size": 84027,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-paintlabs",
+      "sourceFilename": "PaintLabs-1.02.lua",
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Packages the production Three Lane editor, color credits and complete lighting/smoke preset persistence.",
+            "Improves paint identifiers, Favorites migration and provenance handling."
+          ]
+        },
+        {
+          "version": "0.9.0",
+          "changes": [
+            "Introduces PaintLabs branding, complete-state presets, improved sorting and creator credit displays."
+          ]
+        },
+        {
+          "version": "0.8.0",
+          "changes": [
+            "Expands and deduplicates community colors, adds contrast/temperature controls and matures the Three Lane editing workflow."
+          ]
+        },
+        {
+          "version": "0.7.0",
+          "changes": [
+            "Adds pearlescent remixes and finish overrides while experimenting with editor layouts."
+          ]
+        },
+        {
+          "version": "0.6.0",
+          "changes": [
+            "Expands generated combinations to five hundred and adds color relatives with persistent Favorites.",
+            "Makes neon underglow optional and disabled initially."
+          ]
+        },
+        {
+          "version": "0.5.0",
+          "changes": [
+            "Introduces generated paint recommendations and expands the set to one hundred contrasting combinations."
+          ]
+        },
+        {
+          "version": "0.4.0",
+          "changes": [
+            "Creates a dedicated Exotic gallery with specialty presets and improved Favorites navigation."
+          ]
+        },
+        {
+          "version": "0.3.0",
+          "changes": [
+            "Adds a grid gallery, tire-smoke matching, preview snapshots and initial Exotic presets."
+          ]
+        },
+        {
+          "version": "0.2.0",
+          "changes": [
+            "Adds pearlescent filtering, safer preview restoration and saved-preset controls."
+          ]
+        },
+        {
+          "version": "0.1.0",
+          "changes": [
+            "Adds a browsable community color library, hover previews, Favorites and automatic showcasing."
+          ]
+        },
+        {
+          "version": "0.0.1",
+          "changes": [
+            "Introduces primary/secondary paint editing, finishes, pearlescent controls, mixing and preset saving."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "sha256": "a0221e707e7e7a90ecb9a4cb3aafbbc21f4ed8ed7485dff2e7e57f08f0be5022",
+          "size": 490267,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 47,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 34,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 32,
+          "basis": "Documented changelog for 1.0.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 31,
+          "basis": "Documented changelog for 0.9.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 30,
+          "basis": "Documented changelog for 0.8.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 29,
+          "basis": "Documented changelog for 0.7.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 28,
+          "basis": "Documented changelog for 0.6.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 27,
+          "basis": "Documented changelog for 0.5.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 26,
+          "basis": "Documented changelog for 0.4.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 25,
+          "basis": "Documented changelog for 0.3.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 24,
+          "basis": "Documented changelog for 0.2.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 23,
+          "basis": "Documented changelog for 0.1.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PaintLabs-1.02.lua",
+          "line": 22,
+          "basis": "Documented changelog for 0.0.1"
+        },
+        {
+          "kind": "review-notes",
+          "notes": [
+            "The filename says 1.02; the source header and runtime version both declare 1.0.0."
+          ]
+        }
+      ],
+      "version": "1.0.0",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-pvp-helper",
+      "sourceFilename": "PvP-helper-v3.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/PvP-helper-v3.lua",
+          "sha256": "503044086b40476c9eb6f68cba46c93dd0292c3b82c14dc7410349c6886b0be8",
+          "size": 126294,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/PvP-helper-v3.lua",
+          "line": 5,
+          "basis": "version declaration"
+        }
+      ],
+      "version": "1.1.3"
+    },
+    {
+      "id": "menu-cherax-lua-silent-night",
+      "sourceFilename": "Silent-Night-v1.13.3.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Silent-Night-v1.13.3.lua",
+          "sha256": "86445d087174f8bb95b65bdcbe1f1b0095959459fca4a6726ea9d1578392ff12",
+          "size": 1013057,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-smart-console",
+      "sourceFilename": "Smart-Console.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Smart-Console.lua",
+          "sha256": "194a7ec51089f5e7131af0b7e306172c26c01c9c17f9d22d4ddd3e4f82389065",
+          "size": 115195,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Smart-Console.lua",
+          "line": 47,
+          "basis": "version declaration"
+        }
+      ],
+      "version": "1.0.1"
+    },
+    {
+      "id": "menu-cherax-lua-sovereign",
+      "sourceFilename": "Sovereign-1.0.0.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Sovereign-1.0.0.lua",
+          "sha256": "d871f6d7b23a28d7b9a65ca5044994570e56661aef530b8d31dc0e4ac035294f",
+          "size": 3909954,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-startup",
+      "sourceFilename": "Startup v1.0.18.lua",
+      "changelog": [
+        {
+          "version": "1.0.18",
+          "changes": [
+            "Adds live Browser event notifications, event feedback and an expanded-minimap HUD adapter.",
+            "Adds edition-aware event join notices and a contextual death log.",
+            "Improves HUD suppression and persists retaliation preferences, including the disabled auto-bounty setting."
+          ],
+          "date": "2026-10-02",
+          "dateBasis": "Explicit local build-date declaration; publication date not independently verified."
+        },
+        {
+          "version": "1.0.16",
+          "changes": [
+            "Updates advertising controls and account linking, with revised activity/HUD layouts and session-routing safeguards."
+          ]
+        },
+        {
+          "version": "1.0.15",
+          "changes": [
+            "Repairs Browser joins and improves cancellation of duplicate or stale join attempts.",
+            "Prepares Prime Browser support and reduces startup renderer work."
+          ]
+        },
+        {
+          "version": "1.0.13",
+          "changes": [
+            "Introduces live sessions and events, favorites, reputation and moderation controls.",
+            "Adds automatic Browser asset delivery and recovery."
+          ]
+        },
+        {
+          "version": "1.0.11",
+          "changes": [
+            "Expands session routing, HUD cards and Prime support with improved diagnostics and onboarding."
+          ]
+        },
+        {
+          "version": "1.0.10",
+          "changes": [
+            "Repairs blank startup menus and improves advertising, settings discovery and guided setup."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "sha256": "7a23309db7ae4db76501ccdd84f65a7ab860279cf40760477fd88bdccd4d9dd2",
+          "size": 4600281,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 102,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 74,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 10,
+          "basis": "Documented changelog for 1.0.18"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 103,
+          "basis": "Date basis for 1.0.18"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 42,
+          "basis": "Documented changelog for 1.0.16"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 48,
+          "basis": "Documented changelog for 1.0.15"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 57,
+          "basis": "Documented changelog for 1.0.13"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 63,
+          "basis": "Documented changelog for 1.0.11"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Startup v1.0.18.lua",
+          "line": 70,
+          "basis": "Documented changelog for 1.0.10"
+        }
+      ],
+      "version": "1.0.18",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-trackmatic",
+      "sourceFilename": "TRACKMATIC v1.0.1.lua",
+      "changelog": [
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Revises Cherax call handling and build cancellation.",
+            "Caches display calculations to reduce repeated menu work."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Packages the production interface, cleaner startup logging and error handling."
+          ]
+        },
+        {
+          "version": "0.9.9",
+          "changes": [
+            "Repairs Home-tab style colors and ImGui compatibility."
+          ]
+        },
+        {
+          "version": "0.9.8",
+          "changes": [
+            "Reorganizes the TrackMatic interface and tab navigation."
+          ]
+        },
+        {
+          "version": "0.9.7",
+          "changes": [
+            "Improves saved-course loading, metadata and management."
+          ]
+        },
+        {
+          "version": "0.9.6",
+          "changes": [
+            "Uses a flag icon and GPS route for course starts."
+          ]
+        },
+        {
+          "version": "0.9.5",
+          "changes": [
+            "Adds automatically placed course-start markers."
+          ]
+        },
+        {
+          "version": "0.9.3",
+          "changes": [
+            "Adds a library for saving, loading and browsing tracks."
+          ]
+        },
+        {
+          "version": "0.9.2",
+          "changes": [
+            "Adds ninety point-to-point drift routes."
+          ]
+        },
+        {
+          "version": "0.9.1",
+          "changes": [
+            "Adds thirty tuner settings for both Parkour and Hybrid courses."
+          ]
+        },
+        {
+          "version": "0.9.0",
+          "changes": [
+            "Connects hover previews to the course planner."
+          ]
+        },
+        {
+          "version": "0.8.0",
+          "changes": [
+            "Adds advanced course tuning, live 3D previews and saved tuner settings."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "sha256": "cb241c48bcc135ec9451f17f60fc3ef67584b7a87003999b5c3aac011b4278ac",
+          "size": 1732916,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 247,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 103,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 33,
+          "basis": "Documented changelog for 1.0.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 34,
+          "basis": "Documented changelog for 1.0.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 35,
+          "basis": "Documented changelog for 0.9.9"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 36,
+          "basis": "Documented changelog for 0.9.8"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 37,
+          "basis": "Documented changelog for 0.9.7"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 38,
+          "basis": "Documented changelog for 0.9.6"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 39,
+          "basis": "Documented changelog for 0.9.5"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 41,
+          "basis": "Documented changelog for 0.9.3"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 42,
+          "basis": "Documented changelog for 0.9.2"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 43,
+          "basis": "Documented changelog for 0.9.1"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 44,
+          "basis": "Documented changelog for 0.9.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/TRACKMATIC v1.0.1.lua",
+          "line": 53,
+          "basis": "Documented changelog for 0.8.0"
+        }
+      ],
+      "version": "1.0.1",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-vehicle-forge",
+      "sourceFilename": "Vehicle-Forge.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Vehicle-Forge.lua",
+          "sha256": "660e228fc3cf5c01a4673d34a0f4a2d31c498d704bafeae37ba9fd94ffaaea06",
+          "size": 60571,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Vehicle-Forge.lua",
+          "line": 1,
+          "basis": "version declaration"
+        }
+      ],
+      "version": "1.0.1"
+    },
+    {
+      "id": "menu-cherax-lua-vibescript",
+      "sourceFilename": "Vibescript v2.5.0 .lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Vibescript v2.5.0 .lua",
+          "sha256": "e8932aa2ee680fba105c6661c5555fbc785fddba04a3ff00ea6805b4bb3f58aa",
+          "size": 2069868,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/Vibescript v2.5.0 .lua",
+          "line": 504,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "review-notes",
+          "notes": [
+            "The v2.5.0 and 2.2.1 filenames have identical bytes; VIBE_VERSION declares 2.2.1."
+          ]
+        }
+      ],
+      "version": "2.2.1"
+    },
+    {
+      "id": "menu-cherax-lua-aerials",
+      "sourceFilename": "Aerials.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Aerials.lua",
+          "sha256": "3e88f42bd669ee3bcebed7c6766832d15838680d55853769dc36129565cef9a3",
+          "size": 1397515,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-bodyguards",
+      "sourceFilename": "BetterBodyguards.lua",
+      "changelog": [
+        {
+          "version": "4.0",
+          "changes": [
+            "Repairs vehicle shooting, guard numbering, relationship refresh and unload cleanup.",
+            "Adds advanced guard tuning, convoy behavior, a live roster and two-tier weapon selection.",
+            "Adds player-clone spawning, seat locks and automatic escort recovery."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/BetterBodyguards.lua",
+          "sha256": "524a274fc291ac9517ebb7eaab10589fe544921291b7ff41b2eda61d836c3ac6",
+          "size": 176627,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/BetterBodyguards.lua",
+          "line": 32,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/BetterBodyguards.lua",
+          "line": 3,
+          "basis": "Documented changelog for 4.0"
+        }
+      ],
+      "version": "4.0"
+    },
+    {
+      "id": "menu-cherax-lua-chairhax",
+      "sourceFilename": "Chairhax E&E.lua",
+      "changelog": [
+        {
+          "version": "3.0.5",
+          "changes": [
+            "Adds external menus and improves the spawner and structure creator, with general corrections."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/Sources/Chairhax-Lua-main/lua/Chairhax E&E.lua",
+          "sha256": "f5de7daa0ae6d84934fb56939160c212ad65bec95badb1d732bf88d60b2b4951",
+          "size": 149,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-author-changelog",
+          "sourcePath": "../cherax-luas/luas/Sources/Chairhax-Lua-main/CHANGELOG.md",
+          "sha256": "3e9bca8d9e66d1a8ff498cd88c30985638bd53a86a03d6859deca25684b86082",
+          "lineStart": 1,
+          "lineEnd": 6,
+          "basis": "Source-package changelog; not a version assertion for the separately compiled ChairHax.lua."
+        },
+        {
+          "kind": "public-author-documentation",
+          "url": "https://github.com/SATTY91/Chairhax-Lua/blob/main/CHANGELOG.md",
+          "basis": "Public original repository and CHANGELOG.md verified during this review; no publication date inferred."
+        }
+      ],
+      "version": "3.0.5"
+    },
+    {
+      "id": "menu-cherax-lua-cheems-translator",
+      "sourceFilename": "CheemsTranslator.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/CheemsTranslator.lua",
+          "sha256": "390ded9e946c4a7631990292dd383d99296d72be62cd2fc3114745e8cefa2ba7",
+          "size": 234484,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/CheemsTranslator.lua",
+          "line": 1,
+          "basis": "version declaration"
+        }
+      ],
+      "version": "2.1.7"
+    },
+    {
+      "id": "menu-cherax-lua-cherax-chat",
+      "sourceFilename": "Cherax-chat.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Cherax-chat.lua",
+          "sha256": "e90939b649f671527484c7456379e7c0c711cbd12dea28254e14270ec8f53610",
+          "size": 28388,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-crimson-vehicles",
+      "sourceFilename": "Crimson-Vehicles.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Crimson-Vehicles.lua",
+          "sha256": "f8afed722daa3c0ca2ddce61dd840402441c97497c41a5cd9a0b484f7f34b8a9",
+          "size": 142490,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-cyberpilot-hud",
+      "sourceFilename": "CyberPliot-Hud.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/CyberPliot-Hud.lua",
+          "sha256": "958f57731bff7bd357265631613577f6332a71b281e9f5c33a313320b2e1bd0f",
+          "size": 41910,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-discord-rpc-reborn",
+      "sourceFilename": "Discord-RPC-Reborn.lua",
+      "changelog": [
+        {
+          "version": "1.2.4",
+          "changes": [
+            "Adds an image-based crosshair and refreshes presence after returning to the main menu."
+          ]
+        },
+        {
+          "version": "1.2.3",
+          "changes": [
+            "Adds a configurable crosshair and repairs menu rendering errors."
+          ]
+        },
+        {
+          "version": "1.2.0",
+          "changes": [
+            "Detects casino activity and improves character-editing, session-change and state detection."
+          ]
+        },
+        {
+          "version": "1.1.0",
+          "changes": [
+            "Introduces public Rich Presence support with activity tracking, configurable buttons and sound options."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Discord-RPC-Reborn.lua",
+          "sha256": "bfb47bbd0afa08b2d635f1a1c7a36eb2f605eb5f5792fd2aa3ec99da78a0116c",
+          "size": 49452,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Discord-RPC-Reborn.lua",
+          "line": 74,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Discord-RPC-Reborn.lua",
+          "line": 76,
+          "basis": "Documented changelog for 1.2.4"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Discord-RPC-Reborn.lua",
+          "line": 80,
+          "basis": "Documented changelog for 1.2.3"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Discord-RPC-Reborn.lua",
+          "line": 84,
+          "basis": "Documented changelog for 1.2.0"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Discord-RPC-Reborn.lua",
+          "line": 90,
+          "basis": "Documented changelog for 1.1.0"
+        }
+      ],
+      "version": "1.2.4"
+    },
+    {
+      "id": "menu-cherax-lua-fireworks-menu",
+      "sourceFilename": "Fireworks-menu.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Fireworks-menu.lua",
+          "sha256": "dc217af215f74131a25bb9487d7332b4f96c0c3565e2d2895e1700f477b32f30",
+          "size": 52304,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-flying-cars-sa",
+      "sourceFilename": "Flying-Cars.lua",
+      "changelog": [
+        {
+          "version": "1.0.1 Alpha",
+          "changes": [
+            "Streamlines native/input/render calls, persistence and compatibility handling."
+          ]
+        },
+        {
+          "version": "1.0.0 Alpha",
+          "changes": [
+            "Introduces car-flight physics, camera guidance, configurable shortcuts and saved scores with landing validation."
+          ]
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Flying-Cars.lua",
+          "sha256": "63458a22ef4a7b6eb896e2ff59ed1c2a6a87d3bfb7164ce4ec561f527ac2b2e7",
+          "size": 135522,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Flying-Cars.lua",
+          "line": 49,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Flying-Cars.lua",
+          "line": 40,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Flying-Cars.lua",
+          "line": 37,
+          "basis": "Documented changelog for 1.0.1 Alpha"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/Flying-Cars.lua",
+          "line": 38,
+          "basis": "Documented changelog for 1.0.0 Alpha"
+        }
+      ],
+      "version": "1.0.1 Alpha",
+      "author": "Public_Urinal"
+    },
+    {
+      "id": "menu-cherax-lua-racing-lines",
+      "sourceFilename": "Ji9sw-Racing-Lines.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Ji9sw-Racing-Lines.lua",
+          "sha256": "89d99d699d119a6042490e0fd8701ca1b0aab0e6976e951bcf736a067a6a370d",
+          "size": 16354,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-meow-party-emotes",
+      "sourceFilename": "MeowPartyEmotes.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/MeowPartyEmotes.lua",
+          "sha256": "1177dc8a755c2bfa2cfdd1d2355a93898ed804e5508f31a17b2725610e399839",
+          "size": 5553819,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-spooner",
+      "sourceFilename": "Sponner.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Sponner.lua",
+          "sha256": "e98c110a7906375cefb8bb9937bfe208b8fb9c426678955a453c968813e865ff",
+          "size": 176902,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-trolley",
+      "sourceFilename": "Trolley.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/Trolley.lua",
+          "sha256": "9577154d5b9c92a3cf91aea4670c7d4de6ea84e4fd64b243e0611495ba05016d",
+          "size": 200468,
+          "encoding": "compiled-lua-uninterpreted",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-vroom",
+      "sourceFilename": "VROOM.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/VROOM.lua",
+          "sha256": "677642086922f4ea25625e75428439b4e825f946fc19807a64dc178ca9594b6a",
+          "size": 508300,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        }
+      ]
+    },
+    {
+      "id": "menu-cherax-lua-x-script",
+      "sourceFilename": "X-Script.lua",
+      "changelog": [],
+      "sourceEvidence": [
+        {
+          "kind": "local-static-source",
+          "sourcePath": "../cherax-luas/luas/pointless/X-Script.lua",
+          "sha256": "9916d21eae83d22a1f1ea51bfc97662f30349d3d28dbeffd5489c3f0862b3498",
+          "size": 116007,
+          "encoding": "text",
+          "basis": "Read statically; no Lua executed or distributed."
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/X-Script.lua",
+          "line": 5,
+          "basis": "version declaration"
+        },
+        {
+          "kind": "local-source-line",
+          "sourcePath": "../cherax-luas/luas/pointless/X-Script.lua",
+          "line": 6,
+          "basis": "author declaration"
+        },
+        {
+          "kind": "review-notes",
+          "notes": [
+            "Header also labels a test version 94.7. Public Version 1 is preserved separately; no release date or redistribution permission is inferred."
+          ]
+        }
+      ],
+      "version": "1",
+      "author": "GODX7PRIME"
+    }
+  ],
+  "coverage": {
+    "existingLuaEntries": 47,
+    "reviewedEntries": 47,
+    "entriesWithVersionDeclaration": 22,
+    "entriesWithAuthorDeclaration": 11,
+    "entriesWithChangelog": 13,
+    "changelogEntries": 76,
+    "datedChangelogEntries": 3,
+    "method": "Static, hash-bound local source headers and embedded histories, plus identified original author documentation. No execution, downloads, Discord data or private APIs.",
+    "limitations": [
+      "Local source declarations are not proof of a current public release or runtime compatibility.",
+      "Dates are included only with an explicit source declaration and its date basis; filesystem timestamps are excluded.",
+      "Undocumented intermediate versions are not reconstructed from feature lists or diffs.",
+      "Scripts and implementation code are not published by this metadata-only enrichment."
+    ],
+    "gaps": [
+      {
+        "id": "menu-cherax-lua-auto-translator",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-body-accessories",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-bunnyscript",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-chat-commands",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-cherax-doom",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-codax",
+        "reason": "Compiled root script was not interpreted; no verified changelog in the reviewed source."
+      },
+      {
+        "id": "menu-cherax-lua-daivekit",
+        "reason": "Compiled root script was not interpreted; no verified changelog in the reviewed source."
+      },
+      {
+        "id": "menu-cherax-lua-elloscript",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-extended-constructor",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-host-tools",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-gun-van",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-kortz-heist",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-liquidfit",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-optimized-bodyguards",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-outfit-editor",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-outfitforge",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-pvp-helper",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-silent-night",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-smart-console",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-sovereign",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-vehicle-forge",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-vibescript",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-aerials",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-cheems-translator",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-cherax-chat",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-crimson-vehicles",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-cyberpilot-hud",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-fireworks-menu",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-racing-lines",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-meow-party-emotes",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-spooner",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-trolley",
+        "reason": "Compiled root script was not interpreted; no verified changelog in the reviewed source."
+      },
+      {
+        "id": "menu-cherax-lua-vroom",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      },
+      {
+        "id": "menu-cherax-lua-x-script",
+        "reason": "No explicit versioned changelog selected from the reviewed source; feature lists and code differences are not treated as release notes."
+      }
+    ]
+  }
+}

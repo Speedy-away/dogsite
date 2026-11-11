@@ -73,10 +73,12 @@ function writeCatalog(data) {
 }
 
 async function refresh() {
+  const previous = fs.existsSync(output) ? JSON.parse(fs.readFileSync(output, 'utf8')) : {};
+  // Detail-page reviews can cover listings outside the automated feeds.
+  const items = (previous.items || []).filter(item => item.reviewed === true);
   const existing = ['library.json', 'menu-resources.json', 'gta5-editions.json'].map(file =>
     JSON.parse(fs.readFileSync(path.join(root, 'community/data', file), 'utf8')));
-  const seen = new Set(existing.flatMap(data => data.items.map(item => item.sourceUrl).filter(Boolean)));
-  const items = [];
+  const seen = new Set([...items, ...existing.flatMap(data => data.items)].map(item => item.sourceUrl).filter(Boolean));
   for (const feed of feeds) {
     const start = items.length;
     for (let page = 1; page <= feed.pages; page++) {
@@ -93,8 +95,7 @@ async function refresh() {
     }
     console.log(`${feed.route}: ${items.length - start} new listings`);
   }
-  if (items.filter(item => item.category === 'addon-vehicles').length < 300) throw Error('Expected at least 300 new vehicle addons');
-  const previous = fs.existsSync(output) ? JSON.parse(fs.readFileSync(output, 'utf8')) : {};
+  if (items.filter(item => item.category === 'addon-vehicles' && !item.reviewed).length < 300) throw Error('Expected at least 300 new vehicle addons');
   const dates = new Map((previous.items || []).filter(item => item.releaseDate).map(item => [item.sourceUrl, item]));
   for (const item of items) {
     const prior = dates.get(item.sourceUrl);
@@ -110,7 +111,7 @@ async function refresh() {
 
 async function reviewEditions() {
   const catalog = JSON.parse(fs.readFileSync(output, 'utf8'));
-  const pending = catalog.items.filter(item => !item.editionSupport && new URL(item.sourceUrl).origin === origin);
+  const pending = catalog.items.filter(item => !item.reviewed && !item.editionSupport && new URL(item.sourceUrl).origin === origin);
   // Review older releases across all addon types, including the smaller categories.
   const groups = [...new Set(pending.map(item => item.category))].map(category => pending.filter(item => item.category === category));
   const queue = [];

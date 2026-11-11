@@ -14,6 +14,7 @@ const { renderClickUiPreview } = require('./render-community-theme-preview.cjs')
 const { importNativeThemeCatalog } = require('./community-native-themes.cjs');
 const { tagsFor } = require('../resources/taxonomy.js');
 const { buildMarketplaceItems } = require('./community-mod-marketplace.cjs');
+const { recordResourceAdditions } = require('./resource-additions.cjs');
 const { DEFAULT_ROOT: DEFAULT_PAINTJOBS_ROOT, readNativePaintjobs } = require('./community-native-paintjobs.cjs');
 const { DEFAULT_ROOT: DEFAULT_RDR2_ADDONS_ROOT, collectRdrAddonPacks, collectPublicRedmObjects } = require('./community-rdr2-addons.cjs');
 
@@ -748,6 +749,7 @@ function main() {
     if (item.preview) summary.themePreviewKinds[item.previewKind || 'source'] = (summary.themePreviewKinds[item.previewKind || 'source'] || 0) + 1;
   }
   if (dryRun) { console.log(JSON.stringify({ dryRun: true, ...summary }, null, 2)); return; }
+  recordResourceAdditions(manifest, existing ?? (fs.existsSync(output) ? JSON.parse(fs.readFileSync(output, 'utf8')) : undefined));
   const json = Buffer.from(JSON.stringify(manifest));
   plan('catalog/library.json', json);
   plan('index.html', `<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${DESTINATION}"><link rel="canonical" href="${DESTINATION}"><meta name="robots" content="noindex"><title>Scooby Resource Downloads</title></head><body><p>Opening <a href="${DESTINATION}">Scooby Resources</a>…</p></body></html>\n`);

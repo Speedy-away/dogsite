@@ -25,7 +25,12 @@
     'addon-animations': ['animation addons', 'animations', 'animation packs', 'animation clips'],
     'addon-maps': ['map addons', 'streamed maps', 'ymap', 'mlo', 'map assets'],
     'addon-clothing': ['clothing addons', 'clothing models', 'clothing textures', 'wardrobe assets'],
+    'addon-weapons': ['weapon addons', 'weapon models', 'custom weapons', 'weapon DLC'],
     'addon-packs': ['dlc', 'dlc packs', 'addon packs', 'downloadable content'],
+    'pack-vehicles': ['vehicle packs', 'vehicle collections', 'car packs'],
+    'pack-outfits': ['outfit packs', 'outfit collections'],
+    'pack-all-in-one': ['all in one', 'mod packs', 'resource bundles'],
+    'pack-maps': ['map packs', 'map collections'],
     wallpapers: ['wallpapers', 'wallpaper', 'menu backgrounds', 'background images'],
     maps: ['maps', 'map', 'menyoo maps', 'placement maps', 'xml maps', 'ini maps', 'simple trainer maps'],
     textures: ['textures', 'texture', 'materials', 'material'],
@@ -50,6 +55,9 @@
     configs: ['configs', 'config', 'configuration', 'configurations', 'settings', 'presets'],
     lua: ['lua', 'lua scripts', 'scripts', 'script'],
     languages: ['languages', 'language', 'translations', 'translation', 'localization', 'localisation'],
+    'loader-translations': ['launcher translations', 'loader languages', 'localization'],
+    fonts: ['fonts', 'font', 'typefaces'],
+    emotes: ['emote audio', 'emote sounds'],
     misc: ['misc', 'miscellaneous', 'resources']
   };
   const UI_ALIASES = {
@@ -64,16 +72,19 @@
     scooby: ['scooby', 'scooby style']
   };
   const MENU_NAMES = {
-    scooby: 'Scooby', nenyoo: 'Nenyoo', cherax: 'Cherax', stand: 'Stand', xforce: 'X-Force'
+    scooby: 'Scooby', nenyoo: 'Nenyoo', cherax: 'Cherax', stand: 'Stand', xforce: 'X-Force',
+    yim: 'YimMenu v1', yimv2: 'YimMenu v2'
   };
   const MENU_TOPICS = {
-    lua: 'Lua scripts', outfits: 'outfits', vehicles: 'vehicles', modded: 'modded vehicles',
+    resources: 'resources', lua: 'Lua scripts', outfits: 'outfits', vehicles: 'vehicles', modded: 'modded vehicles',
     maps: 'maps', themes: 'themes', configs: 'configs', languages: 'translations',
     'addon-packs': 'addon packs', 'addon-vehicles': 'addon vehicles', 'addon-peds': 'addon peds',
+    'pack-vehicles': 'vehicle packs', 'pack-outfits': 'outfit packs', 'pack-all-in-one': 'all-in-one packs', 'pack-maps': 'map packs',
     'addon-objects': 'object addons', 'addon-maps': 'map addons',
-    'addon-animations': 'animation addons', 'addon-clothing': 'clothing addons',
+    'addon-animations': 'animation addons', 'addon-clothing': 'clothing addons', 'addon-weapons': 'addon weapons',
     textures: 'textures', paintjobs: 'paintjobs', liveries: 'liveries',
-    wallpapers: 'wallpapers', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods'
+    wallpapers: 'wallpapers', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods',
+    'loader-translations': 'loader translations', fonts: 'fonts', emotes: 'emote audio'
   };
   const REDM_GRAPHICS_TOPICS = [
     { name: 'PvP graphics packs', query: 'pvp graphics packs', match: /\bpvp\b/, tags: ['PvP packs', 'PvP graphics packs'] },
@@ -130,15 +141,22 @@
       if (['enhanced', 'both'].includes(item.editionSupport)) add('enhanced');
       if (item.editionSupport === 'both') add('both');
     }
-    if (game === 'gta5') {
-      const origin = MENU_NAMES[normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '')];
-      if (origin) {
-        add(origin);
+    if (game === 'gta5' || game === 'rdr2') {
+      const origin = normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '');
+      if (MENU_NAMES[origin]) {
+        add(MENU_NAMES[origin]);
         categories.forEach(category => add(menuTopic(origin, category)));
       }
     }
     if (options.menu) add(options.menu);
     categories.forEach(add);
+    if (categories.includes('lua')) {
+      add(item.name);
+      const source = String(item.sourceFilename || '').split(/[\\/]/).pop();
+      const script = source.match(/^(.+)\.(lua|pluto)$/i);
+      if (script) { add(script[1]); add(script[2]); }
+      if (item.builtInLua) add('built-in Lua');
+    }
     redmGraphicsTopics(item).forEach(topic => topic.tags.forEach(add));
     if (game === 'l4d') {
       if (item.edition === 'l4d1' || item.edition === 'both') ['l4d1', 'left 4 dead 1'].forEach(add);
@@ -190,7 +208,7 @@
   function roleplayCategoryLabel(game, id) {
     return game === 'fivem' && id === 'mod-menus' ? 'Lua Menus' : ROLEPLAY_LABELS[id];
   }
-  const roleplayResources = ['outfits', 'mod-menus', 'lua', 'triggers', 'server-dumps', 'misc'];
+  const roleplayResources = ['outfits', 'mod-menus', 'triggers', 'server-dumps', 'misc'];
   const roleplayVisions = ['weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings'];
 
   function roleplayCategoryId(game, id) {
@@ -198,19 +216,31 @@
   }
 
   function categoryId(game, id, menu) {
-    if (game === 'gta5' && id === 'dlc') return menu === 'xforce' ? 'addon-vehicles' : 'addon-packs';
+    if (game === 'gta5') {
+      if (id === 'addon-packs' && menu === 'stand') return 'pack-all-in-one';
+      if (id === 'addon-packs' && menu === 'cherax') return 'addon-vehicles';
+      if (id === 'dlc') return ['cherax', 'stand', 'xforce'].includes(menu) ? 'addon-vehicles' : 'addon-packs';
+    }
     return roleplayCategoryId(game, id);
   }
 
-  function gtaAddonCategory(item) {
-    if (item.game !== 'gta5' || item.category !== 'dlc') return item;
-    const category = /^Vehicle DLC archive\b/i.test(item.sourceFormat || '') ? 'addon-vehicles' : 'addon-packs';
-    return { ...item, category, categories: item.categories?.map(id => id === 'dlc' ? category : id) };
+  function gtaAddonCategory(item, menu) {
+    if (item.game !== 'gta5') return item;
+    const vehicleDlc = /^Vehicle DLC archive\b/i.test(item.sourceFormat || '');
+    const classify = id => {
+      const category = id === 'dlc' ? (vehicleDlc ? 'addon-vehicles' : 'addon-packs') : id;
+      if (category === 'addon-packs' && (menu === 'stand' || menu === 'cherax')) return 'misc';
+      return category;
+    };
+    const category = classify(item.category);
+    const categories = item.categories?.map(classify);
+    if (category === item.category && !categories?.some((id, index) => id !== item.categories[index])) return item;
+    return { ...item, category, categories };
   }
 
   function roleplayCategoryGroups(game, categories) {
     if (game !== 'redm' && game !== 'fivem') return null;
-    const files = ['configs', 'themes', ...categories.filter(id => id === 'languages' || id === 'wallpapers')];
+    const files = ['configs', 'themes', 'lua', ...categories.filter(id => id === 'languages' || id === 'wallpapers')];
     const visions = roleplayVisions.filter(id => id === 'graphics-packs' || categories.includes(id));
     const addons = categories.filter(id => id.startsWith('addon-'));
     const grouped = new Set([...roleplayResources, ...files, ...visions, ...addons, 'textures', 'paintjobs']);

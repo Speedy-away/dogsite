@@ -1,0 +1,161 @@
+{
+   "ui_settings" : {
+      "components" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "notify_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "scroller" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 152,
+            "red" : 0,
+            "smoothness" : 5
+         },
+         "subtitle_text" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "footer" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 29,
+            "green" : 29,
+            "red" : 29
+         },
+         "line" : {
+            "alpha" : 255,
+            "blue" : 120,
+            "green" : 57,
+            "red" : 32
+         }
+      },
+      "header" : {
+         "box" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "custom_name" : "C:/X-Folder/textures/Paragone.png",
+         "gif_delay" : 5,
+         "gif_index" : 0,
+         "image_index" : 11,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 228,
+            "green" : 143,
+            "red" : 17
+         },
+         "type" : 2
+      },
+      "keyboard" : {
+         "background" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "font" : 0,
+         "line" : {
+            "alpha" : 255,
+            "blue" : 120,
+            "green" : 57,
+            "red" : 32
+         }
+      },
+      "keyboard_x" : 0.5,
+      "keyboard_y" : 0.75,
+      "max_options" : 10,
+      "notify_right" : false,
+      "notify_x" : 0,
+      "notify_y" : 0.61999970674514771,
+      "pos_x" : 0.6547662615776062,
+      "pos_y" : 0.065607711672782898,
+      "show_warning" : true,
+      "show_watermark" : true,
+      "size" : {
+         "header_y" : 0.10899989306926727,
+         "multiplier" : 0.87899982929229736,
+         "option_size_x" : 0.25500082969665527,
+         "option_size_y" : 0.036999993026256561
+      },
+      "text" : {
+         "selected" : {
+            "alpha" : 255,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "sub_name" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "text_size_x" : 0.30900001525878906,
+         "text_size_y" : 0.31000000238418579,
+         "unselected" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         },
+         "version" : {
+            "alpha" : 255,
+            "blue" : 255,
+            "green" : 255,
+            "red" : 255
+         }
+      },
+      "windows" : {
+         "background" : {
+            "alpha" : 180,
+            "blue" : 0,
+            "green" : 0,
+            "red" : 0
+         },
+         "collapsed" : {
+            "alpha" : 150,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "scrollbar" : {
+            "alpha" : 153,
+            "blue" : 77,
+            "green" : 64,
+            "red" : 51
+         },
+         "scroller" : {
+            "alpha" : 102,
+            "blue" : 204,
+            "green" : 102,
+            "red" : 102
+         },
+         "text" : {
+            "alpha" : 255,
+            "blue" : 230,
+            "green" : 230,
+            "red" : 230
+         },
+         "title" : {
+            "alpha" : 222,
+            "blue" : 161,
+            "green" : 82,
+            "red" : 82
+         }
+      }
+   }
+}
