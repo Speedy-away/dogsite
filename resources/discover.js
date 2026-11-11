@@ -95,10 +95,10 @@ if (changelogDialog) {
   });
 }
 
-function loadCatalogScript(name) {
+function loadCatalogScript(source) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = `/resources/${name}.js`;
+    script.src = source;
     script.onload = resolve;
     script.onerror = reject;
     document.head.append(script);
@@ -112,10 +112,11 @@ async function mountCatalog() {
   const shell = new DOMParser().parseFromString(await response.text(), 'text/html');
   const main = shell.querySelector('main:has(#collection)');
   const dialogs = [...shell.querySelectorAll('#gta-menu-dialog, #preview, #changelog')];
-  if (!main || dialogs.length !== 3) return;
+  const catalogSource = shell.querySelector('head script[src^="/resources/catalog.js"]')?.getAttribute('src');
+  if (!main || dialogs.length !== 3 || !catalogSource) return;
   main.id = directory.id;
 
-  await Promise.all(['taxonomy', 'menus', 'editions', 'routes'].map(loadCatalogScript));
+  await Promise.all(['taxonomy', 'menus', 'editions', 'routes'].map(name => loadCatalogScript(`/resources/${name}.js`)));
   if (hasLinkedSample()) return;
   const ad = directory.querySelector('.ad-sidebar');
   const adPosition = document.createComment('advertisement');
@@ -127,7 +128,7 @@ async function mountCatalog() {
   directory.replaceWith(main);
   document.body.append(...dialogs);
   try {
-    await loadCatalogScript('catalog');
+    await loadCatalogScript(catalogSource);
     if (skip) skip.href = '#collection';
     if (location.hash === '#collection') document.getElementById('collection').scrollIntoView();
   } catch {

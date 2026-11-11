@@ -33,8 +33,8 @@ const menuSystem = globalThis.ScoobyMenus;
 const editions = globalThis.ScoobyEditions;
 const routes = globalThis.ScoobyResourceRoutes;
 const initialPath = location.pathname.replace(/\/index\.html$/, '/');
-const initialTitle = document.title;
-const publishedRoutes = new Set(initialPath === routes.base ? [] : [initialPath]);
+const publishedRoutes = new Set([...document.querySelectorAll('#collection .games a[data-game]')].map(link => link.pathname));
+if (initialPath !== routes.base) publishedRoutes.add(initialPath);
 let publishedGuides = {};
 const tagCache = new WeakMap();
 const searchCache = new WeakMap();
@@ -110,6 +110,13 @@ function readState() {
   };
 }
 
+function updatePageTitle(url = new URL(location.href)) {
+  const hub = url.pathname.replace(/\/index\.html$/, '/') === routes.base && !url.search;
+  const category = state.category === 'all' ? 'Resources' : categoryLabel(state.game, state.category);
+  const title = [GAMES[state.game].name, state.menu === 'scooby' ? '' : menuName(), category].filter(Boolean).join(' ');
+  document.title = `${hub ? 'Resources' : title} — Scooby`;
+}
+
 function saveState(replace = false) {
   let href = routes.catalogURL(state, publishedRoutes);
   if (replace && initialPath === routes.base && location.pathname === routes.base && !location.search && href === '/resources/gta5/') href = routes.base;
@@ -117,7 +124,7 @@ function saveState(replace = false) {
   if (url.href !== location.href) history[replace ? 'replaceState' : 'pushState'](null, '', url);
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.href = new URL(url.pathname, canonical.href).href;
-  document.title = url.pathname === initialPath ? initialTitle : `${state.category === 'all' ? '' : `${categoryLabel(state.game, state.category)} | `}${collectionTitle()}`;
+  updatePageTitle(url);
 }
 
 async function json(url) {
@@ -1160,6 +1167,7 @@ window.addEventListener('popstate', () => {
     linkedPreviewHash = '';
   }
   state = readState();
+  updatePageTitle();
   if (catalogReady) loadGame();
 });
 window.addEventListener('hashchange', () => {
@@ -1192,6 +1200,7 @@ if (initialPath === routes.base && !location.search && !location.hash && typeof 
 }
 
 (async () => {
+  updatePageTitle();
   setLoading(true);
   const libraryReady = loadLibrary();
   const [collections, guides] = await Promise.allSettled([json('/resources/routes.json'), json('/resources/guides/routes.json')]);
