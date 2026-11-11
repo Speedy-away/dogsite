@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "purpose": "FiveM graphics and texture resources with links to the original creators and verified author previews.",
+  "items": [
+    {
+      "id": "fivem-graphics-hiromasa-opti-v7",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "sourceMenu": "scooby",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "previewCaption": "Still from Hiromasa’s OPTI V7 showcase.",
+      "name": "Hiromasa OPTI V7 Free",
+      "author": "Hiromasa",
+      "version": "7",
+      "description": "Performance-oriented client graphics pack with revised weather, water and lighting.",
+      "sourceUrl": "https://hiromasa.fr/packs/pack-graphique-opti-hiro-v7-free-2026",
+      "installUrl": "https://hiromasa.fr/tutoriels/installation-pack",
+      "requirements": [
+        "FiveM for GTA V Legacy.",
+        "Use the free V7 package listed by Hiromasa. Extract the archive and follow the creator’s FiveM plugins-folder guide."
+      ],
+      "requirementLabel": "FiveM Legacy · Client graphics pack",
+      "tags": [
+        "performance preset",
+        "lighting",
+        "water"
+      ],
+      "preview": "previews/fivem/menus/scooby/4594ce40befae4c60001.jpg",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewEvidence": {
+        "sourceUrl": "https://i.ytimg.com/vi/CDMNJ_AjAW0/maxres2.jpg",
+        "sha256": "4594ce40befae4c6000126ccffcabf19a9a5a3bf77d55f50fedfefb6c3ebb48d",
+        "size": 78668
+      }
+    },
+    {
+      "id": "fivem-graphics-glint-1",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "sourceMenu": "scooby",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "previewCaption": "Original in-game screenshot from the Glint release.",
+      "name": "Glint 1.0 + GlintVisuals",
+      "author": "Glint",
+      "credits": "Glint. Timecycles and weather by Dee.",
+      "version": "1.0",
+      "description": "A ReShade add-on and companion visual pack for lighting, reflections, volumetric weather and updated textures.",
+      "sourceUrl": "https://www.patreon.com/glintv/posts/glint-1-0-public-173789587",
+      "requirements": [
+        "FiveM for GTA V Legacy with DirectX 11 and ReShade.",
+        "Choose the GlintVisuals.rpf FiveM build. The release author notes a substantial GPU cost."
+      ],
+      "requirementLabel": "FiveM Legacy · DirectX 11 · ReShade",
+      "tags": [
+        "weather",
+        "lighting",
+        "texture overhaul"
+      ],
+      "preview": "previews/fivem/menus/scooby/902726724e9e899cf739.png",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewEvidence": {
+        "sourceUrl": "https://www.patreon.com/glintv/posts/glint-1-0-public-173789587",
+        "sha256": "902726724e9e899cf7399e7558ac6fb02cdc5914c4e3f88bbd7dfc5e0cd0b0b1",
+        "size": 942668
+      }
+    },
+    {
+      "id": "fivem-graphics-realistic-coast-roleplay",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "sourceMenu": "scooby",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "previewCaption": "Before and after comparison by PrimeGraphics.",
+      "name": "Realistic Coast RolePlay Preset",
+      "author": "PrimeGraphics",
+      "version": "1.0",
+      "description": "A coastal color grade with cooler blues, stronger contrast and film grain.",
+      "sourceUrl": "https://www.gta5-mods.com/gl/misc/prime-free-preset-reshade-for-corefx",
+      "requirements": [
+        "FiveM for GTA V Legacy and ReShade with the shaders named in the release.",
+        "CoreFX is recommended by the author. Place the .ini in the ReShade presets folder and select it in the overlay."
+      ],
+      "requirementLabel": "FiveM Legacy · ReShade · CoreFX recommended",
+      "tags": [
+        "reshade preset",
+        "color grading",
+        "cinematic"
+      ],
+      "preview": "previews/fivem/menus/scooby/d8b9d02a5c8420422df8.webp",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewEvidence": {
+        "sourceUrl": "https://img.gta5-mods.com/q75/images/prime-free-preset-reshade-for-corefx/e6e30d-before-after-02.jpeg",
+        "sha256": "d8b9d02a5c8420422df852f5d646fdbd906dcf2f62ce7ae9f26f8f27836f942e",
+        "size": 224918
+      }
+    },
+    {
+      "id": "fivem-graphics-unit-clearvibe",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "sourceMenu": "scooby",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "previewCaption": "Original gameplay screenshot from UniT’s ClearVibe preset gallery.",
+      "name": "UniT ClearVibe Preset",
+      "author": "UniT Presets",
+      "description": "Free ClearVibe ReShade preset tuned for the QuantV version of FiveM.",
+      "sourceUrl": "https://unitvisuals.com/#free",
+      "requirements": [
+        "FiveM for GTA V Legacy, QuantV and ReShade.",
+        "Choose the ClearVibe preset under Free presets and follow the author's instructions for loading it in ReShade."
+      ],
+      "requirementLabel": "FiveM Legacy · QuantV · ReShade",
+      "tags": [
+        "reshade preset",
+        "color grading",
+        "quantv"
+      ],
+      "preview": "previews/fivem/menus/scooby/9c6dcc714fc111995005.webp",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewEvidence": {
+        "sourceUrl": "https://unitvisuals.com/Presets/Free%20-%20UniT%27s%20ClearVibe%20Preset%20%5BQuantv%5D/FiveM_GTAProcess%202025-11-10%2011-56-35_result.webp",
+        "sha256": "9c6dcc714fc111995005fdad3e7cdc25a4b837623d852093cac919328225e119",
+        "size": 200158
+      }
+    },
+    {
+      "id": "fivem-graphics-california-roads",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "sourceMenu": "scooby",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "previewCaption": "Original screenshot from SLmodding’s California Roads April release.",
+      "name": "California Roads",
+      "author": "SLmodding",
+      "credits": "SLmodding. Leoncoder credited for the original FiveM port.",
+      "version": "0.6 April FiveM",
+      "description": "California-style road textures for Los Santos, including revised asphalt and lane markings.",
+      "sourceUrl": "https://www.gta5-mods.com/misc/california-roads-variety-edition-singleplayer",
+      "requirements": [
+        "Select 0.6 April FiveM in All Versions on the author’s release page.",
+        "Follow the FiveM build’s instructions and check it against the target game and server build."
+      ],
+      "requirementLabel": "FiveM · Choose the 0.6 April FiveM build",
+      "tags": [
+        "road textures",
+        "map textures"
+      ],
+      "preview": "previews/fivem/menus/scooby/3b1bdf03306683ceac33.jpg",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewEvidence": {
+        "sourceUrl": "https://img.gta5-mods.com/q95/images/california-roads-variety-edition-singleplayer/d39ab0-cali-02-min.jpg",
+        "sha256": "3b1bdf03306683ceac33d99d2cf1829f0c65d79cf30294cb4b4972c805d33a32",
+        "size": 841093
+      }
+    },
+    {
+      "id": "fivem-graphics-oulsen-satellite-map",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "sourceMenu": "scooby",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "previewCaption": "Original map screenshot from Oulsen’s Cfx.re release post.",
+      "name": "Oulsen Satellite Map",
+      "author": "Oulsen",
+      "description": "A server-streamed satellite minimap with custom postals, street labels and an optional no-grid version.",
+      "sourceUrl": "https://github.com/Oulsen/oulsen_satmap",
+      "installUrl": "https://forum.cfx.re/t/release-free-high-resolution-satellite-map-with-custom-postals/2503527",
+      "license": "MIT for the source repository. The README credits the base map and streaming code separately.",
+      "requirements": [
+        "FiveM server with permission to install resources.",
+        "Keep the oulsen_satmap resource intact. Follow the README to enable it and choose the grid or no-grid textures."
+      ],
+      "requirementLabel": "FiveM · Server-streamed minimap",
+      "tags": [
+        "minimap",
+        "satellite textures",
+        "postal map"
+      ],
+      "preview": "previews/fivem/menus/scooby/a7df3129c36d8754c267.jpg",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewEvidence": {
+        "sourceUrl": "https://forum-cfx-re.akamaized.net/original/4X/a/0/4/a048553ddacb513a84dd27197d16cb47c5ec0aee.jpeg",
+        "sha256": "a7df3129c36d8754c26719ec2df2cdb8a59845e3a99ae519717c2f8e07d9842d",
+        "size": 408972
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "libraryOverrides": [
+    {
+      "id": "cs2-texture-ion-nebula",
+      "category": "skyboxes",
+      "categories": ["textures"],
+      "name": "Ion Nebula Panorama",
+      "description": "A violet nebula and stars in a 2:1 PNG panorama.",
+      "format": "768 × 384 equirectangular PNG",
+      "requirementLabel": "PNG · Import through Scooby VFX Sky",
+      "compatibility": "Requires a Scooby CS2 build with VFX sky image import and a map that renders a sky.",
+      "tags": ["png", "panorama", "vfx", "space", "nebula"]
+    },
+    {
+      "id": "cs2-texture-rose-dawn",
+      "category": "skyboxes",
+      "categories": ["textures"],
+      "name": "Rose Dawn Panorama",
+      "description": "A pink sunrise with a soft horizon in a 2:1 PNG panorama.",
+      "format": "768 × 384 equirectangular PNG",
+      "requirementLabel": "PNG · Import through Scooby VFX Sky",
+      "compatibility": "Requires a Scooby CS2 build with VFX sky image import and a map that renders a sky.",
+      "tags": ["png", "panorama", "vfx", "sunrise", "pink"]
+    },
+    {
+      "id": "cs2-texture-storm-bank",
+      "category": "skyboxes",
+      "categories": ["textures"],
+      "name": "Storm Bank Panorama",
+      "description": "Blue-gray storm clouds in a 2:1 PNG panorama.",
+      "format": "768 × 384 equirectangular PNG",
+      "requirementLabel": "PNG · Import through Scooby VFX Sky",
+      "compatibility": "Requires a Scooby CS2 build with VFX sky image import and a map that renders a sky.",
+      "tags": ["png", "panorama", "vfx", "storm", "clouds"]
+    }
+  ],
+  "summary": {
+    "reclassifiedPanoramas": 3
+  },
+  "completeness": "Catalogued 2:1 PNGs for the documented Scooby VFX sky import."
+}

@@ -1,7 +1,7 @@
 {
   "game": "Counter-Strike 2",
   "slug": "cs2",
-  "source": "Reviewed against the CS2 Simple-base menu registry, feature guides and November 10 distribution record. Development build groups describe controls without a verified public release.",
+  "source": "Reviewed against CS2 Simple-base documentation through November 11, 2026 and the verified November 10 Chams distribution. Development build groups describe controls without a verified public release.",
   "sourceRoot": "Scooby-Op/CS2/simple-base-cs2",
   "sourceFiles": [
     "src/GUI/feature_registry.cpp",
@@ -24,7 +24,14 @@
     "docs/WEAPON_SOUND_PACKS_2026-11-01.md",
     "docs/VISUAL_REFRESH_2026-11-02.md",
     "docs/VFX_REFERENCE_2026-11-01.md",
-    "UPDATING.md"
+    "UPDATING.md",
+    "docs/CHAMS_FINAL_2026-11-11.md",
+    "docs/WORLD_VIDEO_EFFECTS_2026-11-11.md",
+    "docs/GRENADE_HELPER_REDESIGN_2026-11-11.md",
+    "docs/GRENADE_LANDING_CAMERA_2026-11-10.md",
+    "docs/HIT_KILL_EFFECTS.md",
+    "docs/EVENT_LOGS.md",
+    "docs/CLASSIC_MODEL_PRESETS.md"
   ],
   "tabs": [
     {
@@ -564,6 +571,10 @@
                 {
                   "label": "Wireframe over the model",
                   "desc": "In Visible chams, enable Show over model to draw the original surface beneath the wireframe. The setting is saved separately for each target."
+                },
+                {
+                  "label": "Restored Chams patterns",
+                  "desc": "Browse Lightning, Liquid, Iridescent, Animated Hologram and restored patterns such as Galaxy and Plasma Coil. Adjust tint and motion where the material supports them."
                 }
               ]
             },
@@ -575,8 +586,24 @@
                   "desc": "Adjust gradients, effect colors and motion for supported animated materials."
                 },
                 {
-                  "label": "Clown Chams region colors",
-                  "desc": "Choose Base, Head and Lower body colors on supported models, including compatible custom player models."
+                  "label": "Clown pattern palette",
+                  "desc": "Adjust six colors and their opacity, pattern opacity, glow, flow and scale for the Clown pattern."
+                },
+                {
+                  "label": "Material-specific Chams settings",
+                  "desc": "Adjust properties such as Latex coating, Metal polish, Glass frosting, Pearl iridescence and Glow halo shape. Each material keeps its settings per target and layer."
+                },
+                {
+                  "label": "Chams appearance actions",
+                  "desc": "Copy or paste appearance, reset a material or undo the most recent appearance change."
+                },
+                {
+                  "label": "Glossy Chams finishes",
+                  "desc": "Choose Latex Fade, Pearlescent, Opal or Liquid Chrome in the Finishes browser."
+                },
+                {
+                  "label": "Ragdoll Chams",
+                  "desc": "Keep the configured player materials on ragdolls while they are visible."
                 }
               ]
             }
@@ -702,6 +729,14 @@
                     "Visible and Invisible trajectory layers",
                     "Predicted coverage fill opacity and outline width"
                   ]
+                },
+                {
+                  "label": "Smoke, fire and HE coverage",
+                  "desc": "Show active smoke and fire countdowns and outlined coverage. Configure HE, smoke and fire presentation in the saved visibility layers."
+                },
+                {
+                  "label": "Independent grenade trails",
+                  "desc": "Use thrower filters and Visible or Invisible settings to draw traveled paths independently of Grenade ESP."
                 }
               ]
             }
@@ -766,6 +801,10 @@
                     "Range, pulse and screen-edge placement",
                     "Separate from the Flashbang Indicator"
                   ]
+                },
+                {
+                  "label": "World Hit and Kill Effects",
+                  "desc": "Select a style, color and opacity for particles on confirmed hits or kills. Supported builds fetch the required effect assets on first selection."
                 }
               ]
             }
@@ -893,6 +932,18 @@
                     "Panel layout, text colors and Panorama textures",
                     "Rain, snow, embers, dust, thunderstorm, haze and vignette"
                   ]
+                },
+                {
+                  "label": "World scene shaders",
+                  "desc": "Open Visuals → World → Environment → Screen for grayscale, sepia, negative, night vision, thermal, posterize and cinematic styles.",
+                  "settings": [
+                    "Strength, saturation and contrast",
+                    "Edges, ripple, heat haze and pixelation"
+                  ]
+                },
+                {
+                  "label": "Clouds and ambient particles",
+                  "desc": "Adjust cloud color, opacity, density, scale and direction, and tint supported ambient map particles."
                 }
               ]
             }
@@ -1074,6 +1125,15 @@
                   "desc": "Browse cases, capsules, souvenir packages and other supported containers by type."
                 }
               ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "CT/T loadout and exact finish previews",
+                  "desc": "Follow the active team or browse manually. Sort inventory cards and inspect the selected finish, wear and seed."
+                }
+              ]
             }
           ]
         },
@@ -1111,7 +1171,7 @@
                 },
                 {
                   "label": "Downloadable skins",
-                  "desc": "Browse curated weapon and first-person arms packages and install supported resources for local use."
+                  "desc": "Browse Repo packages and install supported assets for local use."
                 },
                 {
                   "label": "Skin editor",
@@ -1137,7 +1197,7 @@
                 },
                 {
                   "label": "Standalone Textures window",
-                  "desc": "Choose Open Textures under Custom → Textures to open a movable editor with the image library, framing controls, and the weapon or map preview."
+                  "desc": "Choose Open Textures in Custom → Editing or press F9. Browse Weapons, Players and Map textures and preview the selected target."
                 },
                 {
                   "label": "Weapon UV templates",
@@ -1146,6 +1206,14 @@
                 {
                   "label": "Texture dumper",
                   "desc": "Export the selected weapon, player or map texture as PNG. Animated GIFs export separate frames and timing metadata."
+                },
+                {
+                  "label": "Original texture export",
+                  "desc": "Export supported stock weapon, player and map textures as PNG using Source 2 Viewer CLI."
+                },
+                {
+                  "label": "Expanded classic weapon audio",
+                  "desc": "The updated Source, 1.6 and CS:GO Legacy packs cover firing, reload start, draw and empty sounds where supported."
                 }
               ]
             }
@@ -1185,10 +1253,6 @@
                   ]
                 },
                 {
-                  "label": "First-person arms and viewmodels",
-                  "desc": "Equip compatible first-person arms and weapon viewmodels."
-                },
-                {
                   "label": "Custom Models Library",
                   "desc": "Open Custom → Library to search installed packages and preview compatible models."
                 },
@@ -1207,7 +1271,7 @@
               "items": [
                 {
                   "label": "Model folder import",
-                  "desc": "Import a folder of compiled player, weapon or first-person arms resources into the appropriate library."
+                  "desc": "Import compiled player or weapon packages from a folder in the matching Library category."
                 },
                 {
                   "label": "Workshop packages",
@@ -1258,7 +1322,7 @@
                 },
                 {
                   "label": "Model swapping",
-                  "desc": "Open a movable window from Custom → Model swapping or press F8. Use Set up swap, Preview and Saved swaps to compare and assign built-in models.",
+                  "desc": "Open the Model swapping window from Custom → Editing or press F8. Compare and assign built-in models, then manage saved swaps.",
                   "settings": [
                     "Held, other-player and dropped item scopes",
                     "Own body and other player scopes",
@@ -1276,10 +1340,6 @@
                   "desc": "Queue selected Repo downloads, see install progress and open installed variants directly in Library."
                 },
                 {
-                  "label": "First-person arms Repo",
-                  "desc": "Browse dedicated arm packages in Repo and open the installed variant in Library → Self → First-person arms."
-                },
-                {
                   "label": "Download Random Models",
                   "desc": "Review a compatible package per supported weapon and equipment slot, plus a player model and gloves. Check the download size before adding the batch to the queue."
                 },
@@ -1290,6 +1350,14 @@
                 {
                   "label": "Weapon package sounds and HUD icons",
                   "desc": "Compatible packages can include WAV or native sound mappings and a compiled icon for the local weapon HUD and killfeed."
+                },
+                {
+                  "label": "Self body and glove picker",
+                  "desc": "Choose a CT or T body in Self and equip the matching glove attachment separately under Library → Gloves."
+                },
+                {
+                  "label": "Model presets and matching HUD",
+                  "desc": "Review the available player models, equipment and audio in a theme preset. Supported presets can apply a matching HUD."
                 }
               ]
             }
@@ -1343,6 +1411,15 @@
                     "Trim, rename, import and export routes",
                     "Start and finish markers, direction arrows and sample dots"
                   ]
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Block bot",
+                  "desc": "An optional hold-key movement assist for following a selected player."
                 }
               ]
             }
@@ -1423,7 +1500,7 @@
               "items": [
                 {
                   "label": "Rear Look",
-                  "desc": "Hold a bind for a temporary rear-facing first-person view while retaining your aim."
+                  "desc": "Open Visuals → Viewmodel → Rear Look for a rear-facing picture-in-picture view."
                 },
                 {
                   "label": "Freecam",
@@ -1433,6 +1510,10 @@
                     "Mouse or arrow keys to look",
                     "Saved flight speed and hotkey"
                   ]
+                },
+                {
+                  "label": "Grenade landing camera",
+                  "desc": "Preview a predicted landing point in the picture-in-picture view before throwing. Adjust camera distance and height."
                 }
               ]
             }
@@ -1557,6 +1638,22 @@
                     "Offset, scale, opacity, tint, background and texture",
                     "Import and export presets or restore stock styles"
                   ]
+                },
+                {
+                  "label": "Event Logs",
+                  "desc": "Show filtered damage, missed shots, purchases and votes in a draggable HUD or in the developer console.",
+                  "settings": [
+                    "Preview Logs and Clear Logs",
+                    "Weapon icons, event age and background opacity"
+                  ]
+                },
+                {
+                  "label": "Custom HUD themes",
+                  "desc": "Choose Minecraft, CS:GO, Counter-Strike: Source, Counter-Strike 1.6 or Half-Life under Custom → HUD.",
+                  "settings": [
+                    "Sample preview, scale, opacity and element switches",
+                    "Optional replacement of matching stock panels"
+                  ]
                 }
               ]
             }
@@ -1602,6 +1699,15 @@
                     "Lens opening and outside opacity",
                     "PNG or JPEG import and preview"
                   ]
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Expanded scope presets",
+                  "desc": "Choose Full cross or Ring + dot, or apply a quick preset in Rifle Optics and Sniper Scopes."
                 }
               ]
             }
@@ -1663,6 +1769,19 @@
                 {
                   "label": "Guided replay",
                   "desc": "Follow position, stance and aim cues for a manual throw."
+                }
+              ]
+            },
+            {
+              "name": "Development build",
+              "items": [
+                {
+                  "label": "Grenade Helper map overview",
+                  "desc": "Browse map and floor layers, select lineups from grenade markers, or expand the overview. Save the lineup library and export the selected map image as PNG."
+                },
+                {
+                  "label": "Auto grenade release",
+                  "desc": "Optionally release a primed HE when predicted damage meets the configured threshold."
                 }
               ]
             }

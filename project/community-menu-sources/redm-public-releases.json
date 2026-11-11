@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "purpose": "Public RedM graphics releases linked to their original creator.",
+  "items": [
+    {
+      "id": "redm-graphics-hiromasa-2025-v2",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "category": "graphics-packs",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "name": "Hiromasa RedM 2025 V2",
+      "author": "Hiromasa",
+      "version": "2025 V2",
+      "description": "Free western lighting and weather preset for RedM roleplay.",
+      "sourceUrl": "https://hiromasa.fr/packs/pack-graphique-redm-2025-v2",
+      "installUrl": "https://hiromasa.fr/tutoriels/installation-pack",
+      "requirementLabel": "RedM client · Free via the creator’s Discord",
+      "requirements": [
+        "RedM and Red Dead Redemption 2 on PC.",
+        "Use the matching RedM archive from the creator’s release page and follow its RedM installation instructions."
+      ],
+      "preview": "previews/redm/menus/scooby/b04bb294ef12d39e94b3.jpg",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewCaption": "Still from Hiromasa’s RedM 2025 V2 showcase.",
+      "previewEvidence": {
+        "sourceUrl": "https://i.ytimg.com/vi/R5m739uXca4/maxres2.jpg",
+        "size": 77784,
+        "sha256": "b04bb294ef12d39e94b373462a10b053408a2d75e1c42917f8ac33864122813c"
+      },
+      "tags": [
+        "client graphics",
+        "weather",
+        "lighting"
+      ]
+    },
+    {
+      "id": "redm-graphics-hiromasa-2024",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "category": "graphics-packs",
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": [],
+      "name": "Hiromasa RedM 2024",
+      "author": "Hiromasa",
+      "version": "2024",
+      "description": "Hiromasa’s original free RedM release, with western lighting and weather adjustments.",
+      "sourceUrl": "https://hiromasa.fr/packs/pack-graphique-redm-2024",
+      "installUrl": "https://hiromasa.fr/tutoriels/installation-pack",
+      "requirementLabel": "RedM client · Free via the creator’s Discord",
+      "requirements": [
+        "RedM and Red Dead Redemption 2 on PC.",
+        "Use the matching RedM archive from the creator’s release page and follow its RedM installation instructions."
+      ],
+      "preview": "previews/redm/menus/scooby/7c91e7c43121ac7f3b73.jpg",
+      "previewVerified": true,
+      "previewKind": "author-preview",
+      "previewCaption": "Still from Hiromasa’s RedM 2024 showcase.",
+      "previewEvidence": {
+        "sourceUrl": "https://i.ytimg.com/vi/2Pbx-c98r70/maxres3.jpg",
+        "size": 92999,
+        "sha256": "7c91e7c43121ac7f3b737fe64e49da27d939a49a4dfbe6a89091ae8e74310d69"
+      },
+      "tags": [
+        "client graphics",
+        "weather",
+        "lighting"
+      ]
+    }
+  ]
+}

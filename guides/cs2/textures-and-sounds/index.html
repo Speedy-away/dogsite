@@ -153,6 +153,7 @@
 <a href="/guides/cs2/custom-models/" class="sidebar-guide-link" aria-label="Custom models"><span class="sidebar-link-label">Custom models</span></a>
 <a href="/guides/cs2/textures-and-sounds/" class="sidebar-guide-link" aria-current="page" aria-label="Textures and sounds"><span class="sidebar-link-label">Textures &amp; sounds</span></a>
 <a href="/guides/cs2/camera-and-menu/" class="sidebar-guide-link" aria-label="Camera, scopes and main menu"><span class="sidebar-link-label">Camera, scopes &amp; menu</span></a>
+<a href="/guides/cs2/visuals-and-practice/" class="sidebar-guide-link" aria-label="Visuals and grenade practice"><span class="sidebar-link-label">Visuals &amp; practice</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
 <a href="/guides/cs2/cs2-updates/" class="sidebar-guide-link" aria-label="Feature troubleshooting (After game updates)"><span class="sidebar-link-label">Feature troubleshooting</span><span class="sidebar-link-note">After game updates</span></a>
@@ -180,7 +181,7 @@
 </nav>
 <h3 id="import-textures">Import and apply an image</h3>
 <ol class="help-steps">
-<li>Go to <strong>Custom &gt; Textures</strong>. If you see <strong>Open Textures</strong>, choose it to open the standalone window. Select <strong>Open folder</strong>. Copy a PNG, JPG or GIF into <code>C:\scooby\CS2\textures</code>.</li>
+<li>In current development builds, go to <strong>Custom &gt; Editing &gt; Open Textures</strong> or press <strong>F9</strong>. Earlier builds open the editor from <strong>Custom &gt; Textures</strong>. Select <strong>Open folder</strong>. Copy a PNG, JPG or GIF into <code>C:\scooby\CS2\textures</code>.</li>
 <li>When the image appears, select a target. For weapons, choose <strong>All</strong>, <strong>CT</strong> or <strong>T</strong> and the weapons to edit. Use the 3D preview to check the selected weapon.</li>
 <li>When the editor shows a batch or both teams, select <strong>Apply to N weapons</strong> to commit the draft. Use <strong>Default texture</strong> or <strong>Remove texture</strong> to restore an individual target where offered.</li>
 </ol>
@@ -197,9 +198,10 @@
 <li>Open <code>edit-me.png</code> in an image editor. Place <code>uv-guide.png</code> above it as a transparent guide. Hide the guide before saving the design, then import the edited PNG and check the 3D fit.</li>
 <li>On a texture tab, use <strong>Export &gt; Dump selected texture</strong> to save the selected image as PNG. GIFs export one PNG per frame and a <code>texture.json</code> with frame delays. Select <strong>Open dumper folder</strong> to find the results under <code>C:\scooby\CS2\dumper</code>.</li>
 </ol>
+<p>To export stock game textures, open <strong>Export &gt; Dump original textures</strong>. Choose a stock texture group or <strong>Dump all originals</strong>. Select Source 2 Viewer CLI if the editor asks for it. Stock exports go into the corresponding weapon, player and map folders in the dumper.</p>
 <h3 id="map-materials">Change map materials and share a preset</h3>
 <ol class="help-steps">
-<li>Under <strong>Custom &gt; Textures &gt; Map materials</strong>, choose Global or a map. An enabled map preset takes priority over Global.</li>
+<li>Under <strong>Map &gt; Map materials</strong> in the Textures window, choose Global or a map. An enabled map preset takes priority over Global.</li>
 <li>Assign a texture to an individual material, a category or the whole map. The most specific rule wins. Use the <strong>Object inspector</strong> and <strong>Preview applied textures</strong> to compare supported props.</li>
 <li>Under <strong>Map projects</strong>, choose <strong>Save project</strong> to export the selected preset. Share the complete folder from <code>C:\scooby\CS2\map-texture-projects</code>, including its image files.</li>
 <li>To use a shared preset, choose <strong>Open project</strong> and select <code>map-project.json</code>. Check the destination map and choose <strong>Apply opened project</strong>. Use <strong>Undo preset edit</strong> to reverse that edit.</li>
@@ -207,7 +209,7 @@
 <h3 id="weapon-sounds">Assign one WAV</h3>
 <p>Open <strong>Custom &gt; Sounds &gt; Per-weapon sounds</strong> and choose <strong>Open folder</strong>. Copy a WAV into <code>C:\scooby\CS2\sounds</code>. Select a team, weapon and action, then pick your file under <strong>Audio</strong>. Use <strong>Test sound</strong> to audition it, or choose <strong>Game default</strong> to return to stock audio.</p>
 <h3 id="sound-packs">Set up a weapon sound pack</h3>
-<p>Open <strong>Custom &gt; Sounds &gt; Sound packs</strong>. Available builds can include CS:GO Classic, CS:GO Legacy, CS: Source and CS 1.6. Select a pack, choose the team and weapon scope, then use <strong>Test sound</strong> before selecting <strong>Apply sound pack</strong>.</p>
+<p>Open <strong>Custom &gt; Sounds &gt; Sound packs</strong>. Available builds can include CS:GO Classic, CS:GO Legacy, CS: Source and CS 1.6. The expanded Legacy, Source and 1.6 packs add reload, draw and empty sounds for supported firearms. Select a pack, choose the team and weapon scope, then use <strong>Test sound</strong> before selecting <strong>Apply sound pack</strong>.</p>
 <p>For your own pack, choose <strong>Open custom packs folder</strong> and put its WAVs in a named subfolder. Use names such as <code>ak47_fire.wav</code>, <code>ak47_reload.wav</code>, <code>ak47_draw.wav</code> or <code>ak47_empty.wav</code>. A pack applies only matching actions. Use <strong>Restore game sounds</strong> to reset the selected scope.</p>
 </div>
 <nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/cs2/custom-models/"><span>Related guide</span><strong>Custom Models</strong></a><a href="/guides/cs2/"><span>Browse topics →</span><strong>All Counter-Strike 2 guides</strong></a></nav>

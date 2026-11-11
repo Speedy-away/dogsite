@@ -18,7 +18,7 @@
     vehicles: ['vehicles', 'vehicle', 'cars', 'car'],
     modded: ['modded vehicles', 'modded builds', 'custom vehicles', 'modded'],
     outfits: ['outfits', 'outfit', 'clothing', 'wardrobe'],
-    'mod-menus': ['mod menus', 'mod menu'],
+    'mod-menus': ['lua menus', 'lua menu', 'mod menus', 'mod menu'],
     'addon-vehicles': ['addon vehicles', 'vehicle addons', 'add on vehicles', 'vehicles', 'vehicle', 'cars'],
     'addon-peds': ['addon peds', 'ped addons', 'ped', 'peds', 'pedestrian', 'pedestrians', 'character models'],
     'addon-objects': ['object addons', 'objects', 'object models', 'props', 'prop models'],
@@ -182,6 +182,9 @@
   }
 
   const ROLEPLAY_LABELS = Object.freeze({ lua: 'Lua scripts', themes: 'Themes', misc: 'Misc', 'graphics-packs': 'Graphics packs & textures' });
+  function roleplayCategoryLabel(game, id) {
+    return game === 'fivem' && id === 'mod-menus' ? 'Lua Menus' : ROLEPLAY_LABELS[id];
+  }
   const roleplayResources = ['outfits', 'mod-menus', 'lua', 'triggers', 'server-dumps', 'misc'];
   const roleplayVisions = ['weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings'];
 
@@ -197,12 +200,13 @@
     const grouped = new Set([...roleplayResources, ...files, ...visions, ...addons, 'textures', 'paintjobs']);
     const otherResources = categories.filter(id => !grouped.has(id));
     return [
-      ['Scooby resources', [...roleplayResources, ...otherResources]],
+      ['Scooby resources', [...roleplayResources.filter(id => game !== 'fivem' || id !== 'server-dumps'), ...otherResources]],
+      ...(game === 'fivem' ? [['Server setup', ['server-dumps']]] : []),
       ['Scooby files', files],
       ['Textures/Visions', visions],
       ['Addons', addons]
     ];
   }
 
-  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS });
+  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel, ROLEPLAY_LABELS });
 });

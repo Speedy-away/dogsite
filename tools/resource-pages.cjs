@@ -7,7 +7,7 @@ const SITE = 'https://scoobymenu.cc';
 const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const menus = require('../resources/menus.js');
 const editions = require('../resources/editions.js');
-const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, ROLEPLAY_LABELS } = require('../resources/taxonomy.js');
+const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel } = require('../resources/taxonomy.js');
 const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'dlc'];
 const headAd = '<script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>';
 
@@ -19,7 +19,7 @@ const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
   rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse Red Dead Redemption 2 outfit presets, addon peds, ClickUI color presets, ListUI styles and Scooby translations.' },
   cs2: { name: 'CS2', full: 'Counter-Strike 2', aliases: ['Counter Strike 2', 'CS2 custom model repo', 'Source 2 skyboxes'], logo: '/portal/images/product-logos/cs2.png', intro: 'Browse Counter-Strike 2 custom player, weapon, knife, grenade and C4 models, plus skyboxes, textures and Scooby configs.' },
-  fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay', 'FiveM texture packs'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Find FiveM graphics packs, ReShade presets, road and minimap textures, and Scooby language files for GTA roleplay.' },
+  fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay', 'FiveM texture packs'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Find FiveM server recipes for txAdmin, graphics packs, ReShade presets, textures, and Scooby language files.' },
   redm: { name: 'RedM', full: 'RedM', aliases: ['Red Dead roleplay'], logo: '/assets/images/store/redm-logo.png', intro: 'Browse RedM PvP and RP graphics packs, cinematic sky packs, weapon skins, sound packs, Colors.xml presets, tracers and client settings.' },
   l4d: { name: 'L4D', full: 'Left 4 Dead', aliases: ['Left 4 Dead 2', 'L4D1', 'L4D2', 'Left 4 Dead addons', 'L4D2 mods'], logo: '/assets/images/source-games/l4d-logo.png', intro: 'Find custom campaigns, survivor and infected models, weapon skins, sound packs, skyboxes and configs for Left 4 Dead 1 and 2.' }
 };
@@ -51,13 +51,13 @@ const CATEGORIES = {
   knives: { name: 'Knife models', words: ['custom knives', 'knife models', 'melee weapons'], description: 'Browse custom knife and melee model packages. Check the intended base knife and retain the package’s supporting materials and animations.' },
   throwables: { name: 'Throwables', words: ['grenade models', 'flashbang models', 'custom throwables'], description: 'Browse custom grenade and throwable models. Check the intended equipment type and install the complete package before assigning a model.' },
   bombs: { name: 'Bomb models', words: ['C4 models', 'custom bombs'], description: 'Browse custom bomb and C4 model packages. Retain their original compiled resource paths and supporting materials.' },
-  skyboxes: { name: 'Skyboxes', words: ['custom skies', 'sky materials', 'sky textures'], description: 'Browse sky material and texture packages. Keep material and texture paths together and select a sky supported by your Scooby build.' },
+  skyboxes: { name: 'Skyboxes', words: ['custom skies', 'sky materials', 'sky textures'], description: 'Browse sky materials and textures. Check the game format and installation steps for each pack.' },
   themes: { name: 'Themes & UI styles', words: ['menu themes', 'appearance themes', 'UI styles'], description: 'Browse appearance themes and UI styles. Check the original menu, interface, file format and any required compatibility layer before loading a theme.' },
   configs: { name: 'Configs', words: ['configuration profiles', 'saved settings', 'config presets'], description: 'Browse settings profiles and their original menu requirements. Back up your current configuration and use a profile made for the same game and supported build.' },
   lua: { name: 'Lua scripts', words: ['Lua scripts', 'menu Lua', 'scripting'], description: 'Browse Lua script listings for the selected menu. Check the required menu API and download availability; scripts are not interchangeable between menu runtimes.' },
   languages: { name: 'Languages', words: ['translations', 'language files', 'localization'], description: 'Browse translation and language catalogs. Match the original menu, game and host build, and preserve existing custom language overrides.' },
   misc: { name: 'Miscellaneous', words: ['HUD presets', 'resource files'], description: 'Browse additional resource files for the selected menu. Read the item details for its format, required version and installation steps.' },
-  'mod-menus': { name: 'Mod Menus', words: ['mod menus', 'menu screenshots'], description: 'Browse menu listings and screenshots. Each listing shows whether a download is available.' },
+  'mod-menus': { name: 'Lua Menus', words: ['Lua menus', 'menu screenshots'], description: 'Browse Lua menu listings and screenshots. Each listing shows whether a download is available.' },
   triggers: { name: 'Triggers', words: ['triggers'], description: 'Browse trigger resources and their stated requirements.' },
   'server-dumps': { name: 'Server dumps', words: ['server dumps', 'server snapshots'], description: 'Browse server snapshots shared by their owners.' },
   'asi-mods': { name: 'ASI mods', words: ['ASI plugins', 'Menyoo', 'Simple Trainer', 'Rampage trainer'], description: 'Browse ASI plugins and trainers from their original authors. Match the game edition and install the ASI loader and dependencies specified by each mod.' },
@@ -108,8 +108,16 @@ const graphicsCategories = {
   fivem: { ...CATEGORIES['graphics-packs'], words: ['graphics packs', 'ReShade presets', 'road textures', 'minimap textures'], description: 'Browse FiveM ReShade presets, graphics packs, road textures and minimap replacements. Check whether each pack installs on the client or server.' },
   redm: { ...CATEGORIES['graphics-packs'], words: ['PvP packs', 'PvP graphics packs', 'RP packs', 'roleplay graphics packs', 'cinematic packs', 'sky packs', 'custom sky textures'], description: 'Browse RedM PvP sky packs, RP graphics presets and cinematic packs. Compare skies, weather and lighting previews before installing.' }
 };
-const categoryInfo = (game, category) => (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
-  (game === 'l4d' ? l4dCategories[category] : undefined) || CATEGORIES[category];
+const fivemServerRecipes = { ...CATEGORIES['server-dumps'], words: ['server templates', 'txAdmin recipes', 'roleplay frameworks'], description: 'Start a FiveM server with public txAdmin recipes from their maintainers. Compare the basic Cfx.re servers and roleplay frameworks before you deploy.' };
+const cs2Categories = {
+  skyboxes: { ...CATEGORIES.skyboxes, words: ['custom skies', 'HDRI skies', 'skybox panoramas', 'Source 2 sky materials'], description: 'Download compiled CS2 skies and PNG panoramas for compatible Scooby builds. Find HDRI panoramas for Workshop maps and CS:GO skyboxes marked for Source 2 conversion.' },
+  textures: { ...CATEGORIES.textures, description: 'Find image textures for Scooby and PBR texture maps for creating Source 2 materials in CS2 Workshop Tools.' }
+};
+const gameCategories = { cs2: cs2Categories, l4d: l4dCategories };
+const fivemLuaMenus = { name: roleplayCategoryLabel('fivem', 'mod-menus'), words: ['Lua menus', 'menu libraries', 'FiveM UI'], description: 'Browse Lua menu libraries for FiveM resources. Compare standalone and framework options and open the maintainers’ setup instructions.' };
+const fivemCategories = { 'server-dumps': fivemServerRecipes, 'mod-menus': fivemLuaMenus };
+const categoryInfo = (game, category) => (game === 'fivem' ? fivemCategories[category] : undefined) || (category === 'graphics-packs' ? graphicsCategories[game] : undefined) ||
+  gameCategories[game]?.[category] || CATEGORIES[category];
 function buildData() {
   const library = read('community/data/library.json');
   const gtaEditionCatalog = read('community/data/gta5-editions.json');
@@ -153,6 +161,12 @@ function buildData() {
       const makePage = category => {
       const subset = category ? gameItems.filter(item => hasCategory(item, category)) : gameItems;
       let candidates = subset.slice().sort((a, b) => Number(Boolean(b.preview)) - Number(Boolean(a.preview)));
+      if (game === 'redm' && category === 'graphics-packs') {
+        const authorHosted = candidates.filter(item => item.status === 'author-hosted' && item.previewVerified);
+        candidates = [...new Set([...authorHosted, ...candidates])];
+      }
+      const cs2Skyboxes = game === 'cs2' && category === 'skyboxes';
+      if (cs2Skyboxes) candidates.sort((a, b) => Number(Boolean(b.files?.length)) - Number(Boolean(a.files?.length)));
       const scoobyThemes = game === 'gta5' && menu === 'scooby' && category === 'themes';
       if (scoobyThemes) {
         const clickUI = candidates.filter(item => item.uiStyle === 'ClickUI' && menus.compatibleWith(item, 'scooby')).slice(0, 2);
@@ -162,8 +176,8 @@ function buildData() {
         const first = categories.map(group => candidates.find(item => hasCategory(item, group.id))).filter(Boolean);
         candidates = [...new Map([...first, ...candidates].map(item => [item.id, item])).values()];
       }
-      const samples = candidates.slice(0, 12);
-      const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? ROLEPLAY_LABELS[category] : category ? categoryInfo(game, category).name : 'Resources';
+      const samples = game === 'cs2' && ['skyboxes', 'textures'].includes(category) ? candidates : candidates.slice(0, 12);
+      const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category).name : 'Resources';
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
       const scopeName = `${config.name}${game === 'gta5' ? ' ' + menuName : ''}`;
@@ -213,7 +227,7 @@ function renderPage(page) {
   const roleplayGroups = roleplayCategoryGroups(page.game, [...byId.keys()]);
   const categoryChoice = category => {
     const href = category.count ? route(page.game, category.id, page.menu) : queryURL(page.game, category.id, undefined, page.menu);
-    const label = (roleplayGroups && ROLEPLAY_LABELS[category.id]) || category.name.replace(/^Addon /, '');
+    const label = (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || category.name.replace(/^Addon /, '');
     const current = category.id === page.category ? ' aria-current="page"' : '';
     const count = category.count ? ` <span>${category.count.toLocaleString('en-GB')}</span>` : '';
     return `<a href="${escape(href)}"${current}>${escape(label)}${count}</a>`;
@@ -231,25 +245,27 @@ function renderPage(page) {
   const categoryLinks = `<a href="${route(page.game, undefined, page.menu)}"${!page.category ? ' aria-current="page"' : ''}>All resources <span>${page.gameItemCount.toLocaleString('en-GB')}</span></a>` + groups.filter(([, categories]) => categories.length).map(([label, categories]) => `<div class="category-group"><p class="category-group-label">${escape(label)}</p>${categories.map(categoryChoice).join('')}</div>`).join('');
   const samples = page.samples.map(item => {
     const href = '#resource-' + item.id.replace(/[^a-z0-9_-]/gi, '-');
+    const serverRecipe = item.game === 'fivem' && item.category === 'server-dumps';
     const preview = item.previewVerified === false || (item.category === 'themes' && item.previewVerified !== true) ? '' : typeof item.preview === 'string' ? item.preview : item.preview?.path || item.preview?.url;
     const remotePreview = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? fileURL({ path: preview }, page.downloadBaseUrl) : preview;
     const local = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? ` data-resource-image="${escape(preview)}"` : '';
     const fallback = ` data-resource-image-fallback="${SCOOBY_PREVIEW_LOGO}"`;
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : `<div class="resource-preview"><img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async"></div>`;
+      : serverRecipe ? '' : `<div class="resource-preview"><img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async"></div>`;
     const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
     const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
     const suffix = extension ? ` <span class="resource-extension ext-${extension.slice(1)}">${escape(extension)}</span>` : '';
     const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.name) : ' ↓'}</button>`;
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
-    const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">Get from the author ↗</a>` : '';
+    const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${serverRecipe ? 'Download from source ↗' : 'Get from the author ↗'}</a>` : '';
     const install = authorHosted && /^https:\/\//.test(item.installUrl || '') ? `<p><a href="${escape(item.installUrl)}" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p>` : '';
     const author = item.author || (item.game === 'l4d' ? item.credits : '');
     const credit = authorHosted && author ? `<p>By ${escape(author)}</p>` : '';
     const edition = editions.support(item);
     const badge = edition ? `<span class="edition-badge edition-${edition}" title="${escape(editions.title(item.game, edition))}">${escape(editions.badge(item.game, edition))}</span>` : '';
+    const access = item.access === 'free' ? '<span class="resource-access">Free</span>' : item.access === 'paid' ? '<span class="resource-access">Paid</span>' : '';
     const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? '<button type="button" class="resource-download" disabled>Download — Coming soon</button>' : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>Download ↓</summary>${files.map(download).join('')}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
     const notes = (Array.isArray(item.changelog) ? item.changelog : typeof item.changelog === 'string' ? [item.changelog] : []).flatMap(note => {
       if (typeof note === 'string') return [note];
@@ -261,7 +277,9 @@ function renderPage(page) {
     const changelog = item.category === 'lua' || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
     const requirementText = item.requirementLabel || (item.game === 'l4d' ? item.compatibility : '') || (!menus.compatibleWith(item, page.menu) ? 'Requires the original menu format and a compatible loader or importer.' : '');
     const requirement = requirementText ? `<p class="resource-requirement">${escape(requirementText)}</p>` : '';
-    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource')}</p>${badge}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(tag => `<a href="${escape(queryURL(page.game, item.category, tag, page.menu))}">${escape(tag)}</a>`).join(' ')}</p>${actions}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
+    const setup = serverRecipe && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
+    const type = serverRecipe ? 'txAdmin recipe' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
+    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(type)}</p>${badge}${access}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(tag => `<a href="${escape(queryURL(page.game, item.category, tag, page.menu))}">${escape(tag)}</a>`).join(' ')}</p>${actions}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
   }).join('\n');
   const collection = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'CollectionPage', '@id': page.url + '#collection', url: page.url, name: page.title, description: page.description, keywords: page.keywords, inLanguage: 'en', about: { '@type': 'VideoGame', name: game.full }, isPartOf: { '@id': SITE + '/resources/#collection' }, mainEntity: { '@id': page.url + '#resources' } },

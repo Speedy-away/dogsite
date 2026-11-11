@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "purpose": "Maintainer links for Lua menu resources that server developers can integrate into FiveM resources.",
+  "items": [
+    {
+      "id": "fivem-menu-menuv",
+      "category": "mod-menus",
+      "name": "MenuV",
+      "author": "ThymonA",
+      "description": "Standalone menu library with a browser-based interface. Use it to build menus in your own Lua resources.",
+      "sourceUrl": "https://github.com/ThymonA/menuv/releases/latest",
+      "installUrl": "https://github.com/ThymonA/menuv#readme",
+      "requirementLabel": "FiveM server · Lua resource",
+      "requirements": ["Use the prebuilt archive from the release page. Keep the resource folder named menuv and start it before the resources that use it."],
+      "tags": ["lua", "menu library", "standalone"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-menu-ox-lib",
+      "category": "mod-menus",
+      "name": "Ox Lib Context Menu",
+      "author": "Overextended",
+      "description": "Build nested menus with icons, descriptive options and callbacks using the context menu module in Ox Lib.",
+      "sourceUrl": "https://github.com/overextended/ox_lib/releases/latest",
+      "installUrl": "https://overextended.dev/docs/ox_lib/Interface/Client/context",
+      "requirementLabel": "FiveM server · ox_lib",
+      "requirements": ["Install and start ox_lib before the resource that imports it. The context menu ships with the library."],
+      "tags": ["lua", "menu library", "context menu"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-menu-qb-menu",
+      "category": "mod-menus",
+      "name": "qb-menu",
+      "author": "QBCore",
+      "description": "The menu resource for QBCore scripts, with headings, buttons and per-option icons.",
+      "sourceUrl": "https://github.com/qbcore-fivem/qb-menu",
+      "installUrl": "https://qbcore.org/docs/qbcore-resources/qb-menu",
+      "requirementLabel": "FiveM server · QBCore",
+      "requirements": ["Check whether your QBCore recipe already installed qb-menu. Start it before any resource that opens its menus."],
+      "tags": ["lua", "menu library", "QBCore"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

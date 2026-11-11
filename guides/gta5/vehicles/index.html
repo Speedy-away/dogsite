@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>GTA 5 Vehicles: Download, Import &amp; Save - Scooby Guide</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
 <link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
 <meta name="description" content="Download shared vehicle presets, import supported files into Scooby GTA 5 and save your own vehicles. Includes Nenyoo links and Legacy / Enhanced compatibility help.">
 
@@ -43,6 +44,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GAME GUIDE: GTA 5 Legacy &amp; Enhanced Loading, menu controls &amp; troubleshooting..">
 <meta name="twitter:image:alt" content="GAME GUIDE: GTA 5 Legacy &amp; Enhanced Loading, menu controls &amp; troubleshooting..">
+<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
+<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -89,8 +92,6 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
-<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 </head>
 <body class="wiki-article wiki-topic-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -200,14 +201,13 @@
         SharedVehicle.xml</code></pre>
 <p>Keep personal saves in the parent folder or your own subfolders. <code>vehicles\PresetVehicles</code> is used for bundled presets.</p>
 <h3 id="other-vehicles">Import a vehicle from another menu</h3>
-<p>Place the original export in the matching folder:</p>
-<ul>
-<li><strong>Stand:</strong> <code>C:\scooby\GTA5\other-menu-addons\stand-vehicles</code></li>
-<li><strong>Cherax:</strong> <code>C:\scooby\GTA5\other-menu-addons\cherax-vehicles</code></li>
-<li><strong>Other supported exports:</strong> <code>C:\scooby\GTA5\other-menu-addons\other-menus-vehicles</code></li>
-</ul>
-<p>Open <strong>Other Menu / Other Menus</strong> in Saved Vehicles, refresh, and choose the import. Compatible <code>.json</code>, <code>.txt</code>, <code>.ini</code>, and <code>.xml</code> exports can be scanned. Keep files directly in the matching folder and preserve their original structure; an extension alone does not guarantee support.</p>
-<p>The installed format notes are in <code>C:\scooby\GTA5\other-menu-addons\VEHICLES-GUIDE.txt</code>.</p>
+<ol>
+<li>Keep the original export and its extension. Supported Cherax, Stand, INI and XML vehicle structures can be loaded alongside native saves.</li>
+<li>Copy the file into <code>C:\scooby\GTA5\vehicles</code> or a subfolder of your choice.</li>
+<li>Open <strong>Saved Vehicles → Browse</strong>, select <strong>Refresh</strong>, open that subfolder if needed, and select the vehicle.</li>
+</ol>
+<p>The combined browser recognizes supported <code>.json</code>, <code>.xml</code>, <code>.ini</code>, and Stand <code>.txt</code> exports. Their contents must match a supported vehicle structure; changing the extension does not convert a file.</p>
+<p>Current builds migrate older <code>other-menu-addons</code> libraries into <code>vehicles\Cherax</code>, <code>vehicles\Stand</code>, and <code>vehicles\Imported</code>. Browse those subfolders for previously installed files. Installed format notes are in <code>C:\scooby\GTA5\vehicles\SAVED-VEHICLES-GUIDE.txt</code>.</p>
 <h3 id="save-vehicle">Save and share your own vehicle</h3>
 <ol>
 <li>Enter the vehicle you want to save and finish customizing it.</li>
@@ -225,7 +225,7 @@
 <li><strong>Wrong format:</strong> select the intended save format before saving. Changing <code>.xml</code> to <code>.json</code> does not convert the file.</li>
 <li><strong>Downloaded an RPF or model assets:</strong> follow <a href="/guides/gta5/dlcs/">Addons</a>. The saved-vehicle folder does not install custom game assets.</li>
 </ul>
-<p>Back up the vehicles folder and import folders while Scooby is closed. In ListUI, pressing <strong>Right</strong> on a local library entry permanently deletes that file.</p>
+<p>Back up the vehicles folder and its subfolders while Scooby is closed. In ListUI, pressing <strong>Right</strong> on a local library entry permanently deletes that file.</p>
 </div>
 <nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/themes/"><span>← Previous guide</span><strong>Themes</strong></a><a href="/guides/gta5/money/"><span>Next guide →</span><strong>Money Making Methods</strong></a></nav>
 <footer class="wiki-footer">

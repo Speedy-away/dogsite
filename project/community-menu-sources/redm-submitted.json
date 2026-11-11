@@ -19,7 +19,8 @@
       "description": "Screenshot of the Additions Menu v2 interface and its visual settings.",
       "status": "preview-only",
       "downloadStatus": "unavailable",
-      "files": []
+      "files": [],
+      "access": "free"
     },
     {
       "id": "redm-chaos-menu-0-0-1",
@@ -36,6 +37,24 @@
       "previewCaption": "Submitted ChaosMenu 0.0.1 screenshot.",
       "credits": "The Whale Road is credited in the supplied screenshot.",
       "description": "Screenshot of the ChaosMenu 0.0.1 interface.",
+      "status": "preview-only",
+      "downloadStatus": "unavailable",
+      "files": [],
+      "access": "free"
+    },
+    {
+      "id": "redm-wraith-menu",
+      "name": "Wraith Menu",
+      "category": "mod-menus",
+      "game": "redm",
+      "sourceMenu": "scooby",
+      "access": "paid",
+      "preview": "previews/redm/menus/scooby/4c0a45ffc57077be84e2.png",
+      "previewVerified": true,
+      "previewKind": "submitted-image",
+      "previewCaption": "Submitted screenshot of the Wraith Platinum main menu.",
+      "description": "Screenshot of the paid Wraith Platinum Lua menu for RedM.",
+      "credits": "Wraith branding appears in the supplied screenshot.",
       "status": "preview-only",
       "downloadStatus": "unavailable",
       "files": []

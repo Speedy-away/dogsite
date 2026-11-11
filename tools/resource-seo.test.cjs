@@ -152,7 +152,7 @@ test('resource routes cover actual menu-compatible collections without empty cat
     if (category) assert(count > 0, `Empty category should not have an indexable page: ${page.file}`);
     const subset = category ? bucket.items.filter(item => item.category === category || item.categories?.includes(category) || (category === 'modded' && item.category === 'vehicles' && item.attachments > 0)) : bucket.items;
     for (const item of page.samples) assert(subset.some(expected => expected.id === item.id), `Incompatible sample on ${page.file}: ${item.id}`);
-    if (!subset.some(item => item.category === 'lua')) assert(!/\blua\b/i.test([page.title, page.description, page.keywords].join(' ')), page.file);
+    if (!subset.some(item => item.category === 'lua' || item.category === 'mod-menus')) assert(!/\blua\b/i.test([page.title, page.description, page.keywords].join(' ')), page.file);
     if (subset.length && subset.every(item => item.downloadStatus === 'pending' && !item.files?.length)) {
       assert(/coming soon/i.test(page.title + ' ' + page.description), page.file);
     }
@@ -315,6 +315,52 @@ test('Left 4 Dead filters keep game-specific add-ons and shared files in the rig
   assert.equal(editions.support(sky), 'both');
   assert.equal(fs.statSync(path.join(ROOT, sky.files[0].url)).size, sky.files[0].size);
   assert(read('resources/l4d/skyboxes/index.html').includes(sky.files[0].url));
+});
+
+test('CS2 lists GameBanana skybox sources with conversion requirements and author links', () => {
+  const source = json('project/community-menu-sources/cs2-gamebanana-skyboxes.json');
+  const page = inventory().find(page => page.game === 'cs2' && page.category === 'skyboxes');
+  const html = read(page.file);
+  assert(source.items.length > 1);
+  assert(page.samples.some(item => item.files?.length), 'Native downloads remain available');
+  for (const entry of source.items) {
+    assert.match(entry.sourceUrl, /^https:\/\/gamebanana\.com\/mods\/\d+$/);
+    const sample = page.samples.find(item => item.id === entry.id);
+    assert.equal(sample?.status, 'author-hosted', entry.id);
+    assert.deepEqual(sample.files, [], entry.id);
+    const card = html.match(new RegExp(`<article[^>]+id="resource-${entry.id}"[^>]*>[\\s\\S]*?</article>`))?.[0];
+    assert(card?.includes('CS2 conversion required'), entry.id);
+    assert(card.includes(`href="${entry.sourceUrl}"`), entry.id);
+    assert(!card.includes('data-download-file='), entry.id);
+  }
+});
+
+test('CS2 visual resources list source requirements and preserve the downloadable PNG panoramas', () => {
+  const cs2 = inventory().filter(page => page.game === 'cs2');
+  const skyboxes = cs2.find(page => page.category === 'skyboxes');
+  const textures = cs2.find(page => page.category === 'textures');
+  for (const [page, manifest, label] of [
+    [skyboxes, 'cs2-hdri-skies', 'Compile in CS2 Workshop Tools'],
+    [textures, 'cs2-hammer-materials', 'Build a Source 2 material']
+  ]) {
+    const sources = json(`project/community-menu-sources/${manifest}.json`).items;
+    const html = read(page.file);
+    assert(sources.length > 1);
+    for (const entry of sources) {
+      const listing = page.samples.find(item => item.id === entry.id);
+      assert.equal(listing?.status, 'author-hosted', entry.id);
+      assert.equal(listing.license, 'CC0', entry.id);
+      assert.deepEqual(listing.files, [], entry.id);
+      assert(listing.requirementLabel.includes(label), entry.id);
+      assert(html.includes(`href="${entry.sourceUrl}"`), entry.id);
+    }
+  }
+  const originals = new Map(json('community/data/library.json').items.map(item => [item.id, item]));
+  for (const { id } of json('project/community-menu-sources/cs2-panorama-imports.json').libraryOverrides) {
+    const item = skyboxes.samples.find(entry => entry.id === id);
+    assert.deepEqual(item?.files, originals.get(id).files, id);
+    assert(textures.samples.some(entry => entry.id === id), id);
+  }
 });
 
 test('resource structured data describes visible collections and real sample entries', () => {

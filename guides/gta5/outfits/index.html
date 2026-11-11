@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>GTA 5 Outfits: Download, Import &amp; Save - Scooby Guide</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
 <link rel="stylesheet" href="/assets/css/site-brand.css?v=b6be1f17d1d0">
 <meta name="description" content="Download outfits from Nenyoo, install supported presets in Scooby GTA 5 and save your own clothing. Follow outlined pictures and check character and edition compatibility.">
 
@@ -43,6 +44,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GAME GUIDE: GTA 5 Legacy &amp; Enhanced Loading, menu controls &amp; troubleshooting..">
 <meta name="twitter:image:alt" content="GAME GUIDE: GTA 5 Legacy &amp; Enhanced Loading, menu controls &amp; troubleshooting..">
+<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
+<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -89,8 +92,6 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/css/guide-help.css?v=6a8b6d3b15a8">
-<script src="/assets/js/general-help.js?v=6cebf4b9666c" defer></script>
 </head>
 <body class="wiki-article wiki-topic-page">
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -199,14 +200,13 @@
     Favorites\
         AnotherOutfit.xml</code></pre>
 <h3 id="other-outfits">Import an outfit from another menu</h3>
-<p>Keep the original export format and place it in the matching import folder:</p>
-<ul>
-<li><strong>Stand:</strong> <code>C:\scooby\GTA5\other-menu-addons\stand-outfits</code></li>
-<li><strong>Cherax:</strong> <code>C:\scooby\GTA5\other-menu-addons\cherax-outfits</code></li>
-<li><strong>Other supported exports:</strong> <code>C:\scooby\GTA5\other-menu-addons\other-menus-outfits</code></li>
-</ul>
-<p>Open the <strong>Other Menu / Other Menus</strong> outfit library, refresh, then select the import. Compatible <code>.json</code>, <code>.txt</code>, <code>.ini</code>, and <code>.xml</code> exports can be scanned; the file's internal structure must also be supported. Keep imports directly in the matching folder to make them easy to find.</p>
-<p>For the format notes included with your installation, read <code>C:\scooby\GTA5\other-menu-addons\OUTFITS-GUIDE.txt</code>.</p>
+<ol>
+<li>Keep the original export and its extension. Supported Cherax, Stand, INI and XML outfit structures can be loaded alongside native saves.</li>
+<li>Copy the file into <code>C:\scooby\GTA5\outfits</code> or a subfolder of your choice.</li>
+<li>Open <strong>Self → Outfit Editor → Saved Outfits</strong>, select <strong>Refresh</strong>, open that subfolder if needed, and select the outfit.</li>
+</ol>
+<p>The combined browser recognizes supported <code>.json</code>, <code>.xml</code>, <code>.ini</code>, and Stand <code>.txt</code> exports. Their contents must match a supported outfit structure; changing the extension does not convert a file.</p>
+<p>Current builds migrate older <code>other-menu-addons</code> libraries into <code>outfits\Cherax</code>, <code>outfits\Stand</code>, and <code>outfits\Imported</code>. Browse those subfolders for previously installed files. Installed format notes are in <code>C:\scooby\GTA5\outfits\SAVED-OUTFITS-GUIDE.txt</code>.</p>
 <h3 id="save-outfit">Create, save, and share your own outfit</h3>
 <ol>
 <li>Use <strong>Outfit Editor</strong> to choose the clothing components, textures, and props you want.</li>
@@ -217,12 +217,12 @@
 <p><strong>Wardrobe Manager</strong> manages GTA's in-game wardrobe slots. Use <strong>Saved Outfits</strong> when you want a portable file.</p>
 <h3 id="outfit-help">If an outfit is missing or looks wrong</h3>
 <ul>
-<li><strong>Missing file:</strong> check its extension and folder, open the correct subfolder, and refresh. Other-menu exports may need the import library instead.</li>
+<li><strong>Missing file:</strong> check its extension and folder, open the correct subfolder, and refresh. Older imported files may be in the Cherax, Stand or Imported subfolders.</li>
 <li><strong>Refuses to load:</strong> restore the original file or ask for a supported export. Renaming a file extension does not convert it.</li>
 <li><strong>Wrong clothing:</strong> component and prop indexes differ by model. Use the same ped and male/female freemode model as the original outfit.</li>
 <li><strong>Downloaded model assets:</strong> <code>.ydd</code>, <code>.ytd</code>, and RPF packs are not outfit presets. See <a href="/guides/gta5/dlcs/">Addons</a>.</li>
 </ul>
-<p>Back up the outfits folder and any import folders while Scooby is closed. In ListUI, pressing <strong>Right</strong> on a local saved outfit deletes its file permanently.</p>
+<p>Back up the outfits folder and its subfolders while Scooby is closed. In ListUI, pressing <strong>Right</strong> on a local saved outfit deletes its file permanently.</p>
 </div>
 <nav class="article-pagination" aria-label="Guide navigation"><a href="/guides/gta5/lua-scripts/"><span>← Previous guide</span><strong>Getting Luas</strong></a><a href="/guides/gta5/themes/"><span>Next guide →</span><strong>Themes</strong></a></nav>
 <footer class="wiki-footer">

@@ -8,7 +8,7 @@
     gta5: { name: 'GTA 5' },
     rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
     cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
-    fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+    fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'sound-packs', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
     redm: { name: 'RedM', assets: ['outfits', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings', 'maps', 'textures', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
     l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
   };
@@ -21,7 +21,7 @@
     languages: 'Translations / Languages', wallpapers: 'Wallpapers', dlc: 'DLC packs', misc: 'Miscellaneous',
     'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
     'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
-    'mod-menus': 'Mod Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
+    'mod-menus': 'Lua Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
   };
   const FILES = ['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc'];
   const sections = [...document.querySelectorAll('.guide-topics > section')];
@@ -131,7 +131,7 @@
       if (!list.length) continue;
       const group = node('div', '', 'category-group');
       group.append(node('p', label, 'category-group-label'));
-      for (const category of list) group.append(categoryLink(category, roleplay ? taxonomy.ROLEPLAY_LABELS[category] : undefined));
+      for (const category of list) group.append(categoryLink(category, roleplay ? taxonomy.roleplayCategoryLabel(state.game, category) : undefined));
       $('guide-categories').append(group);
     }
     let count = 0;
@@ -145,7 +145,8 @@
       }
     }
     document.querySelectorAll('[data-menu-name]').forEach(element => { element.textContent = menuName; });
-    $('guide-status').textContent = `${GAMES[state.game].name} · ${menuName} · ${LABELS[state.category]}${count ? '' : ' · Guide not available yet'}`;
+    const currentLabel = state.category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(state.game, state.category) || LABELS[state.category] : LABELS[state.category];
+    $('guide-status').textContent = `${GAMES[state.game].name} · ${menuName} · ${currentLabel}${count ? '' : ' · Guide not available yet'}`;
     $('guide-empty').hidden = count > 0;
     const collection = new URLSearchParams({ game: state.game, menu: state.menu });
     if (state.category !== 'all') collection.set('category', state.category);

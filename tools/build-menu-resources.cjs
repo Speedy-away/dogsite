@@ -44,6 +44,7 @@ function clean(entry, origin) {
   result.game = GAMES.has(entry.game) ? entry.game : 'gta5';
   if (typeof result.name === 'string') result.name = result.name.trim();
   result.category = aliases[entry.category] || entry.category;
+  if (result.category === 'mod-menus' && ['free', 'paid'].includes(entry.access)) result.access = entry.access;
   if (!result.credits && (entry.creator || entry.author)) result.credits = entry.creator || entry.author;
   result.supportedMenus = canonicalList(entry.supportedMenus?.length ? entry.supportedMenus : [result.sourceMenu]);
   result.listedMenus = canonicalList(entry.listedMenus?.length ? entry.listedMenus :
@@ -121,6 +122,7 @@ function clean(entry, origin) {
     result.requirements = (result.requirements || []).map(value => String(value).replace(videoURL, '').trim()).filter(Boolean);
   }
   result.guide = `/resources/guides/?${new URLSearchParams({ game: result.game, ...(result.game === 'gta5' ? { menu: result.sourceMenu } : {}), category: result.category })}`;
+  if (origin === 'cs2-hammer-materials') result.guide += '#cs2-hammer-textures';
   return result;
 }
 function add(entry, origin) {
@@ -130,7 +132,12 @@ function add(entry, origin) {
   if (baseItems.has(entry.id)) overrides.set(entry.id, { ...overrides.get(entry.id), ...normalized, id: entry.id });
   else if ((normalized.category === 'lua' && normalized.downloadStatus === 'pending') || normalized.files?.length ||
     entry.status === 'in-menu' || (normalized.category === 'mod-menus' && normalized.status === 'preview-only') ||
-    (['fivem-graphics', 'l4d'].includes(origin) && normalized.status === 'author-hosted' && /^https:\/\//.test(normalized.sourceUrl || ''))) {
+    ((['fivem-graphics', 'l4d', 'cs2-gamebanana-skyboxes', 'cs2-hdri-skies', 'cs2-hammer-materials'].includes(origin) ||
+      (origin === 'fivem-server-recipes' && normalized.game === 'fivem' && normalized.category === 'server-dumps') ||
+      (origin === 'fivem-lua-menus' && normalized.game === 'fivem' && normalized.category === 'mod-menus') ||
+      (origin === 'redm-public-releases' && normalized.game === 'redm' && normalized.category === 'graphics-packs') ||
+      (origin === 'stand-discord-reviewed' && normalized.category === 'asi-mods'))
+      && normalized.status === 'author-hosted' && /^https:\/\//.test(normalized.sourceUrl || ''))) {
     additions.set(entry.id, { ...additions.get(entry.id), ...normalized, id: entry.id });
   }
 }
@@ -164,6 +171,11 @@ function importManifest(menu, defaultGame = 'gta5') {
   const source = read(file);
   for (const entry of source.libraryOverrides || []) {
     const prior = { ...baseItems.get(entry.id), ...overrides.get(entry.id) };
+    if (menu === 'cs2-panorama-imports') {
+      if (prior.game !== 'cs2' || prior.category !== 'textures') continue;
+      // Keep the original download identity when changing its catalog placement.
+      delete prior.files;
+    }
     add(menu === 'biggerscript-public' ? collectionOverride(prior, entry) : { ...prior, ...entry }, menu);
   }
   for (const original of source.items || []) {
@@ -189,7 +201,11 @@ function importManifest(menu, defaultGame = 'gta5') {
 for (const menu of ['stand', 'stand-discord-reviewed', 'xforce', 'inbox', 'biggerscript-public', 'gta5-addon-packs']) importManifest(menu);
 importManifest('redm', 'redm');
 importManifest('redm-submitted', 'redm');
+importManifest('redm-public-releases', 'redm');
 importManifest('fivem-graphics', 'fivem');
+importManifest('fivem-server-recipes', 'fivem');
+importManifest('fivem-lua-menus', 'fivem');
+for (const manifest of ['cs2-gamebanana-skyboxes', 'cs2-hdri-skies', 'cs2-hammer-materials', 'cs2-panorama-imports']) importManifest(manifest, 'cs2');
 for (const manifest of ['l4d', 'l4d-originals', 'l4d-configs']) importManifest(manifest, 'l4d');
 // Relabel existing Cherax marketplace data in place, preserving file identities.
 for (const item of base.items.filter(item => item.source === 'ModVerse public catalog')) {

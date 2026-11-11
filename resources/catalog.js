@@ -18,11 +18,12 @@ const LABELS = {
   'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods', dlc: 'DLC packs', wallpapers: 'Wallpapers',
   'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
   'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
-  'mod-menus': 'Mod Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
+  'mod-menus': 'Lua Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
 };
 const MENU_CATEGORIES = ['themes', 'configs', 'lua', 'languages', 'misc'];
 const L4D_LABELS = { maps: 'Maps & campaigns', players: 'Survivor & infected models', weapons: 'Weapon models & skins' };
 const PAGE_SIZE = 24;
+const ACCESS_LABELS = { free: 'Free', paid: 'Paid' };
 const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const taxonomy = globalThis.ScoobyTaxonomy;
 const menuSystem = globalThis.ScoobyMenus;
@@ -127,6 +128,12 @@ function downloadURL(file) {
 
 function authorPage(entry) {
   return entry.status === 'author-hosted' ? safeURL(entry.sourceUrl) : '';
+}
+
+const isFiveMRecipe = entry => entry.game === 'fivem' && entry.category === 'server-dumps';
+
+function authorAction(entry) {
+  return isFiveMRecipe(entry) ? 'Download from source ↗' : 'Get from the author ↗';
 }
 
 function previewAllowed(entry) {
@@ -260,7 +267,10 @@ function inCategory(entry, category) {
     (category === 'modded' && entry.category === 'vehicles' && entry.attachments > 0);
 }
 
-function categoryLabel(game, category) { return (game === 'l4d' ? L4D_LABELS[category] : undefined) || LABELS[category]; }
+function categoryLabel(game, category) {
+  return (category === 'mod-menus' ? taxonomy?.roleplayCategoryLabel(game, category) : undefined) ||
+    (game === 'l4d' ? L4D_LABELS[category] : undefined) || LABELS[category];
+}
 
 function categoryButton(category, label = categoryLabel(state.game, category)) {
   const button = node('a', null, 'category-choice');
@@ -343,7 +353,7 @@ function updateControls() {
   $('search').value = state.q;
   $('search').placeholder = {
     gta5: 'Search outfits, vehicles or files…', rdr2: 'Search outfits or files…',
-    cs2: 'Search models, skyboxes or files…', fivem: 'Search vehicles, maps or files…',
+    cs2: 'Search models, skyboxes or files…', fivem: 'Search packs, recipes or files…',
     redm: 'Search outfits, peds or files…', l4d: 'Search campaigns, models or files…'
   }[state.game];
   $('categories').replaceChildren(categoryButton('all'));
@@ -364,7 +374,7 @@ function updateControls() {
     if (!list.length) continue;
     const group = node('div', null, 'category-group');
     group.append(node('p', label, 'category-group-label'));
-    for (const category of list) group.append(categoryButton(category, roleplay ? taxonomy.ROLEPLAY_LABELS[category] : undefined));
+    for (const category of list) group.append(categoryButton(category, roleplay ? taxonomy.roleplayCategoryLabel(state.game, category) : undefined));
     $('categories').append(group);
   }
   const models = new Map();
@@ -667,6 +677,7 @@ function showDetails(entry, files) {
   }
   const details = $('preview-details');
   details.replaceChildren();
+  if (ACCESS_LABELS[entry.access]) details.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
   if (entry.description) details.append(node('p', visibleText(entry, entry.description)));
   if (entry.compatibility) details.append(node('p', visibleText(entry, entry.compatibility)));
   const edition = editions.support(entry);
@@ -691,7 +702,7 @@ function showDetails(entry, files) {
   if (entry.author || entry.credits) details.append(node('p', `Credits: ${visibleText(entry, entry.credits || entry.author)}`));
   if (entry.license) details.append(node('p', `License: ${visibleText(entry, entry.license)}`));
   if (authorPage(entry)) {
-    const source = link('Get from the author ↗', authorPage(entry), true);
+    const source = link(authorAction(entry), authorPage(entry), true);
     source.className = 'external-primary';
     details.append(source);
   } else if (pendingDownload(entry)) {
@@ -745,7 +756,10 @@ async function card(entry) {
     info.append(node('p', visibleText(entry, entry.requirementLabel || `Requires ${menuName(sourceMenu)} format`), 'compatibility-note'));
   }
   if (entry.description) info.append(node('p', visibleText(entry, entry.description), 'description'));
-  if (entry.game === 'l4d' && entry.requirementLabel) info.append(node('p', entry.requirementLabel, 'meta'));
+  if (entry.requirementLabel && (isFiveMRecipe(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
+    info.append(node('p', entry.requirementLabel, 'compatibility-note'));
+  }
+  if (ACCESS_LABELS[entry.access]) info.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
   if (entry.status === 'preview-only') info.append(node('p', 'Download unavailable', 'meta'));
   if (entry.uiStyle || entry.style) info.append(node('p', [entry.uiStyle, entry.style && `${entry.style} style`].filter(Boolean).join(' · '), 'meta'));
   const actions = node('div', null, 'card-actions');
@@ -753,9 +767,15 @@ async function card(entry) {
   if (source) {
     const credit = entry.author || (entry.game === 'l4d' ? entry.credits : '');
     if (credit) info.append(node('p', `By ${visibleText(entry, credit)}`));
-    const external = link('Get from the author ↗', source, true);
+    const external = link(authorAction(entry), source, true);
     external.className = 'external-primary';
     actions.append(external);
+    if (isFiveMRecipe(entry)) {
+      const requirements = node('button', 'Requirements');
+      requirements.type = 'button';
+      requirements.onclick = () => showDetails(entry, files);
+      actions.append(requirements);
+    }
   } else if (pendingDownload(entry)) actions.append(comingSoonButton());
   else if (!files.length) {
     const details = node('button', 'Details');
@@ -780,7 +800,7 @@ async function card(entry) {
     guide.className = 'guide-link';
     info.append(guide);
   }
-  article.append(shot);
+  if (preview || (entry.category !== 'themes' && !isFiveMRecipe(entry))) article.append(shot);
   article.append(info);
   return article;
 }

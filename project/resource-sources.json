@@ -56,9 +56,25 @@
       "paths": ["project/community-menu-sources/cherax.json", "project/community-menu-sources/stand.json", "project/community-menu-sources/stand-discord-reviewed.json", "project/community-menu-sources/xforce.json", "project/community-menu-sources/redm.json", "project/community-menu-sources/biggerscript-public.json", "project/community-menu-sources/gta5-addon-packs.json", "project/community-menu-sources/cherax-lua-enrichment.json", "project/community-menu-sources/cherax-public-audit.json", "project/community-menu-sources/cherax-network-checks.json", "project/community-menu-sources/menu-image-checks.json", "project/community-marketplace", "../cherax-luas/luas"]
     },
     {
+      "id": "cs2-gamebanana-skyboxes",
+      "kind": "menus",
+      "paths": ["project/community-menu-sources/cs2-gamebanana-skyboxes.json"]
+    },
+    {
+      "id": "cs2-sky-and-materials",
+      "kind": "menus",
+      "paths": ["project/community-menu-sources/cs2-hdri-skies.json", "project/community-menu-sources/cs2-hammer-materials.json", "project/community-menu-sources/cs2-panorama-imports.json"]
+    },
+    {
       "id": "l4d-resources",
       "kind": "menus",
       "paths": ["project/community-menu-sources/l4d.json", "project/community-menu-sources/l4d-originals.json", "project/community-menu-sources/l4d-configs.json", "assets/downloads/l4d", "assets/images/resource-previews/l4d"]
+    },
+    {
+      "id": "fivem-server-recipes",
+      "kind": "menus",
+      "games": ["fivem"],
+      "paths": ["project/community-menu-sources/fivem-server-recipes.json", "project/community-menu-sources/fivem-lua-menus.json"]
     },
     {
       "id": "resource-inbox",

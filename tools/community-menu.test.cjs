@@ -63,6 +63,7 @@ test('reviewed RedM scripts download and preview-only menus have no payloads', (
     assert.equal(item.downloadStatus, source.downloadStatus);
     assert.deepEqual(item.files, source.files);
     assert.equal(item.preview, source.preview);
+    assert.equal(item.access, source.access);
     assert(!item.sourceUrl, item.id);
   }
 });

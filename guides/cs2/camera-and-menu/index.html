@@ -154,6 +154,7 @@
 <a href="/guides/cs2/custom-models/" class="sidebar-guide-link" aria-label="Custom models"><span class="sidebar-link-label">Custom models</span></a>
 <a href="/guides/cs2/textures-and-sounds/" class="sidebar-guide-link" aria-label="Textures and sounds"><span class="sidebar-link-label">Textures &amp; sounds</span></a>
 <a href="/guides/cs2/camera-and-menu/" class="sidebar-guide-link" aria-current="page" aria-label="Camera, scopes and main menu"><span class="sidebar-link-label">Camera, scopes &amp; menu</span></a>
+<a href="/guides/cs2/visuals-and-practice/" class="sidebar-guide-link" aria-label="Visuals and grenade practice"><span class="sidebar-link-label">Visuals &amp; practice</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
 <a href="/guides/cs2/cs2-updates/" class="sidebar-guide-link" aria-label="Feature troubleshooting (After game updates)"><span class="sidebar-link-label">Feature troubleshooting</span><span class="sidebar-link-note">After game updates</span></a>
@@ -177,7 +178,7 @@
 <div class="guide-card" id="camera-and-menu">
 <h2 class="sr-only">CS2 Camera, Scope Reticles and Main Menu Editor</h2>
 <nav class="guide-contents" aria-label="In this guide">
-<a href="#scope-reticles">Scope reticles</a><a href="#freecam">Freecam</a><a href="#main-menu-editor">Main Menu Editor</a>
+<a href="#scope-reticles">Scope reticles</a><a href="#freecam">Freecam</a><a href="#rear-look">Rear Look</a><a href="#main-menu-editor">Main Menu Editor</a>
 </nav>
 <h3 id="scope-reticles">Customize scope reticles</h3>
 <ol class="help-steps">
@@ -185,13 +186,15 @@
 <li>Choose Hidden, Dot, Cross, Ring or Custom image. Use <strong>Import image</strong> to select a PNG or JPEG up to 512 × 512 and 4 MB. Check the result in <strong>Preview</strong>.</li>
 <li>Adjust the reticle size, color or image opacity. Sniper Scopes also has <strong>Lens opening</strong> and <strong>Outside opacity</strong>. Choose <strong>Restore defaults</strong> to reset the selected group.</li>
 </ol>
-<p>Freecam and the Main Menu Editor below are documented for development builds. Check the <a href="/features-list/cs2-features/">feature list</a> for availability.</p>
+<p>Development builds add Full cross, Ring + dot and quick reticle presets. Freecam, Rear Look and the Main Menu Editor below also depend on your build. Check the <a href="/features-list/cs2-features/">feature list</a> for availability.</p>
 <h3 id="freecam">Fly with Freecam</h3>
 <ol class="help-steps">
 <li>With a living, unscoped player, press <strong>F7</strong> or choose <strong>Visuals &gt; Viewmodel &gt; Freecam</strong>. Rebind F7 under <strong>Settings &gt; Hotkeys</strong>.</li>
-<li>Use <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> and <kbd>D</kbd> to fly, <kbd>Space</kbd> and <kbd>Ctrl</kbd> to change height, and <kbd>Shift</kbd> for a speed boost. Look with the mouse or arrow keys.</li>
+<li>Use <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd> and <kbd>D</kbd> to fly, <kbd>Space</kbd> and <kbd>Ctrl</kbd> to change height, and <kbd>Shift</kbd> for a speed boost. Close the menu to fly. Look with the mouse or arrow keys.</li>
 <li>Toggle Freecam off to return to the player. Freecam blocks player movement and firing while active. Flight pauses while the menu has focus.</li>
 </ol>
+<h3 id="rear-look">Check the view behind you</h3>
+<p>Open <strong>Visuals &gt; Viewmodel &gt; Rear Look</strong> and assign a Hold key. Rear Look uses the picture-in-picture view. Scoping, third person, Freecam and native practice cameras take priority.</p>
 <h3 id="main-menu-editor">Edit the CS2 title screen</h3>
 <ol class="help-steps">
 <li>At the title screen, open <strong>Custom &gt; VFX &gt; Main Menu</strong> and turn on <strong>Enable Main Menu</strong>.</li>
