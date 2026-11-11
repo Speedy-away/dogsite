@@ -80,9 +80,10 @@ function readState() {
   const game = Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5';
   const requested = categoryId(game, query.get('category'));
   const category = categories(game).includes(requested) ? requested : 'all';
-  const themeFilters = ['gta5', 'rdr2'].includes(game) && ['all', 'themes'].includes(category);
+  const themeFilters = category === 'themes' && ['gta5', 'rdr2'].includes(game);
   return {
-    game, category, menu: menuFor(game, query.get('menu')), edition: editions.choice(game, query.get('edition')), q: query.get('q') || '', model: query.get('model') || '',
+    game, category, menu: menuFor(game, query.get('menu')), edition: editions.choice(game, query.get('edition')), q: query.get('q') || '',
+    model: category === 'all' ? '' : query.get('model') || '',
     ui: themeFilters ? query.get('ui') || '' : '', style: themeFilters ? query.get('style') || '' : '',
     sort: ['name', 'attachments'].includes(query.get('sort')) ? query.get('sort') : '',
     page: Math.max(1, Number.parseInt(query.get('page'), 10) || 1)
