@@ -63,7 +63,7 @@ let catalogReady = false;
 let gameLoading = false;
 let state = readState();
 let inputTimer;
-let linkedPreviewHash = '';
+const resourceDialogs = globalThis.ScoobyResourceDialogs.create([$('preview'), $('changelog')]);
 
 function node(tag, text, className) {
   const result = document.createElement(tag);
@@ -276,10 +276,11 @@ function link(text, href, external = false) {
   return result;
 }
 
-function resourceURL(entry) {
-  const format = menuSystem.presetLoader(entry, state.menu) === 'lua' ? 'lua-loader' : '';
+function resourceURL(entry, view) {
+  const loader = menuSystem.presetLoader(entry, state.menu);
+  const format = loader === 'lua' ? 'lua-loader' : loader === 'importer' ? 'all-formats' : '';
   const category = state.category.startsWith('pack-') && inCategory(entry, state.category) ? state.category : entry.category;
-  return routes.catalogURL({ game: entry.game, menu: state.menu, category, archive: state.archive, format }, publishedRoutes) + routes.resourceHash(entry.id);
+  return routes.catalogURL({ game: entry.game, menu: state.menu, category, archive: state.archive, format }, publishedRoutes) + routes.resourceHash(entry.id, view);
 }
 
 function image(src, name, showUnavailable = false) {
@@ -443,7 +444,7 @@ function setSelect(id, value) {
 }
 
 function updateFormatFilter(selection) {
-  const { hasLua, nativeDefault } = menuSystem.presetFormatScope(selection, state.menu, state.category);
+  const { hasLua, hasAlternate, nativeDefault } = menuSystem.presetFormatScope(selection, state.menu, state.category);
   nativeFormatDefault = nativeDefault;
   const extensions = new Map();
   for (const entry of selection) {
@@ -454,15 +455,15 @@ function updateFormatFilter(selection) {
     : hasLua ? 'Lua loader required' : 'All formats';
   const options = [new Option(defaultLabel, '')];
   if (nativeDefault) options.push(new Option('All formats', 'all-formats'));
-  if (nativeDefault) options.push(new Option('Lua loader required', 'lua-loader'));
+  if (nativeDefault && hasLua) options.push(new Option('Lua loader required', 'lua-loader'));
   for (const ext of [...extensions.keys()].sort()) {
     options.push(new Option(`.${ext}${extensions.get(ext) ? ' · Lua loader' : ''}`, ext));
   }
   $('format').replaceChildren(...options);
   $('format-field').hidden = options.length === 1;
   setSelect('format', state.format);
-  $('format-note').hidden = !hasLua;
-  $('format-note').textContent = hasLua ? menuSystem.presetFormatHint(state.menu, nativeDefault, state.category) : '';
+  $('format-note').hidden = !hasAlternate;
+  $('format-note').textContent = hasAlternate ? menuSystem.presetFormatHint(state.menu, nativeDefault, state.category) : '';
 }
 
 function updateThemeFilters() {
@@ -633,7 +634,7 @@ async function loadGame() {
       menuCategoryCounts = new Map(['all', ...categories(game)].map(id => {
         const selection = entries.filter(entry => inCategory(entry, id));
         const { nativeDefault } = menuSystem.presetFormatScope(selection, state.menu, id);
-        const count = nativeDefault ? selection.filter(entry => menuSystem.presetLoader(entry, state.menu) !== 'lua').length : selection.length;
+        const count = nativeDefault ? selection.filter(entry => !menuSystem.alternatePreset(entry, state.menu)).length : selection.length;
         return [id, count];
       }).filter(([, count]) => count));
       if (state.category !== 'all' && !menuCategoryCounts.has(state.category)) {
@@ -800,11 +801,16 @@ function versionDownload(files) {
   return control;
 }
 
+function hasChangelog(entry) {
+  return !entry.builtInLua && (entry.category === 'lua' || Boolean(entry.changelog?.length));
+}
+
 function showChangelog(entry) {
   $('changelog-title').textContent = `${visibleText(entry, entry.name)} · Changelog`;
   const content = $('changelog-content');
   content.replaceChildren();
-  const releases = Array.isArray(entry.changelog) ? entry.changelog.filter(release => release && typeof release === 'object') : [];
+  const releases = [].concat(entry.changelog || []).filter(Boolean).map(release =>
+    typeof release === 'string' ? { changes: [release] } : release);
   if (!releases.length) content.append(node('p', 'No changelog has been published for this resource.'));
   for (const release of releases) {
     const section = node('section', null, 'changelog-entry');
@@ -815,7 +821,8 @@ function showChangelog(entry) {
       if (/^\d{4}-\d{2}-\d{2}/.test(String(release.date))) time.dateTime = String(release.date);
       section.append(time);
     }
-    const changes = Array.isArray(release.changes) ? release.changes.map(change => visibleText(entry, change)).filter(Boolean) : [];
+    const changes = [release.changes, release.notes, release.description].flat()
+      .filter(change => typeof change === 'string').map(change => visibleText(entry, change)).filter(Boolean);
     if (changes.length) {
       const list = node('ul');
       changes.forEach(change => list.append(node('li', change)));
@@ -823,7 +830,7 @@ function showChangelog(entry) {
     } else section.append(node('p', 'No release notes were provided for this version.'));
     content.append(section);
   }
-  if (!$('changelog').open) $('changelog').showModal();
+  resourceDialogs.present($('changelog'), resourceURL(entry, 'changelog'));
   content.scrollTop = 0;
 }
 
@@ -883,29 +890,6 @@ function resourceImageGallery(entry) {
   return gallery;
 }
 
-function copyResourceLink(entry) {
-  const button = node('button', 'Copy link');
-  button.type = 'button';
-  button.setAttribute('aria-live', 'polite');
-  button.onclick = async () => {
-    const url = new URL(resourceURL(entry), location.origin).href;
-    try {
-      await navigator.clipboard.writeText(url);
-      button.textContent = 'Link copied';
-    } catch {
-      const field = node('input');
-      field.type = 'url';
-      field.readOnly = true;
-      field.value = url;
-      field.setAttribute('aria-label', 'Resource link');
-      button.replaceWith(field);
-      field.focus();
-      field.select();
-    }
-  };
-  return button;
-}
-
 function appendUpdateDate(container, entry) {
   const date = menuSystem.resourceUpdateDate(entry);
   if (!date) return;
@@ -918,13 +902,6 @@ function appendUpdateDate(container, entry) {
 }
 
 function showDetails(entry, files) {
-  const hash = routes.resourceHash(entry.id);
-  if (location.hash !== hash) {
-    const url = new URL(location.href);
-    url.hash = hash;
-    history.pushState({ resourcePreview: hash }, '', url);
-  }
-  linkedPreviewHash = hash;
   $('preview-title').textContent = visibleText(entry, entry.name);
   const preview = previewURL(entry);
   const gallery = resourceImageGallery(entry);
@@ -1010,7 +987,7 @@ function showDetails(entry, files) {
       state = next;
       updateControls();
       saveState(history.state?.resourcePreview === location.hash, '');
-      $('preview').close();
+      resourceDialogs.dismiss();
       $('active-resource-tag').focus({ preventScroll: true });
       render();
     };
@@ -1023,19 +1000,23 @@ function showDetails(entry, files) {
     details.append(tags);
   }
   const links = node('div', null, 'preview-links');
-  if (entry.category === 'lua' && !entry.builtInLua) links.append(changelogButton(entry));
-  links.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)),
-    copyResourceLink(entry));
+  if (hasChangelog(entry)) links.append(changelogButton(entry));
+  links.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)));
   details.append(links);
-  if (!$('preview').open) $('preview').showModal();
+  resourceDialogs.present($('preview'), resourceURL(entry));
   pictures.parentElement.scrollTop = 0;
 }
 
 async function openLinkedResource(token) {
   const hash = location.hash;
-  if (!hash.startsWith('#resource-') || ($('preview').open && hash === linkedPreviewHash)) return;
-  const entry = entries.find(entry => routes.resourceHash(entry.id) === hash);
+  const view = routes.resourceView(hash);
+  if (!view || resourceDialogs.matches(hash)) return;
+  const entry = entries.find(entry => routes.resourceHash(entry.id, view) === hash);
   if (!entry) return;
+  if (view === 'changelog') {
+    if (hasChangelog(entry)) showChangelog(entry);
+    return;
+  }
   const files = pendingDownload(entry) ? [] : await resolveFiles(entry).catch(() => []);
   if (token === loadRevision && hash === location.hash) showDetails(entry, files);
 }
@@ -1131,7 +1112,7 @@ async function card(entry) {
     images.onclick = () => showDetails(entry, files);
     actions.append(images);
   }
-  if (entry.category === 'lua' && !entry.builtInLua) actions.append(changelogButton(entry));
+  if (hasChangelog(entry)) actions.append(changelogButton(entry));
   if (compactLua && (files.length || source || (pendingDownload(entry) && !cheraxPreview(entry)))) {
     const details = node('button', 'Details', 'theme-details');
     details.type = 'button';
@@ -1152,7 +1133,7 @@ async function card(entry) {
 
 function matchesFilters(entry) {
   if (!editions.matches(entry, state.edition)) return false;
-  if (!state.format && nativeFormatDefault && menuSystem.presetLoader(entry, state.menu) === 'lua') return false;
+  if (!state.format && nativeFormatDefault && menuSystem.alternatePreset(entry, state.menu)) return false;
   if (state.format === 'lua-loader' && menuSystem.presetLoader(entry, state.menu) !== 'lua') return false;
   if (state.format && !['all-formats', 'lua-loader'].includes(state.format) && !menuSystem.formatExtensions(entry).includes(state.format)) return false;
   const query = normalizeSearch(state.q);
@@ -1350,37 +1331,9 @@ for (const [id, step] of [['prev', -1], ['next', 1]]) $(id).onclick = () => {
   render();
   $('collection-title').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
 };
-$('close').onclick = () => $('preview').close();
-$('preview').addEventListener('close', () => {
-  if ($('preview').open) return;
-  const hash = linkedPreviewHash;
-  linkedPreviewHash = '';
-  if (!hash || hash !== location.hash) return;
-  if (history.state?.resourcePreview === hash) history.back();
-  else {
-    const url = new URL(location.href);
-    url.hash = '';
-    history.replaceState(history.state, '', url);
-  }
-});
-$('close-changelog').onclick = () => $('changelog').close();
-$('changelog').addEventListener('click', event => {
-  if (event.target !== $('changelog')) return;
-  const rect = $('changelog').getBoundingClientRect();
-  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('changelog').close();
-});
-$('preview').addEventListener('click', event => {
-  if (event.target !== $('preview')) return;
-  const rect = $('preview').getBoundingClientRect();
-  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) $('preview').close();
-});
 window.addEventListener('popstate', () => {
   clearTimeout(inputTimer);
-  if (linkedPreviewHash && linkedPreviewHash !== location.hash) {
-    linkedPreviewHash = '';
-    if ($('changelog').open) $('changelog').close();
-    $('preview').close();
-  }
+  resourceDialogs.syncLocation();
   const nextState = readState();
   if (JSON.stringify(nextState) === JSON.stringify(state)) {
     if (catalogReady) openLinkedResource(loadRevision);
@@ -1419,7 +1372,7 @@ if (initialPath === routes.base && !location.search && !location.hash && typeof 
   const [collections, guides] = await Promise.allSettled([json('/resources/routes.json'), json('/resources/guides/routes.json')]);
   if (collections.status === 'fulfilled') for (const pathname of collections.value) publishedRoutes.add(pathname);
   if (guides.status === 'fulfilled') publishedGuides = guides.value;
-  const resourceAnchor = location.hash.startsWith('#resource-');
+  const resourceAnchor = routes.resourceView(location.hash);
   const target = routes.catalogURL(state, publishedRoutes);
   if (resourceAnchor && location.pathname === routes.base && !target.startsWith(`${routes.base}?`)) {
     location.replace(target + location.hash);

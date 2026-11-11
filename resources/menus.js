@@ -57,7 +57,7 @@
   );
   const nativeFileCategories = new Set(['configs', 'lua', 'languages', 'loader-translations']);
   const presetCategories = new Set(['vehicles', 'modded', 'outfits', 'maps']);
-  const presetLoaderMenus = new Set(['cherax', 'stand']);
+  const presetLoaderMenus = new Set(['cherax', 'stand', 'xforce']);
   const archives = new Set(['zip', 'rar', '7z', 'gz']);
   const fileFormat = value => String(value || '').toLowerCase().match(/^\.?([a-z0-9_]{1,10})$/)?.[1] || '';
   const pathFormat = value => String(value || '').split(/[?#]/)[0].toLowerCase()
@@ -82,6 +82,14 @@
     const formats = formatExtensions(entry);
     const schema = entry.sourceFormat || entry.format || '';
     const origin = canonical(entry.sourceMenu);
+    if (menu === 'xforce') {
+      const native = origin === 'xforce' && (
+        (/^X-Force vehicle INI\b/i.test(schema) && formats.includes('ini')) ||
+        (/^X-Force outfit JSON\b/i.test(schema) && formats.includes('json')) ||
+        (/^X-Force archive with .* (?:JSON|XFO) outfit preset/i.test(schema) && formats.some(ext => archives.has(ext)))
+      );
+      return native ? 'native' : 'importer';
+    }
     if (menu === 'cherax') {
       return origin === 'cherax' && formats.includes('json') && /^Cherax (?:vehicle|outfit) JSON\b/i.test(schema) ? 'native' : 'lua';
     }
@@ -92,8 +100,14 @@
     return origin === 'stand' && entry.category !== 'maps' && (nativeTxt || (standTxt && formats.some(ext => archives.has(ext))))
       ? 'native' : 'lua';
   }
+  function alternatePreset(entry, menu) {
+    const loader = presetLoader(entry, menu);
+    return loader === 'lua' || loader === 'importer';
+  }
   function presetLoaderNote(entry, menu) {
-    if (presetLoader(entry, menu) !== 'lua') return '';
+    const loader = presetLoader(entry, menu);
+    if (loader === 'importer') return 'Check the importer for this format in your X-Force version.';
+    if (loader !== 'lua') return '';
     const label = entry.requirementLabel || '';
     if (menu === 'cherax' && /BiggerScript/i.test(label)) return 'Requires BiggerScript for Cherax (Lua)';
     if (menu === 'stand' && /Constructor/i.test(label)) return 'Requires Constructor for Stand (Lua)';
@@ -101,16 +115,21 @@
     return `Requires a compatible ${menuName(menu)} Lua loader`;
   }
   function presetFormatScope(entries, menu, category) {
-    let hasLua = false, hasNative = false;
+    let hasLua = false, hasNative = false, hasAlternate = false;
     if (presetLoaderMenus.has(menu)) for (const entry of entries) {
       const loader = presetLoader(entry, menu);
       hasLua ||= loader === 'lua';
       hasNative ||= loader === 'native';
-      if (hasLua && hasNative) break;
+      hasAlternate ||= loader === 'lua' || loader === 'importer';
+      if (hasAlternate && hasNative) break;
     }
-    return { hasLua, nativeDefault: hasLua && (hasNative || category === 'all') };
+    return { hasLua, hasAlternate, nativeDefault: hasAlternate && (hasNative || (hasLua && category === 'all')) };
   }
   function presetFormatHint(menu, nativeDefault, category) {
+    if (menu === 'xforce') {
+      if (!nativeDefault) return 'Check the importer for these presets in your X-Force version.';
+      return 'X-Force presets are shown by default. Choose “All formats” to see the other presets.';
+    }
     if (!nativeDefault) return `These presets require a compatible Lua loader for ${menuName(menu)}.`;
     if (category === 'all') return 'Presets that need a Lua loader are hidden by default. Choose “Lua loader required” to see them.';
     const native = menu === 'cherax' ? 'Cherax .json' : 'Stand .txt';
@@ -174,5 +193,5 @@
     }
     return result;
   }
-  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, defaultResourceSort, resourceUpdateDate, compareResourceUpdates, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, listingMenuIds, supports, compatibleWith, cheraxLuaLayerNote, isCheraxTheme, isStandLua, themeInterface, legacyOverrideMap, fileFormat, fileExtension, formatExtensions, presetLoader, presetLoaderNote, presetFormatScope, presetFormatHint };
+  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, defaultResourceSort, resourceUpdateDate, compareResourceUpdates, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, listingMenuIds, supports, compatibleWith, cheraxLuaLayerNote, isCheraxTheme, isStandLua, themeInterface, legacyOverrideMap, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
 });

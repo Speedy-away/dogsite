@@ -12,8 +12,8 @@
 <link rel="canonical" href="https://scoobymenu.cc/resources/">
 <meta name="theme-color" content="#101112">
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
-<link rel="stylesheet" href="./catalog.css?v=responsive">
-<script src="/resources/taxonomy.js" defer></script><script src="/resources/menus.js?v=5" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js?v=4" defer></script><script src="/resources/catalog.js?v=responsive" defer></script>
+<link rel="stylesheet" href="./catalog.css?v=resource-popups">
+<script src="/resources/taxonomy.js" defer></script><script src="/resources/menus.js?v=resource-popups" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js?v=resource-popups" defer></script><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/catalog.js?v=resource-popups" defer></script>
 <meta name="keywords" content="Scooby Menu, resources, community downloads, GTA 5 mods, GTA V vehicles, modded vehicles, Menyoo XML vehicles, addon vehicles, addon peds, map mods, RDR2 outfits, CS2 player models, CS2 knife models, CS2 skyboxes, FiveM graphics packs, FiveM ReShade, RedM PvP packs, RedM RP packs, RedM weapon skins, RedM sound packs, RedM Colors.xml presets, L4D2 mods, Left 4 Dead custom campaigns, textures, paintjobs, ASI mods, .NET mods, ClickUI themes, ListUI styles, Stand themes, 2Take1 style, Impulse style, Silkroad themes, Ozark themes, X-Force style, configs, translations, Scooby resources, Nenyoo resources, Cherax resources, Stand resources, X-Force resources, YimMenu v1 resources, YimMenu v2 resources, Nenyoo vehicles, Nenyoo outfits, Nenyoo maps, Nenyoo themes, Nenyoo Lua scripts, Nenyoo translations, Cherax vehicles, Cherax outfits, Cherax maps, Cherax themes, Cherax Lua scripts, Stand vehicles, Stand outfits, Stand maps, Stand configs, Stand Lua scripts, X-Force vehicles, X-Force outfits, X-Force maps, X-Force themes, X-Force configs, X-Force Lua scripts, X-Force translations, YimMenu v1 vehicles, YimMenu v1 outfits, YimMenu v1 maps, YimMenu v1 Lua scripts, YimMenu v2 Lua scripts, YimMenu JSON vehicle packs, YimMenu XML vehicles, YimMenu JSON outfits, modded outfit packs, vehicle packs, car collections, outfit packs, outfit bundles, map packs, map collections, YimMenu XML maps, Menyoo placement maps">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="Game Mods, Addons &amp; Downloads — Scooby Resources">
@@ -128,7 +128,10 @@
 <dialog id="preview" aria-labelledby="preview-title" class="resource-dialog">
   <div class="resource-dialog-heading">
     <h2 id="preview-title"></h2>
-    <button type="button" id="close" class="resource-dialog-close" aria-label="Close preview" autofocus>×</button>
+    <div class="resource-dialog-actions">
+      <span class="resource-dialog-share"></span>
+      <button type="button" id="close" class="resource-dialog-close" aria-label="Close preview" autofocus>×</button>
+    </div>
   </div>
   <div class="resource-dialog-scroll preview-layout" tabindex="0" role="region" aria-label="Resource details">
     <div id="pictures" hidden></div>
@@ -138,7 +141,10 @@
 <dialog id="changelog" aria-labelledby="changelog-title" class="resource-dialog">
   <div class="resource-dialog-heading">
     <h2 id="changelog-title">Changelog</h2>
-    <button type="button" id="close-changelog" class="resource-dialog-close" aria-label="Close changelog" autofocus>×</button>
+    <div class="resource-dialog-actions">
+      <span class="resource-dialog-share"></span>
+      <button type="button" id="close-changelog" class="resource-dialog-close" aria-label="Close changelog" autofocus>×</button>
+    </div>
   </div>
   <div id="changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>

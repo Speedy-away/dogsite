@@ -65,6 +65,14 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
   padding-block: 8px;
   padding-inline: clamp(8px, 3vw, 16px);
 }
+#resource-game-options img {
+  width: clamp(36px, 10vw, 48px);
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid #ffffff24;
+  border-radius: 7px;
+  filter: none;
+}
 #gta-menu-dialog { --menu-accent: #cbb3ff; }
 #gta-menu-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .gta-menu-choice {
@@ -218,6 +226,16 @@ html:has(.resource-dialog[open]) { overflow: hidden; }
   transition: background-color .15s;
 }
 .resource-dialog-close:hover { background: #312d35; }
+.resource-dialog-actions { display: flex; align-items: center; gap: 6px; }
+.resource-dialog-share { display: flex; }
+.resource-copy-link {
+  min-inline-size: 78px;
+  min-height: 36px;
+  padding: 6px 8px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.resource-dialog-share input { width: clamp(78px, 24vw, 150px); }
 .resource-dialog-scroll {
   min-height: 0;
   padding: var(--dialog-inset);

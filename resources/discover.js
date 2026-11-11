@@ -74,26 +74,34 @@ for (const button of document.querySelectorAll('[data-download-file]')) {
 }
 
 const changelogDialog = document.getElementById('resource-changelog');
-if (changelogDialog) {
-  for (const button of document.querySelectorAll('[data-resource-changelog]')) button.addEventListener('click', () => {
+const staticDialogs = changelogDialog && globalThis.ScoobyResourceDialogs?.create([changelogDialog]);
+const staticChangelogs = new Map();
+if (staticDialogs) {
+  for (const button of document.querySelectorAll('[data-resource-changelog]')) {
     const data = JSON.parse(button.dataset.resourceChangelog);
-    document.getElementById('resource-changelog-title').textContent = `${data.name} · Changelog`;
-    const content = document.getElementById('resource-changelog-content');
-    content.replaceChildren();
-    if (data.notes?.length) {
-      const list = document.createElement('ul');
-      for (const note of data.notes) { const item = document.createElement('li'); item.textContent = note; list.append(item); }
-      content.append(list);
-    } else content.textContent = 'No changelog has been published for this resource.';
-    changelogDialog.showModal();
-    content.scrollTop = 0;
-  });
-  document.getElementById('close-resource-changelog').addEventListener('click', () => changelogDialog.close());
-  changelogDialog.addEventListener('click', event => {
-    if (event.target !== changelogDialog) return;
-    const rect = changelogDialog.getBoundingClientRect();
-    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) changelogDialog.close();
-  });
+    staticChangelogs.set(data.hash, data);
+    button.addEventListener('click', () => openStaticChangelog(data));
+  }
+}
+
+function openStaticChangelog(data) {
+  document.getElementById('resource-changelog-title').textContent = `${data.name} · Changelog`;
+  const content = document.getElementById('resource-changelog-content');
+  content.replaceChildren();
+  if (data.notes?.length) {
+    const list = document.createElement('ul');
+    for (const note of data.notes) { const item = document.createElement('li'); item.textContent = note; list.append(item); }
+    content.append(list);
+  } else content.textContent = 'No changelog has been published for this resource.';
+  staticDialogs.present(changelogDialog, location.pathname + data.hash);
+  content.scrollTop = 0;
+}
+
+function syncStaticChangelog() {
+  if (!staticDialogs || document.getElementById('collection')) return;
+  staticDialogs.syncLocation();
+  const data = staticChangelogs.get(location.hash);
+  if (data && !staticDialogs.matches(location.hash)) openStaticChangelog(data);
 }
 
 function loadCatalogScript(source) {
@@ -117,7 +125,9 @@ async function mountCatalog() {
   if (!main || dialogs.length !== 3 || !catalogSource) return;
   main.id = directory.id;
 
-  const dependencies = ['taxonomy', 'menus', 'editions', 'routes'].map(name =>
+  const scripts = ['taxonomy', 'menus', 'editions', 'routes'];
+  if (!globalThis.ScoobyResourceDialogs) scripts.push('dialogs');
+  const dependencies = scripts.map(name =>
     shell.querySelector(`head script[src^="/resources/${name}.js"]`)?.getAttribute('src') || `/resources/${name}.js`);
   await Promise.all(dependencies.map(loadCatalogScript));
   const ad = directory.querySelector('.ad-sidebar');
@@ -127,6 +137,7 @@ async function mountCatalog() {
     main.querySelector('.ad-sidebar').replaceWith(ad);
   }
   const skip = document.querySelector('.skip');
+  staticDialogs?.dismiss();
   directory.replaceWith(main);
   document.body.append(...dialogs);
   try {
@@ -137,6 +148,7 @@ async function mountCatalog() {
     if (ad) adPosition.replaceWith(ad);
     main.replaceWith(directory);
     for (const dialog of dialogs) dialog.remove();
+    syncStaticChangelog();
   }
 }
 
@@ -147,5 +159,7 @@ function openCatalog() {
 }
 
 document.querySelector('.resource-browse')?.addEventListener('click', openCatalog);
+window.addEventListener('popstate', syncStaticChangelog);
 window.addEventListener('hashchange', openCatalog);
+syncStaticChangelog();
 openCatalog();

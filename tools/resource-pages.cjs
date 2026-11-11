@@ -243,11 +243,11 @@ function buildData() {
       const menuItems = allGameItems.filter(item => menus.supports(item, menu)).map(item => gtaAddonCategory(item, menu));
       const makeSection = (gameItems, archive = '') => {
       const formatScope = (items, category) => {
-        const { hasLua, nativeDefault } = menus.presetFormatScope(items, menu, category);
+        const { hasLua, hasAlternate, nativeDefault } = menus.presetFormatScope(items, menu, category);
         return {
-          items: nativeDefault ? items.filter(item => menus.presetLoader(item, menu) !== 'lua') : items,
-          hint: hasLua ? menus.presetFormatHint(menu, nativeDefault, category) : '',
-          nativeDefault
+          items: nativeDefault ? items.filter(item => !menus.alternatePreset(item, menu)) : items,
+          hint: hasAlternate ? menus.presetFormatHint(menu, nativeDefault, category) : '',
+          alternateFormat: nativeDefault ? (hasLua ? 'lua-loader' : 'all-formats') : ''
         };
       };
       const defaultGameScope = formatScope(gameItems, 'all');
@@ -344,7 +344,7 @@ function buildData() {
       const graphicsTopics = game === 'redm' && (!category || redmGraphics)
         ? REDM_GRAPHICS_TOPICS.filter(topic => subset.some(item => redmGraphicsTopics(item).includes(topic))) : [];
       pages.push({ file: route(game, category, menu, archive).slice(1) + 'index.html', url: SITE + route(game, category, menu, archive), game, menu, archive, menuName, scopeName, category, name: label, title, description, keywords,
-        itemCount: subset.length, pendingCount, gameItemCount: defaultGameScope.items.length, categories, availableMenus, samples, intro, formatHint: scope.hint, nativeFormatDefault: scope.nativeDefault, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
+        itemCount: subset.length, pendingCount, gameItemCount: defaultGameScope.items.length, categories, availableMenus, samples, intro, formatHint: scope.hint, alternateFormat: scope.alternateFormat, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
       };
       makePage();
       for (const category of categories) makePage(category.id);
@@ -363,7 +363,7 @@ function renderPage(page, guideRoutes = {}) {
   const currentPath = route(page.game, page.category, page.menu, page.archive);
   const published = new Set([route(page.game, undefined, page.menu, page.archive), ...page.categories.map(category => route(page.game, category.id, page.menu, page.archive))]);
   const browseURL = (filters = {}) => catalogURL({ game: page.game, menu: page.menu, category: page.category, archive: page.archive, ...filters }, published);
-  const formatLink = page.nativeFormatDefault ? ` <a class="resource-open" href="${escape(browseURL({ format: 'lua-loader' }))}#collection">Browse Lua loader presets →</a>` : '';
+  const formatLink = page.alternateFormat ? ` <a class="resource-open" href="${escape(browseURL({ format: page.alternateFormat }))}#collection">Browse other formats →</a>` : '';
   const formatNote = page.formatHint ? `<p class="resource-intro">${escape(page.formatHint)}${formatLink}</p>` : '';
   const gameLinks = Object.entries(GAMES).map(([id, config]) => {
     const href = page.menu === 'nenyoo' && page.category === 'lua' && menus.menuFor(id, 'nenyoo') === 'nenyoo'
@@ -445,7 +445,8 @@ function renderPage(page, guideRoutes = {}) {
       const changes = [note.changes, note.notes, note.description].flat().filter(value => typeof value === 'string');
       return changes.map(change => heading ? `${heading}: ${change}` : change);
     }).filter(Boolean);
-    const changelog = (item.category === 'lua' && !item.builtInLua) || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
+    const changelog = !item.builtInLua && (item.category === 'lua' || notes.length)
+      ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, hash: resourceHash(item.id, 'changelog'), notes }))}">Changelog</button>` : '';
     const requirementText = item.requirementLabel || (item.game === 'l4d' ? item.compatibility : '') || (!menus.compatibleWith(item, page.menu) ? 'Requires the original menu format and a compatible loader or importer.' : '');
     const requirement = [menus.presetLoaderNote(item, page.menu), requirementText, menus.cheraxLuaLayerNote(item)].filter(Boolean)
       .map(text => `<p class="resource-requirement">${escape(text)}</p>`).join('');
@@ -480,7 +481,7 @@ function renderPage(page, guideRoutes = {}) {
     ? `<nav class="resource-menus" aria-label="RedM graphics pack types">${page.graphicsTopics.map(topic =>
       `<a href="${escape(browseURL({ category: 'graphics-packs', q: topic.query }))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';
   const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/discover.js?v=game-icons" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=resource-popups" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
 <link rel="stylesheet" href="/assets/css/ad-sidebar.css">
 <script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>
 </head>
@@ -495,7 +496,10 @@ function renderPage(page, guideRoutes = {}) {
   const dialog = `<dialog id="resource-changelog" aria-labelledby="resource-changelog-title" class="resource-dialog">
   <div class="resource-dialog-heading">
     <h2 id="resource-changelog-title">Changelog</h2>
-    <button type="button" id="close-resource-changelog" class="resource-dialog-close" aria-label="Close changelog" autofocus>×</button>
+    <div class="resource-dialog-actions">
+      <span class="resource-dialog-share"></span>
+      <button type="button" id="close-resource-changelog" class="resource-dialog-close" aria-label="Close changelog" autofocus>×</button>
+    </div>
   </div>
   <div id="resource-changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>`;

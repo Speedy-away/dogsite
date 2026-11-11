@@ -171,7 +171,7 @@ test('resource routes cover actual menu-compatible collections without empty cat
     assert(bucket, `Unexpected menu route: ${page.file}`);
     const listed = category ? bucket.items.filter(item => item.category === category || item.categories?.includes(category) || (category === 'modded' && item.category === 'vehicles' && item.attachments > 0)) : bucket.items;
     const { nativeDefault } = menus.presetFormatScope(listed, page.menu, category || 'all');
-    const subset = nativeDefault ? listed.filter(item => menus.presetLoader(item, page.menu) !== 'lua') : listed;
+    const subset = nativeDefault ? listed.filter(item => !menus.alternatePreset(item, page.menu)) : listed;
     const count = subset.length;
     assert.equal(page.itemCount, count, `Stale or invented resource count: ${page.file}`);
     if (category) assert(count > 0, `Empty category should not have an indexable page: ${page.file}`);
@@ -479,6 +479,7 @@ test('pending downloads and verified theme captures render honest static actions
   assert(article.includes('In Scooby, use the Cherax Lua compatibility layer to load this script.'));
   const withoutNotes = renderPage({ ...base, samples: [{ ...entry, changelog: undefined }] });
   assert(withoutNotes.includes('data-resource-changelog=') && withoutNotes.includes('&quot;notes&quot;:[]'), 'Missing changelogs need an honest empty popup');
+  assert(withoutNotes.includes('&quot;hash&quot;:&quot;#changelog-'));
   assert(withoutNotes.includes('id="resource-changelog" aria-labelledby="resource-changelog-title"'), 'The changelog dialog needs an accessible title');
 
   const crosslisted = renderPage({ ...base, samples: [{ ...entry, listedMenus: ['scooby', 'cherax'], requirementLabel: 'Requires the Cherax Lua API or its supported compatibility layer' }] });

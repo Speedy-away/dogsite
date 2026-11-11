@@ -208,6 +208,23 @@ test('GTA 5 menu pages separate native presets from files that require Lua', () 
   assert.equal(menus.presetLoader(construct, 'cherax'), 'lua', 'Constructor JSON is not a native Cherax export');
 });
 
+test('native GTA 5 preset views keep other formats available through the filter', () => {
+  for (const [menu, ext, otherFilter] of [['cherax', 'json', 'lua-loader'], ['stand', 'txt', 'lua-loader'], ['xforce', 'ini', 'all-formats']]) {
+    const vehicles = gtaPages.find(page => page.menu === menu && page.category === 'vehicles');
+    assert(vehicles.samples.length && vehicles.samples.every(item => menus.presetLoader(item, menu) === 'native'), menu);
+    assert(vehicles.samples.some(item => menus.formatExtensions(item).includes(ext)), menu);
+    assert(renderPage(vehicles).includes(`?format=${otherFilter}#collection`), menu);
+    const maps = gtaPages.find(page => page.menu === menu && page.category === 'maps');
+    assert(maps.samples.length && maps.samples.every(item => menus.alternatePreset(item, menu)), menu);
+  }
+  const construct = items.find(item => item.id === 'gta5-biggerscript-vehicles-203edf293b8b02cd');
+  assert(menus.formatExtensions(construct).includes('json'));
+  assert.equal(menus.presetLoader(construct, 'cherax'), 'lua');
+  assert.equal(menus.presetLoader(construct, 'nenyoo'), '');
+  const menyoo = items.find(item => item.id === 'gta5-xforce-discord-e0aef81c32fbc91549c6');
+  assert.equal(menus.presetLoader(menyoo, 'xforce'), 'importer');
+});
+
 test('Nenyoo source assets stay with their game and menu, and RDR2 links both collections', () => {
   const snapshot = require('../community/data/nenyoo.json');
   const imported = items.filter(item => item.source === 'Nenyoo Resources');
