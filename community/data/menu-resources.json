@@ -30386,6 +30386,46 @@
       "addedAt": "2026-11-11T08:00:34.340Z"
     },
     {
+      "name": "Tattoo Stacking",
+      "category": "lua",
+      "description": "Customizes tattoo combinations through Stand. This release was shared as a work in progress.",
+      "sourceMenu": "stand",
+      "supportedMenus": [
+        "stand"
+      ],
+      "listedMenus": [
+        "stand"
+      ],
+      "sourceFilename": "Stacking_Tattoos_V3.lua",
+      "formatExtension": "lua",
+      "author": "Mysterious and spooky",
+      "sourceChannel": "Shares / lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "game": "gta5",
+      "credits": "Mysterious and spooky",
+      "tags": [
+        "Stand"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [
+        {
+          "path": "downloads/gta5/menus/stand/fd77ed888311a4a67de0.lua",
+          "name": "Stacking_Tattoos_V3.lua",
+          "size": 11763,
+          "sha256": "fd77ed888311a4a67de02e3c8b4464af78ba7a3f6f64a70309ca243170b34727",
+          "versionLabel": "V3"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=stand&category=lua",
+      "id": "gta5-stand-current-lua-tattoo-stacking",
+      "addedAt": "2026-11-11T10:05:12.645Z"
+    },
+    {
       "name": "Stand Space Headers",
       "category": "themes",
       "description": "Original Stand header pack shared in the Old Shares themes channel.",
