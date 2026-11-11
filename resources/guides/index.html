@@ -286,6 +286,19 @@
   <p>Check the server’s client plugin policy first. To troubleshoot a compatible pack, start with the stock client, add one documented component at a time and back up the exact files you replace.</p>
   <a href="https://docs.fivem.net/docs/client-manual/">Cfx.re client plugin guidance →</a>
 </section>
+<section id="fivem-visual-effects" data-games="fivem" data-categories="graphics-packs">
+  <p class="topic-game">FIVEM</p>
+  <h2>Test and roll back a FiveM visual effects pack</h2>
+  <ol>
+    <li>Check the original release for the supported edition and destination of each file. Tracers and impact effects change how a scene looks. Ragdoll packs change how characters move. A combat bundle can combine these with audio or other assets.</li>
+    <li>Check whether the server permits the files you want to use. FiveM for GTAV Enhanced enforces pure mode. If your edition or server blocks the pack, use its stock effects.</li>
+    <li>Before changing anything, write down the paths the maintainer lists. Close FiveM and back up every file the pack would replace. If two packs ship the same destination <code>.rpf</code> or <code>.dat</code>, test them separately so you can tell which changes are active.</li>
+    <li>Compare stock and modified effects on a private test server under the same lighting and camera angle. For tracers, check whether the line stays visible against both bright pavement and dark walls. For impact effects, compare how long marks remain visible. For ragdolls, repeat the same movement on flat ground and on stairs to catch clipping.</li>
+    <li>If the effect is missing or the client reports modified files, close FiveM, remove the files added by that pack, and restore the backups to their original paths. Restart and confirm the stock scene works before testing another pack.</li>
+  </ol>
+  <a href="https://docs.fivem.net/docs/server-manual/server-commands/#sv_purelevel-level">Cfx pure mode reference →</a>
+  <a href="https://docs.fivem.net/docs/support/client-issues/">Cfx client troubleshooting →</a>
+</section>
 <section id="fivem-mixed-bundles" data-games="fivem" data-categories="graphics-packs sound-packs">
   <p class="topic-game">FIVEM</p>
   <h2>Set up a mixed FiveM pack one component at a time</h2>
