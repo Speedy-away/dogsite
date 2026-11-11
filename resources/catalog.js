@@ -117,10 +117,10 @@ function updatePageTitle(url = new URL(location.href)) {
   document.title = `${hub ? 'Resources' : title} — Scooby`;
 }
 
-function saveState(replace = false) {
+function saveState(replace = false, hash = location.hash) {
   let href = routes.catalogURL(state, publishedRoutes);
   if (replace && initialPath === routes.base && location.pathname === routes.base && !location.search && href === '/resources/gta5/') href = routes.base;
-  const url = new URL(href + location.hash, location.origin);
+  const url = new URL(href + hash, location.origin);
   if (url.href !== location.href) history[replace ? 'replaceState' : 'pushState'](null, '', url);
   const canonical = document.querySelector('link[rel="canonical"]');
   if (canonical) canonical.href = new URL(url.pathname, canonical.href).href;
@@ -625,7 +625,7 @@ function downloadButton(file, container) {
       button.textContent = 'Downloaded ✓';
     } catch {
       button.textContent = 'Retry download';
-      error = node('p', 'Download unavailable. Please retry.', 'download-error');
+      error = node('p', 'Couldn’t download this file. Please retry.', 'download-error');
       container.append(error);
     } finally { button.disabled = false; }
   };
@@ -657,16 +657,11 @@ function pendingDownloadButton(entry) {
   return button;
 }
 
-function versionDownload(entry, files) {
+function versionDownload(files) {
   const control = node('div', null, 'version-download');
   const label = node('label', 'Version');
   const select = node('select');
   const action = node('div');
-  for (const version of entry.unavailableVersions || []) {
-    const option = new Option(version + ' — unavailable', '');
-    option.disabled = true;
-    select.add(option);
-  }
   files.forEach((file, index) => select.add(new Option(file.versionLabel || file.name, String(index))));
   select.value = '0';
   const update = () => action.replaceChildren(downloadButton(files[Number(select.value)], action));
@@ -700,8 +695,8 @@ function showChangelog(entry) {
     } else section.append(node('p', 'No release notes were provided for this version.'));
     content.append(section);
   }
-  if ($('preview').open) $('preview').close();
   if (!$('changelog').open) $('changelog').showModal();
+  content.scrollTop = 0;
 }
 
 function tagLinks(entry) {
@@ -728,7 +723,7 @@ function tagLinks(entry) {
       clearTimeout(inputTimer);
       state = { ...state, q: tag, model: '', ui: '', style: '', page: 1 };
       updateControls();
-      saveState();
+      saveState(true, '');
       $('preview').close();
       render();
       $('search').focus({ preventScroll: true });
@@ -779,24 +774,56 @@ function themeImageGallery(entry) {
   return gallery;
 }
 
+function copyResourceLink(entry) {
+  const button = node('button', 'Copy link');
+  button.type = 'button';
+  button.setAttribute('aria-live', 'polite');
+  button.onclick = async () => {
+    const url = new URL(resourceURL(entry), location.origin).href;
+    try {
+      await navigator.clipboard.writeText(url);
+      button.textContent = 'Link copied';
+    } catch {
+      const field = node('input');
+      field.type = 'url';
+      field.readOnly = true;
+      field.value = url;
+      field.setAttribute('aria-label', 'Resource link');
+      button.replaceWith(field);
+      field.focus();
+      field.select();
+    }
+  };
+  return button;
+}
+
 function showDetails(entry, files) {
   const hash = routes.resourceHash(entry.id);
-  linkedPreviewHash = location.hash === hash ? hash : '';
+  if (location.hash !== hash) {
+    const url = new URL(location.href);
+    url.hash = hash;
+    history.pushState({ resourcePreview: hash }, '', url);
+  }
+  linkedPreviewHash = hash;
   $('preview-title').textContent = visibleText(entry, entry.name);
   const preview = previewURL(entry);
   const gallery = themeImageGallery(entry);
-  $('pictures').replaceChildren();
-  if (gallery) $('pictures').append(gallery);
+  const pictures = $('pictures');
+  pictures.replaceChildren();
+  pictures.hidden = !gallery && !preview;
+  if (gallery) pictures.append(gallery);
   else if (preview) {
     const figure = node('figure', null, 'preview-figure');
-    figure.append(image(preview, entry.name, cheraxPreview(entry)));
+    const media = node('div', null, 'preview-media');
+    media.append(image(preview, entry.name, cheraxPreview(entry)));
+    figure.append(media);
     if (entry.previewCaption) {
       const caption = node('figcaption', null, 'preview-caption');
       const source = safeURL(entry.previewSource);
       caption.append(source ? link(entry.previewCaption, source, true) : entry.previewCaption);
       figure.append(caption);
     }
-    $('pictures').append(figure);
+    pictures.append(figure);
   }
   const details = $('preview-details');
   details.replaceChildren();
@@ -828,10 +855,10 @@ function showDetails(entry, files) {
     const source = link(authorAction(entry), authorPage(entry), true);
     source.className = 'external-primary';
     details.append(source);
-  } else if (pendingDownload(entry)) {
+  } else if (pendingDownload(entry) && !cheraxPreview(entry)) {
     details.append(pendingDownloadButton(entry));
   } else if (entry.category === 'lua' && files.length > 1 && files.every(file => file.versionLabel)) {
-    details.append(versionDownload(entry, files));
+    details.append(versionDownload(files));
   } else if (files.length) {
     const list = node('div', null, 'file-list');
     for (const file of files) {
@@ -844,20 +871,21 @@ function showDetails(entry, files) {
       list.append(row);
     }
     details.append(list);
-  } else details.append(node('p', entry.status === 'in-menu' ? entry.category === 'themes' ? 'This style is included with Scooby. Follow the guide to select the interface and its built-in appearance.' : entry.game === 'cs2' ? 'This item is included in Scooby’s model selector. Follow the guide to select it in the menu.' : 'This item is included with Scooby. Follow the guide to find it in the menu.' : entry.status === 'workshop' ? 'This repository entry is documented in the installation guide. A downloadable package is not available here.' : 'A download is not available for this item.'));
+  } else if (entry.category !== 'lua' || !cheraxPreview(entry)) details.append(node('p', entry.status === 'in-menu' ? entry.category === 'themes' ? 'This style is included with Scooby. Follow the guide to select the interface and its built-in appearance.' : entry.game === 'cs2' ? 'This item is included in Scooby’s model selector. Follow the guide to select it in the menu.' : 'This item is included with Scooby. Follow the guide to find it in the menu.' : entry.status === 'workshop' ? 'This repository entry is documented in the installation guide. A downloadable package is not available here.' : 'A download is not available for this item.'));
   const tags = tagLinks(entry);
   if (tags) details.append(tags);
-  if (entry.category === 'lua' && !entry.builtInLua) details.append(changelogButton(entry));
-  details.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)));
-  const permalink = node('p');
-  permalink.append(link('Resource permalink', resourceURL(entry)));
-  details.append(permalink);
+  const links = node('div', null, 'preview-links');
+  if (entry.category === 'lua' && !entry.builtInLua) links.append(changelogButton(entry));
+  links.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)),
+    copyResourceLink(entry));
+  details.append(links);
   if (!$('preview').open) $('preview').showModal();
+  pictures.parentElement.scrollTop = 0;
 }
 
 async function openLinkedResource(token) {
   const hash = location.hash;
-  if (!hash.startsWith('#resource-')) return;
+  if (!hash.startsWith('#resource-') || ($('preview').open && hash === linkedPreviewHash)) return;
   const entry = entries.find(entry => routes.resourceHash(entry.id) === hash);
   if (!entry) return;
   const files = pendingDownload(entry) ? [] : await resolveFiles(entry).catch(() => []);
@@ -885,6 +913,11 @@ async function card(entry) {
   const name = title.firstElementChild;
   const permalink = link(name.textContent, resourceURL(entry));
   permalink.className = name.className;
+  permalink.onclick = event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
+    showDetails(entry, files);
+  };
   name.replaceWith(permalink);
   info.append(title);
   info.append(node('p', [entry.modelLabel || (entry.builtInLua ? 'Built-in Lua module' : categoryLabel(entry.game, entry.category)), entry.attachments > 0 && `${entry.attachments} attachments`, files.length === 1 && prettySize(files[0].size), entry.status === 'in-menu' && 'In-menu', entry.status === 'workshop' && 'Workshop'].filter(Boolean).join(' · ')));
@@ -905,7 +938,7 @@ async function card(entry) {
     info.append(node('p', entry.requirementLabel, 'compatibility-note'));
   }
   if (ACCESS_LABELS[entry.access]) info.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
-  if (entry.status === 'preview-only') info.append(node('p', 'Download unavailable', 'meta'));
+  if (entry.status === 'preview-only' && (entry.category !== 'lua' || !cheraxPreview(entry))) info.append(node('p', 'Download unavailable', 'meta'));
   if (entry.uiStyle || entry.style) info.append(node('p', [textMetadata(entry.uiStyle), entry.style && `${entry.style} style`].filter(Boolean).join(' · '), 'meta'));
   const actions = node('div', null, 'card-actions');
   const source = authorPage(entry);
@@ -921,7 +954,7 @@ async function card(entry) {
       requirements.onclick = () => showDetails(entry, files);
       actions.append(requirements);
     }
-  } else if (pendingDownload(entry)) actions.append(pendingDownloadButton(entry));
+  } else if (pendingDownload(entry) && !cheraxPreview(entry)) actions.append(pendingDownloadButton(entry));
   else if (!files.length) {
     const details = node('button', 'Details');
     details.type = 'button';
@@ -932,7 +965,7 @@ async function card(entry) {
   if (files.length === 1) {
     actions.append(downloadButton(files[0], info));
   } else if (entry.category === 'lua' && files.length > 1 && files.every(file => file.versionLabel)) {
-    actions.append(versionDownload(entry, files));
+    actions.append(versionDownload(files));
   } else if (files.length > 1) {
     const details = node('button', 'Download ↓');
     details.type = 'button';
@@ -946,7 +979,7 @@ async function card(entry) {
     actions.append(images);
   }
   if (entry.category === 'lua' && !entry.builtInLua) actions.append(changelogButton(entry));
-  if (compactLua && (files.length || pendingDownload(entry))) {
+  if (compactLua && (files.length || source || (pendingDownload(entry) && !cheraxPreview(entry)))) {
     const details = node('button', 'Details', 'theme-details');
     details.type = 'button';
     details.onclick = () => showDetails(entry, files);
@@ -1149,6 +1182,18 @@ for (const [id, step] of [['prev', -1], ['next', 1]]) $(id).onclick = () => {
   $('collection-title').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
 };
 $('close').onclick = () => $('preview').close();
+$('preview').addEventListener('close', () => {
+  if ($('preview').open) return;
+  const hash = linkedPreviewHash;
+  linkedPreviewHash = '';
+  if (!hash || hash !== location.hash) return;
+  if (history.state?.resourcePreview === hash) history.back();
+  else {
+    const url = new URL(location.href);
+    url.hash = '';
+    history.replaceState(history.state, '', url);
+  }
+});
 $('close-changelog').onclick = () => $('changelog').close();
 $('changelog').addEventListener('click', event => {
   if (event.target !== $('changelog')) return;
@@ -1163,15 +1208,18 @@ $('preview').addEventListener('click', event => {
 window.addEventListener('popstate', () => {
   clearTimeout(inputTimer);
   if (linkedPreviewHash && linkedPreviewHash !== location.hash) {
-    $('preview').close();
     linkedPreviewHash = '';
+    if ($('changelog').open) $('changelog').close();
+    $('preview').close();
   }
-  state = readState();
+  const nextState = readState();
+  if (JSON.stringify(nextState) === JSON.stringify(state)) {
+    if (catalogReady) openLinkedResource(loadRevision);
+    return;
+  }
+  state = nextState;
   updatePageTitle();
   if (catalogReady) loadGame();
-});
-window.addEventListener('hashchange', () => {
-  if (location.hash.startsWith('#resource-') && publishedRoutes.has(location.pathname)) location.reload();
 });
 const mobileFilters = matchMedia('(max-width: 760px)');
 $('filter-panel').open = !mobileFilters.matches;

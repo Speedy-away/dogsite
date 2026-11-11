@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#101112">
 <link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
 <link rel="stylesheet" href="./catalog.css">
-<script src="/resources/taxonomy.js" defer></script><script src="/resources/menus.js" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js" defer></script><script src="/resources/catalog.js?v=2" defer></script>
+<script src="/resources/taxonomy.js" defer></script><script src="/resources/menus.js" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js" defer></script><script src="/resources/catalog.js?v=4" defer></script>
 <meta name="keywords" content="Scooby Menu, resources, community downloads, GTA 5 mods, GTA V vehicles, modded vehicles, Menyoo XML vehicles, addon vehicles, addon peds, map mods, RDR2 outfits, CS2 player models, CS2 knife models, CS2 skyboxes, FiveM graphics packs, FiveM ReShade, RedM PvP packs, RedM RP packs, RedM weapon skins, RedM sound packs, RedM Colors.xml presets, L4D2 mods, Left 4 Dead custom campaigns, textures, paintjobs, ASI mods, .NET mods, ClickUI themes, ListUI styles, Stand themes, 2Take1 style, Impulse style, Silkroad themes, Ozark themes, X-Force style, configs, translations, Scooby resources, Nenyoo resources, Cherax resources, Stand resources, X-Force resources, Nenyoo vehicles, Nenyoo outfits, Nenyoo addon packs, Nenyoo maps, Nenyoo themes, Nenyoo Lua scripts, Nenyoo translations, Cherax vehicles, Cherax outfits, Cherax addon packs, Cherax maps, Cherax themes, Cherax Lua scripts, Stand vehicles, Stand outfits, Stand addon packs, Stand maps, Stand configs, Stand Lua scripts, X-Force vehicles, X-Force outfits, X-Force maps, X-Force themes, X-Force configs, X-Force Lua scripts, X-Force translations">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="Game Mods, Addons &amp; Downloads — Scooby Resources">
@@ -118,8 +118,23 @@
     </label>
   </form>
 </dialog>
-<dialog id="preview" aria-labelledby="preview-title"><button type="button" id="close">Close ✕</button><h2 id="preview-title"></h2><div id="pictures"></div><div id="preview-details"></div></dialog>
-<dialog id="changelog" aria-labelledby="changelog-title"><button type="button" id="close-changelog" class="dialog-close">Close ✕</button><h2 id="changelog-title">Changelog</h2><div id="changelog-content"></div></dialog>
+<dialog id="preview" aria-labelledby="preview-title" class="resource-dialog">
+  <div class="resource-dialog-heading">
+    <h2 id="preview-title"></h2>
+    <button type="button" id="close" class="resource-dialog-close" aria-label="Close preview" autofocus>×</button>
+  </div>
+  <div class="resource-dialog-scroll preview-layout" tabindex="0" role="region" aria-label="Resource details">
+    <div id="pictures" hidden></div>
+    <div id="preview-details"></div>
+  </div>
+</dialog>
+<dialog id="changelog" aria-labelledby="changelog-title" class="resource-dialog">
+  <div class="resource-dialog-heading">
+    <h2 id="changelog-title">Changelog</h2>
+    <button type="button" id="close-changelog" class="resource-dialog-close" aria-label="Close changelog" autofocus>×</button>
+  </div>
+  <div id="changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
+</dialog>
 <script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>
 </body>
 </html>

@@ -456,7 +456,8 @@ test('pending downloads and verified theme captures render honest static actions
   const pending = renderPage({ ...cherax, samples: [entry], itemCount: 1, pendingCount: 1 });
   const article = pending.match(/<article\b[^>]*>[\s\S]*?<\/article>/)?.[0];
   assert(article, 'Missing pending source listing');
-  assert(/<button\b[^>]*\bdisabled\b[^>]*>Download — Coming soon<\/button>/.test(article));
+  assert(article.includes('<summary>Details</summary>'), 'Pending Cherax entries should offer details');
+  assert(!/Download unavailable|Coming soon/.test(pending), 'Pending Cherax entries should avoid download placeholders');
   assert(!article.includes('data-download-file='), 'Pending metadata must not expose a pretend download');
   assert(article.includes('Published source description') && article.includes('Changelog'));
   assert(article.includes('href="/resources/gta5/cherax/lua/?q='), 'Pending listing tags must preserve their menu context');

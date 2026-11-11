@@ -117,7 +117,6 @@ async function mountCatalog() {
   main.id = directory.id;
 
   await Promise.all(['taxonomy', 'menus', 'editions', 'routes'].map(name => loadCatalogScript(`/resources/${name}.js`)));
-  if (hasLinkedSample()) return;
   const ad = directory.querySelector('.ad-sidebar');
   const adPosition = document.createComment('advertisement');
   if (ad) {
@@ -138,10 +137,6 @@ async function mountCatalog() {
   }
 }
 
-function hasLinkedSample() {
-  return location.hash.startsWith('#resource-') && document.getElementById(location.hash.slice(1))?.matches('.resource-sample');
-}
-
 let catalogMount;
 function openCatalog() {
   if (catalogMount || document.getElementById('collection')) return;
@@ -149,5 +144,5 @@ function openCatalog() {
 }
 
 document.querySelector('.resource-browse')?.addEventListener('click', openCatalog);
-window.addEventListener('hashchange', () => { if (!hasLinkedSample()) openCatalog(); });
-if (!hasLinkedSample()) openCatalog();
+window.addEventListener('hashchange', openCatalog);
+openCatalog();
