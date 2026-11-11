@@ -1,0 +1,87 @@
+.ad-sidebar {
+    align-self: start;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 14px;
+    border: 1px solid var(--border, #292929);
+    border-radius: 8px;
+    background: var(--surface, #111);
+    color: #aaa;
+    text-align: left;
+}
+
+.ad-sidebar > .ad-label {
+    display: block;
+    margin: 0 0 10px;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .07em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.ad-sidebar > .ad-content {
+    display: block;
+    width: 100%;
+    min-height: 90px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.ad-sidebar > .ad-sponsor {
+    display: inline-block;
+    margin-top: 12px;
+    color: inherit;
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.ad-sponsor:hover { color: #fff; }
+
+.ad-layout > .ad-sidebar { grid-column: 1 / -1; }
+.resource-layout > .resource-content { min-width: 0; }
+
+.free-key-layout {
+    position: relative;
+    width: min(100%, 900px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-items: start;
+    gap: 26px;
+}
+
+.free-key-layout > .ad-sidebar { width: 100%; }
+
+@media (min-width: 900px) {
+    .free-key-layout {
+        grid-template-columns: minmax(0, 1fr) 250px;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .free-key-layout > .ad-sidebar { align-self: center; }
+}
+
+@media (min-width: 1180px) {
+    .ad-layout {
+        grid-template-columns: 224px minmax(0, 1fr) clamp(220px, 19vw, 280px);
+    }
+
+    .ad-layout > .ad-sidebar { grid-column: auto; }
+    .resource-directory { max-width: 1460px; }
+}
+
+@media (min-width: 1201px) {
+    .wiki-topic-page .article-layout.free-setup-with-ad {
+        grid-template-columns: minmax(0, 1fr) 230px;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .free-setup-with-ad > .ad-sidebar { margin-bottom: 24px; }
+}

@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "downloadRepository": "../cool-repo",
+  "sourceRoot": "..",
+  "inbox": "project/resource-inbox",
+  "publicRefresh": [
+    { "script": "tools/community-mod-marketplace.cjs", "args": ["--refresh", "--resolve", "--limit=40"] }
+  ],
+  "sources": [
+    {
+      "id": "cs2-project",
+      "kind": "native",
+      "games": ["cs2"],
+      "required": "../Scooby-Op/CS2/simple-base-cs2/assets/custom_models/catalog.json",
+      "paths": ["../Scooby-Op/CS2/simple-base-cs2/assets/custom_models", "../Scooby-Op/CS2/simple-base-cs2/assets/configs", "../Scooby-Op/CS2/simple-base-cs2/assets/hud-presets", "../Scooby-Op/CS2/simple-base-cs2/assets/vfx"]
+    },
+    {
+      "id": "gta5-project",
+      "kind": "native",
+      "games": ["gta5"],
+      "required": "../Scooby-Op/GTA5/EE/GTA - Main Src",
+      "paths": ["../Scooby-Op/GTA5/EE/GTA - Main Src/Translations", "../Scooby-Op/GTA5/EE/GTA - Main Src/configs", "../Scooby-Op/GTA5/EE/GTA - Main Src/assets", "../Scooby-Op/GTA5/EE/GTA - Main Src/src/game/frontend/UI"]
+    },
+    {
+      "id": "rdr2-project",
+      "kind": "native",
+      "games": ["rdr2"],
+      "required": "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working",
+      "paths": ["../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/Translations", "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/configs", "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/assets", "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/src/game/frontend/submenus/outfiteditor/BundledOutfits.cpp"]
+    },
+    {
+      "id": "native-paintjobs-and-addons",
+      "kind": "native",
+      "games": [],
+      "paths": ["C:/scooby/GTA5/LSC/PaintJobs", "C:/scooby/RDR2/Addons"]
+    },
+    {
+      "id": "native-appearance-collections",
+      "kind": "native",
+      "games": [],
+      "required": "../Rendererrr.github.io/scooby/GTA5/ListUI/Themes",
+      "paths": [
+        "../Rendererrr.github.io/scooby/GTA5/ListUI/Themes", "../Rendererrr.github.io/scooby/RDR2/ListUI/Themes",
+        "../Scooby-Op/GTA5/EE/GTA - Main Src/src/core/frontend/manager/styles/ColorThemes.hpp",
+        "../Scooby-Op/GTA5/EE/GTA - Main Src/src/core/frontend/manager/styles/UIThemeSettings.cpp",
+        "../Scooby-Op/GTA5/EE/GTA - Main Src/src/core/frontend/ListUIColorThemes.hpp",
+        "../Scooby-Op/GTA5/EE/GTA - Main Src/src/core/frontend/ListUI/Styles/Impulse/Assets/Themes/Brazil",
+        "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/src/core/frontend/manager/styles/ColorThemes.hpp",
+        "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/src/core/frontend/manager/styles/UIThemeSettings.cpp",
+        "../Scooby-Op/RDR2/Scooby-RDR2-old - before-UI-update - working/src/core/frontend/ListUIColorThemes.hpp"
+      ]
+    },
+    {
+      "id": "menu-share-manifests",
+      "kind": "menus",
+      "paths": ["project/community-menu-sources/cherax.json", "project/community-menu-sources/stand.json", "project/community-menu-sources/xforce.json", "project/community-menu-sources/redm.json", "project/community-menu-sources/biggerscript-public.json", "project/community-menu-sources/cherax-lua-enrichment.json", "project/community-menu-sources/cherax-public-audit.json", "project/community-menu-sources/cherax-network-checks.json", "project/community-menu-sources/menu-image-checks.json", "project/community-marketplace", "../cherax-luas/luas"]
+    },
+    {
+      "id": "resource-inbox",
+      "kind": "inbox",
+      "paths": ["project/resource-inbox"]
+    }
+  ]
+}

@@ -23,3 +23,19 @@ backup/
 /assets/downloads/reseller-media.json
 /assets/downloads/product-banners/
 /assets/downloads/reseller-packs/
+
+# Local acquisition evidence and large staged source packages. The normalized
+# public catalogs and source manifests remain versioned; downloads live in cool-repo.
+/project/community-menu-sources/cherax-cli/
+/project/community-menu-sources/cherax-downloads/
+/project/community-menu-sources/cherax-export-downloads/
+/project/community-menu-sources/cherax-exports/
+/project/community-menu-sources/cherax-evidence/
+/project/community-menu-sources/cherax-publication-test/
+/project/community-menu-sources/cherax-push-state/
+/project/community-menu-sources/cherax-push-test/
+/project/community-menu-sources/redm/evidence/
+/project/community-menu-sources/redm/downloads/
+/project/community-menu-sources/redm/files/
+/project/community-menu-sources/redm/previews/
+/project/community-menu-sources/inbox-assets/

@@ -102,6 +102,8 @@ function cardFor(file) {
     else if(group==='source-games')id='wiki-source';
     else id=wikiGames.includes(group)?'wiki-game-'+group:'guides';
   }
+  else if (file.startsWith('resources/guides/')) id = 'guides';
+  else if (file.startsWith('resources/') && games[file.split('/')[1]]) id = 'game-' + file.split('/')[1];
   else if (/^(docs|api)\//.test(file)) id = 'docs';
   else if (/^(features-list|fivem-features|scooby-features)\//.test(file)) id = 'features';
   else if (file === 'products/free/index.html' || file === 'freekey.html') id = 'free';

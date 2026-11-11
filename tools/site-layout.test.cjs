@@ -28,7 +28,10 @@ test('preview keeps old routes, redirects, custom 404s, MIME types, and HEAD res
   try {
     for(const file of Object.keys(pages)) {
       const route=file==='index.html'?'/':'/'+file.replace(/index\.html$/,'');
-      assert.equal((await fetch(base+route)).status,200,route);
+      const response=await fetch(base+route);
+      assert.equal(response.status,200,route);
+      // Drain each body so server.close can finish even for large HTML pages.
+      await response.arrayBuffer();
     }
     const redirect=await fetch(base+'/products/mta-sa',{redirect:'manual'});
     assert.equal(redirect.status,301);assert.equal(redirect.headers.get('location'),'/products/mta-sa/');

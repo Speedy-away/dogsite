@@ -3,6 +3,8 @@ const path = require('node:path');
 const { siteRoot, repoRoot, publicEntries, isPublic } = require('./site-layout.cjs');
 const publishRoot = path.join(repoRoot, 'project', 'build', 'publish');
 function build() {
+  if (!process.env.SCOOBY_RESOURCE_SYNC) require('./resource-sync.cjs').syncOnce({ seo: false });
+  require('./build-resource-seo.cjs').build();
   require('./build-reseller-media.cjs').build();
   // Validate the fixed output and all source entries before replacing output.
   if (path.resolve(publishRoot) !== path.resolve(repoRoot, 'project/build/publish')) throw Error('Unexpected output path');

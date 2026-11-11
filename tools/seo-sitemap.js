@@ -33,6 +33,8 @@ const RULES = [
   { re: /^products\/(pubg|r6)\//, priority: '0.5', freq: 'monthly' },
   { re: /^products\//,              priority: '0.8', freq: 'weekly'  },
   { re: /^store\//,                 priority: '0.7', freq: 'weekly'  },
+  { re: /^resources\/guides\//,     priority: '0.6', freq: 'monthly' },
+  { re: /^resources\//,             priority: '0.7', freq: 'weekly'  },
   { re: /-features\//,              priority: '0.7', freq: 'monthly' },
   { re: /^features-list\//,         priority: '0.6', freq: 'monthly' },
   { re: /^guides\//,                priority: '0.6', freq: 'monthly' },
@@ -47,6 +49,7 @@ const RULES = [
 ];
 
 function gitDate(rel) {
+  if (changedPages.has(rel)) return today;
   try {
     const d = execFileSync('git', ['log', '-1', '--format=%cs', '--', rel],
                            { cwd: ROOT, encoding: 'utf8' }).trim();
@@ -55,6 +58,19 @@ function gitDate(rel) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
+const changedPages = new Set();
+try {
+  // A local build includes pending source edits and newly generated pages.
+  // Their current modification date is more accurate than an older commit.
+  const status = execFileSync('git', ['status', '--porcelain=v1', '-z', '--untracked-files=all'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+  const records = status.split('\0');
+  for (let index = 0; index < records.length; index++) {
+    const record = records[index];
+    if (!record) continue;
+    changedPages.add(record.slice(3).replace(/\\/g, '/'));
+    if (/^[RC]|^ [RC]/.test(record)) index++;
+  }
+} catch { /* Commit dates remain available when worktree status is unavailable. */ }
 const rows = [];
 
 for (const abs of walk(ROOT)) {

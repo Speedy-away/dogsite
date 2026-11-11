@@ -85,13 +85,6 @@
         color: var(--text-secondary);
         margin-bottom: 30px;
     }
-    .ad-container {
-        background: var(--bg-secondary);
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
     .countdown {
         font-family: 'Inter', sans-serif;
         font-size: 3rem;
@@ -239,8 +232,10 @@
 </script>
 <link rel="stylesheet" href="/assets/css/free-access.css">
 <script src="/assets/js/free-access.js" defer></script>
+<link rel="stylesheet" href="/assets/css/ad-sidebar.css">
 </head>
 <body>
+    <main class="free-key-layout">
     <div class="container">
         <div class="logo">scooby</div>
         <h1>GET YOUR FREE KEY</h1>
@@ -270,8 +265,6 @@
                 <span>Ads may popup - just close them and continue</span>
             </div>
         </div>
-        <div class="ad-container">
-        </div>
         <div class="countdown" id="countdown">5</div>
         <button class="btn" id="continueBtn" disabled onclick="window.location.href='https://scoobymenu.cc/scoobyontop.html'">
             CONTINUE TO FREE KEY
@@ -279,6 +272,13 @@
         <br>
         <a href="/" class="back-link">← Back to Home</a>
     </div>
+<aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
+  <p class="ad-label">Advertisement</p>
+  <div class="ad-content" id="container-916d4be3288f94a3bc49ab6cdaef5ba9"></div>
+  <script async="async" data-cfasync="false" src="https://bellnewyork.org/21/916d4be3288f94a3bc49ab6cdaef5ba9"></script>
+  <a class="ad-sponsor" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="sponsored nofollow noopener noreferrer">Sponsored offer ↗</a>
+</aside>
+    </main>
     <script>
         let timeLeft = 5;
         const countdownEl = document.getElementById('countdown');

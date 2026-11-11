@@ -12,7 +12,7 @@ const sections = [
   ['features', 'Feature libraries', file => file.includes('features/')],
   ['guides', 'Setup & troubleshooting', file => file.startsWith('guides/')],
   ['developers', 'Developer documentation', file => file.startsWith('docs/') || file.endsWith('_api_reference.html')],
-  ['resources', 'Store, community & resources', () => true],
+  ['resources', 'Store & resources', () => true],
 ];
 const groups = new Map(sections.map(([id]) => [id, []]));
 for (const [file, meta] of Object.entries(pages)) {

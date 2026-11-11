@@ -3,7 +3,7 @@ const siteRoot = path.resolve(__dirname, '..');
 const repoRoot = siteRoot;
 // Public URL roots. Tooling and project artifacts are deliberately absent.
 const publicEntries = [
-  'community','api','assets','best-mod-menu','changelog','docs','download','features-list',
+  'resources','community','api','assets','best-mod-menu','changelog','docs','download','features-list',
   'fivem-features','guides','lang','more-games','portal','products','resellers',
   'revolution','scooby-features','sitemap','rockstar-classics','source-games','store','tos','videos',
   'web-radar','.nojekyll','404.html','background-home.jpg','background-home5.png',
