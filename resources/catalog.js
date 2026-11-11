@@ -3,7 +3,7 @@
 const $ = id => document.getElementById(id);
 const gameTabs = document.querySelectorAll('#collection .games [data-game]');
 const GAMES = {
-  gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs'] },
+  gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'pack-vehicles', 'pack-outfits', 'pack-maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs'] },
   rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
   cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
   fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
@@ -11,7 +11,7 @@ const GAMES = {
   l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
 };
 const LABELS = {
-  all: 'All resources', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
+  all: 'All resources', 'pack-vehicles': 'Vehicle packs', 'pack-outfits': 'Outfit packs', 'pack-maps': 'Map packs', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
   'addon-vehicles': 'Vehicles', 'addon-peds': 'Peds', 'addon-objects': 'Objects', 'addon-animations': 'Animations', 'addon-maps': 'Maps', 'addon-clothing': 'Clothing', maps: 'Maps', textures: 'Textures',
   paintjobs: 'LSC paintjobs', liveries: 'Liveries', players: 'Player models', weapons: 'Weapon models', knives: 'Knife models',
   throwables: 'Throwables', bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs',
@@ -73,7 +73,7 @@ function normalize(value) { return String(value || '').toLowerCase().replace(/[^
 function menuFor(game, id) { return menuSystem ? menuSystem.menuFor(game, id) : 'scooby'; }
 function hasMenuChoice(game) { return menuSystem?.menusFor(game).length > 1; }
 function menuName(id = state.menu) { return menuSystem ? menuSystem.displayName(id) : 'Scooby'; }
-function collectionTitle() { return `${hasMenuChoice(state.game) ? `${menuName()}'s ` : ''}${GAMES[state.game].name} resources`; }
+function collectionTitle() { return state.archive ? 'Stand Old Shares' : `${hasMenuChoice(state.game) ? `${menuName()}'s ` : ''}${GAMES[state.game].name} resources`; }
 function supportsMenu(entry) { return menuSystem ? menuSystem.supports(entry, state.menu) : state.menu === 'scooby'; }
 function pendingDownload(entry) { return entry.category === 'lua' && entry.downloadStatus === 'pending'; }
 function normalizeSearch(value) { return taxonomy ? taxonomy.normalizeTag(value) : String(value || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim(); }
@@ -97,17 +97,18 @@ function categories(game = state.game, menu = state.menu) {
 }
 function readState() {
   const query = new URLSearchParams(location.search);
-  const [, gameSlug, scope, nestedCategory] = location.pathname.replace(/\/index\.html$/, '/').split('/').filter(Boolean);
+  const [, gameSlug, scope, nestedCategory, archiveCategory] = location.pathname.replace(/\/index\.html$/, '/').split('/').filter(Boolean);
   const scopedGame = Object.hasOwn(GAMES, gameSlug) ? gameSlug : '';
   const game = scopedGame || (Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5');
   const scopedMenu = menuSystem?.menusFor(scopedGame).find(menu => menu.id === menuSystem.canonical(scope))?.id;
-  const scopedCategory = scopedMenu ? nestedCategory : scope;
+  const archive = scopedGame === 'gta5' && scopedMenu === 'stand' && nestedCategory === 'old-shares' ? 'old-shares' : '';
+  const scopedCategory = archive ? archiveCategory : scopedMenu ? nestedCategory : scope;
   const menu = menuFor(game, scopedMenu || (scopedCategory ? 'scooby' : query.get('menu')));
   const requested = categoryId(game, scopedCategory || query.get('category'), menu);
   const category = categories(game, menu).includes(requested) ? requested : 'all';
   const themeFilters = category === 'themes' && ['gta5', 'rdr2'].includes(game);
   return {
-    game, category, menu, edition: editions.choice(game, query.get('edition')), q: query.get('q') || '',
+    game, category, menu, archive, edition: editions.choice(game, query.get('edition')), q: query.get('q') || '',
     model: category === 'all' ? '' : query.get('model') || '',
     ui: themeFilters ? query.get('ui') || '' : '', style: themeFilters ? query.get('style') || '' : '',
     sort: ['name', 'attachments'].includes(query.get('sort')) ? query.get('sort') : '',
@@ -124,7 +125,7 @@ function updatePageTab(url = new URL(location.href)) {
     return;
   }
   const category = state.category === 'all' ? 'Resources' : categoryLabel(state.game, state.category);
-  const title = [GAMES[state.game].name, state.menu === 'scooby' ? '' : menuName(), category].filter(Boolean).join(' ');
+  const title = [GAMES[state.game].name, state.menu === 'scooby' ? '' : menuName(), state.archive ? 'Old Shares' : '', category].filter(Boolean).join(' ');
   document.title = `${hub ? 'Resources' : title} — Scooby`;
   const icon = (hub ? null : gameIcons.get(state.game)) || defaultIcon;
   if (tabIcon && tabIcon.getAttribute('href') !== icon) {
@@ -174,6 +175,7 @@ const isFiveMRecipe = entry => entry.game === 'fivem' && entry.category === 'ser
 
 function authorAction(entry) {
   if (entry.builtInLua) return 'View module source ↗';
+  if (menuSystem.isStandLua(entry)) return 'Open author source ↗';
   if (entry.source === 'Nenyoo Resources' && entry.category === 'themes') return 'Open theme folder ↗';
   return isFiveMRecipe(entry) ? 'Download from source ↗' : 'Get from the author ↗';
 }
@@ -219,7 +221,7 @@ function link(text, href, external = false) {
 function resourceURL(entry, view) {
   const loader = menuSystem.presetLoader(entry, state.menu);
   const format = loader === 'lua' ? 'lua-loader' : loader === 'importer' ? 'all-formats' : '';
-  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category, format }, publishedRoutes) + routes.resourceHash(entry.id, view);
+  return routes.catalogURL({ game: entry.game, menu: state.menu, category: entry.category, archive: state.archive, format }, publishedRoutes) + routes.resourceHash(entry.id, view);
 }
 
 function image(src, name, showUnavailable = false) {
@@ -348,7 +350,7 @@ function categoryButton(category, label = categoryLabel(state.game, category)) {
   const menuChoice = hasMenuChoice(state.game);
   const count = menuChoice ? menuCategoryCounts.get(category) || 0 : entries.filter(entry =>
     inCategory(entry, category) && (state.game !== 'l4d' || editions.matches(entry, state.edition))).length;
-  button.href = routes.catalogURL({ game: state.game, menu: state.menu, category, edition: state.edition }, publishedRoutes);
+  button.href = routes.catalogURL({ game: state.game, menu: state.menu, category, archive: state.archive, edition: state.edition }, publishedRoutes);
   button.append(node('span', label), node('small', count.toLocaleString()));
   button.onclick = event => {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button > 0) return;
@@ -458,6 +460,14 @@ function updateControls() {
     redm: 'Search outfits, peds or files…', l4d: 'Search campaigns, models or files…'
   }[state.game];
   $('categories').replaceChildren(categoryButton('all'));
+  if (state.game === 'gta5' && state.menu === 'stand') {
+    const oldShares = routes.collectionPath('gta5', 'all', 'stand', 'old-shares');
+    if (publishedRoutes.has(oldShares)) {
+      const scope = link(state.archive ? 'Back to Stand resources' : 'Old Shares', state.archive ? routes.collectionPath('gta5', 'all', 'stand') : oldShares);
+      scope.className = 'category-choice';
+      $('categories').prepend(scope);
+    }
+  }
   const assets = GAMES[state.game].assets;
   const roleplay = roleplayGroups(state.game);
   const groups = menuChoice
@@ -536,7 +546,7 @@ async function loadGame() {
     const game = state.game;
     const original = game === 'gta5' ? (await Promise.all([loadLegacy('vehicles'), loadLegacy('outfits')])).flat() : [];
     if (token !== loadRevision) return;
-    entries = [...original, ...libraryEntries()].filter(supportsMenu).map(item => {
+    entries = [...original, ...libraryEntries()].filter(item => supportsMenu(item) && (!state.archive || item.oldShares)).map(item => {
       const entry = editions.withVerification(item, gtaEditionCatalog);
       return menuSystem?.isCheraxTheme(entry) ? { ...entry, uiStyle: menuSystem.themeInterface(entry) } : entry;
     });
@@ -926,7 +936,7 @@ async function card(entry) {
   const gtaAddon = entry.game === 'gta5' && entry.category.startsWith('addon-');
   if (entry.category === 'themes' && preview) article.className += ' has-verified-preview';
   const compactLua = entry.category === 'lua' && !preview && (cheraxPreview(entry) || entry.builtInLua);
-  if (!compactLua) shot.append(image(preview, entry.name, cheraxPreview(entry) || (!preview && gtaAddon)));
+  if (!compactLua) shot.append(image(preview, entry.name, cheraxPreview(entry) || menuSystem.isStandLua(entry) || (!preview && gtaAddon)));
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -1129,7 +1139,7 @@ function selectResourceGame(game, menu = 'scooby') {
   clearTimeout(inputTimer);
   const sameGame = game === state.game;
   state = {
-    game, menu: selectedMenu, category: sameGame || (selectedMenu === 'nenyoo' && nenyooLuaGame(game)) ? state.category : 'all',
+    game, menu: selectedMenu, archive: '', category: sameGame || (selectedMenu === 'nenyoo' && nenyooLuaGame(game)) ? state.category : 'all',
     edition: sameGame ? state.edition : '', q: '', model: '', ui: '', style: '', format: '',
     sort: sameGame ? state.sort : '', page: 1
   };

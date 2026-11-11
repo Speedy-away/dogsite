@@ -33,6 +33,7 @@
   }
   const categoryLabel = (menu, id) => menu === 'nenyoo' ? { 'addon-packs': 'DLC packs', languages: 'Translations / Languages', themes: 'Themes', maps: 'Maps' }[id] : undefined;
   const assetCategories = new Set(['vehicles', 'modded', 'outfits', 'maps', 'dlc', 'textures', 'paintjobs', 'liveries', ...gtaAddonOrder]);
+  const isStandLua = entry => entry?.game === 'gta5' && entry.category === 'lua' && canonical(entry.sourceMenu) === 'stand';
   const isCheraxTheme = entry => entry?.game === 'gta5' && entry.category === 'themes' && (
     canonical(entry.sourceMenu) === 'cherax' || entry.source === 'ModVerse public catalog' ||
     /^(?:menu-cherax-theme-|gta5-modverse-themes-)/.test(entry.id || '')
@@ -151,5 +152,5 @@
     }
     return result;
   }
-  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, supports, compatibleWith, isCheraxTheme, themeInterface, legacyOverrideMap, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
+  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, supports, compatibleWith, isStandLua, isCheraxTheme, themeInterface, legacyOverrideMap, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
 });

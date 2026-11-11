@@ -26,7 +26,7 @@ function buildGuideData(inventory) {
   }));
   const pages = [];
   const routes = {};
-  for (const collection of inventory.pages.filter(page => !page.category)) {
+  for (const collection of inventory.pages.filter(page => !page.category && !page.archive)) {
     const { game, menu, menuName, availableMenus } = collection;
     const gameName = inventory.games[game].name;
     const scope = availableMenus.length > 1 ? `${gameName} ${menu === 'yim' ? 'YimMenu' : menuName}` : gameName;

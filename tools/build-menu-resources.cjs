@@ -21,6 +21,8 @@ const baseItems = new Map(base.items.map(item => [item.id, item]));
 const GAMES = new Set(['gta5', 'rdr2', 'cs2', 'fivem', 'redm', 'l4d']);
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const planned = new Map();
+const standReview = path.join(SOURCES, 'stand-discord-reviewed.json');
+const oldSharesMatches = new Set((fs.existsSync(standReview) ? read(standReview).supplementMatches || [] : []).map(match => match.sha256));
 const imageChecksFile = path.join(SOURCES, 'menu-image-checks.json');
 const imageChecks = fs.existsSync(imageChecksFile) ? read(imageChecksFile) : {};
 const output = { version: 1, items: [], libraryOverrides: [], legacyOverrides: [], legacyGroups: [], coverage: [],
@@ -61,6 +63,9 @@ function clean(entry, origin) {
   }
   if (result.game !== 'gta5') { result.supportedMenus = ['scooby']; result.listedMenus = ['scooby']; }
   result.tags = [...new Set([...(entry.tags || []), menus.menuName(result.sourceMenu), ...(entry.archival || entry.collectionStatus === 'archival' || entry.collection === 'old' ? ['old shares', 'archival'] : [])])];
+  if (entry.oldShares === true || origin === 'stand-discord-reviewed' &&
+      (entry.archival || ['old', 'archival'].includes(entry.collection) || entry.collectionStatus === 'archival' ||
+       /^(?:Old Shares\b|legacy-lua-scripts$)/i.test(entry.sourceChannel || ''))) result.oldShares = true;
   result.menuResource = true;
   result.sourceCatalog = 'menu-resources';
   if (entry.previewVerified === false) result.previewVerified = false;
@@ -103,21 +108,37 @@ function clean(entry, origin) {
     result.preview = entry.preview;
   }
   const reviewedRedmLua = result.game === 'redm' && origin === 'redm-submitted' && entry.reviewedLua === true;
-  if (origin === 'yim' && result.game === 'gta5' && result.category === 'lua') {
+  const standLua = menus.isStandLua(result);
+  const reviewedStandLua = standLua && origin === 'stand-discord-reviewed' && entry.reviewedLua === true;
+  const standAuthorSource = standLua && ['stand', 'stand-discord-reviewed'].includes(origin) &&
+    entry.verifiedAuthorSource === true && /^https:\/\/github\.com\/[^/]+\/[^/]+/i.test(result.sourceUrl || '');
+  if (standAuthorSource && !reviewedStandLua) {
+    result.status = 'author-hosted';
+    result.downloadStatus = 'author-hosted';
+    result.files = [];
+  } else if (origin === 'yim' && result.game === 'gta5' && result.category === 'lua') {
     result.files = (entry.files || []).filter(file => yimDownload.test(file.url) && fs.existsSync(path.join(ROOT, file.url))).map(file => {
       const bytes = fs.readFileSync(path.join(ROOT, file.url));
       return { ...file, size: bytes.length, sha256: hash(bytes) };
     });
     result.downloadStatus = result.files.length ? 'available' : 'pending';
     result.status = result.files.length ? 'download' : 'pending';
-  } else if (result.category === 'lua' && !reviewedRedmLua) {
+  } else if (result.category === 'lua' && !reviewedRedmLua && !reviewedStandLua) {
     result.downloadStatus = 'pending'; result.status = 'pending'; result.files = [];
+    if (standLua) result.downloadLabel = 'Download unavailable';
     result.sourceFilename = result.sourceFilename || (typeof entry.source?.path === 'string' ? path.posix.basename(entry.source.path) : typeof entry.member === 'string' ? path.posix.basename(entry.member) : undefined);
     const extension = result.sourceFilename?.match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
     if (extension) result.formatExtension = extension;
     if (/discord(?:app)?\.(?:gg|com)/i.test(result.sourceUrl || '')) delete result.sourceUrl;
   } else if (Array.isArray(entry.files)) {
     result.files = entry.files.map(file => {
+      if (reviewedStandLua) {
+        if (!/^downloads\/gta5\/menus\/stand\/[a-f0-9]{20}\.(?:lua|pluto|zip)$/i.test(file.path || '') ||
+            !fs.existsSync(path.join(target, file.path))) return null;
+        const bytes = fs.readFileSync(path.join(target, file.path));
+        if (bytes.length !== file.size || hash(bytes) !== file.sha256) throw Error('Stand Lua archive checksum mismatch: ' + file.path);
+        return { ...file };
+      }
       if (file.url && /^https:\/\//.test(file.url)) return { ...file };
       if (result.game === 'l4d' && l4dDownload.test(file.url || '')) {
         const bytes = fs.readFileSync(path.join(ROOT, file.url));
@@ -133,7 +154,13 @@ function clean(entry, origin) {
     }).filter(Boolean);
     result.status = result.files.length ? 'download' : entry.status;
     result.downloadStatus = result.files.length ? 'available' : entry.downloadStatus;
+    if (reviewedStandLua && !result.files.length) {
+      result.status = 'pending';
+      result.downloadStatus = 'pending';
+      result.downloadLabel = 'Download unavailable';
+    }
   }
+  if (result.game === 'gta5' && result.files?.some(file => oldSharesMatches.has(file.sha256)) && menus.supports(result, 'stand')) result.oldShares = true;
   if (result.game === 'redm') {
     const cleanLabel = value => String(value || '').replace(/\s*\(RedM\s*Hub\)\s*by\s+Dadash/ig, '').trim();
     const videoURL = /https?:\/\/(?:www\.)?(?:youtu\.be|youtube\.com|vimeo\.com)\S*/gi;
@@ -152,7 +179,7 @@ function add(entry, origin) {
   if (entry.game === 'redm' && /(?:pm[ _-]*bypass|fast(?:er)?[ _-]*scope)/i.test([entry.id, entry.name, entry.sourceChannel].join(' '))) return;
   const normalized = clean(entry, origin);
   if (baseItems.has(entry.id)) overrides.set(entry.id, { ...overrides.get(entry.id), ...normalized, id: entry.id });
-  else if ((normalized.category === 'lua' && normalized.downloadStatus === 'pending') || normalized.files?.length ||
+  else if ((normalized.category === 'lua' && (normalized.downloadStatus === 'pending' || menus.isStandLua(normalized) && normalized.status === 'author-hosted')) || normalized.files?.length ||
     entry.status === 'in-menu' || (normalized.category === 'mod-menus' && normalized.status === 'preview-only') ||
     ((['fivem-graphics', 'l4d', 'cs2-gamebanana-skyboxes', 'cs2-hdri-skies', 'cs2-hammer-materials'].includes(origin) ||
       (origin === 'fivem-server-recipes' && normalized.game === 'fivem' && normalized.category === 'server-dumps') ||
@@ -294,7 +321,7 @@ output.libraryOverrides = [...overrides.values()].map(entry => {
 });
 const groups = new Map();
 for (const entry of legacy.values()) {
-  const shared = ['sourceMenu', 'supportedMenus', 'listedMenus', 'collection', 'collectionStatus', 'format', 'compatibility', 'requirementLabel', 'requirements', 'credits', 'author', 'version', 'versionBasis', 'tags', 'guide'];
+  const shared = ['sourceMenu', 'supportedMenus', 'listedMenus', 'collection', 'collectionStatus', 'oldShares', 'format', 'compatibility', 'requirementLabel', 'requirements', 'credits', 'author', 'version', 'versionBasis', 'tags', 'guide'];
   const metadata = Object.fromEntries(shared.filter(key => entry[key] !== undefined).map(key => [key, entry[key]]));
   metadata.archival = Boolean(entry.archival || entry.collection === 'archival' || entry.collectionStatus === 'archival');
   const key = entry.family + JSON.stringify(metadata);

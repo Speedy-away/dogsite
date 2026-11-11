@@ -8,14 +8,15 @@
   const base = '/resources/';
   const guideBase = `${base}guides/`;
 
-  function collectionPath(game, category, menu = 'scooby') {
+  function collectionPath(game, category, menu = 'scooby', archive = '') {
     const directory = (game === 'gta5' || game === 'rdr2') && menu !== 'scooby' ? `${game}/${menu}` : game;
-    return `${base}${directory}/${category && category !== 'all' ? `${category}/` : ''}`;
+    const section = game === 'gta5' && menu === 'stand' && archive === 'old-shares' ? 'old-shares/' : '';
+    return `${base}${directory}/${section}${category && category !== 'all' ? `${category}/` : ''}`;
   }
 
-  function catalogURL({ game, menu = 'scooby', category, page, ...filters }, published) {
-    const collection = collectionPath(game, undefined, menu);
-    const categoryPath = collectionPath(game, category, menu);
+  function catalogURL({ game, menu = 'scooby', category, archive, page, ...filters }, published) {
+    const collection = collectionPath(game, undefined, menu, archive);
+    const categoryPath = collectionPath(game, category, menu, archive);
     const query = new URLSearchParams();
     const pathname = published.has(categoryPath) ? categoryPath : published.has(collection) ? collection : base;
     if (pathname === base) {
