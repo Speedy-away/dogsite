@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "purpose": "Public FiveM map resources with links to their original releases.",
+  "items": [
+    {
+      "id": "fivem-map-legion-plus",
+      "category": "addon-maps",
+      "name": "Legion Square +",
+      "author": "zinpod (0breezy0)",
+      "description": "A standalone YMAP redesign of Legion Square with new landscaping and props.",
+      "sourceUrl": "https://github.com/0breezy0/LegionPlus/tree/main",
+      "installUrl": "https://forum.cfx.re/t/free-map-legion-square/5255957",
+      "requirementLabel": "FiveM server · Standalone YMAP",
+      "requirements": [
+        "Put the breezy_legionplus folder under the server’s resources directory and add ensure breezy_legionplus to server.cfg.",
+        "Test it with other Legion Square maps disabled first so you can spot overlapping props or collision."
+      ],
+      "tags": ["Legion Square", "YMAP", "outdoor map"],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/e/a/5/c/ea5c933d18f6cfbcf78764c69df71d3c5363a9bc.jpeg",
+      "previewKind": "author-preview",
+      "previewCaption": "Screenshot from the creator’s Legion Square + release.",
+      "previewVerified": true,
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-map-coin-sandy-shores",
+      "category": "addon-maps",
+      "name": "Coin’s Sandy Shores Project",
+      "author": "Coin6969",
+      "description": "A Sandy Shores YMAP with new props, memorials and changes to roadside scenery.",
+      "sourceUrl": "https://github.com/Coin6969/Coins-Sandy-Shores-Project-more-then-just-trees",
+      "installUrl": "https://forum.cfx.re/t/fivem-my-new-sandy-shores-ymap/5315999",
+      "requirementLabel": "FiveM server · CoinsSandyProject resource",
+      "requirements": [
+        "Install the CoinsSandyProject folder that contains fxmanifest.lua and start that resource from server.cfg.",
+        "The author built this on the earlier CoinsTrees map. Compare it on its own before combining it with other Sandy Shores edits."
+      ],
+      "tags": ["Sandy Shores", "YMAP", "outdoor map"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-map-omozan",
+      "category": "addon-maps",
+      "name": "Omozan",
+      "author": "AndreIakko",
+      "description": "A custom map from AndreIakko’s free MLO collection. The repository also contains vehicle and outfit resources in separate folders.",
+      "sourceUrl": "https://github.com/AndreIakko/Omozan",
+      "installUrl": "https://forum.cfx.re/t/map-free-maps-mlo/4907865",
+      "requirementLabel": "FiveM server · iak_omozan_map resource",
+      "requirements": [
+        "For the map, install iak_omozan_map with its manifest and stream directory together. Start the resource on a test server.",
+        "Review the vehicle and outfit folders separately if you want to use those parts of the release."
+      ],
+      "tags": ["MLO", "map resource", "streaming"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-map-bob74-ipl",
+      "category": "addon-maps",
+      "name": "bob74_ipl",
+      "author": "Bob74 and contributors",
+      "description": "A map utility for loading and customizing existing GTA V interiors and fixing missing map elements.",
+      "sourceUrl": "https://github.com/Bob74/bob74_ipl/releases/latest",
+      "installUrl": "https://github.com/Bob74/bob74_ipl#install",
+      "requirementLabel": "FiveM server · Check for an existing copy",
+      "requirements": [
+        "Check whether your framework already includes bob74_ipl. Use the release archive named bob74_ipl.zip and start the resource from server.cfg.",
+        "Use the upstream changelog to confirm your build and edition. The project documents separate streaming assets for Enhanced."
+      ],
+      "tags": ["IPL", "interiors", "map utility"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

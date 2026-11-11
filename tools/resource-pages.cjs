@@ -22,7 +22,7 @@ const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
   rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse Red Dead Redemption 2 outfit presets, addon peds, ClickUI color presets, ListUI styles and Scooby translations.' },
   cs2: { name: 'CS2', full: 'Counter-Strike 2', aliases: ['Counter Strike 2', 'CS2 custom model repo', 'Source 2 skyboxes'], logo: '/portal/images/product-logos/cs2.png', intro: 'Browse Counter-Strike 2 custom player, weapon, knife, grenade and C4 models, plus skyboxes, textures and Scooby configs.' },
-  fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay', 'FiveM texture packs'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Find FiveM server recipes for txAdmin, graphics packs, ReShade presets, textures, and Scooby language files.' },
+  fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay', 'FiveM texture packs'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Find FiveM server recipes, graphics and sound packs, Lua menus, and custom models and assets.' },
   redm: { name: 'RedM', full: 'RedM', aliases: ['Red Dead roleplay'], logo: '/assets/images/store/redm-logo.png', intro: 'Browse RedM PvP and RP graphics packs, cinematic sky packs, weapon skins, sound packs, Colors.xml presets, tracers and client settings.' },
   l4d: { name: 'L4D', full: 'Left 4 Dead', aliases: ['Left 4 Dead 2', 'L4D1', 'L4D2', 'Left 4 Dead addons', 'L4D2 mods'], logo: '/assets/images/source-games/l4d-logo.png', intro: 'Find custom campaigns, survivor and infected models, weapon skins, sound packs, skyboxes and configs for Left 4 Dead 1 and 2.' }
 };
@@ -116,7 +116,7 @@ const l4dCategories = {
 };
 const graphicsCategories = {
   gta5: { ...CATEGORIES['graphics-packs'], words: ['graphics mods', 'NaturalVision', 'visual overhauls'], description: 'Browse NaturalVision graphics mods and visual overhauls for GTA 5 Legacy and Enhanced. Check the author’s installation requirements for your edition.' },
-  fivem: { ...CATEGORIES['graphics-packs'], words: ['graphics packs', 'ReShade presets', 'road textures', 'minimap textures'], description: 'Browse FiveM ReShade presets, graphics packs, road textures and minimap replacements. Check whether each pack installs on the client or server.' },
+  fivem: { ...CATEGORIES['graphics-packs'], words: ['graphics packs', 'ReShade presets', 'road textures', 'minimap textures', 'timecycles', 'server lighting'], description: 'Browse FiveM graphics packs, ReShade presets, textures, timecycles and server lighting tools. Check whether each pack installs on the client or server.' },
   redm: { ...CATEGORIES['graphics-packs'], words: ['PvP packs', 'PvP graphics packs', 'RP packs', 'roleplay graphics packs', 'cinematic packs', 'sky packs', 'custom sky textures'], description: 'Browse RedM PvP sky packs, RP graphics presets and cinematic packs. Compare skies, weather and lighting previews before installing.' }
 };
 const fivemServerRecipes = { ...CATEGORIES['server-dumps'], words: ['server templates', 'txAdmin recipes', 'roleplay frameworks'], description: 'Start a FiveM server with public txAdmin recipes from their maintainers. Compare the basic Cfx.re servers and roleplay frameworks before you deploy.' };
@@ -126,7 +126,45 @@ const cs2Categories = {
 };
 const gameCategories = { cs2: cs2Categories, l4d: l4dCategories };
 const fivemLuaMenus = { name: roleplayCategoryLabel('fivem', 'mod-menus'), words: ['Lua menus', 'menu libraries', 'FiveM UI'], description: 'Browse Lua menu libraries for FiveM resources. Compare standalone and framework options and open the maintainers’ setup instructions.' };
-const fivemCategories = { 'server-dumps': fivemServerRecipes, 'mod-menus': fivemLuaMenus };
+const fivemCategories = {
+  'server-dumps': fivemServerRecipes,
+  'mod-menus': fivemLuaMenus,
+  'addon-peds': {
+    name: 'Character and animal models',
+    words: ['FiveM peds', 'character models', 'animal peds', 'pets'],
+    description: 'Browse FiveM character and animal models from their creators. Check the server resource folder, model name and any companion script requirements before installing.'
+  },
+  'addon-animations': {
+    name: 'Animations and emotes',
+    words: ['FiveM animations', 'emotes', 'YCD', 'pose packs'],
+    description: 'Browse FiveM emote menus and custom animations from their creators. Check which releases need an emote resource and how to add their clips.'
+  },
+  'addon-objects': {
+    name: 'Props and objects',
+    words: ['FiveM props', 'object add-ons', 'prop packs', 'YTYP'],
+    description: 'Browse server-streamed FiveM props from their creators. Find café objects, food props, plants and pieces for building maps.'
+  },
+  'addon-clothing': {
+    name: 'Clothing and textures',
+    words: ['FiveM clothing', 'freemode clothing', 'clothing add-ons', 'clothing textures'],
+    description: 'Browse FiveM clothing add-ons and replacement textures from their creators. Check the supported freemode model and where the item appears in your appearance menu.'
+  },
+  'addon-vehicles': {
+    name: 'Addon vehicles',
+    words: ['FiveM vehicles', 'vehicle add-ons', 'server vehicle packs', 'lore friendly cars'],
+    description: 'Browse standalone FiveM vehicle add-ons and packs from their creators. Check the resource folder and model name before adding a vehicle to your server.'
+  },
+  'addon-maps': {
+    name: 'Addon maps',
+    words: ['FiveM maps', 'YMAP', 'MLO interiors', 'map resources'],
+    description: 'Browse FiveM server maps and interior resources from their maintainers. Check the required resource folder, game build and overlapping maps before installing.'
+  },
+  'sound-packs': {
+    name: 'Sound packs',
+    words: ['sound packs', 'weapon audio', 'engine sounds', 'server sirens'],
+    description: 'Browse FiveM audio releases from their creators. Compare local sound replacements with engine sounds and sirens installed by the server operator.'
+  }
+};
 const standPacks = {
   name: 'Addon packs',
   words: ['mod packs', 'Stand bundles', 'all-in-one packs'],
@@ -319,6 +357,7 @@ function renderPage(page, guideRoutes = {}) {
   const samples = page.samples.map(item => {
     const href = resourceHash(item.id);
     const serverRecipe = item.game === 'fivem' && item.category === 'server-dumps';
+    const fiveMSetup = item.game === 'fivem' && ['server-dumps', 'graphics-packs', 'addon-maps', 'addon-vehicles', 'addon-clothing', 'addon-objects', 'addon-animations', 'addon-peds', 'sound-packs'].includes(item.category);
     const preview = hasPreview(item) ? typeof item.preview === 'string' ? item.preview : item.preview.path || item.preview.url : '';
     const remotePreview = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? fileURL({ path: preview }, page.downloadBaseUrl) : preview;
     const local = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? ` data-resource-image="${escape(preview)}"` : '';
@@ -327,7 +366,7 @@ function renderPage(page, guideRoutes = {}) {
     const gtaAddon = item.game === 'gta5' && item.category.startsWith('addon-');
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : serverRecipe || item.builtInLua || (cheraxPreview && item.category === 'lua') ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
+      : fiveMSetup || item.builtInLua || (cheraxPreview && item.category === 'lua') ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
     const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
     const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod, versionLabel: file.versionLabel })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
@@ -338,7 +377,7 @@ function renderPage(page, guideRoutes = {}) {
       return `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">${label}</button>`;
     };
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
-    const authorLabel = item.builtInLua ? 'View module source ↗' : item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : serverRecipe ? 'Download from source ↗' : 'Get from the author ↗';
+    const authorLabel = item.builtInLua ? 'View module source ↗' : item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : fiveMSetup ? 'Download from source ↗' : 'Get from the author ↗';
     const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${authorLabel}</a>` : '';
     const install = authorHosted && /^https:\/\//.test(item.installUrl || '') ? `<p><a href="${escape(item.installUrl)}" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p>` : '';
     const author = item.author || (item.game === 'l4d' ? item.credits : '');
@@ -368,7 +407,7 @@ function renderPage(page, guideRoutes = {}) {
         const url = item.imageBaseUrl + file.split('/').map(encodeURIComponent).join('/');
         return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${localGallery ? `Image ${index + 1}` : escape(file)}</a></li>`;
       }).join('')}</ul></details>` : '';
-    const setup = serverRecipe && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
+    const setup = fiveMSetup && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
     const type = serverRecipe ? 'txAdmin recipe' : item.builtInLua ? 'Built-in Lua module' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
     return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(type)}</p>${badge}${access}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(q => `<a href="${escape(browseURL({ category: item.category, q }))}">${escape(q)}</a>`).join(' ')}</p>${actions}${gallery}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
   }).join('\n');

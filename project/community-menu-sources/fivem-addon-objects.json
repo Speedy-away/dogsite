@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "purpose": "Public FiveM prop resources with links to their creators and server setup notes.",
+  "items": [
+    {
+      "id": "fivem-props-cluckin-bell",
+      "category": "addon-objects",
+      "name": "Cluckin’ Bell Prop Pack",
+      "author": "Nukepug Designs",
+      "description": "Nineteen food, drink and packaging props for Cluckin’ Bell scenes.",
+      "sourceUrl": "https://github.com/NukepugDesigns/npds_clukinbell_proppack",
+      "installUrl": "https://forum.cfx.re/t/free-cluckin-bell-proppack/5347588",
+      "requirementLabel": "FiveM server · Optional ox_inventory setup",
+      "requirements": [
+        "Install the npds_clukinbell_proppack folder and add ensure npds_clukinbell_proppack to server.cfg.",
+        "For inventory items, follow the README’s ox_inventory setup. The author tested that integration with ox_inventory and limits use to noncommercial purposes."
+      ],
+      "tags": ["food", "restaurant", "props"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-props-coffee",
+      "category": "addon-objects",
+      "name": "Coffee Prop Pack",
+      "author": "The Texture",
+      "description": "Ten coffee-themed props for cafés, kitchens and interiors.",
+      "sourceUrl": "https://thetexture.tebex.io/package/7319475",
+      "installUrl": "https://forum.cfx.re/t/free-coffee-prop-pack-the-texture/5389991",
+      "requirementLabel": "FiveM server · Free Tebex checkout",
+      "requirements": [
+        "Claim the free package through the creator’s store and start the supplied resource on your server.",
+        "Use a compatible housing or object placement script to place the props in game."
+      ],
+      "tags": ["coffee", "café", "props"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-props-bzzz-garden",
+      "category": "addon-objects",
+      "name": "BzZzi Garden Props",
+      "author": "BzZzi",
+      "description": "Five types of garden plants with three variants each, including hops, barley and cornstalks.",
+      "sourceUrl": "https://forum.cfx.re/t/free-props-addon-props/4799809",
+      "requirementLabel": "FiveM server · YTYP included",
+      "requirements": [
+        "Use the archive attached to the creator’s release and start the resource in server.cfg.",
+        "If you integrate the models into another resource, preserve the YTYP and its matching DLC_ITYP_REQUEST declaration as described in the release."
+      ],
+      "tags": ["garden", "plants", "ytyp"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-props-timber-deck",
+      "category": "addon-objects",
+      "name": "Modular Timber Deck",
+      "author": "LamontCranston",
+      "description": "Six deck components for map builders, with optional handrails and an example beach placement.",
+      "sourceUrl": "https://forum.cfx.re/t/free-prop-timber-deck/5231051",
+      "requirementLabel": "FiveM server · Props and example YMAP",
+      "requirements": [
+        "Start the example map as its own resource or keep the props and included YTYP together in your map project’s stream folder.",
+        "The author allows noncommercial use. Check the creator’s terms before including the deck in another resource."
+      ],
+      "tags": ["timber deck", "map building", "ytyp"],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/d/1/1/7/d1172263d1965de9274d39ff056e3f524bde4db7.jpeg",
+      "previewKind": "author-preview",
+      "previewCaption": "Example placement from LamontCranston’s release.",
+      "previewVerified": true,
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

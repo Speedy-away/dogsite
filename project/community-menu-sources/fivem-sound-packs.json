@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "purpose": "Author-hosted FiveM audio releases with written setup notes.",
+  "items": [
+    {
+      "id": "fivem-sound-feji-realistic",
+      "category": "sound-packs",
+      "name": "Feji’s Realistic Sound Pack",
+      "author": "Feji",
+      "version": "v2",
+      "description": "Local weapon audio replacements for players who want a different sound mix on their own client.",
+      "sourceUrl": "https://www.gta5-mods.com/weapons/feji-s-realistic-sound-pack-sp-fivem",
+      "requirementLabel": "Client replacement · Two RPF archives",
+      "requirements": [
+        "Follow the author’s written instructions for the GTA V installation you use with FiveM. The release calls for replacing two archives in x64/audio/sfx.",
+        "Back up both originals and check that the server allows client audio replacements. The release does not establish Enhanced compatibility."
+      ],
+      "tags": ["client audio", "weapon sounds", "rpf"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-sound-hercet-weapon",
+      "category": "sound-packs",
+      "name": "Weapon Sound Pack",
+      "author": "hercet",
+      "version": "1.0.0",
+      "description": "Weapon audio that plays locally for the player who installs it.",
+      "sourceUrl": "https://www.gta5-mods.com/weapons/weapon-sound-pack-fivem",
+      "requirementLabel": "Client replacement · Local audio",
+      "requirements": [
+        "Use the author’s FiveM release and identify the original archives in your GTA V x64/audio/sfx folder before changing files.",
+        "Check the server’s rules for client audio and keep the original files so you can restore them."
+      ],
+      "tags": ["client audio", "weapon sounds"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-sound-aquaphobic-engines",
+      "category": "sound-packs",
+      "name": "Custom Vehicle Engine Sounds",
+      "author": "Aquaphobic",
+      "version": "1.7",
+      "description": "A set of engine and exhaust sounds that server operators can assign to individual vehicles.",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/brabus-inspired-custom-engine-sound-add-on-sound",
+      "requirementLabel": "Server resource · Choose the FiveM build",
+      "requirements": [
+        "Under All Versions, select 1.7 FiveM Server Resource. The main download is the single-player version.",
+        "Start the audio resource and set audioNameHash in each target vehicle’s vehicles.meta to a sound ID from the release."
+      ],
+      "tags": ["server audio", "engine sounds", "vehicles"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-sound-aquaphobic-rx7",
+      "category": "sound-packs",
+      "name": "Mazda RX-7 13B Rotary Engine Sound",
+      "author": "Aquaphobic",
+      "credits": "Aquaphobic, with samples and REV guidance credited to Legacy_DMC in the release.",
+      "description": "A rotary engine and exhaust sound for an individual vehicle.",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/mazda-rx-7-13b-rotary-engine-sound-oiv-add-on-fivem",
+      "requirementLabel": "Server resource · Los Santos Tuners assets",
+      "requirements": [
+        "Use a FiveM server build with Los Santos Tuners assets and follow the FiveM instructions in the release’s readme.txt.",
+        "Set the target vehicle’s audioNameHash to rotary7."
+      ],
+      "tags": ["server audio", "engine sounds", "rotary"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-sound-server-sirens",
+      "category": "sound-packs",
+      "name": "Server-Sided Sounds and Sirens",
+      "author": "fk-1997",
+      "description": "Stream siren sound banks to players and assign the tones through a compatible emergency vehicle resource.",
+      "sourceUrl": "https://github.com/fk-1997/Server-Sided-Sounds-and-Sirens",
+      "installUrl": "https://docs.luxartengineering.com/v3/resource-installation/server-sided-siren-integration",
+      "requirementLabel": "Server resource · Compatible siren controller",
+      "requirements": [
+        "Install the server resource and keep its manifest and audio banks together.",
+        "Configure a compatible controller such as Luxart Vehicle Control V3 with the sound-bank and tone IDs from the repository."
+      ],
+      "tags": ["server audio", "sirens", "luxart"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

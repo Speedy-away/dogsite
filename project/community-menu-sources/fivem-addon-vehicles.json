@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "purpose": "Public FiveM vehicle add-ons with creator links and server setup notes.",
+  "items": [
+    {
+      "id": "fivem-vehicle-onx-granger-alamo",
+      "category": "addon-vehicles",
+      "name": "ONX Declasse Granger Revamp + Alamo",
+      "author": "ONX, L’Kid and Tidemo",
+      "description": "Two civilian SUVs based on the Granger platform. The Alamo is the shorter variant.",
+      "sourceUrl": "https://store.onx.gg/package/7341015",
+      "installUrl": "https://forum.cfx.re/t/onx-declasse-granger-revamp-alamo/5392282",
+      "requirementLabel": "FiveM server · Free ONX store package",
+      "requirements": [
+        "Claim the free package on the ONX store. Follow the creator’s instructions for putting the vehicle resources under [onx_vehicles] and starting that group in server.cfg.",
+        "Test the vehicles through your server’s vehicle spawner. The standalone download does not include the separate ONX traffic pack."
+      ],
+      "tags": ["SUV", "civilian vehicles", "lore friendly"],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/e/a/7/c/ea7c56cd2aaf25ca401859cd64bf8b1ec4e42767.jpeg",
+      "previewKind": "author-preview",
+      "previewCaption": "Granger 3600LX screenshot from the ONX release.",
+      "previewVerified": true,
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-vehicle-grodd-customs",
+      "category": "addon-vehicles",
+      "name": "Grodd Customs Vehicle Pack",
+      "author": "Grodd Customs",
+      "description": "Seventeen civilian add-ons, including modified sedans, wagons, muscle cars and SUVs. The release lists the tuning options and spawn names for each.",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/grodd-customs-vehicles-add-on-fivem",
+      "requirementLabel": "FiveM server · groddcustoms resource",
+      "requirements": [
+        "Use the FiveM resource folder and add ensure groddcustoms to server.cfg.",
+        "Use the release’s model names when configuring your spawner or dealership. For a first test, the author lists senhart and oracle_gts."
+      ],
+      "tags": ["civilian vehicles", "vehicle pack", "tuning", "lore friendly"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-vehicle-learning-blista",
+      "category": "addon-vehicles",
+      "name": "Driving School Blista",
+      "author": "Nukepug Designs",
+      "description": "A Blista with a driving school livery for lessons and roleplay events.",
+      "sourceUrl": "https://github.com/NukepugDesigns/npds_learningcar",
+      "installUrl": "https://forum.cfx.re/t/free-driveschool-car/5363882",
+      "requirementLabel": "FiveM server · Model npdsblista",
+      "requirements": [
+        "Install the npdsblista folder from the repository and add ensure npdsblista to server.cfg.",
+        "Use npdsblista as the model name in your authorized vehicle spawner or driving school resource."
+      ],
+      "tags": ["Blista", "driving school", "livery"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-vehicle-sunrise-r-hycade",
+      "category": "addon-vehicles",
+      "name": "Maibatsu Sunrise R Hycade",
+      "author": "SNStudios",
+      "credits": "SNStudios for the Hycade body kit. The release credits Boywond for the original model.",
+      "description": "A custom Sunrise R with a Hycade body kit and a separate FiveM resource in the release.",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/maibatsu-sunrise-r-hycade",
+      "requirementLabel": "FiveM server · Model hycsun",
+      "requirements": [
+        "Use the hycsunrise resource from the archive’s FiveM folder. Start hycsunrise in server.cfg.",
+        "Use hycsun as the model name in your spawner. The resource and model names are different."
+      ],
+      "tags": ["Maibatsu", "coupe", "body kit"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

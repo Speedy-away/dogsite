@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "purpose": "Public FiveM animation releases with creator links and server setup notes.",
+  "items": [
+    {
+      "id": "fivem-animation-rpemotes-reborn",
+      "category": "addon-animations",
+      "name": "RPEmotes Reborn",
+      "author": "alberttheprince and contributors",
+      "description": "A standalone emote menu with built-in animations, shared emotes, props and support for custom animation lists.",
+      "sourceUrl": "https://github.com/alberttheprince/rpemotes-reborn/releases/latest",
+      "installUrl": "https://rpemotes-reborn.gitbook.io/rpemotes-reborn/fundamentals/getting-set-up",
+      "requirementLabel": "FiveM server · OneSync Infinity",
+      "requirements": [
+        "Extract the release into a resource named rpemotes-reborn and add ensure rpemotes-reborn to server.cfg.",
+        "The maintainers require OneSync Infinity for synchronization and recommend the latest supported game build. Use oxmysql if you enable SQL features."
+      ],
+      "tags": ["emote menu", "shared emotes", "animations"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-animation-bzzz-pockets",
+      "category": "addon-animations",
+      "name": "Hands in Pockets",
+      "author": "BzZzi",
+      "description": "A custom idle animation for roleplay scenes. The release supplies the dictionary and clip names.",
+      "sourceUrl": "https://forum.cfx.re/t/free-addon-animation-hands-in-pockets/4843763",
+      "requirementLabel": "FiveM server · YCD animation · Emote integration",
+      "requirements": [
+        "Use the archive attached to the author’s post and put the YCD in a resource’s stream folder.",
+        "Register dictionary bzzz@animations@hands and clip bz_hands in your emote resource. The author gives a DPEmotes example."
+      ],
+      "tags": ["idle pose", "ycd", "emote"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-animation-ll-pose-pack",
+      "category": "addon-animations",
+      "name": "L&L Pose Animation Pack",
+      "author": "L&L Shop",
+      "description": "Five custom pose animations for screenshots and staged scenes.",
+      "sourceUrl": "https://ll-shop-webshop.tebex.io/package/5293808",
+      "installUrl": "https://forum.cfx.re/t/animation-pose-animation-pack/4909910",
+      "requirementLabel": "FiveM server · DPEmotes setup supplied",
+      "requirements": [
+        "Choose the free option on the creator’s store or use the attachment on the original release post.",
+        "Follow the included README and use the supplied animation list entries if your server runs DPEmotes."
+      ],
+      "tags": ["pose pack", "photography", "dpemotes"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-animation-crunchycat-poses",
+      "category": "addon-animations",
+      "name": "Custom SP & MP Poses",
+      "author": "crunchycat",
+      "description": "A set of static character poses for arranging scenes in single-player or on a FiveM server.",
+      "sourceUrl": "https://www.gta5-mods.com/misc/custom-sp-mp-poses",
+      "requirementLabel": "FiveM server · FiveM instructions in README",
+      "requirements": [
+        "Follow the FiveM instructions in the included README.",
+        "Use the pack’s dictionary and clip names with your server’s animation resource and test the poses on the intended ped model."
+      ],
+      "tags": ["static poses", "scene making", "ycd"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    }
+  ]
+}

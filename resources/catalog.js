@@ -6,7 +6,7 @@ const GAMES = {
   gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs'] },
   rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
   cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
-  fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+  fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'sound-packs', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
   redm: { name: 'RedM', assets: ['outfits', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings', 'maps', 'textures', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
   l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
 };
@@ -170,12 +170,12 @@ function authorPage(entry) {
   return entry.status === 'author-hosted' ? safeURL(entry.sourceUrl) : '';
 }
 
-const isFiveMRecipe = entry => entry.game === 'fivem' && entry.category === 'server-dumps';
+const hasFiveMSetupNotes = entry => entry.game === 'fivem' && ['server-dumps', 'graphics-packs', 'addon-maps', 'addon-vehicles', 'addon-clothing', 'addon-objects', 'addon-animations', 'addon-peds', 'sound-packs'].includes(entry.category);
 
 function authorAction(entry) {
   if (entry.builtInLua) return 'View module source ↗';
   if (entry.source === 'Nenyoo Resources' && entry.category === 'themes') return 'Open theme folder ↗';
-  return isFiveMRecipe(entry) ? 'Download from source ↗' : 'Get from the author ↗';
+  return hasFiveMSetupNotes(entry) ? 'Download from source ↗' : 'Get from the author ↗';
 }
 
 function previewAllowed(entry) {
@@ -979,7 +979,7 @@ async function card(entry) {
   if (entry.description) info.append(node('p', visibleText(entry, entry.description), 'description'));
   const loaderNote = menuSystem.presetLoaderNote(entry, state.menu);
   if (loaderNote) info.append(node('p', loaderNote, 'compatibility-note'));
-  if (entry.requirementLabel && (sourceMenu === 'nenyoo' && entry.category === 'lua' || isFiveMRecipe(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
+  if (entry.requirementLabel && (sourceMenu === 'nenyoo' && entry.category === 'lua' || hasFiveMSetupNotes(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
     info.append(node('p', entry.requirementLabel, 'compatibility-note'));
   }
   if (ACCESS_LABELS[entry.access]) info.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
@@ -993,7 +993,7 @@ async function card(entry) {
     const external = link(authorAction(entry), source, true);
     external.className = 'external-primary';
     actions.append(external);
-    if (isFiveMRecipe(entry)) {
+    if (hasFiveMSetupNotes(entry)) {
       const requirements = node('button', 'Requirements');
       requirements.type = 'button';
       requirements.onclick = () => showDetails(entry, files);
@@ -1037,7 +1037,7 @@ async function card(entry) {
     guide.className = 'guide-link';
     info.append(guide);
   }
-  if (!compactLua && (preview || (entry.category !== 'themes' && !isFiveMRecipe(entry)))) article.append(shot);
+  if (!compactLua && (preview || (entry.category !== 'themes' && !hasFiveMSetupNotes(entry)))) article.append(shot);
   article.append(info);
   return article;
 }

@@ -157,6 +157,13 @@ function add(entry, origin) {
     ((['fivem-graphics', 'l4d', 'cs2-gamebanana-skyboxes', 'cs2-hdri-skies', 'cs2-hammer-materials'].includes(origin) ||
       (origin === 'fivem-server-recipes' && normalized.game === 'fivem' && normalized.category === 'server-dumps') ||
       (origin === 'fivem-lua-menus' && normalized.game === 'fivem' && normalized.category === 'mod-menus') ||
+      (origin === 'fivem-addon-maps' && normalized.game === 'fivem' && normalized.category === 'addon-maps') ||
+      (origin === 'fivem-addon-vehicles' && normalized.game === 'fivem' && normalized.category === 'addon-vehicles') ||
+      (origin === 'fivem-addon-clothing' && normalized.game === 'fivem' && normalized.category === 'addon-clothing') ||
+      (origin === 'fivem-addon-objects' && normalized.game === 'fivem' && normalized.category === 'addon-objects') ||
+      (origin === 'fivem-addon-animations' && normalized.game === 'fivem' && normalized.category === 'addon-animations') ||
+      (origin === 'fivem-addon-peds' && normalized.game === 'fivem' && normalized.category === 'addon-peds') ||
+      (origin === 'fivem-sound-packs' && normalized.game === 'fivem' && normalized.category === 'sound-packs') ||
       (origin === 'redm-public-releases' && normalized.game === 'redm' && normalized.category === 'graphics-packs') ||
       (origin === 'gta5-addon-packs' && normalized.game === 'gta5' && normalized.category === 'addon-packs') ||
       (origin === 'stand-discord-reviewed' && normalized.category === 'asi-mods'))
@@ -228,6 +235,13 @@ importManifest('redm-public-releases', 'redm');
 importManifest('fivem-graphics', 'fivem');
 importManifest('fivem-server-recipes', 'fivem');
 importManifest('fivem-lua-menus', 'fivem');
+importManifest('fivem-addon-maps', 'fivem');
+importManifest('fivem-addon-vehicles', 'fivem');
+importManifest('fivem-addon-clothing', 'fivem');
+importManifest('fivem-addon-objects', 'fivem');
+importManifest('fivem-addon-animations', 'fivem');
+importManifest('fivem-addon-peds', 'fivem');
+importManifest('fivem-sound-packs', 'fivem');
 for (const manifest of ['cs2-gamebanana-skyboxes', 'cs2-hdri-skies', 'cs2-hammer-materials', 'cs2-panorama-imports']) importManifest(manifest, 'cs2');
 for (const manifest of ['l4d', 'l4d-originals', 'l4d-configs']) importManifest(manifest, 'l4d');
 // Relabel existing Cherax marketplace data in place, preserving file identities.

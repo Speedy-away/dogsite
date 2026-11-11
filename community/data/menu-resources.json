@@ -90441,6 +90441,1184 @@
       "id": "fivem-menu-qb-menu"
     },
     {
+      "name": "VisualVanilla",
+      "category": "graphics-packs",
+      "description": "A standalone visual overhaul with revised weather, lighting, bloom and color. This is the final feature release.",
+      "author": "Stryfaar",
+      "credits": "Stryfaar. Built on VisualV by _CP_ and robi29.",
+      "sourceUrl": "https://www.gta5-mods.com/misc/visualvanilla",
+      "version": "2.0 for FiveM (Final)",
+      "requirementLabel": "FiveM Legacy · Client RPF pack",
+      "requirements": [
+        "Under All Versions, choose 2.0 for FiveM (FINAL). The main download is the single-player version.",
+        "The author puts the FiveM RPF files in FiveM.app/mods. Record which files you add and back up any files you replace before testing."
+      ],
+      "tags": [
+        "client graphics",
+        "timecycle",
+        "weather",
+        "lighting",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=graphics-packs",
+      "id": "fivem-graphics-visualvanilla"
+    },
+    {
+      "name": "U1D GFX Core",
+      "category": "graphics-packs",
+      "description": "A graphics overhaul with distinct weather palettes and revised lighting for dawn and dusk. It runs without ReShade or ENB.",
+      "author": "U1D GFX",
+      "sourceUrl": "https://www.gta5-mods.com/misc/u1d-gfx-core-sp-fivem-u1d-gfx",
+      "version": "FiveM 1.0.0",
+      "requirementLabel": "FiveM Legacy · Client timecycle pack",
+      "requirements": [
+        "Select FiveM 1.0.0 in All Versions and use the written installation instructions included with that package.",
+        "Compare it on its own before layering another graphics preset over it."
+      ],
+      "tags": [
+        "client graphics",
+        "timecycle",
+        "weather",
+        "sunsets",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "U1D GFX",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=graphics-packs",
+      "id": "fivem-graphics-u1d-gfx-core"
+    },
+    {
+      "name": "X-Visual",
+      "category": "graphics-packs",
+      "description": "A server resource that offers a menu for changing timecycle presets and vehicle light intensity in game.",
+      "author": "Project-X",
+      "sourceUrl": "https://github.com/XProject/x-visual",
+      "installUrl": "https://forum.cfx.re/t/free-x-visual-modify-visuals-vehicle-lights-fps-booster-included/5048530",
+      "requirementLabel": "Server resource · OneSync Infinity · MenuV or ox_lib",
+      "requirements": [
+        "The author lists OneSync Infinity and either MenuV or ox_lib. Install the chosen menu library before starting X-Visual.",
+        "Use the configuration supplied by the author and check how its presets interact with your other visuals resources."
+      ],
+      "tags": [
+        "server resource",
+        "timecycle",
+        "vehicle lighting",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Project-X",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=graphics-packs",
+      "id": "fivem-graphics-x-visual"
+    },
+    {
+      "name": "Serverside VisualSettings",
+      "category": "graphics-packs",
+      "description": "A server utility for distributing a custom visualsettings.dat to connected players. Use it to tune shared effects such as vehicle lights.",
+      "author": "Jarrrk",
+      "sourceUrl": "https://github.com/Jarrrk/FiveM-VisualSettings",
+      "installUrl": "https://forum.cfx.re/t/release-serverside-visualsettings-stream-custom-visualsettings-dat/201448",
+      "requirementLabel": "Server resource · Custom visualsettings.dat",
+      "requirements": [
+        "Name the folder VisualSettings and start it from server.cfg as the author describes.",
+        "Test a single visualsettings.dat on a test server before enabling it alongside other lighting resources."
+      ],
+      "tags": [
+        "server resource",
+        "visualsettings",
+        "vehicle lighting",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Jarrrk",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=graphics-packs",
+      "id": "fivem-graphics-server-visualsettings"
+    },
+    {
+      "name": "Legion Square +",
+      "category": "addon-maps",
+      "description": "A standalone YMAP redesign of Legion Square with new landscaping and props.",
+      "author": "zinpod (0breezy0)",
+      "sourceUrl": "https://github.com/0breezy0/LegionPlus/tree/main",
+      "installUrl": "https://forum.cfx.re/t/free-map-legion-square/5255957",
+      "requirementLabel": "FiveM server · Standalone YMAP",
+      "requirements": [
+        "Put the breezy_legionplus folder under the server’s resources directory and add ensure breezy_legionplus to server.cfg.",
+        "Test it with other Legion Square maps disabled first so you can spot overlapping props or collision."
+      ],
+      "tags": [
+        "Legion Square",
+        "YMAP",
+        "outdoor map",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Screenshot from the creator’s Legion Square + release.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "zinpod (0breezy0)",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/e/a/5/c/ea5c933d18f6cfbcf78764c69df71d3c5363a9bc.jpeg",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-maps",
+      "id": "fivem-map-legion-plus"
+    },
+    {
+      "name": "Coin’s Sandy Shores Project",
+      "category": "addon-maps",
+      "description": "A Sandy Shores YMAP with new props, memorials and changes to roadside scenery.",
+      "author": "Coin6969",
+      "sourceUrl": "https://github.com/Coin6969/Coins-Sandy-Shores-Project-more-then-just-trees",
+      "installUrl": "https://forum.cfx.re/t/fivem-my-new-sandy-shores-ymap/5315999",
+      "requirementLabel": "FiveM server · CoinsSandyProject resource",
+      "requirements": [
+        "Install the CoinsSandyProject folder that contains fxmanifest.lua and start that resource from server.cfg.",
+        "The author built this on the earlier CoinsTrees map. Compare it on its own before combining it with other Sandy Shores edits."
+      ],
+      "tags": [
+        "Sandy Shores",
+        "YMAP",
+        "outdoor map",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Coin6969",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-maps",
+      "id": "fivem-map-coin-sandy-shores"
+    },
+    {
+      "name": "Omozan",
+      "category": "addon-maps",
+      "description": "A custom map from AndreIakko’s free MLO collection. The repository also contains vehicle and outfit resources in separate folders.",
+      "author": "AndreIakko",
+      "sourceUrl": "https://github.com/AndreIakko/Omozan",
+      "installUrl": "https://forum.cfx.re/t/map-free-maps-mlo/4907865",
+      "requirementLabel": "FiveM server · iak_omozan_map resource",
+      "requirements": [
+        "For the map, install iak_omozan_map with its manifest and stream directory together. Start the resource on a test server.",
+        "Review the vehicle and outfit folders separately if you want to use those parts of the release."
+      ],
+      "tags": [
+        "MLO",
+        "map resource",
+        "streaming",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "AndreIakko",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-maps",
+      "id": "fivem-map-omozan"
+    },
+    {
+      "name": "bob74_ipl",
+      "category": "addon-maps",
+      "description": "A map utility for loading and customizing existing GTA V interiors and fixing missing map elements.",
+      "author": "Bob74 and contributors",
+      "sourceUrl": "https://github.com/Bob74/bob74_ipl/releases/latest",
+      "installUrl": "https://github.com/Bob74/bob74_ipl#install",
+      "requirementLabel": "FiveM server · Check for an existing copy",
+      "requirements": [
+        "Check whether your framework already includes bob74_ipl. Use the release archive named bob74_ipl.zip and start the resource from server.cfg.",
+        "Use the upstream changelog to confirm your build and edition. The project documents separate streaming assets for Enhanced."
+      ],
+      "tags": [
+        "IPL",
+        "interiors",
+        "map utility",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Bob74 and contributors",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-maps",
+      "id": "fivem-map-bob74-ipl"
+    },
+    {
+      "name": "ONX Declasse Granger Revamp + Alamo",
+      "category": "addon-vehicles",
+      "description": "Two civilian SUVs based on the Granger platform. The Alamo is the shorter variant.",
+      "author": "ONX, L’Kid and Tidemo",
+      "sourceUrl": "https://store.onx.gg/package/7341015",
+      "installUrl": "https://forum.cfx.re/t/onx-declasse-granger-revamp-alamo/5392282",
+      "requirementLabel": "FiveM server · Free ONX store package",
+      "requirements": [
+        "Claim the free package on the ONX store. Follow the creator’s instructions for putting the vehicle resources under [onx_vehicles] and starting that group in server.cfg.",
+        "Test the vehicles through your server’s vehicle spawner. The standalone download does not include the separate ONX traffic pack."
+      ],
+      "tags": [
+        "SUV",
+        "civilian vehicles",
+        "lore friendly",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Granger 3600LX screenshot from the ONX release.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "ONX, L’Kid and Tidemo",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/e/a/7/c/ea7c56cd2aaf25ca401859cd64bf8b1ec4e42767.jpeg",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-vehicles",
+      "id": "fivem-vehicle-onx-granger-alamo"
+    },
+    {
+      "name": "Grodd Customs Vehicle Pack",
+      "category": "addon-vehicles",
+      "description": "Seventeen civilian add-ons, including modified sedans, wagons, muscle cars and SUVs. The release lists the tuning options and spawn names for each.",
+      "author": "Grodd Customs",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/grodd-customs-vehicles-add-on-fivem",
+      "requirementLabel": "FiveM server · groddcustoms resource",
+      "requirements": [
+        "Use the FiveM resource folder and add ensure groddcustoms to server.cfg.",
+        "Use the release’s model names when configuring your spawner or dealership. For a first test, the author lists senhart and oracle_gts."
+      ],
+      "tags": [
+        "civilian vehicles",
+        "vehicle pack",
+        "tuning",
+        "lore friendly",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Grodd Customs",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-vehicles",
+      "id": "fivem-vehicle-grodd-customs"
+    },
+    {
+      "name": "Driving School Blista",
+      "category": "addon-vehicles",
+      "description": "A Blista with a driving school livery for lessons and roleplay events.",
+      "author": "Nukepug Designs",
+      "sourceUrl": "https://github.com/NukepugDesigns/npds_learningcar",
+      "installUrl": "https://forum.cfx.re/t/free-driveschool-car/5363882",
+      "requirementLabel": "FiveM server · Model npdsblista",
+      "requirements": [
+        "Install the npdsblista folder from the repository and add ensure npdsblista to server.cfg.",
+        "Use npdsblista as the model name in your authorized vehicle spawner or driving school resource."
+      ],
+      "tags": [
+        "Blista",
+        "driving school",
+        "livery",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Nukepug Designs",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-vehicles",
+      "id": "fivem-vehicle-learning-blista"
+    },
+    {
+      "name": "Maibatsu Sunrise R Hycade",
+      "category": "addon-vehicles",
+      "description": "A custom Sunrise R with a Hycade body kit and a separate FiveM resource in the release.",
+      "author": "SNStudios",
+      "credits": "SNStudios for the Hycade body kit. The release credits Boywond for the original model.",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/maibatsu-sunrise-r-hycade",
+      "requirementLabel": "FiveM server · Model hycsun",
+      "requirements": [
+        "Use the hycsunrise resource from the archive’s FiveM folder. Start hycsunrise in server.cfg.",
+        "Use hycsun as the model name in your spawner. The resource and model names are different."
+      ],
+      "tags": [
+        "Maibatsu",
+        "coupe",
+        "body kit",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-vehicles",
+      "id": "fivem-vehicle-sunrise-r-hycade"
+    },
+    {
+      "name": "Graffiti Hoodies Pack",
+      "category": "addon-clothing",
+      "description": "Male and female freemode hoodies in hood-up and hood-down versions, each with eight graffiti textures.",
+      "author": "FlaaDev",
+      "sourceUrl": "https://github.com/FlaaDev/FlaaDev-Kit/tree/main/flaadev-8graffitih",
+      "installUrl": "https://forum.cfx.re/t/free-addon-released-graffiti-hoodies-pack-mp-m-f/5251704",
+      "requirementLabel": "FiveM server · Male and female freemode",
+      "requirements": [
+        "Install the flaadev-8graffitih folder and add ensure flaadev-8graffitih to server.cfg.",
+        "Check both freemode models in your server’s appearance menu after the resource starts."
+      ],
+      "tags": [
+        "hoodies",
+        "freemode",
+        "clothing add-on",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "FlaaDev",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-clothing",
+      "id": "fivem-clothing-graffiti-hoodies"
+    },
+    {
+      "name": "Judge Robe",
+      "category": "addon-clothing",
+      "description": "Courtroom robes for male and female freemode characters.",
+      "author": "jimgordon20",
+      "credits": "jimgordon20 adapted and released the set. Buckeye923 made the original male robe and grzybeek contributed fixes.",
+      "sourceUrl": "https://github.com/jimgordon20/jim_g_Judge_Robe_fivem_f_and_m",
+      "installUrl": "https://forum.cfx.re/t/free-jim-g-judge-robe-f-and-m/5230403",
+      "requirementLabel": "FiveM server · Male and female freemode",
+      "requirements": [
+        "Use the current Judge_Robe_fivem_f_and_m resource folder from the repository. Start it from server.cfg.",
+        "Check the add-on entries in your appearance menu on both freemode models. The author documents fixes in the current release."
+      ],
+      "tags": [
+        "robe",
+        "freemode",
+        "clothing add-on",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Screenshot from the creator’s Judge Robe release.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/5/8/b/e/58bee5ffd6b1c4aefa8c4fdcc905d3567afb9f97.png",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-clothing",
+      "id": "fivem-clothing-judge-robe"
+    },
+    {
+      "name": "Simple Summer Dress",
+      "category": "addon-clothing",
+      "description": "An original female freemode dress with moving fabric and multiple textures.",
+      "author": "Popcorn Roleplay",
+      "sourceUrl": "https://popcornrp-store.tebex.io/package/7271848",
+      "installUrl": "https://forum.cfx.re/t/simple-summer-dress-with-physics-addon-clothing/5385363",
+      "requirementLabel": "FiveM server · Female freemode · Free Tebex checkout",
+      "requirements": [
+        "Claim the free item through the creator’s store. The creator ties use to the purchaser’s FiveM server license.",
+        "Install the supplied resource according to the creator’s instructions and test the dress while walking and sitting."
+      ],
+      "tags": [
+        "dress",
+        "female freemode",
+        "clothing add-on",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Product image from Popcorn Roleplay’s dress release.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Popcorn Roleplay",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://dunb17ur4ymx4.cloudfront.net/packages/images/8c1e13f31bea3d4953684a1cadc301e2a58cb44a.png",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-clothing",
+      "id": "fivem-clothing-summer-dress"
+    },
+    {
+      "name": "Felis Missing Clothing Textures",
+      "category": "addon-clothing",
+      "description": "Replacement textures for existing male and female clothing and props that show a checkerboard pattern.",
+      "author": "Felis Development",
+      "sourceUrl": "https://github.com/FelisDevelopment/fd_missing_textures/",
+      "installUrl": "https://forum.cfx.re/t/free-missing-checkerboard-texture-replacements-900-lore-friendly-textures-male-female/5376249",
+      "requirementLabel": "FiveM server · Texture replacements",
+      "requirements": [
+        "Start fd_missing_textures before the clothing group, as shown in the README. The separate ydd and images folders are optional reference files.",
+        "Test the original clothing slots again after starting the resource. This pack replaces textures in those slots."
+      ],
+      "tags": [
+        "clothing textures",
+        "texture replacements",
+        "freemode",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Texture examples from Felis Development’s release.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Felis Development",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/2/c/e/6/2ce6246cf2ae10115a426ae670b0390d6732558e.jpeg",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-clothing",
+      "id": "fivem-clothing-felis-missing-textures"
+    },
+    {
+      "name": "Cluckin’ Bell Prop Pack",
+      "category": "addon-objects",
+      "description": "Nineteen food, drink and packaging props for Cluckin’ Bell scenes.",
+      "author": "Nukepug Designs",
+      "sourceUrl": "https://github.com/NukepugDesigns/npds_clukinbell_proppack",
+      "installUrl": "https://forum.cfx.re/t/free-cluckin-bell-proppack/5347588",
+      "requirementLabel": "FiveM server · Optional ox_inventory setup",
+      "requirements": [
+        "Install the npds_clukinbell_proppack folder and add ensure npds_clukinbell_proppack to server.cfg.",
+        "For inventory items, follow the README’s ox_inventory setup. The author tested that integration with ox_inventory and limits use to noncommercial purposes."
+      ],
+      "tags": [
+        "food",
+        "restaurant",
+        "props",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Nukepug Designs",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-objects",
+      "id": "fivem-props-cluckin-bell"
+    },
+    {
+      "name": "Coffee Prop Pack",
+      "category": "addon-objects",
+      "description": "Ten coffee-themed props for cafés, kitchens and interiors.",
+      "author": "The Texture",
+      "sourceUrl": "https://thetexture.tebex.io/package/7319475",
+      "installUrl": "https://forum.cfx.re/t/free-coffee-prop-pack-the-texture/5389991",
+      "requirementLabel": "FiveM server · Free Tebex checkout",
+      "requirements": [
+        "Claim the free package through the creator’s store and start the supplied resource on your server.",
+        "Use a compatible housing or object placement script to place the props in game."
+      ],
+      "tags": [
+        "coffee",
+        "café",
+        "props",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "The Texture",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-objects",
+      "id": "fivem-props-coffee"
+    },
+    {
+      "name": "BzZzi Garden Props",
+      "category": "addon-objects",
+      "description": "Five types of garden plants with three variants each, including hops, barley and cornstalks.",
+      "author": "BzZzi",
+      "sourceUrl": "https://forum.cfx.re/t/free-props-addon-props/4799809",
+      "requirementLabel": "FiveM server · YTYP included",
+      "requirements": [
+        "Use the archive attached to the creator’s release and start the resource in server.cfg.",
+        "If you integrate the models into another resource, preserve the YTYP and its matching DLC_ITYP_REQUEST declaration as described in the release."
+      ],
+      "tags": [
+        "garden",
+        "plants",
+        "ytyp",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "BzZzi",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-objects",
+      "id": "fivem-props-bzzz-garden"
+    },
+    {
+      "name": "Modular Timber Deck",
+      "category": "addon-objects",
+      "description": "Six deck components for map builders, with optional handrails and an example beach placement.",
+      "author": "LamontCranston",
+      "sourceUrl": "https://forum.cfx.re/t/free-prop-timber-deck/5231051",
+      "requirementLabel": "FiveM server · Props and example YMAP",
+      "requirements": [
+        "Start the example map as its own resource or keep the props and included YTYP together in your map project’s stream folder.",
+        "The author allows noncommercial use. Check the creator’s terms before including the deck in another resource."
+      ],
+      "tags": [
+        "timber deck",
+        "map building",
+        "ytyp",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Example placement from LamontCranston’s release.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "LamontCranston",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/d/1/1/7/d1172263d1965de9274d39ff056e3f524bde4db7.jpeg",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-objects",
+      "id": "fivem-props-timber-deck"
+    },
+    {
+      "name": "RPEmotes Reborn",
+      "category": "addon-animations",
+      "description": "A standalone emote menu with built-in animations, shared emotes, props and support for custom animation lists.",
+      "author": "alberttheprince and contributors",
+      "sourceUrl": "https://github.com/alberttheprince/rpemotes-reborn/releases/latest",
+      "installUrl": "https://rpemotes-reborn.gitbook.io/rpemotes-reborn/fundamentals/getting-set-up",
+      "requirementLabel": "FiveM server · OneSync Infinity",
+      "requirements": [
+        "Extract the release into a resource named rpemotes-reborn and add ensure rpemotes-reborn to server.cfg.",
+        "The maintainers require OneSync Infinity for synchronization and recommend the latest supported game build. Use oxmysql if you enable SQL features."
+      ],
+      "tags": [
+        "emote menu",
+        "shared emotes",
+        "animations",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "alberttheprince and contributors",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-animations",
+      "id": "fivem-animation-rpemotes-reborn"
+    },
+    {
+      "name": "Hands in Pockets",
+      "category": "addon-animations",
+      "description": "A custom idle animation for roleplay scenes. The release supplies the dictionary and clip names.",
+      "author": "BzZzi",
+      "sourceUrl": "https://forum.cfx.re/t/free-addon-animation-hands-in-pockets/4843763",
+      "requirementLabel": "FiveM server · YCD animation · Emote integration",
+      "requirements": [
+        "Use the archive attached to the author’s post and put the YCD in a resource’s stream folder.",
+        "Register dictionary bzzz@animations@hands and clip bz_hands in your emote resource. The author gives a DPEmotes example."
+      ],
+      "tags": [
+        "idle pose",
+        "ycd",
+        "emote",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "BzZzi",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-animations",
+      "id": "fivem-animation-bzzz-pockets"
+    },
+    {
+      "name": "L&L Pose Animation Pack",
+      "category": "addon-animations",
+      "description": "Five custom pose animations for screenshots and staged scenes.",
+      "author": "L&L Shop",
+      "sourceUrl": "https://ll-shop-webshop.tebex.io/package/5293808",
+      "installUrl": "https://forum.cfx.re/t/animation-pose-animation-pack/4909910",
+      "requirementLabel": "FiveM server · DPEmotes setup supplied",
+      "requirements": [
+        "Choose the free option on the creator’s store or use the attachment on the original release post.",
+        "Follow the included README and use the supplied animation list entries if your server runs DPEmotes."
+      ],
+      "tags": [
+        "pose pack",
+        "photography",
+        "dpemotes",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "L&L Shop",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-animations",
+      "id": "fivem-animation-ll-pose-pack"
+    },
+    {
+      "name": "Custom SP & MP Poses",
+      "category": "addon-animations",
+      "description": "A set of static character poses for arranging scenes in single-player or on a FiveM server.",
+      "author": "crunchycat",
+      "sourceUrl": "https://www.gta5-mods.com/misc/custom-sp-mp-poses",
+      "requirementLabel": "FiveM server · FiveM instructions in README",
+      "requirements": [
+        "Follow the FiveM instructions in the included README.",
+        "Use the pack’s dictionary and clip names with your server’s animation resource and test the poses on the intended ped model."
+      ],
+      "tags": [
+        "static poses",
+        "scene making",
+        "ycd",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "crunchycat",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-animations",
+      "id": "fivem-animation-crunchycat-poses"
+    },
+    {
+      "name": "Popcorn RP Pets",
+      "category": "addon-peds",
+      "description": "A free collection of animal models including a Chow Chow, a Dobermann, K9 dogs, an armadillo and a robot dog.",
+      "author": "Popcorn RP and credited contributors",
+      "sourceUrl": "https://github.com/alberttheprince/popcornrp-pets",
+      "installUrl": "https://github.com/alberttheprince/popcornrp-pets#popcornrp-pets",
+      "requirementLabel": "FiveM server · Free · Animal models",
+      "requirements": [
+        "Keep fxmanifest.lua, data and stream together in a resource folder named popcornrp-pets and add ensure popcornrp-pets to server.cfg.",
+        "Read the model name from the matching peds.meta entry. Pet interactions require a separate compatible resource such as keep-companion-ox."
+      ],
+      "tags": [
+        "animals",
+        "dogs",
+        "pet models",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "Popcorn RP’s preview of its FiveM animal models.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Popcorn RP and credited contributors",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/7/6/a/3/76a30fb8a94f12eaef666b855d12752622607827.jpeg",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-peds",
+      "id": "fivem-ped-popcornrp-pets"
+    },
+    {
+      "name": "Pablo ‘Fat Cop’ Taco",
+      "category": "addon-peds",
+      "description": "A free human character model with casual outfits and police uniform variants for LSPD, BCSO and SAHP.",
+      "author": "TehHitman",
+      "sourceUrl": "https://github.com/TehHitman/cfx-pablo-hitman",
+      "installUrl": "https://forum.cfx.re/t/free-ped-pablo-fat-cop-taco/5287178",
+      "requirementLabel": "FiveM server · Free · Human character",
+      "requirements": [
+        "Open cfx-pablo-hitman.zip on the author’s repository and use the enclosed FiveM resource folder.",
+        "Start the resource by its folder name. Use the supplied model name in your server’s ped selector and test the outfit variants."
+      ],
+      "tags": [
+        "human ped",
+        "roleplay",
+        "uniforms",
+        "Scooby"
+      ],
+      "previewKind": "author-preview",
+      "previewCaption": "TehHitman’s preview of the Pablo Taco character model.",
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "TehHitman",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "preview": "https://forum-cfx-re.akamaized.net/original/5X/c/f/0/c/cf0c68378a668266265b480670d07317fd6a41c4.jpeg",
+      "previewVerified": true,
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-peds",
+      "id": "fivem-ped-pablo-taco"
+    },
+    {
+      "name": "Anubis",
+      "category": "addon-peds",
+      "description": "A fantasy character model with multiple eye and body variants and levels of detail for different viewing distances.",
+      "author": "SSERAFIM MODS",
+      "sourceUrl": "https://seraphimmods.tebex.io/package/anubis",
+      "requirementLabel": "FiveM server · Paid Tebex release · Asset Escrow",
+      "requirements": [
+        "Place the supplied sera_anubis folder in your server’s resources folder and add ensure sera_anubis to server.cfg.",
+        "Use sera_anubis as the model name in your server’s ped selector."
+      ],
+      "tags": [
+        "fantasy ped",
+        "character model",
+        "texture variants",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "SSERAFIM MODS",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=addon-peds",
+      "id": "fivem-ped-serafim-anubis"
+    },
+    {
+      "name": "Feji’s Realistic Sound Pack",
+      "category": "sound-packs",
+      "description": "Local weapon audio replacements for players who want a different sound mix on their own client.",
+      "author": "Feji",
+      "sourceUrl": "https://www.gta5-mods.com/weapons/feji-s-realistic-sound-pack-sp-fivem",
+      "version": "v2",
+      "requirementLabel": "Client replacement · Two RPF archives",
+      "requirements": [
+        "Follow the author’s written instructions for the GTA V installation you use with FiveM. The release calls for replacing two archives in x64/audio/sfx.",
+        "Back up both originals and check that the server allows client audio replacements. The release does not establish Enhanced compatibility."
+      ],
+      "tags": [
+        "client audio",
+        "weapon sounds",
+        "rpf",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Feji",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=sound-packs",
+      "id": "fivem-sound-feji-realistic"
+    },
+    {
+      "name": "Weapon Sound Pack",
+      "category": "sound-packs",
+      "description": "Weapon audio that plays locally for the player who installs it.",
+      "author": "hercet",
+      "sourceUrl": "https://www.gta5-mods.com/weapons/weapon-sound-pack-fivem",
+      "version": "1.0.0",
+      "requirementLabel": "Client replacement · Local audio",
+      "requirements": [
+        "Use the author’s FiveM release and identify the original archives in your GTA V x64/audio/sfx folder before changing files.",
+        "Check the server’s rules for client audio and keep the original files so you can restore them."
+      ],
+      "tags": [
+        "client audio",
+        "weapon sounds",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "hercet",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=sound-packs",
+      "id": "fivem-sound-hercet-weapon"
+    },
+    {
+      "name": "Custom Vehicle Engine Sounds",
+      "category": "sound-packs",
+      "description": "A set of engine and exhaust sounds that server operators can assign to individual vehicles.",
+      "author": "Aquaphobic",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/brabus-inspired-custom-engine-sound-add-on-sound",
+      "version": "1.7",
+      "requirementLabel": "Server resource · Choose the FiveM build",
+      "requirements": [
+        "Under All Versions, select 1.7 FiveM Server Resource. The main download is the single-player version.",
+        "Start the audio resource and set audioNameHash in each target vehicle’s vehicles.meta to a sound ID from the release."
+      ],
+      "tags": [
+        "server audio",
+        "engine sounds",
+        "vehicles",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "Aquaphobic",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=sound-packs",
+      "id": "fivem-sound-aquaphobic-engines"
+    },
+    {
+      "name": "Mazda RX-7 13B Rotary Engine Sound",
+      "category": "sound-packs",
+      "description": "A rotary engine and exhaust sound for an individual vehicle.",
+      "author": "Aquaphobic",
+      "credits": "Aquaphobic, with samples and REV guidance credited to Legacy_DMC in the release.",
+      "sourceUrl": "https://www.gta5-mods.com/vehicles/mazda-rx-7-13b-rotary-engine-sound-oiv-add-on-fivem",
+      "requirementLabel": "Server resource · Los Santos Tuners assets",
+      "requirements": [
+        "Use a FiveM server build with Los Santos Tuners assets and follow the FiveM instructions in the release’s readme.txt.",
+        "Set the target vehicle’s audioNameHash to rotary7."
+      ],
+      "tags": [
+        "server audio",
+        "engine sounds",
+        "rotary",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=sound-packs",
+      "id": "fivem-sound-aquaphobic-rx7"
+    },
+    {
+      "name": "Server-Sided Sounds and Sirens",
+      "category": "sound-packs",
+      "description": "Stream siren sound banks to players and assign the tones through a compatible emergency vehicle resource.",
+      "author": "fk-1997",
+      "sourceUrl": "https://github.com/fk-1997/Server-Sided-Sounds-and-Sirens",
+      "installUrl": "https://docs.luxartengineering.com/v3/resource-installation/server-sided-siren-integration",
+      "requirementLabel": "Server resource · Compatible siren controller",
+      "requirements": [
+        "Install the server resource and keep its manifest and audio banks together.",
+        "Configure a compatible controller such as Luxart Vehicle Control V3 with the sound-bank and tone IDs from the repository."
+      ],
+      "tags": [
+        "server audio",
+        "sirens",
+        "luxart",
+        "Scooby"
+      ],
+      "sourceMenu": "scooby",
+      "game": "fivem",
+      "credits": "fk-1997",
+      "supportedMenus": [
+        "scooby"
+      ],
+      "listedMenus": [
+        "scooby"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "changelog": [],
+      "files": [],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "guide": "/resources/guides/?game=fivem&category=sound-packs",
+      "id": "fivem-sound-server-sirens"
+    },
+    {
       "name": "Cloudy Night",
       "category": "skyboxes",
       "description": "An overcast night sky rendered in Terragen 3.",
@@ -299435,6 +300613,55 @@
     {
       "menu": "fivem-lua-menus",
       "source": "project/community-menu-sources/fivem-lua-menus.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-addon-maps",
+      "source": "project/community-menu-sources/fivem-addon-maps.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-addon-vehicles",
+      "source": "project/community-menu-sources/fivem-addon-vehicles.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-addon-clothing",
+      "source": "project/community-menu-sources/fivem-addon-clothing.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-addon-objects",
+      "source": "project/community-menu-sources/fivem-addon-objects.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-addon-animations",
+      "source": "project/community-menu-sources/fivem-addon-animations.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-addon-peds",
+      "source": "project/community-menu-sources/fivem-addon-peds.json",
+      "summary": {},
+      "coverage": [],
+      "completeness": "Source snapshot only"
+    },
+    {
+      "menu": "fivem-sound-packs",
+      "source": "project/community-menu-sources/fivem-sound-packs.json",
       "summary": {},
       "coverage": [],
       "completeness": "Source snapshot only"

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "purpose": "FiveM graphics and texture resources with links to the original creators and verified author previews.",
+  "purpose": "FiveM graphics and texture resources with links to their original creators and author previews where available.",
   "items": [
     {
       "id": "fivem-graphics-hiromasa-opti-v7",
@@ -201,6 +201,83 @@
         "sha256": "a7df3129c36d8754c26719ec2df2cdb8a59845e3a99ae519717c2f8e07d9842d",
         "size": 408972
       }
+    },
+    {
+      "id": "fivem-graphics-visualvanilla",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "name": "VisualVanilla",
+      "author": "Stryfaar",
+      "credits": "Stryfaar. Built on VisualV by _CP_ and robi29.",
+      "version": "2.0 for FiveM (Final)",
+      "description": "A standalone visual overhaul with revised weather, lighting, bloom and color. This is the final feature release.",
+      "sourceUrl": "https://www.gta5-mods.com/misc/visualvanilla",
+      "requirementLabel": "FiveM Legacy · Client RPF pack",
+      "requirements": [
+        "Under All Versions, choose 2.0 for FiveM (FINAL). The main download is the single-player version.",
+        "The author puts the FiveM RPF files in FiveM.app/mods. Record which files you add and back up any files you replace before testing."
+      ],
+      "tags": ["client graphics", "timecycle", "weather", "lighting"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-graphics-u1d-gfx-core",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "name": "U1D GFX Core",
+      "author": "U1D GFX",
+      "version": "FiveM 1.0.0",
+      "description": "A graphics overhaul with distinct weather palettes and revised lighting for dawn and dusk. It runs without ReShade or ENB.",
+      "sourceUrl": "https://www.gta5-mods.com/misc/u1d-gfx-core-sp-fivem-u1d-gfx",
+      "requirementLabel": "FiveM Legacy · Client timecycle pack",
+      "requirements": [
+        "Select FiveM 1.0.0 in All Versions and use the written installation instructions included with that package.",
+        "Compare it on its own before layering another graphics preset over it."
+      ],
+      "tags": ["client graphics", "timecycle", "weather", "sunsets"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-graphics-x-visual",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "name": "X-Visual",
+      "author": "Project-X",
+      "description": "A server resource that offers a menu for changing timecycle presets and vehicle light intensity in game.",
+      "sourceUrl": "https://github.com/XProject/x-visual",
+      "installUrl": "https://forum.cfx.re/t/free-x-visual-modify-visuals-vehicle-lights-fps-booster-included/5048530",
+      "requirementLabel": "Server resource · OneSync Infinity · MenuV or ox_lib",
+      "requirements": [
+        "The author lists OneSync Infinity and either MenuV or ox_lib. Install the chosen menu library before starting X-Visual.",
+        "Use the configuration supplied by the author and check how its presets interact with your other visuals resources."
+      ],
+      "tags": ["server resource", "timecycle", "vehicle lighting"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
+    },
+    {
+      "id": "fivem-graphics-server-visualsettings",
+      "game": "fivem",
+      "category": "graphics-packs",
+      "name": "Serverside VisualSettings",
+      "author": "Jarrrk",
+      "description": "A server utility for distributing a custom visualsettings.dat to connected players. Use it to tune shared effects such as vehicle lights.",
+      "sourceUrl": "https://github.com/Jarrrk/FiveM-VisualSettings",
+      "installUrl": "https://forum.cfx.re/t/release-serverside-visualsettings-stream-custom-visualsettings-dat/201448",
+      "requirementLabel": "Server resource · Custom visualsettings.dat",
+      "requirements": [
+        "Name the folder VisualSettings and start it from server.cfg as the author describes.",
+        "Test a single visualsettings.dat on a test server before enabling it alongside other lighting resources."
+      ],
+      "tags": ["server resource", "visualsettings", "vehicle lighting"],
+      "status": "author-hosted",
+      "downloadStatus": "external",
+      "files": []
     }
   ]
 }
