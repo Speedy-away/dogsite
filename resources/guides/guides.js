@@ -18,7 +18,7 @@
     paintjobs: 'Paintjobs', liveries: 'Liveries', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods',
     players: 'Player models', weapons: 'Weapon models', knives: 'Knife models', throwables: 'Throwables',
     bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs', lua: 'Lua scripts',
-    languages: 'Translations / Languages', wallpapers: 'Wallpapers', dlc: 'DLC packs', misc: 'Miscellaneous',
+    languages: 'Translations / Languages', wallpapers: 'Wallpapers', 'addon-packs': 'Packs', misc: 'Miscellaneous',
     'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
     'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
     'mod-menus': 'Lua Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
@@ -57,7 +57,7 @@
     const targetMenu = String(target?.dataset.menus || '').split(/\s+/).find(id => menus.MENUS.some(menu => menu.id === id));
     const menu = menus.menuFor(game, params.get('menu') || targetMenu);
     const choices = categories(game, menu);
-    const requested = taxonomy?.roleplayCategoryId?.(game, params.get('category')) ?? params.get('category');
+    const requested = taxonomy?.categoryId(game, params.get('category'), menu) ?? params.get('category');
     if (game === 'gta5') {
       const linkedSection = target && relevant(target, game, 'all', menu);
       const targetCategory = linkedSection && target.dataset.categories.split(/\s+/).find(category => choices.includes(category));

@@ -25,7 +25,7 @@
     'addon-animations': ['animation addons', 'animations', 'animation packs', 'animation clips'],
     'addon-maps': ['map addons', 'streamed maps', 'ymap', 'mlo', 'map assets'],
     'addon-clothing': ['clothing addons', 'clothing models', 'clothing textures', 'wardrobe assets'],
-    dlc: ['dlc', 'dlc packs', 'addon packs', 'downloadable content'],
+    'addon-packs': ['dlc', 'dlc packs', 'addon packs', 'downloadable content'],
     wallpapers: ['wallpapers', 'wallpaper', 'menu backgrounds', 'background images'],
     maps: ['maps', 'map', 'menyoo maps', 'placement maps', 'xml maps', 'ini maps', 'simple trainer maps'],
     textures: ['textures', 'texture', 'materials', 'material'],
@@ -69,7 +69,7 @@
   const MENU_TOPICS = {
     lua: 'Lua scripts', outfits: 'outfits', vehicles: 'vehicles', modded: 'modded vehicles',
     maps: 'maps', themes: 'themes', configs: 'configs', languages: 'translations',
-    dlc: 'DLC packs', 'addon-vehicles': 'addon vehicles', 'addon-peds': 'addon peds',
+    'addon-packs': 'addon packs', 'addon-vehicles': 'addon vehicles', 'addon-peds': 'addon peds',
     'addon-objects': 'object addons', 'addon-maps': 'map addons',
     'addon-animations': 'animation addons', 'addon-clothing': 'clothing addons',
     textures: 'textures', paintjobs: 'paintjobs', liveries: 'liveries',
@@ -125,6 +125,11 @@
 
     // Primary labels precede aliases so a short visible tag list stays useful.
     add(game);
+    if (game === 'gta5') {
+      if (['legacy', 'both'].includes(item.editionSupport)) add('legacy');
+      if (['enhanced', 'both'].includes(item.editionSupport)) add('enhanced');
+      if (item.editionSupport === 'both') add('both');
+    }
     if (game === 'gta5') {
       const origin = MENU_NAMES[normalizeTag(item.sourceMenu || item.menu).replace(/\s/g, '')];
       if (origin) {
@@ -192,6 +197,17 @@
     return (game === 'redm' || game === 'fivem') && id === 'textures' ? 'graphics-packs' : id;
   }
 
+  function categoryId(game, id, menu) {
+    if (game === 'gta5' && id === 'dlc') return menu === 'xforce' ? 'addon-vehicles' : 'addon-packs';
+    return roleplayCategoryId(game, id);
+  }
+
+  function gtaAddonCategory(item) {
+    if (item.game !== 'gta5' || item.category !== 'dlc') return item;
+    const category = /^Vehicle DLC archive\b/i.test(item.sourceFormat || '') ? 'addon-vehicles' : 'addon-packs';
+    return { ...item, category, categories: item.categories?.map(id => id === 'dlc' ? category : id) };
+  }
+
   function roleplayCategoryGroups(game, categories) {
     if (game !== 'redm' && game !== 'fivem') return null;
     const files = ['configs', 'themes', ...categories.filter(id => id === 'languages' || id === 'wallpapers')];
@@ -208,5 +224,5 @@
     ];
   }
 
-  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel, ROLEPLAY_LABELS });
+  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel, ROLEPLAY_LABELS });
 });

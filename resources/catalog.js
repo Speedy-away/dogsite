@@ -2,7 +2,7 @@
 
 const $ = id => document.getElementById(id);
 const GAMES = {
-  gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'dlc', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
+  gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs'] },
   rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
   cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
   fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
@@ -15,7 +15,7 @@ const LABELS = {
   paintjobs: 'LSC paintjobs', liveries: 'Liveries', players: 'Player models', weapons: 'Weapon models', knives: 'Knife models',
   throwables: 'Throwables', bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs',
   lua: 'Lua scripts', languages: 'Translations / Languages', misc: 'Miscellaneous',
-  'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods', dlc: 'DLC packs', wallpapers: 'Wallpapers',
+  'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods', 'addon-packs': 'Packs', wallpapers: 'Wallpapers',
   'weapon-models': 'Weapon models/skins', 'sound-packs': 'Sound packs', 'graphics-packs': 'Graphics packs',
   'ui-presets': 'UI presets', 'visual-effects': 'Visual effects', scopes: 'Scopes', settings: 'Settings',
   'mod-menus': 'Lua Menus', triggers: 'Triggers', 'server-dumps': 'Server dumps'
@@ -36,6 +36,7 @@ const LOCAL_PREVIEW = ['localhost', '127.0.0.1', '[::1]'].includes(location.host
 let library = { items: [], downloadBaseUrl: 'https://raw.githubusercontent.com/Speedy-away/cool-repo/main/' };
 let menuResources = { items: [] };
 let gtaEditionCatalog = { items: [], verified: {} };
+let gtaAddonCatalog = { items: [] };
 let libraryError = false;
 let entries = [];
 let gtaCategoryCounts = new Map();
@@ -70,7 +71,7 @@ function roleplayGroups(game) {
   return taxonomy?.roleplayCategoryGroups?.(game, [...GAMES[game].assets, ...MENU_CATEGORIES]);
 }
 
-function categoryId(game, id) { return taxonomy?.roleplayCategoryId?.(game, id) ?? id; }
+function categoryId(game, id, menu) { return taxonomy?.categoryId(game, id, menu) ?? id; }
 
 function categories(game = state.game) {
   const groups = roleplayGroups(game);
@@ -79,11 +80,12 @@ function categories(game = state.game) {
 function readState() {
   const query = new URLSearchParams(location.search);
   const game = Object.hasOwn(GAMES, query.get('game')) ? query.get('game') : 'gta5';
-  const requested = categoryId(game, query.get('category'));
+  const menu = menuFor(game, query.get('menu'));
+  const requested = categoryId(game, query.get('category'), menu);
   const category = categories(game).includes(requested) ? requested : 'all';
   const themeFilters = category === 'themes' && ['gta5', 'rdr2'].includes(game);
   return {
-    game, category, menu: menuFor(game, query.get('menu')), edition: editions.choice(game, query.get('edition')), q: query.get('q') || '',
+    game, category, menu, edition: editions.choice(game, query.get('edition')), q: query.get('q') || '',
     model: category === 'all' ? '' : query.get('model') || '',
     ui: themeFilters ? query.get('ui') || '' : '', style: themeFilters ? query.get('style') || '' : '',
     sort: ['name', 'attachments'].includes(query.get('sort')) ? query.get('sort') : '',
@@ -154,6 +156,7 @@ function guideURL(entry) {
   if (/^\/(?:community|resources)\/guides\//.test(value || '')) {
     const url = new URL(value.replace(/^\/community\//, '/resources/'), location.href);
     if (state.game === 'gta5') url.searchParams.set('menu', state.menu);
+    if (url.searchParams.get('category') === 'dlc') url.searchParams.set('category', entry.category);
     return url.pathname + url.search + url.hash;
   }
   const game = entry?.game || state.game;
@@ -195,8 +198,8 @@ function prettySize(size) {
 }
 
 async function loadLibrary() {
-  const [base, supplemental, reviewed] = await Promise.allSettled([
-    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json')
+  const [base, supplemental, reviewed, addons] = await Promise.allSettled([
+    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json'), json('/community/data/gta5-addons.json')
   ]);
   libraryError = false;
   if (base.status === 'fulfilled' && Array.isArray(base.value.items)) library = base.value;
@@ -204,6 +207,8 @@ async function loadLibrary() {
   if (supplemental.status === 'fulfilled' && Array.isArray(supplemental.value.items)) menuResources = supplemental.value;
   else libraryError = true;
   if (reviewed.status === 'fulfilled' && Array.isArray(reviewed.value.items)) gtaEditionCatalog = reviewed.value;
+  else libraryError = true;
+  if (addons.status === 'fulfilled' && Array.isArray(addons.value.items)) gtaAddonCatalog = addons.value;
   else libraryError = true;
 }
 
@@ -240,15 +245,17 @@ function libraryEntries() {
   const merged = new Map();
   const overrides = new Map((Array.isArray(menuResources.libraryOverrides) ? menuResources.libraryOverrides : []).filter(override => override.id).map(override => [override.id, override]));
   for (const item of library.items) merged.set(item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`, { ...item, ...overrides.get(item.id), id: item.id });
-  for (const item of [...menuResources.items, ...gtaEditionCatalog.items]) {
+  for (const item of [...menuResources.items, ...gtaEditionCatalog.items, ...gtaAddonCatalog.items]) {
     const id = item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`;
     merged.set(id, { ...merged.get(id), ...item });
   }
   const allowedCategories = new Set(categories());
-  return [...merged.values()].filter(item => item.game === state.game && allowedCategories.has(categoryId(item.game, item.category)) && !excludedRedMResource(item) &&
+  const sourceUrls = new Set([...merged.values()].filter(item => item.game === 'gta5' && item.status !== 'author-hosted' && item.sourceUrl).map(item => item.sourceUrl));
+  return [...merged.values()].map(item => taxonomy.gtaAddonCategory(item)).filter(item => item.game === state.game &&
+    !(item.id?.startsWith('gta5-author-addon-') && sourceUrls.has(item.sourceUrl)) && allowedCategories.has(categoryId(item.game, item.category)) && !excludedRedMResource(item) &&
     (pendingDownload(item) || item.status === 'in-menu' || (item.category === 'mod-menus' && item.status === 'preview-only') || authorPage(item) || (item.game === 'cs2' && item.status === 'workshop') ||
       (Array.isArray(item.files) && item.files.some(file => downloadURL(file)))))
-    .map(item => ({ ...item, tags: Array.isArray(item.tags) ? item.tags : [] }));
+    .map(item => ({ ...item, ...(!item.preview ? gtaAddonCatalog.previews?.[item.id] : undefined), tags: Array.isArray(item.tags) ? item.tags : [] }));
 }
 
 function excludedRedMResource(entry) {
@@ -634,6 +641,7 @@ function showChangelog(entry) {
 function tagLinks(entry) {
   const explicit = new Set([
     entry.game, entry.category, entry.uiStyle, entry.style, entry.modelLabel, entry.model,
+    entry.game === 'gta5' ? entry.editionSupport : '',
     entry.tags, entry.keywords
   ].flat(Infinity).filter(value => typeof value === 'string' && !/[\\/]|https?:/i.test(value))
     .flatMap(value => value.split(/[,;|\n]+/)).map(normalizeSearch));
@@ -672,7 +680,12 @@ function showDetails(entry, files) {
   if (preview) {
     const figure = node('figure', null, 'preview-figure');
     figure.append(image(preview, entry.name));
-    if (entry.previewCaption) figure.append(node('figcaption', entry.previewCaption, 'preview-caption'));
+    if (entry.previewCaption) {
+      const caption = node('figcaption', null, 'preview-caption');
+      const source = safeURL(entry.previewSource);
+      caption.append(source ? link(entry.previewCaption, source, true) : entry.previewCaption);
+      figure.append(caption);
+    }
     $('pictures').append(figure);
   }
   const details = $('preview-details');
@@ -735,8 +748,9 @@ async function card(entry) {
   shot.type = 'button';
   shot.setAttribute('aria-label', `View ${entry.name}`);
   const preview = previewURL(entry);
+  const gtaAddon = entry.game === 'gta5' && entry.category.startsWith('addon-');
   if (entry.category === 'themes' && preview) article.className += ' has-verified-preview';
-  shot.append(image(preview, entry.name));
+  shot.append(!preview && gtaAddon ? node('span', 'Preview unavailable', 'preview-unavailable') : image(preview, entry.name));
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -750,6 +764,8 @@ async function card(entry) {
     const badge = node('span', editions.badge(entry.game, edition), `edition-badge edition-${edition}`);
     badge.title = editions.title(entry.game, edition);
     info.append(badge);
+  } else if (gtaAddon) {
+    info.append(node('span', 'Edition unlisted', 'edition-badge edition-unlisted'));
   }
   const sourceMenu = menuSystem?.canonical(entry.sourceMenu);
   if (['cherax', 'stand', 'xforce'].includes(sourceMenu) && typeof menuSystem?.compatibleWith === 'function' && !menuSystem.compatibleWith(entry, state.menu)) {

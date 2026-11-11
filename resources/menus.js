@@ -15,8 +15,8 @@
   const menuFor = (game, value) => game === 'gta5' ? canonical(value) || 'scooby' : 'scooby';
   const menuName = value => MENUS.find(menu => menu.id === canonical(value))?.name || 'Scooby';
   const gtaFiles = ['themes', 'configs', 'lua', 'languages', 'wallpapers', 'misc'];
-  const gtaResourceOrder = ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'dlc', 'asi-mods', 'dotnet-mods'];
-  const gtaAddonOrder = ['addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'];
+  const gtaResourceOrder = ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'asi-mods', 'dotnet-mods'];
+  const gtaAddonOrder = ['addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs'];
   function gtaCategoryGroups(menu, ids) {
     if (MENUS.find(item => item.id === canonical(menu))?.deferred) return [];
     const available = new Set(ids);
@@ -28,7 +28,7 @@
       ['Addons', ordered.filter(id => id.startsWith('addon-'))]
     ].filter(([, group]) => group.length);
   }
-  const assetCategories = new Set(['vehicles', 'modded', 'outfits', 'maps', 'dlc', 'textures', 'paintjobs', 'liveries', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-maps', 'addon-clothing', 'addon-animations']);
+  const assetCategories = new Set(['vehicles', 'modded', 'outfits', 'maps', 'dlc', 'textures', 'paintjobs', 'liveries', ...gtaAddonOrder]);
   const isCheraxTheme = entry => entry?.game === 'gta5' && entry.category === 'themes' && (
     canonical(entry.sourceMenu) === 'cherax' || entry.source === 'ModVerse public catalog' ||
     /^(?:menu-cherax-theme-|gta5-modverse-themes-)/.test(entry.id || '')

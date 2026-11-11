@@ -105,6 +105,12 @@ function expectedInventory() {
     assert(!items.has(item.id), `Reviewed listing duplicates ${item.id}`);
     items.set(item.id, item);
   }
+  const downloadSources = new Set([...items.values()].filter(item => item.game === 'gta5' && item.status !== 'author-hosted').map(item => item.sourceUrl));
+  for (const item of json('community/data/gta5-addons.json').items) {
+    if (downloadSources.has(item.sourceUrl)) continue;
+    assert(!items.has(item.id), `Addon listing duplicates ${item.id}`);
+    items.set(item.id, item);
+  }
   for (const kind of ['vehicles', 'outfits']) {
     const index = json(`community/data/${kind}/index.json`);
     assert.equal(index.items.length, index.totalItems);
@@ -114,7 +120,10 @@ function expectedInventory() {
     });
   }
   const scopes = new Map(GAMES.map(game => [`${game}:scooby`, { game, menu: 'scooby', total: 0, categories: new Map(), items: [] }]));
-  for (const item of items.values()) {
+  for (const original of items.values()) {
+    const item = original.game === 'gta5' && original.category === 'dlc'
+      ? { ...original, category: original.sourceMenu === 'xforce' ? 'addon-vehicles' : 'addon-packs' }
+      : original;
     assert(GAMES.includes(item.game), `Unsupported resource game: ${item.game}`);
     for (const menu of menus.MENUS.filter(menu => !menu.deferred && (menu.id === 'scooby' || item.game === 'gta5'))) {
       if (!menus.supports(item, menu.id)) continue;

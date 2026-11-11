@@ -150,4 +150,6 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 .edition-legacy,.edition-l4d1{color:#ffcf88;border-color:#73532a;background:#2c2114}
 .edition-enhanced,.edition-l4d2{color:#82e4f5;border-color:#306774;background:#142b32}
 .edition-both{color:#e1c5ff;border-color:#644a83;background:#2c203a}
+.edition-unlisted{color:#a8a8a8;border-color:#3a3a3a;background:#171717}
+.preview-unavailable{color:#a8a8a8;font-size:12px}
 .resource-preview .preview-placeholder,.shot .preview-placeholder{width:min(52%,136px);height:auto;max-height:64%;object-fit:contain}

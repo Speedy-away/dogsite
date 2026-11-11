@@ -7,8 +7,8 @@ const SITE = 'https://scoobymenu.cc';
 const SCOOBY_PREVIEW_LOGO = '/assets/images/brand/scooby-mark.svg';
 const menus = require('../resources/menus.js');
 const editions = require('../resources/editions.js');
-const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel } = require('../resources/taxonomy.js');
-const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'dlc'];
+const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryLabel } = require('../resources/taxonomy.js');
+const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'addon-packs'];
 const headAd = '<script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>';
 
 function placeHeadAd(html) {
@@ -33,7 +33,7 @@ const CATEGORIES = {
   'addon-animations': { name: 'Animation addons', words: ['animation packs', 'custom animations', 'animation clips'], description: 'Browse downloadable animation packages. Keep animation dictionaries and supporting metadata together and use the loader specified by the package.' },
   'addon-maps': { name: 'Map addons', words: ['streamed maps', 'YMAP addons', 'map assets', 'MLO'], description: 'Browse streamed map asset packages and their dependencies. These addon assets are separate from the Menyoo/XML and Simple Trainer placement presets in Maps.' },
   'addon-clothing': { name: 'Clothing addons', words: ['clothing mods', 'wardrobe assets', 'ped clothing'], description: 'Browse clothing model and texture packages. Match the intended character model and follow the package’s installation requirements.' },
-  dlc: { name: 'DLC packs', words: ['DLC packs', 'addon packs', 'downloadable content'], description: 'Browse DLC and addon content packages. Keep the original package structure, match the game edition and install the required loader and dependencies.' },
+  'addon-packs': { name: 'Addon packs', words: ['DLC packs', 'addon packs', 'downloadable content'], description: 'Browse GTA 5 addon packages. Keep the original package structure, match the game edition and install the required loader and dependencies.' },
   wallpapers: { name: 'Wallpapers', words: ['wallpapers', 'menu backgrounds', 'background images'], description: 'Browse wallpaper and menu background images. Use the image format and dimensions supported by the selected menu.' },
   maps: { name: 'Menyoo & placement maps', words: ['Menyoo maps', 'XML maps', 'INI maps', 'Simple Trainer maps'], description: 'Browse Menyoo/XML and Simple Trainer/INI object-placement presets, including ramps and custom scenes. Use a compatible placement loader and install any referenced model dependencies.' },
   textures: { name: 'Textures', words: ['custom textures', 'texture images', 'materials'], description: 'Find texture artwork and material resources. Choose a supported target and keep the original image or material structure when importing.' },
@@ -72,8 +72,8 @@ function tagsFor(item, menu) {
   return fs.existsSync(taxonomy) ? require(taxonomy).tagsFor(item, { menu: menus.menuName(menu) }) : [...new Set([GAMES[item.game]?.name, CATEGORIES[item.category]?.name, menus.menuName(menu), ...(item.tags || [])].filter(Boolean))];
 }
 function hasCategory(item, category) {
-  return roleplayCategoryId(item.game, item.category) === category ||
-    item.categories?.some(id => roleplayCategoryId(item.game, id) === category) ||
+  return categoryId(item.game, item.category) === category ||
+    item.categories?.some(id => categoryId(item.game, id) === category) ||
     (category === 'modded' && item.category === 'vehicles' && item.attachments > 0);
 }
 function fileURL(file, base) {
@@ -121,6 +121,7 @@ const categoryInfo = (game, category) => (game === 'fivem' ? fivemCategories[cat
 function buildData() {
   const library = read('community/data/library.json');
   const gtaEditionCatalog = read('community/data/gta5-editions.json');
+  const gtaAddonCatalog = read('community/data/gta5-addons.json');
   const menuFile = path.join(ROOT, 'community/data/menu-resources.json');
   const supplement = fs.existsSync(menuFile) ? read('community/data/menu-resources.json') : {};
   const extra = supplement.items || [];
@@ -129,13 +130,17 @@ function buildData() {
   const approvedLua = item => item.menuResource === true && item.sourceCatalog === 'menu-resources' &&
     Array.isArray(item.supportedMenus) && item.supportedMenus.some(menu => menus.canonical(menu)) &&
     (item.files?.length || (item.downloadStatus === 'pending' && Array.isArray(item.files) && !item.files.length));
-  const items = [...new Map([
+  const primary = [
     ...library.items.filter(item => item.category !== 'lua').map(item => ({ ...item, ...libraryOverrides.get(item.id), id: item.id })),
     ...extra.filter(item => item.category !== 'lua' || approvedLua(item)),
     ...gtaEditionCatalog.items
-  ].filter(item => GAMES[item.game] && CATEGORIES[item.category]).map(item => [item.id, item])).values()]
+  ];
+  const sourceUrls = new Set(primary.filter(item => item.game === 'gta5' && item.status !== 'author-hosted' && item.sourceUrl).map(item => item.sourceUrl));
+  const items = [...new Map([...primary, ...gtaAddonCatalog.items.filter(item => !sourceUrls.has(item.sourceUrl))]
+    .map(gtaAddonCategory).filter(item => GAMES[item.game] && CATEGORIES[item.category]).map(item => [item.id, item])).values()]
     .map(item => {
-      const entry = editions.withVerification(item, gtaEditionCatalog);
+      const preview = !item.preview && gtaAddonCatalog.previews?.[item.id];
+      const entry = editions.withVerification(preview ? { ...item, ...preview } : item, gtaEditionCatalog);
       return menus.isCheraxTheme(entry) ? { ...entry, uiStyle: menus.themeInterface(entry) } : entry;
     });
   for (const family of ['vehicles', 'outfits']) {
@@ -227,7 +232,7 @@ function renderPage(page) {
   const roleplayGroups = roleplayCategoryGroups(page.game, [...byId.keys()]);
   const categoryChoice = category => {
     const href = category.count ? route(page.game, category.id, page.menu) : queryURL(page.game, category.id, undefined, page.menu);
-    const label = (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || category.name.replace(/^Addon /, '');
+    const label = (roleplayGroups && roleplayCategoryLabel(page.game, category.id)) || (category.id === 'addon-packs' ? 'Packs' : category.name.replace(/^Addon /, ''));
     const current = category.id === page.category ? ' aria-current="page"' : '';
     const count = category.count ? ` <span>${category.count.toLocaleString('en-GB')}</span>` : '';
     return `<a href="${escape(href)}"${current}>${escape(label)}${count}</a>`;
@@ -250,9 +255,10 @@ function renderPage(page) {
     const remotePreview = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? fileURL({ path: preview }, page.downloadBaseUrl) : preview;
     const local = preview && !preview.startsWith('/') && !/^https:\/\//.test(preview) ? ` data-resource-image="${escape(preview)}"` : '';
     const fallback = ` data-resource-image-fallback="${SCOOBY_PREVIEW_LOGO}"`;
+    const gtaAddon = item.game === 'gta5' && item.category.startsWith('addon-');
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : serverRecipe ? '' : `<div class="resource-preview"><img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async"></div>`;
+      : serverRecipe ? '' : `<div class="resource-preview">${gtaAddon ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
     const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
     const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
@@ -264,7 +270,8 @@ function renderPage(page) {
     const author = item.author || (item.game === 'l4d' ? item.credits : '');
     const credit = authorHosted && author ? `<p>By ${escape(author)}</p>` : '';
     const edition = editions.support(item);
-    const badge = edition ? `<span class="edition-badge edition-${edition}" title="${escape(editions.title(item.game, edition))}">${escape(editions.badge(item.game, edition))}</span>` : '';
+    const badge = edition ? `<span class="edition-badge edition-${edition}" title="${escape(editions.title(item.game, edition))}">${escape(editions.badge(item.game, edition))}</span>`
+      : gtaAddon ? '<span class="edition-badge edition-unlisted">Edition unlisted</span>' : '';
     const access = item.access === 'free' ? '<span class="resource-access">Free</span>' : item.access === 'paid' ? '<span class="resource-access">Paid</span>' : '';
     const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? '<button type="button" class="resource-download" disabled>Download — Coming soon</button>' : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>Download ↓</summary>${files.map(download).join('')}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
     const notes = (Array.isArray(item.changelog) ? item.changelog : typeof item.changelog === 'string' ? [item.changelog] : []).flatMap(note => {
@@ -342,15 +349,31 @@ function build({ gta5Only = false } = {}) {
     fs.mkdirSync(path.dirname(output), { recursive: true });
     fs.writeFileSync(output, renderPage(page));
   }
+  for (const menu of ['scooby', 'nenyoo', 'cherax', 'xforce']) {
+    const previous = route('gta5', 'dlc', menu);
+    const next = route('gta5', categoryId('gta5', 'dlc', menu), menu);
+    if (!data.pages.some(page => page.url === SITE + next)) continue;
+    const output = path.join(ROOT, previous, 'index.html');
+    fs.mkdirSync(path.dirname(output), { recursive: true });
+    fs.writeFileSync(output, `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="${SITE + next}">
+<title>GTA 5 Addons</title>
+<script>location.replace(${JSON.stringify(next)} + location.search + location.hash);</script>
+<noscript><meta http-equiv="refresh" content="0;url=${next}"></noscript>
+</head>
+<body><p>Continue to <a href="${next}">GTA 5 Addons</a>.</p></body>
+</html>
+`);
+  }
   const gtaMenus = data.pages.filter(page => page.game === 'gta5' && !page.category);
   const guideCategories = Object.fromEntries(gtaMenus.map(page => [
     page.menu, menus.gtaCategoryGroups(page.menu, page.categories.map(category => category.id)).flatMap(([, ids]) => ids)
   ]));
   fs.writeFileSync(path.join(ROOT, 'resources/gta5/categories.json'), JSON.stringify(guideCategories, null, 2) + '\n');
-  if (gta5Only) {
-    console.log(`Built ${pages.length} crawlable GTA 5 resource pages.`);
-    return data;
-  }
   const rootFile = path.join(ROOT, 'resources/index.html');
   let rootHtml = fs.readFileSync(rootFile, 'utf8').replace(/<script\b[^>]*id="resource-collection-data"[^>]*>[\s\S]*?<\/script>\s*/i, '');
   const rootUrl = SITE + '/resources/';
@@ -361,7 +384,7 @@ function build({ gta5Only = false } = {}) {
   ] };
   rootHtml = rootHtml.replace('</head>', `<script type="application/ld+json" id="resource-collection-data">${JSON.stringify(rootSchema).replace(/</g, '\\u003c')}</script>\n</head>`);
   fs.writeFileSync(rootFile, placeHeadAd(require('./seo-metadata').applyMetadata('resources/index.html', rootHtml)));
-  console.log(`Built ${data.pages.length} crawlable resource pages.`);
+  console.log(`Built ${pages.length} crawlable ${gta5Only ? 'GTA 5 ' : ''}resource pages.`);
   return data;
 }
 module.exports = { GAMES, CATEGORIES, buildData, build, renderPage, route, queryURL, placeHeadAd, featuredTopics };

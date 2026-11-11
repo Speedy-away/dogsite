@@ -5,6 +5,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const menus = require('../resources/menus.js');
+const editions = require('../resources/editions.js');
+const { tagsFor } = require('../resources/taxonomy.js');
+
 const { buildData, renderPage, route } = require('./resource-pages.cjs');
 
 const root = path.resolve(__dirname, '..');
@@ -64,6 +67,35 @@ test('Original Cherax ClickGUI packages appear only in the Cherax collection', (
   }
   const cheraxPage = gtaPages.find(page => page.menu === 'cherax' && page.category === 'themes');
   assert(cheraxPage?.samples.some(theme => clickGuiPackages.includes(theme)));
+});
+
+test('Old DLC paths redirect to the matching package collection', () => {
+  assert(!gtaPages.some(page => page.category === 'dlc'));
+  for (const [menu, category] of [['scooby', 'addon-packs'], ['nenyoo', 'addon-packs'], ['cherax', 'addon-packs'], ['xforce', 'addon-vehicles']]) {
+    const page = gtaPages.find(page => page.menu === menu && page.category === category);
+    assert(page?.samples.some(item => item.files.length && item.category === category), menu);
+    const old = fs.readFileSync(path.join(root, route('gta5', 'dlc', menu), 'index.html'), 'utf8');
+    assert(old.includes(`location.replace(${JSON.stringify(route('gta5', category, menu))} + location.search + location.hash)`), menu);
+  }
+  assert(items.some(item => item.name === '875993 stew car' && item.category === 'addon-vehicles' && item.files.length));
+});
+
+test('GTA 5 addon expansion preserves source downloads, previews and edition evidence', () => {
+  const additions = items.filter(item => item.id.startsWith('gta5-author-addon-'));
+  assert(additions.filter(item => item.category === 'addon-vehicles').length >= 300);
+  assert(additions.some(item => item.category === 'addon-peds'));
+  assert.equal(new Set(additions.map(item => item.sourceUrl)).size, additions.length);
+  for (const item of additions) {
+    assert.equal(item.status, 'author-hosted');
+    assert.equal(new URL(item.sourceUrl).hostname, 'www.gta5-mods.com');
+    assert.equal(new URL(item.preview).hostname, 'img.gta5-mods.com');
+    assert.equal(item.files.length, 0);
+    if (editions.support(item)) {
+      assert.equal(item.editionSource, item.sourceUrl);
+      assert(tagsFor(item).includes(item.editionSupport));
+    }
+  }
+  for (const edition of ['legacy', 'enhanced', 'both']) assert(additions.some(item => editions.support(item) === edition));
 });
 
 test('Scooby Themes keeps native ClickUI colors and compatible ListUI styles', () => {

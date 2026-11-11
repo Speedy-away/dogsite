@@ -13,7 +13,6 @@
     "graphics-packs",
     "paintjobs",
     "liveries",
-    "dlc",
     "asi-mods",
     "dotnet-mods",
     "addon-vehicles",
@@ -21,7 +20,8 @@
     "addon-objects",
     "addon-animations",
     "addon-maps",
-    "addon-clothing"
+    "addon-clothing",
+    "addon-packs"
   ],
   "nenyoo": [
     "themes",
@@ -36,14 +36,14 @@
     "textures",
     "paintjobs",
     "liveries",
-    "dlc",
     "asi-mods",
     "addon-vehicles",
     "addon-peds",
     "addon-objects",
     "addon-animations",
     "addon-maps",
-    "addon-clothing"
+    "addon-clothing",
+    "addon-packs"
   ],
   "cherax": [
     "themes",
@@ -52,7 +52,7 @@
     "modded",
     "outfits",
     "maps",
-    "dlc"
+    "addon-packs"
   ],
   "stand": [
     "themes",
@@ -74,7 +74,7 @@
     "vehicles",
     "outfits",
     "maps",
-    "dlc",
-    "asi-mods"
+    "asi-mods",
+    "addon-vehicles"
   ]
 }
