@@ -89,8 +89,8 @@
   <ol>
     <li>Check the maintainer’s required server edition, game build and dependencies. A YMAP places map objects. A custom interior can also include models, textures, collision and YTYP definitions. Keep the author’s files together.</li>
     <li>On a test server, copy the folder with <code>fxmanifest.lua</code> into <code>resources</code> and add <code>ensure</code> followed by its folder name to <code>server.cfg</code>. If the archive wraps several resources, start the map folder named in the instructions.</li>
-    <li>Connect and visit the area with other maps for that location disabled. Check entrances, floors and doors from both sides. Reconnect and check again so you can catch missing assets that only show up when a player first joins.</li>
-    <li>Enable the other maps one at a time. If walls flicker, objects appear twice or collisions no longer match, stop the last resource you enabled and compare again. Keep a copy of the previous <code>server.cfg</code> so you can restore the working setup.</li>
+    <li>Connect and visit the area with other maps for that location disabled. Check entrances and doors from both sides, walk across floor seams, and test where ramps meet the ground. Reconnect and check again so you can catch missing assets that only show up when a player first joins.</li>
+    <li>Enable the other maps one at a time. If walls flicker, objects appear twice or collisions no longer match, stop the last resource you enabled and compare again. To roll back permanently, restore the previous <code>server.cfg</code> or remove the map’s startup entry. Reconnect and revisit the area to verify the rollback.</li>
   </ol>
   <a href="/resources/fivem/addon-maps/">Browse FiveM map add-ons →</a>
   <a href="https://docs.fivem.net/docs/scripting-reference/resource-manifest/">Cfx.re resource manifest reference →</a>

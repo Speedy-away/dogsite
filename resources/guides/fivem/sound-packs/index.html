@@ -101,7 +101,7 @@
     <li>Check what the archive contains before installing. Files such as <code>RESIDENT.rpf</code> and <code>WEAPONS_PLAYER.rpf</code> are replacement archives. A server audio resource instead comes with a manifest and can declare its own <code>AUDIO_WAVEPACK</code>. Use the maintainer’s instructions for the correct package type and game edition.</li>
     <li>Check the server’s rules for client replacements. Where allowed, back up the exact files the maintainer says to replace and try one pack at a time on a private test server. Two packs that replace the same archive can overwrite one another.</li>
     <li>Compare the same sound at the same distance and in the same location with your game and system volume unchanged. Listen to both a single sound and a short burst, then check whether voice and ambient sounds stay clear. Recording volume and compression vary between clips, so use the live comparison to judge loudness and distortion.</li>
-    <li>If sounds go missing, crackle, or the client reports modified files, restore the originals and retest. For a server resource, have the operator check the manifest, dependencies and console.</li>
+    <li>If sounds go missing, crackle, or the client reports modified files, close FiveM. Restore the original files to their recorded paths, remove files added by the pack, then relaunch and compare with stock audio. For a server resource, have the operator check the manifest, dependencies and console.</li>
   </ol>
   <a href="/resources/fivem/sound-packs/">Browse FiveM sound packs →</a>
   <a href="https://docs.fivem.net/docs/scripting-reference/resource-manifest/#data_file">Cfx.re audio resource reference →</a>

@@ -146,8 +146,8 @@
   <ol>
     <li>Check the maintainer’s required server edition, game build and dependencies. A YMAP places map objects. A custom interior can also include models, textures, collision and YTYP definitions. Keep the author’s files together.</li>
     <li>On a test server, copy the folder with <code>fxmanifest.lua</code> into <code>resources</code> and add <code>ensure</code> followed by its folder name to <code>server.cfg</code>. If the archive wraps several resources, start the map folder named in the instructions.</li>
-    <li>Connect and visit the area with other maps for that location disabled. Check entrances, floors and doors from both sides. Reconnect and check again so you can catch missing assets that only show up when a player first joins.</li>
-    <li>Enable the other maps one at a time. If walls flicker, objects appear twice or collisions no longer match, stop the last resource you enabled and compare again. Keep a copy of the previous <code>server.cfg</code> so you can restore the working setup.</li>
+    <li>Connect and visit the area with other maps for that location disabled. Check entrances and doors from both sides, walk across floor seams, and test where ramps meet the ground. Reconnect and check again so you can catch missing assets that only show up when a player first joins.</li>
+    <li>Enable the other maps one at a time. If walls flicker, objects appear twice or collisions no longer match, stop the last resource you enabled and compare again. To roll back permanently, restore the previous <code>server.cfg</code> or remove the map’s startup entry. Reconnect and revisit the area to verify the rollback.</li>
   </ol>
   <a href="/resources/fivem/addon-maps/">Browse FiveM map add-ons →</a>
   <a href="https://docs.fivem.net/docs/scripting-reference/resource-manifest/">Cfx.re resource manifest reference →</a>
@@ -182,7 +182,7 @@
   <ol>
     <li>Press <kbd>F8</kbd> to open the FiveM console and run <code>cl_drawperf true</code>. The overlay shows FPS and GPU usage. Keep your resolution, frame cap and graphics settings fixed during the comparison.</li>
     <li>Choose a route on a test server you control. First compare the stock client and the pack at the same time of day and in the same weather. Then repeat in a second condition, such as at night, to check whether the result holds when lighting changes.</li>
-    <li>Let the scene load before recording your readings. Run the same route twice for each setup and note FPS during movement and any recurring stutter. Check whether any improvement comes with changes to shadow detail, reflections or road textures that matter to you.</li>
+    <li>Let the scene load before recording your readings. Run the same route twice for each setup and note FPS during movement and any recurring stutter. If both runs reach the frame cap, compare GPU usage on the same route. Check whether any improvement comes with changes to shadow detail, reflections or road textures that matter to you.</li>
     <li>Run <code>cl_drawperf false</code> when you finish. Keep your measurements with your settings so you can repeat the comparison after changing the pack.</li>
   </ol>
   <a href="https://docs.fivem.net/docs/client-manual/console-commands/#cl_drawperf-bool">Cfx.re performance overlay commands →</a>
@@ -216,11 +216,12 @@
   <h2>Load and tune a ReShade preset</h2>
   <ol>
     <li>On a compatible FiveM Legacy setup where the server allows ReShade, save the preset <code>.ini</code> in the presets folder named by its author. Keep your current preset as a separate file.</li>
-    <li>Open the ReShade overlay and select the new file from the preset selector on the <strong>Home</strong> tab. If an effect fails to load, check the author’s shader list and the overlay log. In a preset, the <code>Techniques</code> line can help you identify missing <code>.fx</code> files.</li>
+    <li>Open the ReShade overlay and select the new file from the preset selector on the <strong>Home</strong> tab. If an effect fails to load, check the author’s shader list and the overlay log. Use the preset’s <code>Techniques</code> line to look for filenames of enabled <code>.fx</code> effects. The sorting list can also contain disabled effects. Check ReShade’s effect and texture search paths before reloading.</li>
     <li>Compare effects on and off from the same camera angle. If shadows look flat or signs lose detail, try adjusting the color or contrast effect first. If pavement and brick edges look grainy while moving, turn down sharpening and check whether more than one sharpening effect is active.</li>
     <li>Save your changes to a copy. If the overlay never appears, check your game edition and the server’s policy before changing anything else.</li>
   </ol>
   <a href="https://reshade.me/forum/general-discussion/4075-preset-installation">ReShade preset instructions →</a>
+  <a href="https://guides.martysmods.com/reshade/gui/home/">ReShade Home tab reference →</a>
 </section>
 <section id="fivem-client-pack-types" data-games="fivem" data-categories="graphics-packs">
   <p class="topic-game">FIVEM</p>
@@ -232,6 +233,19 @@
   </ul>
   <p>Check the server’s client plugin policy first. To troubleshoot a compatible pack, start with the stock client, add one documented component at a time and back up the exact files you replace.</p>
   <a href="https://docs.fivem.net/docs/client-manual/">Cfx.re client plugin guidance →</a>
+</section>
+<section id="fivem-visual-effects" data-games="fivem" data-categories="graphics-packs">
+  <p class="topic-game">FIVEM</p>
+  <h2>Test and roll back a FiveM visual effects pack</h2>
+  <ol>
+    <li>Check the original release for the supported edition and destination of each file. Tracers and impact effects change how a scene looks. Ragdoll packs change how characters move. A combat bundle can combine these with audio or other assets.</li>
+    <li>Check whether the server permits the files you want to use. FiveM for GTAV Enhanced enforces pure mode. If your edition or server blocks the pack, use its stock effects.</li>
+    <li>Before changing anything, write down the paths the maintainer lists. Close FiveM and back up every file the pack would replace. If two packs ship the same destination <code>.rpf</code> or <code>.dat</code>, test them separately so you can tell which changes are active.</li>
+    <li>Compare stock and modified effects on a private test server under the same lighting and camera angle. For tracers, check whether the line stays visible against both bright pavement and dark walls. For impact effects, compare how long marks remain visible. For ragdolls, repeat the same movement on flat ground and on stairs to catch clipping.</li>
+    <li>If the effect is missing or the client reports modified files, close FiveM, remove the files added by that pack, and restore the backups to their original paths. Restart and confirm the stock scene works before testing another pack.</li>
+  </ol>
+  <a href="https://docs.fivem.net/docs/server-manual/server-commands/#sv_purelevel-level">Cfx pure mode reference →</a>
+  <a href="https://docs.fivem.net/docs/support/client-issues/">Cfx client troubleshooting →</a>
 </section>
 <section id="fivem-mixed-bundles" data-games="fivem" data-categories="graphics-packs sound-packs">
   <p class="topic-game">FIVEM</p>
@@ -252,7 +266,7 @@
     <li>Check what the archive contains before installing. Files such as <code>RESIDENT.rpf</code> and <code>WEAPONS_PLAYER.rpf</code> are replacement archives. A server audio resource instead comes with a manifest and can declare its own <code>AUDIO_WAVEPACK</code>. Use the maintainer’s instructions for the correct package type and game edition.</li>
     <li>Check the server’s rules for client replacements. Where allowed, back up the exact files the maintainer says to replace and try one pack at a time on a private test server. Two packs that replace the same archive can overwrite one another.</li>
     <li>Compare the same sound at the same distance and in the same location with your game and system volume unchanged. Listen to both a single sound and a short burst, then check whether voice and ambient sounds stay clear. Recording volume and compression vary between clips, so use the live comparison to judge loudness and distortion.</li>
-    <li>If sounds go missing, crackle, or the client reports modified files, restore the originals and retest. For a server resource, have the operator check the manifest, dependencies and console.</li>
+    <li>If sounds go missing, crackle, or the client reports modified files, close FiveM. Restore the original files to their recorded paths, remove files added by the pack, then relaunch and compare with stock audio. For a server resource, have the operator check the manifest, dependencies and console.</li>
   </ol>
   <a href="/resources/fivem/sound-packs/">Browse FiveM sound packs →</a>
   <a href="https://docs.fivem.net/docs/scripting-reference/resource-manifest/#data_file">Cfx.re audio resource reference →</a>
