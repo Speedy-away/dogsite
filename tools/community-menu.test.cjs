@@ -31,7 +31,8 @@ test('menu selection has a Scooby default and separates discovery from runtime r
   assert.equal(menus.menuFor('cs2', 'stand'), 'scooby');
   assert(menus.MENUS.find(menu => menu.id === 'yim').deferred);
   const source = { game: 'gta5', category: 'lua', sourceMenu: 'cherax', supportedMenus: ['cherax'], listedMenus: ['cherax', 'scooby', 'nenyoo'] };
-  assert(menus.supports(source, 'scooby'));
+  assert(menus.supports(source, 'cherax'));
+  assert(!menus.supports(source, 'scooby') && !menus.supports(source, 'nenyoo'));
   assert(!menus.compatibleWith(source, 'scooby'));
   assert(!menus.supports(source, 'stand'));
   assert.deepEqual(menus.menuIds({ game: 'gta5', category: 'themes', menu: 'Scooby' }), ['scooby']);
@@ -58,8 +59,7 @@ test('Lua listings expose local Cherax releases or an honest unavailable state',
     } else assert.equal(item.downloadStatus, 'pending', item.id);
     assert.equal(item.sourceCatalog, 'menu-resources', item.id);
     assert(item.supportedMenus.length && item.sourceMenu, item.id);
-    if (standSubmissions.has(item.id)) assert.deepEqual(visibleMenus(item), ['stand'], item.id);
-    else assert(menus.supports(item, 'scooby') && menus.supports(item, 'nenyoo'), item.id);
+    if (item.game === 'gta5') assert.deepEqual(visibleMenus(item).sort(), [...item.supportedMenus].sort(), item.id);
     assert(!/https?:\/\/(?:\w+\.)?discord(?:app)?\.(?:com|gg)/i.test(JSON.stringify(item)), item.id);
   }
   for (const [id, submission] of standSubmissions) {

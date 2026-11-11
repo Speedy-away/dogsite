@@ -11,6 +11,7 @@ const previewCaptions = {
   'source-dlc': 'Screenshot from the original DLC share',
   'source-lua': 'Screenshot from the original script share',
   'source-artwork': 'Artwork from the original script share',
+  'author-artwork': 'Artwork from the author’s repository',
   'source-theme': 'Screenshot from the original theme share'
 };
 
@@ -52,7 +53,7 @@ function applyCheraxCatalog(catalog) {
       ...entry,
       ...(isTheme ? themeMetadata(entry.uiStyle) : {}),
       game: 'gta5', sourceMenu: 'cherax', supportedMenus: ['cherax'],
-      listedMenus: isTheme ? ['cherax'] : ['cherax', 'scooby', 'nenyoo'],
+      listedMenus: ['cherax'],
       menuResource: true, sourceCatalog: 'menu-resources',
       status: available ? 'download' : 'pending',
       downloadStatus: available ? 'available' : 'pending',

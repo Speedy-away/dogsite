@@ -51,6 +51,7 @@ function clean(entry, origin) {
   result.supportedMenus = canonicalList(entry.supportedMenus?.length ? entry.supportedMenus : [result.sourceMenu]);
   result.listedMenus = canonicalList(entry.listedMenus?.length ? entry.listedMenus :
     [result.sourceMenu, ...result.supportedMenus, ...(['cherax', 'stand', 'xforce'].includes(result.sourceMenu) ? ['scooby', 'nenyoo'] : [])]);
+  if (result.game === 'gta5' && result.category === 'lua') result.listedMenus = menus.menuIds(result);
   if (menus.isCheraxTheme(result)) {
     result.supportedMenus = menus.menuIds(result);
     result.listedMenus = result.supportedMenus;

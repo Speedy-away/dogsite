@@ -279,7 +279,7 @@ function renderPage(page) {
     const gtaAddon = item.game === 'gta5' && item.category.startsWith('addon-');
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : serverRecipe ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
+      : serverRecipe || (cheraxPreview && item.category === 'lua') ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
     const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
     const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod, versionLabel: file.versionLabel })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
@@ -296,7 +296,10 @@ function renderPage(page) {
       : gtaAddon ? '<span class="edition-badge edition-unlisted">Edition unlisted</span>' : '';
     const access = item.access === 'free' ? '<span class="resource-access">Free</span>' : item.access === 'paid' ? '<span class="resource-access">Paid</span>' : '';
     const downloadLabel = files.every(file => file.versionLabel) ? 'Choose version' : 'Download ↓';
-    const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? `<button type="button" class="resource-download" disabled>${escape(item.downloadLabel || 'Download — Coming soon')}</button>` : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>${downloadLabel}</summary>${files.map(download).join('')}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
+    const unavailableVersions = (item.unavailableVersions || []).map(version =>
+      '<button type="button" class="resource-download" disabled>' + escape(version) + ' — unavailable</button>');
+    const downloadOptions = [...unavailableVersions, ...files.map(download)].join('');
+    const actions = item.status === 'preview-only' ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length ? `<button type="button" class="resource-download" disabled>${escape(item.downloadLabel || 'Download — Coming soon')}</button>` : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>${downloadLabel}</summary>${downloadOptions}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
     const notes = (Array.isArray(item.changelog) ? item.changelog : typeof item.changelog === 'string' ? [item.changelog] : []).flatMap(note => {
       if (typeof note === 'string') return [note];
       if (!note || typeof note !== 'object') return [];
@@ -380,10 +383,15 @@ function build({ gta5Only = false } = {}) {
     fs.mkdirSync(path.dirname(output), { recursive: true });
     fs.writeFileSync(output, renderPage(page));
   }
-  for (const menu of ['scooby', 'nenyoo', 'cherax', 'xforce']) {
-    const previous = route('gta5', 'dlc', menu);
-    const next = route('gta5', categoryId('gta5', 'dlc', menu), menu);
-    if (!data.pages.some(page => page.url === SITE + next)) continue;
+  const redirects = [
+    ...['scooby', 'nenyoo', 'cherax', 'xforce'].map(menu => [menu, 'dlc', 'GTA 5 Addons']),
+    ...['scooby', 'nenyoo'].map(menu => [menu, 'lua', menus.menuName(menu) + ' GTA 5 resources'])
+  ];
+  const publishedPages = new Set(data.pages.map(page => page.url));
+  for (const [menu, category, label] of redirects) {
+    const previous = route('gta5', category, menu);
+    const next = route('gta5', category === 'lua' ? undefined : categoryId('gta5', category, menu), menu);
+    if (publishedPages.has(SITE + previous) || !publishedPages.has(SITE + next)) continue;
     const output = path.join(ROOT, previous, 'index.html');
     fs.mkdirSync(path.dirname(output), { recursive: true });
     fs.writeFileSync(output, `<!doctype html>
@@ -392,11 +400,11 @@ function build({ gta5Only = false } = {}) {
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="${SITE + next}">
-<title>GTA 5 Addons</title>
+<title>${escape(label)}</title>
 <script>location.replace(${JSON.stringify(next)} + location.search + location.hash);</script>
 <noscript><meta http-equiv="refresh" content="0;url=${next}"></noscript>
 </head>
-<body><p>Continue to <a href="${next}">GTA 5 Addons</a>.</p></body>
+<body><p>Continue to <a href="${next}">${escape(label)}</a>.</p></body>
 </html>
 `);
   }

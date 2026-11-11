@@ -627,12 +627,18 @@ function pendingDownloadButton(entry) {
   return button;
 }
 
-function versionDownload(files) {
+function versionDownload(entry, files) {
   const control = node('div', null, 'version-download');
   const label = node('label', 'Version');
   const select = node('select');
   const action = node('div');
+  for (const version of entry.unavailableVersions || []) {
+    const option = new Option(version + ' — unavailable', '');
+    option.disabled = true;
+    select.add(option);
+  }
   files.forEach((file, index) => select.add(new Option(file.versionLabel || file.name, String(index))));
+  select.value = '0';
   const update = () => action.replaceChildren(downloadButton(files[Number(select.value)], action));
   select.onchange = update;
   label.append(select);
@@ -793,7 +799,7 @@ function showDetails(entry, files) {
   } else if (pendingDownload(entry)) {
     details.append(pendingDownloadButton(entry));
   } else if (entry.category === 'lua' && files.length > 1 && files.every(file => file.versionLabel)) {
-    details.append(versionDownload(files));
+    details.append(versionDownload(entry, files));
   } else if (files.length) {
     const list = node('div', null, 'file-list');
     for (const file of files) {
@@ -824,7 +830,8 @@ async function card(entry) {
   const preview = previewURL(entry);
   const gtaAddon = entry.game === 'gta5' && entry.category.startsWith('addon-');
   if (entry.category === 'themes' && preview) article.className += ' has-verified-preview';
-  shot.append(image(preview, entry.name, cheraxPreview(entry) || (!preview && gtaAddon)));
+  const compactLua = entry.category === 'lua' && cheraxPreview(entry) && !preview;
+  if (!compactLua) shot.append(image(preview, entry.name, cheraxPreview(entry) || (!preview && gtaAddon)));
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
@@ -877,7 +884,7 @@ async function card(entry) {
   if (files.length === 1) {
     actions.append(downloadButton(files[0], info));
   } else if (entry.category === 'lua' && files.length > 1 && files.every(file => file.versionLabel)) {
-    actions.append(versionDownload(files));
+    actions.append(versionDownload(entry, files));
   } else if (files.length > 1) {
     const details = node('button', 'Download ↓');
     details.type = 'button';
@@ -891,6 +898,12 @@ async function card(entry) {
     actions.append(images);
   }
   if (entry.category === 'lua') actions.append(changelogButton(entry));
+  if (compactLua && (files.length || pendingDownload(entry))) {
+    const details = node('button', 'Details', 'theme-details');
+    details.type = 'button';
+    details.onclick = () => showDetails(entry, files);
+    actions.append(details);
+  }
   info.append(actions);
   if (source || files.length || entry.status === 'in-menu' || pendingDownload(entry)) {
     const install = safeURL(entry.installUrl);
@@ -898,7 +911,7 @@ async function card(entry) {
     guide.className = 'guide-link';
     info.append(guide);
   }
-  if (preview || (entry.category !== 'themes' && !isFiveMRecipe(entry))) article.append(shot);
+  if (!compactLua && (preview || (entry.category !== 'themes' && !isFiveMRecipe(entry)))) article.append(shot);
   article.append(info);
   return article;
 }

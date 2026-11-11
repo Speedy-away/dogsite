@@ -60,7 +60,8 @@
   const compatibleWith = (entry, menu) => menuIds(entry).includes(canonical(typeof menu === 'object' ? menu.id : menu) || 'scooby');
   // A resource may be discoverable in Scooby's collection while retaining its
   // required original format or compatibility layer in the item details.
-  const supports = (entry, menu) => Array.isArray(entry?.listedMenus) && !isCheraxTheme(entry)
+  const supports = (entry, menu) => Array.isArray(entry?.listedMenus) && !isCheraxTheme(entry) &&
+    !(entry.game === 'gta5' && entry.category === 'lua')
     ? validMenus(entry.game, entry.listedMenus).includes(canonical(typeof menu === 'object' ? menu.id : menu) || 'scooby')
     : compatibleWith(entry, menu);
   function legacyOverrideMap(supplement) {
