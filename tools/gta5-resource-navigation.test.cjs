@@ -116,6 +116,25 @@ test('Nenyoo theme galleries use the original artwork and retain their catalog p
   assert(html.includes(`${theme.imageBaseUrl}textures/header.bmp`));
 });
 
+test('Nenyoo Lua is split by game and Stand-style Nenyoo themes retain their galleries', () => {
+  const nenyooLua = items.filter(item => item.source === 'Nenyoo Resources' && item.category === 'lua');
+  const gta = nenyooLua.filter(item => item.game === 'gta5');
+  const rdr = nenyooLua.filter(item => item.game === 'rdr2');
+  assert(gta.some(item => item.files.some(file => /\/GTAV\/Scripts\//.test(file.url))));
+  assert(rdr.length && rdr.every(item => item.builtInLua && !item.files.length && /\/RDR2\/Lua\//.test(item.sourceUrl)));
+  for (const [game, entries] of [['gta5', gta], ['rdr2', rdr]]) {
+    const page = pages.find(entry => entry.game === game && entry.menu === 'nenyoo' && entry.category === 'lua');
+    assert.equal(page.itemCount, entries.length);
+    assert(page.samples.every(item => entries.includes(item)));
+    const html = fs.readFileSync(path.join(root, page.file), 'utf8');
+    assert(html.includes(`href="${route(game === 'gta5' ? 'rdr2' : 'gta5', 'lua', 'nenyoo')}"`));
+    assert(html.includes('View module source'));
+  }
+  const themes = items.filter(item => item.game === 'gta5' && item.category === 'themes' && menus.supports(item, 'nenyoo'));
+  assert(themes.every(item => menus.compatibleWith(item, 'nenyoo')));
+  assert(themes.some(item => item.style === 'Stand' && item.sourceMenu === 'nenyoo' && item.imagePaths?.length));
+});
+
 test('Old DLC paths redirect to the matching package collection', () => {
   assert(!gtaPages.some(page => page.category === 'dlc'));
   for (const [menu, category] of [['scooby', 'addon-packs'], ['nenyoo', 'addon-packs'], ['cherax', 'addon-packs'], ['xforce', 'addon-vehicles']]) {

@@ -150,6 +150,7 @@ function authorPage(entry) {
 const isFiveMRecipe = entry => entry.game === 'fivem' && entry.category === 'server-dumps';
 
 function authorAction(entry) {
+  if (entry.builtInLua) return 'View module source ↗';
   if (entry.source === 'Nenyoo Resources' && entry.category === 'themes') return 'Open theme folder ↗';
   return isFiveMRecipe(entry) ? 'Download from source ↗' : 'Get from the author ↗';
 }
@@ -365,7 +366,12 @@ function updateThemeFilters() {
 }
 
 function updateControls() {
-  gameTabs.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.game === state.game)));
+  gameTabs.forEach(button => {
+    const game = button.dataset.game;
+    button.setAttribute('aria-pressed', String(game === state.game));
+    if (button.tagName === 'A') button.href = nenyooLuaGame(game)
+      ? routes.catalogURL({ game, menu: 'nenyoo', category: 'lua' }, publishedRoutes) : routes.collectionPath(game);
+  });
   const menuChoice = hasMenuChoice(state.game);
   $('collection-title').textContent = collectionTitle();
   const editionGroup = editions.group(state.game);
@@ -834,7 +840,7 @@ function showDetails(entry, files) {
   } else details.append(node('p', entry.status === 'in-menu' ? entry.category === 'themes' ? 'This style is included with Scooby. Follow the guide to select the interface and its built-in appearance.' : entry.game === 'cs2' ? 'This item is included in Scooby’s model selector. Follow the guide to select it in the menu.' : 'This item is included with Scooby. Follow the guide to find it in the menu.' : entry.status === 'workshop' ? 'This repository entry is documented in the installation guide. A downloadable package is not available here.' : 'A download is not available for this item.'));
   const tags = tagLinks(entry);
   if (tags) details.append(tags);
-  if (entry.category === 'lua') details.append(changelogButton(entry));
+  if (entry.category === 'lua' && !entry.builtInLua) details.append(changelogButton(entry));
   details.append(install ? link('Author’s install guide ↗', install, true) : link('Installation guide ↗', guideURL(entry)));
   const permalink = node('p');
   permalink.append(link('Resource permalink', resourceURL(entry)));
@@ -861,12 +867,12 @@ async function card(entry) {
   const preview = previewURL(entry);
   const gtaAddon = entry.game === 'gta5' && entry.category.startsWith('addon-');
   if (entry.category === 'themes' && preview) article.className += ' has-verified-preview';
-  const compactLua = entry.category === 'lua' && cheraxPreview(entry) && !preview;
+  const compactLua = entry.category === 'lua' && !preview && (cheraxPreview(entry) || entry.builtInLua);
   if (!compactLua) shot.append(image(preview, entry.name, cheraxPreview(entry) || (!preview && gtaAddon)));
   shot.onclick = () => showDetails(entry, files);
   const info = node('div', null, 'info');
   const pendingExtension = String(entry.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[1]?.toLowerCase();
-  const knownExtension = pendingDownload(entry) && pendingExtension === normalize(entry.formatExtension) ? pendingExtension : '';
+  const knownExtension = entry.builtInLua ? '.lua' : pendingDownload(entry) && pendingExtension === normalize(entry.formatExtension) ? pendingExtension : '';
   const title = resourceTitle(visibleText(entry, entry.name), files, knownExtension);
   title.title = title.textContent;
   const name = title.firstElementChild;
@@ -874,7 +880,7 @@ async function card(entry) {
   permalink.className = name.className;
   name.replaceWith(permalink);
   info.append(title);
-  info.append(node('p', [entry.modelLabel || categoryLabel(entry.game, entry.category), entry.attachments > 0 && `${entry.attachments} attachments`, files.length === 1 && prettySize(files[0].size), entry.status === 'in-menu' && 'In-menu', entry.status === 'workshop' && 'Workshop'].filter(Boolean).join(' · ')));
+  info.append(node('p', [entry.modelLabel || (entry.builtInLua ? 'Built-in Lua module' : categoryLabel(entry.game, entry.category)), entry.attachments > 0 && `${entry.attachments} attachments`, files.length === 1 && prettySize(files[0].size), entry.status === 'in-menu' && 'In-menu', entry.status === 'workshop' && 'Workshop'].filter(Boolean).join(' · ')));
   const edition = editions.support(entry);
   if (edition) {
     const badge = node('span', editions.badge(entry.game, edition), `edition-badge edition-${edition}`);
@@ -888,7 +894,7 @@ async function card(entry) {
     info.append(node('p', visibleText(entry, entry.requirementLabel || `Requires ${menuName(sourceMenu)} format`), 'compatibility-note'));
   }
   if (entry.description) info.append(node('p', visibleText(entry, entry.description), 'description'));
-  if (entry.requirementLabel && (isFiveMRecipe(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
+  if (entry.requirementLabel && (sourceMenu === 'nenyoo' && entry.category === 'lua' || isFiveMRecipe(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
     info.append(node('p', entry.requirementLabel, 'compatibility-note'));
   }
   if (ACCESS_LABELS[entry.access]) info.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
@@ -932,7 +938,7 @@ async function card(entry) {
     images.onclick = () => showDetails(entry, files);
     actions.append(images);
   }
-  if (entry.category === 'lua') actions.append(changelogButton(entry));
+  if (entry.category === 'lua' && !entry.builtInLua) actions.append(changelogButton(entry));
   if (compactLua && (files.length || pendingDownload(entry))) {
     const details = node('button', 'Details', 'theme-details');
     details.type = 'button';
@@ -1045,13 +1051,17 @@ function openGtaMenuDialog() {
   gtaMenuDialog.showModal();
 }
 
+function nenyooLuaGame(game) {
+  return state.menu === 'nenyoo' && state.category === 'lua' && menuFor(game, 'nenyoo') === 'nenyoo';
+}
+
 function selectResourceGame(game, menu = 'scooby') {
   const selectedMenu = menuFor(game, menu);
   if (game === state.game && selectedMenu === state.menu) { saveState(); return; }
   clearTimeout(inputTimer);
   const sameGame = game === state.game;
   state = {
-    game, menu: selectedMenu, category: sameGame ? state.category : 'all',
+    game, menu: selectedMenu, category: sameGame || (selectedMenu === 'nenyoo' && nenyooLuaGame(game)) ? state.category : 'all',
     edition: sameGame ? state.edition : '', q: '', model: '', ui: '', style: '',
     sort: sameGame ? state.sort : '', page: 1
   };
@@ -1060,6 +1070,7 @@ function selectResourceGame(game, menu = 'scooby') {
 }
 
 function chooseResourceGame(game, currentMenu) {
+  if (nenyooLuaGame(game)) { selectResourceGame(game, 'nenyoo'); return; }
   if (game === 'gta5') {
     const remembered = rememberedGtaMenu();
     if (!remembered) { openGtaMenuDialog(); return; }

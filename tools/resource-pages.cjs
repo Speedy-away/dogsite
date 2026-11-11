@@ -99,7 +99,7 @@ function fileExtension(file) {
 function resourceName(item) {
   const files = item.files || [];
   const primary = files.find(file => ['.zip', '.rar', '.7z', '.gz'].includes(fileExtension(file))) || files[0];
-  const extension = fileExtension(primary) || (item.category === 'lua' && item.downloadStatus === 'pending' ? String(item.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[0]?.toLowerCase() || '' : '');
+  const extension = fileExtension(primary) || (item.category === 'lua' && (item.downloadStatus === 'pending' || item.builtInLua) ? String(item.sourceFilename || '').match(/\.(lua|pluto)$/i)?.[0]?.toLowerCase() || '' : '');
   const label = String(extension && String(item.name).toLowerCase().endsWith(extension) ? String(item.name).slice(0, -extension.length) : item.name).trim();
   return { label, extension, visible: [label, extension].filter(Boolean).join(' ') };
 }
@@ -218,7 +218,10 @@ function buildData() {
         : [];
       const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
       const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, `${menuName} resources`, config.name, config.full, ...topics, ...config.aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
-      const intro = scoobyThemes
+      const intro = menu === 'nenyoo' && category === 'lua'
+        ? game === 'rdr2' ? 'Browse built-in Nenyoo Lua modules for Red Dead Redemption 2, including HUD and camera overlays.'
+          : 'Browse Nenyoo Lua downloads and built-in modules for GTA V. Use the GTA V Nenyoo runtime for these files.'
+        : scoobyThemes
         ? 'Browse native Scooby ClickUI colors and ListUI styles. Some Scooby-compatible presets look like other menus. Check the file requirements before installing.'
         : game === 'gta5' && menu === 'cherax' && category === 'themes'
           ? 'Browse Cherax ClickGUI and ListUI themes. Choose a package for your active interface and keep the settings and artwork together.'
@@ -247,7 +250,11 @@ function renderPage(page, guideRoutes = {}) {
   const currentPath = route(page.game, page.category, page.menu);
   const published = new Set([route(page.game, undefined, page.menu), ...page.categories.map(category => route(page.game, category.id, page.menu))]);
   const browseURL = (filters = {}) => catalogURL({ game: page.game, menu: page.menu, category: page.category, ...filters }, published);
-  const gameLinks = Object.entries(GAMES).map(([id, config]) => `<a href="${route(id, undefined, id === page.game ? page.menu : 'scooby')}"${id === page.game ? ' aria-current="page"' : ''}><img src="${config.logo}" alt="" width="38" height="28"><span>${config.name}</span></a>`).join('');
+  const gameLinks = Object.entries(GAMES).map(([id, config]) => {
+    const href = page.menu === 'nenyoo' && page.category === 'lua' && menus.menuFor(id, 'nenyoo') === 'nenyoo'
+      ? route(id, 'lua', 'nenyoo') : route(id, undefined, id === page.game ? page.menu : 'scooby');
+    return `<a href="${href}"${id === page.game ? ' aria-current="page"' : ''}><img src="${config.logo}" alt="" width="38" height="28"><span>${config.name}</span></a>`;
+  }).join('');
   const menuChoice = page.availableMenus.length > 1;
   const menuLinks = menuChoice ? `<nav class="resource-menus" aria-label="${game.name} menu resources">${page.availableMenus.map(menu => `<a href="${route(page.game, undefined, menu.id)}"${menu.id === page.menu ? ' aria-current="page"' : ''}>${escape(menu.name)}</a>`).join('')}</nav>` : '';
   const gameFilters = page.game === 'l4d' ? `<nav class="resource-menus" aria-label="Filter by Left 4 Dead game">${Object.entries(editions.group('l4d').options).map(([edition, label]) =>
@@ -283,14 +290,14 @@ function renderPage(page, guideRoutes = {}) {
     const gtaAddon = item.game === 'gta5' && item.category.startsWith('addon-');
     const image = remotePreview
       ? `<a class="resource-preview" href="${escape(href)}"><img src="${escape(remotePreview)}"${local}${fallback} alt="${escape(item.name)} preview" loading="lazy" decoding="async"></a>`
-      : serverRecipe || (cheraxPreview && item.category === 'lua') ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
+      : serverRecipe || item.builtInLua || (cheraxPreview && item.category === 'lua') ? '' : `<div class="resource-preview">${gtaAddon || cheraxPreview ? '<span class="preview-unavailable">Preview unavailable</span>' : `<img class="preview-placeholder" src="${SCOOBY_PREVIEW_LOGO}" alt="" loading="lazy" decoding="async">`}</div>`;
     const tags = tagsFor(item, page.menu).filter(tag => tag.length <= 30 && !/[\\/]/.test(tag)).slice(0, 4);
     const files = (item.files || []).map(file => ({ url: fileURL(file, page.downloadBaseUrl), name: file.name || path.posix.basename(file.path || ''), formatPath: file.formatPath || file.path, size: file.size, downloadMethod: file.downloadMethod, versionLabel: file.versionLabel })).filter(file => file.url);
     const { extension, label: name } = resourceName(item);
     const suffix = extension ? ` <span class="resource-extension ext-${extension.slice(1)}">${escape(extension)}</span>` : '';
     const download = file => `<button type="button" class="resource-download" data-download-file="${escape(JSON.stringify(file))}">Download${files.length > 1 ? ' ' + escape(file.versionLabel || file.name) : ' ↓'}</button>`;
     const authorHosted = item.status === 'author-hosted' && /^https:\/\//.test(item.sourceUrl || '');
-    const authorLabel = item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : serverRecipe ? 'Download from source ↗' : 'Get from the author ↗';
+    const authorLabel = item.builtInLua ? 'View module source ↗' : item.source === 'Nenyoo Resources' && item.category === 'themes' ? 'Open theme folder ↗' : serverRecipe ? 'Download from source ↗' : 'Get from the author ↗';
     const authorLink = authorHosted ? `<a class="resource-download" href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">${authorLabel}</a>` : '';
     const install = authorHosted && /^https:\/\//.test(item.installUrl || '') ? `<p><a href="${escape(item.installUrl)}" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p>` : '';
     const author = item.author || (item.game === 'l4d' ? item.credits : '');
@@ -311,7 +318,7 @@ function renderPage(page, guideRoutes = {}) {
       const changes = [note.changes, note.notes, note.description].flat().filter(value => typeof value === 'string');
       return changes.map(change => heading ? `${heading}: ${change}` : change);
     }).filter(Boolean);
-    const changelog = item.category === 'lua' || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
+    const changelog = (item.category === 'lua' && !item.builtInLua) || notes.length ? `<button type="button" class="resource-changelog" data-resource-changelog="${escape(JSON.stringify({ name: item.name, notes }))}">Changelog</button>` : '';
     const requirementText = item.requirementLabel || (item.game === 'l4d' ? item.compatibility : '') || (!menus.compatibleWith(item, page.menu) ? 'Requires the original menu format and a compatible loader or importer.' : '');
     const requirement = requirementText ? `<p class="resource-requirement">${escape(requirementText)}</p>` : '';
     const gallery = item.imagePaths?.length && /^https:\/\//.test(item.imageBaseUrl || '')
@@ -320,7 +327,7 @@ function renderPage(page, guideRoutes = {}) {
         return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(file)}</a></li>`;
       }).join('')}</ul></details>` : '';
     const setup = serverRecipe && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
-    const type = serverRecipe ? 'txAdmin recipe' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
+    const type = serverRecipe ? 'txAdmin recipe' : item.builtInLua ? 'Built-in Lua module' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
     return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3><p>${escape(type)}</p>${badge}${access}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}<p class="resource-tags">${tags.map(q => `<a href="${escape(browseURL({ category: item.category, q }))}">${escape(q)}</a>`).join(' ')}</p>${actions}${gallery}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
   }).join('\n');
   const collection = { '@context': 'https://schema.org', '@graph': [
@@ -390,12 +397,13 @@ function build({ gta5Only = false } = {}) {
   }
   const redirects = [
     ...['scooby', 'nenyoo', 'cherax', 'xforce'].map(menu => [menu, 'dlc', 'GTA 5 Addons']),
-    ...['scooby', 'nenyoo'].map(menu => [menu, 'lua', menus.menuName(menu) + ' GTA 5 resources'])
+    ...['scooby', 'nenyoo'].map(menu => [menu, 'lua', menus.menuName(menu) + ' GTA 5 resources']),
+    ['nenyoo', 'configs', 'Nenyoo GTA 5 resources']
   ];
   const publishedPages = new Set(data.pages.map(page => page.url));
   for (const [menu, category, label] of redirects) {
     const previous = route('gta5', category, menu);
-    const next = route('gta5', category === 'lua' ? undefined : categoryId('gta5', category, menu), menu);
+    const next = route('gta5', category === 'dlc' ? categoryId('gta5', category, menu) : undefined, menu);
     if (publishedPages.has(SITE + previous) || !publishedPages.has(SITE + next)) continue;
     const output = path.join(ROOT, previous, 'index.html');
     fs.mkdirSync(path.dirname(output), { recursive: true });
