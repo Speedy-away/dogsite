@@ -780,7 +780,7 @@ async function card(entry) {
     guide.className = 'guide-link';
     info.append(guide);
   }
-  if (entry.category !== 'themes' || preview) article.append(shot);
+  article.append(shot);
   article.append(info);
   return article;
 }

@@ -91195,6 +91195,383 @@
       "files": [],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-x-script"
+    },
+    {
+      "name": "HandlingFiles",
+      "category": "misc",
+      "description": "Vehicle handling presets in META format shared in X-Force’s #asi-scripts channel on 2023-08-26.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "HandlingFiles.rar",
+      "sourceFormat": "Vehicle handling presets in META format",
+      "author": "TheDonBro",
+      "sourceChannel": "asi-scripts",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "asi-scripts",
+        "HandlingFiles",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "TheDonBro",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/8ac18ceb5e8149070b8d.rar",
+          "name": "HandlingFiles.rar",
+          "size": 8856,
+          "sha256": "8ac18ceb5e8149070b8d9edf3055e76069becedeb0f0ffc3d72295adfc439253"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=misc",
+      "id": "gta5-xforce-discord-8ac18ceb5e8149070b8d"
+    },
+    {
+      "name": "HandlingEditor",
+      "category": "misc",
+      "description": "Handling Editor configuration and handling presets shared in X-Force’s #asi-scripts channel on 2023-12-20.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "HandlingEditor.rar",
+      "sourceFormat": "Handling Editor configuration and handling presets",
+      "author": "TheDonBro",
+      "sourceChannel": "asi-scripts",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "asi-scripts",
+        "HandlingEditor",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "TheDonBro",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/e44657c65b961306c2c3.rar",
+          "name": "HandlingEditor.rar",
+          "size": 25051,
+          "sha256": "e44657c65b961306c2c3c0c25e3c0c466012c6a0ac70bcdcbc6e9fde477ea9d1"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=misc",
+      "id": "gta5-xforce-discord-e44657c65b961306c2c3"
+    },
+    {
+      "name": "All Joggers Male",
+      "category": "outfits",
+      "description": "X-Force archive with ten XFO outfit presets shared in X-Force’s #outfits channel on 2022-11-15.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "All_Joggers_Male.rar",
+      "sourceFormat": "X-Force archive with ten XFO outfit presets",
+      "author": "Ari Schmari",
+      "sourceChannel": "outfits",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "outfits",
+        "All Joggers Male",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Ari Schmari",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/4087721f06a442994ec9.rar",
+          "name": "All_Joggers_Male.rar",
+          "size": 2621,
+          "sha256": "4087721f06a442994ec9507a87634272b3c624a7f472305ec6bb3aa21e0996c4"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=outfits",
+      "id": "gta5-xforce-discord-4087721f06a442994ec9"
+    },
+    {
+      "name": "Modded Pack",
+      "category": "outfits",
+      "description": "X-Force archive with five JSON outfit presets shared in X-Force’s #outfits channel on 2024-08-01.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "Modded-Pack.zip",
+      "sourceFormat": "X-Force archive with five JSON outfit presets",
+      "author": "Deleted User",
+      "sourceChannel": "outfits",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "outfits",
+        "Modded Pack",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Deleted User",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/4b114f76796c2a8e1618.zip",
+          "name": "Modded-Pack.zip",
+          "size": 2170,
+          "sha256": "4b114f76796c2a8e16182bc0e5d8cea9d33f59174fc9109b0cf448e98369f7a9"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=outfits",
+      "id": "gta5-xforce-discord-4b114f76796c2a8e1618"
+    },
+    {
+      "name": "nice girl",
+      "category": "outfits",
+      "description": "X-Force archive with a JSON outfit preset shared in X-Force’s #outfits channel on 2025-07-14.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "nice_girl.rar",
+      "sourceFormat": "X-Force archive with a JSON outfit preset",
+      "author": "HartzIVJesus",
+      "sourceChannel": "outfits",
+      "collectionStatus": "current",
+      "archival": false,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "outfits",
+        "nice girl",
+        "X-Force"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "HartzIVJesus",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/a83c22881b333b36e22f.rar",
+          "name": "nice_girl.rar",
+          "size": 332,
+          "sha256": "a83c22881b333b36e22f8994762dd83aa929eafbfc4fe418938e0d4e02c801f1"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=outfits",
+      "id": "gta5-xforce-discord-a83c22881b333b36e22f"
+    },
+    {
+      "name": "All The Translations",
+      "category": "languages",
+      "description": "X-Force archive with eighteen XTR translations shared in X-Force’s #translations channel on 2022-10-29.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "All_The_Translations.rar",
+      "sourceFormat": "X-Force archive with eighteen XTR translations",
+      "author": "Fizz",
+      "sourceUrl": "https://discord.com/channels/852246997864022016/852247230420090921/1035958763619881001",
+      "sourceChannel": "translations",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "translations",
+        "All The Translations",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Fizz",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/0068ade43a7a716ab30e.rar",
+          "name": "All_The_Translations.rar",
+          "size": 580171,
+          "sha256": "0068ade43a7a716ab30e803e6868ff70641c3f9d32f852689061b4691d92dc98"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=languages",
+      "id": "gta5-xforce-discord-0068ade43a7a716ab30e"
+    },
+    {
+      "name": "Simplified Chinese",
+      "category": "languages",
+      "description": "Simplified Chinese XTR with its bundled font shared in X-Force’s #translations channel on 2022-12-25.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "Simplified_Chinese.zip",
+      "sourceFormat": "Simplified Chinese XTR with its bundled font",
+      "author": "Deleted User",
+      "sourceUrl": "https://discord.com/channels/852246997864022016/852247230420090921/1056561020711206952",
+      "sourceChannel": "translations",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "translations",
+        "Simplified Chinese",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Deleted User",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/d428a8a4848f63231303.zip",
+          "name": "Simplified_Chinese.zip",
+          "size": 2645891,
+          "sha256": "d428a8a4848f6323130326fb2077ec0c885b5bb4698801effe04f905a6c79d93"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=languages",
+      "id": "gta5-xforce-discord-d428a8a4848f63231303"
+    },
+    {
+      "name": "XF7.4b1Chinese",
+      "category": "languages",
+      "description": "Chinese XTR for X-Force 7.4b1 with its bundled font shared in X-Force’s #translations channel on 2023-02-08.",
+      "sourceMenu": "xforce",
+      "supportedMenus": [
+        "xforce"
+      ],
+      "sourceFilename": "XF7.4b1Chinese.zip",
+      "sourceFormat": "Chinese XTR for X-Force 7.4b1 with its bundled font",
+      "author": "Deleted User",
+      "sourceUrl": "https://discord.com/channels/852246997864022016/852247230420090921/1072801634872209438",
+      "sourceChannel": "translations",
+      "collectionStatus": "archival",
+      "archival": true,
+      "compatibility": "Shared for the original X-Force menu. Current game builds and other menus were not tested.",
+      "tags": [
+        "gta5",
+        "x-force",
+        "translations",
+        "XF7.4b1Chinese",
+        "X-Force",
+        "old shares",
+        "archival"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Deleted User",
+      "listedMenus": [
+        "xforce",
+        "scooby",
+        "nenyoo"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/xforce/fcf252061f0fcb58a607.zip",
+          "name": "XF7.4b1Chinese.zip",
+          "size": 9444365,
+          "sha256": "fcf252061f0fcb58a60766201458cfcd81df3455f4cb0b8a5d499e7ff5acf3e4"
+        }
+      ],
+      "status": "download",
+      "downloadStatus": "available",
+      "guide": "/resources/guides/?game=gta5&menu=xforce&category=languages",
+      "id": "gta5-xforce-discord-fcf252061f0fcb58a607"
     }
   ],
   "libraryOverrides": [
@@ -275605,8 +275982,8 @@
       "menu": "xforce",
       "source": "project/community-menu-sources/xforce.json",
       "summary": {
-        "totalResources": 208,
-        "newResourceRecords": 191,
+        "totalResources": 216,
+        "newResourceRecords": 199,
         "existingLibraryOverrides": 17,
         "uniqueLocalUIConfigs": 17,
         "localUIFiles": 18,
@@ -275616,7 +275993,7 @@
         "localScoobyGeneratedHeaders": 2,
         "publicLuaPlaceholders": 4,
         "inspectedDiscordMessages": 325,
-        "importedDiscordRecords": 172,
+        "importedDiscordRecords": 180,
         "inspectedDiscordExports": 9,
         "inspectedArchiveMembersIncludingManifests": 133,
         "latestLocalArchiveAssetMembers": 61
@@ -275641,7 +276018,7 @@
         {
           "channel": "asi-scripts",
           "inspectedDiscordMessages": 9,
-          "resourceCount": 4,
+          "resourceCount": 6,
           "status": "user-supplied-export-inspected",
           "gap": "Coverage is limited to the supplied export and its saved attachments.",
           "exportCount": 1
@@ -275649,7 +276026,7 @@
         {
           "channel": "outfits",
           "inspectedDiscordMessages": 23,
-          "resourceCount": 18,
+          "resourceCount": 21,
           "status": "user-supplied-export-inspected",
           "gap": "Coverage is limited to the supplied export and its saved attachments.",
           "exportCount": 1
@@ -275657,7 +276034,7 @@
         {
           "channel": "translations",
           "inspectedDiscordMessages": 67,
-          "resourceCount": 43,
+          "resourceCount": 46,
           "status": "user-supplied-export-inspected",
           "gap": "Coverage is limited to the supplied export and its saved attachments.",
           "exportCount": 1
