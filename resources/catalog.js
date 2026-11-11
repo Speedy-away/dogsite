@@ -1,6 +1,7 @@
 'use strict';
 
 const $ = id => document.getElementById(id);
+const gameTabs = document.querySelectorAll('#collection .games [data-game]');
 const GAMES = {
   gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs'] },
   rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
@@ -364,7 +365,7 @@ function updateThemeFilters() {
 }
 
 function updateControls() {
-  document.querySelectorAll('[data-game]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.game === state.game)));
+  gameTabs.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.game === state.game)));
   const menuChoice = hasMenuChoice(state.game);
   $('collection-title').textContent = collectionTitle();
   const editionGroup = editions.group(state.game);
@@ -1055,7 +1056,15 @@ function selectResourceGame(game, menu = 'scooby') {
     sort: sameGame ? state.sort : '', page: 1
   };
   saveState();
-  loadGame();
+  if (catalogReady) loadGame();
+}
+
+function chooseResourceGame(game, currentMenu) {
+  if (game === 'gta5') {
+    const remembered = rememberedGtaMenu();
+    if (!remembered) { openGtaMenuDialog(); return; }
+    selectResourceGame(game, currentMenu || remembered);
+  } else selectResourceGame(game);
 }
 
 for (const menu of menuSystem?.MENUS || [{ id: 'scooby', name: 'Scooby' }]) {
@@ -1076,16 +1085,12 @@ gtaMenuDialog.addEventListener('close', () => {
   selectResourceGame('gta5', menu.id);
 });
 
-document.querySelectorAll('[data-game]').forEach(button => {
+gameTabs.forEach(button => {
   button.onclick = event => {
     if (button.tagName === 'A' && (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button > 0)) return;
     event.preventDefault();
     const game = button.dataset.game;
-    if (game === 'gta5') {
-      const remembered = rememberedGtaMenu();
-      if (!remembered) { openGtaMenuDialog(); return; }
-      selectResourceGame(game, state.game === game ? state.menu : remembered);
-    } else selectResourceGame(game);
+    chooseResourceGame(game, state.game === game ? state.menu : '');
   };
   if (button.tagName === 'A') button.onkeydown = event => { if (event.key === ' ') { event.preventDefault(); button.click(); } };
 });
@@ -1152,6 +1157,28 @@ window.addEventListener('hashchange', () => {
 const mobileFilters = matchMedia('(max-width: 760px)');
 $('filter-panel').open = !mobileFilters.matches;
 mobileFilters.addEventListener('change', event => { $('filter-panel').open = !event.matches; });
+
+const gameDialog = $('resource-game-dialog');
+if (initialPath === routes.base && !location.search && !location.hash && typeof gameDialog?.showModal === 'function') {
+  for (const tab of gameTabs) {
+    const choice = node('button');
+    choice.type = 'button';
+    choice.dataset.game = tab.dataset.game;
+    choice.autofocus = tab === gameTabs[0];
+    const icon = node('img');
+    icon.src = `/assets/images/resource-game-icons/${tab.dataset.game}.webp`;
+    icon.alt = '';
+    icon.width = icon.height = 48;
+    choice.append(icon, node('span', tab.textContent.trim()));
+    choice.onclick = () => {
+      gameDialog.close();
+      tab.focus({ preventScroll: true });
+      chooseResourceGame(tab.dataset.game);
+    };
+    $('resource-game-options').append(choice);
+  }
+  gameDialog.showModal();
+}
 
 (async () => {
   setLoading(true);

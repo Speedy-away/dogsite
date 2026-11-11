@@ -23,8 +23,7 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 
 .card[data-category=themes]{padding:18px;border:1px solid #282828;border-radius:8px;background:#101010}.card[data-category=themes] .info{padding:0}.info button.theme-details{background:transparent;border-color:#3a3a3a;color:#ccc}.info button.theme-details:hover{background:#242424;color:#fff}
 .info button.download-pending{max-width:100%;white-space:normal;line-height:1.5;text-align:left}
-#gta-menu-dialog {
-  --menu-accent: #cbb3ff;
+.resource-picker {
   width: min(480px, calc(100vw - 24px));
   padding: clamp(16px, 5vw, 26px);
   border-color: #39363e;
@@ -33,17 +32,17 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
   box-shadow: 0 24px 76px #0009;
   color-scheme: dark;
 }
-#gta-menu-dialog::backdrop { background: #050406b8; backdrop-filter: blur(5px); }
-#gta-menu-dialog form { display: block; }
-.gta-menu-heading {
+.resource-picker::backdrop { background: #050406b8; backdrop-filter: blur(5px); }
+.resource-picker form { display: block; }
+.resource-picker-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 20px;
 }
-#gta-menu-title { margin: 0; font-size: clamp(19px, 5.5vw, 24px); line-height: 1.15; font-weight: 650; letter-spacing: -.035em; }
-.gta-menu-close {
+.resource-picker-heading h2 { margin: 0; font-size: clamp(19px, 5.5vw, 24px); line-height: 1.15; font-weight: 650; letter-spacing: -.035em; }
+.resource-picker-close {
   display: grid;
   place-items: center;
   width: 44px;
@@ -55,6 +54,27 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
   font-size: 24px;
   line-height: 1;
 }
+#resource-game-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+#resource-game-options button {
+  justify-content: flex-start;
+  gap: clamp(8px, 2.5vw, 14px);
+  min-height: 68px;
+  padding-block: 8px;
+  padding-inline: clamp(8px, 3vw, 16px);
+}
+#resource-game-options img {
+  width: clamp(36px, 10vw, 48px);
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid #ffffff24;
+  border-radius: 7px;
+  filter: none;
+}
+#gta-menu-dialog { --menu-accent: #cbb3ff; }
 #gta-menu-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .gta-menu-choice {
   display: flex;
@@ -139,7 +159,7 @@ dialog{width:min(950px,94vw);max-height:90dvh;background:#111;color:#f0f0f0;bord
 .gta-menu-remember input:checked ~ .gta-menu-switch::before { background: #2d2039; }
 .gta-menu-remember input:focus-visible ~ .gta-menu-switch { outline: 2px solid #fff; outline-offset: 3px; }
 @media (prefers-reduced-transparency: reduce) {
-  #gta-menu-dialog::backdrop { backdrop-filter: none; }
+  .resource-picker::backdrop { backdrop-filter: none; }
 }
 @media (min-width: 1180px) {
     :root { --maxw: 1380px; }

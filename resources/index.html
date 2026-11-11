@@ -95,11 +95,20 @@
 <section class="note"><h2>From the collection<br>to your game.</h2><div><p id="install-note">Keep the complete download together and follow its installation guide. Check that the resource supports your game and Scooby version.</p><p>Original creator credits are included in each resource’s details.</p><a href="/resources/guides/">Read the install guides ↗</a></div></section>
 </main>
 <footer><a href="/">Scooby / Home</a><a href="/guides/">All setup guides ↗</a><span>Not affiliated with the game publishers.</span></footer>
-<dialog id="gta-menu-dialog" aria-labelledby="gta-menu-title">
+<dialog id="resource-game-dialog" class="resource-picker" aria-labelledby="resource-game-title">
   <form method="dialog">
-    <div class="gta-menu-heading">
+    <div class="resource-picker-heading">
+      <h2 id="resource-game-title">Choose a game</h2>
+      <button class="resource-picker-close" type="submit" aria-label="Close game picker"><span aria-hidden="true">×</span></button>
+    </div>
+    <div id="resource-game-options" class="games"></div>
+  </form>
+</dialog>
+<dialog id="gta-menu-dialog" class="resource-picker" aria-labelledby="gta-menu-title">
+  <form method="dialog">
+    <div class="resource-picker-heading">
       <h2 id="gta-menu-title">Choose your GTA 5 menu</h2>
-      <button class="gta-menu-close" value="cancel" type="submit" aria-label="Close menu picker"><span aria-hidden="true">×</span></button>
+      <button class="resource-picker-close" value="cancel" type="submit" aria-label="Close menu picker"><span aria-hidden="true">×</span></button>
     </div>
     <div id="gta-menu-options"></div>
     <label class="gta-menu-remember">
