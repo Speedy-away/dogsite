@@ -54,6 +54,7 @@ let scoobyLuaCatalog = { items: [] };
 let defaultAdditionDates = {};
 let historicalAdditionDates = new Map();
 let libraryError = false;
+let cheraxArchiveError = false;
 let entries = [];
 let menuCategoryCounts = new Map();
 let nativeFormatDefault = false;
@@ -369,10 +370,10 @@ function applyLegacyOverrides(family, original) {
   });
 }
 
-function libraryEntries() {
+function libraryEntries(supplement) {
   const merged = new Map();
-  const overrides = new Map((Array.isArray(menuResources.libraryOverrides) ? menuResources.libraryOverrides : []).filter(override => override.id).map(override => [override.id, override]));
-  for (const [name, catalog] of [['library', library], ['menu-resources', menuResources], ['gta5-editions', gtaEditionCatalog], ['gta5-addons', gtaAddonCatalog], ['nenyoo', nenyooCatalog], ['scooby-lua', scoobyLuaCatalog]]) {
+  const overrides = new Map((supplement.libraryOverrides || []).filter(override => override.id).map(override => [override.id, override]));
+  for (const [name, catalog] of [['library', library], ['menu-resources', supplement], ['gta5-editions', gtaEditionCatalog], ['gta5-addons', gtaAddonCatalog], ['nenyoo', nenyooCatalog], ['scooby-lua', scoobyLuaCatalog]]) {
     for (const item of catalog.items) {
       const id = item.id || `${item.game}:${item.category}:${item.name}:${item.sourceMenu || item.menu || ''}`;
       const previous = merged.get(id);
@@ -597,8 +598,9 @@ function updateControls() {
     ? 'Check the game badge and follow the resource’s install guide. Workshop subscriptions, manual add-ons and Scooby files use different install methods.'
     : 'Keep the complete download together and follow its installation guide. Check that the resource supports your game and Scooby version.';
   $('catalog-warning').replaceChildren();
-  $('catalog-warning').hidden = !libraryError;
-  if (libraryError) {
+  const catalogError = libraryError || (state.game === 'gta5' && cheraxArchiveError);
+  $('catalog-warning').hidden = !catalogError;
+  if (catalogError) {
     $('catalog-warning').append(node('span', 'Some resources could not be loaded. Existing GTA 5 presets are still available. '));
     const retry = node('button', 'Retry catalog');
     retry.type = 'button';
@@ -626,9 +628,14 @@ async function loadGame() {
   $('next').disabled = true;
   try {
     const game = state.game;
-    const original = game === 'gta5' ? (await Promise.all([loadLegacy('vehicles'), loadLegacy('outfits')])).flat() : [];
+    const [original, archive] = game === 'gta5' ? await Promise.all([
+      Promise.all([loadLegacy('vehicles'), loadLegacy('outfits')]).then(rows => rows.flat()),
+      json('/community/data/cherax-resources.json').catch(() => null)
+    ]) : [[], null];
     if (token !== loadRevision) return;
-    entries = [...original.filter(supportsMenu), ...libraryEntries()].filter(item => !state.archive || item.oldShares).map(item => {
+    cheraxArchiveError = game === 'gta5' && !archive;
+    const supplement = menuSystem.mergeCheraxResources(menuResources, archive);
+    entries = [...original.filter(supportsMenu), ...libraryEntries(supplement)].filter(item => !state.archive || item.oldShares).map(item => {
       const entry = editions.withVerification(item, gtaEditionCatalog);
       return menuSystem?.isCheraxTheme(entry) ? { ...entry, uiStyle: menuSystem.themeInterface(entry) } : entry;
     });
@@ -719,7 +726,8 @@ function downloadButton(file, container) {
     const directURL = new URL(file.url);
     const archive = ['zip', 'rar', '7z', 'gz'].includes(menuSystem.fileExtension(file));
     const storedFile = directURL.origin === location.origin || directURL.hostname === 'raw.githubusercontent.com';
-    const largeArchive = archive && storedFile && Number(file.size) >= 50 * 1024 * 1024;
+    const large = Number(file.size) >= 50 * 1024 * 1024;
+    const largeArchive = archive && storedFile && large && file.downloadMethod !== 'named';
     const directArchive = archive && file.downloadMethod === 'direct';
     const releaseArchive = archive && directURL.hostname === 'github.com' && directURL.pathname.includes('/releases/download/');
     if (directArchive || largeArchive || releaseArchive) {
@@ -739,7 +747,7 @@ function downloadButton(file, container) {
       const urls = [...new Set([file.url, file.fallbackUrl].filter(Boolean))];
       for (const url of urls) {
         try {
-          const attempt = await fetch(url, { signal: AbortSignal.timeout(30000) });
+          const attempt = await fetch(url, { signal: AbortSignal.timeout(large ? 300000 : 30000) });
           const mime = attempt.headers.get('content-type') || '';
           if (attempt.ok && !/text\/html|application\/xhtml\+xml/i.test(mime)) { response = attempt; break; }
         } catch { /* Try the preserved local preset when a remote download is unavailable. */ }

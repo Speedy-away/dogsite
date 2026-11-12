@@ -11,6 +11,37 @@ const { categoryId } = require('../resources/taxonomy.js');
 const supplement = require('../community/data/menu-resources.json');
 const base = require('../community/data/library.json');
 const ROOT = path.resolve(__dirname, '..');
+test('Cherax archive uses the published asset revision and preserves curated downloads', () => {
+  const archive = require('../community/data/cherax-resources.json');
+  const merged = menus.mergeCheraxResources(supplement, archive);
+  const entries = new Map(merged.items.map(item => [item.id, item]));
+  const overrides = new Map(merged.libraryOverrides.map(item => [item.id, item]));
+  const original = new Map([...supplement.items, ...supplement.libraryOverrides].map(item => [item.id, item]));
+  const pinned = `https://raw.githubusercontent.com/Speedy-away/cool-repo/${archive.assetRevision}/`;
+  assert.equal(entries.size, merged.items.length);
+  assert(archive.items.length > 2000 && archive.libraryOverrides.length > 2800);
+  for (const category of ['vehicles', 'outfits', 'dlc', 'themes', 'languages', 'wallpapers']) {
+    assert(archive.items.some(item => item.category === category && item.files?.length), category);
+  }
+  for (const [rows, resolved] of [[archive.items, entries], [archive.libraryOverrides, overrides]]) {
+    for (const row of rows) {
+      const entry = resolved.get(row.id);
+      assert(entry, row.id);
+      if (row.preview && !original.get(row.id)?.preview?.startsWith('/assets/')) {
+        assert.equal(entry.preview, pinned + row.preview);
+        assert.equal(entry.previewVerified, true);
+      }
+      for (const file of row.files || []) {
+        assert.equal(entry.files.find(candidate => candidate.sha256 === file.sha256)?.url, pinned + file.path);
+        assert(file.path.includes(file.sha256.slice(0, 20)), file.path);
+      }
+      if (row.category === 'lua') assert.equal(entry.downloadStatus, 'pending', row.id);
+    }
+  }
+  for (const item of supplement.items.filter(item => item.category === 'lua' && item.sourceMenu === 'cherax')) {
+    assert.deepEqual(entries.get(item.id).files, item.files, item.id);
+  }
+});
 test('resource guides retain the selected menu even when a shared item came from another menu', () => {
   const script = fs.readFileSync(path.join(ROOT, 'resources/catalog.js'), 'utf8');
   const implementation = script.match(/function guideURL\(entry\) \{[\s\S]+?(?=\nfunction link\()/)?.[0];
