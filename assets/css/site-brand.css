@@ -1,4 +1,4 @@
-/* The supplied Scooby mark traced as vector paths for sharp small-size rendering. */
+/* Shared Christmas branding. */
 .scooby-brand {
     display: inline-flex;
     align-items: center;
@@ -14,9 +14,9 @@
     flex: 0 0 auto;
     width: 36px;
     height: 42px;
-    background: currentColor !important;
-    -webkit-mask-image: url('/assets/images/brand/scooby-mark.svg');
-    mask-image: url('/assets/images/brand/scooby-mark.svg');
+    background: url('/assets/images/brand/scooby-logo-xmas-hats.gif') center / contain no-repeat !important;
+    -webkit-mask-image: none;
+    mask-image: none;
     mask-mode: alpha;
     -webkit-mask-position: center;
     mask-position: center;
@@ -32,3 +32,38 @@
     .scooby-brand > .scooby-emblem { width: 29px; height: 34px; }
 }
 .catalog-card .catalog-art { border-bottom: 0; }
+
+/* Sparse snow drifts above the page without intercepting clicks. */
+body::before,
+body::after {
+    --snow-x: 570px;
+    --snow-y: 360px;
+    content: '';
+    position: fixed;
+    inset: -240px -320px;
+    z-index: 9990;
+    pointer-events: none;
+    background-repeat: repeat;
+    background-image:
+        radial-gradient(circle at 35px 40px, rgba(255,255,255,.55) 0 1px, transparent 2px),
+        radial-gradient(circle at 180px 145px, rgba(255,255,255,.3) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 300px 85px, rgba(255,255,255,.4) 0 1px, transparent 2px);
+    background-size: 380px 240px;
+    animation: scooby-snow-drift 14s linear infinite;
+}
+body::after {
+    opacity: .45;
+    background-size: 570px 360px;
+    animation-duration: 23s;
+    animation-delay: -11s;
+}
+@keyframes scooby-snow-drift {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(var(--snow-x, 380px), var(--snow-y, 240px), 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .scooby-brand > .scooby-emblem {
+        background-image: url('/assets/images/brand/scooby-logo.png') !important;
+    }
+    body::before, body::after { display: none; }
+}
