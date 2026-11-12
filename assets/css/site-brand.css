@@ -14,8 +14,7 @@
     flex: 0 0 auto;
     width: 36px;
     height: 42px;
-    background: url('/assets/images/brand/scooby-logo-xmas-hats.gif') center / contain no-repeat !important;
-    mix-blend-mode: screen;
+    background: url('/assets/images/brand/scooby-logo-xmas-hats-transparent.gif') center / contain no-repeat !important;
     -webkit-mask-image: none;
     mask-image: none;
     mask-mode: alpha;
@@ -64,7 +63,7 @@ body::after {
 }
 @media (prefers-reduced-motion: reduce) {
     .scooby-brand > .scooby-emblem {
-        background-image: url('/assets/images/brand/scooby-logo.png') !important;
+        background-image: url('/assets/images/brand/scooby-logo-xmas-transparent.png') !important;
     }
     body::before, body::after { display: none; }
 }
