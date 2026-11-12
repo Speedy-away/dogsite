@@ -650,9 +650,9 @@ h2.section-title {
 <link rel="stylesheet" href="/assets/css/gmod-card.css">
 <link rel="stylesheet" href="/assets/css/rockstar-card-backgrounds.css">
 <link rel="stylesheet" href="/assets/css/home-features.css?v=6">
-<link rel="stylesheet" href="/assets/css/home-community.css?v=6">
-<script src="/assets/js/home-reviews.js?v=6" defer></script>
-<script src="/assets/js/home-features.js?v=9" defer></script>
+<link rel="stylesheet" href="/assets/css/home-community.css?v=8">
+<script src="/assets/js/home-reviews.js?v=7" defer></script>
+<script src="/assets/js/home-features.js?v=10" defer></script>
 <link rel="stylesheet" href="/assets/css/bodycam-art.css">
 
 <script src="/assets/js/language-home.js" defer></script>
@@ -1017,10 +1017,10 @@ h2.section-title {
 <section class="section reviews-section" id="reviews" aria-labelledby="reviewsHeading">
   <div class="container">
     <div class="community-heading reveal">
-      <div><p class="eyebrow">Player reviews</p><h2 id="reviewsHeading">The community,<span>in their own words.</span></h2></div>
-      <div class="community-intro"><p>Different games. Different setups. Explore the experiences shared by Scooby players.</p><a class="community-link" href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Join the community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+      <div><p class="eyebrow">Community</p><h2 id="reviewsHeading">Player reviews<span>and feature notes.</span></h2></div>
+      <div class="community-intro"><p>Read player experiences and get setup tips from the Scooby team.</p><a class="community-link" href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Join the community <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
     </div>
-    <div class="review-filters" id="reviewFilters" role="group" aria-label="Filter reviews by game" hidden></div>
+    <div class="review-filters" id="reviewFilters" role="group" aria-label="Filter carousel by game" hidden></div>
     <div class="community-grid" id="communityReviews">
       <article class="community-card" tabindex="-1">
         <div class="community-card-top"><div class="community-person"><h3 class="community-author">NightRider</h3><p class="community-role">Premium User</p></div><svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg></div>
@@ -1041,13 +1041,54 @@ h2.section-title {
     <div class="community-footer">
       <p class="community-count" id="reviewCount">3 of 26 reviews</p>
       <div class="review-rotation-controls" id="reviewRotationControls" hidden>
-        <button class="review-rotation-toggle" id="reviewRotationToggle" type="button" aria-label="Pause automatic reviews" title="Pause automatic reviews" aria-pressed="false" aria-controls="communityReviews">
+        <button class="review-rotation-toggle" id="reviewRotationToggle" type="button" aria-label="Pause automatic rotation" title="Pause automatic rotation" aria-pressed="false" aria-controls="communityReviews">
           <svg class="review-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg>
           <svg class="review-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 10 7-10 7z"/></svg>
         </button>
-        <button class="review-next" id="reviewNext" type="button" aria-controls="communityReviews">Next reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+        <button class="review-next" id="reviewNext" type="button" aria-controls="communityReviews">Next cards <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
       </div>
     </div>
+    <section class="community-updates" aria-labelledby="communityUpdatesHeading">
+      <h3 id="communityUpdatesHeading">Feature updates</h3>
+      <div class="community-grid">
+        <article class="community-card community-update">
+          <p class="community-role">CS2</p>
+          <h4>Custom Models &amp; Repo</h4>
+          <p class="community-update-copy">A free Scooby key includes CS2 custom models, skins, and local inventory. Search, preview, and install compatible player and weapon models from Repo, then equip them directly from Library.</p>
+          <a class="community-game" href="/guides/cs2/custom-models/#repo"><span>Explore the CS2 model repo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+        </article>
+        <article class="community-card community-update">
+          <p class="community-role">CS2</p>
+          <h4>Custom Textures &amp; Weapon Sounds</h4>
+          <p class="community-update-copy">Give CT and T weapons different textures, preview the look in 3D, and test your own WAVs or a weapon sound pack before applying them.</p>
+          <a class="community-game" href="/guides/cs2/textures-and-sounds/"><span>See the textures and sounds guide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+        </article>
+        <article class="community-card community-update">
+          <p class="community-role">RedM</p>
+          <h4>Graphics &amp; Visual Effects Packs</h4>
+          <p class="community-update-copy">Find custom skies, graphics packs, scope textures, and weapon models in the RedM resource catalog.</p>
+          <a class="community-game" href="/resources/redm/"><span>Browse RedM resources</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+        </article>
+        <article class="community-card community-update">
+          <p class="community-role">Left 4 Dead 1 &amp; 2</p>
+          <h4>Survivor &amp; Weapon Add-ons</h4>
+          <p class="community-update-copy">Browse community-made survivor models, weapon skins, and custom campaigns. Each add-on lists which game it supports.</p>
+          <a class="community-game" href="/resources/l4d/"><span>Browse Left 4 Dead add-ons</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+        </article>
+        <article class="community-card community-update">
+          <p class="community-role">Team Fortress 2</p>
+          <h4>Retail TF2 &amp; Classified</h4>
+          <p class="community-update-copy">One free key covers both editions. Pick an edition in the launcher to use its own settings, profiles, and scripts.</p>
+          <a class="community-game" href="/products/tf2/#setup"><span>See the TF2 setup guide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+        </article>
+        <article class="community-card community-update">
+          <p class="community-role">Megabonk</p>
+          <h4>Custom HUDs &amp; Lua Examples</h4>
+          <p class="community-update-copy">Start with four Lua examples, including a run HUD that shows health, XP, gold, and elapsed time.</p>
+          <a class="community-game" href="/guides/megabonk/lua-scripts/#examples"><span>Explore the Megabonk examples</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+        </article>
+      </div>
+    </section>
   </div>
 </section>
 

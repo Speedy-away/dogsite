@@ -38,6 +38,7 @@ test('GTA 5 category manifest and static sidebars follow the published menu rout
     const groups = menus.gtaCategoryGroups(menu.id, manifest[menu.id]);
     assert.equal(groups[0]?.[0], `${menu.name} Files`);
     assert.deepEqual(groups.flatMap(([, ids]) => ids).sort(), [...manifest[menu.id]].sort(), menu.name);
+    assert.deepEqual(menus.categoryGroups(menu.id, ['all', ...manifest[menu.id]]), groups, menu.name);
 
     const sidebar = groups.map(([label, ids]) => [label, ids.map(id => route('gta5', id, menu.id))]);
     assert.deepEqual(categorySidebar(renderPage(home)), sidebar, menu.name);
@@ -357,6 +358,28 @@ test('Stand keeps packs in their own group and CoaLwiX starts the release ZIP do
   assert.doesNotMatch(card, /By landnthrn|Edition unlisted|<p>Packs<\/p>|Get from the author/);
   const old = fs.readFileSync(path.join(root, 'resources/gta5/stand/addon-packs/index.html'), 'utf8');
   assert(old.includes('location.replace("/resources/gta5/stand/pack-all-in-one/" + location.search + location.hash)'));
+});
+
+test('Scooby and Nenyoo list GTA 5 packs for their supported import formats', () => {
+  const findPackPage = (menu, category) => gtaPages.find(page => page.menu === menu && page.category === category && !page.archive);
+  for (const menu of ['scooby', 'nenyoo']) {
+    const outfits = findPackPage(menu, 'pack-outfits');
+    assert(outfits, `${menu} outfit packs route is missing`);
+    const pack = outfits.samples.find(item => item.id === 'gta5-stand-pack-100-female-outfits');
+    assert(pack && menus.compatibleWith(pack, menu));
+    assert.equal(pack.sourceFormat, 'Stand outfit TXT');
+    assert.equal(pack.files[0].url, '/assets/downloads/stand/100-female-outfits.zip');
+    const html = fs.readFileSync(path.join(root, outfits.file), 'utf8');
+    assert.match(html, /100 Female Outfits/);
+    assert(findPackPage(menu, 'pack-maps').samples.some(item => item.sourceFormat === 'Menyoo Spooner XML'));
+    assert(!findPackPage(menu, 'pack-all-in-one').samples.some(item => item.id === 'gta5-stand-addon-packs-coalwix'));
+  }
+  const cheraxConstructs = findPackPage('cherax', 'pack-vehicles').samples.filter(item => item.sourceFormat === 'Jackz Builder / JSTAND JSON construct');
+  assert(cheraxConstructs.length > 0);
+  for (const pack of cheraxConstructs) {
+    assert(findPackPage('scooby', 'pack-vehicles').samples.some(item => item.id === pack.id));
+    assert(!menus.supports(pack, 'nenyoo'));
+  }
 });
 
 test('Cherax ListUI themes preserve the verified interfaces and the collection filter', () => {

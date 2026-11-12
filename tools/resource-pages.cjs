@@ -21,7 +21,7 @@ function placeHeadAd(html) {
 const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
   rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse Red Dead Redemption 2 outfit presets, addon peds, ClickUI color presets, ListUI styles and Scooby translations.' },
-  cs2: { name: 'CS2', full: 'Counter-Strike 2', aliases: ['Counter Strike 2', 'CS2 custom model repo', 'Source 2 skyboxes'], logo: '/portal/images/product-logos/cs2.png', intro: 'Browse Counter-Strike 2 custom player, weapon, knife, grenade and C4 models, plus skyboxes, textures and Scooby configs.' },
+  cs2: { name: 'CS2', full: 'Counter-Strike 2', aliases: ['Counter Strike 2', 'CS2 custom model repo', 'Source 2 skyboxes'], logo: '/portal/images/product-logos/cs2.png', intro: 'Browse Counter-Strike 2 custom player, pet, weapon, knife, grenade and C4 models, plus skyboxes, textures and Scooby configs.' },
   fivem: { name: 'FiveM', full: 'FiveM', aliases: ['GTA roleplay', 'FiveM texture packs'], logo: '/assets/images/store/fivem-emblem.png', intro: 'Find FiveM server recipes for txAdmin, graphics packs, ReShade presets, textures, and Scooby language files.' },
   redm: { name: 'RedM', full: 'RedM', aliases: ['Red Dead roleplay'], logo: '/assets/images/store/redm-logo.png', intro: 'Browse RedM PvP and RP graphics packs, cinematic sky packs, weapon skins, sound packs, Colors.xml presets, tracers and client settings.' },
   l4d: { name: 'L4D', full: 'Left 4 Dead', aliases: ['Left 4 Dead 2', 'L4D1', 'L4D2', 'Left 4 Dead addons', 'L4D2 mods'], logo: '/assets/images/source-games/l4d-logo.png', intro: 'Find custom campaigns, survivor and infected models, weapon skins, sound packs, skyboxes and configs for Left 4 Dead 1 and 2.' }
@@ -48,6 +48,7 @@ const CATEGORIES = {
   paintjobs: { name: 'LSC PaintJobs', words: ['LSC paintjobs', 'saved paint jobs', 'vehicle color presets', 'Scooby PaintJobs'], description: 'Browse native Scooby LSC PaintJobs presets. Copy the original JSON files into C:\\scooby\\GTA5\\LSC\\PaintJobs and use the in-menu Paintjobs library.' },
   liveries: { name: 'Liveries', words: ['vehicle liveries', 'livery textures', 'custom vehicle textures'], description: 'Browse vehicle livery and texture packages from their original authors. Match the target vehicle model and follow the package installation instructions; these are separate from native LSC PaintJobs presets.' },
   players: { name: 'Player models', words: ['custom players', 'agent models', 'character models'], description: 'Browse custom player and agent model packages. Keep compiled models, materials and textures together, then choose the intended team and model scope.' },
+  pets: { name: 'Pets', words: ['pet models', 'pet model packs', 'cosmetic pets'], description: 'Browse custom cosmetic pet model packs for CS2. Check each pack’s model list, source and license.' },
   weapons: { name: 'Weapon models', words: ['custom weapons', 'gun models', 'weapon skins'], description: 'Find custom firearm and equipment models. Keep first-person, world, animation and material resources together and use a compatible target.' },
   'weapon-models': { name: 'Weapon models / skins', words: ['weapon skins', 'weapon models', 'RedM weapons', 'custom guns'], description: 'Browse RedM weapon model and skin packages. Keep model and texture files together and use the package’s stated game build and installation destination.' },
   'sound-packs': { name: 'Sound packs', words: ['weapon sounds', 'sound packs', 'audio replacements', 'RedM audio'], description: 'Browse weapon audio and sound packs. Preserve archive paths and match each pack to its intended RedM installation.' },
@@ -216,7 +217,7 @@ function buildData() {
   ];
   const sourceUrls = new Set(primary.filter(item => item.game === 'gta5' && item.status !== 'author-hosted' && item.sourceUrl).map(item => item.sourceUrl));
   const items = [...new Map([...primary, ...gtaAddonCatalog.items.filter(item => !sourceUrls.has(item.sourceUrl))]
-    .map(item => gtaAddonCategory(item)).filter(item => GAMES[item.game] && CATEGORIES[item.category]).map(item => [item.id, item])).values()]
+    .map(item => gtaAddonCategory(item)).filter(item => GAMES[item.game] && CATEGORIES[item.category] && (item.category !== 'pets' || item.game === 'cs2')).map(item => [item.id, item])).values()]
     .map(item => {
       const preview = !item.preview && gtaAddonCatalog.previews?.[item.id];
       const entry = editions.withVerification(preview ? { ...item, ...preview } : item, gtaEditionCatalog);
@@ -253,7 +254,7 @@ function buildData() {
       const defaultGameScope = formatScope(gameItems, 'all');
       const categories = Object.keys(CATEGORIES).map(id => ({
         id, ...categoryInfo(game, id, menu), count: formatScope(gameItems.filter(item => hasCategory(item, id)), id).items.length
-      })).filter(category => category.count);
+      })).filter(category => category.id === 'pets' ? game === 'cs2' : category.count);
       const makePage = category => {
       const scope = category ? formatScope(gameItems.filter(item => hasCategory(item, category)), category) : defaultGameScope;
       const subset = scope.items;
@@ -437,7 +438,21 @@ function renderPage(page, guideRoutes = {}) {
     const downloadLabel = files.every(file => file.versionLabel) ? 'Choose version' : 'Download ↓';
     const cheraxLua = cheraxPreview && item.category === 'lua';
     const downloadOptions = files.map(download).join('');
-    const actions = item.status === 'preview-only' && !cheraxLua ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length && !cheraxLua ? `<button type="button" class="resource-download" disabled>${escape(item.downloadLabel || 'Download — Coming soon')}</button>` : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>${downloadLabel}</summary>${downloadOptions}</details>` : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`);
+    const pet = item.game === 'cs2' && item.category === 'pets';
+    const menuDetails = pet ? '' : `<details class="resource-inline-details"><summary>Details</summary><p>${escape(item.compatibility || item.description || 'Included in the game menu. Use its appearance or library controls.')}</p></details>`;
+    const actions = item.status === 'preview-only' && !cheraxLua ? '<p>Download unavailable</p>' : authorLink || (item.downloadStatus === 'pending' && !files.length && !cheraxLua ? `<button type="button" class="resource-download" disabled>${escape(item.downloadLabel || 'Download — Coming soon')}</button>` : files.length === 1 ? download(files[0]) : files.length > 1 ? `<details class="resource-download-menu"><summary>${downloadLabel}</summary>${downloadOptions}</details>` : menuDetails);
+    let petDetails = '';
+    if (pet) {
+      const paths = Array.isArray(item.resourcePaths) ? item.resourcePaths.filter(modelPath => typeof modelPath === 'string' && modelPath.trim()) : [];
+      const models = paths.length ? `<p>Models in this pack</p><ul>${paths.map(modelPath => `<li>${escape(modelPath)}</li>`).join('')}</ul>` : '';
+      const source = /^https:\/\//i.test(item.sourceUrl || '')
+        ? `<p><a href="${escape(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source ↗</a></p>`
+        : item.source ? `<p>Source: ${escape(item.source)}</p>` : '';
+      const metadata = [['Credits', item.credits || item.author], ['License', item.license]].filter(([, value]) => value)
+        .map(([label, value]) => `<p>${label}: ${escape(value)}</p>`).join('');
+      const compatibility = item.compatibility ? `<p>${escape(item.compatibility)}</p>` : '';
+      if (models || source || metadata || compatibility) petDetails = `<details class="resource-inline-details"><summary>Details</summary>${models}${metadata}${source}${compatibility}</details>`;
+    }
     const notes = (Array.isArray(item.changelog) ? item.changelog : typeof item.changelog === 'string' ? [item.changelog] : []).flatMap(note => {
       if (typeof note === 'string') return [note];
       if (!note || typeof note !== 'object') return [];
@@ -457,10 +472,11 @@ function renderPage(page, guideRoutes = {}) {
         return `<li><a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${localGallery ? `Image ${index + 1}` : escape(file)}</a></li>`;
       }).join('')}</ul></details>` : '';
     const setup = fiveMSetup && item.requirements?.length ? `<details class="resource-inline-details"><summary>Setup notes</summary><ul>${item.requirements.map(note => `<li>${escape(note)}</li>`).join('')}</ul></details>` : '';
-    const type = item.category === 'pack-all-in-one' ? '' : serverRecipe ? 'txAdmin recipe' : item.builtInLua ? 'Built-in Lua module' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
+    const type = item.category === 'pack-all-in-one' ? '' : serverRecipe ? 'txAdmin recipe' : item.builtInLua ? 'Built-in Lua module'
+      : pet && item.status === 'in-menu' ? 'Locally generated pet pack' : item.modelLabel || categoryInfo(item.game, item.category)?.name || 'Menu resource';
     const updated = menus.resourceUpdateDate(item);
     const updateDate = updated ? `<p title="Latest push to the source repository">Last updated <time datetime="${escape(item.updatedAt)}">${escape(updated)}</time></p>` : '';
-    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3>${type ? `<p>${escape(type)}</p>` : ''}${badge}${access}${updateDate}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}${actions}${gallery}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
+    return `<article class="resource-sample" id="${href.slice(1)}">${image}<h3><a href="${escape(href)}">${escape(name)}</a>${suffix}</h3>${type ? `<p>${escape(type)}</p>` : ''}${badge}${access}${updateDate}${item.description ? `<p>${escape(item.description)}</p>` : ''}${credit}${requirement}${actions}${petDetails}${gallery}${setup}${install}${changelog}<p class="resource-download-status" role="status"></p></article>`;
   }).join('\n');
   const collection = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'CollectionPage', '@id': page.url + '#collection', url: page.url, name: page.title, description: page.description, keywords: page.keywords, inLanguage: 'en', about: { '@type': 'VideoGame', name: game.full }, isPartOf: { '@id': SITE + '/resources/#collection' }, mainEntity: { '@id': page.url + '#resources' } },
@@ -470,6 +486,9 @@ function renderPage(page, guideRoutes = {}) {
   const breadcrumb = page.menu !== 'scooby' ? `<a href="${route(page.game)}">${game.name}</a><span>/</span>${page.category ? `<a href="${route(page.game, undefined, page.menu)}">${escape(page.menuName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(page.menuName)}</span>`}` : page.category ? `<a href="${route(page.game)}">${escape(scopeName)}</a><span>/</span><span>${escape(page.name)}</span>` : `<span>${escape(scopeName)}</span>`;
   const heading = scopeName + ' ' + (page.category ? page.name : 'resources');
   const guideURL = guideAddress(page, guideRoutes);
+  const pets = page.game === 'cs2' && page.category === 'pets';
+  const petSubmission = pets ? ` <a class="resource-open" href="${escape(guideURL)}#cs2-pet-submissions">Add a pet pack ↗</a>` : '';
+  const listing = page.itemCount ? `<div class="resource-samples">${samples}</div>` : pets ? '<p class="resource-empty">No CS2 pet packs are listed yet.</p>' : `<p class="resource-empty">No ${escape(scopeName)} downloads are published yet. Read the <a href="${escape(guideURL)}">resource installation guide</a>.</p>`;
   const source = page.availableMenus.find(menu => menu.id === page.menu)?.source;
   const sourceLink = source ? `<a class="menu-source-link" href="${escape(source.url)}">${escape(source.label)}</a>` : '';
   const clickUILink = page.game === 'gta5' && page.menu === 'scooby' && page.category === 'themes'
@@ -486,7 +505,7 @@ function renderPage(page, guideRoutes = {}) {
 <script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>
 </head>
 <body><a class="skip" href="#resources">Skip to resources</a><header><a class="scooby-brand" href="/"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a><nav aria-label="Main"><a href="/resources/">Resources</a><a href="/resources/guides/">Install guides</a><a href="/store/">Store ↗</a></nav></header>
-<main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${page.itemCount ? `<div class="resource-samples">${samples}</div>` : `<p class="resource-empty">No ${escape(scopeName)} downloads are published yet. Read the <a href="${escape(guideURL)}">resource installation guide</a>.</p>`}</section>
+<main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${petSubmission}${listing}</section>
 <aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
   <p class="ad-label">Advertisement</p>
   <div class="ad-content" id="container-916d4be3288f94a3bc49ab6cdaef5ba9"></div>
@@ -503,7 +522,10 @@ function renderPage(page, guideRoutes = {}) {
   </div>
   <div id="resource-changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>`;
-  return placeHeadAd(require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>\n</body>')));
+  const withMetadata = require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>\n</body>'));
+  return placeHeadAd(pets && !page.itemCount
+    ? withMetadata.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow">')
+    : withMetadata);
 }
 function build({ gta5Only = false } = {}) {
   const data = buildData();

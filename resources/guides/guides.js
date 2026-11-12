@@ -8,7 +8,7 @@
   const GAMES = {
     gta5: { name: 'GTA 5' },
     rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
-    cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
+    cs2: { name: 'CS2', assets: ['players', 'pets', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
     fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'sound-packs', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
     redm: { name: 'RedM', assets: ['outfits', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings', 'maps', 'textures', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
     l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
@@ -17,7 +17,7 @@
     all: 'All guides', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
     'addon-vehicles': 'Vehicles', 'addon-peds': 'Peds', 'addon-weapons': 'Weapons', 'addon-objects': 'Objects', 'addon-animations': 'Animations', 'addon-maps': 'Maps', 'addon-clothing': 'Clothing', maps: 'Maps', textures: 'Textures',
     paintjobs: 'Paintjobs', liveries: 'Liveries', 'asi-mods': 'ASI mods', 'dotnet-mods': '.NET mods',
-    players: 'Player models', weapons: 'Weapon models', knives: 'Knife models', throwables: 'Throwables',
+    players: 'Player models', pets: 'Pets', weapons: 'Weapon models', knives: 'Knife models', throwables: 'Throwables',
     bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs', lua: 'Lua scripts',
     languages: 'Translations / Languages', wallpapers: 'Wallpapers', 'addon-packs': 'Packs', misc: 'Miscellaneous',
     'loader-translations': 'Loader translations', fonts: 'Fonts', emotes: 'Emote audio',

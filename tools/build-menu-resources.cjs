@@ -33,7 +33,7 @@ const overrides = new Map(), additions = new Map(), legacy = new Map();
 const localLuaHashes = new Map();
 const fields = ['name', 'category', 'categories', 'description', 'sourceMenu', 'supportedMenus', 'listedMenus', 'sourceFilename', 'formatExtension', 'sourceFormat', 'format', 'keywords',
   'author', 'credits', 'license', 'sourceUrl', 'installUrl', 'sourceChannel', 'collection', 'collectionStatus', 'archival', 'version', 'versionBasis', 'sourceVersion', 'versionStatus', 'updatedAt',
-  'compatibility', 'requirementLabel', 'requirements', 'edition', 'editionSupport', 'editionSource', 'tags', 'changelog', 'changelogStatus', 'previewKind', 'previewCaption', 'uiStyle', 'style', 'resourceType', 'themePath', 'model', 'modelLabel'];
+  'compatibility', 'requirementLabel', 'requirements', 'edition', 'editionSupport', 'editionSource', 'tags', 'changelog', 'changelogStatus', 'previewKind', 'previewCaption', 'uiStyle', 'style', 'resourceType', 'themePath', 'model', 'modelLabel', 'resourcePaths'];
 const canonicalList = values => [...new Set((values || []).map(menus.canonical).filter(Boolean))];
 const aliases = { dlcs: 'dlc', translations: 'languages', wallpaper: 'wallpapers', 'custom-header': 'wallpapers', 'lua-scripts': 'lua' };
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9_-]+/g, '-').replace(/^-|-$/g, '');
@@ -52,6 +52,7 @@ function clean(entry, origin) {
   result.game = GAMES.has(entry.game) ? entry.game : 'gta5';
   if (typeof result.name === 'string') result.name = result.name.trim();
   result.category = aliases[entry.category] || entry.category;
+  if (result.game === 'cs2' && result.category === 'pets' && entry.source) result.source = entry.source;
   if (result.category === 'mod-menus' && ['free', 'paid'].includes(entry.access)) result.access = entry.access;
   if (!result.credits && (entry.creator || entry.author)) result.credits = entry.creator || entry.author;
   result.supportedMenus = canonicalList(entry.supportedMenus?.length ? entry.supportedMenus : [result.sourceMenu]);

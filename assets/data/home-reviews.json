@@ -188,5 +188,37 @@
     "t": "Free and better than cheats people are charging for. Bhop and no recoil feel natural rather than obviously robotic.",
     "b": "Free Version",
     "displayName": "Portia"
+  },
+  {
+    "kind": "feature-note",
+    "g": "CS2",
+    "title": "Preview a model before equipping it",
+    "t": "Open an installed player, knife, or weapon model in Library to see how it looks. Choose its target and equip it for your local setup.",
+    "href": "/guides/cs2/custom-models/#browse-apply",
+    "linkLabel": "Preview and equip models"
+  },
+  {
+    "kind": "feature-note",
+    "g": "CS2",
+    "title": "Find compatible packs in Repo",
+    "t": "Search by name or filter by category. Repo shows what each pack supports and lets you preview it, install it, and open it directly in Library.",
+    "href": "/guides/cs2/custom-models/#repo",
+    "linkLabel": "Browse the Repo guide"
+  },
+  {
+    "kind": "feature-note",
+    "g": "CS2",
+    "title": "What’s included with a free key",
+    "t": "The free CS2 version includes custom models, skins, local inventory, weapon textures, and custom sounds. The same key also works with Scooby’s other free versions.",
+    "href": "/guides/general/free-key/",
+    "linkLabel": "See the free-key setup"
+  },
+  {
+    "kind": "feature-note",
+    "g": "RedM",
+    "title": "Wraith Platinum for RedM",
+    "t": "The RedM Lua menu catalog has a screenshot of the paid Wraith Platinum add-on, so you can see its interface before choosing a menu.",
+    "href": "/resources/redm/mod-menus/#resource-redm-wraith-menu",
+    "linkLabel": "See the Wraith menu preview"
   }
 ]

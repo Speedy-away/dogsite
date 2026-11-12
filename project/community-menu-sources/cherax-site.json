@@ -1361,15 +1361,14 @@
       "sourceFilename": "vibeScript-2.1.0.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
-      "description": "VibeScript for the Cherax Lua host.",
+      "description": "VibeScript for the Cherax Lua host. Version 2.5.1 is unavailable for download.",
       "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "requirementLabel": "Requires the Cherax Lua API",
       "tags": [
         "Cherax",
         "Utility"
       ],
-      "unavailableVersions": ["v2.2.1"],
-      "unavailableVersions": ["v2.2.1"],
+      "unavailableVersions": ["v2.5.1", "v2.2.1"],
       "files": [
         {
           "url": "/assets/downloads/cherax/2b2f3836e6c42cbbf21a.lua",

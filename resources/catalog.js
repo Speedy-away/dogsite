@@ -5,7 +5,7 @@ const gameTabs = document.querySelectorAll('#collection .games [data-game]');
 const GAMES = {
   gta5: { name: 'GTA 5', assets: ['vehicles', 'modded', 'outfits', 'maps', 'textures', 'graphics-packs', 'paintjobs', 'liveries', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-weapons', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'addon-packs', 'pack-vehicles', 'pack-outfits', 'pack-all-in-one', 'pack-maps'] },
   rdr2: { name: 'RDR2', assets: ['outfits', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
-  cs2: { name: 'CS2', assets: ['players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
+  cs2: { name: 'CS2', assets: ['players', 'pets', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'textures'] },
   fivem: { name: 'FiveM', assets: ['vehicles', 'outfits', 'maps', 'textures', 'sound-packs', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing'] },
   redm: { name: 'RedM', assets: ['outfits', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings', 'maps', 'textures', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps'] },
   l4d: { name: 'L4D', assets: ['players', 'weapons', 'maps', 'textures', 'skyboxes', 'sound-packs'] }
@@ -13,7 +13,7 @@ const GAMES = {
 const LABELS = {
   all: 'All resources', vehicles: 'Vehicles', modded: 'Modded vehicles', outfits: 'Outfits',
   'addon-vehicles': 'Vehicles', 'addon-peds': 'Peds', 'addon-weapons': 'Weapons', 'addon-objects': 'Objects', 'addon-animations': 'Animations', 'addon-maps': 'Maps', 'addon-clothing': 'Clothing', maps: 'Maps', textures: 'Textures',
-  paintjobs: 'LSC paintjobs', liveries: 'Liveries', players: 'Player models', weapons: 'Weapon models', knives: 'Knife models',
+  paintjobs: 'LSC paintjobs', liveries: 'Liveries', players: 'Player models', pets: 'Pets', weapons: 'Weapon models', knives: 'Knife models',
   throwables: 'Throwables', bombs: 'Bombs', skyboxes: 'Skyboxes', themes: 'Themes', configs: 'Configs',
   lua: 'Lua scripts', languages: 'Translations / Languages', misc: 'Miscellaneous',
   'loader-translations': 'Loader translations', fonts: 'Fonts', emotes: 'Emote audio',
@@ -515,6 +515,7 @@ function updateControls() {
   if (source) sourceLink.href = source.url;
   else sourceLink.removeAttribute('href');
   $('context-guide').href = guideURL();
+  $('pet-submission-guide').hidden = state.game !== 'cs2' || state.category !== 'pets';
   const graphicsTopics = $('graphics-topics');
   const topics = state.game === 'redm' && ['all', 'graphics-packs'].includes(state.category)
     ? new Set(entries.flatMap(taxonomy.redmGraphicsTopics)) : new Set();
@@ -572,6 +573,7 @@ function updateControls() {
     for (const entry of selection) {
       const label = String(entry.modelLabel || entry.model || '').trim();
       if (entry.model && label && !/^(?:[+-]?\d+|0x[\da-f]+)$/i.test(label)) models.set(String(entry.model), label);
+      for (const path of taxonomy.petModelPaths(entry)) models.set(path, path);
     }
   }
   $('model').replaceChildren(new Option('All models', ''));
@@ -952,6 +954,27 @@ function showDetails(entry, files) {
   if (entry.uiStyle || entry.style) details.append(node('p', [textMetadata(entry.uiStyle), entry.style && `Appearance: ${entry.style}`].filter(Boolean).join(' · ')));
   if (entry.author || entry.credits) details.append(node('p', `Credits: ${visibleText(entry, entry.credits || entry.author)}`));
   if (entry.license) details.append(node('p', `License: ${visibleText(entry, entry.license)}`));
+  const petPack = entry.game === 'cs2' && entry.category === 'pets';
+  if (petPack) {
+    const source = safeURL(entry.sourceUrl);
+    if (source && !authorPage(entry)) {
+      const attribution = node('p');
+      attribution.append(link(entry.source ? `Source: ${visibleText(entry, entry.source)} ↗` : 'Original source ↗', source, true));
+      details.append(attribution);
+    } else if (entry.source) details.append(node('p', `Source: ${visibleText(entry, entry.source)}`));
+    const models = taxonomy.petModelPaths(entry);
+    if (models.length) {
+      const section = node('section', null, 'resource-requirements');
+      const list = node('ul');
+      for (const path of models) {
+        const item = node('li');
+        item.append(node('code', path));
+        list.append(item);
+      }
+      section.append(node('h3', 'Models in this pack'), list);
+      details.append(section);
+    }
+  }
   if (authorPage(entry)) {
     const source = link(authorAction(entry), authorPage(entry), true);
     source.className = 'external-primary';
@@ -972,7 +995,8 @@ function showDetails(entry, files) {
       list.append(row);
     }
     details.append(list);
-  } else if (entry.category !== 'lua' || !cheraxPreview(entry)) details.append(node('p', entry.status === 'in-menu' ? entry.category === 'themes' ? 'This style is included with Scooby. Follow the guide to select the interface and its built-in appearance.' : entry.game === 'cs2' ? 'This item is included in Scooby’s model selector. Follow the guide to select it in the menu.' : 'This item is included with Scooby. Follow the guide to find it in the menu.' : entry.status === 'workshop' ? 'This repository entry is documented in the installation guide. A downloadable package is not available here.' : 'A download is not available for this item.'));
+  } else if (petPack && entry.status === 'in-menu') details.append(node('p', 'This pack is generated locally. Check its requirements for the matching build and generation steps.'));
+  else if (entry.category !== 'lua' || !cheraxPreview(entry)) details.append(node('p', entry.status === 'in-menu' ? entry.category === 'themes' ? 'This style is included with Scooby. Follow the guide to select the interface and its built-in appearance.' : entry.game === 'cs2' ? 'This item is included in Scooby’s model selector. Follow the guide to select it in the menu.' : 'This item is included with Scooby. Follow the guide to find it in the menu.' : entry.status === 'workshop' ? 'This repository entry is documented in the installation guide. A downloadable package is not available here.' : 'A download is not available for this item.'));
   const tags = node('section', null, 'preview-tags');
   tags.append(node('h3', 'Tags'));
   const chips = node('ul');
@@ -1076,6 +1100,7 @@ async function card(entry) {
   if (entry.uiStyle || entry.style) info.append(node('p', [textMetadata(entry.uiStyle), entry.style && `${entry.style} style`].filter(Boolean).join(' · '), 'meta'));
   const actions = node('div', null, 'card-actions');
   const source = authorPage(entry);
+  const petPack = entry.game === 'cs2' && entry.category === 'pets';
   if (source) {
     const credit = entry.author || (entry.game === 'l4d' ? entry.credits : '');
     if (credit) info.append(node('p', `By ${visibleText(entry, credit)}`));
@@ -1089,7 +1114,8 @@ async function card(entry) {
       actions.append(requirements);
     }
   } else if (pendingDownload(entry) && !cheraxPreview(entry)) actions.append(pendingDownloadButton(entry));
-  else if (!files.length) {
+  const hasPrimaryAction = source || (pendingDownload(entry) && !cheraxPreview(entry));
+  if (petPack || (!hasPrimaryAction && !files.length)) {
     const details = node('button', 'Details');
     details.type = 'button';
     details.className = 'theme-details';
@@ -1137,7 +1163,7 @@ function matchesFilters(entry) {
   if (state.format === 'lua-loader' && menuSystem.presetLoader(entry, state.menu) !== 'lua') return false;
   if (state.format && !['all-formats', 'lua-loader'].includes(state.format) && !menuSystem.formatExtensions(entry).includes(state.format)) return false;
   const query = normalizeSearch(state.q);
-  if (state.model && String(entry.model) !== state.model) return false;
+  if (state.model && String(entry.model) !== state.model && !taxonomy.petModelPaths(entry).includes(state.model)) return false;
   if (state.ui && ![].concat(entry.uiStyle || []).some(ui => normalize(ui) === normalize(state.ui))) return false;
   if (state.style && ![].concat(entry.style || []).some(style => normalize(style) === normalize(state.style))) return false;
   if (state.tag && !resourceTags(entry).has(state.tag)) return false;
@@ -1156,10 +1182,14 @@ function emptyState() {
     empty.append(node('h3', `${menuName()} resources are coming soon.`), node('p', 'This menu’s collection is not available yet. Choose another menu to browse resources.'));
     return empty;
   }
-  empty.append(node('h3', activeFilters ? 'No matching downloads.' : `${state.category === 'all' ? 'Downloads' : category} are being collected.`));
+  const pets = state.game === 'cs2' && state.category === 'pets';
+  const title = activeFilters ? `No matching ${pets ? 'pet packs' : 'downloads'}.`
+    : pets ? 'No pet packs published yet.' : `${state.category === 'all' ? 'Downloads' : category} are being collected.`;
+  empty.append(node('h3', title));
   empty.append(node('p', activeFilters
     ? 'Try a shorter search, another category or fewer filters.'
-    : `There are no published ${state.category === 'all' ? 'files' : category.toLowerCase()} for ${menuName()} ${GAMES[state.game].name} in this collection yet. You can still read the installation guide and browse other categories.`));
+    : pets ? 'You can add a redistributable pet pack or a reference to one that players can generate locally.'
+      : `There are no published ${state.category === 'all' ? 'files' : category.toLowerCase()} for ${menuName()} ${GAMES[state.game].name} in this collection yet. You can still read the installation guide and browse other categories.`));
   if (activeFilters) {
     const reset = node('button', 'Clear filters');
     reset.type = 'button';

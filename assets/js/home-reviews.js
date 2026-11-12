@@ -17,7 +17,7 @@
         'RedM': { label:'RedM', href:'/products/redm/' }
     };
     const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>';
-    let reviews = [];
+    let entries = [];
     let selected = 'all';
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const mobile = matchMedia('(max-width:680px)');
@@ -37,22 +37,40 @@
         if (content !== undefined) el.textContent = content;
         return el;
     }
-    function createCard(review) {
-        const game = games[review.g];
+    function isValidEntry(entry) {
+        if (!entry || !Object.hasOwn(games, entry.g) || typeof entry.t !== 'string' ||
+            (entry.sample !== undefined && typeof entry.sample !== 'boolean')) return false;
+        if (entry.kind === 'feature-note') {
+            return typeof entry.title === 'string' && typeof entry.linkLabel === 'string' &&
+                typeof entry.href === 'string' && /^\/[a-z0-9]/i.test(entry.href);
+        }
+        return entry.kind === undefined && typeof entry.n === 'string' && typeof entry.r === 'string' &&
+            (entry.displayName === undefined || typeof entry.displayName === 'string');
+    }
+    function createCard(entry) {
+        const game = games[entry.g];
+        const isNote = entry.kind === 'feature-note';
         const card = element('article', 'community-card');
         card.tabIndex = -1;
-        card.dataset.review = String(reviews.indexOf(review));
         const top = element('div', 'community-card-top');
-        const author = element('div', 'community-person');
-        author.append(element('h3','community-author',review.displayName || review.n), element('p',review.r === 'Free User' ? 'community-role is-free' : 'community-role',review.r));
-        top.append(author);
-        top.insertAdjacentHTML('beforeend','<svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg>');
-        const quote = element('blockquote', 'community-quote', review.t);
+        const heading = element('div', 'community-person');
+        if (isNote) {
+            heading.append(element('h3', 'community-author', entry.title),
+                element('p', 'community-role is-feature-note', `Scooby feature note · ${game.label}`));
+        } else {
+            heading.append(element('h3', 'community-author', entry.displayName || entry.n),
+                element('p', entry.r === 'Free User' ? 'community-role is-free' : 'community-role', entry.r));
+        }
+        top.append(heading);
+        if (!isNote) {
+            top.insertAdjacentHTML('beforeend','<svg class="community-quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h8v7H7c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9zm12 0h8v7h-4c0 3 2 4 4 5l-2 2c-4-2-6-5-6-9z"/></svg>');
+        }
+        const body = isNote ? element('p', 'community-update-copy', entry.t) : element('blockquote', 'community-quote', entry.t);
         const link = element('a', 'community-game');
-        link.href = game.href;
-        link.append(element('span','',game.label));
+        link.href = isNote ? entry.href : game.href;
+        link.append(element('span', '', isNote ? entry.linkLabel : game.label));
         link.insertAdjacentHTML('beforeend',arrow);
-        card.append(top,quote,link);
+        card.append(top, body, link);
         return card;
     }
     function shuffle(items) {
@@ -71,10 +89,10 @@
         next.disabled = !available;
         toggle.disabled = !available;
         toggle.setAttribute('aria-pressed', String(paused));
-        const action = paused ? 'Resume automatic reviews' : 'Pause automatic reviews';
+        const action = paused ? 'Resume automatic rotation' : 'Pause automatic rotation';
         toggle.setAttribute('aria-label', action);
         toggle.title = action;
-        count.textContent = `${showing.length} of ${pool.length} reviews`;
+        count.textContent = `${showing.length} of ${pool.length} cards`;
     }
     function schedule() {
         clearTimeout(timer);
@@ -102,8 +120,12 @@
     }
     function selectGame(value) {
         selected = value;
-        pool = selected === 'all' ? reviews : reviews.filter(review => review.g === selected);
+        pool = selected === 'all' ? entries : entries.filter(entry => entry.g === selected);
         deck = shuffle([...pool]);
+        if (selected !== 'all') {
+            const noteIndex = deck.findIndex(entry => entry.kind === 'feature-note');
+            if (noteIndex > 0) deck.unshift(...deck.splice(noteIndex, 1));
+        }
         showing = [];
         filters.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.game === selected)));
         advance();
@@ -127,7 +149,7 @@
         const size = mobile.matches ? 1 : tablet.matches ? 2 : 3;
         if (size === capacity) return;
         capacity = size;
-        if (reviews.length) selectGame(selected);
+        if (entries.length) selectGame(selected);
     }
     mobile.addEventListener('change', resize);
     tablet.addEventListener('change', resize);
@@ -139,21 +161,21 @@
     } else visible = true;
     async function init() {
         try {
-            const response = await fetch('/assets/data/home-reviews.json?v=6');
+            const response = await fetch('/assets/data/home-reviews.json?v=7');
             if (!response.ok) throw new Error('Reviews unavailable');
             const data = await response.json();
-            if (!Array.isArray(data) || !data.length || data.some(review => !games[review.g] || typeof review.n !== 'string' || typeof review.r !== 'string' || typeof review.t !== 'string' || (review.displayName !== undefined && typeof review.displayName !== 'string') || (review.sample !== undefined && typeof review.sample !== 'boolean'))) return;
-            reviews = data.filter(review => !review.sample);
-            if (!reviews.length) return;
-            const options = [['all','All games'], ...Object.entries(games).filter(([key]) => reviews.some(review => review.g === key)).map(([key,game])=>[key,game.label])];
+            if (!Array.isArray(data) || !data.every(isValidEntry)) return;
+            entries = data.filter(entry => !entry.sample);
+            if (!entries.length) return;
+            const options = [['all','All games'], ...Object.entries(games).filter(([key]) => entries.some(entry => entry.g === key)).map(([key,game])=>[key,game.label])];
             const buttons = options.map(([value,label])=>{
                 const button = element('button','review-filter');
                 button.type = 'button';
                 button.dataset.game = value;
                 button.setAttribute('aria-controls','communityReviews');
                 button.setAttribute('aria-pressed',String(value === selected));
-                const total = value === 'all' ? reviews.length : reviews.filter(review=>review.g === value).length;
-                button.setAttribute('aria-label', `${label}, ${total} reviews`);
+                const total = value === 'all' ? entries.length : entries.filter(entry => entry.g === value).length;
+                button.setAttribute('aria-label', `${label}, ${total} cards`);
                 button.append(element('span','',label),element('span','review-filter-count',String(total)));
                 button.addEventListener('click', () => selectGame(value));
                 return button;

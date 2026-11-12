@@ -28147,14 +28147,16 @@
       "format": "RAR",
       "listedMenus": [
         "stand",
-        "cherax"
+        "cherax",
+        "scooby"
       ],
       "supportedMenus": [
         "stand",
-        "cherax"
+        "cherax",
+        "scooby"
       ],
-      "compatibility": "Jackz Builder/JSTAND JSON format; requires the matching Stand builder. BiggerScript for Cherax explicitly normalizes this format in its vehicle loader only. Native Scooby/Nenyoo importer support was not established.",
-      "requirementLabel": "Jackz Builder/JSTAND JSON format; requires the matching Stand builder. BiggerScript for Cherax explicitly normalizes this format in its vehicle loader only. Native Scooby/Nenyoo importer support was not established.",
+      "compatibility": "Extract the Jackz Builder / JSTAND JSON files. Use Saved Vehicles in a current Scooby build, BiggerScript’s vehicle loader in Cherax, or the matching Jackz Builder in Stand.",
+      "requirementLabel": "Jackz Builder / JSTAND JSON. Extract the archive before importing.",
       "compatibilityStatus": "source-accepted-format-not-runtime-tested",
       "tags": [
         "Stand",
@@ -28211,14 +28213,16 @@
       "format": "ZIP",
       "listedMenus": [
         "stand",
-        "cherax"
+        "cherax",
+        "scooby"
       ],
       "supportedMenus": [
         "stand",
-        "cherax"
+        "cherax",
+        "scooby"
       ],
-      "compatibility": "Jackz Builder/JSTAND JSON format; requires the matching Stand builder. BiggerScript for Cherax explicitly normalizes this format in its vehicle loader only. Native Scooby/Nenyoo importer support was not established.",
-      "requirementLabel": "Jackz Builder/JSTAND JSON format; requires the matching Stand builder. BiggerScript for Cherax explicitly normalizes this format in its vehicle loader only. Native Scooby/Nenyoo importer support was not established.",
+      "compatibility": "Extract the Jackz Builder / JSTAND JSON files. Use Saved Vehicles in a current Scooby build, BiggerScript’s vehicle loader in Cherax, or the matching Jackz Builder in Stand.",
+      "requirementLabel": "Jackz Builder / JSTAND JSON. Extract the archive before importing.",
       "compatibilityStatus": "source-accepted-format-not-runtime-tested",
       "tags": [
         "Stand",
@@ -38967,6 +38971,48 @@
           "filename": "Theme.rar",
           "sha256": "e661dcb9625b9610b03bd023b186aa61c7d6812c516bb1a9fdf468b5745dee2a",
           "archiveEntries": 83
+        }
+      ]
+    },
+    {
+      "id": "gta5-stand-current-lua-tattoo-stacking",
+      "game": "gta5",
+      "category": "lua",
+      "sourceMenu": "stand",
+      "supportedMenus": [
+        "stand"
+      ],
+      "listedMenus": [
+        "stand"
+      ],
+      "name": "Tattoo Stacking",
+      "description": "Customizes tattoo combinations through Stand. This release was shared as a work in progress.",
+      "author": "Mysterious and spooky",
+      "sourceFilename": "Stacking_Tattoos_V3.lua",
+      "formatExtension": "lua",
+      "sourceChannel": "Shares / lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "reviewedLua": true,
+      "downloadStatus": "available",
+      "files": [
+        {
+          "path": "downloads/gta5/menus/stand/fd77ed888311a4a67de0.lua",
+          "name": "Stacking_Tattoos_V3.lua",
+          "size": 11763,
+          "sha256": "fd77ed888311a4a67de02e3c8b4464af78ba7a3f6f64a70309ca243170b34727",
+          "versionLabel": "V3"
+        }
+      ],
+      "sourceProvenance": [
+        {
+          "kind": "original-attachment-from-signed-in-discord-ui",
+          "forumId": "1036177489963253781",
+          "threadId": "1244366574052315293",
+          "messageId": "1244366574052315293",
+          "date": "2024-05-26",
+          "filename": "Stacking_Tattoos_V3.lua",
+          "sha256": "fd77ed888311a4a67de02e3c8b4464af78ba7a3f6f64a70309ca243170b34727"
         }
       ]
     }
@@ -53644,6 +53690,14 @@
       "status": "additional-appearance-packages-reviewed",
       "originalArchives": 17,
       "verifiedPreviews": 14
+    },
+    {
+      "category": "lua",
+      "collection": "Shares",
+      "sourceChannelId": "1036177489963253781",
+      "sourceMessageId": "1244366574052315293",
+      "status": "single-original-forum-attachment-reviewed",
+      "verifiedFiles": 1
     }
   ],
   "completeness": "All six supplied Old Shares channel HTML files and the nested theme transcript were reviewed. Current Shares and custom DLC channel exports were absent from the supplied folder. The nested transcript supplied no attachment bytes.",
@@ -53662,7 +53716,7 @@
       "Current Shares",
       "custom DLC"
     ],
-    "reviewedItemRecords": 597,
+    "reviewedItemRecords": 598,
     "legacyMatches": 236,
     "existingLibraryUpdates": 3
   },

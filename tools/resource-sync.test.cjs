@@ -125,6 +125,70 @@ test('inbox adds real files/bundles, preserves companion paths and keeps Lua pen
   const updated = importInbox(inbox, { stageRoot: stage, output: path.join(root, 'inbox-output.json') });
   assert.equal(updated.items.find(item => item.category === 'vehicles').id, firstId);
 });
+test('CS2 Pets inbox adds and edits multi-model packs and locally generated references', () => {
+  const { root } = fixture(), inbox = path.join(root, 'inbox');
+  const options = { stageRoot: path.join(root, 'staged'), output: path.join(root, 'inbox-output.json') };
+  const write = (relative, bytes) => {
+    const file = path.join(inbox, relative);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, bytes);
+  };
+  const pack = 'cs2/scooby/pets/Companion pack';
+  const reference = 'cs2/scooby/pets/Local companions';
+  const modelPaths = ['models/pets/owl.vmdl_c', 'models/pets/rabbit.vmdl_c'];
+  const metadata = {
+    name: 'Companion pack', credits: 'Pack creator', license: 'CC BY 4.0',
+    sourceUrl: 'https://example.test/companions', resourcePaths: modelPaths
+  };
+  const localMetadata = {
+    name: 'Local companions', status: 'in-menu', author: 'Recipe creator', license: 'See the local asset terms',
+    source: 'Installed CS2', requirements: ['Matching installed CS2 assets'],
+    resourcePaths: ['models/pets/companion.vmdl']
+  };
+  write(`${pack}/resource.json`, JSON.stringify(metadata));
+  for (const model of modelPaths) write(`${pack}/files/${model}`, `Test bytes for ${model}`);
+  const material = 'materials/pets/shared.vmat_c';
+  write(`${pack}/files/${material}`, 'Test material bytes');
+  write(`${reference}/resource.json`, JSON.stringify(localMetadata));
+  write('cs2/scooby/players/Agent.vmdl_c', 'Test player model bytes');
+  write('cs2/stand/pets/Other.vmdl_c', 'Test model bytes');
+  write('gta5/scooby/pets/Other.vmdl_c', 'Test model bytes');
+
+  const first = importInbox(inbox, options).items;
+  assert.equal(first.length, 3);
+  assert(first.some(item => item.category === 'players'));
+  const download = first.find(item => item.name === metadata.name);
+  assert.equal(download.game, 'cs2');
+  assert.equal(download.category, 'pets');
+  assert.equal(download.credits, metadata.credits);
+  assert.equal(download.license, metadata.license);
+  assert.equal(download.sourceUrl, metadata.sourceUrl);
+  assert.deepEqual(download.resourcePaths, modelPaths);
+  assert.equal(download.files.length, 1);
+  assert.equal(download.files[0].name, 'Companion pack.zip');
+  const archive = fs.readFileSync(path.resolve(__dirname, '..', download.files[0].localPath));
+  for (const file of [...modelPaths, material]) assert(archive.includes(Buffer.from(file)), file);
+  const local = first.find(item => item.name === localMetadata.name);
+  assert.equal(local.status, 'in-menu');
+  assert.equal(local.author, localMetadata.author);
+  assert.equal(local.credits, localMetadata.author);
+  assert.equal(local.license, localMetadata.license);
+  assert.equal(local.source, localMetadata.source);
+  assert.deepEqual(local.requirements, localMetadata.requirements);
+  assert.deepEqual(local.resourcePaths, localMetadata.resourcePaths);
+  assert.deepEqual(local.files, []);
+
+  write(`${pack}/resource.json`, JSON.stringify({ ...metadata, name: 'Companion pack revised' }));
+  write(`${pack}/files/${modelPaths[0]}`, 'Updated test model bytes');
+  write(`${reference}/resource.json`, JSON.stringify({ ...localMetadata, requirements: ['Updated local asset requirement'] }));
+  const edited = importInbox(inbox, options).items;
+  const revisedDownload = edited.find(item => item.id === download.id);
+  assert.equal(revisedDownload.name, 'Companion pack revised');
+  assert.notEqual(revisedDownload.files[0].localPath, download.files[0].localPath);
+  const revisedReference = edited.find(item => item.id === local.id);
+  assert.deepEqual(revisedReference.requirements, ['Updated local asset requirement']);
+  assert.deepEqual(revisedReference.files, []);
+});
 test('invalid new JSON does not replace the last prepared inbox manifest', () => {
   const { root } = fixture(), inbox = path.join(root, 'inbox'), file = path.join(inbox, 'gta5/scooby/outfits/Broken.json'), output = path.join(root, 'prepared.json');
   fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, '{'); fs.writeFileSync(output, '{"items":[{"id":"keep"}]}');

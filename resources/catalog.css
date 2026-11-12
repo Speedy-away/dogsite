@@ -280,6 +280,7 @@ html:has(.resource-dialog[open]) { overflow: hidden; }
   color: #e8dcf9;
 }
 #preview-details .resource-requirements { margin: 10px 0; }
+#preview-details .resource-requirements code { overflow-wrap: anywhere; }
 #preview-details .file-list { gap: 8px; margin: 10px 0; }
 #preview-details .file-row {
   display: grid;

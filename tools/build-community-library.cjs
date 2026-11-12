@@ -176,23 +176,34 @@ function importCs2() {
   if (!Array.isArray(catalog.packages)) throw Error(`CS2 catalog has no packages array: ${catalogFile}`);
   plan('catalog/cs2-models.json', original);
   for (const model of catalog.packages) {
+    const isPet = [model.category, model.group].some(value => value === 'pet' || value === 'pets');
+    const localPet = isPet && Boolean(model.localSource);
     let category = model.category === 'players' ? 'players' : 'weapons';
     if (model.group === 'knife') category = 'knives';
     if (model.group === 'throwable') category = 'throwables';
     if (model.group === 'bomb') category = 'bombs';
-    const files = model.url ? [{ url: model.url, name: model.archive || `${model.id}.zip`, size: model.downloadBytes, sha256: model.sha256 }] : [];
+    if (isPet) category = 'pets';
+    const resourcePaths = [...new Set([model.resourcePath, ...(Array.isArray(model.resourcePaths) ? model.resourcePaths : [])]
+      .filter(value => typeof value === 'string' && value.trim()))];
+    const files = model.url && !localPet
+      ? [{ url: model.url, name: model.archive || `${model.id}.zip`, size: model.downloadBytes, sha256: model.sha256 }] : [];
     let preview;
-    const artwork = model.images?.find(image => image.path && fs.existsSync(path.join(root, 'assets/custom_models', image.path)));
-    if (artwork) {
-      const source = within(path.join(root, 'assets/custom_models'), artwork.path);
-      preview = plan(`previews/cs2/${slug(model.id)}${path.extname(source)}`, fs.readFileSync(source)).path;
-    } else if (model.images?.[0]?.url) preview = model.images[0].url;
+    if (!localPet) {
+      const artwork = model.images?.find(image => image.path && fs.existsSync(path.join(root, 'assets/custom_models', image.path)));
+      if (artwork) {
+        const source = within(path.join(root, 'assets/custom_models'), artwork.path);
+        preview = plan(`previews/cs2/${slug(model.id)}${path.extname(source)}`, fs.readFileSync(source)).path;
+      } else if (model.images?.[0]?.url) preview = model.images[0].url;
+    }
+    const modelType = { players: 'player', weapons: 'weapon', knives: 'knife', throwables: 'throwable', bombs: 'bomb', pets: 'pet' }[category];
     add({ id: `cs2-model-${model.id}`, game: 'cs2', category, name: model.name,
-      description: model.localSource ? 'Build this variant in Scooby Custom > Repo using your installed CS2 files.' : model.workshopId ? 'Install this collection through Scooby Custom > Repo with Steam running.' : `Compiled ${{ players: 'player', weapons: 'weapon', knives: 'knife', throwables: 'throwable', bombs: 'bomb' }[category]} model package. Keep its materials and textures together.`,
-      files, preview, guide: '/guides/cs2/custom-models/', sourceUrl: model.page || model.url,
+      description: model.localSource ? `Build this ${isPet ? 'pack' : 'variant'} in Scooby Custom > Repo using your installed CS2 files.` : model.workshopId ? 'Install this collection through Scooby Custom > Repo with Steam running.' : `Compiled ${modelType} model package. Keep its materials and textures together.`,
+      files, preview, guide: isPet ? '/resources/guides/?game=cs2&category=pets' : '/guides/cs2/custom-models/',
+      sourceUrl: localPet ? model.page : model.page || model.url,
       status: model.localSource ? 'in-menu' : model.workshopId ? 'workshop' : 'download',
       credits: model.author || model.source || 'See original source', license: model.license,
-      tags: [model.category, model.group, model.source, model.author, model.resourcePath, ...(model.resourcePaths || [])].filter(Boolean),
+      ...(isPet ? { source: model.source, resourcePaths } : {}),
+      tags: [model.category, model.group, model.source, model.author, ...resourcePaths].filter(Boolean),
       compatibility: model.localSource ? 'Requires the matching installed CS2 donor build. Install from the in-game Repo.' : 'Scooby CS2 Custom > Library; source author terms apply.',
     });
   }

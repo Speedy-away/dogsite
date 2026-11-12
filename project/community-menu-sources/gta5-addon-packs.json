@@ -45,18 +45,23 @@
       "category": "pack-outfits",
       "sourceMenu": "stand",
       "supportedMenus": [
-        "stand"
+        "stand",
+        "scooby",
+        "nenyoo"
       ],
       "listedMenus": [
-        "stand"
+        "stand",
+        "scooby",
+        "nenyoo"
       ],
       "name": "100 Female Outfits",
-      "description": "The 100 Stand outfit presets from the original Old Shares collection in one ZIP.",
+      "description": "100 Stand TXT outfit presets for the female freemode character from the original Old Shares collection.",
       "sourceFormat": "Stand outfit TXT",
       "format": "ZIP of Stand TXT outfits",
+      "compatibility": "Scooby and Nenyoo import clothing and props from Stand TXT outfits. Hair color, face data and other optional fields may vary.",
       "requirements": [
-        "Extract the ZIP into the Stand outfit wardrobe folder.",
-        "Use the freemode female character model."
+        "Extract the ZIP and import the individual TXT files through your menu’s outfit library. In Stand, use the Wardrobe folder.",
+        "Use the female freemode character model."
       ],
       "collection": "old",
       "collectionStatus": "archival",

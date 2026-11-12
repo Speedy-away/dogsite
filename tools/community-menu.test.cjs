@@ -58,7 +58,7 @@ test('Lua listings expose local downloads or an honest unavailable state', () =>
       for (const file of item.files) {
         let location;
         if (item.sourceMenu === 'stand') {
-          assert(item.oldShares, item.id);
+          assert(item.oldShares || item.sourceChannel === 'Shares / lua-scripts', item.id);
           assert.match(file.path, /^downloads\/gta5\/menus\/stand\/[a-f0-9]{20}\.(?:lua|pluto|zip)$/);
           location = path.join(ROOT, '../cool-repo', file.path);
         } else {

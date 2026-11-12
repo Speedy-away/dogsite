@@ -39,6 +39,7 @@
     'asi-mods': ['asi mods', 'asi mod', 'asi plugins', 'asi plugin', 'script hook v', 'scripthookv', 'native mods'],
     'dotnet-mods': ['dotnet mods', 'dotnet mod', 'dot net mods', 'net mods', 'net scripts', 'c sharp', 'csharp', 'script hook v dot net', 'scripthookvdotnet'],
     players: ['players', 'player models', 'player model', 'characters', 'character models', 'peds'],
+    pets: ['pets', 'pet', 'pet models', 'pet model packs', 'companion models'],
     weapons: ['weapons', 'weapon models', 'weapon model', 'guns', 'gun'],
     'weapon-models': ['weapons', 'weapon models', 'weapon skins', 'gun skins', 'models', 'skins'],
     'sound-packs': ['sound packs', 'sounds', 'audio', 'weapon sounds', 'gun sounds'],
@@ -194,13 +195,18 @@
     return [...result].filter(tag => !aliases.has(tag) && tag.length <= 42 && !/^\d+$/.test(tag));
   }
 
+  function petModelPaths(item) {
+    if (item.game !== 'cs2' || item.category !== 'pets' || !Array.isArray(item.resourcePaths)) return [];
+    return [...new Set(item.resourcePaths.filter(value => typeof value === 'string').map(value => value.trim()).filter(Boolean))];
+  }
+
   function searchText(item) {
     if (!item || typeof item !== 'object') return '';
     const files = Array.isArray(item.files) ? item.files.flatMap(file => [file.name, file.path, file.url]) : [];
     return normalizeTag([
       item.name, item.description, item.model, item.modelLabel, item.author, item.sourceUrl,
       item.format, item.source, item.sourceMenu, item.sourceFilename, item.compatibility, item.downloadStatus,
-      ...files, ...tagsFor(item)
+      ...files, ...petModelPaths(item), ...tagsFor(item)
     ].filter(value => typeof value === 'string' || typeof value === 'number').join(' '));
   }
 
@@ -254,5 +260,5 @@
     ];
   }
 
-  return Object.freeze({ normalizeTag, tagsFor, searchText, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel, ROLEPLAY_LABELS });
+  return Object.freeze({ normalizeTag, tagsFor, searchText, petModelPaths, menuTopic, redmGraphicsTopics, redmGraphicsTopicForQuery, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryId, roleplayCategoryLabel, ROLEPLAY_LABELS });
 });

@@ -7,6 +7,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const { isDeepStrictEqual } = require('node:util');
 const { readBundledOutfits } = require('./extract-community-outfits.cjs');
 const { createServer } = require('./preview.cjs');
 
@@ -15,7 +16,7 @@ const DOWNLOADS = path.resolve(process.env.COMMUNITY_DOWNLOAD_ROOT || path.join(
 const SOURCE_ROOT = path.resolve(process.env.COMMUNITY_SOURCE_ROOT || path.dirname(SITE));
 const GAMES = ['gta5', 'rdr2', 'cs2', 'fivem', 'redm', 'l4d'];
 const CATEGORIES = new Set(['vehicles', 'modded', 'outfits', 'addon-vehicles', 'addon-peds', 'addon-clothing', 'addon-maps', 'addon-objects', 'addon-animations', 'maps',
-  'textures', 'paintjobs', 'liveries', 'players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes',
+  'textures', 'paintjobs', 'liveries', 'players', 'weapons', 'knives', 'throwables', 'bombs', 'pets', 'skyboxes',
   'themes', 'configs', 'languages', 'misc', 'asi-mods', 'dotnet-mods']);
 const readJSON = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const digest = (file) => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
@@ -111,22 +112,26 @@ test('download repository matches the site catalog and contains the advertised a
   assert.match(redirect, /https:\/\/scoobymenu\.cc\/resources\//);
 });
 
-test('the complete CS2 model repository retains all 545 source identities and categories', () => {
+test('the complete CS2 model repository retains all source identities and categories', () => {
   const catalogPath = path.join(DOWNLOADS, 'catalog/cs2-models.json');
   const catalog = readJSON(catalogPath);
-  assert.equal(catalog.packages.length, 545);
+  assert(catalog.packages.length >= 545, 'Expected the existing CS2 model collection');
   const original = path.join(SOURCE_ROOT, 'Scooby-Op/CS2/simple-base-cs2/assets/custom_models/catalog.json');
-  if (fs.existsSync(original)) assert.deepEqual(catalog, readJSON(original), 'Original author metadata must be preserved');
+  if (fs.existsSync(original)) {
+    assert(isDeepStrictEqual(catalog, readJSON(original)), 'The mirrored CS2 model catalog must match the source metadata');
+  }
   const entries = library().items.filter((item) => item.id.startsWith('cs2-model-'));
-  assert.equal(entries.length, 545);
+  assert.equal(entries.length, catalog.packages.length);
   const byID = new Map(entries.map((item) => [item.id, item]));
   for (const model of catalog.packages) {
     const item = byID.get(`cs2-model-${model.id}`);
     assert(item, `Missing CS2 model: ${model.id}`);
-    const category = ({ knife: 'knives', throwable: 'throwables', bomb: 'bombs' })[model.group]
+    const isPet = [model.category, model.group].some(value => value === 'pet' || value === 'pets');
+    const category = isPet ? 'pets' : ({ knife: 'knives', throwable: 'throwables', bomb: 'bombs' })[model.group]
       || (model.category === 'players' ? 'players' : 'weapons');
     assert.equal(item.category, category, model.id);
-    if (model.url) assert(item.files.some((file) => file.url === model.url), `Lost original download: ${model.id}`);
+    if (isPet && model.localSource) assert.deepEqual(item.files, [], `Local pet advertised as a download: ${model.id}`);
+    else if (model.url) assert(item.files.some((file) => file.url === model.url), `Lost original download: ${model.id}`);
   }
 });
 

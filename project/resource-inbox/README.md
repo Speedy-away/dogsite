@@ -9,6 +9,7 @@ Examples:
 - `gta5/cherax/outfits/My outfit.json`
 - `gta5/stand/maps/My ramp.xml`
 - `redm/scooby/sound-packs/My sound pack/`
+- `cs2/scooby/pets/My pet pack/`
 
 Use the game IDs gta5, rdr2, cs2, redm or l4d. FiveM and Yim acquisition remain
 deferred. A single file becomes one resource. A folder becomes one ZIP containing
@@ -34,3 +35,19 @@ and faster-scope resources are excluded. Keep author credits inside packages.
 
 The watcher prepares local changes. Use the normal publication workflow to update
 the live website and publish `cool-repo` downloads first.
+
+## CS2 pet packs
+
+Keep all models, materials, textures, and other dependencies under `files/` using
+their original paths. Include only files you can redistribute. Use `resourcePaths`
+in `resource.json` to list the individual model paths. Set `credits` or `author`,
+`sourceUrl`, and `license` so readers can identify the creator, find the original
+source, and check its terms. Use `source` to describe a local origin when a URL
+is unavailable.
+
+To list a pack generated from a local CS2 installation, create a Pets folder
+with `resource.json` and set `"status": "in-menu"`. Describe how to generate the
+pack in `description`, list the required installed assets or build in
+`requirements`, and include the source and license terms. The listing has no
+download. Edit the metadata or payload in the same inbox folder to update an
+existing pack and retain its catalog link.

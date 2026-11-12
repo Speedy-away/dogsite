@@ -37,6 +37,7 @@
   function categoryGroups(menu, ids) {
     if (MENUS.find(item => item.id === canonical(menu))?.deferred) return [];
     const available = new Set(ids);
+    available.delete('all');
     const ordered = [...new Set([...gtaResourceOrder, ...gtaAddonOrder, ...available])].filter(id => available.has(id));
     const isPack = id => Object.hasOwn(packLabels, id);
     const isAddon = id => id.startsWith('addon-') && !isPack(id);

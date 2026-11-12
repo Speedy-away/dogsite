@@ -31,10 +31,10 @@
             { art:'cs2-visuals', kicker:'See the full picture', title:'ESP & Chams', description:'Player visuals, customizable chams, and overlays. Choose the information you want to see.', href:'/features-list/cs2-features/#section-player-visuals', action:'Explore visual tools' },
             { art:'cs2-loadout', kicker:'Your loadout, your style', title:'Skins & Loadouts', description:'Weapon skins, gloves, agents, and local inventory options to build your own look.', href:'/features-list/cs2-features/#section-skins-inventory', action:'Explore loadout tools' }
         ] },
-        { id:'l4d', name:'Left 4 Dead', href:'/features-list/l4d-features/', cards:[
-            { art:'l4d-awareness', kicker:'Keep your bearings', title:'Infected & Item ESP', description:'Infected, weapons, and pickup visuals, with radar and chams for Left 4 Dead 1 and 2.', href:'/features-list/l4d-features/#section-visuals', action:'Explore survival visuals' },
-            { art:'l4d-movement', kicker:'Keep moving', title:'Movement Tools', description:'Bunnyhop, auto-strafe, and movement assistance. Customize your controls and keep moving through every campaign.', href:'/features-list/l4d-features/#section-movement', action:'Explore movement tools' },
-            { art:'l4d-world', kicker:'Set the atmosphere', title:'World & View', description:'Adjust world visuals and view settings, then bring your setup together with hotkeys and profiles.', href:'/features-list/l4d-features/#section-world', action:'Explore world settings' }
+        { id:'l4d', name:'Left 4 Dead', label:'Left 4 Dead features & add-ons', href:'/features-list/l4d-features/', cards:[
+            { art:'l4d-awareness', kicker:'Keep your bearings', title:'Infected & Item ESP', description:'See infected, weapons, and pickups with ESP, radar, and chams. The next update adds interactive 3D model previews.', href:'/features-list/l4d-features/#section-visuals', action:'Explore survival visuals' },
+            { art:'l4d-movement', kicker:'Give your crew a new look', title:'Custom Models & Skins', description:'Find community-made survivor and infected models, weapon replacements, and skins for Left 4 Dead 1 and 2.', href:'/resources/l4d/', action:'Browse models & skins' },
+            { art:'l4d-world', kicker:'Set the atmosphere', title:'Campaign VFX & Skyboxes', description:'Set a different look for each campaign with custom skyboxes, world tints, and lighting presets.', href:'/features-list/l4d-features/#section-vfx', action:'Explore campaign effects' }
         ] },
         { id:'gmod', name:'GMod', href:'/features-list/gmod-features/', cards:[
             { art:'gmod-visuals', kicker:'Choose your playstyle', title:'Rage & Legit Aimbot', description:'Rage and Legit aimbot, triggerbot, player and entity ESP, chams, and radar with customizable settings.', href:'/features-list/gmod-features/#section-combat', action:'Explore combat & visuals' },
@@ -162,7 +162,7 @@
             current = index;
             queue = queue.filter(item => item !== index);
             grid.dataset.product = product.id;
-            label.textContent = `Inside the ${product.name} menu`;
+            label.textContent = product.label || `Inside the ${product.name} menu`;
             allLink.href = product.href;
             allLink.querySelector('span').textContent = `Explore ${product.name} features`;
             buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.product === product.id)));

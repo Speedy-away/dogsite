@@ -152,7 +152,7 @@ function expectedInventory() {
   return scopes;
 }
 
-test('resource routes cover actual menu-compatible collections without empty category promises', () => {
+test('resource routes cover menu-compatible collections and the CS2 Pets submission directory', () => {
   const expected = expectedInventory();
   const pages = inventory();
   const files = new Set(pages.map((page) => page.file));
@@ -163,6 +163,7 @@ test('resource routes cover actual menu-compatible collections without empty cat
     required.add(`${prefix}index.html`);
     for (const category of bucket.categories.keys()) required.add(`${prefix}${category}/index.html`);
   }
+  required.add('resources/cs2/pets/index.html');
   assert.deepEqual([...files].sort(), [...required].sort());
   for (const page of pages) {
     assert(GAMES.includes(page.game), page.file);
@@ -174,7 +175,7 @@ test('resource routes cover actual menu-compatible collections without empty cat
     const subset = nativeDefault ? listed.filter(item => !menus.alternatePreset(item, page.menu)) : listed;
     const count = subset.length;
     assert.equal(page.itemCount, count, `Stale or invented resource count: ${page.file}`);
-    if (category) assert(count > 0, `Empty category should not have an indexable page: ${page.file}`);
+    if (category && page.file !== 'resources/cs2/pets/index.html') assert(count > 0, `Unexpected empty category: ${page.file}`);
     for (const item of page.samples) assert(subset.some(expected => expected.id === item.id), `Incompatible sample on ${page.file}: ${item.id}`);
     if (!subset.some(item => item.category === 'lua' || item.category === 'mod-menus')) assert(!/\blua\b/i.test([page.title, page.description, page.keywords].join(' ')), page.file);
     if (subset.length && subset.every(item => item.downloadStatus === 'pending' && !item.files?.length)) {
@@ -183,7 +184,7 @@ test('resource routes cover actual menu-compatible collections without empty cat
   }
 });
 
-test('resource pages have unique self-canonical metadata and explicit indexing without JavaScript', () => {
+test('resource pages have unique self-canonical metadata and explicit indexing directives', () => {
   const { pages: registered } = require('./seo-metadata');
   const titles = new Set(), descriptions = new Set();
   for (const page of inventory()) {
@@ -214,7 +215,8 @@ test('resource pages have unique self-canonical metadata and explicit indexing w
       .filter((tag) => tag.rel === 'canonical');
     assert.deepEqual(canonical.map((tag) => tag.href), [pageUrl(page.file)], page.file);
     const robots = metadata(head, 'robots').join(',');
-    assert(/\bindex\b/.test(robots) && !/\bnoindex\b/.test(robots), page.file);
+    if (page.category === 'pets' && !page.itemCount) assert.equal(robots, 'noindex, follow', page.file);
+    else assert(/\bindex\b/.test(robots) && !/\bnoindex\b/.test(robots), page.file);
     assert(!/<meta\b[^>]*http-equiv=["']refresh["']/i.test(head), page.file);
     assert.equal(metadata(head, 'og:url')[0], pageUrl(page.file), page.file);
     assert.equal(metadata(head, 'og:title')[0], title, page.file);
@@ -223,7 +225,7 @@ test('resource pages have unique self-canonical metadata and explicit indexing w
   }
 });
 
-test('game and category links are crawlable and every resource page appears in both sitemaps', () => {
+test('game and category links are crawlable and indexable resource pages appear in both sitemaps', () => {
   const pages = inventory();
   assert.doesNotMatch(markup('resources/index.html'), /Browse GTA 5 menu collections|class="menu-directory"/i);
   const rootLinks = links('resources/index.html').filter((url) => url.origin === ORIGIN).map((url) => url.pathname);
@@ -249,8 +251,9 @@ test('game and category links are crawlable and every resource page appears in b
   for (const game of GAMES) assert(rootLinks.includes(`/resources/${game}/`), `No crawlable ${game} resource link`);
   for (const page of pages) {
     const url = pageUrl(page.file);
-    assert.equal(locations.filter((location) => location === url).length, 1, `XML sitemap omits/duplicates ${url}`);
-    assert(directory.includes(url), `HTML sitemap omits ${url}`);
+    const indexable = page.category !== 'pets' || page.itemCount > 0;
+    assert.equal(locations.filter((location) => location === url).length, Number(indexable), `XML sitemap indexing mismatch for ${url}`);
+    assert.equal(directory.includes(url), indexable, `HTML sitemap indexing mismatch for ${url}`);
     assert(!url.includes('?') && !url.includes('#'), url);
     const hrefs = links(page.file);
     assert(hrefs.some((href) => href.origin === ORIGIN && href.pathname === '/resources/'), page.file);
@@ -451,7 +454,7 @@ test('resource structured data describes visible collections and real sample ent
       for (const [index, entry] of trail.entries()) assert.equal(entry.position, index + 1, page.file);
     }
     if (!page.itemCount) {
-      assert(/no .{0,35}(?:downloads|files|resources)|(?:downloads|files|resources).{0,35}(?:yet|available|added)|coming soon/i.test(body),
+      assert(/no .{0,35}(?:downloads|files|resources|packs)|(?:downloads|files|resources).{0,35}(?:yet|available|added)|coming soon/i.test(body),
         `${page.file} must state that its downloadable catalog is empty`);
     }
   }
@@ -493,6 +496,42 @@ test('pending downloads and verified theme captures render honest static actions
   const verified = renderPage({ ...base, samples: [{ ...theme, previewVerified: true }] });
   assert(verified.includes('src="https://example.invalid/captured-menu.png"'), 'A verified source capture may be displayed');
   assert(!verified.includes('In Scooby, use the Cherax Lua compatibility layer'));
+});
+
+test('CS2 Pets exposes submissions and shows pack contents and provenance in static listings', () => {
+  const { renderPage } = require('./resource-pages.cjs');
+  const page = inventory().find(page => page.game === 'cs2' && page.category === 'pets');
+  const guide = '/resources/guides/cs2/pets/';
+  const guideRoutes = { [guide]: guide };
+  const empty = renderPage({ ...page, samples: [], itemCount: 0 }, guideRoutes);
+  assert.deepEqual(metadata(empty, 'robots'), ['noindex, follow']);
+  assert.match(empty, /No CS2 pet packs are listed yet/);
+  assert(empty.includes(`href="${guide}#cs2-pet-submissions">Add a pet pack`));
+  assert.match(empty, /href="\/resources\/cs2\/pets\/#collection"/);
+
+  const pack = {
+    id: 'pet-pack-fixture', game: 'cs2', category: 'pets', name: 'Pet pack fixture',
+    resourcePaths: ['models/pets/fox.vmdl', 'models/pets/rabbit.vmdl'],
+    credits: 'Example & Co', license: 'CC BY 4.0', sourceUrl: 'https://example.invalid/pet-pack',
+    files: [{ url: 'https://example.invalid/pet-pack.zip', name: 'Pet pack.zip' }]
+  };
+  const local = {
+    ...pack, id: 'pet-reference-fixture', name: 'Local pet pack fixture', status: 'in-menu', files: [],
+    compatibility: 'Build locally with the required donor files.', sourceUrl: undefined, source: 'Local donor models'
+  };
+  const populated = renderPage({ ...page, samples: [pack, local], itemCount: 2 }, guideRoutes);
+  assert.match(metadata(populated, 'robots')[0], /^index, follow\b/);
+  const [download, reference] = populated.match(/<article\b[^>]*>[\s\S]*?<\/article>/g);
+  assert.match(download, /data-download-file=/);
+  assert.match(download, /<summary>Details<\/summary>/);
+  assert.match(download, /<li>models\/pets\/fox\.vmdl<\/li><li>models\/pets\/rabbit\.vmdl<\/li>/);
+  assert.match(download, /Credits: Example &amp; Co/);
+  assert.match(download, /License: CC BY 4\.0/);
+  assert.match(download, /href="https:\/\/example\.invalid\/pet-pack"[^>]*>Source ↗/);
+  assert.doesNotMatch(reference, /data-download-file=/);
+  assert.match(reference, /Locally generated pet pack/);
+  assert.match(reference, /Source: Local donor models/);
+  assert.match(reference, /Build locally with the required donor files/);
 });
 
 test('Lua search tags keep script-specific names, source filenames and topics', () => {

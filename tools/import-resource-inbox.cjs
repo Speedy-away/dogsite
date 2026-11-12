@@ -6,7 +6,7 @@ const { zip } = require('./build-reseller-media.cjs');
 const ROOT = path.resolve(__dirname, '..');
 const GAMES = new Set(['gta5', 'rdr2', 'cs2', 'redm', 'l4d']);
 const MENUS = new Set(['scooby', 'nenyoo', 'cherax', 'stand', 'xforce']);
-const CATEGORIES = new Set(['vehicles', 'modded', 'outfits', 'maps', 'textures', 'paintjobs', 'liveries', 'players', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'themes', 'configs', 'lua', 'languages', 'misc', 'dlc', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings']);
+const CATEGORIES = new Set(['vehicles', 'modded', 'outfits', 'maps', 'textures', 'paintjobs', 'liveries', 'players', 'pets', 'weapons', 'knives', 'throwables', 'bombs', 'skyboxes', 'themes', 'configs', 'lua', 'languages', 'misc', 'dlc', 'wallpapers', 'asi-mods', 'dotnet-mods', 'addon-vehicles', 'addon-peds', 'addon-objects', 'addon-animations', 'addon-maps', 'addon-clothing', 'weapon-models', 'sound-packs', 'graphics-packs', 'ui-presets', 'visual-effects', 'scopes', 'settings']);
 const EXTENSIONS = new Set(['.json', '.xml', '.ini', '.txt', '.ui', '.xf_cnfg', '.lua', '.pluto', '.zip', '.rar', '.7z', '.rpf', '.awc', '.ymap', '.ytyp', '.ydd', '.ytd', '.ydr', '.yft', '.ybn', '.ymt', '.ycd', '.vmdl_c', '.vmat_c', '.vtex_c', '.cfg', '.config', '.asi', '.dll', '.cs', '.wav', '.ogg', '.png', '.jpg', '.jpeg', '.webp', '.gif', '.dds', '.bmp', '.ttf', '.otf', '.md', '.pdf']);
 const IMAGE = /\.(png|jpe?g|webp|gif)$/i;
 const supportedFile = name => EXTENSIONS.has(path.extname(name).toLowerCase()) || /\.(?:zip|7z)\.\d{3}$/i.test(name);
@@ -32,6 +32,8 @@ function importInbox(inbox = path.join(ROOT, 'project/resource-inbox'), options 
     for (const menu of fs.readdirSync(gameRoot, { withFileTypes: true }).filter(entry => entry.isDirectory() && !entry.isSymbolicLink() && MENUS.has(entry.name))) {
       const menuRoot = path.join(gameRoot, menu.name);
       for (const category of fs.readdirSync(menuRoot, { withFileTypes: true }).filter(entry => entry.isDirectory() && !entry.isSymbolicLink() && CATEGORIES.has(entry.name))) {
+        const petPack = category.name === 'pets';
+        if (petPack && (game.name !== 'cs2' || menu.name !== 'scooby')) continue;
         const categoryRoot = path.join(menuRoot, category.name), siblings = fs.readdirSync(categoryRoot, { withFileTypes: true });
         for (const entry of siblings.filter(entry => !entry.isSymbolicLink() && !entry.name.startsWith('.'))) {
           const source = path.join(categoryRoot, entry.name), relative = portable(path.relative(inbox, source));
@@ -47,14 +49,25 @@ function importInbox(inbox = path.join(ROOT, 'project/resource-inbox'), options 
           if (entry.isDirectory()) preview = ['preview.png', 'preview.jpg', 'preview.webp', 'preview.gif'].map(name => path.join(source, name)).find(file => fs.existsSync(file) && !fs.lstatSync(file).isSymbolicLink());
           else preview = siblings.filter(other => other.isFile() && !other.isSymbolicLink() && IMAGE.test(other.name) && path.parse(other.name).name === path.parse(entry.name).name).map(other => path.join(categoryRoot, other.name))[0];
           const item = { id: `inbox-${game.name}-${menu.name}-${category.name}-${digest(relative).slice(0, 14)}`, game: game.name, sourceMenu: menu.name,
-            category: category.name, name: label, credits: metadata.credits || 'User-provided resource; original package credits retained',
+            category: category.name, name: label, credits: metadata.credits || (petPack && metadata.author) || 'User-provided resource; original package credits retained',
             description: metadata.description || `${label} resource. Keep its supporting files together.`, tags: metadata.tags || [], requirements: metadata.requirements || [],
             license: metadata.license, version: metadata.version, versionBasis: metadata.versionBasis,
             compatibility: metadata.compatibility, supportedMenus: metadata.supportedMenus || [menu.name], listedMenus: metadata.listedMenus,
             changelog: metadata.changelog || [], sourceUrl: metadata.sourceUrl, files: [] };
+          if (petPack && metadata.author) item.author = metadata.author;
+          if (petPack && typeof metadata.source === 'string' && metadata.source.trim()) item.source = metadata.source.trim();
+          if (petPack && metadata.resourcePaths !== undefined) {
+            const paths = metadata.resourcePaths;
+            if (!Array.isArray(paths) || paths.some(value => typeof value !== 'string' || !value.trim())) {
+              throw Error(`Expected a list of model paths in resource.json: ${relative}`);
+            }
+            item.resourcePaths = paths;
+          }
           if (category.name === 'lua') {
             item.downloadStatus = 'pending';
             if (entry.isFile()) item.sourceFilename = entry.name;
+          } else if (petPack && metadata.status === 'in-menu') {
+            item.status = 'in-menu';
           } else if (entry.isDirectory()) {
             const payloadRoot = fs.existsSync(path.join(source, 'files')) ? path.join(source, 'files') : source;
             const files = collect(payloadRoot).filter(file => file !== metadataPath && file !== preview);
