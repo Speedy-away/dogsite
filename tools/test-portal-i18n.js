@@ -9,7 +9,8 @@ const root = path.resolve(__dirname, '..');
 const sandbox = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root, 'portal/portal-translations.js'), 'utf8'), sandbox);
 const tables = sandbox.window.__scoobyPortalTranslations;
-assert.equal(Object.keys(tables).length, 21);
+const locales = require('./search-locales.json');
+assert.deepEqual(Object.keys(tables).sort(), Object.keys(locales).filter(code => locales[code].coverage !== 'core').sort());
 for (const [code, table] of Object.entries(tables)) {
   for (const [key, value] of Object.entries(table)) {
     assert.ok(value.trim(), `${code}: ${key}`);
@@ -61,7 +62,7 @@ async function main() {
     await page.locator('.dashboard-product-name').waitFor();
     async function language(code) {
       await page.evaluate(code => window.__scoobyI18n.set(code), code);
-      await page.waitForFunction(code => document.documentElement.lang === code, code);
+      await page.waitForFunction(code => window.__scoobyI18n.get() === code, code);
     }
     for (const [code, table] of Object.entries(tables)) {
       await language(code);
@@ -93,7 +94,7 @@ async function main() {
     await page.locator('.i18n-toggle').focus();
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('End');
-    assert.equal(await page.locator(':focus').getAttribute('data-lang'), 'he');
+    assert.equal(await page.locator(':focus').getAttribute('data-lang'), await page.evaluate(() => window.__scoobyI18n.langs.at(-1).code));
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
@@ -105,7 +106,7 @@ async function main() {
       const box = await page.locator('.i18n-menu').boundingBox();
       assert.ok(box.x >= 0 && box.x + box.width <= width + 1 && box.y + box.height <= 800, `menu fits ${width}`);
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `page fits ${width}`);
-      assert.equal(await page.locator('.i18n-option').count(), 22);
+      assert.equal(await page.locator('.i18n-option').count(), Object.keys(locales).length + 1);
       if (process.env.PORTAL_SCREENSHOTS) {
         fs.mkdirSync(process.env.PORTAL_SCREENSHOTS, { recursive:true });
         await page.screenshot({ path:path.join(process.env.PORTAL_SCREENSHOTS, `portal-es-${width}.png`) });
@@ -156,7 +157,7 @@ async function main() {
     assert.equal(await shared.locator('#label').textContent(), 'Home');
     await shared.close();
     assert.deepEqual(errors, []);
-    console.log('PASS: 21 dictionaries, 22 languages, dynamic text, persistence, RTL, keyboard, mobile bounds, download dialog, redeem and cooldown/error states.');
+    console.log('PASS: portal dictionaries, language choices, dynamic text, persistence, RTL, keyboard, mobile bounds, download dialog, redeem and cooldown/error states.');
     await context.close();
   } finally { await browser.close(); }
 }

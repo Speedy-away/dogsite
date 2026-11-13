@@ -1,0 +1,51 @@
+/* Bahasa Melayu — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Laman utama",
+    "Products": "Produk",
+    "Store": "Kedai",
+    "Docs": "Dokumentasi",
+    "Guides": "Panduan",
+    "Videos": "Video",
+    "Features": "Ciri",
+    "Pricing": "Harga",
+    "Support": "Sokongan",
+    "Resources": "Sumber",
+    "Login": "Log masuk",
+    "Portal": "Portal",
+    "Download": "Muat turun",
+    "Settings": "Tetapan",
+    "Close": "Tutup",
+    "Search...": "Cari...",
+    "Get Started": "Mula",
+    "Join Discord": "Sertai Discord",
+    "Free Version": "Versi percuma",
+    "Frequently asked questions": "Soalan lazim",
+    "Community": "Komuniti",
+    "Compare editions": "Bandingkan edisi",
+    "Languages": "Bahasa",
+    "Change language": "Tukar bahasa",
+    "Select language": "Pilih bahasa",
+    "Official": "Rasmi",
+    "Cheats": "Cheat",
+    "Online": "Dalam talian",
+    "Browse games": "Semak imbas permainan",
+    "More Games": "Lebih banyak permainan",
+    "Explore our Tools": "Terokai alatan kami",
+    "Click on any game below to explore our available cheats and features": "Pilih permainan untuk melihat cheat dan ciri yang tersedia",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Cheat percuma dan premium untuk CS2, Garry’s Mod, L4D, FiveM, RedM dan permainan lain, serta cheat dan menu mod untuk GTA 5 dan RDR2. Terokai ciri, bandingkan edisi dan cari panduan persediaan.",
+    "Start Dominating": "Mula",
+    "Sign in": "Log masuk",
+    "Sign In": "Log masuk",
+    "Site directory": "Peta laman",
+    "Become a reseller": "Jadi penjual semula",
+    "Terms of Service": "Syarat perkhidmatan",
+    "Choose a game": "Pilih permainan",
+    "Player reviews": "Ulasan pemain",
+    "Toggle menu": "Tunjukkan atau sembunyikan menu",
+    "Terms": "Syarat perkhidmatan"
+  };
+  var code = "ms";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

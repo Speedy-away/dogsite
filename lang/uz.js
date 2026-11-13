@@ -1,0 +1,51 @@
+/* Oʻzbekcha — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Bosh sahifa",
+    "Products": "Mahsulotlar",
+    "Store": "Doʻkon",
+    "Docs": "Hujjatlar",
+    "Guides": "Qoʻllanmalar",
+    "Videos": "Videolar",
+    "Features": "Funksiyalar",
+    "Pricing": "Narxlar",
+    "Support": "Yordam",
+    "Resources": "Resurslar",
+    "Login": "Kirish",
+    "Portal": "Portal",
+    "Download": "Yuklab olish",
+    "Settings": "Sozlamalar",
+    "Close": "Yopish",
+    "Search...": "Qidirish…",
+    "Get Started": "Boshlash",
+    "Join Discord": "Discordga qoʻshilish",
+    "Free Version": "Bepul versiya",
+    "Frequently asked questions": "Koʻp soʻraladigan savollar",
+    "Community": "Hamjamiyat",
+    "Compare editions": "Nashrlarni taqqoslash",
+    "Languages": "Tillar",
+    "Change language": "Tilni oʻzgartirish",
+    "Select language": "Tilni tanlash",
+    "Official": "Rasmiy",
+    "Cheats": "Chitlar",
+    "Online": "Onlayn",
+    "Browse games": "Oʻyinlarni koʻrish",
+    "More Games": "Boshqa oʻyinlar",
+    "Explore our Tools": "Vositalarimizni koʻring",
+    "Click on any game below to explore our available cheats and features": "Mavjud chit va funksiyalarni koʻrish uchun oʻyin tanlang",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM va boshqa oʻyinlar uchun bepul va premium chitlar, GTA 5 va RDR2 uchun esa mod menyular. Nashrlarni taqqoslang va sozlash qoʻllanmasini koʻring.",
+    "Start Dominating": "Boshlash",
+    "Sign in": "Kirish",
+    "Sign In": "Kirish",
+    "Site directory": "Sayt xaritasi",
+    "Become a reseller": "Qayta sotuvchi boʻling",
+    "Terms of Service": "Xizmat shartlari",
+    "Choose a game": "Oʻyin tanlang",
+    "Player reviews": "Oʻyinchilar sharhlari",
+    "Toggle menu": "Menyuni koʻrsatish yoki yashirish",
+    "Terms": "Xizmat shartlari"
+  };
+  var code = "uz";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

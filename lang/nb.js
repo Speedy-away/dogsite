@@ -1,0 +1,51 @@
+/* Norsk bokmål — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Forside",
+    "Products": "Produkter",
+    "Store": "Butikk",
+    "Docs": "Dokumentasjon",
+    "Guides": "Veiledninger",
+    "Videos": "Videoer",
+    "Features": "Funksjoner",
+    "Pricing": "Priser",
+    "Support": "Brukerstøtte",
+    "Resources": "Ressurser",
+    "Login": "Logg inn",
+    "Portal": "Portal",
+    "Download": "Last ned",
+    "Settings": "Innstillinger",
+    "Close": "Lukk",
+    "Search...": "Søk…",
+    "Get Started": "Kom i gang",
+    "Join Discord": "Bli med på Discord",
+    "Free Version": "Gratisversjon",
+    "Frequently asked questions": "Vanlige spørsmål",
+    "Community": "Fellesskap",
+    "Compare editions": "Sammenlign utgaver",
+    "Languages": "Språk",
+    "Change language": "Bytt språk",
+    "Select language": "Velg språk",
+    "Official": "Offisiell",
+    "Cheats": "Juksekoder",
+    "Online": "På nett",
+    "Browse games": "Bla gjennom spill",
+    "More Games": "Flere spill",
+    "Explore our Tools": "Se verktøyene våre",
+    "Click on any game below to explore our available cheats and features": "Velg et spill for å se tilgjengelige juksekoder og funksjoner",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Gratis og premiumjuksekoder for CS2, FiveM, RedM og andre spill, samt modmenyer for GTA 5 og RDR2. Sammenlign utgavene og se oppsettguiden.",
+    "Start Dominating": "Kom i gang",
+    "Sign in": "Logg inn",
+    "Sign In": "Logg inn",
+    "Site directory": "Nettstedskart",
+    "Become a reseller": "Bli forhandler",
+    "Terms of Service": "Tjenestevilkår",
+    "Choose a game": "Velg et spill",
+    "Player reviews": "Spilleranmeldelser",
+    "Toggle menu": "Vis eller skjul menyen",
+    "Terms": "Tjenestevilkår"
+  };
+  var code = "nb";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

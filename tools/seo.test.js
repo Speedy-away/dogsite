@@ -142,7 +142,7 @@ test('all language homepages contain translated HTML with reciprocal, self-canon
   }
 });
 
-test('static homepages and runtime dictionaries cover the same languages with nonempty matching keys', () => {
+test('static homepages and runtime dictionaries cover the same languages with nonempty translations', () => {
   const vm = require('vm');
   const locales = require('./search-locales.json');
   const engine = fs.readFileSync('lang/i18n.js', 'utf8');
@@ -157,8 +157,15 @@ test('static homepages and runtime dictionaries cover the same languages with no
     assert.equal(entry[0][0], code);
     const dictionary = entry[0][1];
     const keys = Object.keys(dictionary).sort();
-    if (!expectedKeys) expectedKeys = keys;
-    assert.deepEqual(keys, expectedKeys, 'Dictionary key mismatch: ' + code);
+    if (locales[code].coverage === 'core') {
+      for (const key of ['Home', 'Products', 'Store', 'Guides', 'Support', 'Login', 'Languages', 'Change language', 'Select language', 'Free Version', 'Frequently asked questions', 'Site directory', 'Become a reseller', 'Terms of Service', 'Choose a game', 'Player reviews', 'Toggle menu']) {
+        assert(Object.hasOwn(dictionary, key), code + ': missing ' + key);
+      }
+      assert(Object.values(dictionary).includes(locales[code].intro), code + ': missing homepage introduction');
+    } else {
+      if (!expectedKeys) expectedKeys = keys;
+      assert.deepEqual(keys, expectedKeys, 'Dictionary key mismatch: ' + code);
+    }
     assert(Object.values(dictionary).every(value => typeof value === 'string' && value.trim()), code);
   }
 });

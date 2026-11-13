@@ -1,0 +1,51 @@
+/* ਪੰਜਾਬੀ — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "ਮੁੱਖ ਪੰਨਾ",
+    "Products": "ਉਤਪਾਦ",
+    "Store": "ਸਟੋਰ",
+    "Docs": "ਦਸਤਾਵੇਜ਼",
+    "Guides": "ਗਾਈਡਾਂ",
+    "Videos": "ਵੀਡੀਓ",
+    "Features": "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
+    "Pricing": "ਕੀਮਤਾਂ",
+    "Support": "ਸਹਾਇਤਾ",
+    "Resources": "ਸਰੋਤ",
+    "Login": "ਲੌਗ ਇਨ",
+    "Portal": "ਪੋਰਟਲ",
+    "Download": "ਡਾਊਨਲੋਡ",
+    "Settings": "ਸੈਟਿੰਗਾਂ",
+    "Close": "ਬੰਦ ਕਰੋ",
+    "Search...": "ਖੋਜੋ…",
+    "Get Started": "ਸ਼ੁਰੂ ਕਰੋ",
+    "Join Discord": "Discord ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ",
+    "Free Version": "ਮੁਫ਼ਤ ਵਰਜਨ",
+    "Frequently asked questions": "ਅਕਸਰ ਪੁੱਛੇ ਜਾਣ ਵਾਲੇ ਸਵਾਲ",
+    "Community": "ਭਾਈਚਾਰਾ",
+    "Compare editions": "ਵਰਜਨਾਂ ਦੀ ਤੁਲਨਾ ਕਰੋ",
+    "Languages": "ਭਾਸ਼ਾਵਾਂ",
+    "Change language": "ਭਾਸ਼ਾ ਬਦਲੋ",
+    "Select language": "ਭਾਸ਼ਾ ਚੁਣੋ",
+    "Official": "ਅਧਿਕਾਰਤ",
+    "Cheats": "ਚੀਟਾਂ",
+    "Online": "ਆਨਲਾਈਨ",
+    "Browse games": "ਗੇਮਾਂ ਵੇਖੋ",
+    "More Games": "ਹੋਰ ਗੇਮਾਂ",
+    "Explore our Tools": "ਸਾਡੇ ਟੂਲ ਵੇਖੋ",
+    "Click on any game below to explore our available cheats and features": "ਚੀਟਾਂ ਅਤੇ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਵੇਖਣ ਲਈ ਗੇਮ ਚੁਣੋ",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM ਅਤੇ ਹੋਰ ਗੇਮਾਂ ਲਈ ਮੁਫ਼ਤ ਅਤੇ ਪ੍ਰੀਮੀਅਮ ਚੀਟਾਂ, ਨਾਲ ਹੀ GTA 5 ਅਤੇ RDR2 ਲਈ ਮੋਡ ਮੀਨੂ। ਵਰਜਨਾਂ ਦੀ ਤੁਲਨਾ ਕਰੋ ਅਤੇ ਸੈੱਟਅੱਪ ਗਾਈਡ ਦੇਖੋ।",
+    "Start Dominating": "ਸ਼ੁਰੂ ਕਰੋ",
+    "Sign in": "ਲੌਗ ਇਨ",
+    "Sign In": "ਲੌਗ ਇਨ",
+    "Site directory": "ਸਾਈਟ ਦਾ ਨਕਸ਼ਾ",
+    "Become a reseller": "ਮੁੜ ਵਿਕਰੇਤਾ ਬਣੋ",
+    "Terms of Service": "ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ",
+    "Choose a game": "ਇੱਕ ਗੇਮ ਚੁਣੋ",
+    "Player reviews": "ਖਿਡਾਰੀਆਂ ਦੀਆਂ ਸਮੀਖਿਆਵਾਂ",
+    "Toggle menu": "ਮੀਨੂ ਦਿਖਾਓ ਜਾਂ ਲੁਕਾਓ",
+    "Terms": "ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ"
+  };
+  var code = "pa";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

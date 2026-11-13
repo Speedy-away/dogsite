@@ -1,0 +1,51 @@
+/* 繁體中文 — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "首頁",
+    "Products": "產品",
+    "Store": "商店",
+    "Docs": "文件",
+    "Guides": "指南",
+    "Videos": "影片",
+    "Features": "功能",
+    "Pricing": "價格",
+    "Support": "支援",
+    "Resources": "資源",
+    "Login": "登入",
+    "Portal": "會員中心",
+    "Download": "下載",
+    "Settings": "設定",
+    "Close": "關閉",
+    "Search...": "搜尋…",
+    "Get Started": "開始使用",
+    "Join Discord": "加入 Discord",
+    "Free Version": "免費版",
+    "Frequently asked questions": "常見問題",
+    "Community": "社群",
+    "Compare editions": "比較版本",
+    "Languages": "語言",
+    "Change language": "變更語言",
+    "Select language": "選擇語言",
+    "Official": "官方",
+    "Cheats": "遊戲外掛",
+    "Online": "運作中",
+    "Browse games": "瀏覽遊戲",
+    "More Games": "更多遊戲",
+    "Explore our Tools": "探索我們的工具",
+    "Click on any game below to explore our available cheats and features": "選擇遊戲以查看可用的外掛和功能",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "提供 CS2、Garry’s Mod、L4D、FiveM、RedM 等遊戲的免費與付費外掛，以及 GTA 5 和 RDR2 的外掛與模組選單。探索功能、比較版本並查看設定指南。",
+    "Start Dominating": "開始使用",
+    "Sign in": "登入",
+    "Sign In": "登入",
+    "Site directory": "網站地圖",
+    "Become a reseller": "成為經銷商",
+    "Terms of Service": "服務條款",
+    "Choose a game": "選擇遊戲",
+    "Player reviews": "玩家評價",
+    "Toggle menu": "顯示或隱藏選單",
+    "Terms": "服務條款"
+  };
+  var code = "zh-tw";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

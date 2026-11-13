@@ -1,0 +1,51 @@
+/* Български — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Начало",
+    "Products": "Продукти",
+    "Store": "Магазин",
+    "Docs": "Документация",
+    "Guides": "Ръководства",
+    "Videos": "Видеоклипове",
+    "Features": "Функции",
+    "Pricing": "Цени",
+    "Support": "Поддръжка",
+    "Resources": "Ресурси",
+    "Login": "Вход",
+    "Portal": "Портал",
+    "Download": "Изтегляне",
+    "Settings": "Настройки",
+    "Close": "Затвори",
+    "Search...": "Търсене...",
+    "Get Started": "Започнете",
+    "Join Discord": "Присъединете се към Discord",
+    "Free Version": "Безплатна версия",
+    "Frequently asked questions": "Често задавани въпроси",
+    "Community": "Общност",
+    "Compare editions": "Сравнете версиите",
+    "Languages": "Езици",
+    "Change language": "Смяна на езика",
+    "Select language": "Избор на език",
+    "Official": "Официално",
+    "Cheats": "Чийтове",
+    "Online": "Онлайн",
+    "Browse games": "Разгледайте игрите",
+    "More Games": "Още игри",
+    "Explore our Tools": "Разгледайте нашите инструменти",
+    "Click on any game below to explore our available cheats and features": "Изберете игра, за да видите наличните чийтове и функции",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Безплатни и премиум чийтове за CS2, Garry’s Mod, L4D, FiveM, RedM и други игри, както и чийтове и мод менюта за GTA 5 и RDR2. Разгледайте функциите, сравнете версиите и намерете ръководство за настройка.",
+    "Start Dominating": "Започнете",
+    "Sign in": "Вход",
+    "Sign In": "Вход",
+    "Site directory": "Карта на сайта",
+    "Become a reseller": "Станете дистрибутор",
+    "Terms of Service": "Условия за ползване",
+    "Choose a game": "Изберете игра",
+    "Player reviews": "Отзиви на играчи",
+    "Toggle menu": "Показване или скриване на менюто",
+    "Terms": "Условия за ползване"
+  };
+  var code = "bg";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

@@ -1,0 +1,51 @@
+/* မြန်မာ — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "ပင်မစာမျက်နှာ",
+    "Products": "ထုတ်ကုန်များ",
+    "Store": "စတိုး",
+    "Docs": "စာရွက်စာတမ်းများ",
+    "Guides": "လမ်းညွှန်များ",
+    "Videos": "ဗီဒီယိုများ",
+    "Features": "လုပ်ဆောင်ချက်များ",
+    "Pricing": "ဈေးနှုန်းများ",
+    "Support": "အကူအညီ",
+    "Resources": "အရင်းအမြစ်များ",
+    "Login": "ဝင်ရောက်ရန်",
+    "Portal": "ပေါ်တယ်",
+    "Download": "ဒေါင်းလုဒ်",
+    "Settings": "ဆက်တင်များ",
+    "Close": "ပိတ်ရန်",
+    "Search...": "ရှာဖွေရန်…",
+    "Get Started": "စတင်ရန်",
+    "Join Discord": "Discord သို့ ဝင်ရန်",
+    "Free Version": "အခမဲ့ဗားရှင်း",
+    "Frequently asked questions": "မေးလေ့ရှိသော မေးခွန်းများ",
+    "Community": "အသိုင်းအဝိုင်း",
+    "Compare editions": "ဗားရှင်းများ နှိုင်းယှဉ်ရန်",
+    "Languages": "ဘာသာစကားများ",
+    "Change language": "ဘာသာစကား ပြောင်းရန်",
+    "Select language": "ဘာသာစကား ရွေးရန်",
+    "Official": "တရားဝင်",
+    "Cheats": "ချိစ်များ",
+    "Online": "အွန်လိုင်း",
+    "Browse games": "ဂိမ်းများ ကြည့်ရန်",
+    "More Games": "နောက်ထပ် ဂိမ်းများ",
+    "Explore our Tools": "ကျွန်ုပ်တို့၏ ကိရိယာများကို ကြည့်ပါ",
+    "Click on any game below to explore our available cheats and features": "ရရှိနိုင်သော ချိစ်များနှင့် လုပ်ဆောင်ချက်များကို ကြည့်ရန် ဂိမ်းတစ်ခု ရွေးပါ",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2၊ FiveM၊ RedM နှင့် အခြားဂိမ်းများအတွက် အခမဲ့နှင့် ပရီမီယံ ချိစ်များ၊ GTA 5 နှင့် RDR2 အတွက် မော့ဒ်မီနူးများ ရရှိနိုင်ပါသည်။ ဗားရှင်းများကို နှိုင်းယှဉ်ပြီး ထည့်သွင်းနည်းကို ကြည့်ပါ။",
+    "Start Dominating": "စတင်ရန်",
+    "Sign in": "ဝင်ရောက်ရန်",
+    "Sign In": "ဝင်ရောက်ရန်",
+    "Site directory": "ဆိုက်မြေပုံ",
+    "Become a reseller": "ပြန်လည်ရောင်းချသူ ဖြစ်လာရန်",
+    "Terms of Service": "ဝန်ဆောင်မှု စည်းမျဉ်းများ",
+    "Choose a game": "ဂိမ်းတစ်ခု ရွေးပါ",
+    "Player reviews": "ကစားသမားများ၏ သုံးသပ်ချက်များ",
+    "Toggle menu": "မီနူး ဖွင့်ရန် သို့မဟုတ် ပိတ်ရန်",
+    "Terms": "ဝန်ဆောင်မှု စည်းမျဉ်းများ"
+  };
+  var code = "my";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

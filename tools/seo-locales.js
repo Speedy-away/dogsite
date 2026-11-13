@@ -56,7 +56,18 @@ async function main() {
           }
         }
         doc.querySelector('.hero .lead').textContent = locale.intro;
-        doc.querySelector('.footer-languages .language-links').innerHTML = links;
+        const languages = doc.querySelector('.footer-languages');
+        const languageNav = languages.querySelector('.language-links');
+        languageNav.innerHTML = links;
+        if (dictionary.Languages) {
+          languages.querySelector('summary').textContent = dictionary.Languages;
+          languageNav.setAttribute('aria-label', dictionary.Languages);
+        }
+        if (locale.coverage === 'core') {
+          const notice = doc.createElement('p');
+          notice.textContent = locale.notice;
+          languages.insertBefore(notice, languageNav);
+        }
         // Root homepage entity URLs must not leak into localized structured data.
         for (const script of doc.querySelectorAll('script[type="application/ld+json"]')) script.remove();
         return '<!DOCTYPE html>\n' + doc.documentElement.outerHTML + '\n';

@@ -1,0 +1,51 @@
+/* தமிழ் — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "முகப்பு",
+    "Products": "தயாரிப்புகள்",
+    "Store": "கடை",
+    "Docs": "ஆவணங்கள்",
+    "Guides": "வழிகாட்டிகள்",
+    "Videos": "காணொளிகள்",
+    "Features": "அம்சங்கள்",
+    "Pricing": "விலைகள்",
+    "Support": "ஆதரவு",
+    "Resources": "வளங்கள்",
+    "Login": "உள்நுழைக",
+    "Portal": "பயனர் தளம்",
+    "Download": "பதிவிறக்கம்",
+    "Settings": "அமைப்புகள்",
+    "Close": "மூடுக",
+    "Search...": "தேடுக…",
+    "Get Started": "தொடங்குக",
+    "Join Discord": "Discord இல் சேருங்கள்",
+    "Free Version": "இலவசப் பதிப்பு",
+    "Frequently asked questions": "அடிக்கடி கேட்கப்படும் கேள்விகள்",
+    "Community": "சமூகம்",
+    "Compare editions": "பதிப்புகளை ஒப்பிடுக",
+    "Languages": "மொழிகள்",
+    "Change language": "மொழியை மாற்றுக",
+    "Select language": "மொழியைத் தேர்ந்தெடுக்கவும்",
+    "Official": "அதிகாரப்பூர்வம்",
+    "Cheats": "சீட்கள்",
+    "Online": "ஆன்லைன்",
+    "Browse games": "விளையாட்டுகளைப் பாருங்கள்",
+    "More Games": "மேலும் விளையாட்டுகள்",
+    "Explore our Tools": "எங்கள் கருவிகளைப் பாருங்கள்",
+    "Click on any game below to explore our available cheats and features": "சீட்களையும் அம்சங்களையும் காண ஒரு விளையாட்டைத் தேர்ந்தெடுக்கவும்",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM மற்றும் பிற விளையாட்டுகளுக்கான இலவச மற்றும் பிரீமியம் சீட்கள், GTA 5 மற்றும் RDR2 க்கான மாட் மெனுக்கள். பதிப்புகளை ஒப்பிட்டு அமைப்பு வழிகாட்டியைப் பாருங்கள்.",
+    "Start Dominating": "தொடங்குக",
+    "Sign in": "உள்நுழைக",
+    "Sign In": "உள்நுழைக",
+    "Site directory": "தள வரைபடம்",
+    "Become a reseller": "மறுவிற்பனையாளராகுங்கள்",
+    "Terms of Service": "சேவை விதிமுறைகள்",
+    "Choose a game": "ஒரு விளையாட்டைத் தேர்ந்தெடுக்கவும்",
+    "Player reviews": "வீரர்களின் மதிப்புரைகள்",
+    "Toggle menu": "மெனுவைக் காட்டவும் அல்லது மறைக்கவும்",
+    "Terms": "சேவை விதிமுறைகள்"
+  };
+  var code = "ta";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

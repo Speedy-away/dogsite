@@ -1,0 +1,51 @@
+/* አማርኛ — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "መነሻ",
+    "Products": "ምርቶች",
+    "Store": "መደብር",
+    "Docs": "ሰነዶች",
+    "Guides": "መመሪያዎች",
+    "Videos": "ቪዲዮዎች",
+    "Features": "ባህሪያት",
+    "Pricing": "ዋጋዎች",
+    "Support": "ድጋፍ",
+    "Resources": "መርጃዎች",
+    "Login": "ግባ",
+    "Portal": "የመለያ መግቢያ",
+    "Download": "አውርድ",
+    "Settings": "ቅንብሮች",
+    "Close": "ዝጋ",
+    "Search...": "ፈልግ…",
+    "Get Started": "ጀምር",
+    "Join Discord": "Discord ተቀላቀል",
+    "Free Version": "ነፃ ስሪት",
+    "Frequently asked questions": "ተደጋጋሚ ጥያቄዎች",
+    "Community": "ማህበረሰብ",
+    "Compare editions": "ስሪቶችን አወዳድር",
+    "Languages": "ቋንቋዎች",
+    "Change language": "ቋንቋ ቀይር",
+    "Select language": "ቋንቋ ምረጥ",
+    "Official": "ይፋዊ",
+    "Cheats": "ቺቶች",
+    "Online": "መስመር ላይ",
+    "Browse games": "ጨዋታዎችን ተመልከት",
+    "More Games": "ተጨማሪ ጨዋታዎች",
+    "Explore our Tools": "መሣሪያዎቻችንን ተመልከት",
+    "Click on any game below to explore our available cheats and features": "ያሉትን ቺቶች እና ባህሪያት ለማየት ጨዋታ ይምረጡ",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "ለ CS2፣ FiveM፣ RedM እና ሌሎች ጨዋታዎች ነፃ እና ፕሪሚየም ቺቶች፣ እንዲሁም ለ GTA 5 እና RDR2 የሞድ ምናሌዎች። ስሪቶችን ያወዳድሩ እና የማዋቀር መመሪያውን ይመልከቱ።",
+    "Start Dominating": "ጀምር",
+    "Sign in": "ግባ",
+    "Sign In": "ግባ",
+    "Site directory": "የድረ ገጽ ካርታ",
+    "Become a reseller": "የሽያጭ አጋር ይሁኑ",
+    "Terms of Service": "የአገልግሎት ውሎች",
+    "Choose a game": "ጨዋታ ይምረጡ",
+    "Player reviews": "የተጫዋቾች ግምገማዎች",
+    "Toggle menu": "ምናሌ አሳይ ወይም ደብቅ",
+    "Terms": "የአገልግሎት ውሎች"
+  };
+  var code = "am";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

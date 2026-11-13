@@ -1,0 +1,51 @@
+/* Українська — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Головна",
+    "Products": "Продукти",
+    "Store": "Магазин",
+    "Docs": "Документація",
+    "Guides": "Посібники",
+    "Videos": "Відео",
+    "Features": "Функції",
+    "Pricing": "Ціни",
+    "Support": "Підтримка",
+    "Resources": "Ресурси",
+    "Login": "Увійти",
+    "Portal": "Портал",
+    "Download": "Завантажити",
+    "Settings": "Налаштування",
+    "Close": "Закрити",
+    "Search...": "Пошук...",
+    "Get Started": "Розпочати",
+    "Join Discord": "Приєднатися до Discord",
+    "Free Version": "Безкоштовна версія",
+    "Frequently asked questions": "Поширені запитання",
+    "Community": "Спільнота",
+    "Compare editions": "Порівняти версії",
+    "Languages": "Мови",
+    "Change language": "Змінити мову",
+    "Select language": "Вибрати мову",
+    "Official": "Офіційний",
+    "Cheats": "Чити",
+    "Online": "У мережі",
+    "Browse games": "Переглянути ігри",
+    "More Games": "Інші ігри",
+    "Explore our Tools": "Дослідіть наші інструменти",
+    "Click on any game below to explore our available cheats and features": "Оберіть гру, щоб переглянути доступні чити та функції",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Безкоштовні та преміум чити для CS2, Garry’s Mod, L4D, FiveM, RedM та інших ігор, а також чити й мод-меню для GTA 5 і RDR2. Перегляньте функції, порівняйте версії та знайдіть інструкцію з налаштування.",
+    "Start Dominating": "Розпочати",
+    "Sign in": "Увійти",
+    "Sign In": "Увійти",
+    "Site directory": "Карта сайту",
+    "Become a reseller": "Стати реселером",
+    "Terms of Service": "Умови користування",
+    "Choose a game": "Оберіть гру",
+    "Player reviews": "Відгуки гравців",
+    "Toggle menu": "Показати або сховати меню",
+    "Terms": "Умови користування"
+  };
+  var code = "uk";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

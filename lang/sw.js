@@ -1,0 +1,51 @@
+/* Kiswahili — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Mwanzo",
+    "Products": "Bidhaa",
+    "Store": "Duka",
+    "Docs": "Nyaraka",
+    "Guides": "Miongozo",
+    "Videos": "Video",
+    "Features": "Vipengele",
+    "Pricing": "Bei",
+    "Support": "Usaidizi",
+    "Resources": "Nyenzo",
+    "Login": "Ingia",
+    "Portal": "Tovuti ya akaunti",
+    "Download": "Pakua",
+    "Settings": "Mipangilio",
+    "Close": "Funga",
+    "Search...": "Tafuta…",
+    "Get Started": "Anza",
+    "Join Discord": "Jiunge na Discord",
+    "Free Version": "Toleo la bure",
+    "Frequently asked questions": "Maswali yanayoulizwa mara kwa mara",
+    "Community": "Jumuiya",
+    "Compare editions": "Linganisha matoleo",
+    "Languages": "Lugha",
+    "Change language": "Badili lugha",
+    "Select language": "Chagua lugha",
+    "Official": "Rasmi",
+    "Cheats": "Cheat",
+    "Online": "Mtandaoni",
+    "Browse games": "Tazama michezo",
+    "More Games": "Michezo zaidi",
+    "Explore our Tools": "Tazama zana zetu",
+    "Click on any game below to explore our available cheats and features": "Chagua mchezo ili kuona cheat na vipengele vinavyopatikana",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Cheat za bure na za kulipia kwa CS2, FiveM, RedM na michezo mingine, pamoja na menyu za mod kwa GTA 5 na RDR2. Linganisha matoleo na uone mwongozo wa usanidi.",
+    "Start Dominating": "Anza",
+    "Sign in": "Ingia",
+    "Sign In": "Ingia",
+    "Site directory": "Ramani ya tovuti",
+    "Become a reseller": "Kuwa muuzaji tena",
+    "Terms of Service": "Masharti ya huduma",
+    "Choose a game": "Chagua mchezo",
+    "Player reviews": "Maoni ya wachezaji",
+    "Toggle menu": "Onyesha au ficha menyu",
+    "Terms": "Masharti ya huduma"
+  };
+  var code = "sw";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

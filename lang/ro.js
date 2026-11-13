@@ -1,0 +1,51 @@
+/* Română — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Acasă",
+    "Products": "Produse",
+    "Store": "Magazin",
+    "Docs": "Documentație",
+    "Guides": "Ghiduri",
+    "Videos": "Videoclipuri",
+    "Features": "Funcții",
+    "Pricing": "Prețuri",
+    "Support": "Asistență",
+    "Resources": "Resurse",
+    "Login": "Autentificare",
+    "Portal": "Portal",
+    "Download": "Descarcă",
+    "Settings": "Setări",
+    "Close": "Închide",
+    "Search...": "Caută...",
+    "Get Started": "Începe",
+    "Join Discord": "Intră pe Discord",
+    "Free Version": "Versiune gratuită",
+    "Frequently asked questions": "Întrebări frecvente",
+    "Community": "Comunitate",
+    "Compare editions": "Compară edițiile",
+    "Languages": "Limbi",
+    "Change language": "Schimbă limba",
+    "Select language": "Alege limba",
+    "Official": "Oficial",
+    "Cheats": "Cheat-uri",
+    "Online": "Online",
+    "Browse games": "Explorează jocurile",
+    "More Games": "Alte jocuri",
+    "Explore our Tools": "Explorează instrumentele noastre",
+    "Click on any game below to explore our available cheats and features": "Alege un joc pentru a vedea cheat-urile și funcțiile disponibile",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Cheat-uri gratuite și premium pentru CS2, Garry’s Mod, L4D, FiveM, RedM și alte jocuri, precum și cheat-uri și meniuri de moduri pentru GTA 5 și RDR2. Explorează funcțiile, compară edițiile și găsește ghidul de configurare.",
+    "Start Dominating": "Începe",
+    "Sign in": "Autentificare",
+    "Sign In": "Autentificare",
+    "Site directory": "Harta site-ului",
+    "Become a reseller": "Devino distribuitor",
+    "Terms of Service": "Condiții de utilizare",
+    "Choose a game": "Alege un joc",
+    "Player reviews": "Recenziile jucătorilor",
+    "Toggle menu": "Afișează sau ascunde meniul",
+    "Terms": "Condiții de utilizare"
+  };
+  var code = "ro";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

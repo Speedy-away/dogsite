@@ -1,0 +1,51 @@
+/* Magyar — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Kezdőlap",
+    "Products": "Termékek",
+    "Store": "Áruház",
+    "Docs": "Dokumentáció",
+    "Guides": "Útmutatók",
+    "Videos": "Videók",
+    "Features": "Funkciók",
+    "Pricing": "Árak",
+    "Support": "Támogatás",
+    "Resources": "Források",
+    "Login": "Bejelentkezés",
+    "Portal": "Portál",
+    "Download": "Letöltés",
+    "Settings": "Beállítások",
+    "Close": "Bezárás",
+    "Search...": "Keresés...",
+    "Get Started": "Kezdés",
+    "Join Discord": "Csatlakozás a Discordhoz",
+    "Free Version": "Ingyenes verzió",
+    "Frequently asked questions": "Gyakori kérdések",
+    "Community": "Közösség",
+    "Compare editions": "Kiadások összehasonlítása",
+    "Languages": "Nyelvek",
+    "Change language": "Nyelv módosítása",
+    "Select language": "Nyelv kiválasztása",
+    "Official": "Hivatalos",
+    "Cheats": "Csalások",
+    "Online": "Online",
+    "Browse games": "Játékok böngészése",
+    "More Games": "További játékok",
+    "Explore our Tools": "Fedezd fel az eszközeinket",
+    "Click on any game below to explore our available cheats and features": "Válassz játékot az elérhető csalások és funkciók megtekintéséhez",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Ingyenes és prémium csalások a CS2, a Garry’s Mod, az L4D, a FiveM, a RedM és más játékokhoz, valamint csalások és modmenük a GTA 5-höz és az RDR2-höz. Fedezd fel a funkciókat, hasonlítsd össze a kiadásokat, és keresd meg a beállítási útmutatót.",
+    "Start Dominating": "Kezdés",
+    "Sign in": "Bejelentkezés",
+    "Sign In": "Bejelentkezés",
+    "Site directory": "Webhelytérkép",
+    "Become a reseller": "Legyél viszonteladó",
+    "Terms of Service": "Felhasználási feltételek",
+    "Choose a game": "Válassz játékot",
+    "Player reviews": "Játékosok véleményei",
+    "Toggle menu": "Menü megjelenítése vagy elrejtése",
+    "Terms": "Felhasználási feltételek"
+  };
+  var code = "hu";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

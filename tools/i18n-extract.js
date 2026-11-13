@@ -11,7 +11,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const SKIP_DIRS = ['.git', '.claude', 'backup', 'node_modules', 'revolution', 'tools'];
+// Generated locales, previews and project artifacts are not English source pages.
+const SKIP_DIRS = ['backup', 'build', 'hidden_files', 'lang', 'node_modules', 'project', 'revolution', 'tools'];
 
 // Machine-generated reference dumps: function signatures, not prose.
 const DUMP = new Set([
@@ -24,7 +25,7 @@ const DUMP = new Set([
 
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (SKIP_DIRS.includes(e.name)) continue;
+    if (e.name.startsWith('.') || SKIP_DIRS.includes(e.name)) continue;
     const p = path.join(dir, e.name);
     if (e.isDirectory()) walk(p, out);
     else if (e.name.endsWith('.html')) out.push(p);

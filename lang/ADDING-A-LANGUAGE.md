@@ -2,24 +2,24 @@
 
 The site has runtime dictionaries for detailed pages and generated static homepages for search discovery. Add both when introducing a language.
 
-1. Add the lowercase URL code, native name and badge label to `LANGS` in `i18n.js`. Use `rtl: true` for right-to-left languages. Optionally add a flag to `FLAGS`; native language names remain the identifying labels.
-2. Copy an existing dictionary to `<code>.js`. Change both registration codes at the bottom, keep the English keys, and translate the values. Keep the key set consistent with the other dictionaries. Brand names and code identifiers remain unchanged.
+1. Add the lowercase URL code, native name and badge label to `LANGS` in `i18n.js`. Set `tag` if the HTML language tag differs from the URL code and `rtl: true` for right-to-left languages. Optionally add a flag to `FLAGS`; native language names remain the identifying labels.
+2. Add a dictionary at `<code>.js`. Keep the English source keys and translate their values. For core coverage, start with a dictionary such as `uk.js` and mark the locale with `"coverage": "core"`. For broader coverage, match the key set of an existing full dictionary and add the portal copy in `../portal/portal-translations.js`. Brand names and code identifiers remain unchanged.
 3. Add the language to `../tools/search-locales.json`, including its native name, valid BCP 47 tag, Open Graph locale, title, introduction, descriptive paragraph and English-content notice. Add `rtl: true` where appropriate. URL codes can differ from tags: `zh` uses `zh-Hans`; `pt-br` uses `pt-BR`.
-4. Add the translated word for “Languages” to `languageLabels` in `../tools/seo-locales.js`.
+4. Add the translated word for “Languages” under the `Languages` dictionary key to localize the footer selector.
 5. Run the generators and checks from the repository root:
 
 ```sh
 node --check lang/<code>.js
 node tools/seo-locales.js --apply
 node tools/seo-directory.js --apply
-node tools/seo-metadata.js --apply
+node tools/seo-sitemap.js --apply
 node --test tools/seo.test.js
 node tools/seo-locales.js
 node tools/seo-directory.js
 node tools/seo-metadata.js
 ```
 
-The generators add the homepage, metadata, reciprocal language links and directory entry. Commit page changes, then regenerate `sitemap.xml` and commit it, following [../SEO.md](../SEO.md).
+The generators add the homepage, metadata, reciprocal language links, directory entry and sitemap URL.
 
 Check the homepage with JavaScript disabled, on mobile and desktop, and in the intended reading direction. Follow a product link and verify the selected language carries into the runtime translator. Check that English and other language links still work. Have a fluent speaker review new translations.
 
@@ -29,8 +29,10 @@ Use a distinct code and dictionary for a regional variant, such as `pt-br.js`. D
 
 ## Existing coverage
 
-All 22 choices listed in [../TRANSLATIONS.md](../TRANSLATIONS.md) are available. English uses source content; the other 21 have dictionaries and generated homepages. Detailed content can still fall back to English.
+English uses source content. Each locale in `tools/search-locales.json` has a dictionary and generated homepage. Locales marked `core` translate shared navigation and key homepage copy. Content without a matching translation falls back to English.
+
+Run `node tools/i18n-verify.js` for a coverage estimate or pass a locale code for its page breakdown. The report uses candidate strings from source HTML, which can include names and excludes copy rendered by JavaScript.
 
 ## Removing a language
 
-Remove its dictionary, runtime registration, optional flag, locale record, language label and generated homepage. Regenerate the other homepages, directory and sitemap so no stale alternate links remain. Existing saved choices then fall back to English. Consider a redirect for previously published URLs.
+Remove its dictionary, runtime registration, optional flag, locale record and generated homepage. Regenerate the other homepages, directory and sitemap so no stale alternate links remain. Existing saved choices then fall back to English. Consider a redirect for previously published URLs.

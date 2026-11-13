@@ -1,0 +1,51 @@
+/* मराठी — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "मुख्यपृष्ठ",
+    "Products": "उत्पादने",
+    "Store": "दुकान",
+    "Docs": "दस्तऐवज",
+    "Guides": "मार्गदर्शक",
+    "Videos": "व्हिडिओ",
+    "Features": "वैशिष्ट्ये",
+    "Pricing": "किंमती",
+    "Support": "मदत",
+    "Resources": "संसाधने",
+    "Login": "लॉग इन",
+    "Portal": "पोर्टल",
+    "Download": "डाउनलोड",
+    "Settings": "सेटिंग्ज",
+    "Close": "बंद करा",
+    "Search...": "शोधा…",
+    "Get Started": "सुरू करा",
+    "Join Discord": "Discord मध्ये सामील व्हा",
+    "Free Version": "मोफत आवृत्ती",
+    "Frequently asked questions": "वारंवार विचारले जाणारे प्रश्न",
+    "Community": "समुदाय",
+    "Compare editions": "आवृत्त्यांची तुलना करा",
+    "Languages": "भाषा",
+    "Change language": "भाषा बदला",
+    "Select language": "भाषा निवडा",
+    "Official": "अधिकृत",
+    "Cheats": "चीट्स",
+    "Online": "ऑनलाइन",
+    "Browse games": "गेम पाहा",
+    "More Games": "आणखी गेम",
+    "Explore our Tools": "आमची साधने पाहा",
+    "Click on any game below to explore our available cheats and features": "उपलब्ध चीट्स आणि वैशिष्ट्ये पाहण्यासाठी गेम निवडा",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM आणि इतर गेमसाठी मोफत आणि प्रीमियम चीट्स तसेच GTA 5 आणि RDR2 साठी मॉड मेनू. आवृत्त्यांची तुलना करा आणि सेटअप मार्गदर्शक पाहा.",
+    "Start Dominating": "सुरू करा",
+    "Sign in": "लॉग इन",
+    "Sign In": "लॉग इन",
+    "Site directory": "संकेतस्थळाचा नकाशा",
+    "Become a reseller": "पुनर्विक्रेता व्हा",
+    "Terms of Service": "सेवेच्या अटी",
+    "Choose a game": "एक गेम निवडा",
+    "Player reviews": "खेळाडूंची पुनरावलोकने",
+    "Toggle menu": "मेनू दाखवा किंवा लपवा",
+    "Terms": "सेवेच्या अटी"
+  };
+  var code = "mr";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

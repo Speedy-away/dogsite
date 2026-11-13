@@ -1,0 +1,51 @@
+/* Suomi — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Etusivu",
+    "Products": "Tuotteet",
+    "Store": "Kauppa",
+    "Docs": "Dokumentaatio",
+    "Guides": "Oppaat",
+    "Videos": "Videot",
+    "Features": "Ominaisuudet",
+    "Pricing": "Hinnat",
+    "Support": "Tuki",
+    "Resources": "Resurssit",
+    "Login": "Kirjaudu sisään",
+    "Portal": "Portaali",
+    "Download": "Lataa",
+    "Settings": "Asetukset",
+    "Close": "Sulje",
+    "Search...": "Hae...",
+    "Get Started": "Aloita",
+    "Join Discord": "Liity Discordiin",
+    "Free Version": "Ilmaisversio",
+    "Frequently asked questions": "Usein kysytyt kysymykset",
+    "Community": "Yhteisö",
+    "Compare editions": "Vertaile versioita",
+    "Languages": "Kielet",
+    "Change language": "Vaihda kieli",
+    "Select language": "Valitse kieli",
+    "Official": "Virallinen",
+    "Cheats": "Huijaukset",
+    "Online": "Käytössä",
+    "Browse games": "Selaa pelejä",
+    "More Games": "Lisää pelejä",
+    "Explore our Tools": "Tutustu työkaluihimme",
+    "Click on any game below to explore our available cheats and features": "Valitse peli nähdäksesi saatavilla olevat huijaukset ja ominaisuudet",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Ilmaisia ja maksullisia huijauksia CS2:een, Garry’s Modiin, L4D:hen, FiveM:ään, RedM:ään ja muihin peleihin sekä huijauksia ja modivalikoita GTA 5:een ja RDR2:een. Tutustu ominaisuuksiin, vertaile versioita ja löydä asennusopas.",
+    "Start Dominating": "Aloita",
+    "Sign in": "Kirjaudu sisään",
+    "Sign In": "Kirjaudu sisään",
+    "Site directory": "Sivustokartta",
+    "Become a reseller": "Ryhdy jälleenmyyjäksi",
+    "Terms of Service": "Käyttöehdot",
+    "Choose a game": "Valitse peli",
+    "Player reviews": "Pelaajien arvostelut",
+    "Toggle menu": "Näytä tai piilota valikko",
+    "Terms": "Käyttöehdot"
+  };
+  var code = "fi";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

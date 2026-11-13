@@ -1,0 +1,51 @@
+/* فارسی — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "خانه",
+    "Products": "محصولات",
+    "Store": "فروشگاه",
+    "Docs": "مستندات",
+    "Guides": "راهنماها",
+    "Videos": "ویدیوها",
+    "Features": "امکانات",
+    "Pricing": "قیمت‌ها",
+    "Support": "پشتیبانی",
+    "Resources": "منابع",
+    "Login": "ورود",
+    "Portal": "پنل کاربری",
+    "Download": "دانلود",
+    "Settings": "تنظیمات",
+    "Close": "بستن",
+    "Search...": "جست‌وجو…",
+    "Get Started": "شروع کنید",
+    "Join Discord": "به Discord بپیوندید",
+    "Free Version": "نسخهٔ رایگان",
+    "Frequently asked questions": "پرسش‌های متداول",
+    "Community": "انجمن",
+    "Compare editions": "مقایسهٔ نسخه‌ها",
+    "Languages": "زبان‌ها",
+    "Change language": "تغییر زبان",
+    "Select language": "انتخاب زبان",
+    "Official": "رسمی",
+    "Cheats": "چیت‌ها",
+    "Online": "آنلاین",
+    "Browse games": "مرور بازی‌ها",
+    "More Games": "بازی‌های بیشتر",
+    "Explore our Tools": "ابزارهای ما را بررسی کنید",
+    "Click on any game below to explore our available cheats and features": "برای مشاهدهٔ چیت‌ها و امکانات موجود، یک بازی انتخاب کنید",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "چیت‌های رایگان و پریمیوم برای CS2، Garry’s Mod، L4D، FiveM، RedM و بازی‌های دیگر، به‌همراه چیت و منوی ماد برای GTA 5 و RDR2. امکانات را بررسی کنید، نسخه‌ها را مقایسه کنید و راهنمای راه‌اندازی را پیدا کنید.",
+    "Start Dominating": "شروع کنید",
+    "Sign in": "ورود",
+    "Sign In": "ورود",
+    "Site directory": "نقشهٔ سایت",
+    "Become a reseller": "فروشنده شوید",
+    "Terms of Service": "شرایط استفاده",
+    "Choose a game": "یک بازی انتخاب کنید",
+    "Player reviews": "دیدگاه بازیکنان",
+    "Toggle menu": "نمایش یا پنهان کردن منو",
+    "Terms": "شرایط استفاده"
+  };
+  var code = "fa";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

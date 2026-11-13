@@ -1,0 +1,51 @@
+/* Lietuvių — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Pradžia",
+    "Products": "Produktai",
+    "Store": "Parduotuvė",
+    "Docs": "Dokumentacija",
+    "Guides": "Vadovai",
+    "Videos": "Vaizdo įrašai",
+    "Features": "Funkcijos",
+    "Pricing": "Kainos",
+    "Support": "Pagalba",
+    "Resources": "Ištekliai",
+    "Login": "Prisijungti",
+    "Portal": "Portalas",
+    "Download": "Atsisiųsti",
+    "Settings": "Nustatymai",
+    "Close": "Uždaryti",
+    "Search...": "Ieškoti…",
+    "Get Started": "Pradėti",
+    "Join Discord": "Prisijungti prie „Discord“",
+    "Free Version": "Nemokama versija",
+    "Frequently asked questions": "Dažniausiai užduodami klausimai",
+    "Community": "Bendruomenė",
+    "Compare editions": "Palyginti versijas",
+    "Languages": "Kalbos",
+    "Change language": "Keisti kalbą",
+    "Select language": "Pasirinkti kalbą",
+    "Official": "Oficialu",
+    "Cheats": "Sukčiavimo įrankiai",
+    "Online": "Veikia",
+    "Browse games": "Peržiūrėti žaidimus",
+    "More Games": "Daugiau žaidimų",
+    "Explore our Tools": "Peržiūrėkite mūsų įrankius",
+    "Click on any game below to explore our available cheats and features": "Pasirinkite žaidimą ir peržiūrėkite galimus įrankius bei funkcijas",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Nemokami ir mokami žaidimų patobulinimai bei sukčiavimo įrankiai CS2, FiveM, RedM ir kitiems žaidimams, taip pat modifikacijų meniu GTA 5 ir RDR2. Palyginkite versijas ir peržiūrėkite diegimo vadovą.",
+    "Start Dominating": "Pradėti",
+    "Sign in": "Prisijungti",
+    "Sign In": "Prisijungti",
+    "Site directory": "Svetainės žemėlapis",
+    "Become a reseller": "Tapkite perpardavėju",
+    "Terms of Service": "Paslaugų teikimo sąlygos",
+    "Choose a game": "Pasirinkite žaidimą",
+    "Player reviews": "Žaidėjų atsiliepimai",
+    "Toggle menu": "Rodyti arba slėpti meniu",
+    "Terms": "Paslaugų teikimo sąlygos"
+  };
+  var code = "lt";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

@@ -145,5 +145,569 @@
     "intro": "האתר הרשמי של Scooby Menu עבור GTA 5, RDR2, FiveM, RedM, CS2 ו־Garry's Mod. כאן אפשר להשוות בין גרסאות חינמיות ופרימיום ולעיין בתכונות ובמדריכי ההתקנה.",
     "about": "בחרו משחק כדי לראות תכונות, תאימות ואפשרויות גישה. לפני שמתחילים, אפשר לעיין ברשימות התכונות, במדריכים ובתיעוד Lua.",
     "notice": "חלק מהמדריכים ומדפי המוצרים הם באנגלית. השתמשו בבחירת השפה כאשר היא זמינה."
+  },
+  "uk": {
+    "native": "Українська",
+    "tag": "uk",
+    "ogLocale": "uk_UA",
+    "coverage": "core",
+    "title": "Офіційний сайт Scooby Menu",
+    "intro": "Безкоштовні та преміум чити для CS2, Garry’s Mod, L4D, FiveM, RedM та інших ігор, а також чити й мод-меню для GTA 5 і RDR2. Перегляньте функції, порівняйте версії та знайдіть інструкцію з налаштування.",
+    "about": "Оберіть гру й порівняйте доступні версії.",
+    "notice": "Деякі посібники та сторінки продуктів доступні англійською."
+  },
+  "cs": {
+    "native": "Čeština",
+    "tag": "cs",
+    "ogLocale": "cs_CZ",
+    "coverage": "core",
+    "title": "Oficiální web Scooby Menu",
+    "intro": "Bezplatné a prémiové cheaty pro CS2, Garry’s Mod, L4D, FiveM, RedM a další hry i cheaty a mod menu pro GTA 5 a RDR2. Prozkoumejte funkce, porovnejte edice a najděte návod k nastavení.",
+    "about": "Vyberte hru a porovnejte dostupné edice.",
+    "notice": "Některé návody a produktové stránky jsou v angličtině."
+  },
+  "sk": {
+    "native": "Slovenčina",
+    "tag": "sk",
+    "ogLocale": "sk_SK",
+    "coverage": "core",
+    "title": "Oficiálny web Scooby Menu",
+    "intro": "Bezplatné a prémiové cheaty pre CS2, Garry’s Mod, L4D, FiveM, RedM a ďalšie hry, ako aj cheaty a mod menu pre GTA 5 a RDR2. Preskúmajte funkcie, porovnajte verzie a nájdite návod na nastavenie.",
+    "about": "Vyberte hru a porovnajte dostupné verzie.",
+    "notice": "Niektoré návody a produktové stránky sú v angličtine."
+  },
+  "ro": {
+    "native": "Română",
+    "tag": "ro",
+    "ogLocale": "ro_RO",
+    "coverage": "core",
+    "title": "Site-ul oficial Scooby Menu",
+    "intro": "Cheat-uri gratuite și premium pentru CS2, Garry’s Mod, L4D, FiveM, RedM și alte jocuri, precum și cheat-uri și meniuri de moduri pentru GTA 5 și RDR2. Explorează funcțiile, compară edițiile și găsește ghidul de configurare.",
+    "about": "Alege un joc și compară edițiile disponibile.",
+    "notice": "Unele ghiduri și pagini de produs sunt în engleză."
+  },
+  "hu": {
+    "native": "Magyar",
+    "tag": "hu",
+    "ogLocale": "hu_HU",
+    "coverage": "core",
+    "title": "A Scooby Menu hivatalos weboldala",
+    "intro": "Ingyenes és prémium csalások a CS2, a Garry’s Mod, az L4D, a FiveM, a RedM és más játékokhoz, valamint csalások és modmenük a GTA 5-höz és az RDR2-höz. Fedezd fel a funkciókat, hasonlítsd össze a kiadásokat, és keresd meg a beállítási útmutatót.",
+    "about": "Válassz játékot, és hasonlítsd össze az elérhető kiadásokat.",
+    "notice": "Egyes útmutatók és termékoldalak angolul érhetők el."
+  },
+  "el": {
+    "native": "Ελληνικά",
+    "tag": "el",
+    "ogLocale": "el_GR",
+    "coverage": "core",
+    "title": "Επίσημος ιστότοπος του Scooby Menu",
+    "intro": "Δωρεάν και premium cheats για CS2, Garry’s Mod, L4D, FiveM, RedM και άλλα παιχνίδια, καθώς και cheats και μενού mod για GTA 5 και RDR2. Δες τις λειτουργίες, σύγκρινε τις εκδόσεις και βρες τον οδηγό εγκατάστασης.",
+    "about": "Επίλεξε παιχνίδι και σύγκρινε τις διαθέσιμες εκδόσεις.",
+    "notice": "Ορισμένοι οδηγοί και σελίδες προϊόντων είναι στα αγγλικά."
+  },
+  "sv": {
+    "native": "Svenska",
+    "tag": "sv",
+    "ogLocale": "sv_SE",
+    "coverage": "core",
+    "title": "Scooby Menus officiella webbplats",
+    "intro": "Gratis och premiumfusk för CS2, Garry’s Mod, L4D, FiveM, RedM och fler spel, samt fusk och modmenyer för GTA 5 och RDR2. Utforska funktioner, jämför utgåvor och hitta installationsguiden.",
+    "about": "Välj ett spel och jämför tillgängliga utgåvor.",
+    "notice": "Vissa guider och produktsidor är på engelska."
+  },
+  "da": {
+    "native": "Dansk",
+    "tag": "da",
+    "ogLocale": "da_DK",
+    "coverage": "core",
+    "title": "Scooby Menus officielle hjemmeside",
+    "intro": "Gratis snyd og premiumsnyd til CS2, Garry’s Mod, L4D, FiveM, RedM og flere spil samt snyd og modmenuer til GTA 5 og RDR2. Udforsk funktioner, sammenlign udgaver, og find opsætningsguiden.",
+    "about": "Vælg et spil, og sammenlign de tilgængelige udgaver.",
+    "notice": "Nogle vejledninger og produktsider er på engelsk."
+  },
+  "fi": {
+    "native": "Suomi",
+    "tag": "fi",
+    "ogLocale": "fi_FI",
+    "coverage": "core",
+    "title": "Scooby Menun virallinen sivusto",
+    "intro": "Ilmaisia ja maksullisia huijauksia CS2:een, Garry’s Modiin, L4D:hen, FiveM:ään, RedM:ään ja muihin peleihin sekä huijauksia ja modivalikoita GTA 5:een ja RDR2:een. Tutustu ominaisuuksiin, vertaile versioita ja löydä asennusopas.",
+    "about": "Valitse peli ja vertaile saatavilla olevia versioita.",
+    "notice": "Osa oppaista ja tuotesivuista on englanniksi."
+  },
+  "bg": {
+    "native": "Български",
+    "tag": "bg",
+    "ogLocale": "bg_BG",
+    "coverage": "core",
+    "title": "Официален сайт на Scooby Menu",
+    "intro": "Безплатни и премиум чийтове за CS2, Garry’s Mod, L4D, FiveM, RedM и други игри, както и чийтове и мод менюта за GTA 5 и RDR2. Разгледайте функциите, сравнете версиите и намерете ръководство за настройка.",
+    "about": "Изберете игра и сравнете наличните версии.",
+    "notice": "Някои ръководства и продуктови страници са на английски."
+  },
+  "zh-tw": {
+    "native": "繁體中文",
+    "tag": "zh-Hant",
+    "ogLocale": "zh_TW",
+    "coverage": "core",
+    "title": "Scooby Menu 官方網站",
+    "intro": "提供 CS2、Garry’s Mod、L4D、FiveM、RedM 等遊戲的免費與付費外掛，以及 GTA 5 和 RDR2 的外掛與模組選單。探索功能、比較版本並查看設定指南。",
+    "about": "選擇遊戲並比較可用版本。",
+    "notice": "部分指南及產品頁面以英文提供。"
+  },
+  "ms": {
+    "native": "Bahasa Melayu",
+    "tag": "ms",
+    "ogLocale": "ms_MY",
+    "coverage": "core",
+    "title": "Laman rasmi Scooby Menu",
+    "intro": "Cheat percuma dan premium untuk CS2, Garry’s Mod, L4D, FiveM, RedM dan permainan lain, serta cheat dan menu mod untuk GTA 5 dan RDR2. Terokai ciri, bandingkan edisi dan cari panduan persediaan.",
+    "about": "Pilih permainan dan bandingkan edisi yang tersedia.",
+    "notice": "Sesetengah panduan dan halaman produk tersedia dalam bahasa Inggeris."
+  },
+  "fil": {
+    "native": "Filipino",
+    "tag": "fil",
+    "ogLocale": "fil_PH",
+    "coverage": "core",
+    "title": "Opisyal na website ng Scooby Menu",
+    "intro": "Libre at premium na cheat para sa CS2, Garry’s Mod, L4D, FiveM, RedM at iba pang laro, pati cheat at mod menu para sa GTA 5 at RDR2. Tingnan ang mga feature, ihambing ang mga edisyon at hanapin ang gabay sa pag-set up.",
+    "about": "Pumili ng laro at ihambing ang mga available na edisyon.",
+    "notice": "Nasa Ingles ang ilang gabay at pahina ng produkto."
+  },
+  "bn": {
+    "native": "বাংলা",
+    "tag": "bn",
+    "ogLocale": "bn_BD",
+    "coverage": "core",
+    "title": "Scooby Menu-এর অফিসিয়াল ওয়েবসাইট",
+    "intro": "CS2, Garry’s Mod, L4D, FiveM, RedM ও আরও অনেক গেমের জন্য বিনামূল্যের ও প্রিমিয়াম চিট, এবং GTA 5 ও RDR2-এর জন্য চিট ও মড মেনু। ফিচার দেখুন, সংস্করণগুলোর তুলনা করুন এবং সেটআপ নির্দেশিকা খুঁজে নিন।",
+    "about": "একটি গেম বেছে নিন এবং উপলভ্য সংস্করণগুলোর তুলনা করুন।",
+    "notice": "কিছু নির্দেশিকা ও পণ্যের পৃষ্ঠা ইংরেজিতে রয়েছে।"
+  },
+  "ur": {
+    "native": "اردو",
+    "tag": "ur",
+    "ogLocale": "ur_PK",
+    "coverage": "core",
+    "title": "Scooby Menu کی آفیشل ویب سائٹ",
+    "intro": "CS2، Garry’s Mod، L4D، FiveM، RedM اور دیگر گیمز کے لیے مفت اور پریمیم چیٹس، نیز GTA 5 اور RDR2 کے لیے چیٹس اور موڈ مینو۔ فیچرز دیکھیں، ایڈیشنز کا موازنہ کریں اور سیٹ اپ گائیڈ تلاش کریں۔",
+    "about": "گیم منتخب کریں اور دستیاب ایڈیشنز کا موازنہ کریں۔",
+    "notice": "کچھ رہنما اور مصنوعات کے صفحات انگریزی میں ہیں۔",
+    "rtl": true
+  },
+  "fa": {
+    "native": "فارسی",
+    "tag": "fa",
+    "ogLocale": "fa_IR",
+    "coverage": "core",
+    "title": "وب‌سایت رسمی Scooby Menu",
+    "intro": "چیت‌های رایگان و پریمیوم برای CS2، Garry’s Mod، L4D، FiveM، RedM و بازی‌های دیگر، به‌همراه چیت و منوی ماد برای GTA 5 و RDR2. امکانات را بررسی کنید، نسخه‌ها را مقایسه کنید و راهنمای راه‌اندازی را پیدا کنید.",
+    "about": "یک بازی انتخاب کنید و نسخه‌های موجود را مقایسه کنید.",
+    "notice": "برخی راهنماها و صفحات محصولات به زبان انگلیسی هستند.",
+    "rtl": true
+  },
+  "pa": {
+    "native": "ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)",
+    "tag": "pa-Guru",
+    "ogLocale": "pa_IN",
+    "coverage": "core",
+    "title": "Scooby Menu ਦੀ ਅਧਿਕਾਰਤ ਵੈੱਬਸਾਈਟ",
+    "intro": "CS2, FiveM, RedM ਅਤੇ ਹੋਰ ਗੇਮਾਂ ਲਈ ਮੁਫ਼ਤ ਅਤੇ ਪ੍ਰੀਮੀਅਮ ਚੀਟਾਂ, ਨਾਲ ਹੀ GTA 5 ਅਤੇ RDR2 ਲਈ ਮੋਡ ਮੀਨੂ। ਵਰਜਨਾਂ ਦੀ ਤੁਲਨਾ ਕਰੋ ਅਤੇ ਸੈੱਟਅੱਪ ਗਾਈਡ ਦੇਖੋ।",
+    "about": "ਚੀਟਾਂ ਅਤੇ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਵੇਖਣ ਲਈ ਗੇਮ ਚੁਣੋ",
+    "notice": "ਕੁਝ ਗਾਈਡਾਂ ਅਤੇ ਉਤਪਾਦ ਪੰਨੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਹਨ।"
+  },
+  "jv": {
+    "native": "Basa Jawa",
+    "tag": "jv",
+    "ogLocale": "jv_ID",
+    "coverage": "core",
+    "title": "Situs resmi Scooby Menu",
+    "intro": "Cheat gratis lan premium kanggo CS2, FiveM, RedM lan game liyane, uga menu mod kanggo GTA 5 lan RDR2. Bandhingna edhisi lan wacanen pandhuan pamasangan.",
+    "about": "Pilih game kanggo ndeleng cheat lan fitur sing kasedhiya",
+    "notice": "Sawetara pandhuan lan kaca produk nganggo basa Inggris."
+  },
+  "mr": {
+    "native": "मराठी",
+    "tag": "mr",
+    "ogLocale": "mr_IN",
+    "coverage": "core",
+    "title": "Scooby Menu चे अधिकृत संकेतस्थळ",
+    "intro": "CS2, FiveM, RedM आणि इतर गेमसाठी मोफत आणि प्रीमियम चीट्स तसेच GTA 5 आणि RDR2 साठी मॉड मेनू. आवृत्त्यांची तुलना करा आणि सेटअप मार्गदर्शक पाहा.",
+    "about": "उपलब्ध चीट्स आणि वैशिष्ट्ये पाहण्यासाठी गेम निवडा",
+    "notice": "काही मार्गदर्शक आणि उत्पादनांची पृष्ठे इंग्रजीत आहेत."
+  },
+  "te": {
+    "native": "తెలుగు",
+    "tag": "te",
+    "ogLocale": "te_IN",
+    "coverage": "core",
+    "title": "Scooby Menu అధికారిక వెబ్‌సైట్",
+    "intro": "CS2, FiveM, RedM మరియు ఇతర గేమ్‌ల కోసం ఉచిత, ప్రీమియం చీట్‌లు, అలాగే GTA 5, RDR2 కోసం మాడ్ మెనూలు. వెర్షన్‌లను పోల్చండి, సెటప్ గైడ్‌ను చూడండి.",
+    "about": "అందుబాటులో ఉన్న చీట్‌లు, ఫీచర్లను చూడటానికి గేమ్‌ను ఎంచుకోండి",
+    "notice": "కొన్ని గైడ్‌లు, ఉత్పత్తి పేజీలు ఆంగ్లంలో ఉన్నాయి."
+  },
+  "ta": {
+    "native": "தமிழ்",
+    "tag": "ta",
+    "ogLocale": "ta_IN",
+    "coverage": "core",
+    "title": "Scooby Menu அதிகாரப்பூர்வ இணையதளம்",
+    "intro": "CS2, FiveM, RedM மற்றும் பிற விளையாட்டுகளுக்கான இலவச மற்றும் பிரீமியம் சீட்கள், GTA 5 மற்றும் RDR2 க்கான மாட் மெனுக்கள். பதிப்புகளை ஒப்பிட்டு அமைப்பு வழிகாட்டியைப் பாருங்கள்.",
+    "about": "சீட்களையும் அம்சங்களையும் காண ஒரு விளையாட்டைத் தேர்ந்தெடுக்கவும்",
+    "notice": "சில வழிகாட்டிகளும் தயாரிப்புப் பக்கங்களும் ஆங்கிலத்தில் உள்ளன."
+  },
+  "gu": {
+    "native": "ગુજરાતી",
+    "tag": "gu",
+    "ogLocale": "gu_IN",
+    "coverage": "core",
+    "title": "Scooby Menu ની સત્તાવાર વેબસાઇટ",
+    "intro": "CS2, FiveM, RedM અને અન્ય રમતો માટે મફત અને પ્રીમિયમ ચીટ્સ, તેમજ GTA 5 અને RDR2 માટે મોડ મેનુ. આવૃત્તિઓની સરખામણી કરો અને સેટઅપ માર્ગદર્શિકા જુઓ.",
+    "about": "ઉપલબ્ધ ચીટ્સ અને સુવિધાઓ જોવા માટે રમત પસંદ કરો",
+    "notice": "કેટલીક માર્ગદર્શિકાઓ અને ઉત્પાદન પૃષ્ઠો અંગ્રેજીમાં છે."
+  },
+  "kn": {
+    "native": "ಕನ್ನಡ",
+    "tag": "kn",
+    "ogLocale": "kn_IN",
+    "coverage": "core",
+    "title": "Scooby Menu ಅಧಿಕೃತ ಜಾಲತಾಣ",
+    "intro": "CS2, FiveM, RedM ಮತ್ತು ಇತರ ಆಟಗಳಿಗೆ ಉಚಿತ ಹಾಗೂ ಪ್ರೀಮಿಯಂ ಚೀಟ್‌ಗಳು, ಜೊತೆಗೆ GTA 5 ಮತ್ತು RDR2 ಗಾಗಿ ಮಾಡ್ ಮೆನುಗಳು. ಆವೃತ್ತಿಗಳನ್ನು ಹೋಲಿಸಿ ಮತ್ತು ಸೆಟಪ್ ಮಾರ್ಗದರ್ಶಿ ನೋಡಿ.",
+    "about": "ಲಭ್ಯವಿರುವ ಚೀಟ್‌ಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ನೋಡಲು ಆಟವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "notice": "ಕೆಲವು ಮಾರ್ಗದರ್ಶಿಗಳು ಮತ್ತು ಉತ್ಪನ್ನ ಪುಟಗಳು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿವೆ."
+  },
+  "ml": {
+    "native": "മലയാളം",
+    "tag": "ml",
+    "ogLocale": "ml_IN",
+    "coverage": "core",
+    "title": "Scooby Menu ഔദ്യോഗിക വെബ്‌സൈറ്റ്",
+    "intro": "CS2, FiveM, RedM തുടങ്ങിയ ഗെയിമുകൾക്കായി സൗജന്യവും പ്രീമിയവുമായ ചീറ്റുകളും GTA 5, RDR2 എന്നിവയ്ക്കായി മോഡ് മെനുകളും. പതിപ്പുകൾ താരതമ്യം ചെയ്യൂ, സജ്ജീകരണ ഗൈഡ് കാണൂ.",
+    "about": "ലഭ്യമായ ചീറ്റുകളും സവിശേഷതകളും കാണാൻ ഒരു ഗെയിം തിരഞ്ഞെടുക്കുക",
+    "notice": "ചില ഗൈഡുകളും ഉൽപ്പന്ന പേജുകളും ഇംഗ്ലീഷിലാണ്."
+  },
+  "ne": {
+    "native": "नेपाली",
+    "tag": "ne",
+    "ogLocale": "ne_NP",
+    "coverage": "core",
+    "title": "Scooby Menu को आधिकारिक वेबसाइट",
+    "intro": "CS2, FiveM, RedM र अन्य खेलका लागि निःशुल्क र प्रिमियम चिटहरू, साथै GTA 5 र RDR2 का लागि मोड मेनु। संस्करणहरू तुलना गर्नुहोस् र सेटअप मार्गदर्शिका हेर्नुहोस्।",
+    "about": "उपलब्ध चिट र सुविधाहरू हेर्न खेल छान्नुहोस्",
+    "notice": "केही मार्गदर्शिका र उत्पादन पृष्ठहरू अङ्ग्रेजीमा छन्।"
+  },
+  "my": {
+    "native": "မြန်မာ",
+    "tag": "my",
+    "ogLocale": "my_MM",
+    "coverage": "core",
+    "title": "Scooby Menu တရားဝင်ဝက်ဘ်ဆိုက်",
+    "intro": "CS2၊ FiveM၊ RedM နှင့် အခြားဂိမ်းများအတွက် အခမဲ့နှင့် ပရီမီယံ ချိစ်များ၊ GTA 5 နှင့် RDR2 အတွက် မော့ဒ်မီနူးများ ရရှိနိုင်ပါသည်။ ဗားရှင်းများကို နှိုင်းယှဉ်ပြီး ထည့်သွင်းနည်းကို ကြည့်ပါ။",
+    "about": "ရရှိနိုင်သော ချိစ်များနှင့် လုပ်ဆောင်ချက်များကို ကြည့်ရန် ဂိမ်းတစ်ခု ရွေးပါ",
+    "notice": "လမ်းညွှန်နှင့် ထုတ်ကုန်စာမျက်နှာ အချို့မှာ အင်္ဂလိပ်ဘာသာဖြင့် ဖြစ်ပါသည်။"
+  },
+  "km": {
+    "native": "ខ្មែរ",
+    "tag": "km",
+    "ogLocale": "km_KH",
+    "coverage": "core",
+    "title": "គេហទំព័រផ្លូវការរបស់ Scooby Menu",
+    "intro": "មានឈីតឥតគិតថ្លៃ និងពិសេសសម្រាប់ CS2, FiveM, RedM និងហ្គេមផ្សេងទៀត ព្រមទាំងម៉ឺនុយម៉ូដសម្រាប់ GTA 5 និង RDR2។ ប្រៀបធៀបកំណែ និងមើលមគ្គុទ្ទេសក៍ដំឡើង។",
+    "about": "ជ្រើសរើសហ្គេមដើម្បីមើលឈីត និងមុខងារដែលមាន",
+    "notice": "មគ្គុទ្ទេសក៍ និងទំព័រផលិតផលមួយចំនួនជាភាសាអង់គ្លេស។"
+  },
+  "uz": {
+    "native": "Oʻzbekcha",
+    "tag": "uz",
+    "ogLocale": "uz_UZ",
+    "coverage": "core",
+    "title": "Scooby Menu rasmiy sayti",
+    "intro": "CS2, FiveM, RedM va boshqa oʻyinlar uchun bepul va premium chitlar, GTA 5 va RDR2 uchun esa mod menyular. Nashrlarni taqqoslang va sozlash qoʻllanmasini koʻring.",
+    "about": "Mavjud chit va funksiyalarni koʻrish uchun oʻyin tanlang",
+    "notice": "Ayrim qoʻllanmalar va mahsulot sahifalari ingliz tilida."
+  },
+  "az": {
+    "native": "Azərbaycanca",
+    "tag": "az",
+    "ogLocale": "az_AZ",
+    "coverage": "core",
+    "title": "Scooby Menu rəsmi saytı",
+    "intro": "CS2, FiveM, RedM və digər oyunlar üçün pulsuz və premium çitlər, həmçinin GTA 5 və RDR2 üçün mod menyuları. Buraxılışları müqayisə edin və quraşdırma təlimatına baxın.",
+    "about": "Mövcud çit və funksiyalara baxmaq üçün oyun seçin",
+    "notice": "Bəzi təlimatlar və məhsul səhifələri ingilis dilindədir."
+  },
+  "sw": {
+    "native": "Kiswahili",
+    "tag": "sw",
+    "ogLocale": "sw_KE",
+    "coverage": "core",
+    "title": "Tovuti rasmi ya Scooby Menu",
+    "intro": "Cheat za bure na za kulipia kwa CS2, FiveM, RedM na michezo mingine, pamoja na menyu za mod kwa GTA 5 na RDR2. Linganisha matoleo na uone mwongozo wa usanidi.",
+    "about": "Chagua mchezo ili kuona cheat na vipengele vinavyopatikana",
+    "notice": "Baadhi ya miongozo na kurasa za bidhaa ziko kwa Kiingereza."
+  },
+  "ha": {
+    "native": "Hausa",
+    "tag": "ha",
+    "ogLocale": "ha_NG",
+    "coverage": "core",
+    "title": "Shafin hukuma na Scooby Menu",
+    "intro": "Cheat na kyauta da na kuɗi don CS2, FiveM, RedM da sauran wasanni, da kuma menu na mod don GTA 5 da RDR2. Kwatanta nauʼoʼin kuma duba jagorar saitawa.",
+    "about": "Zaɓi wasa don ganin cheat da fasalolin da ake da su",
+    "notice": "Wasu jagorori da shafukan kayayyaki suna cikin Turanci."
+  },
+  "yo": {
+    "native": "Yorùbá",
+    "tag": "yo",
+    "ogLocale": "yo_NG",
+    "coverage": "core",
+    "title": "Ojúlé osìṣẹ́ Scooby Menu",
+    "intro": "Àwọn cheat ọ̀fẹ́ àti ti owó fún CS2, FiveM, RedM àti àwọn eré mìíràn, pẹ̀lú àkójọ mod fún GTA 5 àti RDR2. Fi àwọn ẹ̀dà wé ara wọn, kí o sì wo ìtọ́sọ́nà ìṣètò.",
+    "about": "Yan eré kan láti wo àwọn cheat àti àbùdá tó wà",
+    "notice": "Àwọn ìtọ́sọ́nà àti ojú ìwé ọjà kan wà ní èdè Gẹ̀ẹ́sì."
+  },
+  "am": {
+    "native": "አማርኛ",
+    "tag": "am",
+    "ogLocale": "am_ET",
+    "coverage": "core",
+    "title": "የ Scooby Menu ይፋዊ ድረ ገጽ",
+    "intro": "ለ CS2፣ FiveM፣ RedM እና ሌሎች ጨዋታዎች ነፃ እና ፕሪሚየም ቺቶች፣ እንዲሁም ለ GTA 5 እና RDR2 የሞድ ምናሌዎች። ስሪቶችን ያወዳድሩ እና የማዋቀር መመሪያውን ይመልከቱ።",
+    "about": "ያሉትን ቺቶች እና ባህሪያት ለማየት ጨዋታ ይምረጡ",
+    "notice": "አንዳንድ መመሪያዎች እና የምርት ገጾች በእንግሊዝኛ ናቸው።"
+  },
+  "nb": {
+    "native": "Norsk bokmål",
+    "tag": "nb",
+    "ogLocale": "nb_NO",
+    "coverage": "core",
+    "title": "Scooby Menus offisielle nettsted",
+    "intro": "Gratis og premiumjuksekoder for CS2, FiveM, RedM og andre spill, samt modmenyer for GTA 5 og RDR2. Sammenlign utgavene og se oppsettguiden.",
+    "about": "Velg et spill for å se tilgjengelige juksekoder og funksjoner",
+    "notice": "Noen veiledninger og produktsider er på engelsk."
+  },
+  "hr": {
+    "native": "Hrvatski",
+    "tag": "hr",
+    "ogLocale": "hr_HR",
+    "coverage": "core",
+    "title": "Službena stranica za Scooby Menu",
+    "intro": "Besplatni i premium cheatovi za CS2, FiveM, RedM i druge igre te izbornici modova za GTA 5 i RDR2. Usporedite izdanja i pogledajte vodič za postavljanje.",
+    "about": "Odaberite igru za pregled dostupnih cheatova i značajki",
+    "notice": "Neki vodiči i stranice proizvoda dostupni su na engleskom."
+  },
+  "lt": {
+    "native": "Lietuvių",
+    "tag": "lt",
+    "ogLocale": "lt_LT",
+    "coverage": "core",
+    "title": "Oficiali „Scooby Menu“ svetainė",
+    "intro": "Nemokami ir mokami žaidimų patobulinimai bei sukčiavimo įrankiai CS2, FiveM, RedM ir kitiems žaidimams, taip pat modifikacijų meniu GTA 5 ir RDR2. Palyginkite versijas ir peržiūrėkite diegimo vadovą.",
+    "about": "Pasirinkite žaidimą ir peržiūrėkite galimus įrankius bei funkcijas",
+    "notice": "Kai kurie vadovai ir produktų puslapiai pateikiami anglų kalba."
+  },
+  "ca": {
+    "native": "Català",
+    "tag": "ca",
+    "ogLocale": "ca_ES",
+    "coverage": "core",
+    "title": "Web oficial de Scooby Menu",
+    "intro": "Trucs gratuïts i prèmium per a CS2, FiveM, RedM i altres jocs, i menús de mods per a GTA 5 i RDR2. Compara les edicions i consulta la guia de configuració.",
+    "about": "Tria un joc per veure els trucs i les funcions disponibles",
+    "notice": "Algunes guies i pàgines de producte són en anglès."
+  },
+  "gl": {
+    "native": "Galego",
+    "tag": "gl",
+    "ogLocale": "gl_ES",
+    "coverage": "core",
+    "title": "Web oficial de Scooby Menu",
+    "intro": "Trucos de balde e prémium para CS2, FiveM, RedM e outros xogos, ademais de menús de mods para GTA 5 e RDR2. Compara as edicións e consulta a guía de configuración.",
+    "about": "Escolle un xogo para ver os trucos e as funcións dispoñibles",
+    "notice": "Algunhas guías e páxinas de produtos están en inglés."
+  },
+  "eu": {
+    "native": "Euskara",
+    "tag": "eu",
+    "ogLocale": "eu_ES",
+    "coverage": "core",
+    "title": "Scooby Menu-ren webgune ofiziala",
+    "intro": "Doako eta premium trikimailuak CS2, FiveM, RedM eta beste joko batzuetarako, baita GTA 5 eta RDR2rako mod menuak ere. Alderatu edizioak eta ikusi konfigurazio-gida.",
+    "about": "Aukeratu joko bat erabilgarri dauden trikimailuak eta funtzioak ikusteko",
+    "notice": "Gida eta produktu-orri batzuk ingelesez daude."
+  },
+  "is": {
+    "native": "Íslenska",
+    "tag": "is",
+    "ogLocale": "is_IS",
+    "coverage": "core",
+    "title": "Opinber vefsíða Scooby Menu",
+    "intro": "Ókeypis og úrvals svindl fyrir CS2, FiveM, RedM og fleiri leiki, auk mod-valmynda fyrir GTA 5 og RDR2. Berðu saman útgáfur og skoðaðu uppsetningarleiðbeiningarnar.",
+    "about": "Veldu leik til að sjá tiltækt svindl og eiginleika",
+    "notice": "Sumar leiðbeiningar og vörusíður eru á ensku."
+  },
+  "et": {
+    "native": "Eesti",
+    "tag": "et",
+    "ogLocale": "et_EE",
+    "coverage": "core",
+    "title": "Scooby Menu ametlik veebisait",
+    "intro": "Tasuta ja tasulised pettused mängudele CS2, FiveM, RedM ja teistele ning modimenüüd GTA 5 ja RDR2 jaoks. Võrdle versioone ja vaata seadistusjuhendit.",
+    "about": "Vali mäng, et näha saadaolevaid pettusi ja funktsioone",
+    "notice": "Mõned juhendid ja tootelehed on inglise keeles."
+  },
+  "lv": {
+    "native": "Latviešu",
+    "tag": "lv",
+    "ogLocale": "lv_LV",
+    "coverage": "core",
+    "title": "Scooby Menu oficiālā vietne",
+    "intro": "Bezmaksas un maksas palīgrīki spēlēm CS2, FiveM, RedM un citām, kā arī modifikāciju izvēlnes GTA 5 un RDR2. Salīdzini versijas un skati iestatīšanas pamācību.",
+    "about": "Izvēlies spēli, lai apskatītu pieejamos palīgrīkus un funkcijas",
+    "notice": "Dažas pamācības un produktu lapas ir angļu valodā."
+  },
+  "sl": {
+    "native": "Slovenščina",
+    "tag": "sl",
+    "ogLocale": "sl_SI",
+    "coverage": "core",
+    "title": "Uradno spletno mesto Scooby Menu",
+    "intro": "Brezplačne in plačljive goljufije za CS2, FiveM, RedM in druge igre ter meniji modov za GTA 5 in RDR2. Primerjajte izdaje in si oglejte navodila za nastavitev.",
+    "about": "Izberi igro za ogled razpoložljivih goljufij in funkcij",
+    "notice": "Nekateri vodniki in strani izdelkov so v angleščini."
+  },
+  "sq": {
+    "native": "Shqip",
+    "tag": "sq",
+    "ogLocale": "sq_AL",
+    "coverage": "core",
+    "title": "Faqja zyrtare e Scooby Menu",
+    "intro": "Kode mashtrimi falas dhe me pagesë për CS2, FiveM, RedM dhe lojëra të tjera, si dhe menu modesh për GTA 5 dhe RDR2. Krahaso versionet dhe shiko udhëzuesin e konfigurimit.",
+    "about": "Zgjidh një lojë për të parë kodet dhe veçoritë e disponueshme",
+    "notice": "Disa udhëzues dhe faqe produktesh janë në anglisht."
+  },
+  "mk": {
+    "native": "Македонски",
+    "tag": "mk",
+    "ogLocale": "mk_MK",
+    "coverage": "core",
+    "title": "Официјална страница на Scooby Menu",
+    "intro": "Бесплатни и премиум читови за CS2, FiveM, RedM и други игри, како и мод-менија за GTA 5 и RDR2. Спореди ги изданијата и погледни го водичот за поставување.",
+    "about": "Избери игра за да ги видиш достапните читови и функции",
+    "notice": "Некои водичи и страници за производи се на англиски."
+  },
+  "be": {
+    "native": "Беларуская",
+    "tag": "be",
+    "ogLocale": "be_BY",
+    "coverage": "core",
+    "title": "Афіцыйны сайт Scooby Menu",
+    "intro": "Бясплатныя і прэміум-чыты для CS2, FiveM, RedM і іншых гульняў, а таксама мод-меню для GTA 5 і RDR2. Параўнайце выданні і паглядзіце інструкцыю па наладжванні.",
+    "about": "Выберыце гульню, каб убачыць даступныя чыты і функцыі",
+    "notice": "Некаторыя дапаможнікі і старонкі прадуктаў даступныя па-англійску."
+  },
+  "kk": {
+    "native": "Қазақша",
+    "tag": "kk",
+    "ogLocale": "kk_KZ",
+    "coverage": "core",
+    "title": "Scooby Menu ресми сайты",
+    "intro": "CS2, FiveM, RedM және басқа ойындарға арналған тегін және премиум читтер, сондай-ақ GTA 5 пен RDR2 үшін мод мәзірлері. Нұсқаларды салыстырып, баптау нұсқаулығын қараңыз.",
+    "about": "Қолжетімді читтер мен мүмкіндіктерді көру үшін ойын таңдаңыз",
+    "notice": "Кейбір нұсқаулықтар мен өнім беттері ағылшын тілінде."
+  },
+  "mn": {
+    "native": "Монгол",
+    "tag": "mn",
+    "ogLocale": "mn_MN",
+    "coverage": "core",
+    "title": "Scooby Menu-ийн албан ёсны сайт",
+    "intro": "CS2, FiveM, RedM болон бусад тоглоомын үнэгүй ба төлбөртэй чит, мөн GTA 5, RDR2-ийн мод цэс. Хувилбаруудыг харьцуулж, тохируулах зааврыг үзээрэй.",
+    "about": "Боломжтой чит болон функцүүдийг харахын тулд тоглоом сонгоно уу",
+    "notice": "Зарим заавар, бүтээгдэхүүний хуудас англи хэлээр байна."
+  },
+  "si": {
+    "native": "සිංහල",
+    "tag": "si",
+    "ogLocale": "si_LK",
+    "coverage": "core",
+    "title": "Scooby Menu නිල වෙබ් අඩවිය",
+    "intro": "CS2, FiveM, RedM සහ වෙනත් ක්‍රීඩා සඳහා නොමිලේ සහ ගෙවන චීට්, GTA 5 සහ RDR2 සඳහා මොඩ් මෙනු ද ඇත. අනුවාද සසඳා සැකසුම් මාර්ගෝපදේශය බලන්න.",
+    "about": "ලබා ගත හැකි චීට් සහ විශේෂාංග බැලීමට ක්‍රීඩාවක් තෝරන්න",
+    "notice": "සමහර මාර්ගෝපදේශ සහ නිෂ්පාදන පිටු ඉංග්‍රීසියෙන් ඇත."
+  },
+  "lo": {
+    "native": "ລາວ",
+    "tag": "lo",
+    "ogLocale": "lo_LA",
+    "coverage": "core",
+    "title": "ເວັບໄຊທາງການຂອງ Scooby Menu",
+    "intro": "ສູດໂກງຟຣີ ແລະ ພຣີມຽມສຳລັບ CS2, FiveM, RedM ແລະ ເກມອື່ນໆ ພ້ອມເມນູມອດສຳລັບ GTA 5 ແລະ RDR2. ປຽບທຽບລຸ້ນ ແລະ ເບິ່ງຄູ່ມືຕັ້ງຄ່າ.",
+    "about": "ເລືອກເກມເພື່ອເບິ່ງສູດໂກງ ແລະ ຄຸນສົມບັດທີ່ມີ",
+    "notice": "ຄູ່ມື ແລະ ໜ້າຜະລິດຕະພັນບາງສ່ວນເປັນພາສາອັງກິດ."
+  },
+  "or": {
+    "native": "ଓଡ଼ିଆ",
+    "tag": "or",
+    "ogLocale": "or_IN",
+    "coverage": "core",
+    "title": "Scooby Menu ର ଅଧିକୃତ ୱେବସାଇଟ୍",
+    "intro": "CS2, FiveM, RedM ଓ ଅନ୍ୟ ଗେମ୍ ପାଇଁ ମାଗଣା ଓ ପ୍ରିମିୟମ୍ ଚିଟ୍, ଏବଂ GTA 5 ଓ RDR2 ପାଇଁ ମଡ୍ ମେନୁ। ସଂସ୍କରଣଗୁଡ଼ିକର ତୁଳନା କରନ୍ତୁ ଓ ସେଟଅପ୍ ଗାଇଡ୍ ଦେଖନ୍ତୁ।",
+    "about": "ଉପଲବ୍ଧ ଚିଟ୍ ଓ ବିଶେଷତା ଦେଖିବା ପାଇଁ ଏକ ଗେମ୍ ବାଛନ୍ତୁ",
+    "notice": "କିଛି ଗାଇଡ୍ ଓ ଉତ୍ପାଦ ପୃଷ୍ଠା ଇଂରାଜୀରେ ଅଛି।"
+  },
+  "as": {
+    "native": "অসমীয়া",
+    "tag": "as",
+    "ogLocale": "as_IN",
+    "coverage": "core",
+    "title": "Scooby Menu-ৰ আনুষ্ঠানিক ৱেবছাইট",
+    "intro": "CS2, FiveM, RedM আৰু আন গেমৰ বাবে বিনামূলীয়া আৰু প্ৰিমিয়াম চিট, লগতে GTA 5 আৰু RDR2-ৰ বাবে মড মেনু। সংস্কৰণবোৰ তুলনা কৰক আৰু ছেটআপ নিৰ্দেশিকা চাওক।",
+    "about": "উপলব্ধ চিট আৰু বৈশিষ্ট্য চাবলৈ এটা গেম বাছক",
+    "notice": "কিছুমান নিৰ্দেশিকা আৰু সামগ্ৰীৰ পৃষ্ঠা ইংৰাজীত আছে।"
+  },
+  "so": {
+    "native": "Soomaali",
+    "tag": "so",
+    "ogLocale": "so_SO",
+    "coverage": "core",
+    "title": "Bogga rasmiga ah ee Scooby Menu",
+    "intro": "Cheat-yo bilaash ah iyo kuwo lacag ah oo loogu talagalay CS2, FiveM, RedM iyo ciyaaro kale, iyo weliba menu-yada mod-ka ee GTA 5 iyo RDR2. Isbarbar dhig noocyada oo eeg hagaha dejinta.",
+    "about": "Dooro ciyaar si aad u aragto cheat-yada iyo astaamaha la heli karo",
+    "notice": "Qaar ka mid ah hagayaasha iyo bogagga alaabadu waxay ku qoran yihiin Ingiriisi."
+  },
+  "zu": {
+    "native": "IsiZulu",
+    "tag": "zu",
+    "ogLocale": "zu_ZA",
+    "coverage": "core",
+    "title": "Isayithi elisemthethweni le-Scooby Menu",
+    "intro": "Amathuluzi okukopela amahhala nakhokhelwayo e-CS2, FiveM, RedM neminye imidlalo, kanye namamenyu ama-mod e-GTA 5 ne-RDR2. Qhathanisa izinguqulo bese ubheka umhlahlandlela wokusetha.",
+    "about": "Khetha umdlalo ukuze ubone amathuluzi okukopela nezici ezitholakalayo",
+    "notice": "Eminye imihlahlandlela namakhasi emikhiqizo kungesiNgisi."
+  },
+  "ps": {
+    "native": "پښتو",
+    "tag": "ps",
+    "ogLocale": "ps_AF",
+    "coverage": "core",
+    "title": "د Scooby Menu رسمي وېبپاڼه",
+    "intro": "د CS2، FiveM، RedM او نورو لوبو لپاره وړیا او پریمیم چیټونه، او د GTA 5 او RDR2 لپاره د موډ مېنوګانې. نسخې پرتله کړئ او د تنظیم لارښود وګورئ.",
+    "about": "د شته چیټونو او ځانګړنو لیدلو لپاره لوبه وټاکئ",
+    "notice": "ځینې لارښودونه او د محصول پاڼې په انګلیسي دي.",
+    "rtl": true
+  },
+  "pa-pk": {
+    "native": "پنجابی (شاہ مکھی)",
+    "tag": "pa-Arab",
+    "ogLocale": "pa_PK",
+    "coverage": "core",
+    "title": "Scooby Menu دی سرکاری ویب سائٹ",
+    "intro": "CS2، FiveM، RedM تے ہور گیمز لئی مفت تے پریمیم چیٹ، نالے GTA 5 تے RDR2 لئی موڈ مینو۔ ورژن دا موازنہ کرو تے سیٹ اپ دی گائیڈ ویکھو۔",
+    "about": "موجود چیٹ تے فیچر ویکھن لئی گیم چنو",
+    "notice": "کجھ گائیڈاں تے پروڈکٹ صفحے انگریزی وچ نیں۔",
+    "rtl": true
   }
 }

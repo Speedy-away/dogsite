@@ -1,0 +1,51 @@
+/* Ελληνικά — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Αρχική",
+    "Products": "Προϊόντα",
+    "Store": "Κατάστημα",
+    "Docs": "Τεκμηρίωση",
+    "Guides": "Οδηγοί",
+    "Videos": "Βίντεο",
+    "Features": "Λειτουργίες",
+    "Pricing": "Τιμές",
+    "Support": "Υποστήριξη",
+    "Resources": "Πόροι",
+    "Login": "Σύνδεση",
+    "Portal": "Πύλη",
+    "Download": "Λήψη",
+    "Settings": "Ρυθμίσεις",
+    "Close": "Κλείσιμο",
+    "Search...": "Αναζήτηση...",
+    "Get Started": "Ξεκίνα",
+    "Join Discord": "Μπες στο Discord",
+    "Free Version": "Δωρεάν έκδοση",
+    "Frequently asked questions": "Συχνές ερωτήσεις",
+    "Community": "Κοινότητα",
+    "Compare editions": "Σύγκρινε τις εκδόσεις",
+    "Languages": "Γλώσσες",
+    "Change language": "Αλλαγή γλώσσας",
+    "Select language": "Επιλογή γλώσσας",
+    "Official": "Επίσημο",
+    "Cheats": "Cheats",
+    "Online": "Σε λειτουργία",
+    "Browse games": "Περιήγηση στα παιχνίδια",
+    "More Games": "Περισσότερα παιχνίδια",
+    "Explore our Tools": "Ανακάλυψε τα εργαλεία μας",
+    "Click on any game below to explore our available cheats and features": "Επίλεξε παιχνίδι για να δεις τα διαθέσιμα cheats και τις λειτουργίες",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Δωρεάν και premium cheats για CS2, Garry’s Mod, L4D, FiveM, RedM και άλλα παιχνίδια, καθώς και cheats και μενού mod για GTA 5 και RDR2. Δες τις λειτουργίες, σύγκρινε τις εκδόσεις και βρες τον οδηγό εγκατάστασης.",
+    "Start Dominating": "Ξεκίνα",
+    "Sign in": "Σύνδεση",
+    "Sign In": "Σύνδεση",
+    "Site directory": "Χάρτης ιστοτόπου",
+    "Become a reseller": "Γίνε μεταπωλητής",
+    "Terms of Service": "Όροι χρήσης",
+    "Choose a game": "Επίλεξε παιχνίδι",
+    "Player reviews": "Κριτικές παικτών",
+    "Toggle menu": "Εμφάνιση ή απόκρυψη μενού",
+    "Terms": "Όροι χρήσης"
+  };
+  var code = "el";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

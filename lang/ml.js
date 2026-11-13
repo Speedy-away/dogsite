@@ -1,0 +1,51 @@
+/* മലയാളം — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "മുഖപ്പേജ്",
+    "Products": "ഉൽപ്പന്നങ്ങൾ",
+    "Store": "സ്റ്റോർ",
+    "Docs": "ഡോക്യുമെന്റേഷൻ",
+    "Guides": "ഗൈഡുകൾ",
+    "Videos": "വീഡിയോകൾ",
+    "Features": "സവിശേഷതകൾ",
+    "Pricing": "വിലകൾ",
+    "Support": "സഹായം",
+    "Resources": "വിഭവങ്ങൾ",
+    "Login": "ലോഗിൻ",
+    "Portal": "പോർട്ടൽ",
+    "Download": "ഡൗൺലോഡ്",
+    "Settings": "ക്രമീകരണങ്ങൾ",
+    "Close": "അടയ്ക്കുക",
+    "Search...": "തിരയുക…",
+    "Get Started": "തുടങ്ങുക",
+    "Join Discord": "Discord ൽ ചേരുക",
+    "Free Version": "സൗജന്യ പതിപ്പ്",
+    "Frequently asked questions": "പതിവ് ചോദ്യങ്ങൾ",
+    "Community": "കമ്മ്യൂണിറ്റി",
+    "Compare editions": "പതിപ്പുകൾ താരതമ്യം ചെയ്യുക",
+    "Languages": "ഭാഷകൾ",
+    "Change language": "ഭാഷ മാറ്റുക",
+    "Select language": "ഭാഷ തിരഞ്ഞെടുക്കുക",
+    "Official": "ഔദ്യോഗികം",
+    "Cheats": "ചീറ്റുകൾ",
+    "Online": "ഓൺലൈൻ",
+    "Browse games": "ഗെയിമുകൾ കാണുക",
+    "More Games": "കൂടുതൽ ഗെയിമുകൾ",
+    "Explore our Tools": "ഞങ്ങളുടെ ടൂളുകൾ കാണുക",
+    "Click on any game below to explore our available cheats and features": "ലഭ്യമായ ചീറ്റുകളും സവിശേഷതകളും കാണാൻ ഒരു ഗെയിം തിരഞ്ഞെടുക്കുക",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM തുടങ്ങിയ ഗെയിമുകൾക്കായി സൗജന്യവും പ്രീമിയവുമായ ചീറ്റുകളും GTA 5, RDR2 എന്നിവയ്ക്കായി മോഡ് മെനുകളും. പതിപ്പുകൾ താരതമ്യം ചെയ്യൂ, സജ്ജീകരണ ഗൈഡ് കാണൂ.",
+    "Start Dominating": "തുടങ്ങുക",
+    "Sign in": "ലോഗിൻ",
+    "Sign In": "ലോഗിൻ",
+    "Site directory": "സൈറ്റ് മാപ്പ്",
+    "Become a reseller": "പുനർവിൽപ്പനക്കാരനാകൂ",
+    "Terms of Service": "സേവന നിബന്ധനകൾ",
+    "Choose a game": "ഒരു ഗെയിം തിരഞ്ഞെടുക്കുക",
+    "Player reviews": "കളിക്കാരുടെ അവലോകനങ്ങൾ",
+    "Toggle menu": "മെനു കാണിക്കുക അല്ലെങ്കിൽ മറയ്ക്കുക",
+    "Terms": "സേവന നിബന്ധനകൾ"
+  };
+  var code = "ml";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

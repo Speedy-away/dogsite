@@ -21,14 +21,14 @@
     { code: 'en', label: 'EN', native: 'English'    },
     { code: 'es', label: 'ES', native: 'Español'    },
     { code: 'pt',    label: 'PT', native: 'Português'          },
-    { code: 'pt-br', label: 'BR', native: 'Português (Brasil)' },
+    { code: 'pt-br', label: 'BR', native: 'Português (Brasil)', tag: 'pt-BR' },
     { code: 'fr', label: 'FR', native: 'Français'   },
     { code: 'de', label: 'DE', native: 'Deutsch'    },
     { code: 'ru', label: 'RU', native: 'Русский'    },
     { code: 'tr', label: 'TR', native: 'Türkçe'     },
     { code: 'pl', label: 'PL', native: 'Polski'     },
     { code: 'it', label: 'IT', native: 'Italiano'   },
-    { code: 'zh', label: 'ZH', native: '简体中文'    },
+    { code: 'zh', label: 'ZH', native: '简体中文', tag: 'zh-Hans' },
     { code: 'ja', label: 'JA', native: '日本語'      },
     { code: 'ko', label: 'KO', native: '한국어'      },
     { code: 'th', label: 'TH', native: 'ไทย'        },
@@ -38,9 +38,65 @@
     { code: 'sr', label: 'SR', native: 'Српски'     },
     { code: 'nl', label: 'NL', native: 'Nederlands' },
     { code: 'ka', label: 'KA', native: 'ქართული'    },
+    { code: 'uk', label: 'UA', native: 'Українська' },
+    { code: 'cs', label: 'CS', native: 'Čeština' },
+    { code: 'sk', label: 'SK', native: 'Slovenčina' },
+    { code: 'ro', label: 'RO', native: 'Română' },
+    { code: 'hu', label: 'HU', native: 'Magyar' },
+    { code: 'el', label: 'EL', native: 'Ελληνικά' },
+    { code: 'sv', label: 'SV', native: 'Svenska' },
+    { code: 'da', label: 'DA', native: 'Dansk' },
+    { code: 'fi', label: 'FI', native: 'Suomi' },
+    { code: 'bg', label: 'BG', native: 'Български' },
+    { code: 'zh-tw', label: '繁中', native: '繁體中文', tag: 'zh-Hant' },
+    { code: 'ms', label: 'MS', native: 'Bahasa Melayu' },
+    { code: 'fil', label: 'FIL', native: 'Filipino' },
+    { code: 'bn', label: 'BN', native: 'বাংলা' },
+    { code: 'pa', label: 'PA', native: 'ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)', tag: 'pa-Guru' },
+    { code: 'jv', label: 'JV', native: 'Basa Jawa' },
+    { code: 'mr', label: 'MR', native: 'मराठी' },
+    { code: 'te', label: 'TE', native: 'తెలుగు' },
+    { code: 'ta', label: 'TA', native: 'தமிழ்' },
+    { code: 'gu', label: 'GU', native: 'ગુજરાતી' },
+    { code: 'kn', label: 'KN', native: 'ಕನ್ನಡ' },
+    { code: 'ml', label: 'ML', native: 'മലയാളം' },
+    { code: 'ne', label: 'NE', native: 'नेपाली' },
+    { code: 'my', label: 'MY', native: 'မြန်မာ' },
+    { code: 'km', label: 'KM', native: 'ខ្មែរ' },
+    { code: 'uz', label: 'UZ', native: 'Oʻzbekcha' },
+    { code: 'az', label: 'AZ', native: 'Azərbaycanca' },
+    { code: 'sw', label: 'SW', native: 'Kiswahili' },
+    { code: 'ha', label: 'HA', native: 'Hausa' },
+    { code: 'yo', label: 'YO', native: 'Yorùbá' },
+    { code: 'am', label: 'AM', native: 'አማርኛ' },
+    { code: 'nb', label: 'NB', native: 'Norsk bokmål' },
+    { code: 'hr', label: 'HR', native: 'Hrvatski' },
+    { code: 'lt', label: 'LT', native: 'Lietuvių' },
+    { code: 'ca', label: 'CA', native: 'Català' },
+    { code: 'gl', label: 'GL', native: 'Galego' },
+    { code: 'eu', label: 'EU', native: 'Euskara' },
+    { code: 'is', label: 'IS', native: 'Íslenska' },
+    { code: 'et', label: 'ET', native: 'Eesti' },
+    { code: 'lv', label: 'LV', native: 'Latviešu' },
+    { code: 'sl', label: 'SL', native: 'Slovenščina' },
+    { code: 'sq', label: 'SQ', native: 'Shqip' },
+    { code: 'mk', label: 'MK', native: 'Македонски' },
+    { code: 'be', label: 'BE', native: 'Беларуская' },
+    { code: 'kk', label: 'KK', native: 'Қазақша' },
+    { code: 'mn', label: 'MN', native: 'Монгол' },
+    { code: 'si', label: 'SI', native: 'සිංහල' },
+    { code: 'lo', label: 'LO', native: 'ລາວ' },
+    { code: 'or', label: 'OR', native: 'ଓଡ଼ିଆ' },
+    { code: 'as', label: 'AS', native: 'অসমীয়া' },
+    { code: 'so', label: 'SO', native: 'Soomaali' },
+    { code: 'zu', label: 'ZU', native: 'IsiZulu' },
     // Right-to-left: these also flip <html dir> and mirror the selector.
     { code: 'ar', label: 'AR', native: 'العربية', rtl: true },
-    { code: 'he', label: 'HE', native: 'עברית',  rtl: true }
+    { code: 'he', label: 'HE', native: 'עברית',  rtl: true },
+    { code: 'ur', label: 'UR', native: 'اردو', rtl: true },
+    { code: 'fa', label: 'FA', native: 'فارسی', rtl: true },
+    { code: 'ps', label: 'PS', native: 'پښتو', rtl: true },
+    { code: 'pa-pk', label: 'PK', native: 'پنجابی (شاہ مکھی)', tag: 'pa-Arab', rtl: true }
   ];
   var CODES = LANGS.map(function (l) { return l.code; });
 
@@ -87,7 +143,10 @@
       // Try the full tag first so pt-BR gets Brazilian, not European, Portuguese.
       var full = String(navLangs[i]).toLowerCase();
       if (CODES.indexOf(full) !== -1) return full;
+      if (/^zh-(hant|hk|mo|tw)(-|$)/.test(full)) return 'zh-tw';
+      if (/^pa-(arab|pk)(-|$)/.test(full) || /^pnb(-|$)/.test(full)) return 'pa-pk';
       var base = full.split('-')[0];
+      if (base === 'no') return 'nb';
       if (CODES.indexOf(base) !== -1) return base;
     }
     return DEFAULT_LANG;
@@ -294,9 +353,9 @@
       applyMeta(table);
       applying = false;
 
-      document.documentElement.setAttribute('lang', code);
       // Right-to-left scripts need the whole document mirrored, not just translated.
       var meta = LANGS.filter(function (l) { return l.code === code; })[0];
+      document.documentElement.setAttribute('lang', meta.tag || code);
       document.documentElement.setAttribute('dir', meta && meta.rtl ? 'rtl' : 'ltr');
       if (!opts.silent) store(code);
       syncUI();
@@ -589,7 +648,7 @@
       btn.setAttribute('data-lang', l.code);
       btn.setAttribute('aria-selected', 'false');
       btn.tabIndex = -1;
-      btn.setAttribute('lang', l.code);
+      btn.setAttribute('lang', l.tag || l.code);
       btn.setAttribute('dir', l.rtl ? 'rtl' : 'ltr');
       btn.innerHTML = flagHTML(l.code) + '<span class="i18n-badge">' + l.label + '</span>' +
                       '<span>' + l.native + '</span>' + CHECK;
@@ -821,7 +880,7 @@
       var isSuggested = l.code === suggested && suggested !== DEFAULT_LANG;
       grid += '<button type="button" class="i18n-pick' + (isSuggested ? ' suggested' : '') +
               '" data-lang="' + l.code + '">' + flagHTML(l.code) +
-              '<span>' + l.native + '</span>' +
+              '<span lang="' + (l.tag || l.code) + '" dir="' + (l.rtl ? 'rtl' : 'ltr') + '">' + l.native + '</span>' +
               (isSuggested ? '<span class="i18n-suggested-tag">Suggested</span>' : '') +
               '</button>';
     });

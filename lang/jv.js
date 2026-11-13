@@ -1,0 +1,51 @@
+/* Basa Jawa — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Kaca utama",
+    "Products": "Produk",
+    "Store": "Toko",
+    "Docs": "Dokumentasi",
+    "Guides": "Pandhuan",
+    "Videos": "Video",
+    "Features": "Fitur",
+    "Pricing": "Rega",
+    "Support": "Pitulungan",
+    "Resources": "Sumber daya",
+    "Login": "Mlebu",
+    "Portal": "Portal",
+    "Download": "Undhuh",
+    "Settings": "Setelan",
+    "Close": "Tutup",
+    "Search...": "Golèk…",
+    "Get Started": "Miwiti",
+    "Join Discord": "Gabung Discord",
+    "Free Version": "Versi gratis",
+    "Frequently asked questions": "Pitakon sing kerep ditakokaké",
+    "Community": "Komunitas",
+    "Compare editions": "Bandhingna edhisi",
+    "Languages": "Basa",
+    "Change language": "Ganti basa",
+    "Select language": "Pilih basa",
+    "Official": "Resmi",
+    "Cheats": "Cheat",
+    "Online": "Online",
+    "Browse games": "Delengen game",
+    "More Games": "Game liyane",
+    "Explore our Tools": "Delengen piranti kita",
+    "Click on any game below to explore our available cheats and features": "Pilih game kanggo ndeleng cheat lan fitur sing kasedhiya",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Cheat gratis lan premium kanggo CS2, FiveM, RedM lan game liyane, uga menu mod kanggo GTA 5 lan RDR2. Bandhingna edhisi lan wacanen pandhuan pamasangan.",
+    "Start Dominating": "Miwiti",
+    "Sign in": "Mlebu",
+    "Sign In": "Mlebu",
+    "Site directory": "Peta situs",
+    "Become a reseller": "Dadi bakul manèh",
+    "Terms of Service": "Katemtuan layanan",
+    "Choose a game": "Pilih game",
+    "Player reviews": "Ulasan pemain",
+    "Toggle menu": "Tampilna utawa dhelikna menu",
+    "Terms": "Katemtuan layanan"
+  };
+  var code = "jv";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

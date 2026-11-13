@@ -1,0 +1,51 @@
+/* اردو — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "صفحۂ اول",
+    "Products": "مصنوعات",
+    "Store": "اسٹور",
+    "Docs": "دستاویزات",
+    "Guides": "رہنما",
+    "Videos": "ویڈیوز",
+    "Features": "فیچرز",
+    "Pricing": "قیمتیں",
+    "Support": "معاونت",
+    "Resources": "وسائل",
+    "Login": "لاگ اِن",
+    "Portal": "پورٹل",
+    "Download": "ڈاؤن لوڈ",
+    "Settings": "ترتیبات",
+    "Close": "بند کریں",
+    "Search...": "تلاش کریں…",
+    "Get Started": "شروع کریں",
+    "Join Discord": "Discord میں شامل ہوں",
+    "Free Version": "مفت ورژن",
+    "Frequently asked questions": "اکثر پوچھے گئے سوالات",
+    "Community": "کمیونٹی",
+    "Compare editions": "ایڈیشنز کا موازنہ کریں",
+    "Languages": "زبانیں",
+    "Change language": "زبان بدلیں",
+    "Select language": "زبان منتخب کریں",
+    "Official": "آفیشل",
+    "Cheats": "چیٹس",
+    "Online": "آن لائن",
+    "Browse games": "گیمز دیکھیں",
+    "More Games": "مزید گیمز",
+    "Explore our Tools": "ہمارے ٹولز دیکھیں",
+    "Click on any game below to explore our available cheats and features": "دستیاب چیٹس اور فیچرز دیکھنے کے لیے ایک گیم منتخب کریں",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2، Garry’s Mod، L4D، FiveM، RedM اور دیگر گیمز کے لیے مفت اور پریمیم چیٹس، نیز GTA 5 اور RDR2 کے لیے چیٹس اور موڈ مینو۔ فیچرز دیکھیں، ایڈیشنز کا موازنہ کریں اور سیٹ اپ گائیڈ تلاش کریں۔",
+    "Start Dominating": "شروع کریں",
+    "Sign in": "لاگ اِن",
+    "Sign In": "لاگ اِن",
+    "Site directory": "سائٹ کا نقشہ",
+    "Become a reseller": "ری سیلر بنیں",
+    "Terms of Service": "سروس کی شرائط",
+    "Choose a game": "گیم منتخب کریں",
+    "Player reviews": "کھلاڑیوں کے جائزے",
+    "Toggle menu": "مینو دکھائیں یا چھپائیں",
+    "Terms": "سروس کی شرائط"
+  };
+  var code = "ur";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

@@ -1,0 +1,51 @@
+/* Azərbaycanca — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Ana səhifə",
+    "Products": "Məhsullar",
+    "Store": "Mağaza",
+    "Docs": "Sənədlər",
+    "Guides": "Təlimatlar",
+    "Videos": "Videolar",
+    "Features": "Funksiyalar",
+    "Pricing": "Qiymətlər",
+    "Support": "Dəstək",
+    "Resources": "Resurslar",
+    "Login": "Daxil ol",
+    "Portal": "Portal",
+    "Download": "Endir",
+    "Settings": "Parametrlər",
+    "Close": "Bağla",
+    "Search...": "Axtar…",
+    "Get Started": "Başla",
+    "Join Discord": "Discord-a qoşul",
+    "Free Version": "Pulsuz versiya",
+    "Frequently asked questions": "Tez-tez verilən suallar",
+    "Community": "İcma",
+    "Compare editions": "Buraxılışları müqayisə et",
+    "Languages": "Dillər",
+    "Change language": "Dili dəyiş",
+    "Select language": "Dil seç",
+    "Official": "Rəsmi",
+    "Cheats": "Çitlər",
+    "Online": "Onlayn",
+    "Browse games": "Oyunlara bax",
+    "More Games": "Daha çox oyun",
+    "Explore our Tools": "Alətlərimizə bax",
+    "Click on any game below to explore our available cheats and features": "Mövcud çit və funksiyalara baxmaq üçün oyun seçin",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM və digər oyunlar üçün pulsuz və premium çitlər, həmçinin GTA 5 və RDR2 üçün mod menyuları. Buraxılışları müqayisə edin və quraşdırma təlimatına baxın.",
+    "Start Dominating": "Başla",
+    "Sign in": "Daxil ol",
+    "Sign In": "Daxil ol",
+    "Site directory": "Sayt xəritəsi",
+    "Become a reseller": "Satış tərəfdaşı olun",
+    "Terms of Service": "Xidmət şərtləri",
+    "Choose a game": "Oyun seçin",
+    "Player reviews": "Oyunçuların rəyləri",
+    "Toggle menu": "Menyunu göstər və ya gizlət",
+    "Terms": "Xidmət şərtləri"
+  };
+  var code = "az";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

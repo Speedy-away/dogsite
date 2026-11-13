@@ -1,0 +1,51 @@
+/* ગુજરાતી — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "મુખ્ય પાનું",
+    "Products": "ઉત્પાદનો",
+    "Store": "સ્ટોર",
+    "Docs": "દસ્તાવેજીકરણ",
+    "Guides": "માર્ગદર્શિકાઓ",
+    "Videos": "વિડિઓ",
+    "Features": "સુવિધાઓ",
+    "Pricing": "કિંમતો",
+    "Support": "સહાય",
+    "Resources": "સંસાધનો",
+    "Login": "લૉગ ઇન",
+    "Portal": "પોર્ટલ",
+    "Download": "ડાઉનલોડ",
+    "Settings": "સેટિંગ્સ",
+    "Close": "બંધ કરો",
+    "Search...": "શોધો…",
+    "Get Started": "શરૂ કરો",
+    "Join Discord": "Discord માં જોડાઓ",
+    "Free Version": "મફત આવૃત્તિ",
+    "Frequently asked questions": "વારંવાર પૂછાતા પ્રશ્નો",
+    "Community": "સમુદાય",
+    "Compare editions": "આવૃત્તિઓની સરખામણી કરો",
+    "Languages": "ભાષાઓ",
+    "Change language": "ભાષા બદલો",
+    "Select language": "ભાષા પસંદ કરો",
+    "Official": "સત્તાવાર",
+    "Cheats": "ચીટ્સ",
+    "Online": "ઑનલાઇન",
+    "Browse games": "રમતો જુઓ",
+    "More Games": "વધુ રમતો",
+    "Explore our Tools": "અમારાં સાધનો જુઓ",
+    "Click on any game below to explore our available cheats and features": "ઉપલબ્ધ ચીટ્સ અને સુવિધાઓ જોવા માટે રમત પસંદ કરો",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM અને અન્ય રમતો માટે મફત અને પ્રીમિયમ ચીટ્સ, તેમજ GTA 5 અને RDR2 માટે મોડ મેનુ. આવૃત્તિઓની સરખામણી કરો અને સેટઅપ માર્ગદર્શિકા જુઓ.",
+    "Start Dominating": "શરૂ કરો",
+    "Sign in": "લૉગ ઇન",
+    "Sign In": "લૉગ ઇન",
+    "Site directory": "સાઇટ નકશો",
+    "Become a reseller": "પુનર્વિક્રેતા બનો",
+    "Terms of Service": "સેવાની શરતો",
+    "Choose a game": "એક રમત પસંદ કરો",
+    "Player reviews": "ખેલાડીઓની સમીક્ષાઓ",
+    "Toggle menu": "મેનુ બતાવો અથવા છુપાવો",
+    "Terms": "સેવાની શરતો"
+  };
+  var code = "gu";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

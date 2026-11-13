@@ -1,0 +1,51 @@
+/* Hrvatski — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Naslovnica",
+    "Products": "Proizvodi",
+    "Store": "Trgovina",
+    "Docs": "Dokumentacija",
+    "Guides": "Vodiči",
+    "Videos": "Videozapisi",
+    "Features": "Značajke",
+    "Pricing": "Cijene",
+    "Support": "Podrška",
+    "Resources": "Resursi",
+    "Login": "Prijava",
+    "Portal": "Portal",
+    "Download": "Preuzmi",
+    "Settings": "Postavke",
+    "Close": "Zatvori",
+    "Search...": "Pretraži…",
+    "Get Started": "Započni",
+    "Join Discord": "Pridruži se Discordu",
+    "Free Version": "Besplatna verzija",
+    "Frequently asked questions": "Često postavljana pitanja",
+    "Community": "Zajednica",
+    "Compare editions": "Usporedi izdanja",
+    "Languages": "Jezici",
+    "Change language": "Promijeni jezik",
+    "Select language": "Odaberi jezik",
+    "Official": "Službeno",
+    "Cheats": "Cheatovi",
+    "Online": "Na mreži",
+    "Browse games": "Pregledaj igre",
+    "More Games": "Još igara",
+    "Explore our Tools": "Istraži naše alate",
+    "Click on any game below to explore our available cheats and features": "Odaberite igru za pregled dostupnih cheatova i značajki",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Besplatni i premium cheatovi za CS2, FiveM, RedM i druge igre te izbornici modova za GTA 5 i RDR2. Usporedite izdanja i pogledajte vodič za postavljanje.",
+    "Start Dominating": "Započni",
+    "Sign in": "Prijava",
+    "Sign In": "Prijava",
+    "Site directory": "Karta web-mjesta",
+    "Become a reseller": "Postani preprodavač",
+    "Terms of Service": "Uvjeti korištenja",
+    "Choose a game": "Odaberi igru",
+    "Player reviews": "Recenzije igrača",
+    "Toggle menu": "Prikaži ili sakrij izbornik",
+    "Terms": "Uvjeti korištenja"
+  };
+  var code = "hr";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

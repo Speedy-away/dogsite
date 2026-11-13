@@ -1,0 +1,51 @@
+/* Dansk — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Forside",
+    "Products": "Produkter",
+    "Store": "Butik",
+    "Docs": "Dokumentation",
+    "Guides": "Vejledninger",
+    "Videos": "Videoer",
+    "Features": "Funktioner",
+    "Pricing": "Priser",
+    "Support": "Support",
+    "Resources": "Ressourcer",
+    "Login": "Log ind",
+    "Portal": "Portal",
+    "Download": "Hent",
+    "Settings": "Indstillinger",
+    "Close": "Luk",
+    "Search...": "Søg...",
+    "Get Started": "Kom i gang",
+    "Join Discord": "Deltag på Discord",
+    "Free Version": "Gratisversion",
+    "Frequently asked questions": "Ofte stillede spørgsmål",
+    "Community": "Fællesskab",
+    "Compare editions": "Sammenlign udgaver",
+    "Languages": "Sprog",
+    "Change language": "Skift sprog",
+    "Select language": "Vælg sprog",
+    "Official": "Officiel",
+    "Cheats": "Snyd",
+    "Online": "Online",
+    "Browse games": "Gennemse spil",
+    "More Games": "Flere spil",
+    "Explore our Tools": "Udforsk vores værktøjer",
+    "Click on any game below to explore our available cheats and features": "Vælg et spil for at se tilgængeligt snyd og funktioner",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Gratis snyd og premiumsnyd til CS2, Garry’s Mod, L4D, FiveM, RedM og flere spil samt snyd og modmenuer til GTA 5 og RDR2. Udforsk funktioner, sammenlign udgaver, og find opsætningsguiden.",
+    "Start Dominating": "Kom i gang",
+    "Sign in": "Log ind",
+    "Sign In": "Log ind",
+    "Site directory": "Oversigt over hjemmesiden",
+    "Become a reseller": "Bliv forhandler",
+    "Terms of Service": "Brugsvilkår",
+    "Choose a game": "Vælg et spil",
+    "Player reviews": "Spilleranmeldelser",
+    "Toggle menu": "Vis eller skjul menuen",
+    "Terms": "Brugsvilkår"
+  };
+  var code = "da";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

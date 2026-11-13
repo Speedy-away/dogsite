@@ -1,0 +1,51 @@
+/* Filipino — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Pangunahing pahina",
+    "Products": "Mga produkto",
+    "Store": "Tindahan",
+    "Docs": "Dokumentasyon",
+    "Guides": "Mga gabay",
+    "Videos": "Mga video",
+    "Features": "Mga feature",
+    "Pricing": "Mga presyo",
+    "Support": "Suporta",
+    "Resources": "Mga mapagkukunan",
+    "Login": "Mag-sign in",
+    "Portal": "Portal",
+    "Download": "I-download",
+    "Settings": "Mga setting",
+    "Close": "Isara",
+    "Search...": "Maghanap...",
+    "Get Started": "Magsimula",
+    "Join Discord": "Sumali sa Discord",
+    "Free Version": "Libreng bersyon",
+    "Frequently asked questions": "Mga madalas itanong",
+    "Community": "Komunidad",
+    "Compare editions": "Ihambing ang mga edisyon",
+    "Languages": "Mga wika",
+    "Change language": "Palitan ang wika",
+    "Select language": "Pumili ng wika",
+    "Official": "Opisyal",
+    "Cheats": "Mga cheat",
+    "Online": "Online",
+    "Browse games": "Mag-browse ng mga laro",
+    "More Games": "Iba pang laro",
+    "Explore our Tools": "Tingnan ang aming mga tool",
+    "Click on any game below to explore our available cheats and features": "Pumili ng laro upang makita ang mga available na cheat at feature",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Libre at premium na cheat para sa CS2, Garry’s Mod, L4D, FiveM, RedM at iba pang laro, pati cheat at mod menu para sa GTA 5 at RDR2. Tingnan ang mga feature, ihambing ang mga edisyon at hanapin ang gabay sa pag-set up.",
+    "Start Dominating": "Magsimula",
+    "Sign in": "Mag-sign in",
+    "Sign In": "Mag-sign in",
+    "Site directory": "Mapa ng website",
+    "Become a reseller": "Maging reseller",
+    "Terms of Service": "Mga tuntunin ng serbisyo",
+    "Choose a game": "Pumili ng laro",
+    "Player reviews": "Mga review ng manlalaro",
+    "Toggle menu": "Ipakita o itago ang menu",
+    "Terms": "Mga tuntunin ng serbisyo"
+  };
+  var code = "fil";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

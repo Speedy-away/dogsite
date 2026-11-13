@@ -23,11 +23,14 @@ const locales = require('./search-locales.json');
    await page.locator('.hero .lead').waitFor({state:'visible'});
    assert.equal(await page.locator('.hero .lead').innerText(), locales[code].intro);
    assert.equal(await page.locator('.i18n-modal-overlay').count(), 0);
+   assert.equal(await page.locator('html').getAttribute('lang'), locales[code].tag);
    assert.equal(await page.locator('html').getAttribute('dir'), locales[code].rtl ? 'rtl' : 'ltr');
    assert.equal(await page.locator('#heroScenes').count(), 1);
    for (const width of [1440,375]) {
     await page.setViewportSize({width,height:900});
-    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), code + ' overflow at ' + width);
+    await page.evaluate(() => document.fonts.ready);
+    await page.waitForFunction(() => document.documentElement.scrollWidth <= innerWidth + 1, undefined, {timeout:3000})
+     .catch(error => { throw new Error(code + ' overflow at ' + width, {cause:error}); });
    }
    console.log('PASS ' + code + ': full layout, explicit language, desktop/mobile');
   }
@@ -48,9 +51,19 @@ const locales = require('./search-locales.json');
   assert.deepEqual(errors, []);
   const offline = await browser.newContext({javaScriptEnabled:false});
   const nojs = await offline.newPage();
-  await nojs.goto('http://127.0.0.1:8199/lang/th/', {waitUntil:'domcontentloaded'});
-  assert.equal(await nojs.locator('.hero .lead').innerText(), locales.th.intro);
-  assert(await nojs.locator('.hero').isVisible());
+  for (const code of ['th', 'uk', 'zh-tw', 'ur', 'ca', 'pa-pk']) {
+   await nojs.goto('http://127.0.0.1:8199/lang/' + code + '/', {waitUntil:'domcontentloaded'});
+   assert.equal(await nojs.locator('.hero .lead').innerText(), locales[code].intro);
+   assert(await nojs.locator('.hero').isVisible());
+  }
+  for (const [locale, code] of [['zh-HK', 'zh-tw'], ['zh-Hans-CN', 'zh'], ['fil-PH', 'fil'], ['pa-IN', 'pa'], ['pa-PK', 'pa-pk'], ['pa-Arab-PK', 'pa-pk']]) {
+   const visitor = await browser.newContext({locale});
+   await visitor.route('**/*', route => route.request().url().startsWith('http://127.0.0.1:8199/') ? route.continue() : route.abort());
+   const firstPage = await visitor.newPage();
+   await firstPage.goto('http://127.0.0.1:8199/', {waitUntil:'domcontentloaded'});
+   await firstPage.waitForFunction(code => window.__scoobyI18n?.get() === code, code);
+   await visitor.close();
+  }
   console.log('PASS modal, language switching, no-script localized content; no page errors');
  } finally { await browser.close(); }
 })().catch(error => {console.error(error);process.exitCode=1;});

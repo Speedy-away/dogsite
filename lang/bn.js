@@ -1,0 +1,51 @@
+/* বাংলা — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "হোম",
+    "Products": "পণ্য",
+    "Store": "স্টোর",
+    "Docs": "ডকুমেন্টেশন",
+    "Guides": "নির্দেশিকা",
+    "Videos": "ভিডিও",
+    "Features": "ফিচার",
+    "Pricing": "মূল্য",
+    "Support": "সহায়তা",
+    "Resources": "রিসোর্স",
+    "Login": "লগ ইন",
+    "Portal": "পোর্টাল",
+    "Download": "ডাউনলোড",
+    "Settings": "সেটিংস",
+    "Close": "বন্ধ করুন",
+    "Search...": "খুঁজুন...",
+    "Get Started": "শুরু করুন",
+    "Join Discord": "Discord-এ যোগ দিন",
+    "Free Version": "বিনামূল্যের সংস্করণ",
+    "Frequently asked questions": "সচরাচর জিজ্ঞাসা",
+    "Community": "কমিউনিটি",
+    "Compare editions": "সংস্করণগুলোর তুলনা করুন",
+    "Languages": "ভাষা",
+    "Change language": "ভাষা পরিবর্তন করুন",
+    "Select language": "ভাষা বেছে নিন",
+    "Official": "অফিসিয়াল",
+    "Cheats": "চিট",
+    "Online": "অনলাইন",
+    "Browse games": "গেমগুলো দেখুন",
+    "More Games": "আরও গেম",
+    "Explore our Tools": "আমাদের টুলগুলো দেখুন",
+    "Click on any game below to explore our available cheats and features": "উপলভ্য চিট ও ফিচার দেখতে একটি গেম বেছে নিন",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, Garry’s Mod, L4D, FiveM, RedM ও আরও অনেক গেমের জন্য বিনামূল্যের ও প্রিমিয়াম চিট, এবং GTA 5 ও RDR2-এর জন্য চিট ও মড মেনু। ফিচার দেখুন, সংস্করণগুলোর তুলনা করুন এবং সেটআপ নির্দেশিকা খুঁজে নিন।",
+    "Start Dominating": "শুরু করুন",
+    "Sign in": "লগ ইন",
+    "Sign In": "লগ ইন",
+    "Site directory": "সাইটের মানচিত্র",
+    "Become a reseller": "রিসেলার হোন",
+    "Terms of Service": "সেবার শর্তাবলি",
+    "Choose a game": "একটি গেম বেছে নিন",
+    "Player reviews": "খেলোয়াড়দের পর্যালোচনা",
+    "Toggle menu": "মেনু দেখান বা লুকান",
+    "Terms": "সেবার শর্তাবলি"
+  };
+  var code = "bn";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

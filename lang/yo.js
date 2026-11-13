@@ -1,0 +1,51 @@
+/* Yorùbá — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Ojú ìwé àkọ́kọ́",
+    "Products": "Àwọn ọjà",
+    "Store": "Ilé ìtajà",
+    "Docs": "Àwọn àkọsílẹ̀",
+    "Guides": "Àwọn ìtọ́sọ́nà",
+    "Videos": "Fídíò",
+    "Features": "Àwọn àbùdá",
+    "Pricing": "Iye owó",
+    "Support": "Ìrànlọ́wọ́",
+    "Resources": "Àwọn ohun àmúlò",
+    "Login": "Wọlé",
+    "Portal": "Ojúlé àkọọ́lẹ̀",
+    "Download": "Ṣe ìgbàsílẹ̀",
+    "Settings": "Àwọn ètò",
+    "Close": "Tì í",
+    "Search...": "Wá…",
+    "Get Started": "Bẹ̀rẹ̀",
+    "Join Discord": "Darapọ̀ mọ́ Discord",
+    "Free Version": "Ẹ̀dà ọ̀fẹ́",
+    "Frequently asked questions": "Àwọn ìbéèrè tí a sábà ń béèrè",
+    "Community": "Àwùjọ",
+    "Compare editions": "Fi àwọn ẹ̀dà wé ara wọn",
+    "Languages": "Àwọn èdè",
+    "Change language": "Yí èdè padà",
+    "Select language": "Yan èdè",
+    "Official": "Ti ilé-iṣẹ́",
+    "Cheats": "Àwọn cheat",
+    "Online": "Lórí ayélujára",
+    "Browse games": "Wo àwọn eré",
+    "More Games": "Àwọn eré míì",
+    "Explore our Tools": "Wo àwọn irinṣẹ́ wa",
+    "Click on any game below to explore our available cheats and features": "Yan eré kan láti wo àwọn cheat àti àbùdá tó wà",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Àwọn cheat ọ̀fẹ́ àti ti owó fún CS2, FiveM, RedM àti àwọn eré mìíràn, pẹ̀lú àkójọ mod fún GTA 5 àti RDR2. Fi àwọn ẹ̀dà wé ara wọn, kí o sì wo ìtọ́sọ́nà ìṣètò.",
+    "Start Dominating": "Bẹ̀rẹ̀",
+    "Sign in": "Wọlé",
+    "Sign In": "Wọlé",
+    "Site directory": "Àtòjọ ojúlé",
+    "Become a reseller": "Di alátàjà",
+    "Terms of Service": "Àwọn òfin iṣẹ́",
+    "Choose a game": "Yan eré kan",
+    "Player reviews": "Àwọn àgbéyẹ̀wò eléré",
+    "Toggle menu": "Fi àkójọ hàn tàbí fi pamọ́",
+    "Terms": "Àwọn òfin iṣẹ́"
+  };
+  var code = "yo";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

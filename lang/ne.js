@@ -1,0 +1,51 @@
+/* नेपाली — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "गृहपृष्ठ",
+    "Products": "उत्पादनहरू",
+    "Store": "स्टोर",
+    "Docs": "कागजात",
+    "Guides": "मार्गदर्शिका",
+    "Videos": "भिडियोहरू",
+    "Features": "सुविधाहरू",
+    "Pricing": "मूल्य",
+    "Support": "सहायता",
+    "Resources": "स्रोतहरू",
+    "Login": "लग इन",
+    "Portal": "पोर्टल",
+    "Download": "डाउनलोड",
+    "Settings": "सेटिङहरू",
+    "Close": "बन्द गर्नुहोस्",
+    "Search...": "खोज्नुहोस्…",
+    "Get Started": "सुरु गर्नुहोस्",
+    "Join Discord": "Discord मा जोडिनुहोस्",
+    "Free Version": "निःशुल्क संस्करण",
+    "Frequently asked questions": "बारम्बार सोधिने प्रश्नहरू",
+    "Community": "समुदाय",
+    "Compare editions": "संस्करणहरू तुलना गर्नुहोस्",
+    "Languages": "भाषाहरू",
+    "Change language": "भाषा बदल्नुहोस्",
+    "Select language": "भाषा छान्नुहोस्",
+    "Official": "आधिकारिक",
+    "Cheats": "चिटहरू",
+    "Online": "अनलाइन",
+    "Browse games": "खेलहरू हेर्नुहोस्",
+    "More Games": "थप खेलहरू",
+    "Explore our Tools": "हाम्रा उपकरणहरू हेर्नुहोस्",
+    "Click on any game below to explore our available cheats and features": "उपलब्ध चिट र सुविधाहरू हेर्न खेल छान्नुहोस्",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM र अन्य खेलका लागि निःशुल्क र प्रिमियम चिटहरू, साथै GTA 5 र RDR2 का लागि मोड मेनु। संस्करणहरू तुलना गर्नुहोस् र सेटअप मार्गदर्शिका हेर्नुहोस्।",
+    "Start Dominating": "सुरु गर्नुहोस्",
+    "Sign in": "लग इन",
+    "Sign In": "लग इन",
+    "Site directory": "साइटको नक्सा",
+    "Become a reseller": "पुनर्विक्रेता बन्नुहोस्",
+    "Terms of Service": "सेवाका सर्तहरू",
+    "Choose a game": "एउटा खेल छान्नुहोस्",
+    "Player reviews": "खेलाडीका समीक्षा",
+    "Toggle menu": "मेनु देखाउनुहोस् वा लुकाउनुहोस्",
+    "Terms": "सेवाका सर्तहरू"
+  };
+  var code = "ne";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

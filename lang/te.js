@@ -1,0 +1,51 @@
+/* తెలుగు — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "హోమ్",
+    "Products": "ఉత్పత్తులు",
+    "Store": "స్టోర్",
+    "Docs": "డాక్యుమెంటేషన్",
+    "Guides": "గైడ్‌లు",
+    "Videos": "వీడియోలు",
+    "Features": "ఫీచర్లు",
+    "Pricing": "ధరలు",
+    "Support": "సహాయం",
+    "Resources": "వనరులు",
+    "Login": "లాగిన్",
+    "Portal": "పోర్టల్",
+    "Download": "డౌన్‌లోడ్",
+    "Settings": "సెట్టింగ్‌లు",
+    "Close": "మూసివేయండి",
+    "Search...": "వెతకండి…",
+    "Get Started": "ప్రారంభించండి",
+    "Join Discord": "Discordలో చేరండి",
+    "Free Version": "ఉచిత వెర్షన్",
+    "Frequently asked questions": "తరచుగా అడిగే ప్రశ్నలు",
+    "Community": "సంఘం",
+    "Compare editions": "వెర్షన్‌లను పోల్చండి",
+    "Languages": "భాషలు",
+    "Change language": "భాషను మార్చండి",
+    "Select language": "భాషను ఎంచుకోండి",
+    "Official": "అధికారిక",
+    "Cheats": "చీట్‌లు",
+    "Online": "ఆన్‌లైన్",
+    "Browse games": "గేమ్‌లను చూడండి",
+    "More Games": "మరిన్ని గేమ్‌లు",
+    "Explore our Tools": "మా సాధనాలను చూడండి",
+    "Click on any game below to explore our available cheats and features": "అందుబాటులో ఉన్న చీట్‌లు, ఫీచర్లను చూడటానికి గేమ్‌ను ఎంచుకోండి",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "CS2, FiveM, RedM మరియు ఇతర గేమ్‌ల కోసం ఉచిత, ప్రీమియం చీట్‌లు, అలాగే GTA 5, RDR2 కోసం మాడ్ మెనూలు. వెర్షన్‌లను పోల్చండి, సెటప్ గైడ్‌ను చూడండి.",
+    "Start Dominating": "ప్రారంభించండి",
+    "Sign in": "లాగిన్",
+    "Sign In": "లాగిన్",
+    "Site directory": "సైట్ మ్యాప్",
+    "Become a reseller": "పునర్విక్రేతగా చేరండి",
+    "Terms of Service": "సేవా నిబంధనలు",
+    "Choose a game": "ఒక గేమ్‌ను ఎంచుకోండి",
+    "Player reviews": "ఆటగాళ్ల సమీక్షలు",
+    "Toggle menu": "మెనూను చూపండి లేదా దాచండి",
+    "Terms": "సేవా నిబంధనలు"
+  };
+  var code = "te";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

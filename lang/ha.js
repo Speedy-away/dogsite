@@ -1,0 +1,51 @@
+/* Hausa — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "Shafin farko",
+    "Products": "Kayayyaki",
+    "Store": "Shago",
+    "Docs": "Takardu",
+    "Guides": "Jagorori",
+    "Videos": "Bidiyoyi",
+    "Features": "Fasaloli",
+    "Pricing": "Farashi",
+    "Support": "Taimako",
+    "Resources": "Albarkatu",
+    "Login": "Shiga",
+    "Portal": "Shafin asusu",
+    "Download": "Sauke",
+    "Settings": "Saituna",
+    "Close": "Rufe",
+    "Search...": "Nema…",
+    "Get Started": "Fara",
+    "Join Discord": "Shiga Discord",
+    "Free Version": "Nauʼin kyauta",
+    "Frequently asked questions": "Tambayoyin da ake yawan yi",
+    "Community": "Alʼumma",
+    "Compare editions": "Kwatanta nauʼoʼi",
+    "Languages": "Harsuna",
+    "Change language": "Canja harshe",
+    "Select language": "Zaɓi harshe",
+    "Official": "Na hukuma",
+    "Cheats": "Cheat",
+    "Online": "A kan layi",
+    "Browse games": "Duba wasanni",
+    "More Games": "Ƙarin wasanni",
+    "Explore our Tools": "Duba kayan aikinmu",
+    "Click on any game below to explore our available cheats and features": "Zaɓi wasa don ganin cheat da fasalolin da ake da su",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "Cheat na kyauta da na kuɗi don CS2, FiveM, RedM da sauran wasanni, da kuma menu na mod don GTA 5 da RDR2. Kwatanta nauʼoʼin kuma duba jagorar saitawa.",
+    "Start Dominating": "Fara",
+    "Sign in": "Shiga",
+    "Sign In": "Shiga",
+    "Site directory": "Taswirar shafin",
+    "Become a reseller": "Zama dillali",
+    "Terms of Service": "Sharuɗɗan sabis",
+    "Choose a game": "Zaɓi wasa",
+    "Player reviews": "Ra’ayoyin ’yan wasa",
+    "Toggle menu": "Nuna ko ɓoye menu",
+    "Terms": "Sharuɗɗan sabis"
+  };
+  var code = "ha";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();

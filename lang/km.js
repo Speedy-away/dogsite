@@ -1,0 +1,51 @@
+/* ខ្មែរ — shared navigation and homepage copy. */
+(function () {
+  var t = {
+    "Home": "ទំព័រដើម",
+    "Products": "ផលិតផល",
+    "Store": "ហាង",
+    "Docs": "ឯកសារ",
+    "Guides": "មគ្គុទ្ទេសក៍",
+    "Videos": "វីដេអូ",
+    "Features": "មុខងារ",
+    "Pricing": "តម្លៃ",
+    "Support": "ជំនួយ",
+    "Resources": "ធនធាន",
+    "Login": "ចូលគណនី",
+    "Portal": "វិបផតថល",
+    "Download": "ទាញយក",
+    "Settings": "ការកំណត់",
+    "Close": "បិទ",
+    "Search...": "ស្វែងរក…",
+    "Get Started": "ចាប់ផ្តើម",
+    "Join Discord": "ចូលរួម Discord",
+    "Free Version": "កំណែឥតគិតថ្លៃ",
+    "Frequently asked questions": "សំណួរដែលគេសួរញឹកញាប់",
+    "Community": "សហគមន៍",
+    "Compare editions": "ប្រៀបធៀបកំណែ",
+    "Languages": "ភាសា",
+    "Change language": "ប្តូរភាសា",
+    "Select language": "ជ្រើសរើសភាសា",
+    "Official": "ផ្លូវការ",
+    "Cheats": "ឈីត",
+    "Online": "អនឡាញ",
+    "Browse games": "មើលហ្គេម",
+    "More Games": "ហ្គេមបន្ថែម",
+    "Explore our Tools": "មើលឧបករណ៍របស់យើង",
+    "Click on any game below to explore our available cheats and features": "ជ្រើសរើសហ្គេមដើម្បីមើលឈីត និងមុខងារដែលមាន",
+    "Free and premium cheats for CS2, Garry’s Mod, L4D, FiveM, RedM and more, plus cheats and mod menus for GTA 5 and RDR2. Explore features, compare editions and find your setup guide.": "មានឈីតឥតគិតថ្លៃ និងពិសេសសម្រាប់ CS2, FiveM, RedM និងហ្គេមផ្សេងទៀត ព្រមទាំងម៉ឺនុយម៉ូដសម្រាប់ GTA 5 និង RDR2។ ប្រៀបធៀបកំណែ និងមើលមគ្គុទ្ទេសក៍ដំឡើង។",
+    "Start Dominating": "ចាប់ផ្តើម",
+    "Sign in": "ចូលគណនី",
+    "Sign In": "ចូលគណនី",
+    "Site directory": "ផែនទីគេហទំព័រ",
+    "Become a reseller": "ក្លាយជាអ្នកលក់បន្ត",
+    "Terms of Service": "លក្ខខណ្ឌសេវាកម្ម",
+    "Choose a game": "ជ្រើសរើសហ្គេម",
+    "Player reviews": "ការវាយតម្លៃរបស់អ្នកលេង",
+    "Toggle menu": "បង្ហាញ ឬលាក់ម៉ឺនុយ",
+    "Terms": "លក្ខខណ្ឌសេវាកម្ម"
+  };
+  var code = "km";
+  if (window.__scoobyI18n) window.__scoobyI18n.register(code, t);
+  else (window.__scoobyI18nQueue = window.__scoobyI18nQueue || []).push([code, t]);
+})();
