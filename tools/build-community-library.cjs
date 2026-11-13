@@ -412,7 +412,7 @@ function importNativeThemes() {
 }
 
 function importGtaTextures() {
-  const root = path.join(roots.gta5, 'assets/CustomTextures/Original');
+  const root = path.join(roots.gta5, 'assets/custom-textures/Original');
   for (const file of walk(root).filter(f => ['.png', '.jpg', '.gif'].includes(path.extname(f).toLowerCase()))) {
     const extension = path.extname(file).toLowerCase(), basename = path.basename(file, extension);
     const name = basename.replaceAll('-', ' '), id = `${slug(basename)}-${extension.slice(1)}`;
@@ -424,7 +424,7 @@ function importGtaTextures() {
 }
 
 function importLiveryConcept() {
-  const template = path.join(roots.gta5, 'assets/CustomTextures/Concepts/Scooby-Livery-Concept.png');
+  const template = path.join(roots.gta5, 'assets/custom-textures/Concepts/Scooby-Livery-Concept.png');
   if (fs.existsSync(template)) {
     const resource = planSource('downloads/gta5/liveries/scooby-livery-concept.png', template);
     add({ id: 'gta5-paintjob-scooby-livery-concept', game: 'gta5', category: 'liveries', name: 'Scooby livery concept artwork',
@@ -612,7 +612,7 @@ function refreshNativeAssets(existing) {
     'cs2:textures': ['assets/vfx/source-images'],
     'gta5:languages': ['Translations'], 'gta5:configs': ['configs'], 'gta5:layouts': ['assets/listui-layouts'],
     'gta5:maps': ['assets/maps/BiggerScriptMaps.json.zlib', 'assets/maps/IniMaps.json.zlib', 'assets/maps/manifest.json'],
-    'gta5:textures': ['assets/CustomTextures/Original'],
+    'gta5:textures': ['assets/custom-textures/Original'],
     'rdr2:languages': ['Translations'], 'rdr2:configs': ['configs'], 'rdr2:layouts': ['assets/listui-layouts'],
     'rdr2:outfits': ['src/game/frontend/submenus/outfiteditor/BundledOutfits.cpp'],
   };
