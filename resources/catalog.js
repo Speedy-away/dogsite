@@ -790,6 +790,11 @@ function changelogButton(entry) {
 }
 
 function pendingDownloadButton(entry) {
+  if (entry.sourceMenu === 'Cherax' && entry.name === 'VibeScript') {
+    const link = node('a', 'View VibeScript versions', 'download-pending');
+    link.href = '/resources/vibescript/';
+    return link;
+  }
   const button = node('button', entry.downloadLabel || 'Download — Coming soon', 'download-pending');
   button.type = 'button';
   button.disabled = true;
