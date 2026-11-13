@@ -146,7 +146,12 @@ test('static homepages and runtime dictionaries cover the same languages with no
   const vm = require('vm');
   const locales = require('./search-locales.json');
   const engine = fs.readFileSync('lang/i18n.js', 'utf8');
-  const registered = [...engine.match(/var LANGS = \[([\s\S]*?)\];/)[1].matchAll(/code:\s*'([^']+)'/g)].map(m => m[1]).filter(code => code !== 'en');
+  const entries = [...engine.match(/var LANGS = \[([\s\S]*?)\];/)[1].matchAll(/code:\s*'([^']+)'([^\n]*)/g)];
+  for (const [, code, fields] of entries) {
+    const flag = fields.match(/flag:\s*'([a-z-]+)'/)?.[1];
+    assert(flag && fs.existsSync('lang/flags/' + flag + '.svg'), 'Missing language flag: ' + code);
+  }
+  const registered = entries.map(entry => entry[1]).filter(code => code !== 'en');
   assert.deepEqual(registered.sort(), Object.keys(locales).sort());
   let expectedKeys;
   for (const code of registered) {

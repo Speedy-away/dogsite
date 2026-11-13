@@ -56,14 +56,35 @@ const locales = require('./search-locales.json');
    assert.equal(await nojs.locator('.hero .lead').innerText(), locales[code].intro);
    assert(await nojs.locator('.hero').isVisible());
   }
-  for (const [locale, code] of [['zh-HK', 'zh-tw'], ['zh-Hans-CN', 'zh'], ['fil-PH', 'fil'], ['pa-IN', 'pa'], ['pa-PK', 'pa-pk'], ['pa-Arab-PK', 'pa-pk']]) {
+  for (const [locale, code] of [['en-GB', 'en'], ['ar-SA', 'ar'], ['pt-BR', 'pt-br'], ['zh-HK', 'zh-tw'], ['zh-Hans-CN', 'zh'], ['fil-PH', 'fil'], ['pa-IN', 'pa'], ['pa-PK', 'pa-pk'], ['pa-Arab-PK', 'pa-pk']]) {
    const visitor = await browser.newContext({locale});
    await visitor.route('**/*', route => route.request().url().startsWith('http://127.0.0.1:8199/') ? route.continue() : route.abort());
    const firstPage = await visitor.newPage();
    await firstPage.goto('http://127.0.0.1:8199/', {waitUntil:'domcontentloaded'});
    await firstPage.waitForFunction(code => window.__scoobyI18n?.get() === code, code);
+   assert.equal(await firstPage.locator('.i18n-modal-overlay').count(), 0, locale + ' should apply without prompting');
+   assert.equal(await firstPage.locator('html').evaluate(el => getComputedStyle(el).direction), locales[code]?.rtl ? 'rtl' : 'ltr');
+   assert.equal(await firstPage.evaluate(() => localStorage.getItem('scooby.lang')), null);
+   if (code === 'ar') {
+    const menu = firstPage.locator('.i18n-menu');
+    await firstPage.locator('.i18n-toggle').click();
+    await menu.locator('[data-lang="en"]').click();
+    await firstPage.reload({waitUntil:'domcontentloaded'});
+    await firstPage.waitForFunction(() => document.documentElement.lang === 'en' && getComputedStyle(document.documentElement).direction === 'ltr');
+    assert.equal(await firstPage.evaluate(() => localStorage.getItem('scooby.lang')), 'en');
+    assert.equal(await firstPage.locator('.i18n-modal-overlay').count(), 0);
+   }
    await visitor.close();
   }
-  console.log('PASS modal, language switching, no-script localized content; no page errors');
+  const unmatched = await browser.newContext({locale:'eo'});
+  await unmatched.route('**/*', route => route.request().url().startsWith('http://127.0.0.1:8199/') ? route.continue() : route.abort());
+  const unmatchedPage = await unmatched.newPage();
+  await unmatchedPage.goto('http://127.0.0.1:8199/', {waitUntil:'domcontentloaded'});
+  await unmatchedPage.getByRole('dialog', {name:'Choose your language'}).waitFor();
+  assert.equal(await unmatchedPage.locator('html').getAttribute('lang'), 'en');
+  await unmatchedPage.getByRole('button', {name:'Continue in English'}).click();
+  assert.equal(await unmatchedPage.evaluate(() => localStorage.getItem('scooby.lang')), 'en');
+  await unmatched.close();
+  console.log('PASS browser detection, manual override, unsupported-locale picker, no-script localized content; no page errors');
  } finally { await browser.close(); }
 })().catch(error => {console.error(error);process.exitCode=1;});

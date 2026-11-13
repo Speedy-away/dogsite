@@ -97,9 +97,20 @@ async function main() {
     assert.equal(await page.locator(':focus').getAttribute('data-lang'), await page.evaluate(() => window.__scoobyI18n.langs.at(-1).code));
     await page.keyboard.press('Home');
     await page.keyboard.press('ArrowDown');
+    assert.equal(await page.locator(':focus').getAttribute('data-lang'), 'ar');
+    await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.documentElement.lang === 'es');
     assert.equal(await page.locator(':focus').getAttribute('class'), 'i18n-toggle');
+    await page.keyboard.press('Enter');
+    const languageSearch = page.locator('.i18n-menu').getByRole('searchbox');
+    assert.equal(await languageSearch.evaluate(el => el === document.activeElement), true);
+    await languageSearch.fill('portugues');
+    assert.deepEqual(await page.locator('.i18n-menu').getByRole('option').evaluateAll(options => options.map(option => option.dataset.lang)), ['pt', 'pt-br']);
+    await languageSearch.fill('no such language');
+    assert.equal(await page.locator('.i18n-menu').getByRole('status').isVisible(), true);
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator('.i18n-toggle').getAttribute('aria-expanded'), 'false');
     for (const width of [375, 768, 1440]) {
       await page.setViewportSize({ width, height:800 });
       await page.locator('.i18n-toggle').click();
