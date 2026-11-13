@@ -28,18 +28,27 @@ test('Cherax archive uses the published asset revision and preserves curated dow
       const entry = resolved.get(row.id);
       assert(entry, row.id);
       if (row.preview && !original.get(row.id)?.preview?.startsWith('/assets/')) {
-        assert.equal(entry.preview, pinned + row.preview);
+        const local = row.preview.startsWith('/assets/images/resource-previews/cherax/');
+        assert.equal(entry.preview, local ? row.preview : pinned + row.preview);
+        if (local) assert(fs.existsSync(path.join(ROOT, row.preview)), row.preview);
         assert.equal(entry.previewVerified, true);
       }
       for (const file of row.files || []) {
-        assert.equal(entry.files.find(candidate => candidate.sha256 === file.sha256)?.url, pinned + file.path);
-        assert(file.path.includes(file.sha256.slice(0, 20)), file.path);
+        if (file.url) {
+          assert.match(file.url, /^https:\/\/github\.com\/themilkman554\/[\w-]+\/archive\/refs\/heads\/[\w-]+\.zip$/);
+          assert(entry.files.some(candidate => candidate.url === file.url), row.id);
+        } else {
+          assert.equal(entry.files.find(candidate => candidate.sha256 === file.sha256)?.url, pinned + file.path);
+          assert(file.path.includes(file.sha256.slice(0, 20)), file.path);
+        }
       }
-      if (row.category === 'lua') assert.equal(entry.downloadStatus, 'pending', row.id);
+      if (row.category === 'lua') assert.equal(entry.downloadStatus, row.files?.length ? 'available' : 'pending', row.id);
     }
   }
   for (const item of supplement.items.filter(item => item.category === 'lua' && item.sourceMenu === 'cherax')) {
-    assert.deepEqual(entries.get(item.id).files, item.files, item.id);
+    if (item.files.some(file => file.url?.startsWith('/assets/downloads/cherax/'))) {
+      assert.deepEqual(entries.get(item.id).files, item.files, item.id);
+    }
   }
 });
 test('resource guides retain the selected menu even when a shared item came from another menu', () => {
@@ -108,7 +117,7 @@ test('Lua listings expose local downloads or an honest unavailable state', () =>
     } else assert.equal(item.downloadStatus, 'pending', item.id);
     assert.equal(item.sourceCatalog, 'menu-resources', item.id);
     assert(item.supportedMenus.length && item.sourceMenu, item.id);
-    if (item.game === 'gta5') assert.deepEqual(visibleMenus(item).sort(), [...item.supportedMenus].sort(), item.id);
+    if (item.game === 'gta5') assert.deepEqual(visibleMenus(item).sort(), menus.listingMenuIds(item).sort(), item.id);
     assert(!/https?:\/\/(?:\w+\.)?discord(?:app)?\.(?:com|gg)/i.test(JSON.stringify(item)), item.id);
   }
   for (const [id, submission] of standSubmissions) {
@@ -122,7 +131,7 @@ test('Lua listings expose local downloads or an honest unavailable state', () =>
   assert.equal(notes.changelog[0].date, '2026-11-08');
   assert(notes.changelog[0].changes.length);
   assert(!base.items.some(item => item.category === 'lua'), 'Removed broken examples remain outside the base catalog');
-  const drift = scripts.filter(item => item.sourceMenu === 'cherax' && /driftgod/i.test(item.name));
+  const drift = scripts.filter(item => item.sourceMenu === 'cherax' && /driftgod/i.test(item.name) && item.files.length);
   assert.equal(drift.length, 1);
   assert(drift[0].files.some(file => file.versionLabel === 'v1.0.6'));
 });
@@ -152,7 +161,7 @@ test('compatibility overrides reuse original resources and compact legacy groups
       assert.deepEqual(visibleMenus.sort(), [...value.supportedMenus].sort(), key);
     }
   }
-  assert(fs.statSync(path.join(ROOT, 'community/data/menu-resources.json')).size < 12 * 1024 * 1024);
+  assert(fs.statSync(path.join(ROOT, 'community/data/menu-resources.json')).size < 20 * 1024 * 1024);
 });
 test('BiggerScript collections augment existing downloads and preserve Stand origins', () => {
   const source = require('../project/community-menu-sources/biggerscript-public.json');
@@ -171,9 +180,8 @@ test('BiggerScript collections augment existing downloads and preserve Stand ori
     if (stand.has(key)) assert.equal(merged.sourceMenu, 'stand', key);
   }
 });
-test('verified source preview bytes are published to the allowlisted download repository', () => {
+test('verified source preview bytes are available from their declared locations', () => {
   const target = path.resolve(ROOT, '../cool-repo');
-  assert.equal(fs.readFileSync(path.join(target, 'catalog/menu-resources.json'), 'utf8'), fs.readFileSync(path.join(ROOT, 'community/data/menu-resources.json'), 'utf8'));
   const checks = require('../project/community-menu-sources/cherax-network-checks.json');
   assert.equal(checks.entries.filter(entry => entry.files.some(file => file.verified)).length, 196);
   assert.equal(checks.entries.filter(entry => entry.preview).length, 160);

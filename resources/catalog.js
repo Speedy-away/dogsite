@@ -851,8 +851,10 @@ function showChangelog(entry) {
 
 function resourceImageGallery(entry) {
   const base = safeURL(entry.imageBaseUrl);
-  const paths = entry.imagePaths;
-  if (!base || !paths?.length) return null;
+  const urls = Array.isArray(entry.imageUrls) ? entry.imageUrls.map(url => safeURL(url)).filter(Boolean) : [];
+  const paths = Array.isArray(entry.imagePaths) && base ? entry.imagePaths : [];
+  const images = urls.length ? urls : paths.map(file => safeURL(file.split('/').map(encodeURIComponent).join('/'), base)).filter(Boolean);
+  if (!images.length) return null;
 
   const imageLabel = entry.category === 'themes' ? 'theme image' : 'preview image';
   const galleryLabel = imageLabel[0].toUpperCase() + imageLabel.slice(1) + 's';
@@ -868,9 +870,9 @@ function resourceImageGallery(entry) {
   const caption = node('div', null, 'theme-gallery-caption');
   const counter = node('span');
   counter.setAttribute('role', 'status');
-  const original = link('Open original ↗', base, true);
+  const original = link('Open original ↗', images[0], true);
   frame.append(media);
-  if (paths.length > 1) {
+  if (images.length > 1) {
     frame.append(previous, next);
     caption.append(counter);
   }
@@ -879,25 +881,25 @@ function resourceImageGallery(entry) {
 
   let index = 0;
   function selectImage(target) {
-    if (target < 0 || target >= paths.length) return;
+    if (target < 0 || target >= images.length) return;
     index = target;
     const file = paths[index];
-    const url = safeURL(file.split('/').map(encodeURIComponent).join('/'), base);
+    const url = images[index];
     const focused = document.activeElement;
     previous.disabled = index === 0;
-    next.disabled = index === paths.length - 1;
+    next.disabled = index === images.length - 1;
     if (focused === previous && previous.disabled) next.focus({ preventScroll: true });
     if (focused === next && next.disabled) previous.focus({ preventScroll: true });
-    counter.textContent = `Image ${index + 1} of ${paths.length}`;
+    counter.textContent = `Image ${index + 1} of ${images.length}`;
     original.href = url;
-    const label = entry.category === 'themes' ? file : `Image ${index + 1}`;
+    const label = entry.category === 'themes' && file ? file : `Image ${index + 1}`;
     media.replaceChildren(image(url, `${entry.name} — ${label}`, true));
   }
 
   previous.onclick = () => selectImage(index - 1);
   next.onclick = () => selectImage(index + 1);
   gallery.onkeydown = event => {
-    if (paths.length < 2 || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    if (images.length < 2 || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
     event.preventDefault();
     selectImage(index + (event.key === 'ArrowLeft' ? -1 : 1));
   };
@@ -942,7 +944,7 @@ function showDetails(entry, files) {
   appendUpdateDate(details, entry);
   if (ACCESS_LABELS[entry.access]) details.append(node('span', ACCESS_LABELS[entry.access], 'resource-access'));
   if (entry.description) details.append(node('p', visibleText(entry, entry.description)));
-  const layerNote = menuSystem.presetLoaderNote(entry, state.menu) || menuSystem.cheraxLuaLayerNote(entry);
+  const layerNote = menuSystem.presetLoaderNote(entry, state.menu);
   const compatibilityText = entry.compatibility || (layerNote && entry.requirementLabel);
   if (compatibilityText) details.append(node('p', visibleText(entry, compatibilityText)));
   if (layerNote) details.append(node('p', layerNote, 'preview-compatibility'));
@@ -1010,6 +1012,11 @@ function showDetails(entry, files) {
     details.append(list);
   } else if (petPack && entry.status === 'in-menu') details.append(node('p', 'This pack is generated locally. Check its requirements for the matching build and generation steps.'));
   else if (entry.category !== 'lua' || !cheraxPreview(entry)) details.append(node('p', entry.status === 'in-menu' ? entry.category === 'themes' ? 'This style is included with Scooby. Follow the guide to select the interface and its built-in appearance.' : entry.game === 'cs2' ? 'This item is included in Scooby’s model selector. Follow the guide to select it in the menu.' : 'This item is included with Scooby. Follow the guide to find it in the menu.' : entry.status === 'workshop' ? 'This repository entry is documented in the installation guide. A downloadable package is not available here.' : 'A download is not available for this item.'));
+  if (safeURL(entry.assetsUrl)) {
+    const assets = link('Assets ↓', safeURL(entry.assetsUrl), true);
+    assets.className = 'external-primary';
+    details.append(assets);
+  }
   const tags = node('section', null, 'preview-tags');
   tags.append(node('h3', 'Tags'));
   const chips = node('ul');
@@ -1103,7 +1110,7 @@ async function card(entry) {
     info.append(node('p', visibleText(entry, entry.requirementLabel || `Requires ${menuName(sourceMenu)} format`), 'compatibility-note'));
   }
   if (entry.description) info.append(node('p', visibleText(entry, entry.description), 'description'));
-  const layerNote = menuSystem.presetLoaderNote(entry, state.menu) || menuSystem.cheraxLuaLayerNote(entry);
+  const layerNote = menuSystem.presetLoaderNote(entry, state.menu);
   if (layerNote) info.append(node('p', layerNote, 'compatibility-note'));
   if (entry.requirementLabel && (sourceMenu === 'nenyoo' && entry.category === 'lua' || hasFiveMSetupNotes(entry) || entry.game === 'l4d' || (entry.game === 'cs2' && ['skyboxes', 'textures'].includes(entry.category)))) {
     info.append(node('p', entry.requirementLabel, 'compatibility-note'));
@@ -1145,8 +1152,13 @@ async function card(entry) {
     details.onclick = () => showDetails(entry, files);
     actions.append(details);
   }
-  if (entry.imagePaths?.length) {
-    const images = node('button', `Images (${entry.imagePaths.length})`);
+  if (safeURL(entry.assetsUrl)) {
+    const assets = link('Assets ↓', safeURL(entry.assetsUrl), true);
+    assets.className = 'external-primary';
+    actions.append(assets);
+  }
+  if (entry.imagePaths?.length || entry.imageUrls?.length) {
+    const images = node('button', `Images (${entry.imageUrls?.length || entry.imagePaths.length})`);
     images.type = 'button';
     images.onclick = () => showDetails(entry, files);
     actions.append(images);

@@ -1,0 +1,81 @@
+{
+  "items": [
+    {
+      "id": "cherax-lua-thread-1495404109904482315",
+      "status": "download",
+      "downloadStatus": "available",
+      "files": [
+        {
+          "url": "https://github.com/themilkman554/BiggerScript/archive/refs/heads/BiggestScript.zip",
+          "name": "BiggerScript.zip",
+          "downloadMethod": "direct"
+        }
+      ],
+      "assetsUrl": "https://github.com/themilkman554/BiggerScriptAssests/archive/refs/heads/main.zip",
+      "preview": "/assets/images/resource-previews/cherax/biggerscript.webp",
+      "previewVerified": true
+    },
+    {
+      "id": "cherax-lua-thread-1495404915508645928",
+      "status": "download",
+      "downloadStatus": "available",
+      "files": [
+        {
+          "url": "https://github.com/themilkman554/ImpulseLua/archive/refs/heads/main.zip",
+          "name": "ImpulseLua.zip",
+          "downloadMethod": "direct"
+        }
+      ],
+      "assetsUrl": "https://github.com/themilkman554/Impulse/archive/refs/heads/main.zip",
+      "preview": "/assets/images/resource-previews/cherax/impulse-lua.webp",
+      "previewVerified": true
+    },
+    {
+      "id": "cherax-lua-thread-1495405700044816475",
+      "status": "download",
+      "downloadStatus": "available",
+      "files": [
+        {
+          "url": "https://github.com/themilkman554/2take1/archive/refs/heads/main.zip",
+          "name": "2take1.zip",
+          "downloadMethod": "direct"
+        }
+      ],
+      "assetsUrl": "https://github.com/themilkman554/2take1-Assests/archive/refs/heads/main.zip"
+    },
+    {
+      "id": "cherax-lua-fivem-loader",
+      "game": "gta5",
+      "category": "lua",
+      "name": "FiveM Lua Loader",
+      "description": "A Lua loader for the Cherax host.",
+      "sourceMenu": "cherax",
+      "supportedMenus": [
+        "cherax"
+      ],
+      "listedMenus": [
+        "cherax"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "credits": "themilkman554",
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "status": "download",
+      "downloadStatus": "available",
+      "files": [
+        {
+          "url": "https://github.com/themilkman554/Fivem-lua-loader/archive/refs/heads/main.zip",
+          "name": "Fivem-lua-loader.zip",
+          "downloadMethod": "direct"
+        }
+      ],
+      "preview": "/assets/images/resource-previews/cherax/fivem-loader.webp",
+      "previewVerified": true,
+      "tags": [
+        "Cherax",
+        "FiveM",
+        "Lua loader"
+      ]
+    }
+  ]
+}

@@ -92,6 +92,9 @@ function build(manifestPath, repo) {
     if (entry.category === 'lua') Object.assign(normalized, { files: [], status: 'pending', downloadStatus: 'pending', downloadLabel: 'Download unavailable' });
     items.set(entry.id, normalized);
   }
+  for (const update of siteData('project/community-menu-sources/cherax-user-updates.json').items) {
+    items.set(update.id, { ...items.get(update.id), ...update });
+  }
   const libraryIds = new Set(siteData('community/data/library.json').items.map(entry => entry.id));
   const libraryOverrides = manifest.libraryOverrides.map(entry => {
     if (!libraryIds.has(entry.id)) throw Error(`Missing Cherax library record: ${entry.id}`);

@@ -205,11 +205,14 @@
         if (!original && !entry.category && requireCategory) continue;
         const next = { ...original, ...entry };
         if (entry.files && !original?.files?.some(file => file.url?.startsWith('/assets/downloads/cherax/'))) {
-          next.files = entry.files.map(file => ({ ...file, url: assetURL(file.path), downloadMethod: 'named' })).filter(file => file.url);
+          next.files = entry.files.map(file => {
+            const external = /^https:\/\/github\.com\/themilkman554\/[\w-]+\/archive\/refs\/heads\/[\w-]+\.zip$/.test(file.url || '');
+            return external ? file : { ...file, url: assetURL(file.path), downloadMethod: 'named' };
+          }).filter(file => file.url);
         } else if (entry.files) {
           for (const key of ['files', 'status', 'downloadStatus']) next[key] = original[key];
         }
-        if (entry.preview) next.preview = assetURL(entry.preview);
+        if (entry.preview) next.preview = /^\/assets\/images\/resource-previews\/cherax\/[\w.-]+\.webp$/.test(entry.preview) ? entry.preview : assetURL(entry.preview);
         if (original?.preview?.startsWith?.('/assets/images/resource-previews/cherax/')) {
           for (const key of ['preview', 'previewVerified', 'previewKind', 'previewCaption']) next[key] = original[key];
         }

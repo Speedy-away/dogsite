@@ -97,7 +97,9 @@ async function refresh() {
   }
   if (items.filter(item => item.category === 'addon-vehicles' && !item.reviewed).length < 300) throw Error('Expected at least 300 new vehicle addons');
   const dates = new Map((previous.items || []).filter(item => item.releaseDate).map(item => [item.sourceUrl, item]));
+  const galleries = new Map((previous.items || []).filter(item => item.imageUrls?.length).map(item => [item.sourceUrl, item.imageUrls]));
   for (const item of items) {
+    if (galleries.has(item.sourceUrl)) item.imageUrls = galleries.get(item.sourceUrl);
     const prior = dates.get(item.sourceUrl);
     if (!item.editionSupport && prior && prior.version === item.version) {
       Object.assign(item, { editionSupport: prior.editionSupport, editionSource: prior.editionSource, releaseDate: prior.releaseDate });
@@ -107,6 +109,38 @@ async function refresh() {
   recordResourceAdditions(catalog, previous);
   writeCatalog(catalog);
   console.log(`Wrote ${items.length} author-hosted addons.`);
+}
+
+function galleryImages(html) {
+  const urls = [];
+  for (const match of html.matchAll(/<a\b[^>]*\bclass=["'][^"']*\bmfp-image\b[^"']*["'][^>]*>/gi)) {
+    const href = match[0].match(/\bhref=["']([^"']+)["']/i)?.[1];
+    if (!href) continue;
+    try {
+      const url = new URL(href.replace(/&amp;/g, '&'));
+      if (url.protocol === 'https:' && url.hostname === 'img.gta5-mods.com' && /\/images\/.+\.(?:jpe?g|png|webp)$/i.test(url.pathname)) urls.push(url.href);
+    } catch { /* Ignore malformed media URLs. */ }
+  }
+  return [...new Set(urls)];
+}
+
+async function collectVehicleGalleries(limit = 40) {
+  const catalog = JSON.parse(fs.readFileSync(output, 'utf8'));
+  const candidates = catalog.items.filter(item => item.category === 'addon-vehicles' && item.sourceUrl?.startsWith(`${origin}/vehicles/`) && !item.imageUrls?.length);
+  candidates.sort((a, b) => Number(Boolean(b.reviewed)) - Number(Boolean(a.reviewed)));
+  let updated = 0;
+  for (const item of candidates.slice(0, limit)) {
+    try {
+      const images = galleryImages(await readPage(item.sourceUrl));
+      if (images.length > 1) { item.imageUrls = images; updated++; }
+    } catch (error) {
+      console.warn(`${item.name}: ${error.message}`);
+      if ([403, 429].includes(error.status)) break;
+    }
+    await pause(350);
+  }
+  writeCatalog(catalog);
+  console.log(`Added image galleries to ${updated} vehicle listings.`);
 }
 
 async function reviewEditions() {
@@ -137,8 +171,8 @@ async function reviewEditions() {
 }
 
 if (require.main === module) {
-  (process.argv.includes('--review-editions') ? reviewEditions() : refresh())
+  (process.argv.includes('--collect-galleries') ? collectVehicleGalleries() : process.argv.includes('--review-editions') ? reviewEditions() : refresh())
     .catch(error => { console.error(error.message); process.exitCode = 1; });
 }
 
-module.exports = { editionFor };
+module.exports = { editionFor, galleryImages };

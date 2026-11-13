@@ -69,11 +69,6 @@
             object-fit: contain;
             background: #101116;
         }
-        .screenshot-caption {
-            display: block;
-            padding: 0.45rem 0.65rem;
-            font-size: 0.85rem;
-        }
         .screenshot-note { margin-top: 0.8rem; font-size: 0.85rem; }
         #lightbox { max-width: none; max-height: none; margin: 0; border: 0; color: white; flex-direction: column; gap: 0.75rem; }
         #lightbox[open] { display: flex; }
@@ -299,31 +294,27 @@
                 <div class="screenshot-gallery">
                     <a class="screenshot-item main" href="/assets/images/previews/cs2/cs2-custom-player-model-library.jpg" aria-label="Enlarge Custom player model library">
                         <img fetchpriority="high" decoding="async" src="/assets/images/previews/cs2/cs2-custom-player-model-library-preview.jpg" alt="Scooby CS2 Custom Models Library with a clone trooper player model equipped and a custom enemy model in Aim Botz" width="1290" height="540">
-                        <span class="screenshot-caption">Custom player model library</span>
                     </a>
                     <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-custom-ssg-08-model.jpg" aria-label="Enlarge Custom SSG 08 model">
                         <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-custom-ssg-08-model-preview.jpg" alt="Blue and gold custom SSG 08 model held in first person on Aim Botz" width="860" height="360">
-                        <span class="screenshot-caption">Custom SSG 08 model</span>
                     </a>
                     <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-custom-pickaxe-knife-model.jpg" aria-label="Enlarge Voxel pickaxe knife model">
                         <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-custom-pickaxe-knife-model-preview.jpg" alt="Voxel pickaxe replacing the Huntsman Knife in first person on Aim Botz" width="860" height="360">
-                        <span class="screenshot-caption">Voxel pickaxe knife model</span>
                     </a>
                     <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-custom-flashbang-model.jpg" aria-label="Enlarge Mita flashbang model">
                         <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-custom-flashbang-model-preview.jpg" alt="Mita character model replacing the held flashbang on Aim Botz" width="860" height="360">
-                        <span class="screenshot-caption">Mita flashbang model</span>
                     </a>
                     <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-chams-20261010.webp" aria-label="Enlarge Chams and player preview">
                         <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-chams-20261010-preview.webp" alt="Scooby CS2 chams settings with red lightning player materials, a live character preview and gameplay overlays" width="960" height="600">
-                        <span class="screenshot-caption">Chams and player preview</span>
                     </a>
-                    <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-inventory-20261010.webp" aria-label="Enlarge Skins and local inventory">
-                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-inventory-20261010-preview.webp" alt="Scooby CS2 inventory loadout with an agent preview, weapon skins, knife, gloves and equipment" width="960" height="600">
-                        <span class="screenshot-caption">Skins and local inventory</span>
+                    <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-inventory-20261112.png" aria-label="Enlarge Skins and local inventory">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-inventory-20261112.png" alt="Scooby CS2 inventory loadout with a SWAT agent and a grid of weapon skins" width="1615" height="1068">
                     </a>
                     <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-world-presets-20261010.webp" aria-label="Enlarge World presets">
                         <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-world-presets-20261010-preview.webp" alt="Scooby CS2 world presets with map-specific looks, sky and fog controls, and an ember-colored sky" width="960" height="600">
-                        <span class="screenshot-caption">World presets</span>
+                    </a>
+                    <a class="screenshot-item" href="/assets/images/previews/cs2/cs2-main-menu-loadout.webp" aria-label="Enlarge Main menu loadout">
+                        <img loading="lazy" decoding="async" src="/assets/images/previews/cs2/cs2-main-menu-loadout.webp" alt="CS2 main menu showing a white-suited agent holding a brightly colored custom weapon model" width="1280" height="720">
                     </a>
                 </div>
                 <p class="screenshot-note">The model screenshots were taken in Aim Botz. Select any screenshot to view it full size.</p>
@@ -520,7 +511,7 @@
             const link = galleryLinks[currentIndex];
             lightboxImage.src = link.href;
             lightboxImage.alt = link.querySelector('img').alt;
-            const caption = link.querySelector('.screenshot-caption').textContent;
+            const caption = link.getAttribute('aria-label').replace(/^Enlarge /, '');
             lightboxCaption.textContent = (currentIndex + 1) + ' / ' + galleryLinks.length + ' · ' + caption;
         }
         galleryLinks.forEach((link, index) => {
