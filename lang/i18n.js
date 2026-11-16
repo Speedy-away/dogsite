@@ -99,6 +99,8 @@
     { code: 'pa-pk', label: 'PK', native: 'پنجابی (شاہ مکھی)', tag: 'pa-Arab', rtl: true, flag: 'pk' }
   ];
   var CODES = LANGS.map(function (l) { return l.code; });
+  // Keep existing language URLs usable while shortening the picker.
+  var PICKER_LANGS = LANGS.filter(function (l) { return l.flag !== 'in' || l.code === 'hi'; });
 
   // Resolve dictionaries and flags from this script's own URL so the code works
   // at any directory depth, and over file:// as well as http://.
@@ -573,7 +575,7 @@
     var empty = menu.querySelector('.i18n-no-results');
     var choices = [];
 
-    LANGS.forEach(function (l) {
+    PICKER_LANGS.forEach(function (l) {
       var li = document.createElement('li');
       li.setAttribute('role', 'presentation');
       var btn = document.createElement('button');
@@ -853,7 +855,7 @@
     var count = box.querySelector('[role="status"]');
     var search = box.querySelector('input');
     var choices = [];
-    LANGS.forEach(function (l) {
+    PICKER_LANGS.forEach(function (l) {
       var isSuggested = l.code === suggested && suggested !== DEFAULT_LANG;
       var englishName = englishNames.of(l.tag || l.code);
       var button = document.createElement('button');
