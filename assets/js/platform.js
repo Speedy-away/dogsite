@@ -1,8 +1,13 @@
 (() => {
   'use strict';
   const key = 'scooby.platform';
+  const visitKey = 'scooby.platform.homeVisited';
   const save = value => { try { localStorage.setItem(key, value); } catch (_) {} };
-  document.querySelectorAll('[data-platform-choice]').forEach(link => link.addEventListener('click', () => save(link.dataset.platformChoice)));
+  const markHomeVisited = () => { try { sessionStorage.setItem(visitKey, '1'); } catch (_) {} };
+  document.querySelectorAll('[data-platform-choice]').forEach(link => link.addEventListener('click', () => {
+    save(link.dataset.platformChoice);
+    markHomeVisited();
+  }));
   const tabs = document.querySelectorAll('[data-download-platform]');
   function selectDownload(platform) {
     tabs.forEach(tab => {
@@ -31,8 +36,13 @@
   }
   const home = location.pathname === '/' || location.pathname === '/index.html' || /^\/lang\/[^/]+\/(?:index.html)?$/.test(location.pathname);
   if (!home) return;
-  let selected; try { selected = localStorage.getItem(key); } catch (_) {}
-  if (selected && location.hash !== '#platform') return;
+  let homeVisited = false;
+  try { homeVisited = sessionStorage.getItem(visitKey) === '1'; } catch (_) {}
+  const fromSite = document.referrer && new URL(document.referrer).origin === location.origin;
+  if (location.hash !== '#platform' && (homeVisited || fromSite)) {
+    markHomeVisited();
+    return;
+  }
   const dialog = document.createElement('dialog');
   dialog.className = 'platform-dialog';
   dialog.setAttribute('aria-labelledby', 'platform-heading');
@@ -56,6 +66,7 @@
     previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     dialog.showModal();
+    markHomeVisited();
   };
   setTimeout(open, 500);
 })();

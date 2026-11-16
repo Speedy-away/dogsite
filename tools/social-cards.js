@@ -82,7 +82,7 @@ const wikiCard = (id, label, lines, subtitle, detail, visual, extra = {}) => ({
  id, label, lines, subtitle, detail, visual, layout:'wiki', version:GUIDE_VERSION,
  accent:'#9aafff', icon:'book', ...extra
 });
-cards.guides = wikiCard('guides','GAME GUIDES',['Your game.','Made simple.'],'Setup, menu controls & fixes.','Pick a game. Follow the guide.','library');
+cards.guides = wikiCard('guides','PC & CONSOLE GUIDES',['Scooby Wiki'],'Setup, menu controls & fixes.','Pick a game. Follow the guide.','library');
 const wikiTopics = {
  help: ['GENERAL HELP',['A clearer path.','A better start.'],'Downloads, accounts & troubleshooting.',['Download help','Account access','Common fixes']],
  loading: ['LOADING GUIDES',['Sign in.','Load. Play.'],'From your first login to the final step.',['Free or Premium','Choose your game','Check completion']],
@@ -109,13 +109,63 @@ for (const slug of wikiGames) {
   'game',{game:slug,steps:slug==='mta-sa'?['Requirements','Testing status','General help']:['Requirements','Loading steps','Menu & fixes']});
 }
 
+const additionalCards = {
+  console: ['Console', 'PlayStation 4 catalog'],
+  'console-gta5': ['GTA 5', 'PlayStation 4 · Coming soon'],
+  'console-rdr2': ['Red Dead Redemption 2', 'PlayStation 4 · Coming soon'],
+  'console-r6': ['Rainbow Six Siege', 'PlayStation 4 · Coming soon'],
+  'console-scooby-manager': ['Scooby Manager', 'PlayStation 4 app · Coming soon'],
+  'console-fortnite': ['Fortnite', 'PlayStation 4 · Coming soon'],
+  'wiki-spoofer': ['Spoofer + Cleaner', 'Access, downloads and support'],
+  'account-portal': ['Account portal', 'Sign in or register'],
+  community: ['Community', 'Scooby community and resources'],
+  'rockstar-classics': ['Rockstar Classics', 'Browse classic games'],
+  'game-gta-sa': ['San Andreas', 'Rockstar Classics'],
+  'game-gta-vc': ['Vice City', 'Rockstar Classics'],
+  'game-gta3': ['GTA III', 'Rockstar Classics'],
+  'game-gta4': ['GTA IV', 'Rockstar Classics'],
+  'game-rdr1': ['Red Dead Redemption', 'Rockstar Classics'],
+};
+for (const [id, [title, subtitle]] of Object.entries(additionalCards)) {
+  cards[id] = { id, label: id.startsWith('console') ? 'SCOOBY CONSOLE' : id.startsWith('wiki') ? 'SCOOBY WIKI' : 'SCOOBY MENU',
+    lines: [title], subtitle, accent: '#c3a8fa' };
+}
+const featureGames = {
+  gta: 'GTA 5', gta4: 'GTA IV', 'gta-sa': 'San Andreas', fivem: 'FiveM',
+  rdr2: 'Red Dead Redemption 2', cs2: 'Counter-Strike 2', gmod: "Garry’s Mod",
+  l4d: 'Left 4 Dead', tf2: 'Team Fortress 2', 'mta-sa': 'Multi Theft Auto',
+  'half-life-1': 'Half-Life', 'last-of-us': 'The Last of Us', megabonk: 'Megabonk',
+};
+const guideGames = {
+  gta5: 'GTA 5', rdr2: 'Red Dead Redemption 2', cs2: 'Counter-Strike 2',
+  fivem: 'FiveM', redm: 'RedM', l4d: 'Left 4 Dead',
+};
+for (const [slug, title] of Object.entries(featureGames)) {
+  const id = 'features-' + slug;
+  cards[id] = { id, label: 'SCOOBY FEATURES', lines: [title], subtitle: 'Feature list', accent: '#a5c6ff' };
+}
+for (const [slug, title] of Object.entries({ ...guideGames, tf2: 'Team Fortress 2' })) {
+  const id = 'docs-' + slug;
+  cards[id] = { id, label: 'SCOOBY DEVELOPER DOCS', lines: [title], subtitle: 'Lua API reference', accent: '#c3a8fa' };
+}
+for (const [slug, title] of Object.entries(guideGames)) {
+  const id = 'resources-guide-' + slug;
+  cards[id] = { id, label: 'SCOOBY RESOURCE GUIDES', lines: [title], subtitle: 'Resource installation and setup', accent: '#96d8bc' };
+}
+for (const card of Object.values(cards)) {
+  card.version = 'brand-v1';
+  card.alt = card.id === 'home' ? 'White Scooby outline on a dark textured background.' :
+    card.label + ': ' + card.lines.join(' ') + ' ' + card.subtitle;
+}
+
 function cardFor(file) {
   file = file.replace(/\\/g, '/');
-  if (file === 'products/mta-sa/index.html') return { ...cards['game-mta-sa'], path: '/assets/images/mta-sa/launch-artwork.png', width: 1672, height: 941, alt: 'Multi Theft Auto logo over Los Santos at sunset. Free and Premium editions in user testing.' };
   let id = 'home';
-  if (file.startsWith('guides/')) {
+  if (file.startsWith('console/')) id = file.startsWith('console/products/') ? 'console-' + file.split('/')[2] : 'console';
+  else if (file.startsWith('guides/')) {
     const parts=file.split('/'), group=parts[1], topic=parts[2];
-    if(group==='general') id='wiki-'+({ 'free-key':'free-key',faq:'antivirus',connection:'connection',crashing:'crashing',hwid:'hwid','linux-mac':'platforms',universal:'troubleshooting' }[topic]||'help');
+    if(group==='spoofer') id='wiki-spoofer';
+    else if(group==='general') id='wiki-'+({ 'free-key':'free-key',faq:'antivirus',connection:'connection',crashing:'crashing',hwid:'hwid','linux-mac':'platforms',universal:'troubleshooting' }[topic]||'help');
     else if(group==='loading')id='wiki-loading';
     else if(group==='gta5'&&topic==='plus-setup')id='wiki-plus';
     else if(group==='gta5'&&topic==='hypervisor-vbs')id='wiki-vbs';
@@ -124,14 +174,22 @@ function cardFor(file) {
   }
   else if (file.startsWith('resources/')) {
     const game = file.split('/')[1];
-    id = file.startsWith('resources/redm/graphics-packs/') ? 'resources-redm-graphics' :
+    const guide = file.startsWith('resources/guides/') && 'resources-guide-' + file.split('/')[2];
+    id = cards[guide] ? guide : file.startsWith('resources/redm/graphics-packs/') ? 'resources-redm-graphics' :
       Object.hasOwn(resourceCovers, 'resources-' + game) ? 'resources-' + game : 'resources';
   }
-  else if (/^(docs|api)\//.test(file)) id = 'docs';
-  else if (/^(features-list|fivem-features|scooby-features)\//.test(file)) id = 'features';
+  else if (/^(docs|api)\//.test(file)) {
+    const section = file.split('/')[1].replace(/_api_reference\.html$/, '');
+    id = cards['docs-' + section] ? 'docs-' + section : 'docs';
+  }
+  else if (/^(features-list|fivem-features|scooby-features)\//.test(file)) {
+    const slug = file.startsWith('fivem-features/') ? 'fivem' : file.split('/')[1].replace(/-features$/, '');
+    id = cards['features-' + slug] ? 'features-' + slug : 'features';
+  }
   else if (file === 'products/free/index.html' || file === 'freekey.html') id = 'free';
   else if (file.startsWith('products/')) id = 'game-' + file.split('/')[1];
-  else id = { store: 'store', 'source-games': 'source', 'more-games': 'more-games', changelog: 'changelog', download: 'download',
+  else if (/^rockstar-classics\/(gta-sa|gta-vc|gta3|gta4|rdr1)\//.test(file)) id = 'game-' + file.split('/')[1];
+  else id = { portal: 'account-portal', community: 'community', 'rockstar-classics': 'rockstar-classics', store: 'store', 'source-games': 'source', 'more-games': 'more-games', changelog: 'changelog', download: 'download',
     videos: 'videos', resellers: 'resellers', sitemap: 'directory', 'best-mod-menu': 'compare', tos: 'terms' }[file.split('/')[0]] || id;
   if (!cards[id]) throw new Error('Missing social card for ' + file);
   return { ...cards[id], path: `/assets/images/social/${id}-${cards[id].version || VERSION}.png`, width: WIDTH, height: HEIGHT,

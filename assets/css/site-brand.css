@@ -1,4 +1,4 @@
-/* Shared Christmas branding. */
+/* Shared Scooby header mark. */
 .scooby-brand {
     display: inline-flex;
     align-items: center;
@@ -12,9 +12,9 @@
     background-clip: border-box !important;
     -webkit-background-clip: border-box !important;
     flex: 0 0 auto;
-    width: 36px;
-    height: 42px;
-    background: url('/assets/images/brand/scooby-logo-xmas-hats-transparent.gif') center / contain no-repeat !important;
+    width: 29px;
+    height: 36px;
+    background: url('/assets/images/brand/scooby-mark.svg') center / contain no-repeat !important;
     -webkit-mask-image: none;
     mask-image: none;
     mask-mode: alpha;
@@ -29,7 +29,7 @@
 .scooby-brand .brand-name { line-height: 1.1; }
 @media (max-width: 600px) {
     .scooby-brand { gap: 7px; }
-    .scooby-brand > .scooby-emblem { width: 29px; height: 34px; }
+    .scooby-brand > .scooby-emblem { width: 24px; height: 30px; }
 }
 .catalog-card .catalog-art { border-bottom: 0; }
 
@@ -62,8 +62,5 @@ body::after {
     to { transform: translate3d(var(--snow-x, 380px), var(--snow-y, 240px), 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-    .scooby-brand > .scooby-emblem {
-        background-image: url('/assets/images/brand/scooby-logo-xmas-transparent.png') !important;
-    }
     body::before, body::after { display: none; }
 }

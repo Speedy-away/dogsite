@@ -1,6 +1,7 @@
 /* Keep static headers and browser icons aligned with the supplied Scooby mark. */
 const fs = require('fs'), path = require('path');
 const { BRAND_LOGO } = require('./social-logos');
+const ICON = '/assets/images/brand/scooby-favicon.svg';
 const STYLE = '/assets/css/site-brand.css';
 const EMBLEM = '<span class="scooby-emblem" aria-hidden="true"></span>';
 function applyBranding(html) {
@@ -25,10 +26,10 @@ function applyBranding(html) {
     if (icon) return '';
     icon = true;
     if (/\sdata-game-icon(?:\s|>)/i.test(tag)) return tag;
-    return `<link rel="icon" type="image/png" href="${BRAND_LOGO}">`;
+    return `<link rel="icon" type="image/svg+xml" sizes="any" href="${ICON}">`;
   });
   const nl = result.includes('\r\n') ? '\r\n' : '\n';
-  if (!icon) result = result.replace(/<\/head>/i, `<link rel="icon" type="image/png" href="${BRAND_LOGO}">${nl}</head>`);
+  if (!icon) result = result.replace(/<\/head>/i, `<link rel="icon" type="image/svg+xml" sizes="any" href="${ICON}">${nl}</head>`);
   result = result.replace(/<link\b[^>]*href=["']\/assets\/css\/site-brand\.css["'][^>]*>(?:\r?\n)?/gi, '');
   result = result.replace(/(<title\b[^>]*>[\s\S]*?<\/title>)(?:\r?\n)?/i, (_, title) => title + nl + '<link rel="stylesheet" href="' + STYLE + '">' + nl);
   return result;
