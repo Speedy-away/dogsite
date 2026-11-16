@@ -1,0 +1,21 @@
+.catalog-platform-selector{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 28px;padding:6px;width:fit-content;border:1px solid #30333d;border-radius:12px;background:#111319}
+.catalog-platform-selector button{padding:11px 24px;border:1px solid transparent;border-radius:8px;background:transparent;color:#afb7c6;font-family:inherit;font-size:14px;font-weight:600;line-height:1.4;cursor:pointer;transition:background .2s,color .2s}
+.catalog-platform-selector button[aria-pressed=true]{background:#29374b;color:#fff;border-color:#4d6487}
+.catalog-platform-selector button[data-catalog-platform=console][aria-pressed=true]{background:#382c4c;border-color:#8263aa;color:#e3ceff}
+.catalog-platform-selector button:focus-visible{outline:2px solid #c8a8f5;outline-offset:3px}
+[data-platform-view][hidden]{display:none!important}
+.console-catalog-view h1{font-size:clamp(30px,4vw,48px);line-height:1.15;letter-spacing:-.035em;margin:12px 0 16px;color:#f3edff}
+.console-catalog-view>p{color:#b4b6c3;line-height:1.8;margin-bottom:28px}
+.console-platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.console-platform-card{position:relative;overflow:hidden;border:1px solid #30303d;border-radius:14px;background:#12141a;color:#f2f1f7;text-decoration:none;transition:border-color .2s,transform .2s}
+a.console-platform-card:hover{border-color:#b697e0;transform:translateY(-3px)}
+.console-platform-card img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#181c25;display:block;padding:20px;box-sizing:border-box}
+.console-platform-card h2{font-size:18px;line-height:1.4;margin:20px}
+.console-platform-status{display:block;color:#dbc2fb;font-size:12px;font-weight:600;margin:0 20px 20px}
+.console-catalog-view h2.console-app-heading{margin:36px 0 20px;font-size:24px}
+@media(max-width:700px){.console-platform-grid{grid-template-columns:1fr}.catalog-platform-selector button{padding:10px 20px}}
+.console-system-selector{display:flex;align-items:center;gap:12px;margin:-10px 0 28px;color:#afb7c6;font-size:13px}.console-system-selector[hidden]{display:none}.console-system-selector select{font:inherit;color:#e3ceff;background:#19151f;border:1px solid #69517f;border-radius:8px;padding:10px 32px 10px 12px}.console-guide-entry{margin:0;cursor:default}.console-guide-entry[hidden]{display:none!important}
+
+.wiki-extra-directory{margin:36px 0}.wiki-extra-directory>h2{font-size:24px;margin:0 0 18px}.wiki-extra-directory .guide-game-link{margin:0}#console-wiki-apps[hidden]{display:none!important}
+
+@media(max-width:600px){.catalog-platform-selector{max-width:100%;box-sizing:border-box}.catalog-platform-selector button{min-height:44px;touch-action:manipulation}.console-system-selector select{min-height:44px;max-width:100%;font-size:16px}.console-system-selector{flex-wrap:wrap}.guide-game-input input{font-size:16px}}

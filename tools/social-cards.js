@@ -51,6 +51,9 @@ const games = {
 };
 const cards = Object.fromEntries(Object.entries(sections).map(([id, [label, lines, subtitle, detail, accent, icon]]) =>
   [id, { id, label, lines, subtitle, detail, accent, icon }]));
+// Homepage previews use a quiet brand image; keep other sections on their own revisions.
+Object.assign(cards.home, { layout: 'brand', version: 'v3',
+  alt: 'White Scooby dog outline centered on a subtly textured black background.' });
 for (const [slug, [first, second, accent]] of Object.entries(games)) {
   const id = 'game-' + slug;
   cards[id] = { id, label: 'SCOOBY GAMES & TOOLS', lines: [first, second].filter(Boolean),
@@ -132,7 +135,7 @@ function cardFor(file) {
     videos: 'videos', resellers: 'resellers', sitemap: 'directory', 'best-mod-menu': 'compare', tos: 'terms' }[file.split('/')[0]] || id;
   if (!cards[id]) throw new Error('Missing social card for ' + file);
   return { ...cards[id], path: `/assets/images/social/${id}-${cards[id].version || VERSION}.png`, width: WIDTH, height: HEIGHT,
-    alt: `${cards[id].label}: ${cards[id].lines.join(' ')} ${cards[id].subtitle}.` };
+    alt: cards[id].alt || `${cards[id].label}: ${cards[id].lines.join(' ')} ${cards[id].subtitle}.` };
 }
 
 module.exports = { cards, cardFor, VERSION, GUIDE_VERSION, WIDTH, HEIGHT };

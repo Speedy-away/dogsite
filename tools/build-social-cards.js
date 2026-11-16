@@ -34,7 +34,25 @@ function assetUrl(file) {
 function logoImage(logo) {
   return '<img class="game-logo' + (logo.white ? ' game-logo--white' : '') + '" src="' + assetUrl(logo.src) + '" alt="' + escape(logo.alt) + '">';
 }
+function renderHomeCard(card) {
+  const grain = '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".88" numOctaves="3" stitchTiles="stitch" seed="14"/></filter><path fill="#fff" filter="url(#grain)" d="M0 0h240v240H0z"/></svg>';
+  const texture = 'data:image/svg+xml;base64,' + Buffer.from(grain).toString('base64');
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
+    *{box-sizing:border-box}html,body{margin:0;width:${WIDTH}px;height:${HEIGHT}px;overflow:hidden}
+    body{background:#020304}
+    .brand-card{position:relative;isolation:isolate;width:100%;height:100%;display:grid;place-items:center;
+      background:radial-gradient(ellipse 18% 35% at 7% 14%,#181c22aa,transparent),
+        radial-gradient(ellipse 24% 46% at 54% 82%,#141820b0,transparent),
+        radial-gradient(ellipse 24% 38% at 95% 39%,#171b22a0,transparent),#020304}
+    .brand-card:before{content:'';position:absolute;inset:0;z-index:-1;opacity:.065;background-image:url("${texture}")}
+    .brand-card:after{content:'';position:absolute;inset:0;z-index:-1;opacity:.16;
+      background-image:repeating-linear-gradient(90deg,#0008 0 1px,transparent 1px 3px),
+        repeating-linear-gradient(0deg,#0008 0 1px,transparent 1px 3px)}
+    .brand-mark{display:block;width:380px;height:380px;object-fit:contain;transform:translate(19px,12px);mix-blend-mode:screen}
+  </style></head><body><main class="brand-card"><img class="brand-mark" src="${assetUrl('/assets/images/brand/scooby-logo-orginal.png')}" alt="${escape(card.alt)}"></main></body></html>`;
+}
 function render(card) {
+  if (card.layout === 'brand') return renderHomeCard(card);
   if (card.layout === 'wiki') return renderWikiCard(card);
   const logos = logosFor(card);
   const collage = logos.length > 2;
@@ -79,12 +97,14 @@ function render(card) {
 }
 
 async function main() {
-  buildBrandMask();
+  // The homepage uses the original, nonseasonal mark and needs no UI-mask rebuild.
+  if (!process.argv.includes('--home-only')) buildBrandMask();
   fs.mkdirSync(OUT, { recursive: true });
   const browser = await chromium.launch({ channel: process.env.SOCIAL_CARD_BROWSER || 'msedge', headless: true });
   try {
     const page = await browser.newPage({ viewport: { width: WIDTH, height: HEIGHT }, deviceScaleFactor: 1 });
     const selected = Object.values(cards).filter(card => (!process.argv.includes('--wiki-only') || card.layout === 'wiki') &&
+      (!process.argv.includes('--home-only') || card.id === 'home') &&
       (!process.argv.includes('--resources-only') || /^resources(?:-|$)/.test(card.id)));
     for (const card of selected) {
       await page.setContent(render(card));

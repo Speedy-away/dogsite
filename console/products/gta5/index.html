@@ -1,0 +1,219 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GTA 5 Console Cheats &amp; Mod Menu — Scooby PS4</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Preview Scooby GTA 5 Console for PlayStation 4. Purchase and free-key access, screenshots, showcase and product details are coming soon."><link rel="icon" type="image/png" href="/assets/images/brand/scooby-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/product.css">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+<link rel="stylesheet" href="/assets/css/free-key-modal.css">
+<link rel="stylesheet" href="/assets/css/product-layout.css">
+<link rel="stylesheet" href="/assets/css/plan-chooser.css">
+<link rel="stylesheet" href="/assets/css/product-artwork.css">
+<link rel="stylesheet" href="/assets/css/gta5-editions.css">
+<link rel="stylesheet" href="/assets/css/product-status.css"><style>
+        .freekey-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .freekey-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .freekey-modal {
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+            border: 1px solid rgba(79, 142, 245, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(79, 142, 245, 0.15);
+        }
+        .freekey-modal-overlay.active .freekey-modal {
+            transform: scale(1);
+        }
+        .freekey-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .freekey-modal-close:hover {
+            background: rgba(255, 0, 110, 0.3);
+            color: white;
+        }
+        .freekey-countdown {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 142, 245, 0.2) 0%, rgba(37, 99, 235, 0.2) 100%);
+            border: 3px solid #4f8ef5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #4f8ef5;
+            box-shadow: 0 0 30px rgba(79, 142, 245, 0.3);
+        }
+        .freekey-modal h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #4f8ef5;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .freekey-steps {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+        }
+        .freekey-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .freekey-step:last-child {
+            border-bottom: none;
+        }
+        .freekey-step-num {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: linear-gradient(135deg, #4f8ef5, #2563eb);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+        .freekey-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #4f8ef5, #2563eb);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(79, 142, 245, 0.3);
+            margin-bottom: 20px;
+        }
+        .freekey-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(79, 142, 245, 0.5);
+        }
+        .freekey-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .freekey-tip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #ffc107;
+            font-size: 0.85rem;
+        }
+        .freekey-tip svg {
+            flex-shrink: 0;
+        }
+    </style><link rel="stylesheet" href="/console/assets/css/console-product.css"><script src="/assets/js/product-layout.js" defer></script><script src="/console/assets/js/console-product.js" defer></script><link rel="stylesheet" href="/assets/css/footer.css"><meta name="keywords" content="Scooby Menu, GTA 5 Console, GTA V PS4, GTA 5 PlayStation 4, Scooby GTA 5 Console, GTA 5 mod menu, coming soon">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="GTA 5 Console Cheats &amp; Mod Menu — Scooby PS4">
+<meta property="og:description" content="Preview Scooby GTA 5 Console for PlayStation 4. Purchase and free-key access, screenshots, showcase and product details are coming soon.">
+<meta property="og:url" content="https://scoobymenu.cc/console/products/gta5/">
+<meta name="twitter:title" content="GTA 5 Console Cheats &amp; Mod Menu — Scooby PS4">
+<meta name="twitter:description" content="Preview Scooby GTA 5 Console for PlayStation 4. Purchase and free-key access, screenshots, showcase and product details are coming soon.">
+<meta name="twitter:url" content="https://scoobymenu.cc/console/products/gta5/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/home-v3.png">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/home-v3.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="White Scooby dog outline centered on a subtly textured black background.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/home-v3.png">
+<meta name="twitter:image:alt" content="White Scooby dog outline centered on a subtly textured black background.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://scoobymenu.cc/console/products/gta5/">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/console/products/gta5/#webpage",
+      "url": "https://scoobymenu.cc/console/products/gta5/",
+      "name": "GTA 5 Console Cheats & Mod Menu — Scooby PS4",
+      "description": "Preview Scooby GTA 5 Console for PlayStation 4. Purchase and free-key access, screenshots, showcase and product details are coming soon.",
+      "keywords": "Scooby Menu, GTA 5 Console, GTA V PS4, GTA 5 PlayStation 4, Scooby GTA 5 Console, GTA 5 mod menu, coming soon",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head><body class="product-detail console-product-page" data-product-scene="city"><picture class="product-backdrop" aria-hidden="true"><source media="(max-width:767px)" srcset="/assets/images/products/backgrounds/city-960.webp"><img src="/assets/images/products/backgrounds/city.webp" alt="" width="1672" height="941" fetchpriority="high"></picture><a class="product-skip-link" href="#main-content">Skip to content</a><nav class="nav" id="product-nav" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="/console/" class="brand scooby-brand"><span class="scooby-emblem" aria-hidden="true"></span><span class="brand-name">SCOOBY</span></a>
+            <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/console/">Home</a></li><li><a href="/">PC</a></li>
+
+
+                <li><a href="/videos/">Videos</a></li>
+                <li><a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li class="nav-download"><a href="/download/#console" class="btn-nav-primary">Download</a></li>
+            </ul>
+        </div>
+    </nav><main class="main-content" id="main-content"><header class="product-heading"><h1>GTA 5 Cheats &amp; Mod Menu</h1><div class="product-heading-badges"><span class="product-status">Free</span><span class="product-status neutral">Premium</span><span class="product-status pending">Coming soon</span><span class="product-status neutral">PlayStation 4</span></div></header><div class="content-grid"><section class="screenshots-section" aria-labelledby="console-screenshots-title"><div class="product-section-heading"><h2 class="section-title" id="console-screenshots-title">Screenshots</h2><span class="console-placeholder-label">Coming soon</span></div><div class="console-cover"><div class="catalog-art catalog-logo-art catalog-logo-art--gta5"><img src="/assets/images/store/gta5-logo-transparent-card.webp" alt="GTA 5 Cheats &amp; Mod Menu" width="640" height="360"></div></div><div class="console-screenshot-placeholders"><div class="console-media-placeholder">Screenshot coming soon</div><div class="console-media-placeholder">Screenshot coming soon</div></div></section><aside class="sidebar"><div class="purchase-card"><div class="price-display"><div class="price-label">Scooby Console · PlayStation 4</div><div class="price">Coming soon</div><div class="price-note">Purchase and free access</div></div><button class="purchase-btn" data-console-access="Purchase" aria-haspopup="dialog" aria-controls="consoleAccessDialog"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>Purchase Now</button><button class="purchase-btn free-btn" data-console-access="Free" aria-haspopup="dialog" aria-controls="consoleAccessDialog"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4v18h-4M3 12h12m-5-5 5 5-5 5"/></svg>Get Free Key</button><a class="purchase-btn secondary" href="/download/#console">Console downloads</a><a class="purchase-btn secondary" href="/console/#products">All Console products</a></div></aside></div><section class="video-section console-showcase" aria-labelledby="console-showcase-title"><div class="product-section-heading"><h2 class="section-title" id="console-showcase-title">Showcase</h2><span class="console-placeholder-label">Coming soon</span></div><div class="console-media-placeholder console-video-placeholder"><svg viewBox="0 0 48 48" width="48" height="48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.5"/><path d="m20 15 14 9-14 9Z" fill="currentColor"/></svg><p>Console showcase coming soon</p></div></section><section class="description-section" id="product-details" aria-labelledby="console-description-title"><div class="product-section-heading"><div><span class="product-eyebrow">SCOOBY CONSOLE</span><h2 class="section-title" id="console-description-title">Product description</h2></div></div><div class="description-content"><p>Product description coming soon.</p><p>Features, requirements and setup information will be added here before release.</p></div></section></main><footer class="scooby-footer"><div class="scooby-footer-inner"><div class="scooby-footer-grid"><div class="scooby-footer-about"><div class="footer-brand"><span class="brand-name">scooby</span></div><p>The official Scooby website.<br>PC and PlayStation 4 games, apps, guides and support.</p></div><nav class="scooby-footer-col" aria-label="PC products"><h2>PC products</h2><ul><li><a href="/products/gta5/">GTA 5</a></li><li><a href="/products/rdr2/">RDR2</a></li><li><a href="/products/fivem/">FiveM</a></li><li><a href="/products/redm/">RedM</a></li><li><a href="/source-games/">Source Games</a></li><li><a href="/more-games/">More games</a></li><li><a href="/products/spoofer/">Spoofer + Cleaner</a></li><li><a href="/#products">All PC products →</a></li></ul></nav><nav class="scooby-footer-col" aria-label="Console products"><h2>Console products</h2><ul><li><a href="/console/products/gta5/">GTA 5</a></li><li><a href="/console/products/rdr2/">RDR2</a></li><li><a href="/console/products/r6/">Rainbow Six Siege</a></li><li><a href="/console/products/fortnite/">Fortnite</a></li><li><a href="/console/#apps">Scooby Manager</a></li><li><a href="/console/">All Console products →</a></li></ul></nav><nav class="scooby-footer-col" aria-label="Resources"><h2>Resources</h2><ul><li><a href="/store/#console">Store</a></li><li><a href="/download/#console">Downloads</a></li><li><a href="/guides/#console">Scooby Wiki / Guides</a></li><li><a href="/resources/">Resources</a></li><li><a href="/docs/">Developer docs</a></li><li><a href="/sitemap/">Site directory</a></li></ul></nav><nav class="scooby-footer-col" aria-label="Support"><h2>Support</h2><ul><li><a href="/portal/">Login / Register</a></li><li><a href="https://discord.gg/tGtvzChYQq">Discord</a></li><li><a href="https://t.me/ScoobyOnTop">Telegram</a></li><li><a href="/tos/">Terms of Service</a></li></ul></nav></div><div class="scooby-footer-bottom"><p>© 2026 Scooby. All rights reserved.</p><a href="https://whatwhatboy.com/fsl" target="_blank" rel="noopener">FSL License</a></div></div></footer><dialog class="console-access-dialog" id="consoleAccessDialog" aria-labelledby="consoleAccessTitle"><form method="dialog"><button class="console-access-close" aria-label="Close">×</button></form><h2 id="consoleAccessTitle">Coming soon</h2><p id="consoleAccessMessage"></p><a class="purchase-btn secondary" href="/portal/#login">Sign in to your account</a></dialog></body></html>
