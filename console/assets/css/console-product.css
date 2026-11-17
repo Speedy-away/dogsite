@@ -7,10 +7,13 @@
 .console-cover .catalog-logo-art::before{content:"";position:absolute;inset:0;z-index:-1;background-position:center;background-size:cover;filter:brightness(.65)}
 .console-cover .catalog-logo-art--gta5::before{background-image:url('/assets/images/store/gta5-background-sunset.webp')}
 .console-cover .catalog-logo-art--rdr2::before{background-image:url('/assets/images/store/rdr2-background-manor.jpg')}
-.console-access-dialog{width:min(460px,90vw);padding:32px;border:1px solid #34383b;border-radius:16px;background:#101214;color:#f4f5ed}
-.console-access-dialog::backdrop{background:#000b;backdrop-filter:blur(8px)}
-.console-access-dialog h2{margin:0 0 16px;font-size:28px}
-.console-access-dialog p{color:#b5bdb1;line-height:1.8;margin-bottom:24px}
-.console-access-close{position:absolute;right:12px;top:8px;border:0;background:none;color:inherit;font-size:28px;cursor:pointer}
 
 .console-placeholder-label{font-size:12px;color:#b5bdb1}.console-screenshot-placeholders{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.console-media-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;aspect-ratio:16/9;border:1px dashed #444b48;border-radius:10px;background:#14191a;color:#a9b4ae;text-align:center;font-size:13px;padding:16px;box-sizing:border-box}.console-product-page .console-showcase{margin-top:32px}.console-video-placeholder{max-height:480px}.console-video-placeholder p{margin:0}.console-product-page .description-section{margin-top:32px}@media(max-width:600px){.console-screenshot-placeholders{grid-template-columns:1fr}}
+
+.console-banner-ad{box-sizing:border-box;width:100%;min-width:0;margin:40px 0 0;padding:16px;border:1px solid var(--border-color,#34383b);border-radius:12px;background:rgba(16,18,20,.94);text-align:center;overflow:hidden}
+.console-ad-label{margin:0 0 12px;color:#b5bdb1;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.console-ad-content{width:100%;min-height:90px;overflow:auto}
+.console-ad-content iframe{max-width:100%;border:0}
+.console-ad-sponsor{display:inline-block;margin-top:12px;color:#b5bdb1;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.console-ad-sponsor:hover{color:#cddd9f}
+@media(max-width:600px){.console-banner-ad{padding:12px;margin-top:28px}}
