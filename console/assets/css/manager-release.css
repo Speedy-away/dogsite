@@ -1,0 +1,48 @@
+.manager-release-page .manager-heading {
+  display: block;
+  margin-bottom: 25px;
+}
+
+.manager-release-page .manager-lead {
+  max-width: 60ch;
+  margin: 10px 0 16px;
+  color: var(--text-secondary, #d0d1d4);
+  font-size: clamp(1rem, 1.75vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.manager-release-page .manager-overview {
+  display: grid;
+  grid-template-areas: "previews download";
+  grid-template-columns: minmax(0, 1fr) minmax(232px, 310px);
+  align-items: start;
+  gap: 26px;
+  margin-top: 28px;
+}
+
+.manager-previews { grid-area: previews; min-width: 0; }
+.manager-download { grid-area: download; min-width: 0; scroll-margin-top: 88px; }
+.manager-download-title h2 { margin: 0 0 4px; font-size: 1.25rem; line-height: 1.35; }
+.manager-requirements { margin: 14px 0 0; color: var(--text-secondary, #b5bdb1); font-size: 0.85rem; line-height: 1.55; }
+.manager-download .purchase-btn { white-space: normal; text-align: center; }
+
+.manager-figure { margin: 0; min-width: 0; }
+.manager-figure a { display: block; border: 1px solid var(--border-color, #34383b); border-radius: 12px; overflow: hidden; background: #111315; }
+.manager-figure a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.manager-figure img { display: block; width: 100%; height: auto; }
+.manager-figure figcaption { margin-top: 7px; color: var(--text-secondary, #b5bdb1); font-size: 0.85rem; }
+.manager-preview-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px; margin-top: 16px; }
+
+.manager-features dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; margin: 14px 0 20px; }
+.manager-features dt { font-weight: 700; }
+.manager-features dd { margin: 4px 0 0; color: var(--text-secondary, #b5bdb1); line-height: 1.6; }
+.manager-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.manager-tags li { padding: 4px 10px; border: 1px solid var(--border-color, #34383b); border-radius: 20px; color: var(--text-secondary, #b5bdb1); font-size: .78rem; }
+
+@media (max-width: 760px) {
+  .manager-release-page .manager-overview { grid-template-areas: "download" "previews"; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .manager-preview-pair, .manager-features dl { grid-template-columns: minmax(0, 1fr); }
+}
