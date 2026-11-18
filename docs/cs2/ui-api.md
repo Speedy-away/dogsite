@@ -274,6 +274,26 @@ For windows constructed dynamically inside a UI/overlay callback, use `imgui.win
 
 ## ImGui controls
 
+### Multiline input, keyboard and scrolling
+
+| Call | Result |
+| --- | --- |
+| `imgui.input_text_multiline(label, value, width?, height?)` | `changed, value`. Accepts up to 16,383 bytes of UTF-8 text. Store the returned value for the next frame. |
+| `imgui.is_key_pressed(key, repeat?)` | Boolean. Uses ImGui key names such as `"Enter"`, `"F3"` and `"GamepadFaceDown"`. Repeat is off by default. |
+| `imgui.is_item_edited()` | Whether the preceding widget changed this frame. |
+| `imgui.is_item_deactivated_after_edit()` | Whether the preceding widget just ended an edit. |
+| `imgui.scroll()` | `x, y, maxX, maxY` for the current window or child. |
+| `imgui.set_scroll(x, y)` | Requests a scroll position in pixels for the current window or child. |
+
+```lua
+local notes = ""
+ui.tab("notes", "Notes", function()
+    local changed, value = imgui.input_text_multiline("Text", notes, -1, 100)
+    if changed then notes = value end
+    if imgui.button("Scroll to top") then imgui.set_scroll(0, 0) end
+end)
+```
+
 `imgui` is a curated immediate-mode binding to the bundled ImGui renderer, not a claim to expose every upstream ImGui function. Call these functions from tab, sub-tab, window, overlay, or page replacement callbacks. Calling drawing functions while loading or from an update event returns a Lua error.
 
 Controls keep values in Lua and return the edited value:
@@ -427,6 +447,19 @@ end)
 Frame updates run before the current frame's hotkey update, so `features.active` inside update sees the last processed hotkey state. Draw callbacks run after hotkeys and see the current state.
 
 ## Porting and game-specific APIs
+
+### Detecting available controls and DUI
+
+```lua
+local capabilities = ui.capabilities()
+print(capabilities.dui, capabilities.dui_api)
+
+ui.tab("host-controls", "Host controls", function()
+    if ui.has_feature("my.host.feature") then ui.feature("my.host.feature") end
+end)
+```
+
+`ui.has_feature(id)` checks the active feature registry. `ui.capabilities()` reports whether the active Lua state exposes a host DUI creation entry point. When present, `dui_api` names the entry point. Consult the game's extra Lua API reference for supported calls and the surface lifecycle.
 
 The default API deliberately contains UI and feature-registry behavior. It does not invent game/entity/memory/network APIs. Add the functions appropriate to each project through `Application::scripts().registerHostApi` before running scripts. The UI layer installs its own API separately, so the host hook does not replace it. A host that owns per-script resources can install `removeHostApi(lua_State*)` to release them when a state closes, including stop, reload and failed initial execution. The owner of these hooks must outlive the Application.
 

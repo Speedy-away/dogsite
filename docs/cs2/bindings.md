@@ -870,6 +870,16 @@ imgui.input_text(label,text)
 
 Maximum 4095 UTF-8 bytes.
 
+## imgui.input_text_multiline
+
+```lua
+imgui.input_text_multiline(label,value,width,height)
+```
+
+`label string`; `value string`; `width? number`; `height? number`; `Returns: boolean changed, string value`
+
+Maximum 16383 UTF-8 bytes; retain the returned text.
+
 ## imgui.invisible_button
 
 ```lua
@@ -896,6 +906,26 @@ imgui.is_item_clicked(button)
 
 Mouse button 0..4; default 0.
 
+## imgui.is_item_deactivated_after_edit
+
+```lua
+imgui.is_item_deactivated_after_edit()
+```
+
+`Returns: boolean`
+
+Whether the last item finished an edit.
+
+## imgui.is_item_edited
+
+```lua
+imgui.is_item_edited()
+```
+
+`Returns: boolean`
+
+Whether the last item was edited this frame.
+
 ## imgui.is_item_hovered
 
 ```lua
@@ -903,6 +933,16 @@ imgui.is_item_hovered()
 ```
 
 `Returns: boolean`
+
+## imgui.is_key_pressed
+
+```lua
+imgui.is_key_pressed(name,repeat_key)
+```
+
+`name string Named ImGui keyboard/gamepad key.`; `repeat_key? boolean`; `Returns: boolean`
+
+Uses named ImGui keyboard/gamepad keys; invalid names raise a Lua error.
 
 ## imgui.is_mouse_clicked
 
@@ -998,6 +1038,16 @@ imgui.same_line(spacing,local_x)
 
 `spacing? number`; `local_x? number`
 
+## imgui.scroll
+
+```lua
+imgui.scroll()
+```
+
+`Returns: number x, number y, number maximum_x, number maximum_y`
+
+Current x/y and maximum x/y scroll offsets.
+
 ## imgui.selectable
 
 ```lua
@@ -1035,6 +1085,16 @@ imgui.set_next_item_width(width)
 ```
 
 `width number`
+
+## imgui.set_scroll
+
+```lua
+imgui.set_scroll(x,y)
+```
+
+`x number`; `y number`
+
+Sets nonnegative scroll offsets in the current window.
 
 ## imgui.slider_float
 
@@ -2120,6 +2180,16 @@ ui.button(label,width,height)
 
 `label string`; `width? number`; `height? number`; `Returns: boolean`
 
+## ui.capabilities
+
+```lua
+ui.capabilities()
+```
+
+`Returns: table capabilities`
+
+Reports the host DUI capability and available creation API.
+
 ## ui.columns
 
 ```lua
@@ -2173,6 +2243,16 @@ ui.group(label,draw)
 ```
 
 `label string`; `draw function`
+
+## ui.has_feature
+
+```lua
+ui.has_feature(feature_id)
+```
+
+`feature_id string`; `Returns: boolean`
+
+Checks the current feature registry.
 
 ## ui.keybind
 

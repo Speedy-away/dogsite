@@ -678,6 +678,14 @@
       "status": "supported"
     },
     {
+      "name": "imgui.input_text_multiline",
+      "op": "InputMultiline",
+      "origin": "shared",
+      "signature": "imgui.input_text_multiline(label,value,width,height)",
+      "annotations": "---Maximum 16383 UTF-8 bytes; retain the returned text for the next frame.\n---@param label string\n---@param value string\n---@param width? number\n---@param height? number\n---@return boolean changed, string value",
+      "status": "supported"
+    },
+    {
       "name": "imgui.invisible_button",
       "op": "Invisible",
       "origin": "shared",
@@ -702,11 +710,35 @@
       "status": "supported"
     },
     {
+      "name": "imgui.is_item_deactivated_after_edit",
+      "op": "ItemEditEnded",
+      "origin": "shared",
+      "signature": "imgui.is_item_deactivated_after_edit()",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_item_edited",
+      "op": "ItemEdited",
+      "origin": "shared",
+      "signature": "imgui.is_item_edited()",
+      "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
       "name": "imgui.is_item_hovered",
       "op": "Hovered",
       "origin": "shared",
       "signature": "imgui.is_item_hovered()",
       "annotations": "---@return boolean",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.is_key_pressed",
+      "op": "KeyPressed",
+      "origin": "shared",
+      "signature": "imgui.is_key_pressed(name,repeat_key)",
+      "annotations": "---@param name string Named ImGui keyboard/gamepad key.\n---@param repeat_key? boolean\n---@return boolean",
       "status": "supported"
     },
     {
@@ -798,6 +830,14 @@
       "status": "supported"
     },
     {
+      "name": "imgui.scroll",
+      "op": "Scroll",
+      "origin": "shared",
+      "signature": "imgui.scroll()",
+      "annotations": "---@return number x, number y, number maximum_x, number maximum_y",
+      "status": "supported"
+    },
+    {
       "name": "imgui.selectable",
       "op": "Selectable",
       "origin": "shared",
@@ -835,6 +875,14 @@
       "origin": "shared",
       "signature": "imgui.set_next_item_width(width)",
       "annotations": "---@param width number",
+      "status": "supported"
+    },
+    {
+      "name": "imgui.set_scroll",
+      "op": "SetScroll",
+      "origin": "shared",
+      "signature": "imgui.set_scroll(x,y)",
+      "annotations": "---@param x number\n---@param y number",
       "status": "supported"
     },
     {
@@ -1644,6 +1692,14 @@
       "status": "supported"
     },
     {
+      "name": "ui.capabilities",
+      "op": "Capabilities",
+      "origin": "shared",
+      "signature": "ui.capabilities()",
+      "annotations": "---@return table capabilities",
+      "status": "supported"
+    },
+    {
       "name": "ui.columns",
       "op": "Columns",
       "origin": "shared",
@@ -1689,6 +1745,14 @@
       "origin": "shared",
       "signature": "ui.group(label,draw)",
       "annotations": "---@param label string\n---@param draw function",
+      "status": "supported"
+    },
+    {
+      "name": "ui.has_feature",
+      "op": "HasFeature",
+      "origin": "shared",
+      "signature": "ui.has_feature(feature_id)",
+      "annotations": "---@param feature_id string\n---@return boolean",
       "status": "supported"
     },
     {

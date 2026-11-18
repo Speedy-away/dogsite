@@ -4290,6 +4290,13 @@
   },
   {
     "game": "Counter-Strike 2",
+    "title": "imgui.input_text_multiline",
+    "href": "/api/cs2/#bindings-imgui-input-text-multiline",
+    "text": "\nimgui.input_text_multiline(label,value,width,height)\n\nlabel string; value string; width? number; height? number; Returns: boolean changed, string value\nMaximum 16383 UTF-8 bytes; retain the returned text.\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
     "title": "imgui.invisible_button",
     "href": "/api/cs2/#bindings-imgui-invisible-button",
     "text": "\nimgui.invisible_button(id,width,height)\n\nid string; width number; height number; Returns: boolean\n",
@@ -4311,9 +4318,30 @@
   },
   {
     "game": "Counter-Strike 2",
+    "title": "imgui.is_item_deactivated_after_edit",
+    "href": "/api/cs2/#bindings-imgui-is-item-deactivated-after-edit",
+    "text": "\nimgui.is_item_deactivated_after_edit()\n\nReturns: boolean\nWhether the last item finished an edit.\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
+    "title": "imgui.is_item_edited",
+    "href": "/api/cs2/#bindings-imgui-is-item-edited",
+    "text": "\nimgui.is_item_edited()\n\nReturns: boolean\nWhether the last item was edited this frame.\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
     "title": "imgui.is_item_hovered",
     "href": "/api/cs2/#bindings-imgui-is-item-hovered",
     "text": "\nimgui.is_item_hovered()\n\nReturns: boolean\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
+    "title": "imgui.is_key_pressed",
+    "href": "/api/cs2/#bindings-imgui-is-key-pressed",
+    "text": "\nimgui.is_key_pressed(name,repeat_key)\n\nname string Named ImGui keyboard/gamepad key.; repeat_key? boolean; Returns: boolean\nUses named ImGui keyboard/gamepad keys; invalid names raise a Lua error.\n",
     "newTab": true
   },
   {
@@ -4395,6 +4423,13 @@
   },
   {
     "game": "Counter-Strike 2",
+    "title": "imgui.scroll",
+    "href": "/api/cs2/#bindings-imgui-scroll",
+    "text": "\nimgui.scroll()\n\nReturns: number x, number y, number maximum_x, number maximum_y\nCurrent x/y and maximum x/y scroll offsets.\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
     "title": "imgui.selectable",
     "href": "/api/cs2/#bindings-imgui-selectable",
     "text": "\nimgui.selectable(label,selected,width,height)\n\nlabel string; selected boolean; width? number; height? number; Returns: boolean\n",
@@ -4426,6 +4461,13 @@
     "title": "imgui.set_next_item_width",
     "href": "/api/cs2/#bindings-imgui-set-next-item-width",
     "text": "\nimgui.set_next_item_width(width)\n\nwidth number\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
+    "title": "imgui.set_scroll",
+    "href": "/api/cs2/#bindings-imgui-set-scroll",
+    "text": "\nimgui.set_scroll(x,y)\n\nx number; y number\nSets nonnegative scroll offsets in the current window.\n",
     "newTab": true
   },
   {
@@ -5144,6 +5186,13 @@
   },
   {
     "game": "Counter-Strike 2",
+    "title": "ui.capabilities",
+    "href": "/api/cs2/#bindings-ui-capabilities",
+    "text": "\nui.capabilities()\n\nReturns: table capabilities\nReports the host DUI capability and available creation API.\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
     "title": "ui.columns",
     "href": "/api/cs2/#bindings-ui-columns",
     "text": "\nui.columns(count,draw,compact)\n\ncount integer; draw function; compact? boolean\n",
@@ -5182,6 +5231,13 @@
     "title": "ui.group",
     "href": "/api/cs2/#bindings-ui-group",
     "text": "\nui.group(label,draw)\n\nlabel string; draw function\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
+    "title": "ui.has_feature",
+    "href": "/api/cs2/#bindings-ui-has-feature",
+    "text": "\nui.has_feature(feature_id)\n\nfeature_id string; Returns: boolean\nChecks the current feature registry.\n",
     "newTab": true
   },
   {
@@ -5587,7 +5643,14 @@
     "game": "Counter-Strike 2",
     "title": "ImGui controls",
     "href": "/api/cs2/#ui-imgui-controls",
-    "text": "\nimgui is a curated immediate-mode binding to the bundled ImGui renderer, not a claim to expose every upstream ImGui function. Call these functions from tab, sub-tab, window, overlay, or page replacement callbacks. Calling drawing functions while loading or from an update event returns a Lua error.\nControls keep values in Lua and return the edited value:\nlocal amount, enabled, text = 50, false, \"Hello\"\nui.window(\"example\", \"Controls\", {}, function()\n    local changed\n    changed, enabled = imgui.checkbox(\"Enabled\", enabled)\n    changed, amount = imgui.slider_float(\"Amount\", amount, 0, 100)\n    changed, text = imgui.input_text(\"Text\", text)\nend)\n\n\n\n\nFunction\nReturn / behavior\n\n\n\nimgui.text(text)\nUnwrapped text; treats the string as text, not a printf format.\n\n\nimgui.text_colored(text, rgba)\nColored text.\n\n\nimgui.button(label [, width, height])\nReturns true on activation; dimensions default to automatic.\n\n\nui.selectable(label, selected [, width, height])\nPlain text row using the host selection highlight. Returns true on mouse activation; selection remains caller-owned. Zero dimensions use available width and text height.\n\n\nimgui.checkbox(label, value)\nReturns changed, boolean.\n\n\nimgui.slider_float(label, value, min, max[, options])\nReturns changed, number. Optional {style=\"track\"} uses a slim track and separate value.\n\n\nimgui.slider_int(label, value, min, max[, options])\nReturns changed, integer-valued number. Optional {style=\"track\"} uses a slim track and separate value.\n\n\nimgui.input_text(label, text)\nReturns changed, string; maximum 4095 bytes.\n\n\nimgui.combo(label, index, items)\nReturns changed, selected index. Indices start at 1; 1-128 items.\n\n\nimgui.color_edit(label, rgba)\nReturns changed, RGBA table.\n\n\nimgui.same_line([spacing, local_x])\nPlaces the next item on the same line; default style spacing.\n\n\nimgui.separator()\nSeparator line.\n\n\nimgui.spacing([height])\nVertical space; default 4 physical pixels.\n\n\nimgui.tooltip(text)\nTooltip when the preceding item is hovered.\n\n\nimgui.progress(fraction)\nProgress bar; fraction is clamped to 0-1.\n\n\nimgui.available()\nReturns available content width, height.\n\n\nimgui.cursor()\nReturns cursor x, y in screen coordinates.\n\n\nimgui.set_cursor(x, y)\nSets the next cursor position in window-local coordinates.\n\n\nimgui.is_item_hovered()\nReturns whether the preceding item is hovered.\n\n\nimgui.child(id, width, height, draw [, options])\nScoped scrollable child; 0 uses remaining size. Options: border, padding (retain WindowPadding without a visible border), horizontal_scroll.\n\n\nimgui.disabled(boolean, draw)\nScoped disabled controls.\n\n\nimgui.with_style(colors, draw)\nScoped color overrides, restored even after callback errors.\n\n\nimgui.window(title, options, draw)\nScoped independent ImGui window.\n\n\nRGBA values use {r, g, b, a} with components between 0 and 1. Alpha defaults to 1 when omitted. Use stable ##suffix labels when controls have duplicate visible names.\nLua local variables are live session state; they are not automatically written to profiles. Registered feature values participate in the existing profile system. Register the scripts before loading a profile containing their feature IDs.\n",
+    "text": "\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
+    "title": "Multiline input, keyboard and scrolling",
+    "href": "/api/cs2/#ui-multiline-input-keyboard-and-scrolling",
+    "text": "\n\n\n\nCall\nResult\n\n\n\nimgui.input_text_multiline(label, value, width?, height?)\nchanged, value. Accepts up to 16,383 bytes of UTF-8 text. Store the returned value for the next frame.\n\n\nimgui.is_key_pressed(key, repeat?)\nBoolean. Uses ImGui key names such as \"Enter\", \"F3\" and \"GamepadFaceDown\". Repeat is off by default.\n\n\nimgui.is_item_edited()\nWhether the preceding widget changed this frame.\n\n\nimgui.is_item_deactivated_after_edit()\nWhether the preceding widget just ended an edit.\n\n\nimgui.scroll()\nx, y, maxX, maxY for the current window or child.\n\n\nimgui.set_scroll(x, y)\nRequests a scroll position in pixels for the current window or child.\n\n\nlocal notes = \"\"\nui.tab(\"notes\", \"Notes\", function()\n    local changed, value = imgui.input_text_multiline(\"Text\", notes, -1, 100)\n    if changed then notes = value end\n    if imgui.button(\"Scroll to top\") then imgui.set_scroll(0, 0) end\nend)\n\nimgui is a curated immediate-mode binding to the bundled ImGui renderer, not a claim to expose every upstream ImGui function. Call these functions from tab, sub-tab, window, overlay, or page replacement callbacks. Calling drawing functions while loading or from an update event returns a Lua error.\nControls keep values in Lua and return the edited value:\nlocal amount, enabled, text = 50, false, \"Hello\"\nui.window(\"example\", \"Controls\", {}, function()\n    local changed\n    changed, enabled = imgui.checkbox(\"Enabled\", enabled)\n    changed, amount = imgui.slider_float(\"Amount\", amount, 0, 100)\n    changed, text = imgui.input_text(\"Text\", text)\nend)\n\n\n\n\nFunction\nReturn / behavior\n\n\n\nimgui.text(text)\nUnwrapped text; treats the string as text, not a printf format.\n\n\nimgui.text_colored(text, rgba)\nColored text.\n\n\nimgui.button(label [, width, height])\nReturns true on activation; dimensions default to automatic.\n\n\nui.selectable(label, selected [, width, height])\nPlain text row using the host selection highlight. Returns true on mouse activation; selection remains caller-owned. Zero dimensions use available width and text height.\n\n\nimgui.checkbox(label, value)\nReturns changed, boolean.\n\n\nimgui.slider_float(label, value, min, max[, options])\nReturns changed, number. Optional {style=\"track\"} uses a slim track and separate value.\n\n\nimgui.slider_int(label, value, min, max[, options])\nReturns changed, integer-valued number. Optional {style=\"track\"} uses a slim track and separate value.\n\n\nimgui.input_text(label, text)\nReturns changed, string; maximum 4095 bytes.\n\n\nimgui.combo(label, index, items)\nReturns changed, selected index. Indices start at 1; 1-128 items.\n\n\nimgui.color_edit(label, rgba)\nReturns changed, RGBA table.\n\n\nimgui.same_line([spacing, local_x])\nPlaces the next item on the same line; default style spacing.\n\n\nimgui.separator()\nSeparator line.\n\n\nimgui.spacing([height])\nVertical space; default 4 physical pixels.\n\n\nimgui.tooltip(text)\nTooltip when the preceding item is hovered.\n\n\nimgui.progress(fraction)\nProgress bar; fraction is clamped to 0-1.\n\n\nimgui.available()\nReturns available content width, height.\n\n\nimgui.cursor()\nReturns cursor x, y in screen coordinates.\n\n\nimgui.set_cursor(x, y)\nSets the next cursor position in window-local coordinates.\n\n\nimgui.is_item_hovered()\nReturns whether the preceding item is hovered.\n\n\nimgui.child(id, width, height, draw [, options])\nScoped scrollable child; 0 uses remaining size. Options: border, padding (retain WindowPadding without a visible border), horizontal_scroll.\n\n\nimgui.disabled(boolean, draw)\nScoped disabled controls.\n\n\nimgui.with_style(colors, draw)\nScoped color overrides, restored even after callback errors.\n\n\nimgui.window(title, options, draw)\nScoped independent ImGui window.\n\n\nRGBA values use {r, g, b, a} with components between 0 and 1. Alpha defaults to 1 when omitted. Use stable ##suffix labels when controls have duplicate visible names.\nLua local variables are live session state; they are not automatically written to profiles. Registered feature values participate in the existing profile system. Register the scripts before loading a profile containing their feature IDs.\n",
     "newTab": true
   },
   {
@@ -5622,7 +5685,14 @@
     "game": "Counter-Strike 2",
     "title": "Porting and game-specific APIs",
     "href": "/api/cs2/#ui-porting-and-game-specific-apis",
-    "text": "\nThe default API deliberately contains UI and feature-registry behavior. It does not invent game/entity/memory/network APIs. Add the functions appropriate to each project through Application::scripts().registerHostApi before running scripts. The UI layer installs its own API separately, so the host hook does not replace it. A host that owns per-script resources can install removeHostApi(lua_State*) to release them when a state closes, including stop, reload and failed initial execution. The owner of these hooks must outlive the Application.\nA minimal host extension:\nextern \"C\" {\n#include \"lua.h\"\n#include \"lauxlib.h\"\n}\n\napp.scripts().registerHostApi = [](lua_State* L) {\n    lua_newtable(L);\n    lua_pushcfunction(L, [](lua_State* state) -&gt; int {\n        lua_pushstring(state, \"My Game\");\n        return 1;\n    });\n    lua_setfield(L, -2, \"name\");\n    lua_setglobal(L, \"game\");\n};\n\nLua can then call game.name() from its loading code or callbacks. For real game features, expose validated functions such as entity snapshots, local-player state, permitted actions or typed settings through the same hook. Connect live behavior in an update callback or the host feature dispatcher, using features.active(id) to honor hold/toggle bindings.\nThread and lifetime rules:\n\nConstruct, run, stop and draw scripts on the application's UI/render thread.\nDo not call ImGui or the Lua state from background threads. Marshal host results to the render thread.\nRegister host features before loading profiles. Run scripts before loading profiles containing script-owned IDs.\nA state remains alive until its named script is stopped/replaced or application shutdown. Do not retain it beyond that point.\nCall app.shutdown() before destroying ImGui or host objects referenced by callbacks.\nThe bundled Lua target is compiled in C++ exception mode with a C-compatible public ABI, so protected errors unwind C++ bindings safely. Preserve that build mode when porting. On MSVC, bindings require /EHs with /EHc- so C ABI calls may unwind; the CMake target propagates these options.\nNative host calls must validate arguments and manage their own cancellation; Lua's instruction hook cannot preempt a blocking native function.\n\nC++ lifecycle controls:\napp.scripts().run(source, app.features(), logCallback, \"My Script\");\nauto names = app.scripts().running();\napp.scripts().stop(\"My Script\");\napp.scripts().stopAll();\napp.navigateScript(\"lua:My Script:tools\", \"lua:My Script:general\");\napp.setApiDocsVisible(true, false); // true = attach left, false = attach right\n\nApplication supplies frame dispatch automatically. A core-only host using ScriptRuntime directly calls beginFrame() and dispatch(\"update\") itself. Such a host gets features/events/base APIs; ImGui/UI/render/engine APIs are installed by the UI layer.\n",
+    "text": "\n",
+    "newTab": true
+  },
+  {
+    "game": "Counter-Strike 2",
+    "title": "Detecting available controls and DUI",
+    "href": "/api/cs2/#ui-detecting-available-controls-and-dui",
+    "text": "\nlocal capabilities = ui.capabilities()\nprint(capabilities.dui, capabilities.dui_api)\n\nui.tab(\"host-controls\", \"Host controls\", function()\n    if ui.has_feature(\"my.host.feature\") then ui.feature(\"my.host.feature\") end\nend)\n\nui.has_feature(id) checks the active feature registry. ui.capabilities() reports whether the active Lua state exposes a host DUI creation entry point. When present, dui_api names the entry point. Consult the game's extra Lua API reference for supported calls and the surface lifecycle.\nThe default API deliberately contains UI and feature-registry behavior. It does not invent game/entity/memory/network APIs. Add the functions appropriate to each project through Application::scripts().registerHostApi before running scripts. The UI layer installs its own API separately, so the host hook does not replace it. A host that owns per-script resources can install removeHostApi(lua_State*) to release them when a state closes, including stop, reload and failed initial execution. The owner of these hooks must outlive the Application.\nA minimal host extension:\nextern \"C\" {\n#include \"lua.h\"\n#include \"lauxlib.h\"\n}\n\napp.scripts().registerHostApi = [](lua_State* L) {\n    lua_newtable(L);\n    lua_pushcfunction(L, [](lua_State* state) -&gt; int {\n        lua_pushstring(state, \"My Game\");\n        return 1;\n    });\n    lua_setfield(L, -2, \"name\");\n    lua_setglobal(L, \"game\");\n};\n\nLua can then call game.name() from its loading code or callbacks. For real game features, expose validated functions such as entity snapshots, local-player state, permitted actions or typed settings through the same hook. Connect live behavior in an update callback or the host feature dispatcher, using features.active(id) to honor hold/toggle bindings.\nThread and lifetime rules:\n\nConstruct, run, stop and draw scripts on the application's UI/render thread.\nDo not call ImGui or the Lua state from background threads. Marshal host results to the render thread.\nRegister host features before loading profiles. Run scripts before loading profiles containing script-owned IDs.\nA state remains alive until its named script is stopped/replaced or application shutdown. Do not retain it beyond that point.\nCall app.shutdown() before destroying ImGui or host objects referenced by callbacks.\nThe bundled Lua target is compiled in C++ exception mode with a C-compatible public ABI, so protected errors unwind C++ bindings safely. Preserve that build mode when porting. On MSVC, bindings require /EHs with /EHc- so C ABI calls may unwind; the CMake target propagates these options.\nNative host calls must validate arguments and manage their own cancellation; Lua's instruction hook cannot preempt a blocking native function.\n\nC++ lifecycle controls:\napp.scripts().run(source, app.features(), logCallback, \"My Script\");\nauto names = app.scripts().running();\napp.scripts().stop(\"My Script\");\napp.scripts().stopAll();\napp.navigateScript(\"lua:My Script:tools\", \"lua:My Script:general\");\napp.setApiDocsVisible(true, false); // true = attach left, false = attach right\n\nApplication supplies frame dispatch automatically. A core-only host using ScriptRuntime directly calls beginFrame() and dispatch(\"update\") itself. Such a host gets features/events/base APIs; ImGui/UI/render/engine APIs are installed by the UI layer.\n",
     "newTab": true
   },
   {

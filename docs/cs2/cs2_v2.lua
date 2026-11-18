@@ -1421,3 +1421,29 @@ function capture_protection.get_feature(feature_id) end
 ---@param owned_feature_id string
 ---@param mode CaptureProtectionMode
 function capture_protection.set_feature(owned_feature_id,mode) end
+
+---@return table capabilities
+function ui.capabilities() end
+---@param feature_id string
+---@return boolean
+function ui.has_feature(feature_id) end
+---Maximum 16383 UTF-8 bytes; retain the returned text for the next frame.
+---@param label string
+---@param value string
+---@param width? number
+---@param height? number
+---@return boolean changed, string value
+function imgui.input_text_multiline(label,value,width,height) end
+---@return boolean
+function imgui.is_item_edited() end
+---@return boolean
+function imgui.is_item_deactivated_after_edit() end
+---@param name string Named ImGui keyboard/gamepad key.
+---@param repeat_key? boolean
+---@return boolean
+function imgui.is_key_pressed(name,repeat_key) end
+---@return number x, number y, number maximum_x, number maximum_y
+function imgui.scroll() end
+---@param x number
+---@param y number
+function imgui.set_scroll(x,y) end

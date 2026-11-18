@@ -403,10 +403,14 @@
 <a class="entry" href="#bindings-imgui-dummy">imgui.dummy</a>
 <a class="entry" href="#bindings-imgui-group">imgui.group</a>
 <a class="entry" href="#bindings-imgui-input-text">imgui.input_text</a>
+<a class="entry" href="#bindings-imgui-input-text-multiline">imgui.input_text_multiline</a>
 <a class="entry" href="#bindings-imgui-invisible-button">imgui.invisible_button</a>
 <a class="entry" href="#bindings-imgui-is-item-active">imgui.is_item_active</a>
 <a class="entry" href="#bindings-imgui-is-item-clicked">imgui.is_item_clicked</a>
+<a class="entry" href="#bindings-imgui-is-item-deactivated-after-edit">imgui.is_item_deactivated_after_edit</a>
+<a class="entry" href="#bindings-imgui-is-item-edited">imgui.is_item_edited</a>
 <a class="entry" href="#bindings-imgui-is-item-hovered">imgui.is_item_hovered</a>
+<a class="entry" href="#bindings-imgui-is-key-pressed">imgui.is_key_pressed</a>
 <a class="entry" href="#bindings-imgui-is-mouse-clicked">imgui.is_mouse_clicked</a>
 <a class="entry" href="#bindings-imgui-is-mouse-down">imgui.is_mouse_down</a>
 <a class="entry" href="#bindings-imgui-is-mouse-released">imgui.is_mouse_released</a>
@@ -418,11 +422,13 @@
 <a class="entry" href="#bindings-imgui-progress">imgui.progress</a>
 <a class="entry" href="#bindings-imgui-radio-button">imgui.radio_button</a>
 <a class="entry" href="#bindings-imgui-same-line">imgui.same_line</a>
+<a class="entry" href="#bindings-imgui-scroll">imgui.scroll</a>
 <a class="entry" href="#bindings-imgui-selectable">imgui.selectable</a>
 <a class="entry" href="#bindings-imgui-separator">imgui.separator</a>
 <a class="entry" href="#bindings-imgui-set-cursor">imgui.set_cursor</a>
 <a class="entry" href="#bindings-imgui-set-cursor-screen">imgui.set_cursor_screen</a>
 <a class="entry" href="#bindings-imgui-set-next-item-width">imgui.set_next_item_width</a>
+<a class="entry" href="#bindings-imgui-set-scroll">imgui.set_scroll</a>
 <a class="entry" href="#bindings-imgui-slider-float">imgui.slider_float</a>
 <a class="entry" href="#bindings-imgui-slider-int">imgui.slider_int</a>
 <a class="entry" href="#bindings-imgui-spacing">imgui.spacing</a>
@@ -525,12 +531,14 @@
 <a class="entry" href="#bindings-timers-cancel">timers.cancel</a>
 <a class="entry" href="#bindings-timers-every">timers.every</a>
 <a class="entry" href="#bindings-ui-button">ui.button</a>
+<a class="entry" href="#bindings-ui-capabilities">ui.capabilities</a>
 <a class="entry" href="#bindings-ui-columns">ui.columns</a>
 <a class="entry" href="#bindings-ui-combo">ui.combo</a>
 <a class="entry" href="#bindings-ui-entity-colors">ui.entity_colors</a>
 <a class="entry" href="#bindings-ui-feature">ui.feature</a>
 <a class="entry" href="#bindings-ui-feature-visible">ui.feature_visible</a>
 <a class="entry" href="#bindings-ui-group">ui.group</a>
+<a class="entry" href="#bindings-ui-has-feature">ui.has_feature</a>
 <a class="entry" href="#bindings-ui-keybind">ui.keybind</a>
 <a class="entry" href="#bindings-ui-menu-visible">ui.menu_visible</a>
 <a class="entry" href="#bindings-ui-multi-combo">ui.multi_combo</a>
@@ -587,11 +595,13 @@
 <a class="entry" href="#ui-groups-and-columns">Groups and columns</a>
 <a class="entry" href="#ui-independent-menus-and-attached-windows">Independent menus and attached windows</a>
 <a class="entry" href="#ui-imgui-controls">ImGui controls</a>
+<a class="entry" href="#ui-multiline-input-keyboard-and-scrolling">Multiline input, keyboard and scrolling</a>
 <a class="entry" href="#ui-selectable-catalog-rows">Selectable catalog rows</a>
 <a class="entry" href="#ui-overlays-and-drawing">Overlays and drawing</a>
 <a class="entry" href="#ui-themes-and-ui-overrides">Themes and UI overrides</a>
 <a class="entry" href="#ui-events-and-host-information">Events and host information</a>
 <a class="entry" href="#ui-porting-and-game-specific-apis">Porting and game-specific APIs</a>
+<a class="entry" href="#ui-detecting-available-controls-and-dui">Detecting available controls and DUI</a>
 <a class="entry" href="#ui-limits-and-troubleshooting">Limits and troubleshooting</a>
 <a class="entry" href="#ui-custom-product-controls">Custom product controls</a>
 <a class="entry" href="#ui-entity-colors">Entity colors</a>
@@ -3031,6 +3041,12 @@ end]],{enabled=false}))
 <p><code>label string</code>; <code>text string</code>; <code>Returns: boolean, string</code></p>
 <p>Maximum 4095 UTF-8 bytes.</p>
 </div></details>
+<details class="reference-entry" id="bindings-imgui-input-text-multiline"><summary>imgui.input_text_multiline</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-input-text-multiline" aria-label="Link to imgui.input_text_multiline"># Permalink</a>
+<pre><code class="language-lua">imgui.input_text_multiline(label,value,width,height)
+</code></pre>
+<p><code>label string</code>; <code>value string</code>; <code>width? number</code>; <code>height? number</code>; <code>Returns: boolean changed, string value</code></p>
+<p>Maximum 16383 UTF-8 bytes; retain the returned text.</p>
+</div></details>
 <details class="reference-entry" id="bindings-imgui-invisible-button"><summary>imgui.invisible_button</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-invisible-button" aria-label="Link to imgui.invisible_button"># Permalink</a>
 <pre><code class="language-lua">imgui.invisible_button(id,width,height)
 </code></pre>
@@ -3047,10 +3063,28 @@ end]],{enabled=false}))
 <p><code>button? integer</code>; <code>Returns: boolean</code></p>
 <p>Mouse button 0..4; default 0.</p>
 </div></details>
+<details class="reference-entry" id="bindings-imgui-is-item-deactivated-after-edit"><summary>imgui.is_item_deactivated_after_edit</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-is-item-deactivated-after-edit" aria-label="Link to imgui.is_item_deactivated_after_edit"># Permalink</a>
+<pre><code class="language-lua">imgui.is_item_deactivated_after_edit()
+</code></pre>
+<p><code>Returns: boolean</code></p>
+<p>Whether the last item finished an edit.</p>
+</div></details>
+<details class="reference-entry" id="bindings-imgui-is-item-edited"><summary>imgui.is_item_edited</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-is-item-edited" aria-label="Link to imgui.is_item_edited"># Permalink</a>
+<pre><code class="language-lua">imgui.is_item_edited()
+</code></pre>
+<p><code>Returns: boolean</code></p>
+<p>Whether the last item was edited this frame.</p>
+</div></details>
 <details class="reference-entry" id="bindings-imgui-is-item-hovered"><summary>imgui.is_item_hovered</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-is-item-hovered" aria-label="Link to imgui.is_item_hovered"># Permalink</a>
 <pre><code class="language-lua">imgui.is_item_hovered()
 </code></pre>
 <p><code>Returns: boolean</code></p>
+</div></details>
+<details class="reference-entry" id="bindings-imgui-is-key-pressed"><summary>imgui.is_key_pressed</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-is-key-pressed" aria-label="Link to imgui.is_key_pressed"># Permalink</a>
+<pre><code class="language-lua">imgui.is_key_pressed(name,repeat_key)
+</code></pre>
+<p><code>name string Named ImGui keyboard/gamepad key.</code>; <code>repeat_key? boolean</code>; <code>Returns: boolean</code></p>
+<p>Uses named ImGui keyboard/gamepad keys; invalid names raise a Lua error.</p>
 </div></details>
 <details class="reference-entry" id="bindings-imgui-is-mouse-clicked"><summary>imgui.is_mouse_clicked</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-is-mouse-clicked" aria-label="Link to imgui.is_mouse_clicked"># Permalink</a>
 <pre><code class="language-lua">imgui.is_mouse_clicked(button)
@@ -3110,6 +3144,12 @@ end]],{enabled=false}))
 </code></pre>
 <p><code>spacing? number</code>; <code>local_x? number</code></p>
 </div></details>
+<details class="reference-entry" id="bindings-imgui-scroll"><summary>imgui.scroll</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-scroll" aria-label="Link to imgui.scroll"># Permalink</a>
+<pre><code class="language-lua">imgui.scroll()
+</code></pre>
+<p><code>Returns: number x, number y, number maximum_x, number maximum_y</code></p>
+<p>Current x/y and maximum x/y scroll offsets.</p>
+</div></details>
 <details class="reference-entry" id="bindings-imgui-selectable"><summary>imgui.selectable</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-selectable" aria-label="Link to imgui.selectable"># Permalink</a>
 <pre><code class="language-lua">imgui.selectable(label,selected,width,height)
 </code></pre>
@@ -3133,6 +3173,12 @@ end]],{enabled=false}))
 <pre><code class="language-lua">imgui.set_next_item_width(width)
 </code></pre>
 <p><code>width number</code></p>
+</div></details>
+<details class="reference-entry" id="bindings-imgui-set-scroll"><summary>imgui.set_scroll</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-set-scroll" aria-label="Link to imgui.set_scroll"># Permalink</a>
+<pre><code class="language-lua">imgui.set_scroll(x,y)
+</code></pre>
+<p><code>x number</code>; <code>y number</code></p>
+<p>Sets nonnegative scroll offsets in the current window.</p>
 </div></details>
 <details class="reference-entry" id="bindings-imgui-slider-float"><summary>imgui.slider_float</summary><div class="entry-body"><a class="permalink" href="#bindings-imgui-slider-float" aria-label="Link to imgui.slider_float"># Permalink</a>
 <pre><code class="language-lua">imgui.slider_float(label,value,min,max,options)
@@ -3781,6 +3827,12 @@ end)
 </code></pre>
 <p><code>label string</code>; <code>width? number</code>; <code>height? number</code>; <code>Returns: boolean</code></p>
 </div></details>
+<details class="reference-entry" id="bindings-ui-capabilities"><summary>ui.capabilities</summary><div class="entry-body"><a class="permalink" href="#bindings-ui-capabilities" aria-label="Link to ui.capabilities"># Permalink</a>
+<pre><code class="language-lua">ui.capabilities()
+</code></pre>
+<p><code>Returns: table capabilities</code></p>
+<p>Reports the host DUI capability and available creation API.</p>
+</div></details>
 <details class="reference-entry" id="bindings-ui-columns"><summary>ui.columns</summary><div class="entry-body"><a class="permalink" href="#bindings-ui-columns" aria-label="Link to ui.columns"># Permalink</a>
 <pre><code class="language-lua">ui.columns(count,draw,compact)
 </code></pre>
@@ -3813,6 +3865,12 @@ end)
 <pre><code class="language-lua">ui.group(label,draw)
 </code></pre>
 <p><code>label string</code>; <code>draw function</code></p>
+</div></details>
+<details class="reference-entry" id="bindings-ui-has-feature"><summary>ui.has_feature</summary><div class="entry-body"><a class="permalink" href="#bindings-ui-has-feature" aria-label="Link to ui.has_feature"># Permalink</a>
+<pre><code class="language-lua">ui.has_feature(feature_id)
+</code></pre>
+<p><code>feature_id string</code>; <code>Returns: boolean</code></p>
+<p>Checks the current feature registry.</p>
 </div></details>
 <details class="reference-entry" id="bindings-ui-keybind"><summary>ui.keybind</summary><div class="entry-body"><a class="permalink" href="#bindings-ui-keybind" aria-label="Link to ui.keybind"># Permalink</a>
 <pre><code class="language-lua">ui.keybind(id,label)
@@ -4383,6 +4441,47 @@ end)
 <p>For windows constructed dynamically inside a UI/overlay callback, use <code>imgui.window(title, options, draw)</code>. Its options include width, height, initial x/y, no_title_bar, no_resize, no_move, no_scrollbar and auto_resize. It is drawn whenever that scope is called; visibility is controlled by the Lua code surrounding the call.</p>
 </div></details>
 <details class="reference-entry" id="ui-imgui-controls"><summary>ImGui controls</summary><div class="entry-body"><a class="permalink" href="#ui-imgui-controls" aria-label="Link to ImGui controls"># Permalink</a>
+</div></details>
+<details class="reference-entry" id="ui-multiline-input-keyboard-and-scrolling"><summary>Multiline input, keyboard and scrolling</summary><div class="entry-body"><a class="permalink" href="#ui-multiline-input-keyboard-and-scrolling" aria-label="Link to Multiline input, keyboard and scrolling"># Permalink</a>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Call</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>imgui.input_text_multiline(label, value, width?, height?)</code></td>
+<td><code>changed, value</code>. Accepts up to 16,383 bytes of UTF-8 text. Store the returned value for the next frame.</td>
+</tr>
+<tr>
+<td><code>imgui.is_key_pressed(key, repeat?)</code></td>
+<td>Boolean. Uses ImGui key names such as <code>&quot;Enter&quot;</code>, <code>&quot;F3&quot;</code> and <code>&quot;GamepadFaceDown&quot;</code>. Repeat is off by default.</td>
+</tr>
+<tr>
+<td><code>imgui.is_item_edited()</code></td>
+<td>Whether the preceding widget changed this frame.</td>
+</tr>
+<tr>
+<td><code>imgui.is_item_deactivated_after_edit()</code></td>
+<td>Whether the preceding widget just ended an edit.</td>
+</tr>
+<tr>
+<td><code>imgui.scroll()</code></td>
+<td><code>x, y, maxX, maxY</code> for the current window or child.</td>
+</tr>
+<tr>
+<td><code>imgui.set_scroll(x, y)</code></td>
+<td>Requests a scroll position in pixels for the current window or child.</td>
+</tr>
+</tbody></table></div>
+<pre><code class="language-lua">local notes = &quot;&quot;
+ui.tab(&quot;notes&quot;, &quot;Notes&quot;, function()
+    local changed, value = imgui.input_text_multiline(&quot;Text&quot;, notes, -1, 100)
+    if changed then notes = value end
+    if imgui.button(&quot;Scroll to top&quot;) then imgui.set_scroll(0, 0) end
+end)
+</code></pre>
 <p><code>imgui</code> is a curated immediate-mode binding to the bundled ImGui renderer, not a claim to expose every upstream ImGui function. Call these functions from tab, sub-tab, window, overlay, or page replacement callbacks. Calling drawing functions while loading or from an update event returns a Lua error.</p>
 <p>Controls keep values in Lua and return the edited value:</p>
 <pre><code class="language-lua">local amount, enabled, text = 50, false, &quot;Hello&quot;
@@ -4622,6 +4721,16 @@ end)
 <p>Frame updates run before the current frame&#39;s hotkey update, so <code>features.active</code> inside update sees the last processed hotkey state. Draw callbacks run after hotkeys and see the current state.</p>
 </div></details>
 <details class="reference-entry" id="ui-porting-and-game-specific-apis"><summary>Porting and game-specific APIs</summary><div class="entry-body"><a class="permalink" href="#ui-porting-and-game-specific-apis" aria-label="Link to Porting and game-specific APIs"># Permalink</a>
+</div></details>
+<details class="reference-entry" id="ui-detecting-available-controls-and-dui"><summary>Detecting available controls and DUI</summary><div class="entry-body"><a class="permalink" href="#ui-detecting-available-controls-and-dui" aria-label="Link to Detecting available controls and DUI"># Permalink</a>
+<pre><code class="language-lua">local capabilities = ui.capabilities()
+print(capabilities.dui, capabilities.dui_api)
+
+ui.tab(&quot;host-controls&quot;, &quot;Host controls&quot;, function()
+    if ui.has_feature(&quot;my.host.feature&quot;) then ui.feature(&quot;my.host.feature&quot;) end
+end)
+</code></pre>
+<p><code>ui.has_feature(id)</code> checks the active feature registry. <code>ui.capabilities()</code> reports whether the active Lua state exposes a host DUI creation entry point. When present, <code>dui_api</code> names the entry point. Consult the game&#39;s extra Lua API reference for supported calls and the surface lifecycle.</p>
 <p>The default API deliberately contains UI and feature-registry behavior. It does not invent game/entity/memory/network APIs. Add the functions appropriate to each project through <code>Application::scripts().registerHostApi</code> before running scripts. The UI layer installs its own API separately, so the host hook does not replace it. A host that owns per-script resources can install <code>removeHostApi(lua_State*)</code> to release them when a state closes, including stop, reload and failed initial execution. The owner of these hooks must outlive the Application.</p>
 <p>A minimal host extension:</p>
 <pre><code class="language-cpp">extern &quot;C&quot; {
