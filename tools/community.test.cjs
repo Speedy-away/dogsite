@@ -228,7 +228,7 @@ test('local community downloads serve listed files while refusing unlisted paths
   }
 });
 
-test('resource pages expose six games and keep the requested ad placements', () => {
+test('resource pages expose six games and keep popup ads scoped to downloads', () => {
   const adURL = 'https://bellnewyork.org/21/916d4be3288f94a3bc49ab6cdaef5ba9';
   const container = 'container-916d4be3288f94a3bc49ab6cdaef5ba9';
   for (const relative of ['resources/index.html', 'resources/guides/index.html']) {
@@ -249,11 +249,9 @@ test('resource pages expose six games and keep the requested ad placements', () 
     const html = fs.readFileSync(path.join(SITE, relative), 'utf8');
     const headAd = 'https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a';
     const bodyAd = 'https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9';
-    for (const [url, tag] of [[headAd, '</head>'], [bodyAd, '</body>']]) {
-      const snippet = `<script data-cfasync="false" src="${url}"></script>`;
-      assert.equal(html.split(snippet).length, 2, `${relative}: duplicate or missing ad script`);
-      assert(html.slice(html.indexOf(snippet) + snippet.length).trimStart().startsWith(tag), `${relative}: ad placement before ${tag}`);
-    }
+    assert(!html.includes(headAd) && !html.includes(bodyAd), relative);
+    const hasDownloads = relative === 'resources/index.html' || relative === 'resources/redm/ui-presets/index.html';
+    assert.equal(html.includes('<script src="/assets/js/download-ad.js" defer></script>'), hasDownloads, relative);
     assert(html.includes('href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd"'), relative);
   }
   const ui = fs.readFileSync(path.join(SITE, 'resources/index.html'), 'utf8')

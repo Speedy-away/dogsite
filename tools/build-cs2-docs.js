@@ -6,7 +6,7 @@ const {applyMetadata}=require('./seo-metadata');
 const root=path.resolve(__dirname,'..');
 const args=process.argv.slice(2),at=args.indexOf('--cs2-root');
 const cs2=at>=0?path.resolve(args[at+1]):path.resolve(root,'../Scooby-Op/CS2/v2');
-const ui=path.resolve(cs2,'../../simple-base/UI');
+const ui=path.resolve(cs2,'../../simple-base/sources/UI');
 const outputs=new Map(),inputs={};
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const plain=s=>s.replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"');

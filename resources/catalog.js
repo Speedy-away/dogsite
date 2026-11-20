@@ -721,6 +721,7 @@ function resourceTitle(name, files, knownExtension = '') {
 function downloadButton(file, container) {
   const button = node('button', 'Download ↓');
   button.type = 'button';
+  button.setAttribute('data-download-ad', '');
   let error;
   button.onclick = async () => {
     const directURL = new URL(file.url);

@@ -32,11 +32,6 @@
 .community-game:hover { color:#fff; }
 .community-game svg { width:12px; height:12px; color:#858895; }
 .community-footer { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:16px; }
-.community-updates { margin-top:clamp(28px,4vw,48px); }
-.community-updates h3 { color:#f1f1f5; font-size:19px; font-weight:600; margin:0 0 14px; }
-.community-card.community-update { min-height:0; }
-.community-update .community-role { margin:0 0 6px; }
-.community-update h4 { color:#f1f1f5; font-size:15px; font-weight:600; line-height:1.45; margin:0 0 9px; }
 .community-count { font-size:12px; color:#898b97; }
 .review-rotation-controls { display:flex; align-items:center; gap:8px; }
 .review-rotation-toggle, .review-next { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:34px; padding:7px 12px; border:1px solid #343438; border-radius:7px; background:#171719; color:#d2d3da; font:500 11px 'Inter',sans-serif; cursor:pointer; }

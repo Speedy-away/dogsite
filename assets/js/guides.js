@@ -19,9 +19,37 @@
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && document.body.classList.contains('menu-open')) { closeMenu(); menu.focus(); } });
 
     const sections = [...document.querySelectorAll('.guide-card[id]')];
-    const sectionLinks = [...document.querySelectorAll('.wiki-toc a, .wiki-sidebar a')];
+    const article = document.querySelector('.wiki-topic-page .article-layout > main');
+    if (article && sections.length && !article.querySelector('.plus-page-index, .mobile-toc, .guide-contents, [aria-label="On this page"]')) {
+        const headings = [...article.querySelectorAll('.guide-card h2, .guide-card h3[id]')];
+        const topics = headings
+            .filter(heading => !heading.classList.contains('sr-only'))
+            .map(heading => ({
+                id: heading.id || heading.closest('.guide-card').id,
+                label: heading.textContent.trim()
+            }))
+            .filter(topic => topic.id && topic.label);
+        if (topics.length >= 3) {
+            const contents = document.createElement('details');
+            contents.className = 'wiki-article-contents';
+            const summary = document.createElement('summary');
+            summary.textContent = 'On this page';
+            const list = document.createElement('ul');
+            topics.forEach(topic => {
+                const item = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#' + encodeURIComponent(topic.id);
+                link.textContent = topic.label;
+                item.append(link);
+                list.append(item);
+            });
+            contents.append(summary, list);
+            sections[0].before(contents);
+        }
+    }
     sections.forEach(section => {
         const heading = section.querySelector('h2');
+        if (!heading || heading.classList.contains('sr-only')) return;
         const link = document.createElement('a');
         link.className = 'heading-link';
         link.href = '#' + section.id;
@@ -29,6 +57,7 @@
         link.setAttribute('aria-label', 'Link to ' + heading.textContent);
         heading.append(link);
     });
+    const sectionLinks = [...document.querySelectorAll('.wiki-toc a, .wiki-sidebar a')];
     let scheduled = false;
     const markSection = () => {
         scheduled = false;

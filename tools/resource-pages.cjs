@@ -11,13 +11,6 @@ const { collectionPath, catalogURL, guideURL: guideAddress, resourceHash } = req
 const { buildGuideData, writeGuides } = require('./resource-guides.cjs');
 const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryLabel } = require('../resources/taxonomy.js');
 const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'addon-packs'];
-const headAd = '<script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>';
-
-function placeHeadAd(html) {
-  if (!html.includes(headAd)) return html;
-  return html.replaceAll(headAd + '\r\n', '').replaceAll(headAd + '\n', '').replaceAll(headAd, '')
-    .replace('</head>', headAd + '\n</head>');
-}
 const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
   rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse Red Dead Redemption 2 outfit presets, addon peds, ClickUI color presets, ListUI styles and Scooby translations.' },
@@ -504,7 +497,6 @@ function renderPage(page, guideRoutes = {}) {
   const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=cherax-archive" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
 <link rel="stylesheet" href="/assets/css/ad-sidebar.css">
-<script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>
 </head>
 <body><a class="skip" href="#resources">Skip to resources</a><header><a class="scooby-brand" href="/"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a><nav aria-label="Main"><a href="/resources/">Resources</a><a href="/resources/guides/">Install guides</a><a href="/store/">Store ↗</a></nav></header>
 <main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${petSubmission}${listing}</section>
@@ -524,10 +516,10 @@ function renderPage(page, guideRoutes = {}) {
   </div>
   <div id="resource-changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>`;
-  const withMetadata = require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script data-cfasync="false" src="https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9"></script>\n</body>'));
-  return placeHeadAd(pets && !page.itemCount
+  const withMetadata = require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script src="/assets/js/download-ad.js" defer></script>\n</body>'));
+  return pets && !page.itemCount
     ? withMetadata.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow">')
-    : withMetadata);
+    : withMetadata;
 }
 function build({ gta5Only = false } = {}) {
   const data = buildData();
@@ -606,9 +598,9 @@ function build({ gta5Only = false } = {}) {
     { '@type': 'ItemList', '@id': rootUrl + '#games', name: 'Game resource collections', numberOfItems: Object.keys(GAMES).length, itemListElement: Object.entries(GAMES).map(([game, config], index) => ({ '@type': 'ListItem', position: index + 1, name: config.name, url: SITE + route(game) })) }
   ] };
   rootHtml = rootHtml.replace('</head>', `<script type="application/ld+json" id="resource-collection-data">${JSON.stringify(rootSchema).replace(/</g, '\\u003c')}</script>\n</head>`);
-  fs.writeFileSync(rootFile, placeHeadAd(require('./seo-metadata').applyMetadata('resources/index.html', rootHtml)));
+  fs.writeFileSync(rootFile, require('./seo-metadata').applyMetadata('resources/index.html', rootHtml));
   console.log(`Built ${pages.length} crawlable ${gta5Only ? 'GTA 5 ' : ''}resource pages.`);
   return data;
 }
-module.exports = { GAMES, CATEGORIES, buildData, build, renderPage, route, placeHeadAd, featuredTopics };
+module.exports = { GAMES, CATEGORIES, buildData, build, renderPage, route, featuredTopics };
 if (require.main === module) build({ gta5Only: process.argv.includes('--gta5-only') });
