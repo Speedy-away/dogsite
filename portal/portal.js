@@ -3505,7 +3505,7 @@ function renderBadges(badges, compact = false) {
     let html = '';
     for (const badge of badges) {
         const icon = badge.icon || 'fa-award';
-        const color = badge.color || '#8b5cf6';
+        const color = badge.color || '#859aaf';
         const name = escapeHtml(badge.name || 'Badge');
         const description = escapeHtml(badge.description || '');
         const awardedAt = badge.awarded_at ? formatDate(badge.awarded_at) : '';
@@ -3553,7 +3553,7 @@ function showBadgeAwardNotification(badges) {
 
     for (const badge of badges) {
         const icon = badge.icon || 'fa-award';
-        const color = badge.color || '#8b5cf6';
+        const color = badge.color || '#859aaf';
         const name = badge.name || 'Badge';
 
         // Create a special badge toast
@@ -3612,7 +3612,7 @@ async function loadAllBadges() {
         let html = '';
         for (const badge of badges) {
             const icon = badge.icon || 'fa-award';
-            const color = badge.color || '#8b5cf6';
+            const color = badge.color || '#859aaf';
             const name = escapeHtml(badge.name || 'Badge');
             const description = escapeHtml(badge.description || '');
             const criteria = escapeHtml(badge.criteria || '');

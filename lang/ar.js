@@ -89,6 +89,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "ما الفرق بين النسخة المجانية وPremium؟",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "ما الفرق بين GTA 5 Free وPremium وPlus؟",
+    "Use a free key to access a selection of features at no cost.": "استخدم مفتاحًا مجانيًا للوصول إلى مجموعة من الميزات.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "يفتح القائمة الكاملة، بما فيها محرر السرقات وأدوات المال والمركبات المعدّلة.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "يشمل ميزات Premium ويتيح لك الانضمام إلى جلسات عامة مع الأصدقاء دون استضافتها.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "تمنحك النسخة المجانية مجموعة جيدة من المميزات في عدة ألعاب دون أي تكلفة. أما Premium فيفتح القائمة كاملة: محرر السرقات واستعادة الأموال والمركبات المعدّلة وأكثر من 1000 ميزة. ويضيف Premium Plus الدعم مع تفعيل BattlEye للعب في اللوبيات العامة ومع الأصدقاء.",
     "Is Scooby safe to use?": "هل استخدام Scooby آمن؟",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "بُني Scooby مع وضع الأمان أولًا ويُحدَّث بانتظام ليبقى غير مكتشف. نطوّر وسائل الحماية باستمرار لتبقى التجربة سلسة مع أقل قدر من المخاطر.",

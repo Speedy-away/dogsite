@@ -88,6 +88,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "Qual è la differenza tra Free e Premium?",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "Qual è la differenza tra GTA 5 Free, Premium e Plus?",
+    "Use a free key to access a selection of features at no cost.": "Usa una chiave gratuita per accedere a una selezione di funzionalità.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "Sblocca il menu completo, inclusi l’editor delle rapine, gli strumenti per il denaro e i veicoli modificati.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "Include le funzionalità Premium e permette di unirti alle sessioni pubbliche con gli amici senza doverle ospitare.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "La versione gratuita offre un buon insieme di funzionalità su più giochi senza costi. Premium sblocca il menu completo: editor dei colpi, recupero denaro, veicoli moddati e oltre 1000 funzionalità. Premium Plus aggiunge il supporto con BattlEye attivo per le lobby pubbliche e per giocare con gli amici.",
     "Is Scooby safe to use?": "Scooby è sicuro da usare?",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "Scooby è costruito pensando alla sicurezza e aggiornato regolarmente per restare non rilevato. Miglioriamo continuamente le protezioni per mantenere l'esperienza fluida riducendo al minimo i rischi.",

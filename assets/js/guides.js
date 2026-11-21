@@ -18,9 +18,56 @@
     document.addEventListener('click', event => { if (!sidebar.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape' && document.body.classList.contains('menu-open')) { closeMenu(); menu.focus(); } });
 
+    if (document.querySelector('.game-guide-topics')) {
+        const openTopic = () => {
+            const target = document.getElementById(location.hash.slice(1));
+            const group = target?.closest('.game-guide-group');
+            if (group) group.open = true;
+        };
+        window.addEventListener('hashchange', openTopic);
+        openTopic();
+    }
+
+    const manual = document.querySelector('.gta-manual');
+    if (manual) {
+        const steps = [...manual.querySelectorAll('.gta-manual-step')];
+        const progress = manual.querySelector('.gta-manual-progress');
+        const meter = progress.querySelector('progress');
+        const progressLabel = progress.querySelector('span');
+        const controls = manual.querySelector('.gta-manual-controls');
+        const previous = controls.querySelector('[data-manual-previous]');
+        const next = controls.querySelector('[data-manual-next]');
+        let current = 0;
+
+        const show = (index, focus = true) => {
+            current = index;
+            steps.forEach((step, position) => { step.hidden = position !== index; });
+            meter.value = index + 1;
+            progressLabel.textContent = 'Step ' + (index + 1) + ' of ' + steps.length;
+            previous.disabled = index === 0;
+            next.disabled = index === steps.length - 1;
+            if (focus) steps[index].querySelector('h3').focus();
+        };
+        meter.max = steps.length;
+        previous.addEventListener('click', () => show(current - 1));
+        next.addEventListener('click', () => show(current + 1));
+        show(0, false);
+        progress.hidden = false;
+        controls.hidden = false;
+    }
+
     const sections = [...document.querySelectorAll('.guide-card[id]')];
     const article = document.querySelector('.wiki-topic-page .article-layout > main');
-    if (article && sections.length && !article.querySelector('.plus-page-index, .mobile-toc, .guide-contents, [aria-label="On this page"]')) {
+    article?.querySelectorAll('nav.guide-contents, nav.help-quick-links').forEach(nav => {
+        if (nav.closest('details') || nav.querySelector('button') || nav.querySelectorAll('a[href^="#"]').length < 5) return;
+        const contents = document.createElement('details');
+        contents.className = 'wiki-article-contents wiki-existing-contents';
+        const summary = document.createElement('summary');
+        summary.textContent = 'On this page';
+        nav.before(contents);
+        contents.append(summary, nav);
+    });
+    if (article && sections.length && !article.querySelector('.plus-page-index, .mobile-toc, .wiki-existing-contents, .guide-contents, [aria-label="On this page"]')) {
         const headings = [...article.querySelectorAll('.guide-card h2, .guide-card h3[id]')];
         const topics = headings
             .filter(heading => !heading.classList.contains('sr-only'))

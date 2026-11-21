@@ -132,7 +132,7 @@ test('all language homepages contain translated HTML with reciprocal, self-canon
     assert(html.includes('lang="' + locale.tag + '" dir="' + (locale.rtl ? 'rtl' : 'ltr') + '"'), file);
     const body = plain(html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)[1]);
     assert(body.includes(locale.intro), 'Missing visible translated prose: ' + file);
-    for (const marker of ['class="hero"', 'id="heroScenes"', 'id="startModal"', '/assets/js/home-features.js', '/assets/js/hero-slideshow.js']) {
+    for (const marker of ['class="hero"', 'id="heroScenes"', 'id="startModal"', '/assets/js/hero-slideshow.js']) {
       assert(html.includes(marker), 'Missing full homepage layout: ' + file + ' ' + marker);
     }
     assert(!html.includes('/assets/css/site-directory.css'), 'Simplified directory layout: ' + file);

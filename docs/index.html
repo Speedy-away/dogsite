@@ -22,7 +22,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
     <link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
-<link rel="stylesheet" href="/docs/docs.css?v=527236750572">
+<link rel="stylesheet" href="/docs/docs.css?v=9b98e75978c3">
 <script src="/assets/js/wiki-theme.js">
 </script>
 <script src="/assets/js/guides.js" defer>
@@ -110,24 +110,11 @@
 <aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Documentation navigation">
 <nav>
 <a class="sidebar-home current" href="/docs/" aria-current="page">Documentation overview</a>
-<details class="sidebar-game" open>
-<summary><span><span class="sidebar-game-title">Scooby Lua API</span><span class="sidebar-game-subtitle">Functions for your scripts</span></span></summary>
-<a class="sidebar-guide-link" href="/api/gta5_api_reference.html">GTA 5</a>
-<a class="sidebar-guide-link" href="/api/rdr2/">Red Dead Redemption 2</a>
-<a class="sidebar-guide-link" href="/api/fivem_api_reference.html">FiveM</a>
-<a class="sidebar-guide-link" href="/api/redm_api_reference.html">RedM</a>
-<a class="sidebar-guide-link" href="/api/cs2/">Counter-Strike 2</a>
-<a class="sidebar-guide-link" href="/api/l4d_api_reference.html">Left 4 Dead 1 &amp; 2</a>
-<a class="sidebar-guide-link" href="/api/tf2/">TF2 &amp; Classified</a>
-</details>
-<details class="sidebar-game" open>
-<summary><span><span class="sidebar-game-title">Native references</span><span class="sidebar-game-subtitle">Game functions by namespace</span></span></summary>
-<a class="sidebar-guide-link" href="/docs/fivem/">FiveM</a>
-<a class="sidebar-guide-link" href="/docs/redm/">RedM</a>
-</details>
+<a href="#lua-api">Lua APIs</a>
+<a href="#native-references">Native references</a>
+<a href="#getting-help">Examples &amp; help</a>
 <div class="sidebar-resources">
 <span>Resources</span>
-<a href="#getting-help">Examples &amp; scripting help</a>
 <a href="/guides/">Game setup guides</a>
 <a href="/guides/general/">General help</a>
 <a href="https://discord.gg/tGtvzChYQq" target="_blank" rel="noopener">Community ↗</a>
@@ -139,7 +126,7 @@
 <header class="docs-intro">
 <div class="breadcrumbs"><a href="/guides/">Wiki</a><span aria-hidden="true">/</span><span>Developer documentation</span></div>
 <h1>Scooby documentation</h1>
-<p class="article-intro">Find the API for your game. Build a Lua script, explore native functions, or start with a working example.</p>
+<p class="article-intro">Find your game’s Lua API, look up a native function, or open a script example.</p>
 <nav class="docs-jump-links" aria-label="On this page">
 <a href="#lua-api">Lua APIs <span aria-hidden="true">↓</span></a>
 <a href="#native-references">Native references <span aria-hidden="true">↓</span></a>
@@ -147,42 +134,42 @@
 </nav>
 </header>
 <section class="guide-card docs-section" id="lua-api" aria-labelledby="lua-heading">
-<div class="docs-section-heading"><div><h2 id="lua-heading">Choose your game</h2><p>Scooby functions, interfaces and game-specific bindings.</p></div><span class="docs-section-label">7 Lua references</span></div>
+<div class="docs-section-heading"><div><h2 id="lua-heading">Lua APIs by game</h2><p>Scooby functions and scripting interfaces.</p></div></div>
 <div class="topic-grid docs-game-grid">
 <a class="topic-card docs-card" href="/api/gta5_api_reference.html">
 <span class="docs-game-art"><img src="/assets/images/store/gta5-logo-transparent-card.webp" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>GTA 5</h3><p>ListUI, ClickUI, native themes, shared feature state, ImGuiCpp and game-specific references.</p></div>
-<span class="docs-card-foot">13,359 available entries<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>GTA 5</h3><p>ListUI, ClickUI, themes and game bindings</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 <a class="topic-card docs-card" href="/api/rdr2/">
 <span class="docs-game-art"><img src="/assets/images/store/rdr2-logo-transparent-card.webp" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>Red Dead Redemption 2</h3><p>ListUI, ClickUI, native themes, shared feature state, ImGuiCpp and game-specific references.</p></div>
-<span class="docs-card-foot">6,768 available entries<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>Red Dead Redemption 2</h3><p>ListUI, ClickUI, themes and game bindings</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 <a class="topic-card docs-card" href="/api/fivem_api_reference.html">
 <span class="docs-game-art"><img src="/assets/images/store/fivem-logo.png" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>FiveM</h3><p>Browse the functions Scooby exposes to your FiveM Lua scripts.</p></div>
-<span class="docs-card-foot">356 entries<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>FiveM</h3><p>Scooby scripting functions</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 <a class="topic-card docs-card" href="/api/redm_api_reference.html">
 <span class="docs-game-art"><img src="/assets/images/store/redm-logo.png" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>RedM</h3><p>Browse the functions Scooby exposes to your RedM Lua scripts.</p></div>
-<span class="docs-card-foot">374 entries<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>RedM</h3><p>Scooby scripting functions</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 <a class="topic-card docs-card" href="/api/cs2/">
 <span class="docs-game-art"><img src="/assets/images/store/cs2.webp" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>Counter-Strike 2</h3><p>Custom interfaces, player snapshots, commands, inventory previews and file storage.</p></div>
-<span class="docs-card-foot">Host API 2.5 · UI API 1.1<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>Counter-Strike 2</h3><p>Custom interfaces and inventory previews</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 <a class="topic-card docs-card" href="/api/l4d_api_reference.html">
 <span class="docs-game-art docs-game-cover"><img src="/assets/images/l4d/background-survivors.jpg" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>Left 4 Dead 1 &amp; 2</h3><p>Native hooks, console diagnostics, snapshots, controls and script examples.</p></div>
-<span class="docs-card-foot">Host API 1.0 · Native hooks 1.1 · UI API 1.1<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>Left 4 Dead 1 &amp; 2</h3><p>Console tools and script examples</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 <a class="topic-card docs-card" href="/api/tf2/">
 <span class="docs-game-art"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" width="72" height="64" alt="" decoding="async"></span>
-<div class="docs-game-copy"><span class="docs-kind">Scooby Lua API</span><h3>TF2 &amp; Classified</h3><p>Search the TF2 and Classified Lua API, explore copied game data and settings, and download script examples.</p></div>
-<span class="docs-card-foot">Host API 1.2 · UI API 1.1<span>Open reference <span aria-hidden="true">→</span></span></span>
+<div class="docs-game-copy"><h3>TF2 &amp; Classified</h3><p>Edition capabilities and script examples</p></div>
+<span class="docs-link-arrow" aria-hidden="true">→</span>
 </a>
 </div>
 </section>
@@ -192,7 +179,6 @@
 <a class="docs-native-link" href="/docs/fivem/"><span class="docs-game-art"><img src="/assets/images/store/fivem-logo.png" width="72" height="64" alt="" decoding="async"></span><span><strong>FiveM natives</strong><span>GTA V &amp; FiveM game functions</span></span><span class="docs-link-arrow" aria-hidden="true">→</span></a>
 <a class="docs-native-link" href="/docs/redm/"><span class="docs-game-art"><img src="/assets/images/store/redm-logo.png" width="72" height="64" alt="" decoding="async"></span><span><strong>RedM natives</strong><span>RDR2 &amp; RedM game functions</span></span><span class="docs-link-arrow" aria-hidden="true">→</span></a>
 </div>
-<p class="docs-reference-note">Writing a Scooby Lua script? Check your game's Lua API above for the supported bindings and signatures.</p>
 </section>
 <section class="guide-card docs-section" id="getting-help" aria-labelledby="help-heading">
 <div class="docs-section-heading"><div><h2 id="help-heading">Start with an example</h2><p>Open a game's scripting guide for templates and setup steps.</p></div></div>

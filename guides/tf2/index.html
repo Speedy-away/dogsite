@@ -26,10 +26,10 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
-<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
+<link rel="stylesheet" href="/assets/css/guides.css?v=7a4df6c8e698">
 <script src="/assets/js/wiki-theme.js">
 </script>
-<script src="/assets/js/guides.js" defer="">
+<script src="/assets/js/guides.js?v=661caaf37c28" defer="">
 </script>
 <link rel="canonical" href="https://scoobymenu.cc/guides/tf2/">
 <noscript>
@@ -87,7 +87,7 @@
 }
 </script>
 </head>
-<body class="wiki-article wiki-topic-page">
+<body class="wiki-article wiki-topic-page game-guide-overview" data-guide-game="tf2">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="wiki-header">
 <a class="wiki-brand scooby-brand" href="/guides/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Wiki</span>
@@ -139,19 +139,10 @@
 
 <details class="sidebar-game sidebar-tf2" data-tf2-nav open>
 <summary><span class="sidebar-game-title">TF2 &amp; TF2 Classified<span class="sidebar-game-subtitle">Game guides</span></span></summary>
-<a class="sidebar-guide-link sidebar-overview" href="/guides/tf2/" aria-current="page" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
-<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
-<a href="/guides/tf2/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
-<a href="/guides/tf2/getting-started/" class="sidebar-guide-link" aria-label="Load Scooby in TF2 &amp; TF2 Classified"><span class="sidebar-link-label">Load guide</span></a>
-<a href="/guides/tf2/editions/" class="sidebar-guide-link" aria-label="TF2 / Classified (Choose your game)"><span class="sidebar-link-label">TF2 / Classified</span><span class="sidebar-link-note">Choose your game</span></a>
-</div>
-<div class="sidebar-guide-section" role="group" aria-label="Menu &amp; scripts"><p class="sidebar-section-label">Menu &amp; scripts</p>
-<a href="/guides/tf2/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings (Settings &amp; profiles)"><span class="sidebar-link-label">Menu settings</span><span class="sidebar-link-note">Settings &amp; profiles</span></a>
-<a href="/guides/tf2/lua-scripts/" class="sidebar-guide-link" aria-label="Lua scripts"><span class="sidebar-link-label">Lua scripts</span></a>
-</div>
-<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
-<a href="/guides/tf2/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
-</div>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/tf2/" aria-current="page">Overview</a>
+<a class="sidebar-guide-link" href="#getting-started">Getting started</a>
+<a class="sidebar-guide-link" href="#customization">Customization</a>
+<a class="sidebar-guide-link" href="#troubleshooting">Troubleshooting</a>
 </details>
 
 <div class="sidebar-resources">
@@ -164,7 +155,35 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Wiki</a> / <a href="/guides/tf2/">TF2 &amp; Classified</a></div><h1>TF2 &amp; TF2 Classified</h1><p class="article-intro">Everything you need to choose an edition, set up Scooby and start scripting.</p><p class="loading-guide-entry"><a href="/guides/tf2/getting-started/">Open the TF2 &amp; TF2 Classified loading guide →</a></p><div class="tf2-wiki-hero"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" alt="Team Fortress 2" width="739" height="249"><img src="/assets/images/tf2/tf2-classified-logo.png" alt="TF2 Classified" width="500" height="148"></div><div class="wiki-note"><strong>Free preview · Windows x64</strong><p>Both editions are free for signed-in Scooby users. Use an eligible local practice session. Each edition keeps its own files, settings and scripts.</p></div><div class="wiki-note"><strong>Features and scripting</strong><p><a href="/features-list/tf2-features/">View all features</a> · <a href="/api/tf2/">Lua API reference</a> · <a href="/docs/tf2/">Download Lua examples</a></p></div><div class="topic-grid"><a class="topic-card" href="/guides/tf2/getting-started/"><h3>Getting started →</h3><p>Set up the free TF2 preview, choose your edition and open the menu.</p></a><a class="topic-card" href="/guides/tf2/requirements/"><h3>Requirements →</h3><p>Check your game edition, Windows architecture, account and session before loading.</p></a><a class="topic-card" href="/guides/tf2/editions/"><h3>TF2 or TF2 Classified →</h3><p>Choose the correct game and keep the loader’s selection and your game data in sync.</p></a><a class="topic-card" href="/guides/tf2/menu-settings/"><h3>Menu settings and profiles →</h3><p>Adjust the interface, visuals, keybinds and edition-specific settings.</p></a><a class="topic-card" href="/guides/tf2/lua-scripts/"><h3>Lua scripts →</h3><p>Run examples in either edition and use the shared TF2 host API.</p></a><a class="topic-card" href="/guides/tf2/troubleshooting/"><h3>Troubleshooting →</h3><p>Resolve edition selection, loading, missing menu, empty data and script errors.</p></a></div><footer class="wiki-footer"><span>Scooby Wiki · TF2 &amp; Classified</span><div><a href="/products/tf2/">Product page</a><a href="/docs/tf2/">Lua examples</a><a href="/api/tf2/">Lua API reference</a><a href="/features-list/tf2-features/">View all features</a><a href="/guides/tf2/">All TF2 guides</a></div></footer></main>
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Wiki</a> / <a href="/guides/tf2/">TF2 &amp; Classified</a></div><header class="game-guide-hero" id="guide-start">
+<h1>TF2 &amp; TF2 Classified</h1>
+<p>Everything you need to choose an edition, set up Scooby and start scripting.</p>
+<a class="game-guide-start" href="/guides/tf2/getting-started/">Start TF2 setup <span aria-hidden="true">→</span></a>
+</header>
+<section class="game-guide-topics" id="guide-topics" aria-labelledby="guide-topics-heading">
+<h2 id="guide-topics-heading">Browse by topic</h2>
+<details class="game-guide-group" id="getting-started">
+<summary><span><strong>Getting started</strong><small>Requirements, editions and first-time setup</small></span></summary>
+<ul>
+<li><a href="/guides/tf2/getting-started/"><span><strong>Getting started</strong><small>Set up the free TF2 preview, choose your edition and open the menu.</small></span><span aria-hidden="true">→</span></a></li>
+<li><a href="/guides/tf2/requirements/"><span><strong>Requirements</strong><small>Check your game edition, Windows architecture, account and session before loading.</small></span><span aria-hidden="true">→</span></a></li>
+<li><a href="/guides/tf2/editions/"><span><strong>TF2 or TF2 Classified</strong><small>Choose the correct game and keep the loader’s selection and your game data in sync.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+<details class="game-guide-group" id="customization">
+<summary><span><strong>Customization</strong><small>Game settings, scripts and custom content</small></span></summary>
+<ul>
+<li><a href="/guides/tf2/menu-settings/"><span><strong>Menu settings and profiles</strong><small>Adjust the interface, visuals, keybinds and edition-specific settings.</small></span><span aria-hidden="true">→</span></a></li>
+<li><a href="/guides/tf2/lua-scripts/"><span><strong>Lua scripts</strong><small>Run examples in either edition and use the shared TF2 host API.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+<details class="game-guide-group" id="troubleshooting">
+<summary><span><strong>Troubleshooting</strong><small>Help with crashes, errors and updates</small></span></summary>
+<ul>
+<li><a href="/guides/tf2/troubleshooting/"><span><strong>Troubleshooting</strong><small>Resolve edition selection, loading, missing menu, empty data and script errors.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+</section><div class="tf2-wiki-hero"><img src="/assets/images/tf2/tf2-logo-transparent-v1.png" alt="Team Fortress 2" width="739" height="249"><img src="/assets/images/tf2/tf2-classified-logo.png" alt="TF2 Classified" width="500" height="148"></div><div class="wiki-note"><strong>Free preview · Windows x64</strong><p>Both editions are free for signed-in Scooby users. Use an eligible local practice session. Each edition keeps its own files, settings and scripts.</p></div><div class="wiki-note"><strong>Features and scripting</strong><p><a href="/features-list/tf2-features/">View all features</a> · <a href="/api/tf2/">Lua API reference</a> · <a href="/docs/tf2/">Download Lua examples</a></p></div><footer class="wiki-footer"><span>Scooby Wiki · TF2 &amp; Classified</span><div><a href="/products/tf2/">Product page</a><a href="/docs/tf2/">Lua examples</a><a href="/api/tf2/">Lua API reference</a><a href="/features-list/tf2-features/">View all features</a><a href="/guides/tf2/">All TF2 guides</a></div></footer></main>
 </div>
 <dialog class="search-dialog" id="search-dialog" aria-label="Search guides">
 <div class="search-dialog-top">

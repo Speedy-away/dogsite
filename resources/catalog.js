@@ -105,6 +105,7 @@ function resourceTags(entry) {
   else if (edition) add(editions.gameLabel(entry.game, edition));
   const topics = taxonomy.redmGraphicsTopics(entry);
   topics.forEach(topic => add(topic.name));
+  menuSystem.formatExtensions(entry).forEach(format => add(`${format.toUpperCase()} file`));
 
   // Keep imported provenance and attribution in their existing detail fields and search index.
   if (!entry._legacy) {
@@ -137,7 +138,10 @@ function previewTags(entry) {
   return [...tags].filter(([tag]) => topics.has(tag) && tag !== menuLabel);
 }
 function resourceSearchText(entry) {
-  if (!searchCache.has(entry)) searchCache.set(entry, taxonomy.searchText(entry));
+  if (!searchCache.has(entry)) {
+    const formats = menuSystem.formatExtensions(entry).map(format => `${format} file`);
+    searchCache.set(entry, [taxonomy.searchText(entry), ...formats].join(' '));
+  }
   return searchCache.get(entry);
 }
 function roleplayGroups(game) {

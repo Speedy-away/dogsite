@@ -3,6 +3,10 @@
 .source-collection .main-content{max-width:1280px;padding:110px 28px 64px}
 .collection-hero{position:relative;isolation:isolate;min-height:530px;overflow:hidden;border:1px solid #ffffff18;border-radius:24px;background:#101619;display:flex;align-items:center}
 .collection-hero-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:68% center}
+.source-hero-banner{background-color:#101619}
+@media(max-width:580px){
+    .source-hero-banner{mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
+}
 .collection-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#080d13c9 0%,#080d1355 43%,transparent 73%),linear-gradient(0deg,#080d13a8,transparent 35%)}
 .collection-hero-copy{padding:48px;max-width:690px}
 .collection-brand{display:flex;align-items:center;gap:14px;color:#dfd4c6;font-size:10px;font-weight:700;letter-spacing:.2em}.collection-brand img{width:50px;height:50px;object-fit:contain}

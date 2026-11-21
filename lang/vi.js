@@ -88,6 +88,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "Bản Free và Premium khác nhau thế nào?",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "GTA 5 Free, Premium và Plus khác nhau thế nào?",
+    "Use a free key to access a selection of features at no cost.": "Dùng khóa miễn phí để truy cập một số tính năng mà không mất phí.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "Mở khóa toàn bộ menu, gồm trình chỉnh sửa phi vụ, công cụ tiền và xe đã chỉnh sửa.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "Bao gồm các tính năng Premium và cho phép tham gia phiên công khai cùng bạn bè mà không cần làm chủ phòng.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "Bản miễn phí cung cấp bộ tính năng khá đầy đủ trên nhiều game mà không tốn phí. Premium mở khóa toàn bộ menu: trình chỉnh sửa heist, khôi phục tiền, xe đã mod và hơn 1000 tính năng. Premium Plus bổ sung hỗ trợ khi bật BattlEye để chơi trong sảnh công khai và chơi cùng bạn bè.",
     "Is Scooby safe to use?": "Dùng Scooby có an toàn không?",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "Scooby được xây dựng với ưu tiên an toàn và cập nhật thường xuyên để duy trì trạng thái không bị phát hiện. Chúng tôi liên tục cải thiện lớp bảo vệ để trải nghiệm mượt mà và giảm thiểu rủi ro.",

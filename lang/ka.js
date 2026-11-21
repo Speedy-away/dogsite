@@ -88,6 +88,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "რა განსხვავებაა Free-სა და Premium-ს შორის?",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "რა განსხვავებაა GTA 5 Free-ს, Premium-სა და Plus-ს შორის?",
+    "Use a free key to access a selection of features at no cost.": "უფასო გასაღებით ფუნქციების ნაწილს უფასოდ გამოიყენებთ.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "ხსნის სრულ მენიუს, მათ შორის ძარცვის რედაქტორს, ფულის ხელსაწყოებსა და მოდიფიცირებულ მანქანებს.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "მოიცავს Premium-ის ფუნქციებს და საშუალებას გაძლევთ, მეგობრებთან ერთად საჯარო სესიას მასპინძლობის გარეშე შეუერთდეთ.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "უფასო ვერსია რამდენიმე თამაშში კარგ ფუნქციებს გთავაზობს უფასოდ. Premium ხსნის მთელ მენიუს: ძარცვის რედაქტორს, ფულის აღდგენას, მოდიფიცირებულ ტრანსპორტს და 1000-ზე მეტ ფუნქციას. Premium Plus კი ამატებს მხარდაჭერას ჩართული BattlEye-ით, საჯარო ლობებსა და მეგობრებთან სათამაშოდ.",
     "Is Scooby safe to use?": "უსაფრთხოა Scooby-ს გამოყენება?",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "Scooby შექმნილია უსაფრთხოებაზე აქცენტით და რეგულარულად ახლდება, რომ აღმოუჩენელი დარჩეს. ჩვენ მუდმივად ვაუმჯობესებთ დაცვას, რომ გამოცდილება შეუფერხებელი იყოს და რისკი მინიმალური.",

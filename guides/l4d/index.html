@@ -26,10 +26,10 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
-<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
+<link rel="stylesheet" href="/assets/css/guides.css?v=7a4df6c8e698">
 <script src="/assets/js/wiki-theme.js">
 </script>
-<script src="/assets/js/guides.js" defer="">
+<script src="/assets/js/guides.js?v=661caaf37c28" defer="">
 </script>
 <link rel="canonical" href="https://scoobymenu.cc/guides/l4d/">
 <noscript>
@@ -85,7 +85,7 @@
 }
 </script>
 </head>
-<body class="wiki-article wiki-topic-page">
+<body class="wiki-article wiki-topic-page game-guide-overview" data-guide-game="l4d">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="wiki-header">
 <a class="wiki-brand scooby-brand" href="/guides/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Wiki</span>
@@ -137,17 +137,10 @@
 
 <details class="sidebar-game sidebar-l4d" open>
 <summary><span class="sidebar-game-title">Left 4 Dead 1 &amp; 2<span class="sidebar-game-subtitle">Game guides</span></span></summary>
-<a class="sidebar-guide-link sidebar-overview" href="/guides/l4d/" aria-current="page" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
-<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
-<a href="/guides/l4d/requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
-<a href="/guides/l4d/getting-started/" class="sidebar-guide-link" aria-label="Load Scooby in Left 4 Dead 1 &amp; 2"><span class="sidebar-link-label">Load guide</span></a>
-</div>
-<div class="sidebar-guide-section" role="group" aria-label="Customization"><p class="sidebar-section-label">Customization</p>
-<a href="/guides/l4d/menu-settings/" class="sidebar-guide-link" aria-label="Menu settings"><span class="sidebar-link-label">Menu settings</span></a>
-</div>
-<div class="sidebar-guide-section" role="group" aria-label="Help &amp; troubleshooting"><p class="sidebar-section-label">Help &amp; troubleshooting</p>
-<a href="/guides/l4d/troubleshooting/" class="sidebar-guide-link" aria-label="Troubleshooting"><span class="sidebar-link-label">Troubleshooting</span></a>
-</div>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/l4d/" aria-current="page">Overview</a>
+<a class="sidebar-guide-link" href="#getting-started">Getting started</a>
+<a class="sidebar-guide-link" href="#customization">Customization</a>
+<a class="sidebar-guide-link" href="#troubleshooting">Troubleshooting</a>
 </details>
 
 <div class="sidebar-resources">
@@ -161,7 +154,33 @@
 </aside>
 <div class="article-layout">
 <main id="main-content" tabindex="-1">
-<div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/l4d/">Left 4 Dead</a></div><h1>Left 4 Dead 1 &amp; 2 guide</h1><p class="article-intro">Set up either game, customize the menu, and build your own Lua tools.</p><p class="loading-guide-entry"><a href="/guides/l4d/getting-started/">Open the Left 4 Dead 1 &amp; 2 loading guide →</a></p><div class="guide-card" id="overview"><h2 class="sr-only">Left 4 Dead 1 &amp; 2 guide</h2><div class="topic-grid"><a class="topic-card" href="/guides/l4d/getting-started/"><h3>Getting started →</h3><p>Launch and load Scooby in Left 4 Dead 1 or 2.</p></a><a class="topic-card" href="/guides/l4d/requirements/"><h3>Requirements →</h3><p>Windows, Steam game versions, and the runtimes needed by the loader.</p></a><a class="topic-card" href="/guides/l4d/menu-settings/"><h3>Menu settings →</h3><p>Set up visuals, language, hotkeys, profiles and custom scripts.</p></a><a class="topic-card" href="/guides/l4d/troubleshooting/"><h3>Troubleshooting →</h3><p>Game detection, missing menus, language files and failed downloads.</p></a></div><p><a href="/resources/guides/l4d/">Install custom content</a> · <a href="/features-list/l4d-features/">View all features</a> · <a href="/api/l4d_api_reference.html" target="_blank" rel="noopener noreferrer">Lua API documentation</a></p></div><footer class="wiki-footer">
+<div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/l4d/">Left 4 Dead</a></div><header class="game-guide-hero" id="guide-start">
+<h1>Left 4 Dead 1 &amp; 2 guide</h1>
+<p>Set up either game, customize the menu, and build your own Lua tools.</p>
+<a class="game-guide-start" href="/guides/l4d/getting-started/">Start Left 4 Dead setup <span aria-hidden="true">→</span></a>
+</header>
+<section class="game-guide-topics" id="guide-topics" aria-labelledby="guide-topics-heading">
+<h2 id="guide-topics-heading">Browse by topic</h2>
+<details class="game-guide-group" id="getting-started">
+<summary><span><strong>Getting started</strong><small>Requirements, editions and first-time setup</small></span></summary>
+<ul>
+<li><a href="/guides/l4d/getting-started/"><span><strong>Getting started</strong><small>Launch and load Scooby in Left 4 Dead 1 or 2.</small></span><span aria-hidden="true">→</span></a></li>
+<li><a href="/guides/l4d/requirements/"><span><strong>Requirements</strong><small>Windows, Steam game versions, and the runtimes needed by the loader.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+<details class="game-guide-group" id="customization">
+<summary><span><strong>Customization</strong><small>Game settings, scripts and custom content</small></span></summary>
+<ul>
+<li><a href="/guides/l4d/menu-settings/"><span><strong>Menu settings</strong><small>Set up visuals, language, hotkeys, profiles and custom scripts.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+<details class="game-guide-group" id="troubleshooting">
+<summary><span><strong>Troubleshooting</strong><small>Help with crashes, errors and updates</small></span></summary>
+<ul>
+<li><a href="/guides/l4d/troubleshooting/"><span><strong>Troubleshooting</strong><small>Game detection, missing menus, language files and failed downloads.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+</section><div class="guide-card" id="overview"><h2 class="sr-only">Left 4 Dead 1 &amp; 2 guide</h2><p><a href="/resources/guides/l4d/">Install custom content</a> · <a href="/features-list/l4d-features/">View all features</a> · <a href="/api/l4d_api_reference.html" target="_blank" rel="noopener noreferrer">Lua API documentation</a></p></div><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>

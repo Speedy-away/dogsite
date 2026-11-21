@@ -26,10 +26,10 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
-<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
+<link rel="stylesheet" href="/assets/css/guides.css?v=7a4df6c8e698">
 <script src="/assets/js/wiki-theme.js">
 </script>
-<script src="/assets/js/guides.js" defer="">
+<script src="/assets/js/guides.js?v=661caaf37c28" defer="">
 </script>
 <link rel="canonical" href="https://scoobymenu.cc/guides/gta5/hypervisor-vbs/">
 <noscript>
@@ -148,7 +148,6 @@
 <a class="sidebar-guide-link" href="/guides/gta5/premium-free-setup/"><span class="sidebar-link-label">GTA 5 setup</span></a>
 </div>
 <div class="sidebar-guide-section" role="group" aria-label="Playing online"><p class="sidebar-section-label">Playing online</p>
-<a class="sidebar-guide-link" href="/guides/gta5/money/" aria-label="Money methods"><span class="sidebar-link-label">Money methods</span></a>
 <a class="sidebar-guide-link" href="/guides/gta5/host-public/" aria-label="Public session hosting (BattlEye disabled)"><span class="sidebar-link-label">Public session hosting</span><span class="sidebar-link-note">BattlEye disabled</span></a>
 </div>
 <details class="sidebar-customization" open><summary>Customization</summary>
@@ -174,7 +173,48 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><span>Hypervisor / VBS Troubleshooting</span></div><h1>Hypervisor / VBS Troubleshooting</h1><p class="article-intro">GTA 5 · Scooby Wiki · Plus</p>
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><a href="/guides/gta5/">GTA 5</a><span>/</span><span>Hypervisor / VBS Troubleshooting</span></div><h1>Hypervisor / VBS Troubleshooting</h1><p class="article-intro">Seeing a Hypervisor or VBS warning in the GTA 5 Plus launcher? Check what Windows reports before contacting support.</p>
+
+<section class="gta-manual" aria-labelledby="vbs-steps-heading">
+<div class="gta-manual-header">
+<h2 id="vbs-steps-heading">Step-by-step troubleshooting</h2>
+<label class="gta-manual-progress" hidden><span>Step 1 of 4</span><progress value="1" max="4"></progress></label>
+</div>
+<ol class="gta-manual-steps">
+<li class="gta-manual-step">
+<span class="gta-manual-number" aria-hidden="true">1</span>
+<div class="gta-manual-copy">
+<h3 tabindex="-1">Capture the launcher warning</h3>
+<p>Copy the exact warning or take a screenshot. Note when it appears, such as when you open the launcher or select GTA 5 Plus.</p>
+</div>
+</li>
+<li class="gta-manual-step">
+<span class="gta-manual-number" aria-hidden="true">2</span>
+<div class="gta-manual-copy">
+<h3 tabindex="-1">Open Windows System Information</h3>
+<p>Press <kbd>Windows</kbd> + <kbd>R</kbd>, type <code>msinfo32</code>, and press <kbd>Enter</kbd>. Select <strong>System Summary</strong> in the left pane.</p>
+</div>
+</li>
+<li class="gta-manual-step">
+<span class="gta-manual-number" aria-hidden="true">3</span>
+<div class="gta-manual-copy">
+<h3 tabindex="-1">Record what is running</h3>
+<p>Find <strong>Virtualization-based security</strong> and note its status. If <strong>Virtualization-based security Services Running</strong> appears, copy the services listed there. Record the Windows version and build shown at the top of System Summary. See <a href="https://learn.microsoft.com/en-gb/windows/security/identity-protection/credential-guard/configure#verify-if-credential-guard-is-enabled">Microsoft’s System Information reference</a>.</p>
+</div>
+</li>
+<li class="gta-manual-step">
+<span class="gta-manual-number" aria-hidden="true">4</span>
+<div class="gta-manual-copy">
+<h3 tabindex="-1">Send support the relevant details</h3>
+<p>Share the exact warning, Windows build, VBS status, and any running services with Scooby support. If Windows and the launcher report different states, include both. For a work or school PC, ask your IT administrator to review the settings.</p>
+</div>
+</li>
+</ol>
+<div class="gta-manual-controls" hidden>
+<button type="button" data-manual-previous>← Previous</button>
+<button type="button" data-manual-next>Next step →</button>
+</div>
+</section>
 
 <div class="guide-card" id="hypervisor-vbs">
 <h2 class="sr-only">Fix “Hypervisor / VBS is running”</h2>

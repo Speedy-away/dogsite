@@ -1,7 +1,27 @@
 /* A continuous page background; cards retain their own outlines. */
 #products, #faq, #reviews { background:var(--bg); border:0; }
+#faq .gta-tier-faq a {
+    color:var(--accent-light, #a9c5ff);
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:3px;
+}
 #tools { scroll-margin-top:110px; }
 .catalog-tools { margin-top:0; }
+
+#products .product-card.wide.dark-card[href="/products/free/"] { min-height:0; }
+#products .product-card.wide.dark-card[href="/products/free/"] .product-card-body {
+    padding:46px 20px 14px;
+}
+
+#products .catalog-grid:nth-child(1 of .catalog-grid) { gap:16px; }
+#products .catalog-grid:nth-child(1 of .catalog-grid) .catalog-body { padding:16px 18px; }
+@media(min-width:1080px) {
+    #products .catalog-grid:nth-child(1 of .catalog-grid) {
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+}
+
 /* Compact, randomly rotating reviews with game filters. */
 .reviews-section { scroll-margin-top:100px; padding:clamp(48px,6vw,76px) 0; }
 .community-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; margin-bottom:24px; }

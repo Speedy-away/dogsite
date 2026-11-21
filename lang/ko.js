@@ -88,6 +88,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "무료 버전과 Premium의 차이는 무엇인가요?",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "GTA 5 Free, Premium, Plus의 차이는 무엇인가요?",
+    "Use a free key to access a selection of features at no cost.": "무료 키를 사용해 일부 기능을 무료로 이용할 수 있습니다.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "습격 편집기, 자금 도구, 개조 차량 등 전체 메뉴를 사용할 수 있습니다.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "Premium 기능을 포함하며 호스트가 아니어도 친구와 공개 세션에 참가할 수 있습니다.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "무료 버전으로도 여러 게임에서 충분한 기능을 무료로 사용할 수 있습니다. Premium은 강도 편집기, 머니 복구, 모드 차량 등 1000개가 넘는 기능을 포함한 전체 메뉴를 해제합니다. Premium Plus는 BattlEye 활성 상태 지원을 추가해 퍼블릭 로비와 친구와의 플레이를 가능하게 합니다.",
     "Is Scooby safe to use?": "Scooby는 안전한가요?",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "Scooby는 안전을 최우선으로 개발되었으며 미탐지 상태를 유지하기 위해 정기적으로 업데이트됩니다. 위험을 최소화하면서 쾌적한 사용성을 유지하도록 보호 기능을 지속적으로 개선합니다.",

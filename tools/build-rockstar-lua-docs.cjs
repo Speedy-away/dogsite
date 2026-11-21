@@ -88,14 +88,6 @@ const owned=e=>games.some(g=>e.href===g.route||e.href.startsWith(g.route+'?')||e
 const searchPath=path.join(site,'assets/data/docs-search.json');
 const search=JSON.parse(fs.readFileSync(searchPath,'utf8')).filter(e=>!owned(e));search.push(...searchRows);
 put('assets/data/docs-search.json',JSON.stringify(search,null,2)+'\n');
-const hubPath=path.join(site,'docs/index.html');let hub=fs.readFileSync(hubPath,'utf8');
-for(const g of games){const route=g.route.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');const stats=summaries.find(s=>s.game===g.game);
- hub=hub.replace(new RegExp(`(<a class="topic-card docs-card" href="${route}">)[\\s\\S]*?(</a>)`),match=>match
-  .replace(/(<p>)[\s\S]*?(<\/p>)/,'$1ListUI, ClickUI, native themes, shared feature state, ImGuiCpp and game-specific references.$2')
-  .replace(/(<span class="docs-card-foot">)[^<]*/,'$1'+stats.available.toLocaleString('en-US')+' available entries'))}
-if(!hub.includes('<a href="/api/rdr2/">RDR2</a>'))hub=hub.replace('<a href="/api/gta5_api_reference.html">GTA 5</a>','<a href="/api/gta5_api_reference.html">GTA 5</a>\n<a href="/api/rdr2/">RDR2</a>');
-hub=hub.replaceAll('GTA 5, FiveM, RedM, CS2','GTA 5, RDR2, FiveM, RedM, CS2');
-put('docs/index.html',hub);
 const changed=[];
 for(const [relative,data]of outputs){const target=path.join(site,relative),current=fs.existsSync(target)?fs.readFileSync(target):null;
  const sameSearch=b=>JSON.stringify(JSON.parse(b).filter(owned).sort((a,b)=>(a.href+' '+a.title).localeCompare(b.href+' '+b.title)));

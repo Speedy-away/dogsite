@@ -88,6 +88,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "Free ile Premium arasındaki fark nedir?",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "GTA 5 Free, Premium ve Plus arasındaki fark nedir?",
+    "Use a free key to access a selection of features at no cost.": "Seçili özelliklere ücretsiz erişmek için ücretsiz bir anahtar kullan.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "Soygun düzenleyicisi, para araçları ve modlu araçlar dahil tüm menünün kilidini açar.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "Premium özelliklerini içerir ve sunucu sahibi olmadan arkadaşlarınla herkese açık oturumlara katılmanı sağlar.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "Ücretsiz sürüm, birden fazla oyunda sağlam bir özellik seti sunar. Premium menünün tamamını açar: soygun düzenleyici, para kurtarma, modlu araçlar ve 1000'den fazla özellik. Premium Plus ise herkese açık lobiler ve arkadaşlarla oynamak için BattlEye açıkken destek ekler.",
     "Is Scooby safe to use?": "Scooby'yi kullanmak güvenli mi?",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "Scooby güvenlik düşünülerek geliştirildi ve tespit edilmemek için düzenli olarak güncelleniyor. Deneyimi akıcı tutmak ve riski en aza indirmek için korumalarımızı sürekli geliştiriyoruz.",

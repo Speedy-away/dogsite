@@ -25,24 +25,13 @@ html {
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg-primary);
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(79, 142, 245, 0.08), transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(37, 99, 235, 0.06), transparent 50%),
+        var(--bg-primary);
     color: var(--text-primary);
     min-height: 100vh;
     overflow-x: hidden;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(ellipse at 20% 20%, rgba(79, 142, 245, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
 }
 
 /* Scrollbar */

@@ -89,6 +89,10 @@
 
     /* ---- FAQ ---- */
     "What's the difference between Free and Premium?": "Која је разлика између Free и Premium верзије?",
+    "What's the difference between GTA 5 Free, Premium, and Plus?": "Која је разлика између GTA 5 Free, Premium и Plus?",
+    "Use a free key to access a selection of features at no cost.": "Бесплатан кључ омогућава приступ одабраним функцијама без плаћања.",
+    "Unlocks the full menu, including the heist editor, money tools, and modded vehicles.": "Откључава цео мени, укључујући уређивач пљачки, алате за новац и модификована возила.",
+    "Includes Premium features and lets you join public sessions with friends without needing to host.": "Обухвата Premium функције и омогућава да се придружиш јавним сесијама са пријатељима без хостовања.",
     "The free version gives you a solid set of features across several games at no cost. Premium unlocks the full menu — heist editor, money recovery, modded vehicles and 1000+ features. Premium Plus adds BattlEye Enabled support for public lobbies and playing with friends.": "Бесплатна верзија ти даје солидан скуп функција у више игара без икакве накнаде. Premium откључава цео мени — едитор пљачки, опоравак новца, модификована возила и преко 1000 функција. Premium Plus додаје подршку док је BattlEye укључен, за јавне лобије и игру са пријатељима.",
     "Is Scooby safe to use?": "Да ли је Scooby безбедан за коришћење?",
     "Scooby is built with safety in mind and updated regularly to maintain undetected status. We continuously improve our protections to keep the experience smooth while minimizing risk.": "Scooby је прављен са безбедношћу на првом месту и редовно се ажурира како би остао неоткривен. Стално унапређујемо заштиту да искуство буде глатко уз што мањи ризик.",

@@ -11,6 +11,7 @@ const { collectionPath, catalogURL, guideURL: guideAddress, resourceHash } = req
 const { buildGuideData, writeGuides } = require('./resource-guides.cjs');
 const { menuTopic, redmGraphicsTopics, REDM_GRAPHICS_TOPICS, categoryId, gtaAddonCategory, roleplayCategoryGroups, roleplayCategoryLabel } = require('../resources/taxonomy.js');
 const featuredTopics = ['lua', 'outfits', 'vehicles', 'maps', 'themes', 'configs', 'languages', 'addon-packs'];
+const commonFileTypes = new Set(['json', 'xml', 'ini', 'txt', 'lua', 'pluto', 'zip', 'rar', '7z', 'rpf', 'png', 'jpg', 'dds', 'ytd', 'vtf', 'vpk']);
 const GAMES = {
   gta5: { name: 'GTA 5', full: 'Grand Theft Auto V', aliases: ['GTA V', 'GTA5', 'GTA 5 Enhanced mods', 'GTA 5 Legacy mods'], logo: '/assets/images/store/gta5-logo-transparent-card.webp', intro: 'Find saved vehicles, Menyoo maps, outfits, addon cars and peds, LSC PaintJobs and Scooby themes for GTA 5 Legacy and Enhanced.' },
   rdr2: { name: 'RDR2', full: 'Red Dead Redemption 2', aliases: ['Red Dead 2'], logo: '/assets/images/store/rdr2-logo-transparent-card.webp', intro: 'Browse Red Dead Redemption 2 outfit presets, addon peds, ClickUI color presets, ListUI styles and Scooby translations.' },
@@ -284,6 +285,16 @@ function buildData() {
       const fullList = (game === 'cs2' && ['skyboxes', 'textures'].includes(category)) || (yim && category === 'lua');
       const samples = fullList ? candidates : candidates.slice(0, 12);
       const label = category === 'graphics-packs' && (game === 'fivem' || game === 'redm') ? roleplayCategoryLabel(game, category) : category ? categoryInfo(game, category, menu).name : 'Resources';
+      const formatCounts = new Map();
+      if (category) {
+        for (const item of subset) {
+          for (const format of menus.formatExtensions(item)) {
+            if (commonFileTypes.has(format)) formatCounts.set(format, (formatCounts.get(format) || 0) + 1);
+          }
+        }
+      }
+      const formats = [...formatCounts].sort(([a, first], [b, second]) => second - first || a.localeCompare(b, 'en'))
+        .slice(0, 5).map(([format]) => format);
       const pendingCount = subset.filter(item => item.downloadStatus === 'pending' && !item.files?.length).length;
       const pendingOnly = subset.length > 0 && pendingCount === subset.length;
       const scopeName = archive ? 'Stand Old Shares' : `${config.name}${availableMenus.length > 1 ? ' ' + menuName : ''}`;
@@ -311,7 +322,14 @@ function buildData() {
       }
       const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
       const aliases = yim ? config.aliases.filter(alias => !alias.includes(menu === 'yim' ? 'Enhanced' : 'Legacy')) : config.aliases;
-      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, menuTopic(menu, 'resources'), config.name, config.full, ...topics, ...aliases, ...searches, ...categoryWords, ...interfaces])].join(', ');
+      const collectionKeywords = [
+        `${scopeName} ${label.toLowerCase()}`,
+        ...categoryWords.filter(word => !word.toLowerCase().includes(menuName.toLowerCase())).slice(0, 3)
+          .map(word => `${menuName} ${word}`),
+        ...formats.filter(format => category === 'lua' || !['lua', 'pluto'].includes(format))
+          .map(format => `${format.toUpperCase()} ${label.toLowerCase()}`)
+      ];
+      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, menuTopic(menu, 'resources'), config.name, config.full, ...topics, ...aliases, ...searches, ...categoryWords, ...interfaces, ...collectionKeywords])].join(', ');
       const intro = archive ? `Browse ${category ? label.toLowerCase() : 'resources'} from the Stand Discord Old Shares archive.` : menu === 'yim' && !category
         ? 'Browse Lua scripts and saved vehicle, map and outfit packs for YimMenu v1 on GTA 5 Legacy.'
         : menu === 'yim' && (yimPresets[category] || category?.startsWith('pack-')) ? categoryInfo(game, category, menu).description
@@ -340,7 +358,7 @@ function buildData() {
       const graphicsTopics = game === 'redm' && (!category || redmGraphics)
         ? REDM_GRAPHICS_TOPICS.filter(topic => subset.some(item => redmGraphicsTopics(item).includes(topic))) : [];
       pages.push({ file: route(game, category, menu, archive).slice(1) + 'index.html', url: SITE + route(game, category, menu, archive), game, menu, archive, menuName, scopeName, category, name: label, title, description, keywords,
-        itemCount: subset.length, pendingCount, gameItemCount: defaultGameScope.items.length, categories, availableMenus, samples, intro, formatHint: scope.hint, alternateFormat: scope.alternateFormat, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
+        itemCount: subset.length, pendingCount, gameItemCount: defaultGameScope.items.length, categories, availableMenus, samples, intro, formatHint: scope.hint, alternateFormat: scope.alternateFormat, formats, graphicsTopics, downloadBaseUrl: library.downloadBaseUrl });
       };
       makePage();
       for (const category of categories) makePage(category.id);
@@ -361,6 +379,10 @@ function renderPage(page, guideRoutes = {}) {
   const browseURL = (filters = {}) => catalogURL({ game: page.game, menu: page.menu, category: page.category, archive: page.archive, ...filters }, published);
   const formatLink = page.alternateFormat ? ` <a class="resource-open" href="${escape(browseURL({ format: page.alternateFormat }))}#collection">Browse other formats →</a>` : '';
   const formatNote = page.formatHint ? `<p class="resource-intro">${escape(page.formatHint)}${formatLink}</p>` : '';
+  const formatTags = page.formats.length > 1
+    ? `<nav class="resource-menus" aria-label="Filter by file type">${page.formats.map(format =>
+      `<a href="${escape(browseURL({ format }))}#collection">${escape(format.toUpperCase())}</a>`).join('')}</nav>`
+    : '';
   const gameLinks = Object.entries(GAMES).map(([id, config]) => {
     const href = page.menu === 'nenyoo' && page.category === 'lua' && menus.menuFor(id, 'nenyoo') === 'nenyoo'
       ? route(id, 'lua', 'nenyoo') : route(id, undefined, id === page.game ? page.menu : 'scooby');
@@ -499,7 +521,7 @@ function renderPage(page, guideRoutes = {}) {
 <link rel="stylesheet" href="/assets/css/ad-sidebar.css">
 </head>
 <body><a class="skip" href="#resources">Skip to resources</a><header><a class="scooby-brand" href="/"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a><nav aria-label="Main"><a href="/resources/">Resources</a><a href="/resources/guides/">Install guides</a><a href="/store/">Store ↗</a></nav></header>
-<main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${petSubmission}${listing}</section>
+<main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${petSubmission}${formatTags}${listing}</section>
 <aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
   <p class="ad-label">Advertisement</p>
   <div class="ad-content" id="container-916d4be3288f94a3bc49ab6cdaef5ba9"></div>

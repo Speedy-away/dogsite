@@ -2,7 +2,7 @@
 .portal-modern.profile-active { background:#09090b; }
 .profile-page-heading .dashboard-button { width:auto; }
 .portal-modern #page-profile { color:#ededf0; }
-.portal-modern #page-profile .profile-header { align-items:center; flex-direction:row; gap:20px; padding:24px; margin-bottom:20px; background:#0e0e11; border:1px solid #26262c; border-radius:12px; text-align:left; }
+.portal-modern #page-profile .profile-header { align-items:center; flex-direction:row; gap:16px; padding:20px; margin-bottom:16px; background:#0e0e11; border:1px solid #26262c; border-radius:10px; text-align:left; }
 .portal-modern #page-profile .profile-avatar { width:68px; height:68px; border:1px solid #3a3a44; border-radius:16px; background:#202026; color:#ededf0; font:600 26px 'Inter',sans-serif; padding:0; }
 .portal-modern #page-profile .profile-avatar:hover { transform:none; box-shadow:none; border-color:#8a8a96; }
 .portal-modern #page-profile .profile-info { min-width:0; display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:20px; row-gap:8px; align-items:center; }
@@ -41,17 +41,17 @@
 .portal-modern :is(#avatarModal,#editBioModal) .modal-header { background:transparent; }
 .portal-modern :is(#avatarModal,#editBioModal) .modal-header h2 { font-size:16px; }
 .portal-modern :is(#avatarModal,#editBioModal) .modal-header h2 i { color:#babac4; }
-.portal-redeem-dialog { position:fixed; inset:0; margin:auto; width:min(460px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); padding:0; overflow:auto; border:1px solid #303038; border-radius:14px; background:#0e0e11; color:#ededf0; box-shadow:0 24px 90px #0009; }
+.portal-redeem-dialog { position:fixed; inset:0; margin:auto; width:min(420px,calc(100vw - 28px)); max-height:calc(100dvh - 28px); padding:0; overflow:auto; border:1px solid #303038; border-radius:12px; background:#0e0e11; color:#ededf0; box-shadow:0 24px 90px #0009; }
 .portal-redeem-dialog::backdrop { background:#050507bd; backdrop-filter:blur(5px); }
-.portal-redeem-dialog form { padding:28px; }
-.redeem-dialog-heading { display:flex; align-items:center; justify-content:space-between; margin-bottom:22px; }
+.portal-redeem-dialog form { padding:22px; }
+.redeem-dialog-heading { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
 .redeem-dialog-icon { display:flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid #33333b; border-radius:10px; background:#1a1a20; color:#d0d0db; font-size:16px; }
 .portal-redeem-dialog h2 { font-size:24px; font-weight:600; letter-spacing:-.7px; }
 .portal-redeem-dialog .dashboard-description { margin-top:9px; }
 .portal-redeem-dialog .dashboard-input { height:44px; }
 .portal-redeem-dialog #redeemKeyAlert:empty { display:none; }
 .portal-redeem-dialog #redeemKeyAlert .alert { margin:14px 0 0; font-size:12px; border-radius:7px; }
-.redeem-dialog-actions { display:flex; gap:10px; margin-top:24px; }
+.redeem-dialog-actions { display:flex; gap:10px; margin-top:18px; }
 .redeem-dialog-actions .secondary { flex:0 0 100px; }
 .redeem-dialog-note { display:flex; align-items:center; gap:7px; margin:18px 0 0; color:#868691; font-size:11px; line-height:1.6; }
 @media(max-width:800px) {
@@ -72,6 +72,6 @@
  .portal-modern #page-profile .card-body { padding:18px 20px 20px; }
  .portal-modern #page-profile .subscriptions-grid { grid-template-columns:minmax(0,1fr); }
  .portal-modern #page-profile .subscription-image { width:36px; height:36px; }
- .portal-redeem-dialog form { padding:24px; }
+ .portal-redeem-dialog form { padding:18px; }
  .portal-redeem-dialog h2 { font-size:22px; }
 }

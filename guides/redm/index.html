@@ -26,10 +26,10 @@
 <!-- Google Fonts -->
 
 <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
-<link rel="stylesheet" href="/assets/css/guides.css?v=a27cb6242b50">
+<link rel="stylesheet" href="/assets/css/guides.css?v=7a4df6c8e698">
 <script src="/assets/js/wiki-theme.js">
 </script>
-<script src="/assets/js/guides.js" defer>
+<script src="/assets/js/guides.js?v=661caaf37c28" defer>
 </script>
 <link rel="canonical" href="https://scoobymenu.cc/guides/redm/">
 <noscript><style>.search-trigger,.theme-control,.menu-toggle{display:none}.wiki-sidebar{display:block!important;position:static;width:auto;margin-top:65px;border-bottom:1px solid var(--border)}.article-layout{margin-left:0;margin-top:0}.wiki-home .wiki-sidebar{display:none!important}</style></noscript>
@@ -83,7 +83,7 @@
 }
 </script>
 </head>
-<body class="wiki-article wiki-topic-page">
+<body class="wiki-article wiki-topic-page game-guide-overview" data-guide-game="redm">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="wiki-header">
 <a class="wiki-brand scooby-brand" href="/guides/"><span class="scooby-emblem" aria-hidden="true"></span>Scooby <span>Wiki</span>
@@ -133,14 +133,9 @@
 
 <details class="sidebar-game sidebar-redm" open>
 <summary><span class="sidebar-game-title">RedM<span class="sidebar-game-subtitle">Game guides</span></span></summary>
-<a class="sidebar-guide-link sidebar-overview" href="/guides/redm/" aria-current="page" aria-label="Overview"><span class="sidebar-link-label">Overview</span></a>
-<div class="sidebar-guide-section" role="group" aria-label="Getting started"><p class="sidebar-section-label">Getting started</p>
-<a href="/guides/redm/redm-requirements/" class="sidebar-guide-link" aria-label="Requirements"><span class="sidebar-link-label">Requirements</span></a>
-<a href="/guides/redm/redm-inject/" class="sidebar-guide-link" aria-label="Load Scooby in RedM"><span class="sidebar-link-label">Load guide</span></a>
-</div>
-<div class="sidebar-guide-section" role="group" aria-label="In-game tools"><p class="sidebar-section-label">In-game tools</p>
-<a href="/guides/redm/money-items-weapons/" class="sidebar-guide-link" aria-label="Money, items &amp; weapons"><span class="sidebar-link-label">Money, items &amp; weapons</span></a>
-</div>
+<a class="sidebar-guide-link sidebar-overview" href="/guides/redm/" aria-current="page">Overview</a>
+<a class="sidebar-guide-link" href="#getting-started">Getting started</a>
+<a class="sidebar-guide-link" href="#gameplay">Gameplay</a>
 </details>
 
 <div class="sidebar-resources">
@@ -153,7 +148,27 @@
 </nav>
 </aside>
 <div class="article-layout">
-<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><span>RedM</span></div><h1>RedM guide</h1><p class="article-intro">Requirements and installation for RedM.</p><p class="loading-guide-entry"><a href="/guides/redm/redm-inject/">Open the RedM loading guide →</a></p><p class="topic-index-intro">Choose a topic to open its guide.</p><div class="topic-grid"><a class="topic-card" id="redm-requirements" href="/guides/redm/redm-requirements/"><h3>Requirements <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="redm-inject" href="/guides/redm/redm-inject/"><h3>Load guide <span aria-hidden="true">→</span></h3><p>Open guide</p></a><a class="topic-card" id="money-items-weapons" href="/guides/redm/money-items-weapons/"><h3>Money, items &amp; weapons <span aria-hidden="true">→</span></h3><p>Server events, restrictions, and support limits.</p></a></div><footer class="wiki-footer">
+<main id="main-content" tabindex="-1"><div class="breadcrumbs"><a href="/guides/">Guides</a><span>/</span><span>RedM</span></div><header class="game-guide-hero" id="guide-start">
+<h1>RedM guide</h1>
+<p>Requirements and installation for RedM.</p>
+<a class="game-guide-start" href="/guides/redm/redm-inject/">Start RedM setup <span aria-hidden="true">→</span></a>
+</header>
+<section class="game-guide-topics" id="guide-topics" aria-labelledby="guide-topics-heading">
+<h2 id="guide-topics-heading">Browse by topic</h2>
+<details class="game-guide-group" id="getting-started">
+<summary><span><strong>Getting started</strong><small>Requirements, editions and first-time setup</small></span></summary>
+<ul>
+<li><a id="redm-requirements" href="/guides/redm/redm-requirements/"><span><strong>Requirements</strong><small>Open guide</small></span><span aria-hidden="true">→</span></a></li>
+<li><a id="redm-inject" href="/guides/redm/redm-inject/"><span><strong>Load guide</strong><small>Open guide</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+<details class="game-guide-group" id="gameplay">
+<summary><span><strong>Gameplay</strong><small>Browse game-specific guides</small></span></summary>
+<ul>
+<li><a id="money-items-weapons" href="/guides/redm/money-items-weapons/"><span><strong>Money, items &amp; weapons</strong><small>Server events, restrictions, and support limits.</small></span><span aria-hidden="true">→</span></a></li>
+</ul>
+</details>
+</section><footer class="wiki-footer">
 <span>Scooby Wiki · Guides &amp; support</span>
 <div>
 <a href="/">Main site</a>
