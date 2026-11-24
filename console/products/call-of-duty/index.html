@@ -1,0 +1,599 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Call of Duty Console — Scooby Coming Soon</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Explore upcoming Scooby Call of Duty projects, including Black Ops III, Black Ops II, Black Ops and Infinite Warfare."><link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg"><style>
+:root {
+  --bg: #080808;
+  --surface: #0d0d0d;
+  --surface-2: #111111;
+  --card: #111111;
+  --card-hover: #161616;
+  --border: rgba(255,255,255,.07);
+  --border-strong: rgba(255,255,255,.13);
+  --accent: #4f8ef5;
+  --accent-2: #2563eb;
+  --accent-soft: rgba(79,142,245,.13);
+  --accent-line: rgba(79,142,245,.3);
+  --text: #f4f4f7;
+  --text-dim: #9a9aaa;
+  --text-faint: #5c5c6c;
+  --green: #22c55e;
+  --amber: #eab308;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 50px;
+  --maxw: 1180px;
+  --shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+::selection { background: rgba(79,142,245,.28); color: #fff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 8px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: #2e2e2e; }
+
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.section { padding: clamp(72px,9vw,120px) 0; position: relative; border: 0; }
+
+/* ---- NAV ---- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  transition: all .3s ease;
+}
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  transition: all .3s ease;
+}
+/* Scrolled: floating centered nav */
+.nav.scrolled .nav-inner {
+  max-width: 860px;
+  margin: 12px auto 0;
+  padding: 10px 20px;
+  background: rgba(14,14,14,.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-strong);
+  border-radius: 50px;
+}
+.brand {
+  font-weight: 800; font-size: 1.2rem; letter-spacing: -.01em;
+  display: flex; align-items: center; gap: 0;
+  flex-shrink: 0; color: #fff; -webkit-text-fill-color: #fff;
+}
+.brand-name { color: #fff; -webkit-text-fill-color: #fff; }
+.brand-dot { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--text-dim); font-size: .9rem; font-weight: 500;
+  transition: color .2s; position: relative;
+}
+.nav-links a:hover { color: #fff; }
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.btn-nav-ghost {
+  padding: 8px 18px; border-radius: var(--radius-pill);
+  font-size: .88rem; font-weight: 600; color: var(--text-dim);
+  background: transparent; border: 1px solid var(--border-strong);
+  cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.btn-nav-ghost:hover { color: #fff; border-color: var(--border-strong); background: rgba(255,255,255,.06); }
+.btn-nav-primary {
+  padding: 8px 20px; border-radius: var(--radius-pill);
+  font-size: .88rem; font-weight: 600; color: #fff;
+  background: rgba(255,255,255,.1); border: 1px solid var(--border-strong);
+  cursor: pointer; font-family: inherit; transition: .2s; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.btn-nav-primary:hover { background: rgba(255,255,255,.16); }
+.btn-nav-primary svg, .btn-nav-ghost svg { width: 15px; height: 15px; flex-shrink: 0; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px;
+}
+.hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .25s; }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- HERO ---- */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  background: url('background-home.jpg') center right / cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(8,8,8,.97) 0%,
+    rgba(8,8,8,.88) 35%,
+    rgba(8,8,8,.65) 55%,
+    rgba(8,8,8,.2) 75%,
+    rgba(8,8,8,.08) 100%
+  );
+}
+.hero-overlay-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 200px; pointer-events: none;
+  background: linear-gradient(to top, var(--bg), transparent);
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+  width: 100%;
+  padding-top: 100px; padding-bottom: 80px;
+}
+.hero-content { max-width: 700px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 30px;
+  padding: 6px 14px 6px 7px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: rgba(20,20,20,.8);
+  backdrop-filter: blur(8px);
+  font-size: .82rem; color: var(--text-dim);
+}
+.hero-badge-pill {
+  background: var(--accent); color: #fff;
+  padding: 2px 10px; border-radius: var(--radius-pill);
+  font-size: .75rem; font-weight: 700; letter-spacing: .04em;
+}
+.hero-badge-arrow {
+  display: flex; align-items: center; gap: 4px; color: var(--text-dim);
+}
+.hero-badge-arrow svg { width: 13px; height: 13px; color: var(--accent); }
+.hero h1 {
+  font-size: clamp(4rem,11vw,8rem); font-weight: 900; line-height: 1;
+  letter-spacing: -.03em; margin-bottom: 20px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #c0d4f8 55%, var(--accent) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  padding-bottom: .15em; overflow: visible;
+}
+.hero-title-detail {
+  display: block; margin-top: 12px;
+  font-size: clamp(1.25rem,3vw,2rem); letter-spacing: .16em;
+  color: var(--text); -webkit-text-fill-color: var(--text);
+}
+.official-site-note {
+  max-width: 460px; margin-top: 24px;
+  color: var(--text-dim); font-size: .85rem;
+}
+.official-site-note a {
+  color: var(--text); text-decoration: underline; text-underline-offset: 3px;
+}
+.hero p.lead {
+  font-size: clamp(.95rem,2vw,1.15rem); color: var(--text-dim);
+  max-width: 460px; margin-bottom: 38px; font-weight: 400;
+}
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-hero {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  font-size: .96rem; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: .22s ease; white-space: nowrap; border: none;
+}
+.btn-hero-primary {
+  background: rgba(255,255,255,.1); color: #fff;
+  border: 1px solid var(--border-strong);
+}
+.btn-hero-primary:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+.btn-hero-primary svg { width: 17px; height: 17px; }
+.btn-hero-discord {
+  background: #5865F2; color: #fff;
+  border: 1px solid #5865F2;
+}
+.btn-hero-discord:hover { background: #6b78f5; transform: translateY(-2px); }
+.btn-hero-discord svg { width: 20px; height: 20px; flex-shrink: 0; }
+.hero-games {
+  margin-top: 52px; display: flex; gap: 8px 22px; flex-wrap: wrap;
+  color: var(--text-faint); font-size: .78rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.hero-games span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-games span::before {
+  content: ""; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--accent); opacity: .7;
+}
+
+/* ---- STATS STRIP ---- */
+.stats-strip {
+  border: 0;
+  background: var(--bg);
+  scroll-margin-top: 100px;
+}
+.stats-strip-inner {
+  display: flex; align-items: stretch;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+}
+.stat-item {
+  flex: 1; text-align: center; padding: 36px 20px;
+  border: 0;
+}
+.stat-num {
+  font-size: clamp(1.8rem,3.5vw,2.4rem); font-weight: 800;
+  color: #fff; letter-spacing: -.02em; margin-bottom: 4px;
+}
+.stat-num em { color: #fff; font-style: normal; }
+.stat-label { color: var(--text-dim); font-size: .88rem; }
+
+/* ---- SECTION COMMON ---- */
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+.eyebrow {
+  display: inline-block; font-size: .72rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 14px;
+}
+h2.section-title {
+  font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 800;
+  letter-spacing: -.03em; margin-bottom: 14px; color: #fff;
+}
+.section-sub { color: var(--text-dim); font-size: 1rem; }
+
+/* ---- PRODUCTS ---- */
+.products-scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-faint); font-size: .8rem; margin-bottom: 40px;
+}
+.products-scroll-hint svg { width: 18px; height: 18px; color: var(--accent); animation: bounce 2s infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+.product-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+}
+.product-card {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  min-height: 220px; border: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background-size: cover; background-position: center;
+  transition: .28s ease; isolation: isolate; cursor: pointer;
+}
+.product-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(8,8,8,.1) 0%, rgba(8,8,8,.55) 50%, rgba(8,8,8,.92) 100%);
+}
+.product-card:hover { transform: translateY(-4px); border-color: rgba(79,142,245,.25); box-shadow: 0 16px 48px rgba(0,0,0,.5); }
+.product-card-body { position: relative; z-index: 1; padding: 20px; }
+.product-card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.product-card-body p { color: var(--text-dim); font-size: .86rem; }
+.product-status {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  background: rgba(8,8,8,.7); backdrop-filter: blur(6px);
+  border: 1px solid var(--border-strong);
+}
+.product-status .dot { width: 5px; height: 5px; border-radius: 50%; }
+.product-status.online { color: #6ee7b7; }
+.product-status.online .dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.product-status.dev { color: #fcd34d; }
+.product-status.dev .dot { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+.product-status.free { color: #6ee7b7; background: rgba(34,197,94,.16); border-color: rgba(34,197,94,.3); }
+.product-card.dark-card {
+  background: linear-gradient(135deg, #0d0d10 0%, #141418 100%);
+  min-height: 140px;
+}
+.products-label {
+  font-size: .78rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--text-faint);
+  margin: 36px 0 16px; display: flex; align-items: center; gap: 14px;
+}
+.product-card.wide { grid-column: 1 / -1; }
+
+/* ---- FAQ ---- */
+.faq-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.faq {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); overflow: hidden; transition: border-color .2s;
+}
+.faq.open { border-color: var(--accent-line); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px; cursor: pointer; font-weight: 600; font-size: .98rem; user-select: none;
+}
+.faq-q svg { width: 18px; height: 18px; color: var(--accent); transition: transform .25s; flex-shrink: 0; }
+.faq.open .faq-q svg { transform: rotate(180deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-a p { padding: 0 24px 20px; color: var(--text-dim); font-size: .93rem; }
+
+/* ---- CTA BAND ---- */
+.cta-band {
+  background: linear-gradient(120deg, rgba(79,142,245,.1), rgba(37,99,235,.04));
+  border: 1px solid var(--accent-line); border-radius: 20px;
+  padding: clamp(40px,6vw,64px); text-align: center; position: relative; overflow: hidden;
+}
+.cta-band h2 { font-size: clamp(1.7rem,4vw,2.5rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
+.cta-band p { color: var(--text-dim); max-width: 500px; margin: 0 auto 28px; }
+.cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-cta-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  font-size: .95rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: .22s; background: var(--accent); color: #fff; border: 1px solid var(--accent);
+}
+.btn-cta-primary:hover { background: #6ba3f7; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(79,142,245,.3); }
+.btn-cta-primary svg { width: 17px; height: 17px; }
+.btn-cta-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-pill);
+  font-size: .95rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: .22s; background: rgba(255,255,255,.05); color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn-cta-ghost:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+/* ---- FOOTER ---- */
+.footer { border: 0; background: var(--bg); padding: 64px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+.footer-brand { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; }
+.footer-brand .brand-name { color: #fff; }
+.footer-brand .brand-dot { color: var(--accent); }
+.footer-tag { color: var(--text-dim); font-size: .9rem; max-width: 280px; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 8px; }
+.footer-social a {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); color: var(--text-dim); transition: .2s;
+}
+.footer-social a:hover { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); transform: translateY(-2px); }
+.footer-social svg { width: 16px; height: 16px; }
+.footer-col h4 { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { color: var(--text-dim); font-size: .9rem; transition: color .2s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding-top: 24px; border: 0; flex-wrap: wrap;
+}
+.footer-bottom p { color: var(--text-faint); font-size: .84rem; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { color: var(--text-faint); font-size: .84rem; transition: color .2s; }
+.footer-bottom-links a:hover { color: var(--accent); }
+
+/* ---- BACK TO TOP ---- */
+.to-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 44px; height: 44px; border-radius: 12px; z-index: 800;
+  background: var(--accent); color: #fff; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: .25s; box-shadow: 0 8px 24px rgba(79,142,245,.35);
+}
+.to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top svg { width: 20px; height: 20px; }
+
+/* ---- MODALS ---- */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(4,4,4,.85); backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); display: none;
+  align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity .25s;
+}
+.modal-overlay.active { display: flex; opacity: 1; }
+.modal {
+  background: linear-gradient(180deg, #141414, var(--card));
+  border: 1px solid var(--border-strong); border-radius: 20px; padding: 32px;
+  width: 100%; max-width: 440px; position: relative;
+  transform: scale(.94); transition: transform .25s;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7); max-height: 90vh; overflow-y: auto;
+}
+.modal-overlay.active .modal { transform: scale(1); }
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,.05); border: none;
+  color: var(--text-dim); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: .2s;
+}
+.modal-close:hover { background: rgba(239,68,68,.2); color: #fff; }
+.modal-icon {
+  width: 58px; height: 58px; border-radius: 15px; margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent);
+}
+.modal h3 { font-size: 1.25rem; font-weight: 800; text-align: center; margin-bottom: 8px; }
+.modal > p { color: var(--text-dim); text-align: center; font-size: .92rem; margin-bottom: 20px; }
+.pay-option {
+  background: rgba(255,255,255,.025); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px; margin-bottom: 12px;
+}
+.pay-option h4 { font-size: .96rem; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pay-option p { color: var(--text-faint); font-size: .83rem; margin-bottom: 12px; }
+.pay-tag { font-size: .68rem; font-weight: 700; color: #fff; background: var(--accent); padding: 2px 8px; border-radius: var(--radius-pill); }
+.dl-divider { margin: 16px 0; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; }
+.dl-divider p { color: var(--text-faint); font-size: .82rem; margin-bottom: 10px; }
+.dl-note { color: var(--text-faint); font-size: .8rem; text-align: center; margin-top: 8px; }
+.btn-modal {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 12px 20px; border-radius: var(--radius-pill);
+  font-size: .93rem; font-weight: 600; cursor: pointer; font-family: inherit;
+  transition: .2s; border: none;
+}
+.btn-modal-primary { background: var(--accent); color: #fff; }
+.btn-modal-primary:hover { background: #f0768d; transform: translateY(-1px); }
+.btn-modal-ghost {
+  background: rgba(255,255,255,.05); color: var(--text);
+  border: 1px solid var(--border-strong) !important; border-radius: var(--radius-pill) !important;
+}
+.btn-modal-ghost:hover { background: rgba(255,255,255,.1); }
+.btn-modal-blue { background: #3b82f6; color: #fff; }
+.btn-modal-blue:hover { background: #5394f7; }
+.btn-modal svg { width: 16px; height: 16px; }
+
+/* ---- REVEAL ---- */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---- RESPONSIVE ---- */
+@media(max-width: 980px) {
+  .product-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .stats-strip-inner { flex-wrap: wrap; }
+  .stat-item { min-width: 33%; }
+}
+@media(max-width: 760px) {
+  .nav-links, .nav-actions .btn-nav-ghost { display: none; }
+  .hamburger { display: flex; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: rgba(8,8,8,.97); backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 24px 16px; transform: translateY(-10px);
+    opacity: 0; pointer-events: none; transition: .25s;
+  }
+  .nav-links.open { display: flex; transform: none; opacity: 1; pointer-events: auto; }
+  .nav-links a { width: 100%; padding: 13px 0; border-bottom: 1px solid var(--border); font-size: .98rem; }
+  .nav-links a:last-child { border-bottom: none; }
+  .nav.scrolled .nav-inner { border-radius: 16px; margin: 8px; max-width: none; }
+  .hero h1 { font-size: clamp(3.5rem,14vw,5rem); }
+}
+@media(max-width: 560px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .stats-strip-inner { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-cta .btn-hero { flex: 1 1 auto; justify-content: center; }
+}
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001s !important; transition-duration: .01s !important; }
+
+}
+/* Homepage game catalogue */
+.catalog-grid { gap:24px; }
+.catalog-card { position:relative; display:flex; flex-direction:column; overflow:hidden; background:#111318; border:1px solid #242830; border-radius:16px; transition:transform .2s,border-color .2s,box-shadow .2s; }
+.catalog-card:hover { transform:translateY(-5px); border-color:#536780; box-shadow:0 16px 36px #0005; }
+.catalog-card:focus-visible,.catalog-utility:focus-visible { outline:2px solid #9bbdff; outline-offset:5px; }
+.catalog-art { aspect-ratio:16/8; overflow:hidden; background:#191c23; border-bottom:1px solid #ffffff0d; }
+.catalog-art img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s; }
+
+.catalog-body { padding:23px 24px; display:flex; flex:1; flex-direction:column; }
+.catalog-kind { display:block; color:#98aac5; text-transform:uppercase; letter-spacing:.12em; font-size:.64rem; font-weight:700; margin-bottom:10px; }
+.catalog-kind.is-updating { color:#f1c879; }
+.catalog-body h3 { font-size:1.13rem; line-height:1.4; letter-spacing:-.025em; margin-bottom:0; }
+.catalog-body p { font-size:.84rem; line-height:1.75; color:#a0aaba; margin-bottom:24px; }
+.catalog-utility { margin-top:24px; display:flex; align-items:center; gap:22px; padding:25px 28px; border:1px solid #242830; border-radius:14px; background:#101216; transition:border-color .2s; }
+.catalog-utility:hover { border-color:#536780; }
+.utility-icon { width:54px; height:54px; flex-shrink:0; display:grid; place-items:center; background:#1c2636; border-radius:13px; color:#a6c6ff; }
+.utility-icon svg { width:27px; height:27px; }
+.catalog-utility .catalog-kind { margin-bottom:4px; }
+.catalog-utility h3 { font-size:1rem; margin-bottom:3px; }
+.catalog-utility p { font-size:.82rem; color:#a0aaba; }
+.utility-cta { margin-left:auto; white-space:nowrap; font-size:.78rem; color:#d8e3f4; }
+.utility-cta span { margin-left:18px; color:#91b8f6; }
+@media(max-width:640px) { .catalog-grid { gap:18px; } .catalog-body { padding:20px; } .catalog-utility { padding:20px; gap:15px; flex-wrap:wrap; } .catalog-utility>div { flex:1; min-width:160px; } .utility-cta { margin-left:69px; } }
+@media(prefers-reduced-motion:reduce) { .catalog-card,.catalog-art img,.catalog-utility { transition:none; } .catalog-card:hover,.catalog-card:hover .catalog-art img { transform:none; } }
+.catalog-status { display:inline-flex; align-self:flex-start; width:fit-content; padding:4px 9px; border:1px solid; border-radius:6px; font-size:.65rem; font-weight:600; line-height:1.5; margin-bottom:12px; }
+.catalog-card .catalog-status { position:absolute; top:14px; right:14px; z-index:1; margin:0; box-shadow:0 2px 8px #0004; }
+.catalog-status.is-online { color:#8ce0b2; background:#153225; border-color:#28523b; }
+.catalog-status.is-updating { color:#edc778; background:#322918; border-color:#5d4926; }
+.catalog-utility .catalog-status { margin-bottom:7px; }
+/* Short artwork motion on hover or keyboard focus; no continuous looping. */
+.catalog-art { position:relative; aspect-ratio:16/9; }
+.catalog-logo-art { background:#101319; isolation:isolate; }
+.catalog-logo-art::before { content:""; position:absolute; inset:-12px; z-index:-1; background-position:center; background-size:cover; filter:blur(5px) brightness(.6); }
+.catalog-logo-art--gta5::before { background-image:url('/assets/images/games/gta5.webp'); }
+.catalog-logo-art--rdr2::before { background-image:url('/assets/images/games/rdr2.webp'); }
+.catalog-logo-art--source-games::before { background-image:url('/assets/images/source-games/source-games-background-v1.png'); inset:-6px; filter:blur(1px) brightness(.8); }
+.catalog-logo-art img { object-fit:contain; padding:8% 18%; filter:drop-shadow(0 3px 8px #0008); }
+.catalog-logo-art--rdr2 img { padding:12% 10%; }
+@keyframes catalog-art-drift { 0% { transform:scale(1); } 65% { transform:scale(1.06) translateY(-1%); } 100% { transform:scale(1.035); } }
+@media(prefers-reduced-motion:no-preference) {
+ .catalog-card:hover .catalog-art img,.catalog-card:focus-visible .catalog-art img { animation:catalog-art-drift 3.5s ease-out both; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .catalog-art img { animation:none!important; transform:none!important; }
+}
+</style><style>.tf2-catalog-art{background:linear-gradient(#20190e55,#20190e99),url("/assets/images/tf2/background-v1.webp") center/cover}.tf2-catalog-art img{object-fit:contain!important;padding:24px}</style><link rel="stylesheet" href="/assets/css/language-home.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/mobile.css"><link rel="stylesheet" href="/assets/css/hero-slideshow.css"><link rel="stylesheet" href="/assets/css/last-of-us-card.css"><link rel="stylesheet" href="/assets/css/l4d.css"><link rel="stylesheet" href="/assets/css/sbox-card.css"><link rel="stylesheet" href="/assets/css/gmod-card.css"><link rel="stylesheet" href="/assets/css/rockstar-card-backgrounds.css"><link rel="stylesheet" href="/assets/css/home-features.css?v=6"><link rel="stylesheet" href="/assets/css/home-community.css?v=8"><link rel="stylesheet" href="/assets/css/bodycam-art.css"><link rel="stylesheet" href="/assets/css/more-games.css"><link rel="stylesheet" href="/assets/css/spoofer-art.css"><link rel="stylesheet" href="/assets/css/product-status.css"><link rel="stylesheet" href="/assets/css/rockstar-classics.css"><link rel="stylesheet" href="/assets/css/home-reseller-nav.css"><link rel="stylesheet" href="/assets/css/platform.css">
+<link rel="stylesheet" href="/console/assets/css/console-home.css"><script src="/assets/js/platform.js" defer></script><script src="/assets/js/hero-slideshow.js" defer></script><link rel="stylesheet" href="/assets/css/footer.css"><meta name="keywords" content="Scooby Menu, Scooby Console, PlayStation 4, PS4, Rainbow Six Siege PS4, Scooby R6, Scooby Manager, console mod menus">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Call of Duty Console — Scooby Coming Soon">
+<meta property="og:description" content="Explore upcoming Scooby Call of Duty projects, including Black Ops III, Black Ops II, Black Ops and Infinite Warfare.">
+<meta property="og:url" content="https://scoobymenu.cc/console/products/call-of-duty/">
+<meta name="twitter:title" content="Call of Duty Console — Scooby Coming Soon">
+<meta name="twitter:description" content="Explore upcoming Scooby Call of Duty projects, including Black Ops III, Black Ops II, Black Ops and Infinite Warfare.">
+<meta name="twitter:url" content="https://scoobymenu.cc/console/products/call-of-duty/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/console-brand-v1.png">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/console-brand-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SCOOBY CONSOLE: Console PlayStation 4 catalog">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/console-brand-v1.png">
+<meta name="twitter:image:alt" content="SCOOBY CONSOLE: Console PlayStation 4 catalog">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://scoobymenu.cc/console/products/call-of-duty/">
+<script src="/lang/i18n.js" defer></script>
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/console/products/call-of-duty/#webpage",
+      "url": "https://scoobymenu.cc/console/products/call-of-duty/",
+      "name": "Call of Duty Console — Scooby Coming Soon",
+      "description": "Explore upcoming Scooby Call of Duty projects, including Black Ops III, Black Ops II, Black Ops and Infinite Warfare.",
+      "keywords": "Scooby Menu, Scooby Console, PlayStation 4, PS4, Rainbow Six Siege PS4, Scooby R6, Scooby Manager, console mod menus",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+<style>.cod-collection{padding-top:64px}.cod-collection .section-head{margin:28px 0 40px;text-align:left;max-width:720px}.cod-collection h1{font-size:clamp(2.5rem,7vw,4.5rem);line-height:1.1;margin-bottom:20px;letter-spacing:-.04em}.cod-game{cursor:default}.cod-game:hover{transform:none}.cod-game h2{font-size:1.13rem;line-height:1.4;letter-spacing:-.025em}.cod-back{color:var(--text-dim);text-decoration:underline;text-underline-offset:5px}.cod-back:hover{color:white}.cod-note{color:var(--text-dim);margin-top:32px;max-width:650px}.cod-game .catalog-art img{animation:none!important;transform:none!important}</style></head><body class="console-catalog "><nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand scooby-brand"><span class="scooby-emblem" aria-hidden="true"></span>
+      <span class="brand-name">scooby</span>
+    </a>
+    <ul class="nav-links" id="navLinks"><li><a href="/" data-platform-choice="pc">PC</a></li>
+      <li><a href="/console/#products">Products</a></li>
+      <li><a href="/guides/#console" target="_blank" rel="noopener">Guides</a></li>
+      <li><a href="/resources/">Resources</a></li>
+      <li><a href="/docs/" target="_blank" rel="noopener">Docs</a></li>
+      <li><a href="/store/#console" target="_blank" rel="noopener">Store</a>
+</li>
+      <li><a href="/resellers/become/">Become a reseller</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="/portal/" target="_blank" rel="noopener" class="btn-nav-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Login
+      </a>
+      <a href="/download/#console" class="btn-nav-primary">
+        Download
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav><main id="main-content" class="cod-collection"><section class="section" id="products"><div class="container"><a class="cod-back" href="/console/#products">All Console products</a><div class="section-head"><p class="eyebrow">Scooby Console · Coming soon</p><h1>Call of Duty</h1><p class="section-sub">Explore the collection. Scooby projects for these titles are coming soon.</p></div><div class="product-grid catalog-grid"><article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/black-ops-3.webp" alt="" width="590" height="336" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Black Ops III</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/black-ops-2.jpg" alt="" width="596" height="335" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Black Ops II</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/black-ops.jpg" alt="" width="460" height="215" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Black Ops</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/infinite-warfare.jpg" alt="" width="616" height="353" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Infinite Warfare</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/black-ops-4.svg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Black Ops 4</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/ghosts.svg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Ghosts</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/advanced-warfare.svg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Advanced Warfare</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/modern-warfare-remastered.svg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: Modern Warfare Remastered</h2></div></article>
+<article class="catalog-card cod-game"><div class="catalog-art"><img src="/console/assets/images/call-of-duty/wwii.svg" alt="" width="640" height="360" loading="lazy" decoding="async"></div><span class="catalog-status is-updating" data-static-status>Coming soon</span><div class="catalog-body"><h2>Call of Duty: WWII</h2></div></article></div><p class="cod-note">Release details, features and requirements will be added as each project becomes available.</p></div></section></main><footer class="scooby-footer"><div class="scooby-footer-inner"><div class="scooby-footer-grid"><div class="scooby-footer-about"><div class="footer-brand"><span class="brand-name">scooby</span></div><p>The official Scooby website.<br>PC and PlayStation 4 games, apps, guides and support.</p></div><nav class="scooby-footer-col" aria-label="PC products"><h2>PC products</h2><ul><li><a href="/products/gta5/">GTA 5</a></li><li><a href="/products/rdr2/">RDR2</a></li><li><a href="/products/fivem/">FiveM</a></li><li><a href="/products/redm/">RedM</a></li><li><a href="/source-games/">Source Games</a></li><li><a href="/more-games/">More games</a></li><li><a href="/products/spoofer/">Spoofer + Cleaner</a></li><li><a href="/#products">All PC products →</a></li></ul></nav><nav class="scooby-footer-col" aria-label="Console products"><h2>Console products</h2><ul><li><a href="/console/products/gta5/">GTA 5</a></li><li><a href="/console/products/rdr2/">RDR2</a></li><li><a href="/console/products/r6/">Rainbow Six Siege</a></li><li><a href="/console/products/fortnite/">Fortnite</a></li><li><a href="/console/products/overwatch/">Overwatch</a></li><li><a href="/console/products/scooby-manager/">Scooby Manager</a></li><li><a href="/console/">All Console products →</a></li></ul></nav><nav class="scooby-footer-col" aria-label="Resources"><h2>Resources</h2><ul><li><a href="/store/#console">Store</a></li><li><a href="/download/#console">Downloads</a></li><li><a href="/guides/#console">Scooby Wiki / Guides</a></li><li><a href="/resources/">Resources</a></li><li><a href="/docs/">Developer docs</a></li><li><a href="/sitemap/">Site directory</a></li></ul></nav><nav class="scooby-footer-col" aria-label="Support"><h2>Support</h2><ul><li><a href="/portal/">Login / Register</a></li><li><a href="https://discord.gg/tGtvzChYQq">Discord</a></li><li><a href="https://t.me/ScoobyOnTop">Telegram</a></li><li><a href="/tos/">Terms of Service</a></li></ul></nav></div><div class="scooby-footer-bottom"><p>© 2026 Scooby. All rights reserved.</p><a href="https://whatwhatboy.com/fsl" target="_blank" rel="noopener">FSL License</a></div></div></footer><script>document.getElementById('hamburger').onclick=function(){this.setAttribute('aria-expanded',String(document.getElementById('navLinks').classList.toggle('open')))}</script></body></html>
