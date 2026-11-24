@@ -14,10 +14,10 @@
     padding:46px 20px 14px;
 }
 
-#products .catalog-grid:nth-child(1 of .catalog-grid) { gap:16px; }
-#products .catalog-grid:nth-child(1 of .catalog-grid) .catalog-body { padding:16px 18px; }
+#products .catalog-grid { gap:16px; }
+#products .catalog-grid .catalog-body { padding:16px 18px; }
 @media(min-width:1080px) {
-    #products .catalog-grid:nth-child(1 of .catalog-grid) {
+    #products .catalog-grid {
         grid-template-columns:repeat(4,minmax(0,1fr));
     }
 }
