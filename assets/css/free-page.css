@@ -45,6 +45,3 @@
 .free-game-art { position:relative; overflow:hidden; }
 .free-game-art .free-game-logo { position:absolute; inset:15% 22%; width:56%; height:70%; object-fit:contain; filter:brightness(0) invert(1) drop-shadow(0 2px 7px #000b); pointer-events:none; }
 .free-game-art .free-game-logo.is-l4d { inset:23% 10%; width:80%; height:54%; filter:invert(1) hue-rotate(180deg) saturate(6) drop-shadow(0 2px 8px #000); }
-
-/* Keep advertising separate from key access and contained on narrow screens. */
-.free-page .free-ad-slot { width: 100%; margin: 20px 0 0; }

@@ -30,6 +30,11 @@
     overflow-x: auto;
 }
 
+.ad-sidebar > iframe.ad-content {
+    border: 0;
+    height: 250px;
+}
+
 .ad-sidebar > .ad-sponsor {
     display: inline-block;
     margin-top: 12px;
@@ -84,4 +89,32 @@
 
 @media (max-width: 1200px) {
     .free-setup-with-ad > .ad-sidebar { margin-bottom: 24px; }
+}
+
+/* Product banners follow the content in the DOM and use spare space on wide screens. */
+.product-banner-layout > .product-banner {
+    box-sizing: border-box;
+    width: min(100% - 32px, 640px);
+    margin: 0 auto 40px;
+}
+
+@media (min-width: 1600px) {
+    .product-banner-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 1080px minmax(0, 1fr);
+        align-items: start;
+        direction: ltr;
+    }
+    .product-banner-layout > .main-content {
+        grid-area: 1 / 2;
+        width: 100%;
+        min-width: 0;
+    }
+    html[dir="rtl"] .product-banner-layout > .main-content { direction: rtl; }
+    .product-banner-layout > .product-banner {
+        grid-area: 1 / 1;
+        justify-self: end;
+        width: min(100% - 32px, 300px);
+        margin: 176px 0 40px;
+    }
 }

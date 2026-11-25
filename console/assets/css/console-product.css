@@ -10,10 +10,49 @@
 
 .console-placeholder-label{font-size:12px;color:#b5bdb1}.console-screenshot-placeholders{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.console-media-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;aspect-ratio:16/9;border:1px dashed #444b48;border-radius:10px;background:#14191a;color:#a9b4ae;text-align:center;font-size:13px;padding:16px;box-sizing:border-box}.console-product-page .console-showcase{margin-top:32px}.console-video-placeholder{max-height:480px}.console-video-placeholder p{margin:0}.console-product-page .description-section{margin-top:32px}@media(max-width:600px){.console-screenshot-placeholders{grid-template-columns:1fr}}
 
-.console-banner-ad{box-sizing:border-box;width:100%;min-width:0;margin:40px 0 0;padding:16px;border:1px solid var(--border-color,#34383b);border-radius:12px;background:rgba(16,18,20,.94);text-align:center;overflow:hidden}
+.console-banner-ad {
+    box-sizing: border-box;
+    width: min(100% - 32px, 640px);
+    min-width: 0;
+    margin: 0 auto 40px;
+    padding: 16px;
+    border: 1px solid var(--border-color, #34383b);
+    border-radius: 12px;
+    background: rgba(16, 18, 20, .94);
+    text-align: center;
+    overflow: hidden;
+}
 .console-ad-label{margin:0 0 12px;color:#b5bdb1;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .console-ad-content{width:100%;min-height:90px;overflow:auto}
-.console-ad-content iframe{max-width:100%;border:0}
+.console-banner-ad > iframe.console-ad-content {
+    display: block;
+    height: 250px;
+    border: 0;
+}
 .console-ad-sponsor{display:inline-block;margin-top:12px;color:#b5bdb1;font-size:12px;text-decoration:underline;text-underline-offset:3px}
 .console-ad-sponsor:hover{color:#cddd9f}
-@media(max-width:600px){.console-banner-ad{padding:12px;margin-top:28px}}
+@media (max-width: 600px) {
+    .console-banner-ad { padding: 12px; margin-bottom: 28px; }
+}
+
+/* Keep product content centered while using the available left gutter. */
+@media (min-width: 1600px) {
+    .console-product-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 1080px minmax(0, 1fr);
+        align-items: start;
+        direction: ltr;
+    }
+    .console-product-layout > .main-content {
+        grid-area: 1 / 2;
+        width: 100%;
+        min-width: 0;
+    }
+    html[dir="rtl"] .console-product-layout > .main-content { direction: rtl; }
+    .console-product-layout > .console-banner-ad {
+        grid-area: 1 / 1;
+        justify-self: end;
+        width: min(100% - 32px, 300px);
+        margin: 176px 0 40px;
+    }
+}
