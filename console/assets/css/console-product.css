@@ -58,3 +58,10 @@
         margin: 176px 0 40px;
     }
 }
+
+/* Compact R6 product tags and feature-section links. */
+.console-product-page .r6-product-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:16px 0 0}
+.console-product-page .r6-product-tags li{max-width:100%}
+.console-product-page .r6-product-tags :is(a,span){display:block;padding:5px 10px;border:1px solid var(--border-color,#34383b);border-radius:999px;color:var(--text-secondary,#a9b4ae);font-size:.75rem;line-height:1.5;text-decoration:none;overflow-wrap:anywhere}
+.console-product-page .r6-product-tags a:is(:hover,:focus-visible){color:var(--text-primary,#fff);border-color:currentColor}
+.console-product-page :is(#feature-aim,#feature-visuals,#feature-misc){scroll-margin-top:100px}
