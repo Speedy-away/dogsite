@@ -99,45 +99,6 @@ function portalProductArtwork(...values) {
         if (tab.dataset.page) tab.setAttribute('href', '#' + tab.dataset.page);
     });
 })();
-(() => {
-    const trigger = document.getElementById('dashboardDownloadButton');
-    const dialog = document.getElementById('dashboardDownloadDialog');
-    const close = document.getElementById('dashboardDownloadClose');
-    let previousOverflow = '';
-    trigger.addEventListener('click', () => {
-        if (typeof currentUser === 'undefined' || !currentUser) return;
-        if (dialog.open) return;
-        previousOverflow = document.body.style.overflow;
-        dialog.showModal();
-        document.body.style.overflow = 'hidden';
-        dialog.querySelector('.portal-loader-link').focus();
-    });
-    close.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('keydown', event => {
-        if (event.key !== 'Tab') return;
-        const controls = [...dialog.querySelectorAll('button:not([disabled]), a[href]')];
-        const first = controls[0];
-        const last = controls[controls.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-        }
-    });
-    dialog.addEventListener('click', event => {
-        if (event.target !== dialog) return;
-        const bounds = dialog.getBoundingClientRect();
-        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-    });
-    dialog.addEventListener('close', () => {
-        document.body.style.overflow = previousOverflow;
-        if (trigger.getClientRects().length) trigger.focus();
-    });
-    window.addEventListener('hashchange', () => { if (dialog.open) dialog.close(); });
-})();
-
 // Native dialog provides Escape dismissal and keeps focus within the redeem form.
 (() => {
     const dialog = document.getElementById('redeemKeyModal');

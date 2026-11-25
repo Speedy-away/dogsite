@@ -53,12 +53,11 @@ async function main() {
         page.on('pageerror', error => errors.push(error.message));
         await page.goto(origin + '/portal/#dashboard');
         await page.locator('#accountMenuToggle').waitFor({ state: 'visible' });
-        await page.locator('#dashboardDownloadButton').click();
         const names = new Set();
         for (let i = 0; i < 2; i++) {
             const priorChecks = checks;
             const pending = page.waitForEvent('download');
-            await page.locator('#portalLoaderDownloadButton').click();
+            await page.locator('#dashboardDownloadButton').click();
             const download = await pending;
             assert.match(download.suggestedFilename(), /^[a-f0-9]{32}\.exe$/);
             names.add(download.suggestedFilename());
@@ -69,19 +68,19 @@ async function main() {
         assert.equal(fileRequests, 2);
         console.log('PASS: two downloads, fresh random .exe names, original SHA-256, sign-in rechecked, no token sent to asset host');
         fileAvailable = false;
-        await page.locator('#portalLoaderDownloadButton').click();
+        await page.locator('#dashboardDownloadButton').click();
         await page.waitForFunction(() => document.getElementById('portalLoaderDownloadStatus').textContent.includes('temporarily unavailable'));
-        assert.equal(await page.locator('#portalLoaderDownloadButton').isEnabled(), true);
+        assert.equal(await page.locator('#dashboardDownloadButton').isEnabled(), true);
         fileAvailable = true; available = false;
         const previousFiles = fileRequests;
-        await page.locator('#portalLoaderDownloadButton').click();
-        await page.waitForFunction(() => !document.getElementById('portalLoaderDownloadButton').disabled);
+        await page.locator('#dashboardDownloadButton').click();
+        await page.waitForFunction(() => !document.getElementById('dashboardDownloadButton').disabled);
         assert.equal(fileRequests, previousFiles, 'auth service outages must not fetch the file');
         available = true; valid = false;
-        await page.locator('#portalLoaderDownloadButton').click();
+        await page.locator('#dashboardDownloadButton').click();
         await page.locator('#page-login').waitFor({ state: 'visible' });
         assert.equal(await page.evaluate(() => localStorage.getItem('portalSessionToken')), null);
-        assert.equal(await page.locator('#dashboardDownloadDialog').evaluate(dialog => dialog.open), false);
+        assert.equal(await page.locator('#dashboardDownloadDialog').count(), 0);
         assert.equal(await page.locator('#dashboardDownloadButton').isDisabled(), true);
         assert.equal(fileRequests, previousFiles, 'expired sessions must not fetch the file');
         console.log('PASS: file errors and auth outages can be retried; expired sessions return to login without fetching the EXE');
@@ -97,14 +96,17 @@ async function main() {
         await page.setViewportSize({ width: 375, height: 812 });
         await page.goto(origin + '/portal/#dashboard');
         await page.locator('#accountMenuToggle').waitFor({ state: 'visible' });
+        const mobileDownload = page.waitForEvent('download');
         await page.locator('#dashboardDownloadButton').click();
-        const bounds = await page.locator('#dashboardDownloadDialog').boundingBox();
-        assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= 375);
-        await page.keyboard.press('Escape');
+        const mobileFile = await mobileDownload;
+        assert.match(mobileFile.suggestedFilename(), /^[a-f0-9]{32}\.exe$/);
+        assert.equal(digest(await fs.readFile(await mobileFile.path())), expectedHash);
+        assert.equal(await page.locator('#dashboardDownloadDialog').count(), 0);
+        assert.equal(await page.locator('dialog[open]').count(), 0);
         assert.deepEqual(errors, []);
         assert.equal(isPublic('assets/downloads/ScoobyLoader.exe'), true);
         assert.equal(isPublic('tools/loader-download/private/ScoobyLoader.exe'), false);
-        console.log('PASS: mobile dialog fits, no browser errors; file is public as requested');
+        console.log('PASS: desktop and mobile download directly without a popup; no browser errors');
     } finally {
         if (browser) await browser.close();
         if (preview) { preview.closeAllConnections(); await new Promise(resolve => preview.close(resolve)); }

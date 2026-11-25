@@ -125,9 +125,10 @@ async function main() {
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.i18n-toggle').getAttribute('aria-expanded'), 'false');
     }
+    const pendingLoader = page.waitForEvent('download');
     await page.locator('#dashboardDownloadButton').click();
-    assert.equal(await page.locator('#dashboardDownloadTitle').textContent(), tables.es['Download loader']);
-    await page.keyboard.press('Escape');
+    assert.match((await pendingLoader).suggestedFilename(), /^[a-f0-9]{32}\.exe$/);
+    assert.equal(await page.locator('#dashboardDownloadDialog').count(), 0);
     await page.locator('#dashboardLicenseKey').fill('DEMO-TEST');
     await page.locator('#dashboardRedeemButton').click();
     await page.waitForFunction(() => document.querySelector('#dashboardRedeemMessage').textContent === 'Licencia canjeada correctamente.');

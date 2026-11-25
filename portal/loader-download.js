@@ -1,9 +1,8 @@
 (() => {
     'use strict';
-    const button = document.getElementById('portalLoaderDownloadButton');
+    const button = document.getElementById('dashboardDownloadButton');
     const label = button.querySelector('span');
     const status = document.getElementById('portalLoaderDownloadStatus');
-    const dialog = document.getElementById('dashboardDownloadDialog');
     const unavailable = 'The loader is temporarily unavailable. Please try again later.';
     let busy = false;
 
@@ -26,7 +25,6 @@
         localStorage.removeItem('portalSessionToken');
         updateUIForGuest();
         document.getElementById('dashboardDownloadButton').disabled = true;
-        dialog.close();
         showPage('login');
         showToast('Your session has expired. Please sign in again.', 'error');
     }

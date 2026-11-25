@@ -224,7 +224,8 @@
                     <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
                         <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
                         <p class="dashboard-description">Get the latest Scooby loader for Windows.</p>
-                        <button class="dashboard-button" id="dashboardDownloadButton" type="button" aria-haspopup="dialog" aria-controls="dashboardDownloadDialog"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader</button>
+                        <button class="dashboard-button" id="dashboardDownloadButton" type="button" disabled aria-describedby="portalLoaderDownloadStatus"><i class="fas fa-arrow-down" aria-hidden="true"></i><span>Download loader</span></button>
+                        <p class="dashboard-message" id="portalLoaderDownloadStatus" role="status" aria-live="polite"></p>
                     </section>
                     <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
                         <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
@@ -1624,38 +1625,10 @@
             </div>
         </div>
     </div>
-    <!-- Dashboard downloads stay on the current portal page. -->
-    <dialog class="portal-download-dialog" id="dashboardDownloadDialog" aria-labelledby="dashboardDownloadTitle" aria-describedby="dashboardDownloadDescription">
-        <button type="button" class="portal-download-close" id="dashboardDownloadClose" aria-label="Close downloads"><i class="fas fa-times" aria-hidden="true"></i></button>
-        <div class="portal-download-content"><nav aria-label="Download platform"><a href="/download/#pc">PC downloads</a> · <a href="/download/#console">Console downloads</a></nav>
-            <div class="portal-download-eyebrow"><span></span> SCOOBY DOWNLOADS</div>
-            <h2 id="dashboardDownloadTitle">Download loader</h2>
-            <p id="dashboardDownloadDescription">Get the latest Scooby installer.</p>
-            <div class="portal-loader-card">
-                <div class="portal-loader-product">
-                    <div class="portal-loader-logo"><img src="/assets/images/brand/scooby-logo.png" width="42" height="42" alt=""></div>
-                    <div class="portal-loader-info"><h3>Scooby loader</h3><span><i class="fab fa-windows" aria-hidden="true"></i> For Windows</span></div>
-                    <span class="portal-loader-mark" aria-hidden="true"><i class="fas fa-download"></i></span>
-                </div>
-                <button class="dashboard-button portal-loader-link" id="portalLoaderDownloadButton" type="button" disabled aria-describedby="portalLoaderDownloadStatus"><i class="fas fa-arrow-down" aria-hidden="true"></i><span>Download loader</span></button>
-                <p class="dashboard-message" id="portalLoaderDownloadStatus" role="status" aria-live="polite"></p>
-            </div>
-            <div class="portal-download-extras">
-                <h3>Additional tools</h3>
-                <div class="portal-download-tools">
-                    <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener" class="portal-download-tool">
-                        <span class="portal-tool-top"><span class="portal-tool-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
-                        <strong>VC Runtimes</strong><span class="portal-tool-description">Visual C++ runtime libraries</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="portal-download-footer"><i class="fas fa-download" aria-hidden="true"></i> Your loader downloads with a new filename each time.</div>
-    </dialog>
     <script src="portal.js?v=remove-notifications"></script>
-    <script src="portal-refresh.js?v=20261005-game-logos"></script>
+    <script src="portal-refresh.js?v=direct-loader-download"></script>
     <script src="loader-download-config.js?v=portal-loader-v2"></script>
-    <script src="loader-download.js?v=portal-loader-v2"></script>
+    <script src="loader-download.js?v=direct-loader-download"></script>
     <script src="portal-navigation.js?v=remove-notifications"></script>
     <script src="portal-backgrounds.js?v=20260924-account"></script>
     <script>
@@ -1711,7 +1684,7 @@
 
         function renderAccount() {
             const signedIn = !!currentUser;
-            byId('dashboardDownloadButton').disabled = !signedIn;
+            byId('dashboardDownloadButton').disabled = !signedIn || byId('dashboardDownloadButton').hasAttribute('aria-busy');
             portalText(byId('dashboardTitle'), signedIn ? 'Welcome, {name}!' : 'Welcome to Scooby.', {
                 name: currentUser?.display_name || currentUser?.username || 'Scooby'
             });
