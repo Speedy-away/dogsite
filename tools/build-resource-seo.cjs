@@ -7,11 +7,12 @@ const ROOT = path.resolve(__dirname, '..');
 function build() {
   const { build: buildPages } = require('./resource-pages.cjs');
   const data = buildPages();
+  require('./seo-watch.cjs').build();
   const { applyMetadata } = require('./seo-metadata');
   const guide = 'resources/guides/index.html';
   const file = path.join(ROOT, guide);
-  fs.writeFileSync(file, applyMetadata(guide, fs.readFileSync(file, 'utf8')));
-  for (const script of ['seo-directory.js', 'seo-links.js', 'seo-sitemap.js']) {
+  require('./generated-file.cjs').writeIfChanged(file, applyMetadata(guide, fs.readFileSync(file, 'utf8')));
+  for (const script of ['seo-metadata.js', 'seo-directory.js', 'seo-links.js', 'seo-sitemap.js']) {
     execFileSync(process.execPath, [path.join(__dirname, script), '--apply'], { cwd: ROOT, stdio: 'inherit' });
   }
   return data;

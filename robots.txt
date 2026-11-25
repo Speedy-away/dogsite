@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Shared discovery for Bing, Google, DuckDuckGo, Brave and other crawlers.
 Sitemap: https://scoobymenu.cc/sitemap.xml

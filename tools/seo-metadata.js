@@ -1,15 +1,16 @@
 /* Search metadata: node tools/seo-metadata.js [--apply]. */
 const fs = require('fs'), path = require('path');
-const { structure } = require('./seo-structured');
+const { structure, pageFields, isPageEntity, pageUrl } = require('./seo-structured');
 const { cardFor } = require('./social-cards');
 const { applyBranding } = require('./site-branding');
 const locales = require('./search-locales.json');
+const vm = require('node:vm');
 const ROOT = path.resolve(__dirname, '..'), SITE = 'https://scoobymenu.cc';
 const pages = {};
 function add(file, title, description, keywords) { pages[file] = {title, description, keywords: 'Scooby Menu, ' + keywords}; }
 const rows = `
 resources/vibescript/index.html|VibeScript downloads — Scooby Resources|Download VibeScript versions 2.5.1 and 2.2.1 for Cherax.|VibeScript, Cherax, VibeScript downloads
-resources/index.html|Game Mods, Addons & Downloads — Scooby Resources|Browse GTA 5 vehicles, RDR2 outfits, CS2 models, FiveM graphics, RedM PvP packs and Left 4 Dead addons. Find compatible downloads and installation guides.|resources, community downloads, GTA 5 mods, GTA V vehicles, modded vehicles, Menyoo XML vehicles, addon vehicles, addon peds, map mods, RDR2 outfits, CS2 player models, CS2 knife models, CS2 skyboxes, FiveM graphics packs, FiveM ReShade, RedM PvP packs, RedM RP packs, RedM weapon skins, RedM sound packs, RedM Colors.xml presets, L4D2 mods, Left 4 Dead custom campaigns, textures, paintjobs, ASI mods, .NET mods, ClickUI themes, ListUI styles, Stand themes, 2Take1 style, Impulse style, Silkroad themes, Ozark themes, X-Force style, configs, translations
+resources/index.html|Game Mods, Addons & Downloads — Scooby Resources|Browse GTA 5 vehicles, RDR2 outfits, CS2 models, FiveM graphics, RedM packs and Left 4 Dead addons. Filter by game, menu and compatible edition.|community mod downloads, GTA 5 mods, GTA V saved vehicles, Menyoo maps, RDR2 outfits, CS2 custom models, FiveM graphics packs, RedM PvP packs, RedM RP packs, Left 4 Dead addons, Cherax Lua scripts, Cherax outfits, Cherax vehicles, Stand Lua scripts, Stand outfits, Stand vehicles, YimMenu v1 Lua scripts, YimMenu v2 Lua scripts
 resources/guides/index.html|Game Mod & Resource Installation Guides — Scooby|Install GTA 5 vehicles and addons, RDR2 outfits, CS2 models, FiveM textures, RedM graphics packs and Left 4 Dead mods using guides for each game.|resource installation guides, GTA 5 addon installation, Menyoo XML vehicles, map mod installation, ped mods, RDR2 outfits, CS2 custom models, FiveM graphics pack installation, how to install RedM PvP packs, RedM Colors.xml installation, Left 4 Dead addons, ClickUI themes, ListUI styles, Stand themes, config installation, language files, ASI plugins, .NET mods
 guides/mta-sa/index.html|MTA:SA Requirements - Scooby|Visual C++ runtime requirements for Scooby MTA:SA. Download the runtime packages and restart your PC.|MTA guide
 features-list/gta4-features/index.html|GTA IV Features — Aimbot, ESP & Wallhacks - Scooby|Browse GTA IV aimbot, lock on, sniper silent aim, Magic bullet, ESP, wallhacks, radar, spawners and customization features.|Scooby GTA IV, GTA IV cheat, GTA 4 cheats, GTA IV mod menu, GTA 4 mod menu, GTA IV aimbot, GTA 4 aimbot, GTA IV ESP, GTA 4 ESP, GTA IV wallhack, GTA 4 wallhacks, lock on, sniper silent aim, Magic bullet, player ESP, NPC ESP, vehicle ESP, radar, vehicle spawner, weapon spawner, GTA IV feature list
@@ -71,13 +72,13 @@ products/last-of-us/index.html|Free The Last of Us Part I Cheat — Scooby|Free 
 features-list/last-of-us-features/index.html|The Last of Us Part I Feature List — Scooby|Search Part I features and settings: combat, NPC and self ESP, movement, weapon controls, spawning, hotkeys and profiles. Part II coming soon.|The Last of Us Part I cheat features, TLOU cheat features, NPC ESP, freecam, weapon controls, character spawner, TLOU profiles
 guides/last-of-us/index.html|The Last of Us Part I Setup Guide — Scooby Wiki|Get started with Scooby for The Last of Us Part I. Find requirements, Steam launch steps, menu settings and troubleshooting. Free and paid accounts.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
 guides/last-of-us/requirements/index.html|The Last of Us Part I Requirements — Scooby Wiki|Download the VC runtime all-in-one package or Microsoft x64 and x86 installers before setting up Scooby for The Last of Us Part I.|The Last of Us Part I cheat setup, The Last of Us Part I requirements, Scooby requirements, Visual C++ runtimes, VC runtimes, x64, x86, runtime download
-guides/last-of-us/getting-started/index.html|How to Load Scooby in The Last of Us Part I|Launch Part I through Steam, detect the running game, load the verified Scooby module and open the menu with F1 or Insert. Step-by-step setup.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
-guides/last-of-us/menu-settings/index.html|The Last of Us Menu Settings & Configs — Scooby Wiki|Configure Part I ESP, hotkeys, UI and overlay scale, languages and saved profiles. Find your config folder and learn the activation modes.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
-guides/last-of-us/troubleshooting/index.html|The Last of Us Loader & Feature Fixes — Scooby Wiki|Troubleshoot Part I process detection, missing overlays, download verification, disabled features and character-spawn requirements.|The Last of Us Part I cheat setup, The Last of Us Part I, Part 1, TLOU, LastOFusPart1, Scooby, free cheat, NPC ESP, freecam, spawner, settings
-index.html|Scooby Cheats & Mod Menus for GTA 5, RDR2 & More|Explore Scooby for GTA 5, RDR2, CS2, GMOD, TF2 & Classified, L4D, Half-Life and more. Browse cheats, mod menus, features and setup guides.|Scooby cheats, GTA 5 cheats, GTA 5 mod menu, RDR2 cheats, RDR2 mod menu, CS2 cheat, GMOD cheat, Garry's Mod cheat, TF2 cheat, TF2 Classified cheat, L4D cheat, Left 4 Dead 2 cheat, FiveM cheat, RedM cheat, S&box cheat, The Last of Us Part I cheat, Half-Life cheat
+guides/last-of-us/getting-started/index.html|How to Load Scooby in The Last of Us Part I|Launch Part I through Steam, detect the running game, load the verified Scooby module and open the menu with F1 or Insert. Step-by-step setup.|The Last of Us Part I setup, TLOU Steam launch, Scooby loader, Part I menu key, getting started
+guides/last-of-us/menu-settings/index.html|The Last of Us Menu Settings & Configs — Scooby Wiki|Configure Part I ESP, hotkeys, UI and overlay scale, languages and saved profiles. Find your config folder and learn the activation modes.|The Last of Us Part I menu settings, TLOU hotkeys, overlay scale, language settings, config folder, saved profiles
+guides/last-of-us/troubleshooting/index.html|The Last of Us Loader & Feature Fixes — Scooby Wiki|Troubleshoot Part I process detection, missing overlays, download verification, disabled features and character-spawn requirements.|The Last of Us Part I troubleshooting, TLOU loader, game detection, missing overlay, download verification, character spawn
+index.html|Scooby Menu — GTA 5 & RDR2 on PC, PlayStation 4 Catalog|Explore Scooby mod menus for GTA 5 and RDR2 on PC. Compare Free and Premium editions, see PlayStation 4 release status, and find features and setup guides.|GTA 5 PC mod menu, RDR2 PC mod menu, Scooby Free, Scooby Premium, PlayStation 4 catalog, PC game guides, Scooby downloads
 sitemap/index.html|Scooby Site Directory: Games, Features & Setup Guides|Find Scooby game pages, feature lists, installation guides, troubleshooting, Lua API documentation and official support resources in one site directory.|Scooby site directory, Scooby games, game guides, Scooby documentation
-store/index.html|Scooby Store: Free & Premium Cheats and Mod Menus|Browse Scooby premium plans, free products and the TF2 & Classified preview. Compare game editions, explore features and find access options.|Scooby store, free cheats, premium cheats, GTA 5 cheats, GTA 5 mod menu, RDR2 cheats, RDR2 mod menu, CS2 cheat, GMOD cheat, TF2 preview, TF2 Classified, L4D cheat, FiveM cheat, RedM cheat, S&box cheat, Half-Life cheat, Scooby pricing
-best-mod-menu/index.html|Choosing Cheats & Mod Menus: Features, Pricing & FAQs - Scooby|Compare Scooby cheats and GTA 5 / RDR2 mod menu features, free and premium options, compatibility and setup. Read answers about pricing, updates and game-ban risks.|cheat comparison, GTA 5 cheats, GTA 5 mod menu comparison, RDR2 cheats, RDR2 mod menu comparison, CS2 cheat, GMOD cheat, FiveM cheat, RedM cheat, free vs premium cheats, Scooby pricing
+store/index.html|Scooby Mod Menu Store — GTA 5, RDR2, FiveM & RedM|Shop lifetime Scooby mod menu licenses for GTA 5, RDR2, FiveM and RedM. Compare GTA 5 Premium Plus and explore included PC games like CS2 and Garry’s Mod.|Scooby mod menu, Scooby Menu store, GTA 5 mod menu, GTA 5 Premium Plus, GTA V mod menu, RDR2 mod menu, Red Dead Online mod menu, FiveM mod menu, RedM mod menu, lifetime mod menu, CS2, Garry’s Mod, Left 4 Dead
+best-mod-menu/index.html|Best GTA 5 Online Mod Menu for PC? Compare Scooby Editions|Compare Scooby editions for GTA 5 Online and Red Dead Online on PC. Check GTA V Legacy and Enhanced compatibility and the separate PS4 release status.|GTA 5 Online mod menu PC, GTA V mod menu comparison, best GTA 5 mod menu, RDR2 PC mod menu comparison, GTA 5 Legacy and Enhanced, Scooby PS4 availability
 changelog/index.html|Scooby Menu Changelog & Release Notes|Read Scooby release notes for GTA 5, RDR2, FiveM, RedM and the loader. Track new features, improvements and fixes by version.|Scooby changelog, Scooby updates, product release notes, Scooby loader updates
 freekey.html|Get a Scooby Free Key - Product Access|Get a Scooby free key through the official key page. Follow the access steps, copy your key and use it with the Scooby loader.|Scooby free key, Scooby key page, free product key, Scooby loader
 download/index.html|Download the Scooby Loader - Scooby|Sign in to download the Scooby loader for GTA 5, RDR2, FiveM, RedM, CS2, GMOD and more, plus the runtimes it needs to start.|Scooby loader, Scooby download, GTA 5 mod menu download, FiveM cheat download, RDR2 mod menu download
@@ -85,10 +86,10 @@ resellers/become/index.html|Become a Scooby Reseller — Bulk Keys & Pricing|Buy
 resellers/index.html|Official Scooby Resellers & Payment Options|Find official Scooby resellers and their payment options. Browse regional stores and choose a reseller for your Scooby license.|official Scooby resellers, buy Scooby license, Scooby payment options
 videos/index.html|Scooby Menu Videos: Showcases & Setup Tutorials|Watch Scooby product showcases and setup tutorials for GTA 5, RDR2, FiveM, RedM and CS2. Browse videos by game, topic and language.|Scooby videos, product showcase, GTA 5 cheats, GTA 5 mod menu tutorial, FiveM setup video
  tos/index.html|Scooby Terms of Service: Purchases, Refunds & Usage|Read the Scooby terms of service for product access, payments, refunds, updates and support before purchasing or using a Scooby license.|Scooby terms of service, Scooby refund policy, Scooby purchase terms
-products/gta5/index.html|GTA 5 Cheats & Mod Menu: Legacy & Enhanced - Scooby|Explore Scooby GTA 5 for Legacy and Enhanced: player powers, vehicles, heists, businesses, ESP and Lua. Compare Free, Premium and Plus and browse every feature.|GTA 5 cheats, GTA5 cheat, GTA V cheat, GTA 5 mod menu, GTA Online cheats, GTA 5 Legacy, GTA 5 Enhanced, GTA 5 heist editor
-products/rdr2/index.html|RDR2 Cheats & Mod Menu for Red Dead Online - Scooby|Explore Scooby RDR2 cheats and mod menu for Red Dead Redemption 2 Online on PC. Browse horse spawners, player tools, Lua scripting and setup guides.|RDR2 cheats, RDR2 mod menu, Red Dead Redemption 2 cheat, Red Dead Online cheats, Red Dead Online mod menu, RDR2 horse spawner, RDR2 Lua
-products/fivem/index.html|FiveM Cheat & Lua Executor - Scooby|Explore FiveM Streamer Mode, ESP with server IDs, Silent Aim hitboxes, diagnostics and upcoming Vehicle ESP. Compare Free and Premium features.|FiveM cheat, Scooby FiveM, FiveM Lua executor, FiveM ESP, FiveM aimbot, FiveM resource manager, FiveM streamer mode, stream proof, stream-proof, OBS proof, OBS-proof, OBS desktop capture, Discord screenshare, screenshot protection, FiveM vehicle ESP, FiveM 3D boxes, FiveM server IDs, Silent Aim hitboxes, FiveM performance overlay
-products/redm/index.html|RedM Cheat & Lua Executor - Scooby|Explore Scooby RedM with player tools, ESP, Lua scripting and resource management. Browse screenshots, setup guides and premium access options.|RedM cheat, Scooby RedM, RedM Lua executor, RedM ESP, RedM aimbot, RedM resource manager
+products/gta5/index.html|Scooby GTA 5 Mod Menu for PC · Legacy & Enhanced|Explore the Scooby GTA 5 mod menu for PC. Compare Free, Premium and Premium Plus, check GTA V Legacy and Enhanced compatibility, and browse features and setup guides.|GTA 5 PC mod menu, GTA 5 Online mod menu, GTA V mod menu, Scooby GTA 5, Scooby Free, Scooby Premium, Scooby Premium Plus, GTA 5 Legacy, GTA 5 Enhanced, GTA 5 Lua
+products/rdr2/index.html|RDR2 PC Mod Menu for Red Dead Online — Scooby|Compare Scooby Free and Premium for Red Dead Redemption 2 on PC. Browse Red Dead Online features, screenshots, system requirements and setup guides.|RDR2 PC mod menu, Red Dead Redemption 2 PC mod menu, Red Dead Online mod menu, Scooby RDR2 Free, Scooby RDR2 Premium, Red Dead Online setup, RDR2 feature list
+products/fivem/index.html|FiveM Mod Menu & Lua Executor — Scooby|Compare Scooby FiveM Free and lifetime Premium access. Browse the FiveM mod menu, Lua executor, overlays, screenshots and setup guides.|FiveM mod menu, Scooby FiveM mod menu, FiveM Premium, FiveM Lua executor, FiveM cheat, FiveM ESP, FiveM streamer mode, FiveM resource manager
+products/redm/index.html|RedM Mod Menu & Lua Executor — Scooby|Explore the Scooby RedM mod menu for PC with player tools, overlays and Lua scripting. Browse features, setup guides and lifetime Premium access.|RedM mod menu, Scooby RedM mod menu, RedM Premium, RedM Lua executor, RedM cheat, RedM ESP, RedM resource manager
 products/cs2/index.html|Free CS2 Cheat, Skin & Custom Model Changer - Scooby|Free Scooby CS2 for Windows with custom models, skins, local inventory, ESP, chams, aim profiles, movement practice and Lua scripting.|CS2 cheat, Counter-Strike 2 cheat, free CS2 cheat, CS2 aimbot, CS2 triggerbot, CS2 ESP, CS2 chams, CS2 skin changer, CS2 local inventory, Scooby CS2
 products/gmod/index.html|Free GMOD Cheat: Garry’s Mod - Scooby|Explore the free Scooby GMOD cheat: Rage and Legit aim controls, ESP, chams, movement, radar and Lua tools. View screenshots and browse all features.|GMOD cheat, Garry's Mod cheat, free GMOD cheat, GMOD ESP, GMOD chams, GMOD ragebot, GMOD legitbot, GMOD Lua, Scooby GMOD
 products/free/index.html|Free Scooby Cheats & Mod Menus: Supported Games & Key Access|Explore free Scooby products, including Half-Life 1, Left 4 Dead 1 & 2, Garry’s Mod and S&box. Find game features, setup guides and free-key access steps.|free Scooby cheats, free GTA 5 cheats, GTA 5 mod menu, free RDR2 cheats, RDR2 mod menu, free CS2 cheat, free GMOD cheat, free Garry's Mod cheat, free FiveM cheat, free S&box cheat, free L4D1 cheat, free L4D2 cheat, free The Last of Us Part I cheat, free Half-Life cheat, Scooby free key
@@ -106,8 +107,7 @@ scooby-features/index.html|GTA 5 Cheats & Mod Menu Highlights - Scooby|Explore S
 guides/index.html|Scooby Wiki: Game Setup & Troubleshooting Guides|Browse setup, requirements, menu controls and fixes for Scooby games, including GTA 5, RDR2, CS2, TF2 & Classified, L4D and Half-Life.|Scooby cheat setup guides, GTA 5 cheats, GTA 5 mod menu setup, RDR2 cheats, RDR2 mod menu setup, CS2 cheat setup, GMOD cheat setup, TF2 setup, TF2 Classified guide, L4D cheat setup, Half-Life setup, FiveM cheat setup, RedM cheat setup, S&box cheat setup, Scooby troubleshooting
 `;
 for (const row of rows.trim().split('\n')) add(...row.trim().split('|'));
-const { buildData: buildResourceData, featuredTopics } = require('./resource-pages.cjs');
-const { menuTopic } = require('../resources/taxonomy.js');
+const { buildData: buildResourceData } = require('./resource-pages.cjs');
 const resourceInventory = buildResourceData();
 for (const page of resourceInventory.pages) {
  add(page.file, page.title, page.description, page.keywords);
@@ -116,15 +116,7 @@ const resourceGuides = require('./resource-guides.cjs').buildGuideData(resourceI
 for (const guide of resourceGuides) {
  add(guide.file, guide.title, guide.description, guide.keywords);
 }
-const resourceMenus = [...new Set(resourceInventory.pages.filter(page => page.game === 'gta5').map(page => menuTopic(page.menu, 'resources')))];
-const resourceTopics = resourceInventory.pages
- .filter(page => page.game === 'gta5' && page.menu !== 'scooby' && featuredTopics.includes(page.category))
- .map(page => menuTopic(page.menu, page.category)).filter(Boolean);
-const yimPresetTopics = resourceInventory.pages.find(page => page.menu === 'yim' && !page.category)?.categories
- .filter(category => category.id !== 'lua').flatMap(category => category.words.slice(0, 2)) || [];
-appendKeywords('resources/index.html', [...resourceMenus, ...resourceTopics, ...yimPresetTopics]);
-appendKeywords('resources/guides/index.html', resourceGuides.filter(guide => ['yim', 'yimv2'].includes(guide.menu))
- .map(guide => guide.keywords.split(', ')[0]));
+appendKeywords('resources/guides/index.html', ['YimMenu v1 installation guides', 'YimMenu v2 Lua installation']);
 for (const [slug, game] of [['gta5','GTA 5'],['fivem','FiveM'],['redm','RedM']]) add(`api/${slug}_api_reference.html`, `${game} Lua API Reference - Scooby Developer Docs`, `Read the Scooby ${game} Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.`, `${game} Lua API, Scooby ${game} scripting, ${game} Lua functions`);
 for (const [slug, game, base] of [['fivem','FiveM','GTA V'],['redm','RedM','RDR2']]) add(`docs/${slug}/index.html`, `${game} Native Reference: ${base} & Scooby Functions`, `Search ${game} and ${base} native functions by namespace. Browse signatures, parameters and custom Scooby natives for scripting, memory and HTTP requests.`, `${game} native reference, ${base} natives, Scooby natives`);
 const groups = [
@@ -256,17 +248,27 @@ Object.assign(pages, {
 // Keep generated Rockstar documentation discoverable in both sitemap formats.
 for (const [slug, game] of [['gta5', 'GTA 5'], ['rdr2', 'RDR2']]) {
   const docs = [
-    ['index.html', `${game} Lua Documentation - Scooby`, `Build ${game} Lua scripts with native feature pages, shared settings, custom interfaces and game-specific examples. Browse the API and developer references.`],
-    ['custom-ui/index.html', `${game} ListUI, ClickUI & Custom Lua Interfaces - Scooby`, `Create ${game} Lua interfaces with ListUI, ClickUI, native themes and shared feature state. Follow examples for native pages and custom ImGui windows.`],
-    ['imgui-porting/index.html', `${game} C++ ImGui to Lua Porting Guide - Scooby`, `Port C++ ImGui interfaces to ${game} Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks.`],
-    ['developer-files/index.html', `${game} Lua Developer Files & References - Scooby`, `Download ${game} Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files.`],
-    ['lua-api.html', `${game} Generated Lua API Documentation - Scooby`, `Browse the generated ${game} Lua API documentation, including host functions, bindings, signatures and examples for the supported scripting runtime.`],
+    ['index.html', `${game} Lua Documentation - Scooby`, `Build ${game} Lua scripts with native feature pages, shared settings, custom interfaces and game-specific examples. Browse the API and developer references.`, 'scripting guides, native feature pages, shared settings, Lua examples'],
+    ['custom-ui/index.html', `${game} ListUI, ClickUI & Custom Lua Interfaces - Scooby`, `Create ${game} Lua interfaces with ListUI, ClickUI, native themes and shared feature state. Follow examples for native pages and custom ImGui windows.`, 'custom Lua UI, ListUI, ClickUI, native themes, custom ImGui windows'],
+    ['imgui-porting/index.html', `${game} C++ ImGui to Lua Porting Guide - Scooby`, `Port C++ ImGui interfaces to ${game} Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks.`, 'ImGuiCpp, C++ to Lua, render callbacks, UI porting'],
+    ['developer-files/index.html', `${game} Lua Developer Files & References - Scooby`, `Download ${game} Lua developer references and examples. Explore generated bindings, feature-page helpers, native themes and ImGui porting files.`, 'developer files, scripting examples, generated bindings, theme files'],
+    ['lua-api.html', `${game} Generated Lua API Documentation - Scooby`, `Browse the generated ${game} Lua API documentation, including host functions, bindings, signatures and examples for the supported scripting runtime.`, 'API reference, host functions, Lua bindings, signatures'],
   ];
-  for (const [route, title, description] of docs) add(`docs/${slug}/${route}`, title, description, `${game} Lua, ${game} scripting, ListUI, ClickUI, ImGuiCpp, Scooby developer documentation`);
+  for (const [route, title, description, keywords] of docs) {
+    add(`docs/${slug}/${route}`, title, description, `${game} Lua, ${keywords}`);
+  }
 }
 const escape = s => s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const decode = s => s.replace(/&quot;/g,'"').replace(/&#39;|&apos;/g,"'").replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 function attrs(tag) { return Object.fromEntries([...tag.matchAll(/([\w:-]+)\s*=\s*(["'])([\s\S]*?)\2/g)].map(m=>[m[1].toLowerCase(),decode(m[3])])); }
+function normalizeKeywords(value) {
+ const seen = new Set();
+ return value.split(',').map(term => term.trim().replace(/\s+/g, ' ')).filter(term => {
+  const key = term.toLocaleLowerCase('en');
+  if (!key || seen.has(key)) return false;
+  seen.add(key); return true;
+ }).join(', ');
+}
 function excluded(head) { return [...head.matchAll(/<meta\b[^>]*>/gi)].some(m=>{const a=attrs(m[0]);return a.name?.toLowerCase()==='robots' && /noindex/i.test(a.content) || a['http-equiv']?.toLowerCase()==='refresh';}); }
 Object.assign(pages, {
   "products/tf2/index.html": {
@@ -280,50 +282,47 @@ Object.assign(pages, {
     "keywords": "TF2 features, Team Fortress 2 features, TF2 Classified features, Scooby TF2, TF2 aimbot, TF2 triggerbot, TF2 ESP, TF2 chams, TF2 skin changer, TF2 Lua API"
   }
 });
-pages['index.html'].description='Explore Scooby cheats and mod menus for GTA 5 and RDR2, plus CS2, GMOD, L4D, TF2 and TF2 Classified. Compare features, screenshots and setup guides.';
-for (const [file, meta] of Object.entries(pages)) if (file==='index.html' || meta.language) meta.keywords += ', TF2 cheat, Team Fortress 2 cheat, TF2 Classified, Scooby TF2';
 Object.assign(pages, {
   'more-games/index.html': {title:'More Games — The Last of Us & Megabonk | Scooby', description:'Browse The Last of Us and Megabonk in the Scooby More Games collection. Open each product page and get a free key.', keywords:'Scooby More Games, The Last of Us, TLOU cheat, Megabonk, Megabonk cheat, free key'},
   'products/megabonk/index.html': {"title": "Megabonk — Features & Free Key | Scooby", "description": "Customize Megabonk with health, damage and XP controls, movement modifiers, pickup spawning, item grants and progression unlocks. Get a free Scooby key.", "keywords": "Scooby Megabonk, Megabonk cheat, Megabonk features, Megabonk spawner, Megabonk unlocks, free Megabonk key"},
   'features-list/megabonk-features/index.html': {"title": "Megabonk Features — Scooby", "description": "Browse Megabonk health, damage, XP, movement, pickups, item grants, unlocks, run timers and menu settings. Search the complete feature list.", "keywords": "Megabonk feature list, Scooby Megabonk, pickup spawner, item grants, unlocks, health, XP, movement, Lua"}
 });
-for (const [file, meta] of Object.entries(pages)) if (file==='index.html' || meta.language) meta.keywords += ', Megabonk, Scooby Megabonk, More Games';
 // Megabonk product and wiki
 Object.assign(pages, {
   "guides/megabonk/index.html": {
     "title": "Megabonk guide — Megabonk | Scooby Wiki",
     "description": "Set up Megabonk, customize languages and hotkeys, write Lua scripts, and use pickups, items and progression tools.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk guide, game setup, language settings, Lua scripting, progression tools"
   },
   "guides/megabonk/getting-started/index.html": {
     "title": "Getting started — Megabonk | Scooby Wiki",
     "description": "Open Megabonk through Scooby Launcher and find the main game and Lua tabs.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk getting started, Scooby Launcher, main game tab, Lua tab"
   },
   "guides/megabonk/menu-settings/index.html": {
     "title": "Menu settings, configs and hotkeys — Megabonk | Scooby Wiki",
     "description": "Choose a UI edition, save Megabonk profiles, assign hotkeys and keep your preferred language.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk menu settings, UI editions, profiles, hotkeys, configs"
   },
   "guides/megabonk/languages/index.html": {
     "title": "Languages and language packs — Megabonk | Scooby Wiki",
     "description": "Select one of 23 Megabonk languages, download updates and preserve your custom translations.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk language packs, language selector, language updates, custom translations"
   },
   "guides/megabonk/lua-scripts/index.html": {
     "title": "Lua scripts and game API — Megabonk | Scooby Wiki",
     "description": "Use the dedicated Lua tab, Megabonk API, run HUD and pickup examples.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk Lua API, Lua scripts, run HUD, pickup examples"
   },
   "guides/megabonk/spawner-unlocks/index.html": {
     "title": "Pickups, items and unlocks — Megabonk | Scooby Wiki",
     "description": "Spawn Megabonk pickups, add items, collect XP and unlock saved content.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk pickups, item spawner, XP, progression unlocks"
   },
   "guides/megabonk/troubleshooting/index.html": {
     "title": "Troubleshooting — Megabonk | Scooby Wiki",
     "description": "Resolve unavailable Megabonk actions, language update errors, hotkeys and Lua script issues.",
-    "keywords": "Scooby Megabonk, Megabonk guide, Lua, languages, configs, hotkeys, spawner, unlocks"
+    "keywords": "Scooby Megabonk, Megabonk troubleshooting, unavailable actions, language update errors, hotkey conflicts, Lua script errors"
   },
   "products/megabonk/index.html": {
     "title": "Megabonk — Features, Lua & Guides | Scooby",
@@ -347,9 +346,6 @@ function appendKeywords(file, keywords) {
 }
 for (const [game, keywords] of Object.entries(cosmeticKeywords)) {
  for (const file of [`products/${game}/index.html`, `features-list/${game}-features/index.html`]) appendKeywords(file, keywords);
-}
-for (const file of ['index.html', 'source-games/index.html', 'products/free/index.html']) {
- appendKeywords(file, ['CS2 skin changer', 'CS2 inventory changer', 'TF2 skin changer', 'TF2 inventory changer']);
 }
 // Keep guide discovery terms specific to the instructions on each page.
 const helpGuideKeywords = {
@@ -389,28 +385,36 @@ pages['guides/loading/index.html'].description = 'Sign in to Scooby with a Free 
 pages['guides/general/connection/index.html'].description = 'Troubleshoot Scooby website and loader connection errors, ISP restrictions and backend or hosting outages. Find network checks and free VPN options.';
 pages['guides/general/free-key/index.html'].description = 'Get one Scooby free key for all Free versions and renew it every 24 hours. Follow access steps, copy your key, use Free login and troubleshoot website errors.';
 function applyMetadata(file, html, override) {
- file=file.replace(/\\/g,'/'); const meta=override || pages[file]; if(!meta) return html;
+ file=file.replace(/\\/g,'/'); const source=override || pages[file]; if(!source) return html;
+ const meta={...source, keywords:normalizeKeywords(source.keywords)};
  if (excluded(html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '')) return html;
  const updated = html.replace(/<head\b[^>]*>[\s\S]*?<\/head>/i, head=>{
   if(excluded(head))return head;
   const nl=head.includes('\r\n')?'\r\n':'\n';
-  const url=SITE+'/'+(file==='index.html'?'':file.replace(/index\.html$/,''));
+  const url=pageUrl(file);
   const append=tag=>{head=head.replace(/<\/head>/i,tag+nl+'</head>');};
   function set(key,value,property=false){let found=false;const tag=`<meta ${property?'property':'name'}="${key}" content="${escape(value)}">`;head=head.replace(/<meta\b[^>]*>/gi,old=>{const a=attrs(old);if((a.name||a.property||'').toLowerCase()!==key)return old;if(found)return '';found=true;return tag;});if(!found)append(tag);}
   head=head.replace(/<title\b[^>]*>[\s\S]*?<\/title>/i,`<title>${escape(meta.title)}</title>`);
   set('description',meta.description);set('keywords',meta.keywords);set('robots','index, follow, max-image-preview:large');
   for(const prefix of ['og','twitter']) for(const [key,value] of [['title',meta.title],['description',meta.description],['url',url]])set(`${prefix}:${key}`,value,prefix==='og');
   set('og:type','website',true);set('og:site_name','Scooby Menu',true);
-  if (meta.ogLocale) set('og:locale',meta.ogLocale,true);
+  set('og:locale',meta.ogLocale || 'en_US',true);
   const card=cardFor(file),image=SITE+card.path;
   set('og:image',image,true);set('og:image:secure_url',image,true);
   set('og:image:type','image/png',true);set('og:image:width',String(card.width),true);set('og:image:height',String(card.height),true);
   set('og:image:alt',card.alt,true);set('twitter:image',image);set('twitter:image:alt',card.alt);set('twitter:card','summary_large_image');
   let found=false;head=head.replace(/<link\b[^>]*>/gi,old=>{if(attrs(old).rel!=='canonical')return old;if(found)return '';found=true;return `<link rel="canonical" href="${url}">`;});if(!found)append(`<link rel="canonical" href="${url}">`);
   head=head.replace(/(<script\b[^>]*type=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/gi,(whole,start,json,end)=>{
-   const data=JSON.parse(json);let changed=false;
-   function visit(v){if(!v||typeof v!=='object')return;const ownPage=!v.url||typeof v.url==='string'&&v.url.replace(/\/$/,'')===url.replace(/\/$/,'');if(ownPage && ['SoftwareApplication','WebPage','CollectionPage'].includes(v['@type']) && v.description && v.description!==meta.description){v.description=meta.description;changed=true;}if(ownPage && ['SoftwareApplication','WebSite','WebPage','CollectionPage'].includes(v['@type']) && v.keywords!==meta.keywords){v.keywords=meta.keywords;changed=true;}for(const child of Object.values(v))if(typeof child==='object')visit(child);}
-   visit(data);return changed?start+nl+JSON.stringify(data,null,2).replace(/</g,'\\u003c').replace(/\n/g,nl)+nl+end:whole;
+   const data = JSON.parse(json);
+   const before = JSON.stringify(data);
+   for (const node of Array.isArray(data) ? data : data['@graph'] || [data]) {
+    if (isPageEntity(node, url)) Object.assign(node, pageFields(node, url, meta));
+    else if ((!node.url || node.url === url || node.url + '/' === url) && ['SoftwareApplication', 'WebSite'].includes(node['@type'])) {
+     if (node['@type'] === 'SoftwareApplication' && node.description) node.description = meta.description;
+     node.keywords = meta.keywords;
+    }
+   }
+   return before !== JSON.stringify(data) ? start + nl + JSON.stringify(data,null,2).replace(/</g,'\\u003c').replace(/\n/g,nl) + nl + end : whole;
   });
   if (file === 'index.html' || meta.language) {
    head = head.replace(/<link\b[^>]*>(?:\r?\n)?/gi, tag => attrs(tag).hreflang ? '' : tag);
@@ -419,13 +423,33 @@ function applyMetadata(file, html, override) {
   }
   return head;
  });
- return structure(file, applyBranding(updated), meta);
+ const withLanguage = updated.replace(/<html\b[^>]*>/i, tag =>
+  attrs(tag).lang ? tag : tag.replace(/>$/, ' lang="' + escape(meta.language || 'en') + '">'));
+ return structure(file, applyBranding(withLanguage), meta);
 }
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['project','backup','build','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
 Object.assign(pages, require('./seo-console-metadata.cjs'));
+for (const video of require('./seo-watch.cjs').videos) {
+ add(video.file, video.title, video.description, video.keywords);
+}
+// Use terms already translated in the visible navigation, rather than copying
+// the entire English homepage keyword list into every language.
+for (const [code, locale] of Object.entries(locales)) {
+ const context = { window: {} };
+ vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'lang', code + '.js'), 'utf8'), context, { timeout:1000 });
+ const dictionary = context.window.__scoobyI18nQueue.find(([key]) => key === code)[1];
+ pages['lang/' + code + '/index.html'].keywords = normalizeKeywords([
+  'Scooby Menu', locale.native,
+  ...['Products', 'Features', 'Guides', 'Resources', 'Download', 'Lua Scripts', 'Free Version', 'Premium Version'].map(key => dictionary[key]).filter(Boolean),
+  'GTA 5', 'GTA V', 'RDR2', 'Red Dead Redemption 2', 'FiveM', 'RedM', 'CS2', "Garry's Mod", 'Team Fortress 2', 'Left 4 Dead'
+ ].join(', '));
+}
+// Keep this long-standing listing focused on its actual subject.
+pages['products/mta-sa/index.html'].keywords = 'Scooby MTA, MTA:SA, MTA SA, MTASA, Multi Theft Auto, Multi Theft Auto San Andreas, GTA San Andreas multiplayer, MTA mod menu, MTA cheats, MTA aimbot, MTA ESP, MTA radar, MTA Lua, free keys, Premium, user testing';
+for (const meta of Object.values(pages)) meta.keywords = normalizeKeywords(meta.keywords);
 if(require.main===module){let changed=0,skipped=0;const errors=[],titles=new Set(),descriptions=new Set();
  for(const abs of walk(ROOT)){const file=path.relative(ROOT,abs).replace(/\\/g,'/'),html=fs.readFileSync(abs,'utf8'),head=html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0]||'';if(excluded(head)){skipped++;continue;}if(!pages[file]){errors.push('Missing metadata: '+file);continue;}const meta=pages[file];if(titles.has(meta.title)||descriptions.has(meta.description))errors.push('Duplicate metadata: '+file);titles.add(meta.title);descriptions.add(meta.description);const updated=applyMetadata(file,html);if(updated!==html){changed++;if(process.argv.includes('--apply'))fs.writeFileSync(abs,updated);else console.log('Stale: '+file);}}
  console.log(`${titles.size} indexable pages; ${skipped} excluded pages preserved; ${changed} ${process.argv.includes('--apply')?'updated':'stale'}.`);errors.forEach(e=>console.error(e));if(errors.length||changed&&!process.argv.includes('--apply'))process.exitCode=1;
 }
 Object.assign(pages, require('./seo-console-metadata.cjs'));
-module.exports={applyMetadata,pages,walk,excluded};
+module.exports={applyMetadata,pages,walk,excluded,attrs,normalizeKeywords};

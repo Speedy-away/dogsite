@@ -162,7 +162,8 @@ for (const card of Object.values(cards)) {
 function cardFor(file) {
   file = file.replace(/\\/g, '/');
   let id = 'home';
-  if (file.startsWith('console/')) id = file.startsWith('console/products/') ? 'console-' + file.split('/')[2] : 'console';
+  if (file === 'console/products/call-of-duty/index.html') id = 'console';
+  else if (file.startsWith('console/')) id = file.startsWith('console/products/') ? 'console-' + file.split('/')[2] : 'console';
   else if (file.startsWith('guides/')) {
     const parts=file.split('/'), group=parts[1], topic=parts[2];
     if(group==='spoofer') id='wiki-spoofer';

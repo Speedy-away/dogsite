@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GTA 5 C++ ImGui to Lua Porting Guide - Scooby</title>
 <link rel="stylesheet" href="/assets/css/site-brand.css">
-<meta name="description" content="Port C++ ImGui interfaces to GTA 5 Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks."><link rel="canonical" href="https://scoobymenu.cc/docs/gta5/imgui-porting/"><link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg"><meta property="og:type" content="website"><meta property="og:title" content="GTA 5 C++ ImGui to Lua Porting Guide - Scooby"><meta property="og:description" content="Port C++ ImGui interfaces to GTA 5 Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks."><meta property="og:url" content="https://scoobymenu.cc/docs/gta5/imgui-porting/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-gta5-brand-v1.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"><meta name="keywords" content="Scooby Menu, GTA 5 Lua, GTA 5 scripting, ListUI, ClickUI, ImGuiCpp, Scooby developer documentation">
+<meta name="description" content="Port C++ ImGui interfaces to GTA 5 Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks."><link rel="canonical" href="https://scoobymenu.cc/docs/gta5/imgui-porting/"><link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg"><meta property="og:type" content="website"><meta property="og:title" content="GTA 5 C++ ImGui to Lua Porting Guide - Scooby"><meta property="og:description" content="Port C++ ImGui interfaces to GTA 5 Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks."><meta property="og:url" content="https://scoobymenu.cc/docs/gta5/imgui-porting/"><meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-gta5-brand-v1.png"><link rel="stylesheet" href="/assets/css/l4d-api-reference.css"><link rel="stylesheet" href="/assets/css/tf2-docs.css"><link rel="stylesheet" href="/assets/css/rockstar-lua-docs.css"><meta name="keywords" content="Scooby Menu, GTA 5 Lua, ImGuiCpp, C++ to Lua, render callbacks, UI porting">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="twitter:title" content="GTA 5 C++ ImGui to Lua Porting Guide - Scooby">
 <meta name="twitter:description" content="Port C++ ImGui interfaces to GTA 5 Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks.">
@@ -14,6 +14,7 @@
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/docs-gta5-brand-v1.png">
 <meta name="twitter:image:alt" content="SCOOBY DEVELOPER DOCS: GTA 5 Lua API reference">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="en_US">
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -24,7 +25,7 @@
       "url": "https://scoobymenu.cc/docs/gta5/imgui-porting/",
       "name": "GTA 5 C++ ImGui to Lua Porting Guide - Scooby",
       "description": "Port C++ ImGui interfaces to GTA 5 Lua with ImGuiCpp bindings. Read the translation guidance and separate render callbacks from game tasks.",
-      "keywords": "Scooby Menu, GTA 5 Lua, GTA 5 scripting, ListUI, ClickUI, ImGuiCpp, Scooby developer documentation",
+      "keywords": "Scooby Menu, GTA 5 Lua, ImGuiCpp, C++ to Lua, render callbacks, UI porting",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://scoobymenu.cc/#website"

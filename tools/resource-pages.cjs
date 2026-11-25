@@ -185,7 +185,7 @@ function yimTopicKeywords(items, menuName) {
   }
   return [...counts]
     .sort(([a, countA], [b, countB]) => countB - countA || a.localeCompare(b, 'en'))
-    .slice(0, 10)
+    .slice(0, 3)
     .map(([tag]) => tag);
 }
 
@@ -305,31 +305,22 @@ function buildData() {
         yim && category === 'lua' ? `${scopeName} Lua Scripts & Downloads — Scooby` :
         category ? `${scopeName} ${searchTitle}${pendingOnly ? ' — ' + downloadStatusText : ''} — Scooby Resources` : `${scopeName} Resources${pendingOnly ? ' — ' + downloadStatusText : ' & Downloads'} — Scooby`;
       const wordsFor = id => categoryInfo(game, id, menu).words;
-      const categoryWords = category ? wordsFor(category) : categories.flatMap(group =>
-        group.id === 'graphics-packs' && game === 'redm' ? group.words : group.words.slice(0, 2));
-      const interfaces = [...new Set(subset.filter(item => item.category === 'themes').flatMap(item => [item.uiStyle, item.style].flat()).filter(Boolean))];
-      const topics = availableMenus.length > 1
-        ? (category ? [category] : categories.map(group => group.id)).map(id => menuTopic(menu, id)).filter(Boolean)
-        : [];
+      const categoryWords = redmGraphics
+        ? ['RedM PvP packs', 'RedM RP packs', 'RedM cinematic packs', 'RedM sky textures']
+        : category ? wordsFor(category) : categories.slice(0, 6).map(group => group.words[0]);
+      const topics = [];
       if (yim && (!category || category === 'lua')) topics.push(
-        `${yim.brand} Lua downloads`, `${yim.brand} Lua API`, `${yim.brand} Lua installation`,
-        `GTA 5 ${yim.edition} YimMenu Lua scripts`, 'Yim Lua scripts', 'Yim Menu Lua scripts',
-        ...(menu === 'yim' ? ['YimMenu Legacy Lua', 'YimMenu Lua libraries', 'GTA Online mission scripts', 'YimMenu vehicle utilities', 'YimMenu animations']
-          : ['YimMenuV2 scripts', 'YimMenu Enhanced Lua', 'YimMenu LuaJIT scripts'])
+        `${yim.brand} Lua scripts`, `GTA 5 ${yim.edition} YimMenu Lua`, `${yim.brand} Lua installation`
       );
-      if (yim && category) {
+      if (yim && category === 'lua') {
         topics.push(...yimTopicKeywords(subset, menuName), ...subset.map(item => item.name).sort((a, b) => a.localeCompare(b, 'en')));
       }
-      const searches = categoryWords.filter(word => !word.toLowerCase().startsWith(config.name.toLowerCase() + ' ')).map(word => `${config.name} ${word}`);
-      const aliases = yim ? config.aliases.filter(alias => !alias.includes(menu === 'yim' ? 'Enhanced' : 'Legacy')) : config.aliases;
-      const collectionKeywords = [
-        `${scopeName} ${label.toLowerCase()}`,
-        ...categoryWords.filter(word => !word.toLowerCase().includes(menuName.toLowerCase())).slice(0, 3)
-          .map(word => `${menuName} ${word}`),
-        ...formats.filter(format => category === 'lua' || !['lua', 'pluto'].includes(format))
-          .map(format => `${format.toUpperCase()} ${label.toLowerCase()}`)
-      ];
-      const keywords = [...new Set(['Scooby resources', `${config.name} resources`, menuName, menuTopic(menu, 'resources'), config.name, config.full, ...topics, ...aliases, ...searches, ...categoryWords, ...interfaces, ...collectionKeywords])].join(', ');
+      const collectionTopic = category ? `${scopeName} ${searchTitle.toLowerCase()}` : `${scopeName} resources`;
+      const menuKeyword = menuTopic(menu, category || 'resources');
+      const formatKeywords = category ? formats.slice(0, 2)
+        .filter(format => category === 'lua' || !['lua', 'pluto'].includes(format))
+        .map(format => `${format.toUpperCase()} ${label.toLowerCase()}`) : [];
+      const keywords = [...new Set([collectionTopic, menuKeyword, config.full, ...categoryWords, ...formatKeywords, ...topics].filter(Boolean))].join(', ');
       const intro = archive ? `Browse ${category ? label.toLowerCase() : 'resources'} from the Stand Discord Old Shares archive.` : menu === 'yim' && !category
         ? 'Browse Lua scripts and saved vehicle, map and outfit packs for YimMenu v1 on GTA 5 Legacy.'
         : menu === 'yim' && (yimPresets[category] || category?.startsWith('pack-')) ? categoryInfo(game, category, menu).description

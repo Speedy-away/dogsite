@@ -1,4 +1,50 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FiveM Lua API — Scooby</title><meta name="description" content="The current Scooby FiveM in-app native example catalog, with signatures and Lua examples."><style>body{background:#121418;color:#dedfe3;font:16px system-ui;margin:0}main{max-width:1000px;margin:60px auto;padding:24px}h1{font-size:36px}input{box-sizing:border-box;width:100%;background:#202329;color:inherit;border:1px solid #444;padding:14px;font:inherit;margin:20px 0}details{border-bottom:1px solid #363941;padding:16px 0}summary{cursor:pointer;color:#38c5e9}pre{overflow:auto;background:#1b1e24;padding:18px;line-height:1.6}a{color:#38c5e9}</style><main><h1>FiveM Lua API</h1><p>Scooby · Current in-app native example catalog</p><input id="search" aria-label="Search API" placeholder="Search namespaces, functions and signatures"><section><details><summary>PLAYER · PlayerId</summary><pre>int PlayerId()</pre><pre><code>local id = PlayerId()
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FiveM Lua API Reference - Scooby Developer Docs</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Read the Scooby FiveM Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces."><style>body{background:#121418;color:#dedfe3;font:16px system-ui;margin:0}main{max-width:1000px;margin:60px auto;padding:24px}h1{font-size:36px}input{box-sizing:border-box;width:100%;background:#202329;color:inherit;border:1px solid #444;padding:14px;font:inherit;margin:20px 0}details{border-bottom:1px solid #363941;padding:16px 0}summary{cursor:pointer;color:#38c5e9}pre{overflow:auto;background:#1b1e24;padding:18px;line-height:1.6}a{color:#38c5e9}</style><meta name="keywords" content="Scooby Menu, FiveM Lua API, Scooby FiveM scripting, FiveM Lua functions">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="FiveM Lua API Reference - Scooby Developer Docs">
+<meta property="og:description" content="Read the Scooby FiveM Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.">
+<meta property="og:url" content="https://scoobymenu.cc/api/fivem_api_reference.html">
+<meta name="twitter:title" content="FiveM Lua API Reference - Scooby Developer Docs">
+<meta name="twitter:description" content="Read the Scooby FiveM Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.">
+<meta name="twitter:url" content="https://scoobymenu.cc/api/fivem_api_reference.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/docs-fivem-brand-v1.png">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/docs-fivem-brand-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SCOOBY DEVELOPER DOCS: FiveM Lua API reference">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/docs-fivem-brand-v1.png">
+<meta name="twitter:image:alt" content="SCOOBY DEVELOPER DOCS: FiveM Lua API reference">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://scoobymenu.cc/api/fivem_api_reference.html">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/api/fivem_api_reference.html#webpage",
+      "url": "https://scoobymenu.cc/api/fivem_api_reference.html",
+      "name": "FiveM Lua API Reference - Scooby Developer Docs",
+      "description": "Read the Scooby FiveM Lua API reference. Look up scripting functions, parameters, return values and examples for building scripts and custom interfaces.",
+      "keywords": "Scooby Menu, FiveM Lua API, Scooby FiveM scripting, FiveM Lua functions",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head><body><main><h1>FiveM Lua API</h1><p>Scooby · Current in-app native example catalog</p><input id="search" aria-label="Search API" placeholder="Search namespaces, functions and signatures"><section><details><summary>PLAYER · PlayerId</summary><pre>int PlayerId()</pre><pre><code>local id = PlayerId()
 print(id)
 </code></pre></details><details><summary>PLAYER · PlayerPedId</summary><pre>Ped PlayerPedId()</pre><pre><code>local ped = PlayerPedId()
 </code></pre></details><details><summary>PLAYER · GetPlayerPed</summary><pre>Ped GetPlayerPed(Player p)</pre><pre><code>local ped = GetPlayerPed(PlayerId())
@@ -27,4 +73,4 @@ local v = CreateVehicle(h, p.x, p.y, p.z, 0.0, true, false)
   end
 end)
 </code></pre></details><details><summary>CITIZEN · Citizen.Wait</summary><pre>void Citizen.Wait(int ms)</pre><pre><code>Citizen.Wait(100)
-</code></pre></details></section></main><script>document.getElementById('search').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('details').forEach(d=>{d.hidden=!d.textContent.toLowerCase().includes(q)})});</script></html>
+</code></pre></details></section></main><script>document.getElementById('search').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('details').forEach(d=>{d.hidden=!d.textContent.toLowerCase().includes(q)})});</script></body></html>

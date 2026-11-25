@@ -27,6 +27,8 @@ Serve the repository root for local previews. Production must publish the genera
 
 After generating or editing pages, run `npm run seo:links` to align navigation with canonical directory URLs, then `node tools/seo-sitemap.js --apply` and `npm run test:seo`. Keep trailing slashes on directory links (for example, `/products/gta5/`); standalone HTML pages retain their filenames.
 
+`npm run seo:update` refreshes page metadata, the HTML directory, canonical links and the multilingual XML sitemap together. `npm run seo:check` audits them without changing files. Production builds refresh the metadata and sitemaps automatically, and the Pages workflow checks search coverage before deployment. See [search maintenance](tools/SEO-METADATA.md) for language rules and search-engine submission steps.
+
 More details: [development notes](project/DEV.md).
 
 ## Reseller page and media pack

@@ -57,6 +57,95 @@ test('metadata preserves noindex pages and redirect stubs, regardless of attribu
     assert.equal(applyMetadata('portal/index.html', html, meta), html);
   }
 });
+
+test('keyword tags are trimmed and deduplicated consistently with structured data', () => {
+  const result = applyMetadata('guides/example/index.html', '<html><head><title>Old</title></head><body>Guide</body></html>',
+    { ...meta, keywords: ' Scooby guide, scooby GUIDE, , Lua   scripts, Lua scripts ' });
+  assert(result.includes('name="keywords" content="Scooby guide, Lua scripts"'));
+  const data = JSON.parse(result.match(/id="seo-page-structure">\s*([\s\S]*?)<\/script>/)[1]);
+  assert.equal(data['@graph'][0].keywords, 'Scooby guide, Lua scripts');
+  assert.equal(applyMetadata('guides/example/index.html', result, { ...meta, keywords: 'Scooby guide, Lua scripts' }), result);
+});
+
+test('sitemap excludes aliases, private pages and redirects, escapes XML and omits unknown dates', t => {
+  const path = require('node:path');
+  const tmp = require('node:os').tmpdir();
+  const { buildSitemap } = require('./seo-sitemap');
+  const root = fs.mkdtempSync(path.join(tmp, 'scooby-seo-'));
+  t.after(() => {
+    assert.equal(path.dirname(root), tmp);
+    assert(path.basename(root).startsWith('scooby-seo-'));
+    fs.rmSync(root, { recursive:true, force:true });
+  });
+  const fixtures = {
+    'index.html': '', 'lang/fr/index.html': '', 'guide&tips.html': '',
+    'alias/index.html': '<link rel="canonical" href="https://scoobymenu.cc/">',
+    'offsite/index.html': '<link href="https://example.com/" rel="canonical">',
+    'private/index.html': '<meta content="noindex, follow" name="robots">',
+    'redirect.html': '<meta content="0;url=/" http-equiv="refresh">',
+    'portal/index.html': '', 'tools/preview.html': ''
+  };
+  for (const [file, head] of Object.entries(fixtures)) {
+    fs.mkdirSync(path.dirname(path.join(root, file)), { recursive:true });
+    fs.writeFileSync(path.join(root, file), `<html><head>${head}</head><body></body></html>`);
+  }
+  const { rows, xml } = buildSitemap({ root, dateFor: file => file === 'index.html' ? '2026-11-20' : null });
+  assert.equal(rows.length, 3);
+  assert(xml.includes('<loc>https://scoobymenu.cc/guide&amp;tips.html</loc>'));
+  assert.equal((xml.match(/<lastmod>/g) || []).length, 1);
+  assert(xml.includes('<lastmod>2026-11-20</lastmod>'));
+  assert.equal((xml.match(/hreflang="fr"/g) || []).length, 2);
+  assert(!xml.includes('/lang/de/'));
+  assert.equal(buildSitemap({ root, dateFor: file => file === 'index.html' ? '2026-11-20' : null }).xml, xml);
+});
+
+test('sitemap language clusters match HTML alternates without labeling English products as translations', () => {
+  const xml = fs.readFileSync('sitemap.xml', 'utf8');
+  const locales = require('./search-locales.json');
+  const expected = { en:SITE + '/', ...Object.fromEntries(Object.entries(locales).map(([code, locale]) => [locale.tag, SITE + '/lang/' + code + '/'])), 'x-default':SITE + '/' };
+  assert(xml.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"'));
+  for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = match[1].match(/<loc>([^<]+)<\/loc>/)[1];
+    const alternates = [...match[1].matchAll(/<xhtml:link rel="alternate" hreflang="([^"]+)" href="([^"]+)" \/>/g)];
+    if (Object.values(expected).includes(loc)) {
+      assert.equal(alternates.length, Object.keys(expected).length, loc);
+      assert.deepEqual(Object.fromEntries(alternates.map(m => [m[1], m[2]])), expected, loc);
+    } else assert.equal(alternates.length, 0, loc);
+  }
+});
+
+test('media sitemap entries point to public screenshots and dedicated video watch pages', () => {
+  const xml = fs.readFileSync('sitemap.xml', 'utf8');
+  const { pageUrl } = require('./seo-structured');
+  const { videos } = require('./seo-watch.cjs');
+  const { isPublic } = require('./site-layout.cjs');
+  const rows = new Map([...xml.matchAll(/<url>\s*<loc>([^<]+)<\/loc>([\s\S]*?)<\/url>/g)]
+    .map(match => [match[1], match[2]]));
+  const gta = rows.get(SITE + '/products/gta5/');
+  assert(gta.includes('<image:loc>' + SITE + '/assets/images/previews/gta5/gta5-enhanced-self-menu-2026-10.jpg</image:loc>'));
+  for (const [, link] of xml.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)) {
+    const relative = decodeURIComponent(new URL(link).pathname.slice(1));
+    assert(isPublic(relative) && fs.existsSync(relative), relative);
+    assert(!relative.startsWith('assets/images/resource-previews/cherax/'), relative);
+  }
+  assert(!rows.get(SITE + '/videos/').includes('<video:video>'));
+  const library = fs.readFileSync('videos/index.html', 'utf8');
+  for (const video of videos) {
+    const url = pageUrl(video.file);
+    const page = fs.readFileSync(video.file, 'utf8');
+    const matching = rows.get(url);
+    assert(library.includes('href="' + new URL(url).pathname + '"'), video.file);
+    assert(page.includes('<iframe class="watch-frame" src="' + video.player + '"'), video.file);
+    const metadata = JSON.parse(page.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+    assert.equal(metadata['@type'], 'VideoObject');
+    assert.equal(metadata.embedUrl, video.player);
+    assert.equal(metadata.thumbnailUrl, video.thumbnail);
+    assert.equal(metadata.uploadDate, video.uploadDate);
+    assert(matching.includes('<video:player_loc>' + video.player + '</video:player_loc>'), video.file);
+    assert(matching.includes('<video:thumbnail_loc>' + video.thumbnail + '</video:thumbnail_loc>'), video.file);
+  }
+  assert.equal((xml.match(/<video:video>/g) || []).length, videos.length);
+});
 test('breadcrumb data follows visible navigation, escapes script content and is stable on reruns', () => {
   const html = '<html><head><title>Old</title></head><body><div class="breadcrumbs"><a href="/guides/">Guides</a> / <a href="/guides/source-games/">Source &amp; GoldSrc</a></div><h1>Half-Life setup</h1></body></html>';
   const result = applyMetadata('guides/half-life-1/getting-started/index.html', html, meta);
@@ -72,7 +161,8 @@ test('updating a page does not overwrite the description of its parent collectio
   const result = applyMetadata('products/css/index.html', html, meta);
   const data = JSON.parse(result.match(/type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(data.description, meta.description);
-  assert.equal(data.isPartOf.description, 'Parent collection');
+  assert.equal(data.isPartOf[0].description, 'Parent collection');
+  assert.deepEqual(data.isPartOf[1], { '@id': SITE + '/#website' });
 });
 test('structured metadata matches the current page with or without a trailing slash', () => {
   for (const suffix of ['', '/']) {
@@ -191,5 +281,36 @@ test('sitemap and JavaScript-free directory cover public pages while excluding a
   const directory = fs.readFileSync('sitemap/index.html', 'utf8');
   for (const file of files.filter(file => file !== 'sitemap/index.html')) {
     assert(directory.includes('href="' + pageUrl(file).slice(SITE.length) + '"'), 'Directory omits ' + file);
+  }
+});
+
+test('each indexable page identifies its canonical URL, language and website in structured data', () => {
+  const path = require('node:path');
+  const { walk, excluded, attrs, pages } = require('./seo-metadata');
+  const { pageUrl, isPageEntity } = require('./seo-structured');
+  const root = path.resolve(__dirname, '..');
+  for (const absolute of walk(root)) {
+    const html = fs.readFileSync(absolute, 'utf8');
+    const head = html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || '';
+    if (excluded(head)) continue;
+    const file = path.relative(root, absolute).split(path.sep).join('/');
+    const url = pageUrl(file);
+    const language = pages[file].language || 'en';
+    const canonicals = [...head.matchAll(/<link\b[^>]*>/gi)].map(match => attrs(match[0]))
+      .filter(link => link.rel === 'canonical');
+    assert.deepEqual(canonicals.map(link => link.href), [url], file);
+    assert.equal(attrs(html.match(/<html\b[^>]*>/i)?.[0] || '').lang, language, file);
+    const entities = [...head.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+      .flatMap(match => {
+        const data = JSON.parse(match[1]);
+        return Array.isArray(data) ? data : data['@graph'] || [data];
+      });
+    const entity = entities.find(node => isPageEntity(node, url));
+    assert(entity, file);
+    assert.equal(entity.url, url, file);
+    assert.equal(entity.inLanguage, language, file);
+    assert.equal(entity.description, pages[file].description, file);
+    assert([entity.isPartOf].flat().some(parent => parent?.['@id'] === SITE + '/#website'), file);
+    assert.equal(entity.publisher?.['@id'], SITE + '/#organization', file);
   }
 });

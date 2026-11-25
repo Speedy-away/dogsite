@@ -17,12 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - uses: actions/configure-pages@v5
       - name: Build site and current reseller media
         run: npm run build
+      - name: Verify search metadata and sitemap coverage
+        run: npm run test:seo
       - name: Verify packaged download
         run: node tools/verify-reseller-download.cjs
       - uses: actions/upload-pages-artifact@v4
