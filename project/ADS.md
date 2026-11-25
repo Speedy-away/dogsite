@@ -1,87 +1,33 @@
-# Ad Code Snippets
+# Advertising integrations
 
-Ads are allowed only on the dedicated free-version and free-key pages:
-`products/free/index.html`, `scoobyontop.html`, and `freekey.html`.
-Do not add ad scripts or banners to the store, other product pages, guides,
-feature lists, documentation, or account pages.
+## Download and free-key clicks
 
-Placement matters — each unit has its own required spot. Getting it wrong is the
-usual reason a unit silently stops paying.
+`assets/js/free-key-sponsor.js` opens the existing Adsterra Smartlink in a sponsored tab on a real, unmodified click. It covers PC product free-key buttons, released R6/Manager downloads, and console files on `/download/#console`.
 
----
+Console links opt in with `data-download-sponsor` and must have `download`. Navigation, screenshots, purchases, login, the portal loader, and unavailable/coming-soon controls do not opt in. Keep original hrefs, download names and free-key modal actions. Never wait for an ad before downloading.
 
-## 1. Head Script
+Destination: `https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd`
 
-Right before `</head>`:
+The helper attempts one sponsored tab per browsing session, shared between free keys and console downloads through `scooby:free-key-sponsor-opened`. If storage is unavailable, it attempts once per page. Popup blocking must not cancel the original action. A small note describes the sponsored tab before clicking and is removed after the attempt.
+
+### Supplied popunder tag
 
 ```html
 <script data-cfasync="false" src="https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a"></script>
 ```
 
----
+This tag is **not installed**. Its configuration retrieved on 2026-11-25 has no included/excluded element filter and installs document-wide click handlers. It would trigger ads for navigation and unrelated clicks. The button-only integration uses the existing Smartlink instead, which is a different ad unit. To switch units, obtain provider-configured targeting for download/free-key controls, then replace the Smartlink helper rather than running both popup mechanisms.
 
-## 2. Footer Script
+## Existing display banners
 
-Right above `</body>` — this one is **not** a head script:
+Product and resource pages use `assets/js/product-banner.js` and `assets/css/ad-sidebar.css`. The 300x250 banner is isolated at `https://scoobymenu.cc./assets/ads/product-banner.html?v=same-tab` and falls back to a clearly labelled sponsored offer. Banner clicks stay in the same tab. The current banner unit is `c7e98cfb5c802055c4eec55f2f606762`.
 
-```html
-<script src="https://aloudalimonyexplosion.com/17/9e/f8/179ef803d1a93ce7af0ad7b09a49ead9.js"></script>
-```
+No second sidebar/native unit has been added. Compare native and display revenue using measured traffic before adding more placements; neither format guarantees a higher CPM.
 
----
+## Other placements
 
-## 3. Native Banner
+`freekey.html` uses native container `container-916d4be3288f94a3bc49ab6cdaef5ba9` and script `https://bellnewyork.org/21/916d4be3288f94a3bc49ab6cdaef5ba9`. Keep ad containers marked `data-i18n-skip` so translation does not rewrite ads. `scoobyontop.html` is an immediate external redirect with no ad scripts. Keep account/password/login pages and the signed-in loader flow free of ads.
 
-Inside the free-version page, before the product grid. Create the container before loading the async script:
+## Verification
 
-```html
-<div id="container-916d4be3288f94a3bc49ab6cdaef5ba9" data-i18n-skip></div>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/916d4be3288f94a3bc49ab6cdaef5ba9/invoke.js"></script>
-```
-
----
-
-## 4. Direct Link
-
-Insert anywhere using a standard hyperlink:
-
-```
-https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd
-```
-
-```html
-<a href="https://aloudalimonyexplosion.com/mu10s2um2?key=3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="nofollow noopener" class="direct-link-ad">Sponsored Offer</a>
-```
-
----
-
-## Current Status
-
-| Page | Head | Footer | Native banner | Direct link |
-| --- | --- | --- | --- | --- |
-| `scoobyontop.html` | no (redirect) | no | no | no |
-| `products/free/index.html` | yes | yes | yes | yes |
-
-`freekey.html` currently has no ad scripts; it is left unchanged.
-All other pages have no ads.
-
----
-
-## Gotchas
-
-- The two plain `<script>` units are **not** interchangeable. `21bac2cf…` goes in
-  the head, `179ef803…` goes above `</body>`. Both sat in the head until
-  2026-08-24, which is not what the network's own instructions call for.
-- The native banner container carries `data-i18n-skip`. Without it the
-  translator's `MutationObserver` walks the DOM the ad network injects and
-  rewrites its text nodes on non-English pages. Keep the attribute on any new ad
-  container.
-- Immediate redirect pages such as `discord.html` fire a `meta refresh`, so an
-  ad placed there never gets a chance to load. Do not add ads to those pages.
-  `scoobyontop.html` forwards to the external key system; keep that redirect free of ad scripts.
-- The ad endpoints return `403` to anything that is not a real browser, so
-  `curl`/`wget` cannot tell you whether a unit is alive. Verify in a browser on
-  the live domain with the ad blocker off.
-
-- The free-version banner has an explicit sponsored-offer link alongside the native unit, separate from the Get Free Key button. This link remains available if the native unit has no fill.
-- In the 2026-09-29 browser check, all three configured script URLs returned HTTP 200 with empty JavaScript. A successful status alone does not confirm ad delivery. If this continues in a normal browser, obtain fresh public embed codes from the provider; do not guess replacement domains or unit IDs.
+Run `node tools/test-download-sponsor.cjs` for real browser click tests with sponsor requests mocked, avoiding paid ad traffic. Run `node --test tools/community.test.cjs tools/seo.test.js tools/generated-file.test.cjs` for existing checks. Browser blockers and provider fill affect actual ad delivery; HTTP 200 alone does not prove delivery.
