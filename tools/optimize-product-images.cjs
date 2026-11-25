@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '..');
 const outputDirectory = path.join(root, 'assets/images/display');
 const manifestPath = path.join(root, 'assets/data/product-display-images.json');
 const widths = [320, 640, 960, 1440];
-const minimumBytes = 80 * 1024;
+const minimumBytes = 24 * 1024;
 const gallerySizes = '(max-width: 980px) calc(100vw - 40px), (max-width: 1240px) 66vw, 740px';
 const tf2Sizes = '(max-width: 760px) calc(100vw - 64px), (max-width: 1080px) 60vw, 640px';
 const cardSizes = '(max-width: 600px) calc(100vw - 40px), 480px';
@@ -19,14 +19,14 @@ function set(tag, key, value) {
 }
 function pagePaths() {
     const pages = ['index.html'];
-    for (const folder of ['products', 'store', 'source-games', 'more-games', 'rockstar-classics']) {
-        const direct = path.join(folder, 'index.html');
-        if (fs.existsSync(path.join(root, direct))) pages.push(direct);
-        if (folder === 'products') for (const entry of fs.readdirSync(path.join(root, folder), { withFileTypes: true })) {
-            const file = path.join(folder, entry.name, 'index.html');
-            if (entry.isDirectory() && fs.existsSync(path.join(root, file))) pages.push(file);
+    function collect(folder) {
+        for (const entry of fs.readdirSync(path.join(root, folder), { withFileTypes: true })) {
+            const file = path.join(folder, entry.name);
+            if (entry.isDirectory() && !['assets', 'images'].includes(entry.name)) collect(file);
+            else if (entry.isFile() && entry.name === 'index.html') pages.push(file);
         }
     }
+    for (const folder of ['products', 'store', 'source-games', 'more-games', 'rockstar-classics', 'console', 'download']) collect(folder);
     return [...new Set(pages)].sort();
 }
 function isBackdrop(markup, position) {
@@ -36,30 +36,99 @@ function isBackdrop(markup, position) {
 function candidates(markup) {
     return [...markup.matchAll(/<img\b[^>]*>/gi)].filter(match => {
         const src = get(match[0], 'src');
-        return src?.startsWith('/assets/images/') && /\.(png|jpe?g|webp)$/i.test(src) && !isBackdrop(markup, match.index);
+        return imageUrl(src);
     });
+}
+function imageUrl(src) {
+    return src && !src.startsWith('/assets/images/display/') &&
+        ['/assets/images/', '/console/assets/images/'].some(prefix => src.startsWith(prefix)) && /\.(png|jpe?g|webp)$/i.test(src);
+}
+function sources(markup) {
+    const images = candidates(markup).filter(match => !get(match[0], 'srcset') || get(match[0], 'srcset').includes('/assets/images/display/')).map(match => get(match[0], 'src'));
+    for (const match of markup.matchAll(/<video\b[^>]*>/gi)) images.push(get(match[0], 'data-full-poster') || get(match[0], 'poster'));
+    for (const match of markup.matchAll(/url\(\s*(["']?)([^"'()]+)\1\s*\)/g)) images.push(match[2]);
+    return images.filter(imageUrl);
+}
+const backdrop = image => {
+    const standard = image.variants.find(variant => variant.width >= Math.min(960, image.width));
+    return `image-set(url('${standard.src}') 1x, url('${image.variants.at(-1).src}') 2x)`;
+};
+function optimizeMarkup(markup, page, images, previous = {}) {
+    let firstPreview = true;
+    let updated = markup.replace(/<img\b[^>]*>/gi, (tag, position) => {
+        const src = get(tag, 'src');
+        if (!src) return tag;
+        const background = isBackdrop(markup, position);
+        const preview = src.includes('/previews/') || /\/console\/assets\/images\/(?:r6|scooby-manager)\//.test(src);
+        if (preview && !background) {
+            tag = set(tag, 'loading', firstPreview ? 'eager' : 'lazy');
+            if (firstPreview) tag = set(tag, 'fetchpriority', 'high');
+            else if (get(tag, 'fetchpriority') === 'high') tag = set(tag, 'fetchpriority', 'auto');
+            tag = set(tag, 'decoding', 'async');
+            firstPreview = false;
+        }
+        const image = images[src];
+        if (!image) return tag;
+        if (!background && get(tag, 'srcset') && !get(tag, 'srcset').includes('/assets/images/display/')) return tag;
+        tag = set(tag, 'srcset', image.variants.map(variant => `${variant.src} ${variant.width}w`).join(', '));
+        const isProduct = page.split(path.sep).join('/').includes('products/');
+        const fixedWidth = Number(get(tag, 'width'));
+        const sizes = background ? '(max-width: 980px) 960px, 100vw'
+            : page.includes(path.sep + 'tf2' + path.sep) ? tf2Sizes
+            : isProduct && !page.includes(path.sep + 'free' + path.sep) ? gallerySizes
+            : fixedWidth > 0 && fixedWidth <= 256 ? `${fixedWidth}px`
+            : get(tag, 'fetchpriority') === 'high' ? '(max-width: 1280px) calc(100vw - 40px), 1240px' : cardSizes;
+        tag = set(tag, 'sizes', sizes);
+        if (!get(tag, 'width')) tag = set(tag, 'width', image.width);
+        if (!get(tag, 'height')) tag = set(tag, 'height', image.height);
+        tag = set(tag, 'decoding', 'async');
+        if (get(tag, 'fetchpriority') === 'high') tag = set(tag, 'loading', 'eager');
+        else if (!get(tag, 'loading')) tag = set(tag, 'loading', 'lazy');
+        return tag;
+    });
+    // Picture sources would otherwise override the optimized background img.
+    updated = updated.replace(/<picture\b[^>]*class=["'][^"']*product-backdrop[^"']*["'][^>]*>[\s\S]*?<\/picture>/gi, picture => {
+        const img = picture.match(/<img\b[^>]*>/i)?.[0];
+        const image = img && images[get(img, 'src')];
+        if (!image) return picture;
+        return picture.replace(/<source\b[^>]*>/gi, source => set(set(source, 'srcset', image.variants.map(variant => `${variant.src} ${variant.width}w`).join(', ')), 'sizes', '(max-width: 980px) 960px, 100vw'));
+    });
+    updated = updated.replace(/<video\b[^>]*>/gi, video => {
+        const src = get(video, 'data-full-poster') || get(video, 'poster');
+        const image = images[src];
+        if (!image) return video;
+        return set(set(video, 'data-full-poster', src), 'poster', image.variants.find(variant => variant.width >= Math.min(1440, image.width)).src);
+    });
+    for (const [src, image] of Object.entries(images)) {
+        const background = backdrop(image);
+        for (const value of [`url('${src}')`, `url("${src}")`, `url(${src})`]) updated = updated.replaceAll(value, background);
+        if (previous[src]) updated = updated.replaceAll(backdrop(previous[src]), background);
+    }
+    return updated;
 }
 async function build() {
     fs.mkdirSync(outputDirectory, { recursive: true });
     const previous = fs.existsSync(manifestPath) ? JSON.parse(fs.readFileSync(manifestPath, 'utf8')).images : {};
     const pages = pagePaths();
     const images = {};
+    const requested = new Set(Object.keys(previous));
     for (const page of pages) {
         const markup = fs.readFileSync(path.join(root, page), 'utf8');
-        for (const match of candidates(markup)) {
-            const tag = match[0], src = get(tag, 'src');
-            if (images[src] || (get(tag, 'srcset') && !get(tag, 'srcset').includes('/assets/images/display/'))) continue;
+        for (const src of sources(markup)) requested.add(src);
+    }
+    for (const src of requested) {
             const original = path.join(root, src.slice(1));
             if (!fs.existsSync(original) || fs.statSync(original).size < minimumBytes) continue;
             const bytes = fs.readFileSync(original);
             const metadata = await sharp(bytes).metadata();
             if (!metadata.width || !metadata.height || metadata.pages > 1) continue;
-            const quality = src.includes('/previews/') ? 86 : 82;
+            const quality = src.includes('/previews/') || /\/console\/assets\/images\/(?:r6|scooby-manager)\//.test(src) ? 86 : 82;
             const sourceHash = hash(bytes);
             const identity = hash(Buffer.concat([bytes, Buffer.from(`webp-${quality}-v1`)])).slice(0, 12);
             const stem = path.basename(src, path.extname(src)).slice(0, 65);
             const variants = [];
-            for (const width of [...new Set(widths.map(value => Math.min(value, metadata.width)))]) {
+            const sizes = /(?:background|\/backgrounds\/)/.test(src) ? [...widths, 1920] : widths;
+            for (const width of [...new Set(sizes.map(value => Math.min(value, metadata.width)))]) {
                 const name = `${stem}-${identity}-${width}.webp`;
                 const destination = path.join(outputDirectory, name);
                 if (!fs.existsSync(destination)) {
@@ -69,50 +138,11 @@ async function build() {
                 variants.push({ src: '/assets/images/display/' + name, width: info.width, height: info.height, bytes: fs.statSync(destination).size });
             }
             images[src] = { width: metadata.width, height: metadata.height, bytes: bytes.length, sha256: sourceHash, variants };
-        }
     }
     let changed = 0;
     for (const page of pages) {
         const file = path.join(root, page), markup = fs.readFileSync(file, 'utf8');
-        let firstPreview = true;
-        let updated = markup.replace(/<img\b[^>]*>/gi, (tag, position) => {
-            const src = get(tag, 'src');
-            if (!src || isBackdrop(markup, position)) return tag;
-            const preview = src.includes('/previews/');
-            if (preview) {
-                tag = set(tag, 'loading', firstPreview ? 'eager' : 'lazy');
-                if (firstPreview) tag = set(tag, 'fetchpriority', 'high');
-                else if (get(tag, 'fetchpriority') === 'high') tag = set(tag, 'fetchpriority', 'auto');
-                tag = set(tag, 'decoding', 'async');
-                firstPreview = false;
-            }
-            const image = images[src];
-            if (!image) return tag;
-            tag = set(tag, 'srcset', image.variants.map(variant => `${variant.src} ${variant.width}w`).join(', '));
-            const isProduct = page.startsWith('products' + path.sep) && !page.includes(path.sep + 'free' + path.sep);
-            const sizes = page.includes(path.sep + 'tf2' + path.sep) ? tf2Sizes
-                : isProduct ? gallerySizes
-                : get(tag, 'fetchpriority') === 'high' ? '(max-width: 1280px) calc(100vw - 40px), 1240px'
-                : cardSizes;
-            tag = set(tag, 'sizes', sizes);
-            if (!get(tag, 'width')) tag = set(tag, 'width', image.width);
-            if (!get(tag, 'height')) tag = set(tag, 'height', image.height);
-            tag = set(tag, 'decoding', 'async');
-            if (get(tag, 'fetchpriority') === 'high') tag = set(tag, 'loading', 'eager');
-            else if (!get(tag, 'loading')) tag = set(tag, 'loading', 'lazy');
-            return tag;
-        });
-        // Some artwork is also used as a blurred backdrop. Avoid fetching its
-        // large original a second time through an inline CSS custom property.
-        const backdrop = image => {
-            const standard = image.variants.find(variant => variant.width >= Math.min(960, image.width));
-            return `image-set(url('${standard.src}') 1x, url('${image.variants.at(-1).src}') 2x)`;
-        };
-        for (const [src, image] of Object.entries(images)) {
-            const background = backdrop(image);
-            for (const value of [`url('${src}')`, `url("${src}")`, `url(${src})`]) updated = updated.replaceAll(value, background);
-            if (previous[src]) updated = updated.replaceAll(backdrop(previous[src]), background);
-        }
+        const updated = optimizeMarkup(markup, page, images, previous);
         if (updated !== markup) { fs.writeFileSync(file, updated); changed++; }
     }
     fs.writeFileSync(manifestPath, JSON.stringify({ version: 1, pages: pages.map(page => page.split(path.sep).join('/')), images }, null, 2) + '\n');
@@ -122,6 +152,7 @@ async function build() {
 }
 function check() {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    if (JSON.stringify(pagePaths().map(page => page.split(path.sep).join('/'))) !== JSON.stringify(manifest.pages)) throw Error('Product routes changed; regenerate responsive images to include every page.');
     for (const [src, image] of Object.entries(manifest.images)) {
         if (hash(fs.readFileSync(path.join(root, src.slice(1)))) !== image.sha256) throw Error(`Changed original; rebuild display images: ${src}`);
         for (const variant of image.variants) {
@@ -133,7 +164,12 @@ function check() {
         const markup = fs.readFileSync(path.join(root, page), 'utf8');
         for (const match of candidates(markup)) {
             const src = get(match[0], 'src'), image = manifest.images[src];
+            if (get(match[0], 'srcset') && !get(match[0], 'srcset').includes('/assets/images/display/')) continue;
             if (image && get(match[0], 'srcset') !== image.variants.map(variant => `${variant.src} ${variant.width}w`).join(', ')) throw Error(`Missing responsive variants: ${page}: ${src}`);
+        }
+        for (const video of markup.matchAll(/<video\b[^>]*>/gi)) {
+            const image = manifest.images[get(video[0], 'data-full-poster')];
+            if (image && !image.variants.some(variant => variant.src === get(video[0], 'poster'))) throw Error(`Missing optimized video poster: ${page}`);
         }
     }
     console.log(`PASS: ${Object.keys(manifest.images).length} original images and all responsive variants are current.`);
@@ -143,4 +179,4 @@ if (require.main === module) {
     else if (process.argv[2] === '--check') { try { check(); } catch (error) { console.error(error); process.exitCode = 1; } }
     else { console.error('Use --apply to generate/update display images, or --check to validate them.'); process.exitCode = 1; }
 }
-module.exports = { build, check };
+module.exports = { build, check, optimizeMarkup, pagePaths };

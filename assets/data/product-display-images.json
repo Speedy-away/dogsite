@@ -1,6 +1,15 @@
 {
   "version": 1,
   "pages": [
+    "console/index.html",
+    "console/products/call-of-duty/index.html",
+    "console/products/fortnite/index.html",
+    "console/products/gta5/index.html",
+    "console/products/overwatch/index.html",
+    "console/products/r6/index.html",
+    "console/products/rdr2/index.html",
+    "console/products/scooby-manager/index.html",
+    "download/index.html",
     "index.html",
     "more-games/index.html",
     "products/black-mesa/index.html",
@@ -35,7 +44,12 @@
     "products/spoofer/index.html",
     "products/team-fortress-classic/index.html",
     "products/tf2/index.html",
+    "rockstar-classics/gta-sa/index.html",
+    "rockstar-classics/gta-vc/index.html",
+    "rockstar-classics/gta3/index.html",
+    "rockstar-classics/gta4/index.html",
     "rockstar-classics/index.html",
+    "rockstar-classics/rdr1/index.html",
     "source-games/index.html",
     "store/index.html"
   ],
@@ -101,6 +115,12 @@
           "width": 1440,
           "height": 810,
           "bytes": 91522
+        },
+        {
+          "src": "/assets/images/display/background-survivors-3f594067f88a-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 138022
         }
       ]
     },
@@ -165,6 +185,12 @@
           "width": 1440,
           "height": 810,
           "bytes": 82694
+        },
+        {
+          "src": "/assets/images/display/sbox-background-mountains-e7067cd6dad7-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 137396
         }
       ]
     },
@@ -249,6 +275,12 @@
           "width": 1440,
           "height": 810,
           "bytes": 97100
+        },
+        {
+          "src": "/assets/images/display/background-v1-82b32dfadf05-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 138934
         }
       ]
     },
@@ -697,6 +729,12 @@
           "width": 1440,
           "height": 810,
           "bytes": 89544
+        },
+        {
+          "src": "/assets/images/display/background-v1-07acfe1bcc28-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 126484
         }
       ]
     },
@@ -793,6 +831,12 @@
           "width": 1440,
           "height": 810,
           "bytes": 172070
+        },
+        {
+          "src": "/assets/images/display/gta3-background-b61c579c79d9-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 322710
         }
       ]
     },
@@ -2137,6 +2181,12 @@
           "width": 1440,
           "height": 810,
           "bytes": 66558
+        },
+        {
+          "src": "/assets/images/display/gta4-background-0c01cf0ad37e-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 107762
         }
       ]
     },
@@ -2233,6 +2283,1360 @@
           "width": 1440,
           "height": 810,
           "bytes": 234388
+        }
+      ]
+    },
+    "/assets/images/store/r6.webp": {
+      "width": 1200,
+      "height": 675,
+      "bytes": 67202,
+      "sha256": "be7cffb5965744b5564735487f3829bb0d31625e3a58389407248e24f90ac71e",
+      "variants": [
+        {
+          "src": "/assets/images/display/r6-0c6852f37f41-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 9624
+        },
+        {
+          "src": "/assets/images/display/r6-0c6852f37f41-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 22850
+        },
+        {
+          "src": "/assets/images/display/r6-0c6852f37f41-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 35020
+        },
+        {
+          "src": "/assets/images/display/r6-0c6852f37f41-1200.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 50600
+        }
+      ]
+    },
+    "/console/assets/images/scooby-manager/desktop.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 54938,
+      "sha256": "cb8b24550d58ad3b1bec5d05a272c9c097c316efde147d5a7e17209da23ea7e5",
+      "variants": [
+        {
+          "src": "/assets/images/display/desktop-fe9f72f84388-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 2174
+        },
+        {
+          "src": "/assets/images/display/desktop-fe9f72f84388-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 6040
+        },
+        {
+          "src": "/assets/images/display/desktop-fe9f72f84388-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 10624
+        },
+        {
+          "src": "/assets/images/display/desktop-fe9f72f84388-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 16078
+        }
+      ]
+    },
+    "/assets/images/store/gta5-logo-transparent-card.webp": {
+      "width": 640,
+      "height": 572,
+      "bytes": 26152,
+      "sha256": "b402f38af5322b92457aba824fbb31d1ae9d19eb147de02a1b670d3a41a4659e",
+      "variants": [
+        {
+          "src": "/assets/images/display/gta5-logo-transparent-card-bb7c92f243ac-320.webp",
+          "width": 320,
+          "height": 286,
+          "bytes": 10628
+        },
+        {
+          "src": "/assets/images/display/gta5-logo-transparent-card-bb7c92f243ac-640.webp",
+          "width": 640,
+          "height": 572,
+          "bytes": 26024
+        }
+      ]
+    },
+    "/assets/images/store/rdr2-logo-transparent-card.webp": {
+      "width": 640,
+      "height": 232,
+      "bytes": 28686,
+      "sha256": "5442b35284bbdb120d81a4214606adbb6896eefb2b47cf25d76be15e61a8920e",
+      "variants": [
+        {
+          "src": "/assets/images/display/rdr2-logo-transparent-card-0601935d08ae-320.webp",
+          "width": 320,
+          "height": 116,
+          "bytes": 11860
+        },
+        {
+          "src": "/assets/images/display/rdr2-logo-transparent-card-0601935d08ae-640.webp",
+          "width": 640,
+          "height": 232,
+          "bytes": 28552
+        }
+      ]
+    },
+    "/console/assets/images/fortnite-480.jpg": {
+      "width": 480,
+      "height": 270,
+      "bytes": 43095,
+      "sha256": "f5d2d37d5c8a31dfb21e4949200cb13b1726c861814eda8813265db49f28abdc",
+      "variants": [
+        {
+          "src": "/assets/images/display/fortnite-480-7d07abe8af36-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 19118
+        },
+        {
+          "src": "/assets/images/display/fortnite-480-7d07abe8af36-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 36040
+        }
+      ]
+    },
+    "/console/assets/images/overwatch.jpg": {
+      "width": 596,
+      "height": 335,
+      "bytes": 47833,
+      "sha256": "f9a97b2c56fdfcd189f23252bd66c1aab463b3c584e9b0cd4796c94980efa93b",
+      "variants": [
+        {
+          "src": "/assets/images/display/overwatch-9bac35212f72-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 15312
+        },
+        {
+          "src": "/assets/images/display/overwatch-9bac35212f72-596.webp",
+          "width": 596,
+          "height": 335,
+          "bytes": 38510
+        }
+      ]
+    },
+    "/assets/images/games/gta5.webp": {
+      "width": 1440,
+      "height": 810,
+      "bytes": 194686,
+      "sha256": "3658139071afe9df540009fbffdbd865eb8452e9416b0729cc2ec7ba8ceff2af",
+      "variants": [
+        {
+          "src": "/assets/images/display/gta5-ab7720db477b-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 16564
+        },
+        {
+          "src": "/assets/images/display/gta5-ab7720db477b-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 50910
+        },
+        {
+          "src": "/assets/images/display/gta5-ab7720db477b-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 96092
+        },
+        {
+          "src": "/assets/images/display/gta5-ab7720db477b-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 184952
+        }
+      ]
+    },
+    "/assets/images/games/rdr2.webp": {
+      "width": 1440,
+      "height": 810,
+      "bytes": 204342,
+      "sha256": "a75903d62cc1b11ad744c5778c42208648abe1455e9bc8e753b02412616ea4ad",
+      "variants": [
+        {
+          "src": "/assets/images/display/rdr2-f5e388fac1e4-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 17052
+        },
+        {
+          "src": "/assets/images/display/rdr2-f5e388fac1e4-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 53430
+        },
+        {
+          "src": "/assets/images/display/rdr2-f5e388fac1e4-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 99794
+        },
+        {
+          "src": "/assets/images/display/rdr2-f5e388fac1e4-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 196276
+        }
+      ]
+    },
+    "/assets/images/source-games/source-games-background-v1.png": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 2107490,
+      "sha256": "fcfd0f1513f3798609ca83c670811bc7663c5f650498d48ecbcb9c7066dd5a77",
+      "variants": [
+        {
+          "src": "/assets/images/display/source-games-background-v1-16305d7a88f2-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 10022
+        },
+        {
+          "src": "/assets/images/display/source-games-background-v1-16305d7a88f2-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32972
+        },
+        {
+          "src": "/assets/images/display/source-games-background-v1-16305d7a88f2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 65620
+        },
+        {
+          "src": "/assets/images/display/source-games-background-v1-16305d7a88f2-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 121686
+        },
+        {
+          "src": "/assets/images/display/source-games-background-v1-16305d7a88f2-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 151410
+        }
+      ]
+    },
+    "/console/assets/images/call-of-duty/black-ops.jpg": {
+      "width": 460,
+      "height": 215,
+      "bytes": 35824,
+      "sha256": "6b8d9549247ab703190b15c9c92ee38960e5129299c194b6f95720bfc24aa9ce",
+      "variants": [
+        {
+          "src": "/assets/images/display/black-ops-3fec783cf88e-320.webp",
+          "width": 320,
+          "height": 150,
+          "bytes": 9760
+        },
+        {
+          "src": "/assets/images/display/black-ops-3fec783cf88e-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 17970
+        }
+      ]
+    },
+    "/console/assets/images/call-of-duty/infinite-warfare.jpg": {
+      "width": 616,
+      "height": 353,
+      "bytes": 74067,
+      "sha256": "7b730026031e48c957366620d3663e3805da3ad99f2d065e99766d7931910e14",
+      "variants": [
+        {
+          "src": "/assets/images/display/infinite-warfare-f4eb814b7d56-320.webp",
+          "width": 320,
+          "height": 183,
+          "bytes": 13408
+        },
+        {
+          "src": "/assets/images/display/infinite-warfare-f4eb814b7d56-616.webp",
+          "width": 616,
+          "height": 353,
+          "bytes": 38490
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/city.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 224824,
+      "sha256": "69be9d81b77264ee5ff061cf0cfc212e4c2a13815602ded82c1a3b68144070c6",
+      "variants": [
+        {
+          "src": "/assets/images/display/city-1109cbaeff4b-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 11350
+        },
+        {
+          "src": "/assets/images/display/city-1109cbaeff4b-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37556
+        },
+        {
+          "src": "/assets/images/display/city-1109cbaeff4b-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 71820
+        },
+        {
+          "src": "/assets/images/display/city-1109cbaeff4b-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 126854
+        },
+        {
+          "src": "/assets/images/display/city-1109cbaeff4b-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 191888
+        }
+      ]
+    },
+    "/console/assets/images/r6/r6-1.0.1.png": {
+      "width": 932,
+      "height": 549,
+      "bytes": 880891,
+      "sha256": "1ba744907a97f1dac7e2dddc3a8040f4068de40576ae23bb7da6f54706ecde26",
+      "variants": [
+        {
+          "src": "/assets/images/display/r6-1.0.1-73195a096b6d-320.webp",
+          "width": 320,
+          "height": 188,
+          "bytes": 13886
+        },
+        {
+          "src": "/assets/images/display/r6-1.0.1-73195a096b6d-640.webp",
+          "width": 640,
+          "height": 377,
+          "bytes": 39870
+        },
+        {
+          "src": "/assets/images/display/r6-1.0.1-73195a096b6d-932.webp",
+          "width": 932,
+          "height": 549,
+          "bytes": 69900
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/frontier.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 240554,
+      "sha256": "6ae67a5510740649047163c6ddb7dfc2992529d1567c3229d1b29736b63d9f52",
+      "variants": [
+        {
+          "src": "/assets/images/display/frontier-9253ee51ca07-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 12470
+        },
+        {
+          "src": "/assets/images/display/frontier-9253ee51ca07-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 40718
+        },
+        {
+          "src": "/assets/images/display/frontier-9253ee51ca07-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 76566
+        },
+        {
+          "src": "/assets/images/display/frontier-9253ee51ca07-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 134592
+        },
+        {
+          "src": "/assets/images/display/frontier-9253ee51ca07-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 207474
+        }
+      ]
+    },
+    "/console/assets/images/scooby-manager/files.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 68593,
+      "sha256": "74f77cf6e0253d2c4ff1e387e18c189fc990b297484cb35fe3326c4e359d3cc6",
+      "variants": [
+        {
+          "src": "/assets/images/display/files-9c423977ed27-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 3368
+        },
+        {
+          "src": "/assets/images/display/files-9c423977ed27-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 9684
+        },
+        {
+          "src": "/assets/images/display/files-9c423977ed27-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 16910
+        },
+        {
+          "src": "/assets/images/display/files-9c423977ed27-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 24600
+        }
+      ]
+    },
+    "/assets/images/brand/scooby-logo.png": {
+      "width": 1254,
+      "height": 1254,
+      "bytes": 599528,
+      "sha256": "a7cd25c80c1019b015ad892fecb00832125a8d24109a7f71a447208dab490185",
+      "variants": [
+        {
+          "src": "/assets/images/display/scooby-logo-51ce9040ad2b-320.webp",
+          "width": 320,
+          "height": 320,
+          "bytes": 5602
+        },
+        {
+          "src": "/assets/images/display/scooby-logo-51ce9040ad2b-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 12192
+        },
+        {
+          "src": "/assets/images/display/scooby-logo-51ce9040ad2b-960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 19176
+        },
+        {
+          "src": "/assets/images/display/scooby-logo-51ce9040ad2b-1254.webp",
+          "width": 1254,
+          "height": 1254,
+          "bytes": 25852
+        }
+      ]
+    },
+    "/assets/images/store/redm-background-sunset.jpg": {
+      "width": 728,
+      "height": 410,
+      "bytes": 31517,
+      "sha256": "8433ad528b30bc1297ef57348df9841b6dfbd21361fd0ddf6a57326012db3b36",
+      "variants": [
+        {
+          "src": "/assets/images/display/redm-background-sunset-728eda44c8db-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 6128
+        },
+        {
+          "src": "/assets/images/display/redm-background-sunset-728eda44c8db-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 17206
+        },
+        {
+          "src": "/assets/images/display/redm-background-sunset-728eda44c8db-728.webp",
+          "width": 728,
+          "height": 410,
+          "bytes": 21932
+        }
+      ]
+    },
+    "/assets/images/store/cs2.webp": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 40092,
+      "sha256": "6d24df681520130a649095d825f7f0e9a7e69bc45fdddb2c6c6cea45e3a9c21a",
+      "variants": [
+        {
+          "src": "/assets/images/display/cs2-f4cf5e8edecb-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 6456
+        },
+        {
+          "src": "/assets/images/display/cs2-f4cf5e8edecb-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 13802
+        },
+        {
+          "src": "/assets/images/display/cs2-f4cf5e8edecb-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 20748
+        },
+        {
+          "src": "/assets/images/display/cs2-f4cf5e8edecb-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 30380
+        }
+      ]
+    },
+    "/assets/images/store/gmod-background-desert.jpg": {
+      "width": 596,
+      "height": 335,
+      "bytes": 31478,
+      "sha256": "b47237d2e6bb45d275bfda7fc64ba5cd582ba897374a0559ac2dfc9d2d8e91a0",
+      "variants": [
+        {
+          "src": "/assets/images/display/gmod-background-desert-bfd58c938ced-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 11750
+        },
+        {
+          "src": "/assets/images/display/gmod-background-desert-bfd58c938ced-596.webp",
+          "width": 596,
+          "height": 335,
+          "bytes": 30160
+        }
+      ]
+    },
+    "/assets/images/source-games/source-games-logo-v1-card.webp": {
+      "width": 640,
+      "height": 640,
+      "bytes": 66034,
+      "sha256": "385edc95eca683cadb5bcb9f8be23476c02bb840cf67348abe676e6df0b122ed",
+      "variants": [
+        {
+          "src": "/assets/images/display/source-games-logo-v1-card-be12ea9e0b57-320.webp",
+          "width": 320,
+          "height": 320,
+          "bytes": 23346
+        },
+        {
+          "src": "/assets/images/display/source-games-logo-v1-card-be12ea9e0b57-640.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 65708
+        }
+      ]
+    },
+    "/assets/images/rockstar-classics/rockstar-logo.webp": {
+      "width": 1280,
+      "height": 1179,
+      "bytes": 25572,
+      "sha256": "ecb55409350e9cea184e90bb0e0e4946920c255fbff5fd730a0979f8c2366396",
+      "variants": [
+        {
+          "src": "/assets/images/display/rockstar-logo-6cc8f4bae12b-320.webp",
+          "width": 320,
+          "height": 295,
+          "bytes": 6678
+        },
+        {
+          "src": "/assets/images/display/rockstar-logo-6cc8f4bae12b-640.webp",
+          "width": 640,
+          "height": 590,
+          "bytes": 13864
+        },
+        {
+          "src": "/assets/images/display/rockstar-logo-6cc8f4bae12b-960.webp",
+          "width": 960,
+          "height": 884,
+          "bytes": 22342
+        },
+        {
+          "src": "/assets/images/display/rockstar-logo-6cc8f4bae12b-1280.webp",
+          "width": 1280,
+          "height": 1179,
+          "bytes": 29832
+        }
+      ]
+    },
+    "/assets/images/store/last-of-us-card.webp": {
+      "width": 640,
+      "height": 360,
+      "bytes": 51686,
+      "sha256": "dd75b053cc32d0221d1c4ee8ca8ed9150d263e6e78419798717845000eb15292",
+      "variants": [
+        {
+          "src": "/assets/images/display/last-of-us-card-3e8c03c3dcdd-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 15570
+        },
+        {
+          "src": "/assets/images/display/last-of-us-card-3e8c03c3dcdd-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 50636
+        }
+      ]
+    },
+    "/assets/images/bodycam/logo-card.webp": {
+      "width": 640,
+      "height": 360,
+      "bytes": 72442,
+      "sha256": "91da5f9dde18efc5b5f3ca08c9cb95aca20422f310788f6ced2561ff14279bd4",
+      "variants": [
+        {
+          "src": "/assets/images/display/logo-card-a8287c24b119-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 21350
+        },
+        {
+          "src": "/assets/images/display/logo-card-a8287c24b119-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 70890
+        }
+      ]
+    },
+    "/assets/images/source-games/black-mesa-official.jpg": {
+      "width": 460,
+      "height": 215,
+      "bytes": 39223,
+      "sha256": "ecd29baccb92994cd73a2e46de24b8a5a6b0631002ad9f7d905c28f3b613381a",
+      "variants": [
+        {
+          "src": "/assets/images/display/black-mesa-official-4b618caff588-320.webp",
+          "width": 320,
+          "height": 150,
+          "bytes": 10154
+        },
+        {
+          "src": "/assets/images/display/black-mesa-official-4b618caff588-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 16860
+        }
+      ]
+    },
+    "/assets/images/source-games/counter-strike-classic-official.jpg": {
+      "width": 460,
+      "height": 215,
+      "bytes": 28138,
+      "sha256": "63b6f9b5a2171daff179a9a6d7751abc410c65813936144c851069b455394f49",
+      "variants": [
+        {
+          "src": "/assets/images/display/counter-strike-classic-official-2599bd86fc12-320.webp",
+          "width": 320,
+          "height": 150,
+          "bytes": 9020
+        },
+        {
+          "src": "/assets/images/display/counter-strike-classic-official-2599bd86fc12-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 15432
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/dust.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 287514,
+      "sha256": "297337e81abd8f871240919108a817186173eeb4b3e0a73ace7d6b7e6e39267d",
+      "variants": [
+        {
+          "src": "/assets/images/display/dust-295d6b050d9d-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 14026
+        },
+        {
+          "src": "/assets/images/display/dust-295d6b050d9d-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 47188
+        },
+        {
+          "src": "/assets/images/display/dust-295d6b050d9d-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 90992
+        },
+        {
+          "src": "/assets/images/display/dust-295d6b050d9d-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 155738
+        },
+        {
+          "src": "/assets/images/display/dust-295d6b050d9d-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 246964
+        }
+      ]
+    },
+    "/assets/images/previews/cs2/cs2-custom-ssg-08-model-preview.jpg": {
+      "width": 860,
+      "height": 360,
+      "bytes": 60863,
+      "sha256": "70c80510fe08fd6d255dc1a238fdc5caa820d90c3f999f814a75020906a91744",
+      "variants": [
+        {
+          "src": "/assets/images/display/cs2-custom-ssg-08-model-preview-11c5b312b77e-320.webp",
+          "width": 320,
+          "height": 134,
+          "bytes": 9210
+        },
+        {
+          "src": "/assets/images/display/cs2-custom-ssg-08-model-preview-11c5b312b77e-640.webp",
+          "width": 640,
+          "height": 268,
+          "bytes": 28298
+        },
+        {
+          "src": "/assets/images/display/cs2-custom-ssg-08-model-preview-11c5b312b77e-860.webp",
+          "width": 860,
+          "height": 360,
+          "bytes": 46528
+        }
+      ]
+    },
+    "/assets/images/previews/cs2/cs2-custom-pickaxe-knife-model-preview.jpg": {
+      "width": 860,
+      "height": 360,
+      "bytes": 67027,
+      "sha256": "fb7e8fff28738db43a06a342fa1b4e01e9446a3633c95ef1e5c3e581c67e929f",
+      "variants": [
+        {
+          "src": "/assets/images/display/cs2-custom-pickaxe-knife-model-preview-8b459bdf8d6d-320.webp",
+          "width": 320,
+          "height": 134,
+          "bytes": 8922
+        },
+        {
+          "src": "/assets/images/display/cs2-custom-pickaxe-knife-model-preview-8b459bdf8d6d-640.webp",
+          "width": 640,
+          "height": 268,
+          "bytes": 32140
+        },
+        {
+          "src": "/assets/images/display/cs2-custom-pickaxe-knife-model-preview-8b459bdf8d6d-860.webp",
+          "width": 860,
+          "height": 360,
+          "bytes": 56284
+        }
+      ]
+    },
+    "/assets/images/previews/cs2/cs2-custom-flashbang-model-preview.jpg": {
+      "width": 860,
+      "height": 360,
+      "bytes": 64391,
+      "sha256": "b14b58aab8f6b70cd8c88b78698ab18c94c755100d4582eb4aac7e1389f651ed",
+      "variants": [
+        {
+          "src": "/assets/images/display/cs2-custom-flashbang-model-preview-2767b11dfb51-320.webp",
+          "width": 320,
+          "height": 134,
+          "bytes": 9030
+        },
+        {
+          "src": "/assets/images/display/cs2-custom-flashbang-model-preview-2767b11dfb51-640.webp",
+          "width": 640,
+          "height": 268,
+          "bytes": 31104
+        },
+        {
+          "src": "/assets/images/display/cs2-custom-flashbang-model-preview-2767b11dfb51-860.webp",
+          "width": 860,
+          "height": 360,
+          "bytes": 52740
+        }
+      ]
+    },
+    "/assets/images/previews/cs2/cs2-chams-20261010-preview.webp": {
+      "width": 960,
+      "height": 600,
+      "bytes": 62460,
+      "sha256": "5d4174e845777b36c7517e923b8646f976105ee6dad99ffb50a0126fb0c7fb75",
+      "variants": [
+        {
+          "src": "/assets/images/display/cs2-chams-20261010-preview-ecc4860be386-320.webp",
+          "width": 320,
+          "height": 200,
+          "bytes": 10044
+        },
+        {
+          "src": "/assets/images/display/cs2-chams-20261010-preview-ecc4860be386-640.webp",
+          "width": 640,
+          "height": 400,
+          "bytes": 26694
+        },
+        {
+          "src": "/assets/images/display/cs2-chams-20261010-preview-ecc4860be386-960.webp",
+          "width": 960,
+          "height": 600,
+          "bytes": 58574
+        }
+      ]
+    },
+    "/assets/images/previews/cs2/cs2-world-presets-20261010-preview.webp": {
+      "width": 960,
+      "height": 600,
+      "bytes": 71116,
+      "sha256": "379d87a3b299776aeeafc938581e247ae8f7aa882b1422cec88b58f57ba14fd9",
+      "variants": [
+        {
+          "src": "/assets/images/display/cs2-world-presets-20261010-preview-99d1206cdbdc-320.webp",
+          "width": 320,
+          "height": 200,
+          "bytes": 11124
+        },
+        {
+          "src": "/assets/images/display/cs2-world-presets-20261010-preview-99d1206cdbdc-640.webp",
+          "width": 640,
+          "height": 400,
+          "bytes": 30524
+        },
+        {
+          "src": "/assets/images/display/cs2-world-presets-20261010-preview-99d1206cdbdc-960.webp",
+          "width": 960,
+          "height": 600,
+          "bytes": 67290
+        }
+      ]
+    },
+    "/assets/images/source-games/day-of-defeat-classic.jpg": {
+      "width": 460,
+      "height": 215,
+      "bytes": 36605,
+      "sha256": "146a6016e72a0e2f46aab60b17b82ab7a2d34013761bb600398c1b4d8e66de16",
+      "variants": [
+        {
+          "src": "/assets/images/display/day-of-defeat-classic-d369ae4f780c-320.webp",
+          "width": 320,
+          "height": 150,
+          "bytes": 12792
+        },
+        {
+          "src": "/assets/images/display/day-of-defeat-classic-d369ae4f780c-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 21776
+        }
+      ]
+    },
+    "/assets/images/store/rdr2-background-manor.jpg": {
+      "width": 595,
+      "height": 336,
+      "bytes": 36474,
+      "sha256": "06797b30b06db6dd0f07dfee9b955c1a635f68565975beeb606f36ff207a0675",
+      "variants": [
+        {
+          "src": "/assets/images/display/rdr2-background-manor-f8571cf488f9-320.webp",
+          "width": 320,
+          "height": 181,
+          "bytes": 13230
+        },
+        {
+          "src": "/assets/images/display/rdr2-background-manor-f8571cf488f9-595.webp",
+          "width": 595,
+          "height": 336,
+          "bytes": 37930
+        }
+      ]
+    },
+    "/assets/images/l4d/logo.png": {
+      "width": 493,
+      "height": 184,
+      "bytes": 44720,
+      "sha256": "d6e09839104ce0913ba42b6f45ad2708d7ddbc95267b94b1bcd9b4d335d640f2",
+      "variants": [
+        {
+          "src": "/assets/images/display/logo-746304d6872f-320.webp",
+          "width": 320,
+          "height": 119,
+          "bytes": 15868
+        },
+        {
+          "src": "/assets/images/display/logo-746304d6872f-493.webp",
+          "width": 493,
+          "height": 184,
+          "bytes": 11940
+        }
+      ]
+    },
+    "/assets/images/store/last-of-us-logo.png": {
+      "width": 250,
+      "height": 461,
+      "bytes": 53315,
+      "sha256": "101d87e7a6fe8132dd8463e141dd5922fdbf23979cdede1df230b430ce18f7cf",
+      "variants": [
+        {
+          "src": "/assets/images/display/last-of-us-logo-15cad318a285-250.webp",
+          "width": 250,
+          "height": 461,
+          "bytes": 18712
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/construct.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 247762,
+      "sha256": "4929bef5082d7468b3da8d73330c3288d5ac22b204e7dd74b063dc02c0fbbb06",
+      "variants": [
+        {
+          "src": "/assets/images/display/construct-217a99f62fee-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 10146
+        },
+        {
+          "src": "/assets/images/display/construct-217a99f62fee-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 35738
+        },
+        {
+          "src": "/assets/images/display/construct-217a99f62fee-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 72196
+        },
+        {
+          "src": "/assets/images/display/construct-217a99f62fee-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 132302
+        },
+        {
+          "src": "/assets/images/display/construct-217a99f62fee-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 213434
+        }
+      ]
+    },
+    "/assets/images/rockstar-classics/gta-sa-logo.png": {
+      "width": 512,
+      "height": 456,
+      "bytes": 33166,
+      "sha256": "01b845bab97d3f65f32641e7172b4abce04649622cd4635a212f2c8ce11126c2",
+      "variants": [
+        {
+          "src": "/assets/images/display/gta-sa-logo-13461b8d3962-320.webp",
+          "width": 320,
+          "height": 285,
+          "bytes": 15512
+        },
+        {
+          "src": "/assets/images/display/gta-sa-logo-13461b8d3962-512.webp",
+          "width": 512,
+          "height": 456,
+          "bytes": 21590
+        }
+      ]
+    },
+    "/assets/images/rockstar-classics/gta-vc-logo.png": {
+      "width": 512,
+      "height": 512,
+      "bytes": 40991,
+      "sha256": "46eeeb7688de5bbe696b7cfabf833dedf9ebd97f170d0624dcb42ad53cefdefa",
+      "variants": [
+        {
+          "src": "/assets/images/display/gta-vc-logo-7416d71a6441-320.webp",
+          "width": 320,
+          "height": 320,
+          "bytes": 15312
+        },
+        {
+          "src": "/assets/images/display/gta-vc-logo-7416d71a6441-512.webp",
+          "width": 512,
+          "height": 512,
+          "bytes": 16850
+        }
+      ]
+    },
+    "/assets/images/previews/gta5/gta5-enhanced-heist-result-2026-10.webp": {
+      "width": 1145,
+      "height": 621,
+      "bytes": 43266,
+      "sha256": "db04f1fe23610790427725ef8d75f455c26bc780f4debce5736eaa2d93079109",
+      "variants": [
+        {
+          "src": "/assets/images/display/gta5-enhanced-heist-result-2026-10-0577f22b47ea-320.webp",
+          "width": 320,
+          "height": 174,
+          "bytes": 10628
+        },
+        {
+          "src": "/assets/images/display/gta5-enhanced-heist-result-2026-10-0577f22b47ea-640.webp",
+          "width": 640,
+          "height": 347,
+          "bytes": 25234
+        },
+        {
+          "src": "/assets/images/display/gta5-enhanced-heist-result-2026-10-0577f22b47ea-960.webp",
+          "width": 960,
+          "height": 521,
+          "bytes": 38526
+        },
+        {
+          "src": "/assets/images/display/gta5-enhanced-heist-result-2026-10-0577f22b47ea-1145.webp",
+          "width": 1145,
+          "height": 621,
+          "bytes": 48714
+        }
+      ]
+    },
+    "/assets/images/source-games/hl2-deathmatch-official.jpg": {
+      "width": 460,
+      "height": 215,
+      "bytes": 25477,
+      "sha256": "4d778946b536fa8e613d94dcda952d69ba6ab2e46fc1780a973a7c86eb2c3ad4",
+      "variants": [
+        {
+          "src": "/assets/images/display/hl2-deathmatch-official-15b7e747c889-320.webp",
+          "width": 320,
+          "height": 150,
+          "bytes": 8046
+        },
+        {
+          "src": "/assets/images/display/hl2-deathmatch-official-15b7e747c889-460.webp",
+          "width": 460,
+          "height": 215,
+          "bytes": 13054
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/infected.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 205788,
+      "sha256": "f8151b988065b7466963e0980e53321d897c606f6b27c9368a7000c6fa2ce6cf",
+      "variants": [
+        {
+          "src": "/assets/images/display/infected-e4acf0ac709b-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 11642
+        },
+        {
+          "src": "/assets/images/display/infected-e4acf0ac709b-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 36378
+        },
+        {
+          "src": "/assets/images/display/infected-e4acf0ac709b-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 67792
+        },
+        {
+          "src": "/assets/images/display/infected-e4acf0ac709b-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 117796
+        },
+        {
+          "src": "/assets/images/display/infected-e4acf0ac709b-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 171312
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/overgrown.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 360480,
+      "sha256": "be7ed7761885df2820e4808495eb9e73dc9accff870e0b3b030b088fdbb9d739",
+      "variants": [
+        {
+          "src": "/assets/images/display/overgrown-1b605abf0c97-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 16074
+        },
+        {
+          "src": "/assets/images/display/overgrown-1b605abf0c97-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 56626
+        },
+        {
+          "src": "/assets/images/display/overgrown-1b605abf0c97-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 113068
+        },
+        {
+          "src": "/assets/images/display/overgrown-1b605abf0c97-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 198952
+        },
+        {
+          "src": "/assets/images/display/overgrown-1b605abf0c97-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 305466
+        }
+      ]
+    },
+    "/assets/images/mta-sa/city-background.jpg": {
+      "width": 1920,
+      "height": 1200,
+      "bytes": 269499,
+      "sha256": "08f402697e9432bc9ca060abec9066d298ca0d2dd80e7d9bd1fb4cf380acd9fc",
+      "variants": [
+        {
+          "src": "/assets/images/display/city-background-8048a604f2f5-320.webp",
+          "width": 320,
+          "height": 200,
+          "bytes": 12022
+        },
+        {
+          "src": "/assets/images/display/city-background-8048a604f2f5-640.webp",
+          "width": 640,
+          "height": 400,
+          "bytes": 36310
+        },
+        {
+          "src": "/assets/images/display/city-background-8048a604f2f5-960.webp",
+          "width": 960,
+          "height": 600,
+          "bytes": 75378
+        },
+        {
+          "src": "/assets/images/display/city-background-8048a604f2f5-1440.webp",
+          "width": 1440,
+          "height": 900,
+          "bytes": 143866
+        },
+        {
+          "src": "/assets/images/display/city-background-8048a604f2f5-1920.webp",
+          "width": 1920,
+          "height": 1200,
+          "bytes": 219250
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/sandbox.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 297764,
+      "sha256": "27572d53b354685de9c4cf70ca5d1d19597f8632cff0e52feb5271f99a40e494",
+      "variants": [
+        {
+          "src": "/assets/images/display/sandbox-bc3137418237-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 14918
+        },
+        {
+          "src": "/assets/images/display/sandbox-bc3137418237-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 49018
+        },
+        {
+          "src": "/assets/images/display/sandbox-bc3137418237-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 95344
+        },
+        {
+          "src": "/assets/images/display/sandbox-bc3137418237-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 169926
+        },
+        {
+          "src": "/assets/images/display/sandbox-bc3137418237-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 252244
+        }
+      ]
+    },
+    "/assets/images/products/backgrounds/circuit.webp": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 184352,
+      "sha256": "70fe27087a880a6c033f4a8ce979ea8dbbb97a38836793c820bf39f77c6c48a4",
+      "variants": [
+        {
+          "src": "/assets/images/display/circuit-0fe9d362442e-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 12880
+        },
+        {
+          "src": "/assets/images/display/circuit-0fe9d362442e-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 38380
+        },
+        {
+          "src": "/assets/images/display/circuit-0fe9d362442e-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 67416
+        },
+        {
+          "src": "/assets/images/display/circuit-0fe9d362442e-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 112044
+        },
+        {
+          "src": "/assets/images/display/circuit-0fe9d362442e-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 156904
+        }
+      ]
+    },
+    "/assets/images/source-games/tfc-background-v1.png": {
+      "width": 1672,
+      "height": 941,
+      "bytes": 2202927,
+      "sha256": "462dc5b9443c4b07d426ba3f66db32edfa008cb80579a2809aece163f51b71da",
+      "variants": [
+        {
+          "src": "/assets/images/display/tfc-background-v1-bb8736b94cfe-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 11122
+        },
+        {
+          "src": "/assets/images/display/tfc-background-v1-bb8736b94cfe-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 35464
+        },
+        {
+          "src": "/assets/images/display/tfc-background-v1-bb8736b94cfe-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 70496
+        },
+        {
+          "src": "/assets/images/display/tfc-background-v1-bb8736b94cfe-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 129434
+        },
+        {
+          "src": "/assets/images/display/tfc-background-v1-bb8736b94cfe-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 159354
+        }
+      ]
+    },
+    "/assets/images/rockstar-classics/gta4-logo.png": {
+      "width": 512,
+      "height": 395,
+      "bytes": 25335,
+      "sha256": "a00bd3a94fed7c592a64f8b4daed9b0b04bdf71e6592e1877c468fca5f6a8463",
+      "variants": [
+        {
+          "src": "/assets/images/display/gta4-logo-24f2ee026669-320.webp",
+          "width": 320,
+          "height": 247,
+          "bytes": 8000
+        },
+        {
+          "src": "/assets/images/display/gta4-logo-24f2ee026669-512.webp",
+          "width": 512,
+          "height": 395,
+          "bytes": 10060
+        }
+      ]
+    },
+    "/assets/images/source-games/l4d-logo.png": {
+      "width": 640,
+      "height": 196,
+      "bytes": 62970,
+      "sha256": "faf215e72968cb97d36f3a0bb0915c1287883be6d78241788193768d636c5dad",
+      "variants": [
+        {
+          "src": "/assets/images/display/l4d-logo-93e49c71aafe-320.webp",
+          "width": 320,
+          "height": 98,
+          "bytes": 11768
+        },
+        {
+          "src": "/assets/images/display/l4d-logo-93e49c71aafe-640.webp",
+          "width": 640,
+          "height": 196,
+          "bytes": 27370
+        }
+      ]
+    },
+    "/assets/images/hero/gmod-sandbox-v2-960.webp": {
+      "width": 960,
+      "height": 540,
+      "bytes": 171486,
+      "sha256": "613b4b691201e057ab92477f1538197dc141d8db500d290dc27b77b06adc632a",
+      "variants": [
+        {
+          "src": "/assets/images/display/gmod-sandbox-v2-960-6ce52ac5c70b-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 18352
+        },
+        {
+          "src": "/assets/images/display/gmod-sandbox-v2-960-6ce52ac5c70b-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 55798
+        },
+        {
+          "src": "/assets/images/display/gmod-sandbox-v2-960-6ce52ac5c70b-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 117732
+        }
+      ]
+    },
+    "/assets/images/hero/l4d-railyard-v2-960.webp": {
+      "width": 960,
+      "height": 540,
+      "bytes": 142664,
+      "sha256": "cabdcf80c35895f2c68589ff095385dc2a7a65dc52fa2abe924397c1797160f8",
+      "variants": [
+        {
+          "src": "/assets/images/display/l4d-railyard-v2-960-6eae5e0970f7-320.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 13398
+        },
+        {
+          "src": "/assets/images/display/l4d-railyard-v2-960-6eae5e0970f7-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 42154
+        },
+        {
+          "src": "/assets/images/display/l4d-railyard-v2-960-6eae5e0970f7-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 97826
         }
       ]
     }

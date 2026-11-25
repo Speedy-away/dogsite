@@ -21,8 +21,7 @@ async function main() {
         const context = await browser.newContext({ reducedMotion: 'reduce', deviceScaleFactor: 1 });
         await context.addInitScript(() => { try { localStorage.setItem('scooby.lang', 'en'); } catch (_) {} });
         await context.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
-        const routes = ['tf2', 'gta5', 'rdr2', 'cs2', 'l4d', 'last-of-us', 'half-life-1', 'portal'].map(product => `/products/${product}/`);
-        routes.push('/', '/store/', '/source-games/', '/more-games/', '/rockstar-classics/');
+        const routes = manifest.pages.filter(page => /<img\b|<video\b/.test(fs.readFileSync(path.resolve(page), 'utf8'))).map(page => '/' + page.replace(/index\.html$/, ''));
         for (const width of [1440, 375]) {
             for (const route of routes) {
                 const product = route.startsWith('/products/') ? route.split('/')[2] : route;
@@ -32,8 +31,20 @@ async function main() {
                 page.on('request', request => requests.add(new URL(request.url()).pathname));
                 page.on('pageerror', error => errors.push(error.message));
                 await page.goto(origin + route, { waitUntil: 'load' });
-                const images = page.locator('img[srcset*="/assets/images/display/"]');
-                assert.ok(await images.count(), `responsive images on ${product}`);
+                const backgrounds = page.locator('.product-backdrop img[srcset*="/assets/images/display/"]');
+                if (await backgrounds.count()) {
+                    await backgrounds.first().evaluate(image => image.decode());
+                    assert.match(await backgrounds.first().evaluate(image => image.currentSrc), /\/assets\/images\/display\/.+\.webp$/);
+                }
+                const images = page.locator('img[srcset*="/assets/images/display/"]:not(.product-backdrop img)');
+                if (!await images.count()) {
+                    const poster = page.locator('video[data-full-poster]');
+                    if (await poster.count()) assert.match(await poster.first().getAttribute('poster'), /^\/assets\/images\/display\/.+\.webp$/);
+                    assert.deepEqual(errors, [], `browser errors: ${product}`);
+                    report.push({ product, viewport: width, backgrounds: await backgrounds.count(), posters: await poster.count() });
+                    await page.close();
+                    continue;
+                }
                 await images.first().scrollIntoViewIfNeeded();
                 await images.first().evaluate(image => image.decode());
                 const image = await images.first().evaluate(image => ({
@@ -44,7 +55,7 @@ async function main() {
                 }));
                 assert.match(image.current, /^\/assets\/images\/display\/.+\.webp$/);
                 const variant = manifest.images[image.src].variants.find(variant => variant.src === image.current);
-                assert.ok(variant.width >= image.width - 1, `adequate resolution: ${product} at ${width}: ${JSON.stringify(image)}`);
+                assert.ok(variant.width >= Math.min(image.width, manifest.images[image.src].width) - 1, `adequate resolution: ${product} at ${width}: ${JSON.stringify(image)}`);
                 assert.ok(!requests.has(image.src), `full-size image not downloaded for the page: ${image.src}`);
                 assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
                 if (product === 'tf2') {
@@ -65,8 +76,8 @@ async function main() {
                 await page.close();
             }
         }
-        console.log(JSON.stringify(report, null, 2));
-        console.log('PASS: desktop/mobile responsive images, sufficient resolution, no full-size page requests, original TF2 lightbox and keyboard dismissal');
+        console.log(JSON.stringify({ routes: routes.length, viewportChecks: report.length, consoleRoutes: routes.filter(route => route.startsWith('/console/')).length }));
+        console.log('PASS: every product/catalogue route on desktop/mobile, responsive images and backgrounds, optimized posters, original TF2 lightbox and keyboard dismissal');
     } finally {
         if (browser) await browser.close();
         if (server) { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }

@@ -1,5 +1,11 @@
 # Responsive product images
 
+Coverage includes all PC and console product routes, product listings, the
+homepage, and the download page. Raster content above 24 KiB gets responsive
+copies. Existing small assets and SVGs stay as they are. Product backdrops keep
+their picture breakpoints and use optimized variants; video posters also get
+smaller copies, with their original URL retained in `data-full-poster`.
+
 Keep original screenshots and artwork at their existing URLs. After adding or
 updating product captures, run `node tools/optimize-product-images.cjs --apply`
 (or `npm run images:build`) to regenerate the responsive WebP copies and page
