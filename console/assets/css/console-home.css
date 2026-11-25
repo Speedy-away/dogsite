@@ -3,14 +3,4 @@
 .console-catalog{--accent:#bd9cf5;--accent-hover:#d4baff}.console-catalog .hero h1{background:linear-gradient(180deg,#fff 0%,#c6a3ff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.console-catalog .hero h1 .hero-title-detail{color:#d7bbff;-webkit-text-fill-color:#d7bbff}.console-catalog .hero-badge-pill{background:#8b5cc7}.console-catalog .btn-hero-primary{background:#b995ef;color:#1c112d;border-color:#d2b4ff}.console-catalog .btn-hero-primary:hover{background:#d2b4ff}.console-catalog .eyebrow,.console-catalog .products-scroll-hint,.console-catalog .stat-num,.console-catalog .products-label{color:#c8a8f5}.console-catalog .stat-num em{color:inherit}.console-catalog .stat-label{color:#b8a9cc}.console-catalog .section-head .section-title{max-width:760px;margin-left:auto;margin-right:auto}.console-catalog .stats-strip .stat-num{font-size:clamp(26px,3.5vw,42px)}
 .console-catalog .console-manager-card .catalog-status{color:#bcf1da;background:#17362e;border-color:#376051}
 
-/* Keep the Console catalog compact without scaling the rest of the page. */
-.console-catalog #products .catalog-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;align-items:start}
-.console-catalog #products .catalog-card{min-width:0;border-radius:12px}
-.console-catalog #products .catalog-body{padding:12px 14px}
-.console-catalog #products .catalog-body h3{font-size:1rem;line-height:1.4}
-.console-catalog #products .catalog-card .catalog-status{top:10px;right:10px}
-.console-catalog #products .products-label{margin:28px 0 14px}
-.console-catalog #products .console-app-summary,.console-catalog #products .console-game-summary{margin-top:8px;line-height:1.6}
-@media(max-width:1079px){.console-catalog #products .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.console-catalog #products .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:420px){.console-catalog #products .catalog-grid{grid-template-columns:1fr}}
+/* Catalog size and breakpoints come from the shared PC homepage styles. */
