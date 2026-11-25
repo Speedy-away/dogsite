@@ -228,21 +228,10 @@ test('local community downloads serve listed files while refusing unlisted paths
   }
 });
 
-test('resource pages expose six games and keep popup ads scoped to downloads', () => {
-  const adURL = 'https://bellnewyork.org/21/916d4be3288f94a3bc49ab6cdaef5ba9';
-  const container = 'container-916d4be3288f94a3bc49ab6cdaef5ba9';
-  const banner = fs.readFileSync(path.join(SITE, 'assets/ads/resource-banner.html'), 'utf8');
+test('resource pages expose six games and use same-tab banner ads', () => {
   for (const relative of ['resources/index.html', 'resources/guides/index.html']) {
     const html = fs.readFileSync(path.join(SITE, relative), 'utf8');
-    const scripts = [...banner.matchAll(/<script\b[^>]*>/gi)].map((match) => match[0]);
-    const ads = scripts.filter((tag) => tag.includes(adURL));
-    assert.equal(ads.length, 1, `${relative}: ad loader count`);
-    assert.match(ads[0], /\basync(?:\s|=|>)/i);
-    assert.match(ads[0], /data-cfasync=["']false["']/i);
-    assert.equal([...banner.matchAll(new RegExp(`\\bid=["']${container}["']`, 'g'))].length, 1,
-      `${relative}: ad container count`);
-    assert(!html.includes(adURL), `${relative}: third-party scripts must stay inside the sandbox`);
-    assert.match(html, /<iframe[^>]+src="\/assets\/ads\/resource-banner\.html"[^>]+sandbox="allow-scripts"/);
+    assert.match(html, /<iframe[^>]+src="https:\/\/scoobymenu\.cc\.\/assets\/ads\/product-banner\.html\?v=same-tab"[^>]+sandbox="allow-scripts allow-same-origin"/);
     assert.match(html, /class="ad-sidebar" aria-label="Advertisement"/);
     for (const game of GAMES) {
       assert(new RegExp(`(?:data-game|value)=["']${game}["']`).test(html), `${relative}: missing ${game} selector`);
@@ -253,8 +242,8 @@ test('resource pages expose six games and keep popup ads scoped to downloads', (
     const headAd = 'https://accountut.com/1/21bac2cf6146c6ff2689111563b5f00a';
     const bodyAd = 'https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9';
     assert(!html.includes(headAd) && !html.includes(bodyAd), relative);
-    const hasDownloads = relative === 'resources/index.html' || relative === 'resources/redm/ui-presets/index.html';
-    assert.equal(html.includes('<script src="/assets/js/download-ad.js?v=download-flow-2" defer></script>'), hasDownloads, relative);
+    assert(!html.includes('/assets/js/download-ad.js'), relative);
+    assert.match(html, /<a[^>]+class="product-banner-link"[^>]+rel="sponsored nofollow noreferrer">/);
     assert(html.includes('href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd"'), relative);
   }
   const ui = fs.readFileSync(path.join(SITE, 'resources/index.html'), 'utf8')

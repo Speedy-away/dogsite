@@ -509,15 +509,20 @@ function renderPage(page, guideRoutes = {}) {
     ? `<nav class="resource-menus" aria-label="RedM graphics pack types">${page.graphicsTopics.map(topic =>
       `<a href="${escape(browseURL({ category: 'graphics-packs', q: topic.query }))}">${escape(topic.name)}</a>`).join('')}</nav>` : '';
   const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=download-flow-2" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
-<link rel="stylesheet" href="/assets/css/ad-sidebar.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><link rel="icon" data-game-icon href="${escape(game.logo)}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/site-brand.css"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=resource-banner" defer></script><script type="application/ld+json" id="resource-collection-data">${JSON.stringify(collection).replace(/</g, '\\u003c')}</script>
+<link rel="stylesheet" href="/assets/css/ad-sidebar.css?v=resource-banner">
+<script src="/assets/js/product-banner.js?v=same-tab" defer></script>
 </head>
 <body><a class="skip" href="#resources">Skip to resources</a><header><a class="scooby-brand" href="/"><span class="scooby-emblem" aria-hidden="true"></span><strong>SCOOBY</strong></a><nav aria-label="Main"><a href="/resources/">Resources</a><a href="/resources/guides/">Install guides</a><a href="/store/">Store ↗</a></nav></header>
 <main class="resource-directory" id="resources"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/resources/">Resources</a><span>/</span>${breadcrumb}</nav><nav class="resource-games" aria-label="Game resources">${gameLinks}</nav>${menuLinks}${gameFilters}<div class="resource-layout ad-layout"><aside>${sourceLink}<h2>Categories</h2><nav class="resource-category-links" aria-label="Resource categories">${categoryLinks}</nav><a class="resource-guide" href="${escape(guideURL)}">Installation guide ↗</a></aside><section class="resource-content"><h1>${escape(heading)}</h1><p class="resource-intro">${escape(page.intro)}</p>${formatNote}<p class="resource-total">${page.itemCount.toLocaleString("en-GB")} resources${page.pendingCount && !(page.menu === "cherax" && page.game === "gta5") ? " · " + page.pendingCount.toLocaleString("en-GB") + (page.menu === "stand" ? " with downloads unavailable" : " coming soon") : ""}${page.samples.length ? " · Showing " + page.samples.length + " from the collection" : ""}</p><a class="resource-browse" href="${currentPath}#collection">Browse and search ${page.category ? escape(page.name.toLowerCase()) : 'all ' + game.name + ' resources'} →</a>${clickUILink}${petSubmission}${formatTags}${listing}</section>
 <aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
-  <p class="ad-label">Advertisement</p>
-  <iframe class="ad-content" src="/assets/ads/resource-banner.html" title="Advertisement" sandbox="allow-scripts" loading="lazy" referrerpolicy="no-referrer"></iframe>
-  <a class="ad-sponsor" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="sponsored nofollow noopener noreferrer">Sponsored offer ↗</a>
+  <span class="ad-label">Advertisement</span>
+  <div class="product-banner-slot">
+    <iframe src="https://scoobymenu.cc./assets/ads/product-banner.html?v=same-tab" title="Advertisement" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="origin" inert></iframe>
+    <a class="product-banner-link" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" rel="sponsored nofollow noreferrer">
+      <strong>Sponsored offer</strong><span>View offer <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
 </aside></div></main><footer><a href="/resources/">All resources</a><a href="/sitemap/">Site directory</a></footer></body></html>`;
   const dialog = `<dialog id="resource-changelog" aria-labelledby="resource-changelog-title" class="resource-dialog">
   <div class="resource-dialog-heading">
@@ -529,7 +534,7 @@ function renderPage(page, guideRoutes = {}) {
   </div>
   <div id="resource-changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>`;
-  const withMetadata = require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n<script src="/assets/js/download-ad.js?v=download-flow-2" defer></script>\n</body>'));
+  const withMetadata = require('./seo-metadata').applyMetadata(page.file, html.replace('<div class="resource-layout ad-layout">', graphicsLinks + '<div class="resource-layout ad-layout">').replace('</body>', dialog + '\n</body>'));
   return pets && !page.itemCount
     ? withMetadata.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow">')
     : withMetadata;

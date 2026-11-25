@@ -48,6 +48,17 @@
 
 .ad-layout > .ad-sidebar { grid-column: 1 / -1; }
 .resource-layout > .resource-content { min-width: 0; }
+.collection-results .note { margin: 32px 0 0; }
+
+@media (max-width: 360px) {
+    .ad-layout > .ad-sidebar {
+        box-sizing: border-box;
+        justify-self: center;
+        width: calc(100vw - 4px);
+        max-width: none;
+        padding-inline: 7px;
+    }
+}
 
 .free-key-layout {
     position: relative;
@@ -73,10 +84,10 @@
 
 @media (min-width: 1360px) {
     .ad-layout {
-        grid-template-columns: 224px minmax(0, 1fr) clamp(220px, 19vw, 280px);
+        grid-template-columns: 330px 224px minmax(0, 1fr);
     }
 
-    .ad-layout > .ad-sidebar { grid-column: auto; }
+    .ad-layout > .ad-sidebar { grid-area: 1 / 1; }
     .resource-directory { max-width: 1460px; }
 }
 

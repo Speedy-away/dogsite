@@ -731,9 +731,9 @@ function resourceTitle(name, files, knownExtension = '') {
 function downloadButton(file, container) {
   const button = node('button', 'Download ↓');
   button.type = 'button';
-  button.setAttribute('data-download-ad', '');
+  button.setAttribute('data-resource-download', '');
   let error;
-  button.onclick = async event => {
+  button.onclick = async () => {
     if (button.disabled) return;
     const directURL = new URL(file.url);
     const archive = ['zip', 'rar', '7z', 'gz'].includes(menuSystem.fileExtension(file));
@@ -749,7 +749,6 @@ function downloadButton(file, container) {
       anchor.click();
       anchor.remove();
       button.textContent = 'Download started';
-      globalThis.ScoobyDownloadAd?.open(event);
       return;
     }
     button.disabled = true;
@@ -775,7 +774,6 @@ function downloadButton(file, container) {
       anchor.remove();
       setTimeout(() => URL.revokeObjectURL(objectURL), 10000);
       button.textContent = 'Download started';
-      globalThis.ScoobyDownloadAd?.open(event);
     } catch {
       button.textContent = 'Retry download';
       error = node('p', 'Download unavailable. Please retry.', 'download-error');

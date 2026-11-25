@@ -29,7 +29,7 @@ for (const image of document.querySelectorAll('[data-resource-image], [data-reso
 }
 
 for (const button of document.querySelectorAll('[data-download-file]')) {
-  button.addEventListener('click', async event => {
+  button.addEventListener('click', async () => {
     if (button.disabled) return;
     const status = button.closest('.resource-sample').querySelector('.resource-download-status');
     button.disabled = true;
@@ -70,7 +70,6 @@ for (const button of document.querySelectorAll('[data-download-file]')) {
       anchor.remove();
       if (object) setTimeout(() => URL.revokeObjectURL(object), 10000);
       status.textContent = 'Download started.';
-      globalThis.ScoobyDownloadAd?.open(event);
     } catch { status.textContent = 'Download unavailable. Please try again.'; }
     finally { button.disabled = false; }
   });
@@ -135,9 +134,16 @@ async function mountCatalog() {
   await Promise.all(dependencies.map(loadCatalogScript));
   const ad = directory.querySelector('.ad-sidebar');
   const adPosition = document.createComment('advertisement');
+  const moveAd = (placeholder) => {
+    const slot = ad.querySelector('.product-banner-slot');
+    // Moving the iframe reloads it, so show the fallback until it fills again.
+    slot?.classList.remove('has-creative');
+    slot?.querySelector('iframe')?.setAttribute('inert', '');
+    placeholder.replaceWith(ad);
+  };
   if (ad) {
     ad.before(adPosition);
-    main.querySelector('.ad-sidebar').replaceWith(ad);
+    moveAd(main.querySelector('.ad-sidebar'));
   }
   const skip = document.querySelector('.skip');
   staticDialogs?.dismiss();
@@ -148,7 +154,7 @@ async function mountCatalog() {
     if (skip) skip.href = '#collection';
     if (location.hash === '#collection') document.getElementById('collection').scrollIntoView();
   } catch {
-    if (ad) adPosition.replaceWith(ad);
+    if (ad) moveAd(adPosition);
     main.replaceWith(directory);
     for (const dialog of dialogs) dialog.remove();
     syncStaticChangelog();

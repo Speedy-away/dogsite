@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FiveM Server dumps — Scooby Resources</title>
 <link rel="stylesheet" href="/assets/css/site-brand.css">
-<link rel="icon" data-game-icon href="/assets/images/store/fivem-emblem.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=download-flow-2" defer></script><script type="application/ld+json" id="resource-collection-data">
+<link rel="icon" data-game-icon href="/assets/images/store/fivem-emblem.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/resources/catalog.css?v=resource-popups"><link rel="stylesheet" href="/resources/discover.css"><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/discover.js?v=resource-banner" defer></script><script type="application/ld+json" id="resource-collection-data">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -79,7 +79,8 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/css/ad-sidebar.css">
+<link rel="stylesheet" href="/assets/css/ad-sidebar.css?v=resource-banner">
+<script src="/assets/js/product-banner.js?v=same-tab" defer></script>
 <meta name="description" content="FiveM resources. Start a FiveM server with public txAdmin recipes from their maintainers.">
 <meta name="keywords" content="Scooby Menu, FiveM server dumps, FiveM, server templates, txAdmin recipes, roleplay frameworks">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -148,9 +149,13 @@
 <article class="resource-sample" id="resource-fivem-server-esx-legacy"><h3><a href="#resource-fivem-server-esx-legacy">ESX Legacy</a></h3><p>txAdmin recipe</p><p>The official ESX roleplay starter, with character registration, jobs, society accounts and vehicle shops.</p><p>By ESX Framework</p><p class="resource-requirement">txAdmin · MariaDB</p><a class="resource-download" href="https://github.com/esx-framework/esx-recipes/tree/legacy" target="_blank" rel="noopener noreferrer">Download from source ↗</a><details class="resource-inline-details"><summary>Setup notes</summary><ul><li>Have a current FXServer build, a Cfx.re server key and a running MariaDB instance before you deploy.</li><li>Choose ESX Legacy in Popular Recipes. The recipe installs oxmysql and loads the initial SQL.</li></ul></details><p><a href="https://docs.esx-framework.org/en/tutorial/install" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p><p class="resource-download-status" role="status"></p></article>
 <article class="resource-sample" id="resource-fivem-server-qbcore"><h3><a href="#resource-fivem-server-qbcore">QBCore Framework (legacy listing)</a></h3><p>txAdmin recipe</p><p>The original QBCore roleplay recipe includes jobs, gangs, housing and vehicles. txAdmin no longer recommends it in Popular Recipes.</p><p>By JericoFx, Kakarot and Hamy</p><p class="resource-requirement">txAdmin Remote URL Template · MariaDB</p><a class="resource-download" href="https://github.com/qbcore-fivem/txAdminRecipe/blob/main/qbcore.yaml" target="_blank" rel="noopener noreferrer">Download from source ↗</a><details class="resource-inline-details"><summary>Setup notes</summary><ul><li>Set up FXServer, a Cfx.re server key and MariaDB as described in the QBCore guide.</li><li>The QBCore guide still shows an older Popular Recipes menu. Copy the Raw URL from the recipe page and use Remote URL Template instead.</li></ul></details><p><a href="https://qbcore.org/docs/guides/windows-installation" target="_blank" rel="noopener noreferrer">Author’s install guide ↗</a></p><p class="resource-download-status" role="status"></p></article></div></section>
 <aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
-  <p class="ad-label">Advertisement</p>
-  <iframe class="ad-content" src="/assets/ads/resource-banner.html" title="Advertisement" sandbox="allow-scripts" loading="lazy" referrerpolicy="no-referrer"></iframe>
-  <a class="ad-sponsor" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="sponsored nofollow noopener noreferrer">Sponsored offer ↗</a>
+  <span class="ad-label">Advertisement</span>
+  <div class="product-banner-slot">
+    <iframe src="https://scoobymenu.cc./assets/ads/product-banner.html?v=same-tab" title="Advertisement" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="origin" inert></iframe>
+    <a class="product-banner-link" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" rel="sponsored nofollow noreferrer">
+      <strong>Sponsored offer</strong><span>View offer <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
 </aside></div></main><footer><a href="/resources/">All resources</a><a href="/sitemap/">Site directory</a></footer><dialog id="resource-changelog" aria-labelledby="resource-changelog-title" class="resource-dialog">
   <div class="resource-dialog-heading">
     <h2 id="resource-changelog-title">Changelog</h2>
@@ -161,5 +166,4 @@
   </div>
   <div id="resource-changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>
-<script src="/assets/js/download-ad.js?v=download-flow-2" defer></script>
 </body></html>

@@ -6,7 +6,6 @@ const crypto = require('node:crypto');
 const { chromium } = require('playwright');
 const { createServer } = require('./preview.cjs');
 const root = path.resolve(__dirname, '..');
-const sponsor = 'https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd';
 const sovereign = require('../community/data/menu-resources.json').items.find(item => item.id === 'cherax-lua-sovereign');
 const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 
@@ -28,11 +27,6 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
         if (failMenuBundle && url.pathname === '/community/data/games/gta5-cherax.json.gz' ||
             failPackedBundles && url.pathname.endsWith('.gz')) return route.fulfill({ status: 404, body: 'Unavailable bundle' });
       }
-      if (url.href === sponsor) return route.fulfill({ body: '<title>Sponsor test</title>' });
-      if (url.hostname === 'bellnewyork.org') return route.fulfill({
-        contentType: 'text/javascript',
-        body: `try { parent.document.body.dataset.adHijacked = 'yes'; } catch {} window.open('https://extra-ad.invalid/');`
-      });
       const raw = url.origin === 'https://raw.githubusercontent.com' && url.pathname.startsWith('/Speedy-away/dogsite/main/assets/');
       const download = raw ? url.pathname.slice('/Speedy-away/dogsite/main'.length) : url.pathname;
       if (download.startsWith('/assets/downloads/cherax/')) {
@@ -44,6 +38,7 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
       if (url.origin === base) return route.continue();
       return route.abort();
     });
+    const siteTabs = () => context.pages().filter(tab => tab.url() !== 'edge://downloads-hub/');
     const page = await context.newPage();
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -64,37 +59,30 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
     assert(catalogRequests.includes('/community/data/games/gta5-cherax.json.gz'), 'Cherax must use its smaller menu bundle');
     assert(!catalogRequests.includes('/community/data/games/gta5.json.gz'), 'The complete catalog should not load on the normal path');
     assert.equal(await page.locator('#grid .card').count(), 1, 'Sovereign must appear once');
-    assert.equal(await page.locator('body').getAttribute('data-ad-hijacked'), null);
-    assert.equal(context.pages().length, 1, 'Sandboxed banner cannot spawn popups');
-    const button = page.locator('#grid [data-download-ad]');
-    async function transfer(file, popupExpected = true) {
+    const button = page.locator('#grid [data-resource-download]');
+    async function transfer(file) {
       const originalURL = page.url();
-      const popup = popupExpected ? page.waitForEvent('popup') : Promise.resolve(null);
-      const [download, ad] = await Promise.all([page.waitForEvent('download'), popup, button.click()]);
+      const [download] = await Promise.all([page.waitForEvent('download'), button.click()]);
       assert.equal(download.suggestedFilename(), file.name);
       assert.equal(hash(fs.readFileSync(await download.path())), file.sha256, 'Saved bytes must match the selected file');
       await button.getByText('Download started', { exact: true }).waitFor();
       assert.equal(page.url(), originalURL, 'Downloading stays on the resource card');
-      if (ad) await ad.close();
+      assert.equal(siteTabs().length, 1, 'Downloads must stay in the original tab');
     }
     await transfer(sovereign.files[0]);
-    assert.deepEqual(await page.evaluate(() => window.downloadOrder), ['file', 'ad']);
+    assert.deepEqual(await page.evaluate(() => window.downloadOrder), ['file']);
     await page.locator('#grid .version-download select').selectOption('1');
     await transfer(sovereign.files[1]);
-    assert.deepEqual(await page.evaluate(() => window.downloadOrder), ['file', 'ad', 'file', 'ad']);
+    assert.deepEqual(await page.evaluate(() => window.downloadOrder), ['file', 'file']);
 
     failDownload = true;
     await button.click();
     await button.getByText('Retry download', { exact: true }).waitFor();
     assert.equal(await page.locator('#grid .download-error').count(), 1);
-    assert.equal((await page.evaluate(() => window.downloadOrder)).length, 4, 'Failed transfers must not open ads');
+    assert.deepEqual(await page.evaluate(() => window.downloadOrder), ['file', 'file']);
     failDownload = false;
     await transfer(sovereign.files[1]);
     assert.equal(await page.locator('#grid .download-error').count(), 0);
-
-    await page.evaluate(() => { window.open = () => { throw Error('Blocked popup'); }; });
-    await transfer(sovereign.files[1], false);
-    assert.equal(await page.locator('#grid .download-error').count(), 0, 'Blocked sponsor must not fail a download');
 
     await page.goto(base + '/resources/gta5/cherax/lua/#resource-cherax-lua-thread-1561386308000026736');
     await page.locator('#preview[open]').waitFor();
@@ -106,10 +94,11 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
     const staticButton = page.locator('button[data-download-file]:visible').first();
     await staticButton.waitFor();
     const staticFile = JSON.parse(await staticButton.getAttribute('data-download-file'));
-    const [staticDownload, staticAd] = await Promise.all([page.waitForEvent('download'), page.waitForEvent('popup'), staticButton.click()]);
+    const [staticDownload] = await Promise.all([page.waitForEvent('download'), staticButton.click()]);
     assert.equal(staticDownload.suggestedFilename(), staticFile.name);
     assert.equal(fs.statSync(await staticDownload.path()).size, staticFile.size);
-    await staticAd.close();
+    assert.deepEqual(await page.evaluate(() => window.downloadOrder), ['file']);
+    assert.equal(siteTabs().length, 1, 'Static downloads must stay in the original tab');
 
     await page.unroute(base + '/resources/');
     failMenuBundle = true;
@@ -140,7 +129,7 @@ const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
       assert(!catalogRequests.some(url => url.includes('/gta5')), `${game}/${menu}: do not fetch GTA 5 data`);
     }
     assert.equal(errors.length, 0, errors.join('\n'));
-    console.log('PASS: compressed catalogs across all six games, GTA 5/RDR2 menu data, compressed/plain fallbacks, direct downloads, both Sovereign choices, one popup per download, retries, blocked-popup recovery, sandbox isolation, old bookmarks, and static-page downloads.');
+    console.log('PASS: compressed catalogs across all six games, compressed/plain fallbacks, direct downloads without popups, retries, old bookmarks, and static-page downloads.');
     await context.close();
   } finally {
     if (browser) await browser.close();

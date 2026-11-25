@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#101112">
 <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
 <link rel="stylesheet" href="./catalog.css?v=resource-popups">
-<script src="/resources/taxonomy.js?v=9d88a6037a57" defer></script><script src="/resources/menus.js?v=cherax-dedup-2" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js?v=resource-popups" defer></script><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/catalog.js?v=menu-bundles-2" defer></script>
+<script src="/resources/taxonomy.js?v=9d88a6037a57" defer></script><script src="/resources/menus.js?v=cherax-dedup-2" defer></script><script src="/resources/editions.js" defer></script><script src="/resources/routes.js?v=resource-popups" defer></script><script src="/resources/dialogs.js?v=1" defer></script><script src="/resources/catalog.js?v=resource-banner" defer></script>
 <meta name="keywords" content="Scooby Menu, community mod downloads, GTA 5 mods, GTA V saved vehicles, Menyoo maps, RDR2 outfits, CS2 custom models, FiveM graphics packs, RedM PvP packs, RedM RP packs, Left 4 Dead addons, Cherax Lua scripts, Cherax outfits, Cherax vehicles, Stand Lua scripts, Stand outfits, Stand vehicles, YimMenu v1 Lua scripts, YimMenu v2 Lua scripts">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="Game Mods, Addons &amp; Downloads — Scooby Resources">
@@ -33,7 +33,8 @@
 <meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/resources-brand-v1.png">
 <meta name="twitter:image:alt" content="SCOOBY RESOURCES: Game mods &amp; downloads GTA 5 · RDR2 · CS2 · FiveM · RedM · L4D">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/ad-sidebar.css">
+<link rel="stylesheet" href="/assets/css/ad-sidebar.css?v=resource-banner">
+<script src="/assets/js/product-banner.js?v=same-tab" defer></script>
 <meta property="og:locale" content="en_US">
 <script type="application/ld+json" id="resource-collection-data">
 {
@@ -160,15 +161,19 @@
     <div id="grid" aria-busy="true"></div>
     <nav class="pagination" aria-label="Pagination"><button type="button" id="prev" disabled>← Previous</button><span id="page"></span><button type="button" id="next" disabled>Next →</button></nav>
     <noscript><p>Enable JavaScript to download files without leaving Scooby, or read the <a href="/resources/guides/">installation guides</a>.</p></noscript>
+    <section class="note"><h2>From the collection<br>to your game.</h2><div><p id="install-note">Keep the complete download together and follow its installation guide. Check that the resource supports your game and Scooby version.</p><p>Original creator credits are included in each resource’s details.</p><a href="/resources/guides/">Read the install guides ↗</a></div></section>
     </div>
 <aside class="ad-sidebar" aria-label="Advertisement" data-i18n-skip>
-  <p class="ad-label">Advertisement</p>
-  <iframe class="ad-content" src="/assets/ads/resource-banner.html" title="Advertisement" sandbox="allow-scripts" loading="lazy" referrerpolicy="no-referrer"></iframe>
-  <a class="ad-sponsor" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" target="_blank" rel="sponsored nofollow noopener noreferrer">Sponsored offer ↗</a>
+  <span class="ad-label">Advertisement</span>
+  <div class="product-banner-slot">
+    <iframe src="https://scoobymenu.cc./assets/ads/product-banner.html?v=same-tab" title="Advertisement" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="origin" inert></iframe>
+    <a class="product-banner-link" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" rel="sponsored nofollow noreferrer">
+      <strong>Sponsored offer</strong><span>View offer <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
 </aside>
     </div>
   </section>
-<section class="note"><h2>From the collection<br>to your game.</h2><div><p id="install-note">Keep the complete download together and follow its installation guide. Check that the resource supports your game and Scooby version.</p><p>Original creator credits are included in each resource’s details.</p><a href="/resources/guides/">Read the install guides ↗</a></div></section>
 </main>
 <footer><a href="/">Scooby / Home</a><a href="/guides/">All setup guides ↗</a><span>Not affiliated with the game publishers.</span></footer>
 <dialog id="resource-game-dialog" class="resource-picker" aria-labelledby="resource-game-title">
@@ -217,6 +222,5 @@
   </div>
   <div id="changelog-content" class="resource-dialog-scroll" tabindex="0" role="region" aria-label="Release notes"></div>
 </dialog>
-<script src="/assets/js/download-ad.js?v=download-flow-2" defer></script>
 </body>
 </html>
