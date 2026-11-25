@@ -42,6 +42,15 @@
                 );
                 const video = creative?.querySelector('video');
                 if (image || video?.readyState >= 2 || creative?.innerText.trim()) {
+                    creative.addEventListener('click', (event) => {
+                        const link = event.target.closest('a[href]');
+                        if (!event.isTrusted || !link || !/^https?:$/.test(link.protocol)) return;
+                        event.preventDefault();
+                        window.parent.postMessage({
+                            type: 'scooby:product-banner-click',
+                            href: link.href
+                        }, publisherOrigin);
+                    }, true);
                     window.clearInterval(timer);
                     window.parent.postMessage('scooby:product-banner-ready', publisherOrigin);
                 }
