@@ -2,6 +2,8 @@
   "name": "scooby-site-tools",
   "private": true,
   "scripts": {
+    "images:build": "node tools/optimize-product-images.cjs --apply",
+    "images:check": "node tools/optimize-product-images.cjs --check",
     "community:inventory": "node tools/build-community-library.cjs --dry-run",
     "community:build": "node tools/build-community-library.cjs",
     "community:menus": "node tools/build-menu-resources.cjs",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "marked": "17.0.5",
-    "playwright": "1.62.1"
+    "playwright": "1.62.1",
+    "sharp": "0.35.5"
   }
 }

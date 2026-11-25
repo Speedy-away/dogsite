@@ -1,0 +1,75 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { chromium } = require('playwright');
+const { createServer } = require('./preview.cjs');
+const { check } = require('./optimize-product-images.cjs');
+
+async function main() {
+    check();
+    const manifest = JSON.parse(fs.readFileSync(path.resolve('assets/data/product-display-images.json'), 'utf8'));
+    let server, browser, origin = process.env.PRODUCT_IMAGES_TEST_ORIGIN;
+    if (!origin) {
+        server = createServer();
+        await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+        origin = `http://127.0.0.1:${server.address().port}`;
+    }
+    origin = new URL(origin).origin;
+    const report = [];
+    try {
+        browser = await chromium.launch({ headless: true, channel: process.env.PLAYWRIGHT_CHANNEL || 'msedge' });
+        const context = await browser.newContext({ reducedMotion: 'reduce', deviceScaleFactor: 1 });
+        await context.addInitScript(() => { try { localStorage.setItem('scooby.lang', 'en'); } catch (_) {} });
+        await context.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
+        const routes = ['tf2', 'gta5', 'rdr2', 'cs2', 'l4d', 'last-of-us', 'half-life-1', 'portal'].map(product => `/products/${product}/`);
+        routes.push('/', '/store/', '/source-games/', '/more-games/', '/rockstar-classics/');
+        for (const width of [1440, 375]) {
+            for (const route of routes) {
+                const product = route.startsWith('/products/') ? route.split('/')[2] : route;
+                const page = await context.newPage();
+                await page.setViewportSize({ width, height: 1000 });
+                const requests = new Set(), errors = [];
+                page.on('request', request => requests.add(new URL(request.url()).pathname));
+                page.on('pageerror', error => errors.push(error.message));
+                await page.goto(origin + route, { waitUntil: 'load' });
+                const images = page.locator('img[srcset*="/assets/images/display/"]');
+                assert.ok(await images.count(), `responsive images on ${product}`);
+                await images.first().scrollIntoViewIfNeeded();
+                await images.first().evaluate(image => image.decode());
+                const image = await images.first().evaluate(image => ({
+                    src: new URL(image.src).pathname,
+                    current: new URL(image.currentSrc).pathname,
+                    width: image.getBoundingClientRect().width,
+                    naturalWidth: image.naturalWidth,
+                }));
+                assert.match(image.current, /^\/assets\/images\/display\/.+\.webp$/);
+                const variant = manifest.images[image.src].variants.find(variant => variant.src === image.current);
+                assert.ok(variant.width >= image.width - 1, `adequate resolution: ${product} at ${width}: ${JSON.stringify(image)}`);
+                assert.ok(!requests.has(image.src), `full-size image not downloaded for the page: ${image.src}`);
+                assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+                if (product === 'tf2') {
+                    const previews = page.locator('[data-tf2-preview] img');
+                    assert.equal(await previews.first().getAttribute('loading'), 'eager');
+                    assert.equal(await previews.first().getAttribute('fetchpriority'), 'high');
+                    assert.equal(await previews.nth(1).getAttribute('loading'), 'lazy');
+                    const original = await page.locator('[data-tf2-preview]').first().getAttribute('href');
+                    await page.locator('[data-tf2-preview]').first().click();
+                    await page.locator('#lightbox-img').evaluate(image => image.decode());
+                    assert.equal(await page.locator('#lightbox-img').evaluate(image => new URL(image.src).pathname), original);
+                    assert.ok(requests.has(original));
+                    await page.keyboard.press('Escape');
+                    assert.equal(await page.locator('#lightbox').isVisible(), false);
+                }
+                assert.deepEqual(errors, [], `browser errors: ${product}`);
+                report.push({ product, viewport: width, originalBytes: manifest.images[image.src].bytes, displayBytes: variant.bytes, displayWidth: variant.width });
+                await page.close();
+            }
+        }
+        console.log(JSON.stringify(report, null, 2));
+        console.log('PASS: desktop/mobile responsive images, sufficient resolution, no full-size page requests, original TF2 lightbox and keyboard dismissal');
+    } finally {
+        if (browser) await browser.close();
+        if (server) { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
+    }
+}
+main().catch(error => { console.error(error); process.exitCode = 1; });
