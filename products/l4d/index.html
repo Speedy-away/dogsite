@@ -213,7 +213,9 @@
 <link rel="stylesheet" href="/assets/css/product-status.css">
 <script src="/assets/js/product-status.js" defer></script>
 <meta property="og:locale" content="en_US">
-<link rel="stylesheet" href="/assets/css/ad-sidebar.css?v=display-banner">
+<link rel="stylesheet" href="/assets/css/ad-sidebar.css?v=banner-fill">
+<script src="/assets/js/product-banner.js" defer></script>
+<script src="/assets/js/free-key-sponsor.js" defer></script>
 <script type="application/ld+json" id="seo-page-structure">
 {
   "@context": "https://schema.org",
@@ -236,7 +238,6 @@
   ]
 }
 </script>
-<script src="/assets/js/free-key-sponsor.js" defer></script>
 </head>
 <body class="gmod-page l4d-page product-detail" data-product-scene="infected">
     <picture class="product-backdrop" aria-hidden="true">
@@ -378,7 +379,12 @@
 <section class="gmod-faq"><h3>Common questions</h3><details><summary>Does Capture Protection work with OBS and Discord?</summary><p>It requires Windows 10 2004 or newer and uses Windows capture exclusion for the separate menu and overlay surface. Results depend on the recording or sharing method; test your actual OBS output or Discord share. Live recorder acceptance is still pending for the next release. It does not hide gameplay actions or changes made by independent third-party scripts or modules.</p></details><details><summary>Why are some controls blurred or disabled?</summary><p>Capture Protection disables features that change the game image, including chams, native glow, world effects and camera changes. Hover over a blocked control for the explanation. Disable Capture Protection to unlock it, then enable the feature again yourself; your tuning and shortcuts are retained.</p></details><details><summary>Can I switch between windowed and fullscreen?</summary><p>The upcoming display update retains interface state through supported mode and resolution changes. Capture Protection converts fullscreen to borderless while retaining the render resolution. Disabling protection restores the game's fullscreen intent, with a borderless fallback if DXVK rejects exclusive mode. Live in-game acceptance is still pending.</p></details><details><summary>What does the asset progress bar download?</summary><p>The next release downloads required fonts, model previews and VFX assets when it loads, then opens the full interface after verification. Cached files are reused. If the download fails, press F5 to retry; completed files are retained. Your configs, custom materials and edited scripts keep their existing locations.</p></details><details><summary>Do I need an L4D subscription?</summary><p>No. L4D is included with any authenticated paid account or valid free-key session. Existing free keys retain their normal expiration.</p></details><details><summary>Does it support both games?</summary><p>Yes, through separate verified adapters in one 32-bit module. Choose the desired game in the loader; it automatically selects a newly detected single running game. Native glow and Anti Jockey are L4D2-only.</p></details><details><summary>Why are L4D features inactive after loading?</summary><p>Start a local single-player map. Gameplay features are suspended on remote servers, during demo playback, in loading screens and when player data is unavailable. Check the feature toggle and hotkey mode; the <a href="/guides/l4d/troubleshooting/">L4D troubleshooting guide</a> covers the remaining checks.</p></details><details><summary>How do I choose L4D1 or L4D2 and open the interface?</summary><p>Select the game in the loader's Start Game popup, wait for its main menu, then press Load. If both games are running, choose the target in the dashboard dropdown. Open the interface with Insert after loading. See <a href="/guides/l4d/getting-started/">L4D setup</a> and <a href="/guides/l4d/requirements/">Windows and game requirements</a>.</p></details><details><summary>Which renderers are available?</summary><p>The Windows game integration uses Direct3D 9. Vulkan/DXVK can be used when the installed game provides that renderer. The OpenGL UI backend and preview are available for verified compatible ports; stock Windows L4D installations do not provide a native OpenGL game renderer.</p></details><details><summary>Do campaign looks apply to every chapter?</summary><p>Yes. One Dead Center override applies to Hotel, Streets, Mall and Atrium. The same grouping covers all 20 official campaigns across L4D1 and L4D2. Campaigns without an enabled override use Global. Additional custom map IDs can still be added separately.</p></details><details><summary>Can I still use the VFX sub-tabs?</summary><p>Yes. Maps &amp; looks, Sky, Lighting and Materials remain available in both games. Sky and Lighting edit Global or your selected campaign override; Materials keeps its independent chams and custom-material controls. Hotkeys and Lua feature controls are preserved.</p></details><details><summary>Can I use my own materials and previews?</summary><p>Yes. Use a supported VertexLitGeneric or UnlitGeneric VMT with a same-name VTF. Put a same-name PNG or GIF beside it for an automatic preview, then press Refresh. GIF is preview artwork; the game still uses the VTF. The supplied example shows the supported TextureScroll setup.</p></details><details><summary>Can I write custom Lua features?</summary><p>Yes. The <a href="/api/l4d_api_reference.html" target="_blank" rel="noopener noreferrer">API reference</a> covers snapshots, infected and pickup queries, projected boxes, bones, rendering, hotkeys and custom controls. Lua reads copied game data; scripts do not run as the game's VScript engine.</p></details></section></div></div></main>
 <aside class="ad-sidebar product-banner" aria-label="Advertisement" data-i18n-skip>
     <span class="ad-label">Advertisement</span>
-    <iframe class="ad-content" src="/assets/ads/product-banner.html" title="Advertisement" sandbox="allow-scripts" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    <div class="product-banner-slot">
+        <iframe src="https://scoobymenu.cc./assets/ads/product-banner.html?v=isolated" title="Advertisement" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="origin" inert></iframe>
+        <a class="product-banner-link" href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd" rel="sponsored nofollow noreferrer">
+            <strong>Sponsored offer</strong><span>View offer <span aria-hidden="true">→</span></span>
+        </a>
+    </div>
 </aside>
 </div>
     <!-- Free Key Modal -->

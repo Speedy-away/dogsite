@@ -13,6 +13,13 @@
 </head>
 <body>
     <script>
+    (() => {
+        // The dotted host has a different browser origin from the product pages.
+        // Never run the provider if this wrapper is served from the main origin.
+        const publisherOrigin = 'https://scoobymenu.cc';
+        if (window.location.origin !== 'https://scoobymenu.cc.' ||
+            document.referrer !== publisherOrigin + '/' || window.parent === window) return;
+
         window.atOptions = {
             key: 'c7e98cfb5c802055c4eec55f2f606762',
             format: 'iframe',
@@ -20,7 +27,30 @@
             width: 300,
             params: {}
         };
+        // This provider tag is synchronous and uses document.write.
+        document.write('<script data-cfasync="false" src="https://bellnewyork.org/22/c7e98cfb5c802055c4eec55f2f606762"><\/script>');
+
+        // The sync tag writes its creative into an about:blank child frame.
+        // An empty child appears even when the provider cannot fill the slot.
+        let checks = 0;
+        const timer = window.setInterval(() => {
+            try {
+                const creative = document.querySelector('iframe')?.contentDocument?.body;
+                const image = [...(creative?.querySelectorAll('img') ?? [])].some(
+                    (img) => img.naturalWidth > 10 && img.naturalHeight > 10 &&
+                        img.getBoundingClientRect().width > 10 && img.getBoundingClientRect().height > 10
+                );
+                const video = creative?.querySelector('video');
+                if (image || video?.readyState >= 2 || creative?.innerText.trim()) {
+                    window.clearInterval(timer);
+                    window.parent.postMessage('scooby:product-banner-ready', publisherOrigin);
+                }
+            } catch {
+                // The first-party fallback remains visible for an unreadable creative.
+            }
+            if (++checks >= 60) window.clearInterval(timer);
+        }, 250);
+    })();
     </script>
-    <script data-cfasync="false" src="https://bellnewyork.org/22/c7e98cfb5c802055c4eec55f2f606762"></script>
 </body>
 </html>

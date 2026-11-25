@@ -113,7 +113,7 @@ const additionalCards = {
   console: ['Console', 'PlayStation 4 catalog'],
   'console-gta5': ['GTA 5', 'PlayStation 4 · Coming soon'],
   'console-rdr2': ['Red Dead Redemption 2', 'PlayStation 4 · Coming soon'],
-  'console-r6': ['Rainbow Six Siege', 'PlayStation 4 · Online'],
+  'console-r6': ['Rainbow Six Siege', 'Scooby PS4 v1.0.2 · Released'],
   'console-scooby-manager': ['Scooby Manager', 'File and download manager · PS4'],
   'console-fortnite': ['Fortnite', 'PlayStation 4 · Coming soon'],
   'console-overwatch': ['Overwatch', 'PlayStation 4 · Coming soon'],
@@ -154,7 +154,7 @@ for (const [slug, title] of Object.entries(guideGames)) {
   cards[id] = { id, label: 'SCOOBY RESOURCE GUIDES', lines: [title], subtitle: 'Resource installation and setup', accent: '#96d8bc' };
 }
 for (const card of Object.values(cards)) {
-  card.version = card.id === 'console-scooby-manager' ? 'brand-v2' : 'brand-v1';
+  card.version = ['console-r6', 'console-scooby-manager'].includes(card.id) ? 'brand-v2' : 'brand-v1';
   card.alt = card.id === 'home' ? 'White Scooby outline on a dark textured background.' :
     card.label + ': ' + card.lines.join(' ') + ' ' + card.subtitle;
 }
