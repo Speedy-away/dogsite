@@ -194,8 +194,60 @@
     }
     return result;
   }
+  function cheraxLuaIdentity(entry) {
+    if (entry.game !== 'gta5' || entry.category !== 'lua' || canonical(entry.sourceMenu) !== 'cherax') return '';
+    const name = String(entry.name || '').toLowerCase().replace(/\.lua$/, '')
+      .replace(/\[updated\]/g, '').replace(/[\s-]+v?\d+(?:\.\d+)+\s*$/, '').replace(/[^a-z0-9]/g, '');
+    const aliases = {
+      sovereignscript: 'sovereign', bunnyscriptleee: 'bunnyscript',
+      liquitfitoutfitmanager: 'liquidfit', liquidfitoutfitmanager: 'liquidfit',
+      flyingcars: 'flyingcarssa', yaskoscriptbodyaccessories: 'bodyaccessories'
+    };
+    return aliases[name] || name;
+  }
+  function deduplicateCheraxLua(items = []) {
+    const result = [], scripts = new Map();
+    const unique = values => [...new Map(values.map(value => [JSON.stringify(value), value])).values()];
+    for (const entry of items) {
+      const key = cheraxLuaIdentity(entry);
+      if (!key || !scripts.has(key)) {
+        if (key) scripts.set(key, result.length);
+        result.push(entry);
+        continue;
+      }
+      const index = scripts.get(key), previous = result[index];
+      // Keep curated IDs and their verified packages; thread/local-import IDs
+      // become aliases so existing resource and changelog links still resolve.
+      const score = item => (/^cherax-lua-(?!thread-)/.test(item.id) ? 100 : 0) + (item.files?.length ? 10 : 0);
+      const [primary, secondary] = score(entry) > score(previous) ? [entry, previous] : [previous, entry];
+      const merged = { ...secondary, ...primary };
+      merged.aliases = [...new Set([...(primary.aliases || []), secondary.id, ...(secondary.aliases || [])])].filter(id => id !== primary.id);
+      const seenFiles = new Set();
+      merged.files = [...(primary.files || []), ...(secondary.files || [])].filter(file => {
+        const id = file.sha256 || file.url || file.path;
+        if (seenFiles.has(id)) return false;
+        seenFiles.add(id);
+        return true;
+      });
+      for (const field of ['changelog', 'tags', 'requirements', 'sourceEvidence']) {
+        if (primary[field] || secondary[field]) merged[field] = unique([...(primary[field] || []), ...(secondary[field] || [])]);
+      }
+      if (!primary.preview && secondary.preview) {
+        for (const field of ['preview', 'previewVerified', 'previewKind', 'previewCaption']) merged[field] = secondary[field];
+      }
+      if (merged.files.length) {
+        merged.status = 'download';
+        merged.downloadStatus = 'available';
+        delete merged.downloadLabel;
+      }
+      result[index] = merged;
+    }
+    return result;
+  }
   function mergeCheraxResources(supplement, archive) {
-    if (archive?.version !== 1 || !/^[a-f0-9]{40}$/.test(archive.assetRevision || '')) return supplement;
+    if (archive?.version !== 1 || !/^[a-f0-9]{40}$/.test(archive.assetRevision || '')) {
+      return { ...supplement, items: deduplicateCheraxPackages(deduplicateCheraxLua(supplement.items)) };
+    }
     const base = `https://raw.githubusercontent.com/Speedy-away/cool-repo/${archive.assetRevision}/`;
     const assetURL = value => /^(?:downloads|previews)\/gta5\/menus\/cherax\/[a-f0-9]{20}\.[a-z0-9]+$/.test(value || '') ? base + value : '';
     const merge = (existing, imported, requireCategory = false) => {
@@ -220,7 +272,33 @@
       }
       return [...entries.values()];
     };
-    return { ...supplement, items: merge(supplement.items, archive.items, true), libraryOverrides: merge(supplement.libraryOverrides, archive.libraryOverrides) };
+    return { ...supplement, items: deduplicateCheraxPackages(deduplicateCheraxLua(merge(supplement.items, archive.items, true))), libraryOverrides: merge(supplement.libraryOverrides, archive.libraryOverrides) };
   }
-  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, defaultResourceSort, resourceUpdateDate, compareResourceUpdates, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, listingMenuIds, supports, compatibleWith, cheraxLuaLayerNote, isCheraxTheme, isStandLua, themeInterface, legacyOverrideMap, mergeCheraxResources, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
+  function deduplicateCheraxPackages(items) {
+    const packages = new Map(), result = [];
+    for (const entry of items) {
+      const key = entry.game === 'gta5' && canonical(entry.sourceMenu) === 'cherax' &&
+        entry.files?.length && entry.files.every(file => /^[a-f0-9]{64}$/.test(file.sha256 || ''))
+        ? entry.category + ':' + entry.files.map(file => file.sha256).sort().join(',') : '';
+      if (!key || !packages.has(key)) {
+        if (key) packages.set(key, result.length);
+        result.push(entry);
+        continue;
+      }
+      const index = packages.get(key), primary = result[index];
+      const merged = { ...entry, ...primary };
+      merged.aliases = [...new Set([...(primary.aliases || []), entry.id, ...(entry.aliases || [])])].filter(id => id !== primary.id);
+      merged.imageUrls = [...new Set([
+        ...(primary.imageUrls || []), ...(primary.previewVerified && primary.preview ? [primary.preview] : []),
+        ...(entry.imageUrls || []), ...(entry.previewVerified && entry.preview ? [entry.preview] : [])
+      ])];
+      merged.tags = [...new Set([...(primary.tags || []), ...(entry.tags || [])])];
+      if (!primary.preview && entry.preview) {
+        for (const field of ['preview', 'previewVerified', 'previewKind', 'previewCaption']) merged[field] = entry[field];
+      }
+      result[index] = merged;
+    }
+    return result;
+  }
+  return { MENUS, canonical, menusFor, menuFor, menuName, displayName: menuName, defaultResourceSort, resourceUpdateDate, compareResourceUpdates, categoryGroups, gtaCategoryGroups: categoryGroups, categoryLabel, menuIds, listingMenuIds, supports, compatibleWith, cheraxLuaLayerNote, isCheraxTheme, isStandLua, themeInterface, legacyOverrideMap, cheraxLuaIdentity, deduplicateCheraxLua, mergeCheraxResources, fileFormat, fileExtension, formatExtensions, presetLoader, alternatePreset, presetLoaderNote, presetFormatScope, presetFormatHint };
 });

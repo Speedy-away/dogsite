@@ -11,7 +11,7 @@
     "resources:refresh": "node tools/resource-sync.cjs --refresh-public",
     "resources:pages": "node tools/resource-pages.cjs",
     "resources:seo": "node tools/build-resource-seo.cjs",
-    "test:resources": "node --test tools/resource-seo.test.cjs tools/resource-sync.test.cjs tools/gta5-resource-navigation.test.cjs tools/vehicle-galleries.test.cjs",
+    "test:resources": "node --test tools/resource-bundles.test.cjs tools/resource-seo.test.cjs tools/resource-sync.test.cjs tools/gta5-resource-navigation.test.cjs tools/vehicle-galleries.test.cjs",
     "test:community": "node --test tools/community.test.cjs tools/community-menu.test.cjs",
     "tf2:check": "node tools/check-tf2-features.js && node tools/build-tf2-docs.js --check",
     "tf2:build": "node tools/features/build-features-page.js --only tf2 --apply && node tools/build-tf2-docs.js",
@@ -20,6 +20,8 @@
     "build": "node tools/package-site.cjs",
     "test:site": "node --test tools/site-layout.test.cjs",
     "test:seo": "node --test tools/seo.test.js tools/generated-file.test.cjs",
+    "seo:update": "node tools/seo-watch.cjs && node tools/seo-metadata.js --apply && node tools/seo-directory.js --apply && node tools/seo-links.js --apply && node tools/seo-sitemap.js --apply",
+    "seo:check": "node tools/seo-metadata.js && node tools/seo-directory.js && node tools/seo-links.js && node tools/seo-sitemap.js && node --test tools/seo.test.js tools/generated-file.test.cjs",
     "seo:links": "node tools/seo-links.js --apply",
     "media:build": "node tools/build-reseller-media.cjs",
     "media:banners": "node tools/render-reseller-banners.cjs",
@@ -27,8 +29,7 @@
     "docs:rockstar": "node tools/build-rockstar-lua-docs.cjs",
     "docs:rockstar:check": "node tools/build-rockstar-lua-docs.cjs --check",
     "docs:rockstar:test": "node tools/validate-rockstar-lua-docs.cjs",
-    "seo:update": "node tools/seo-watch.cjs && node tools/seo-metadata.js --apply && node tools/seo-directory.js --apply && node tools/seo-links.js --apply && node tools/seo-sitemap.js --apply",
-    "seo:check": "node tools/seo-metadata.js && node tools/seo-directory.js && node tools/seo-links.js && node tools/seo-sitemap.js && node --test tools/seo.test.js tools/generated-file.test.cjs"
+    "resources:bundles": "node tools/build-resource-bundles.cjs"
   },
   "devDependencies": {
     "marked": "17.0.5",

@@ -188,6 +188,12 @@
     }, { threshold: 0 }).observe(hero);
   }
 
-  // Load the first shuffled scene even when reduced motion pauses playback.
-  advance(true);
+  // Use parser-discovered artwork immediately; shuffle subsequent scenes.
+  var opening = activeLayer && activeLayer.querySelector('img');
+  if (opening) {
+    current = scenes.findIndex(function (scene) { return scene.file === activeLayer.dataset.scene; });
+    if (current >= 0) cache.set(current, Promise.resolve(opening));
+    ready = true;
+    schedule();
+  } else advance(true);
 })();

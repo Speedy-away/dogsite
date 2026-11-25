@@ -5,6 +5,7 @@ const path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const ROOT = path.resolve(__dirname, '..');
 function build() {
+  require('./build-resource-bundles.cjs').build();
   const { build: buildPages } = require('./resource-pages.cjs');
   const data = buildPages();
   require('./seo-watch.cjs').build();

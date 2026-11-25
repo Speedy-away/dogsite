@@ -407,3 +407,6 @@ html:has(.resource-dialog[open]) { overflow: hidden; }
   header { flex-wrap: wrap; }
   header nav a { min-height: 40px; }
 }
+.resource-more { margin: 0 0 24px; font-size: 14px; line-height: 1.6; color: #bbb; }
+.resource-more a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.resource-more a:hover, .resource-more a:focus-visible { color: #fff; }

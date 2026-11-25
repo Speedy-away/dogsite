@@ -1122,8 +1122,29 @@
         "Utility",
         "Sovereign2"
       ],
-      "files": [],
-      "changelog": []
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/d871f6d7b23a28d7b9a6.lua",
+          "name": "Sovereign-1.0.0.lua",
+          "size": 3909954,
+          "sha256": "d871f6d7b23a28d7b9a65ca5044994570e56661aef530b8d31dc0e4ac035294f",
+          "versionLabel": "Sovereign-1.0.0.lua"
+        },
+        {
+          "url": "/assets/downloads/cherax/24b005d7e0bc4e9d1e5f.lua",
+          "name": "Sovereign2.lua",
+          "size": 3987744,
+          "sha256": "24b005d7e0bc4e9d1e5fb51ff1bcaaeb004a695586e6120a4e91343e036c6eca",
+          "versionLabel": "Sovereign2.lua"
+        }
+      ],
+      "changelog": [],
+      "versionBasis": "Download labels preserve the source filenames. They are separate source snapshots, not a verified public release sequence.",
+      "requirements": [
+        "Cherax Lua host and the script’s required game build",
+        "Sovereign authentication and network access required by the script",
+        "Allow the script to install its declared Lua dependencies"
+      ]
     },
     {
       "id": "cherax-lua-startup",

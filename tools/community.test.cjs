@@ -231,15 +231,18 @@ test('local community downloads serve listed files while refusing unlisted paths
 test('resource pages expose six games and keep popup ads scoped to downloads', () => {
   const adURL = 'https://bellnewyork.org/21/916d4be3288f94a3bc49ab6cdaef5ba9';
   const container = 'container-916d4be3288f94a3bc49ab6cdaef5ba9';
+  const banner = fs.readFileSync(path.join(SITE, 'assets/ads/resource-banner.html'), 'utf8');
   for (const relative of ['resources/index.html', 'resources/guides/index.html']) {
     const html = fs.readFileSync(path.join(SITE, relative), 'utf8');
-    const scripts = [...html.matchAll(/<script\b[^>]*>/gi)].map((match) => match[0]);
+    const scripts = [...banner.matchAll(/<script\b[^>]*>/gi)].map((match) => match[0]);
     const ads = scripts.filter((tag) => tag.includes(adURL));
     assert.equal(ads.length, 1, `${relative}: ad loader count`);
     assert.match(ads[0], /\basync(?:\s|=|>)/i);
     assert.match(ads[0], /data-cfasync=["']false["']/i);
-    assert.equal([...html.matchAll(new RegExp(`\\bid=["']${container}["']`, 'g'))].length, 1,
+    assert.equal([...banner.matchAll(new RegExp(`\\bid=["']${container}["']`, 'g'))].length, 1,
       `${relative}: ad container count`);
+    assert(!html.includes(adURL), `${relative}: third-party scripts must stay inside the sandbox`);
+    assert.match(html, /<iframe[^>]+src="\/assets\/ads\/resource-banner\.html"[^>]+sandbox="allow-scripts"/);
     assert.match(html, /class="ad-sidebar" aria-label="Advertisement"/);
     for (const game of GAMES) {
       assert(new RegExp(`(?:data-game|value)=["']${game}["']`).test(html), `${relative}: missing ${game} selector`);
@@ -251,13 +254,28 @@ test('resource pages expose six games and keep popup ads scoped to downloads', (
     const bodyAd = 'https://bellnewyork.org/14/179ef803d1a93ce7af0ad7b09a49ead9';
     assert(!html.includes(headAd) && !html.includes(bodyAd), relative);
     const hasDownloads = relative === 'resources/index.html' || relative === 'resources/redm/ui-presets/index.html';
-    assert.equal(html.includes('<script src="/assets/js/download-ad.js" defer></script>'), hasDownloads, relative);
+    assert.equal(html.includes('<script src="/assets/js/download-ad.js?v=download-flow-2" defer></script>'), hasDownloads, relative);
     assert(html.includes('href="https://ardance.org/4/3d6b7c040dd994f3036ea9636c9e70dd"'), relative);
   }
   const ui = fs.readFileSync(path.join(SITE, 'resources/index.html'), 'utf8')
     + fs.readFileSync(path.join(SITE, 'resources/catalog.js'), 'utf8');
+  const implementation = ui.match(/function updateThemeFilters\(\) \{[\s\S]*?(?=\nfunction updateControls)/)?.[0];
+  assert(implementation, 'Theme filter behavior must be available');
+  const menus = require('../resources/menus.js');
+  const visible = new Set();
+  for (const game of ['gta5', 'rdr2']) {
+    const controls = Object.fromEntries(['ui', 'style', 'ui-field', 'style-field'].map(id => [id, {
+      replaceChildren(...options) { options.forEach(option => visible.add(option.text)); }
+    }]));
+    require('node:vm').runInNewContext(implementation + '\nupdateThemeFilters();', {
+      state: { game, menu: 'scooby', category: 'themes', ui: '', style: '' },
+      selectedEntries: () => library().items.filter(item => item.game === game && item.category === 'themes' && menus.supports(item, 'scooby')),
+      $: id => controls[id], Option: function (text, value) { this.text = text; this.value = value; },
+      normalize: value => String(value || '').toLowerCase().replace(/[^a-z0-9]/g, ''), setSelect: () => {}
+    });
+  }
   for (const label of ['ClickUI', 'ListUI', '2Take1', 'Stand', 'Impulse', 'Silkroad', 'Ozark', 'X-Force']) {
-    assert(ui.includes(label), `Missing interface/style filter: ${label}`);
+    assert(visible.has(label), `Missing interface/style filter: ${label}`);
   }
 });
 

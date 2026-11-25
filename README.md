@@ -37,6 +37,8 @@ More details: [development notes](project/DEV.md).
 
 ## Resources
 
+The resource browser loads compressed catalogs for the selected game. GTA 5 and RDR2 also have smaller bundles for each menu, so visiting one menu does not require transferring that game's complete catalog. The build resolves overrides before selecting records, preserving listings, download versions, tags, compatibility and legacy assignments. Missing menu bundles fall back to the complete compressed catalog, then the plain JSON catalog. Rebuild with `node tools/build-resource-bundles.cjs` or the normal resource/site build.
+
 `/resources/` is the Resources browser for GTA 5, RDR2, CS2, FiveM, RedM and Left 4 Dead, with a visible category sidebar, game-specific filters, search, previews and downloads. `/resources/guides/` provides game-specific installation instructions. Both pages include the requested advertisement placement. Imported Lua examples are excluded from the catalog and download repository.
 
 The original 22,100 GTA vehicle/outfit records remain in `community/data/vehicles/` and `community/data/outfits/`. The extended Scooby asset catalog is `community/data/library.json`. Download payloads, CS2 model catalog metadata and model previews are organized in the sibling `cool-repo` checkout. Its `index.html` redirects to `https://scoobymenu.cc/resources/`; direct file URLs still work. Third-party CS2 model packages retain their author download URLs and credit/license metadata. Donor-generated variants are installed through the in-game Repo. Nenyoo-only theme bundles are kept separately in `cool-repo/catalog/source-theme-packs.json`, outside the active Scooby catalog.

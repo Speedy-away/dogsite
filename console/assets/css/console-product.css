@@ -1,4 +1,6 @@
 .console-product-page .content-grid{margin-top:32px}
+.console-product-page .purchase-btn:disabled{width:100%;box-sizing:border-box;font:inherit;opacity:.65;cursor:not-allowed;transform:none;box-shadow:none}
+.console-product-page .console-preview-caption{margin:12px 0 0;color:var(--text-secondary,#a9b4ae);font-size:.875rem;line-height:1.7}
 .console-cover{min-width:0;overflow:hidden;border:1px solid var(--border-color);border-radius:16px;background:rgba(16,18,20,.94)}
 .console-cover .catalog-art{position:relative;isolation:isolate;aspect-ratio:16/10;overflow:hidden}
 .console-cover img{display:block;width:100%;height:100%;object-fit:contain;padding:12%;box-sizing:border-box}

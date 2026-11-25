@@ -29,7 +29,8 @@ for (const image of document.querySelectorAll('[data-resource-image], [data-reso
 }
 
 for (const button of document.querySelectorAll('[data-download-file]')) {
-  button.addEventListener('click', async () => {
+  button.addEventListener('click', async event => {
+    if (button.disabled) return;
     const status = button.closest('.resource-sample').querySelector('.resource-download-status');
     button.disabled = true;
     status.textContent = 'Preparing download…';
@@ -68,7 +69,8 @@ for (const button of document.querySelectorAll('[data-download-file]')) {
       anchor.click();
       anchor.remove();
       if (object) setTimeout(() => URL.revokeObjectURL(object), 10000);
-      status.textContent = native ? 'Download started.' : 'Downloaded.';
+      status.textContent = 'Download started.';
+      globalThis.ScoobyDownloadAd?.open(event);
     } catch { status.textContent = 'Download unavailable. Please try again.'; }
     finally { button.disabled = false; }
   });

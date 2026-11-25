@@ -136,7 +136,7 @@ function writeGuides(guides, inventory) {
 <script>location.replace(${JSON.stringify(target)} + location.search + location.hash);</script><noscript><meta http-equiv="refresh" content="0;url=${target}"></noscript>
 </head><body><p>Continue to the <a href="${target}">resource installation guide</a>.</p></body></html>\n`);
   }
-  fs.writeFileSync(manifest, JSON.stringify(guides.routes, null, 2) + '\n');
+  require('./generated-file.cjs').writeIfChanged(manifest, JSON.stringify(guides.routes, null, 2) + '\n');
 }
 
 module.exports = { buildGuideData, writeGuides };

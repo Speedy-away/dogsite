@@ -55,6 +55,7 @@ let defaultAdditionDates = {};
 let historicalAdditionDates = new Map();
 let libraryError = false;
 let cheraxArchiveError = false;
+let cheraxArchive = null;
 let entries = [];
 let menuCategoryCounts = new Map();
 let nativeFormatDefault = false;
@@ -319,29 +320,32 @@ function prettySize(size) {
   return `${(bytes / 1073741824).toFixed(2)} GB`;
 }
 
-async function loadLibrary() {
-  const [base, supplemental, reviewed, addons, history, nenyoo, scoobyLua] = await Promise.allSettled([
-    json('/community/data/library.json'), json('/community/data/menu-resources.json'), json('/community/data/gta5-editions.json'),
-    json('/community/data/gta5-addons.json'), json('/community/data/resource-additions.json'), json('/community/data/nenyoo.json'),
-    json('/community/data/scooby-lua.json')
-  ]);
+async function loadLibrary(game, token) {
+  const url = '/community/data/games/' + game + '.json';
+  let bundle;
+  if ('DecompressionStream' in globalThis) {
+    const candidates = menuSystem.menusFor(game).length > 1 ? [url.replace('.json', `-${state.menu}.json.gz`), url + '.gz'] : [url + '.gz'];
+    for (const packed of candidates) {
+      if (!cache.has(packed)) cache.set(packed, fetch(packed, { signal: AbortSignal.timeout(20000) }).then(response => {
+        if (!response.ok || !response.body) throw new Error('Collection unavailable');
+        return new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
+      }).catch(error => { cache.delete(packed); throw error; }));
+      try { bundle = await cache.get(packed); break; } catch { /* Try the complete catalog if a menu bundle is not deployed yet. */ }
+    }
+    if (!bundle) bundle = await json(url);
+  } else bundle = await json(url);
+  if (token !== loadRevision) return;
+  cheraxArchive = bundle['cherax-resources'];
+  library = bundle.library;
+  menuResources = bundle['menu-resources'];
+  gtaEditionCatalog = bundle['gta5-editions'];
+  gtaAddonCatalog = bundle['gta5-addons'];
+  nenyooCatalog = bundle.nenyoo;
+  scoobyLuaCatalog = bundle['scooby-lua'];
+  const history = bundle['resource-additions'];
+  defaultAdditionDates = history.defaults;
+  historicalAdditionDates = new Map(Object.entries(history.batches).flatMap(([date, ids]) => ids.map(id => [id, date])));
   libraryError = false;
-  if (base.status === 'fulfilled' && Array.isArray(base.value.items)) library = base.value;
-  else libraryError = true;
-  if (supplemental.status === 'fulfilled' && Array.isArray(supplemental.value.items)) menuResources = supplemental.value;
-  else libraryError = true;
-  if (reviewed.status === 'fulfilled' && Array.isArray(reviewed.value.items)) gtaEditionCatalog = reviewed.value;
-  else libraryError = true;
-  if (addons.status === 'fulfilled' && Array.isArray(addons.value.items)) gtaAddonCatalog = addons.value;
-  else libraryError = true;
-  if (nenyoo.status === 'fulfilled' && Array.isArray(nenyoo.value.items)) nenyooCatalog = nenyoo.value;
-  else libraryError = true;
-  if (scoobyLua.status === 'fulfilled' && Array.isArray(scoobyLua.value.items)) scoobyLuaCatalog = scoobyLua.value;
-  else libraryError = true;
-  if (history.status === 'fulfilled') {
-    defaultAdditionDates = history.value.defaults;
-    historicalAdditionDates = new Map(Object.entries(history.value.batches).flatMap(([date, ids]) => ids.map(id => [id, date])));
-  }
 }
 
 async function loadLegacy(family) {
@@ -608,7 +612,7 @@ function updateControls() {
     $('catalog-warning').append(node('span', 'Some resources could not be loaded. Existing GTA 5 presets are still available. '));
     const retry = node('button', 'Retry catalog');
     retry.type = 'button';
-    retry.onclick = async () => { retry.disabled = true; await loadLibrary(); await loadGame(); };
+    retry.onclick = async () => { retry.disabled = true; await loadGame(); };
     $('catalog-warning').append(retry);
   }
 }
@@ -632,9 +636,11 @@ async function loadGame() {
   $('next').disabled = true;
   try {
     const game = state.game;
+    await loadLibrary(game, token);
+    if (token !== loadRevision) return;
     const [original, archive] = game === 'gta5' ? await Promise.all([
       Promise.all([loadLegacy('vehicles'), loadLegacy('outfits')]).then(rows => rows.flat()),
-      json('/community/data/cherax-resources.json').catch(() => null)
+      Promise.resolve(cheraxArchive)
     ]) : [[], null];
     if (token !== loadRevision) return;
     cheraxArchiveError = game === 'gta5' && !archive;
@@ -727,7 +733,8 @@ function downloadButton(file, container) {
   button.type = 'button';
   button.setAttribute('data-download-ad', '');
   let error;
-  button.onclick = async () => {
+  button.onclick = async event => {
+    if (button.disabled) return;
     const directURL = new URL(file.url);
     const archive = ['zip', 'rar', '7z', 'gz'].includes(menuSystem.fileExtension(file));
     const storedFile = directURL.origin === location.origin || directURL.hostname === 'raw.githubusercontent.com';
@@ -742,6 +749,7 @@ function downloadButton(file, container) {
       anchor.click();
       anchor.remove();
       button.textContent = 'Download started';
+      globalThis.ScoobyDownloadAd?.open(event);
       return;
     }
     button.disabled = true;
@@ -766,7 +774,8 @@ function downloadButton(file, container) {
       anchor.click();
       anchor.remove();
       setTimeout(() => URL.revokeObjectURL(objectURL), 10000);
-      button.textContent = 'Downloaded ✓';
+      button.textContent = 'Download started';
+      globalThis.ScoobyDownloadAd?.open(event);
     } catch {
       button.textContent = 'Retry download';
       error = node('p', 'Download unavailable. Please retry.', 'download-error');
@@ -1060,7 +1069,7 @@ async function openLinkedResource(token) {
   const hash = location.hash;
   const view = routes.resourceView(hash);
   if (!view || resourceDialogs.matches(hash)) return;
-  const entry = entries.find(entry => routes.resourceHash(entry.id, view) === hash);
+  const entry = entries.find(entry => [entry.id, ...(entry.aliases || [])].some(id => routes.resourceHash(id, view) === hash));
   if (!entry) return;
   if (view === 'changelog') {
     if (hasChangelog(entry)) showChangelog(entry);
@@ -1428,7 +1437,7 @@ if (initialPath === routes.base && !location.search && !location.hash && typeof 
 (async () => {
   updatePageTab();
   setLoading(true);
-  const libraryReady = loadLibrary();
+
   const [collections, guides] = await Promise.allSettled([json('/resources/routes.json'), json('/resources/guides/routes.json')]);
   if (collections.status === 'fulfilled') for (const pathname of collections.value) publishedRoutes.add(pathname);
   if (guides.status === 'fulfilled') publishedGuides = guides.value;
@@ -1439,7 +1448,7 @@ if (initialPath === routes.base && !location.search && !location.hash && typeof 
     return;
   }
   saveState(true);
-  await libraryReady;
+
   catalogReady = true;
   await loadGame();
 })();

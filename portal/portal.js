@@ -383,8 +383,8 @@ async function api(method, endpoint, body = null) {
 
     try {
         const response = await fetch(url, options);
-        const data = await response.json();
-        return { ok: response.ok, status: response.status, data };
+        const data = await response.json().catch(() => null);
+        return { ok: response.ok && data !== null, status: response.status, data: data ?? { success: false } };
     } catch (error) {
         console.error(`API error: ${error.message}`);
         return { ok: false, status: 0, data: { message: error.message } };
@@ -617,6 +617,10 @@ function showPage(page, updateUrl = true) {
 }
 
 // ==================== AUTHENTICATION ====================
+document.getElementById('profilePasswordLink')?.addEventListener('click', () => {
+    document.getElementById('forgotPasswordIdentifier').value = currentUser?.username || '';
+});
+
 async function validateSession() {
     const result = await api('GET', '/auth/session');
     if (result.ok && result.data.valid) {
@@ -777,27 +781,31 @@ async function resendVerification() {
 }
 
 async function requestPasswordReset() {
-    const identifier = document.getElementById('forgotPasswordIdentifier')?.value.trim() || pendingResetEmail;
+    const btn = document.querySelector('#page-forgot-password .btn-primary');
+    if (btn.disabled) return;
+    const identifier = document.getElementById('forgotPasswordIdentifier').value.trim();
 
     if (!identifier) {
         showAlert('forgotPasswordAlert', 'Please enter your email or username', 'danger');
         return;
     }
 
-    pendingResetEmail = identifier;
-
     // Send as email if it contains @, otherwise as username
     const body = identifier.includes('@') ? { email: identifier } : { username: identifier };
 
-    const btn = document.querySelector('#page-forgot-password .btn-primary');
     setButtonLoading(btn, true);
 
     const result = await api('POST', '/auth/password-reset/request', body);
 
     setButtonLoading(btn, false, '<i class="fas fa-envelope"></i> Send Reset Code');
 
-    if (result.ok) {
+    if (result.ok && result.data.success) {
+        pendingResetEmail = identifier;
+        for (const id of ['resetPasswordCode', 'resetPasswordNew', 'resetPasswordConfirm']) {
+            document.getElementById(id).value = '';
+        }
         showPage('reset-password');
+        document.getElementById('resetPasswordCode').focus();
         showToast('Reset code sent!', 'success');
 
         // Show debug code if present (dev mode)
@@ -812,16 +820,33 @@ async function requestPasswordReset() {
 }
 
 async function confirmPasswordReset() {
+    const btn = document.querySelector('#page-reset-password .btn-primary');
+    if (btn.disabled) return;
     const code = document.getElementById('resetPasswordCode').value.trim();
     const new_password = document.getElementById('resetPasswordNew').value;
+    const confirmation = document.getElementById('resetPasswordConfirm').value;
+
+    if (!pendingResetEmail) {
+        showPage('forgot-password');
+        showAlert('forgotPasswordAlert', 'Request a reset code to continue.', 'info');
+        return;
+    }
 
     if (!code) {
         showAlert('resetPasswordAlert', 'Please enter the reset code', 'danger');
         return;
     }
 
-    if (!new_password) {
-        showAlert('resetPasswordAlert', 'Please enter a new password', 'danger');
+    if (!/^[A-Za-z0-9]{8,}$/.test(new_password) || !/[A-Z]/.test(new_password) ||
+        !/[a-z]/.test(new_password) || !/[0-9]/.test(new_password)) {
+        showAlert('resetPasswordAlert', 'Use at least 8 characters with an uppercase letter, a lowercase letter, and a number. No special characters or spaces.', 'danger');
+        document.getElementById('resetPasswordNew').focus();
+        return;
+    }
+
+    if (new_password !== confirmation) {
+        showAlert('resetPasswordAlert', 'The new passwords must match.', 'danger');
+        document.getElementById('resetPasswordConfirm').focus();
         return;
     }
 
@@ -833,17 +858,23 @@ async function confirmPasswordReset() {
         username: !pendingResetEmail.includes('@') ? pendingResetEmail : undefined
     };
 
-    const btn = document.querySelector('#page-reset-password .btn-primary');
     setButtonLoading(btn, true);
 
     const result = await api('POST', '/auth/password-reset/confirm', body);
 
     setButtonLoading(btn, false, '<i class="fas fa-key"></i> Reset Password');
 
-    if (result.ok) {
-        showToast('Password reset successfully!', 'success');
+    if (result.ok && result.data.success) {
+        for (const id of ['resetPasswordCode', 'resetPasswordNew', 'resetPasswordConfirm']) {
+            document.getElementById(id).value = '';
+        }
         pendingResetEmail = '';
+        sessionToken = '';
+        localStorage.removeItem('portalSessionToken');
+        currentUser = null;
+        updateUIForGuest();
         showPage('login');
+        showToast('Password changed. Sign in with your new password.', 'success');
     } else {
         showAlert('resetPasswordAlert', result.data.message || 'Failed to reset password', 'danger');
     }

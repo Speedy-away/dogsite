@@ -101,7 +101,7 @@
             .portal-modern .nav-tab i { display: none; }
             .dashboard-heading { align-items: flex-start; margin-bottom: 23px; }
             .dashboard-account-tag { display: none; }
-            .dashboard-grid { grid-template-columns: 1fr; grid-template-areas: "redeem" "download" "products" "hwid"; gap: 14px; }
+            .dashboard-grid { grid-template-columns: 1fr; grid-template-areas: "redeem" "download" "hwid" "products"; gap: 14px; }
             .dashboard-column { display: contents; }
             .dashboard-card[aria-labelledby="dashboardRedeemHeading"] { grid-area: redeem; }
             .dashboard-card[aria-labelledby="dashboardProductsHeading"] { grid-area: products; }
@@ -114,8 +114,8 @@
     <link rel="stylesheet" href="portal-refresh.css?v=a4e06e9172">
     <link rel="stylesheet" href="portal-backgrounds.css?v=20260924-account">
     <link rel="stylesheet" href="portal-messages.css?v=1">
-    <link rel="stylesheet" href="portal-navigation.css?v=622d326507">
-    <link rel="stylesheet" href="portal-account.css?v=031b7afc51">
+    <link rel="stylesheet" href="portal-navigation.css?v=mobile-security">
+    <link rel="stylesheet" href="portal-account.css?v=email-security">
     <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
 <body class="portal-modern auth-mode">
@@ -215,9 +215,9 @@
                 <div>
                     <div class="dashboard-eyebrow">Your account</div>
                     <h1 id="dashboardTitle">Welcome to Scooby.</h1>
-                    <p>Your products, your keys. Everything in one place.</p>
+                    <p>Manage your licenses, downloads, and account.</p>
                 </div>
-                <span class="dashboard-account-tag"><i class="fas fa-user-circle" aria-hidden="true"></i><span id="dashboardAccountLabel">Member portal</span></span>
+                <a class="dashboard-button secondary dashboard-profile-link" id="dashboardAccountLink" href="#profile" hidden><i class="far fa-user" aria-hidden="true"></i> My profile</a>
             </div>
             <div class="dashboard-signin" id="dashboardSignIn">
                 <span>Sign in to view your products and manage your account.</span>
@@ -237,8 +237,15 @@
                     </section>
                     <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
                         <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>
-                        <p class="dashboard-description">Get the latest loader and jump back in.</p>
+                        <p class="dashboard-description">Get the latest Scooby loader for Windows.</p>
                         <button class="dashboard-button" id="dashboardDownloadButton" type="button" aria-haspopup="dialog" aria-controls="dashboardDownloadDialog"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader</button>
+                    </section>
+                    <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
+                        <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
+                        <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
+                        <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
+                        <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
+                        <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
                     </section>
                 </div>
                 <div class="dashboard-column">
@@ -248,13 +255,6 @@
                         <div class="dashboard-products" id="dashboardProducts" aria-live="polite">
                             <div class="dashboard-empty"><i class="fas fa-cube" aria-hidden="true"></i><strong>Your library lives here</strong>Sign in to see your products.</div>
                         </div>
-                    </section>
-                    <section class="dashboard-card" aria-labelledby="dashboardHwidHeading">
-                        <h2 id="dashboardHwidHeading"><i class="fas fa-desktop" aria-hidden="true"></i> Reset HWID</h2>
-                        <p class="dashboard-description">Changed devices? Reset your hardware ID to get set up again.</p>
-                        <div class="dashboard-hwid-details"><span>Reset availability</span><strong id="dashboardHwidStatus">Sign in to check</strong></div>
-                        <button class="dashboard-button secondary" id="dashboardResetButton" type="button" disabled><i class="fas fa-rotate-right" aria-hidden="true"></i> Reset HWID</button>
-                        <p class="dashboard-message" id="dashboardHwidMessage" role="status"></p>
                     </section>
                 </div>
             </div>
@@ -307,8 +307,8 @@
                     <div class="auth-body">
                         <div id="forgotPasswordAlert"></div>
                         <div class="form-row">
-                            <label>Email or Username</label>
-                            <input type="text" class="form-input" id="forgotPasswordIdentifier" placeholder="Enter your email or username" onkeypress="if(event.key==='Enter')requestPasswordReset()">
+                            <label for="forgotPasswordIdentifier">Email or Username</label>
+                            <input type="text" class="form-input" id="forgotPasswordIdentifier" placeholder="Enter your email or username" autocomplete="username" autocapitalize="off" spellcheck="false" onkeypress="if(event.key==='Enter')requestPasswordReset()">
                         </div>
                         <button class="btn btn-primary btn-block" onclick="requestPasswordReset()">
                             <i class="fas fa-envelope"></i> Send Reset Code
@@ -331,12 +331,17 @@
                     <div class="auth-body">
                         <div id="resetPasswordAlert"></div>
                         <div class="form-row">
-                            <label>Reset Code</label>
-                            <input type="text" class="form-input" id="resetPasswordCode" placeholder="Enter reset code">
+                            <label for="resetPasswordCode">Reset Code</label>
+                            <input type="text" class="form-input" id="resetPasswordCode" placeholder="Enter reset code" inputmode="numeric" autocomplete="one-time-code">
                         </div>
                         <div class="form-row">
-                            <label>New Password</label>
-                            <input type="password" class="form-input" id="resetPasswordNew" placeholder="Enter new password" onkeypress="if(event.key==='Enter')confirmPasswordReset()">
+                            <label for="resetPasswordNew">New Password</label>
+                            <input type="password" class="form-input" id="resetPasswordNew" autocomplete="new-password" minlength="8" aria-describedby="resetPasswordRules">
+                            <p class="dashboard-description" id="resetPasswordRules">Use at least 8 characters with an uppercase letter, a lowercase letter, and a number. No special characters or spaces.</p>
+                        </div>
+                        <div class="form-row">
+                            <label for="resetPasswordConfirm">Confirm new password</label>
+                            <input type="password" class="form-input" id="resetPasswordConfirm" autocomplete="new-password" onkeypress="if(event.key==='Enter')confirmPasswordReset()">
                         </div>
                         <button class="btn btn-primary btn-block" onclick="confirmPasswordReset()">
                             <i class="fas fa-key"></i> Reset Password
@@ -892,6 +897,17 @@
                     </div>
                 </div>
             </div>
+            <section class="content-card profile-section" aria-labelledby="changePasswordHeading">
+                <div class="card-header">
+                    <h2 id="changePasswordHeading"><i class="fas fa-lock" aria-hidden="true"></i> Account security</h2>
+                </div>
+                <div class="card-body">
+                    <div class="profile-password">
+                        <p class="dashboard-description">Use a code sent to your account email to change your password.</p>
+                        <a class="dashboard-button secondary" id="profilePasswordLink" href="#forgot-password">Change password</a>
+                    </div>
+                </div>
+            </section>
             <div class="content-card profile-section">
                 <div class="card-header">
                     <h2><i class="fas fa-user-circle"></i> About</h2>
@@ -1649,7 +1665,7 @@
         </div>
         <div class="portal-download-footer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Downloads open in a new tab.</div>
     </dialog>
-    <script src="portal.js?v=8abc0cfbdd"></script>
+    <script src="portal.js?v=email-security"></script>
     <script src="portal-refresh.js?v=20261005-game-logos"></script>
     <script src="portal-navigation.js?v=20260924-account"></script>
     <script src="portal-backgrounds.js?v=20260924-account"></script>
@@ -1710,7 +1726,7 @@
             portalText(byId('dashboardTitle'), signedIn ? 'Welcome, {name}!' : 'Welcome to Scooby.', {
                 name: currentUser?.display_name || currentUser?.username || 'Scooby'
             });
-            byId('dashboardAccountLabel').textContent = signedIn ? 'My account' : 'Member portal';
+            byId('dashboardAccountLink').hidden = !signedIn;
             byId('dashboardSignIn').hidden = signedIn;
             byId('dashboardLicenseKey').disabled = !signedIn || redeemBusy;
             byId('dashboardRedeemButton').disabled = !signedIn || redeemBusy;
@@ -1883,6 +1899,11 @@
             if (currentUser && page === 'dashboard') {
                 const next = takeReturnPath();
                 if (next) { location.replace(next); return; }
+            }
+            if (page !== 'reset-password') {
+                byId('resetPasswordCode').value = '';
+                byId('resetPasswordNew').value = '';
+                byId('resetPasswordConfirm').value = '';
             }
             originalShowPage(page, updateUrl);
             const activePage = document.querySelector('.page-view.active');

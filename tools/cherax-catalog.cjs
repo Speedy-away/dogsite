@@ -81,6 +81,7 @@ function applyCheraxCatalog(catalog) {
       ...previews.get(entry.id)
     };
   });
+  catalog.items = require('../resources/menus.js').deduplicateCheraxLua(catalog.items);
   catalog.libraryOverrides = catalog.libraryOverrides.map(entry => ({ ...entry, ...vehicleDlc(entry), ...previews.get(entry.id) }));
 }
 

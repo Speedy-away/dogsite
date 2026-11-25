@@ -117831,80 +117831,155 @@
       "collectionStatus": "archival"
     },
     {
-      "name": "Host - Tools 1.9.0",
+      "name": "Host Tools",
       "category": "lua",
-      "description": "Cherax Lua script from the local collection. Download pending.",
       "sourceMenu": "cherax",
       "supportedMenus": [
-        "cherax",
-        "scooby"
+        "cherax"
       ],
-      "sourceFilename": "Host - Tools 1.9.0.lua",
+      "sourceChannel": "lua-scripts",
       "collection": "local",
-      "version": "1.9.0",
-      "compatibility": "Original Cherax Lua script; the host compatibility layer and script dependencies must match. Individual runtime behavior has not been tested.",
-      "requirementLabel": "Cherax Lua API compatibility layer",
-      "requirements": [
-        "Cherax Lua API or the matching compatibility layer in the installed Scooby/Nenyoo build",
-        "Install required script libraries and use the game edition specified by the author"
-      ],
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
-        "Lua",
         "Cherax",
-        "Host - Tools 1.9.0.lua"
+        "Session",
+        "Utility",
+        "Lua",
+        "Host - Tools 1.9.0.lua",
+        "lua-scripts",
+        "current"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "version": "1.9.0",
+          "date": "2026-11-08",
+          "changes": [
+            "Added player notes and crew-based blocking.",
+            "Expanded flag matching and recent-player information.",
+            "Updated HUD grouping and corrected player-tab flag refresh."
+          ]
+        }
+      ],
       "game": "gta5",
+      "credits": "Original developer unverified",
       "listedMenus": [
         "cherax"
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
+      "previewVerified": false,
       "downloadStatus": "pending",
       "status": "pending",
       "files": [],
-      "formatExtension": "lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "menu-cherax-lua-host---tools-1-9-0-lua",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-host-tools",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "description": "Host Tools for the Cherax Lua host.",
+      "sourceFilename": "Host-Tools-v1.7.2.lua",
+      "version": "1.9.0",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "requirements": [
+        "Cherax Lua API or the matching compatibility layer in the installed Scooby/Nenyoo build",
+        "Install required script libraries and use the game edition specified by the author"
+      ],
+      "formatExtension": "lua",
+      "aliases": [
+        "menu-cherax-lua-host---tools-1-9-0-lua",
+        "cherax-lua-thread-1521248688293417020"
+      ],
+      "author": "Plynko",
+      "downloadLabel": "Download unavailable"
     },
     {
-      "name": "Vibescript v2.5.1",
+      "name": "VibeScript",
       "category": "lua",
-      "description": "Cherax Lua script from the local collection. Download pending.",
       "sourceMenu": "cherax",
       "supportedMenus": [
-        "cherax",
-        "scooby"
+        "cherax"
       ],
-      "sourceFilename": "Vibescript v2.5.1.lua",
+      "sourceChannel": "lua-scripts",
       "collection": "local",
-      "version": "2.5.1",
-      "compatibility": "Original Cherax Lua script; the host compatibility layer and script dependencies must match. Individual runtime behavior has not been tested.",
-      "requirementLabel": "Cherax Lua API compatibility layer",
-      "requirements": [
-        "Cherax Lua API or the matching compatibility layer in the installed Scooby/Nenyoo build",
-        "Install required script libraries and use the game edition specified by the author"
-      ],
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
-        "Lua",
         "Cherax",
-        "Vibescript v2.5.1.lua"
+        "Utility",
+        "Lua",
+        "Vibescript v2.5.1.lua",
+        "lua-scripts",
+        "current"
       ],
       "changelog": [],
       "game": "gta5",
+      "credits": "Original developer unverified",
       "listedMenus": [
         "cherax"
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "formatExtension": "lua",
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/f9a64af144f3acb7c8bd.lua",
+          "name": "Vibescript v2.5.1.lua",
+          "size": 3160272,
+          "sha256": "f9a64af144f3acb7c8bd4a3d4f021b0be9e2a010acdafd9f2752ecbfd5d76556",
+          "versionLabel": "v2.5.1"
+        },
+        {
+          "url": "/assets/downloads/cherax/e8932aa2ee680fba105c.lua",
+          "name": "vibeScript-2.2.1.lua",
+          "size": 2069868,
+          "sha256": "e8932aa2ee680fba105c6661c5555fbc785fddba04a3ff00ea6805b4bb3f58aa",
+          "versionLabel": "v2.2.1"
+        },
+        {
+          "url": "/assets/downloads/cherax/2b2f3836e6c42cbbf21a.lua",
+          "name": "vibeScript-2.1.0.lua",
+          "size": 1715017,
+          "sha256": "2b2f3836e6c42cbbf21a0dab7e20298c867e003e74e93241b5fb07e362c23d1f",
+          "versionLabel": "v2.1.0"
+        },
+        {
+          "url": "/assets/downloads/cherax/3c4265e6b75debab1b8c.lua",
+          "name": "Vibescript v2.0.0.lua",
+          "size": 1504746,
+          "sha256": "3c4265e6b75debab1b8c327326e7853fd82592532fd53aea77e9f09b018708e1",
+          "versionLabel": "v2.0.0"
+        },
+        {
+          "url": "/assets/downloads/cherax/c8b85edead5d34936267.lua",
+          "name": "VibeScript.lua",
+          "size": 617303,
+          "sha256": "c8b85edead5d349362672010a6de3b381fbe415491845fbb7b5c21687285aa5c",
+          "versionLabel": "VibeScript"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "menu-cherax-lua-vibescript-v2-5-1-lua",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-vibescript",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "description": "VibeScript for the Cherax Lua host.",
+      "sourceFilename": "Vibescript v2.5.1.lua",
+      "version": "2.5.1",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "requirements": [
+        "Cherax Lua API or the matching compatibility layer in the installed Scooby/Nenyoo build",
+        "Install required script libraries and use the game edition specified by the author"
+      ],
+      "formatExtension": "lua",
+      "aliases": [
+        "menu-cherax-lua-vibescript-v2-5-1-lua",
+        "cherax-lua-thread-1536653998189449317"
+      ],
+      "author": "Author unverified",
+      "preview": "/assets/images/resource-previews/cherax/20d4d692ede2a21855ef.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share"
     },
     {
       "name": "cherax_classic_wp_1",
@@ -229638,15 +229713,61 @@
       "collection": "old",
       "collectionStatus": "archival",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Original-menu resource. Host, format and game-edition compatibility require review.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Session",
+        "HUD",
         "translation-shares-old",
         "archival",
         "lua",
-        "old shares"
+        "old shares",
+        "lua-scripts",
+        "current"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "date": "2026-10-02",
+          "version": "1.0.18",
+          "changes": [
+            "Adds browser event notifications and an expanded minimap HUD adapter.",
+            "Persists retaliation settings and fixes the disabled auto-bounty setting after reload."
+          ],
+          "dateBasis": "startup.build_date and production header"
+        },
+        {
+          "version": "1.0.16",
+          "changes": [
+            "Updates advertising controls and account linking, with revised activity/HUD layouts and session-routing safeguards."
+          ]
+        },
+        {
+          "version": "1.0.15",
+          "changes": [
+            "Repairs Browser joins and improves cancellation of duplicate or stale join attempts.",
+            "Prepares Prime Browser support and reduces startup renderer work."
+          ]
+        },
+        {
+          "version": "1.0.13",
+          "changes": [
+            "Introduces live sessions and events, favorites, reputation and moderation controls.",
+            "Adds automatic Browser asset delivery and recovery."
+          ]
+        },
+        {
+          "version": "1.0.11",
+          "changes": [
+            "Expands session routing, HUD cards and Prime support with improved diagnostics and onboarding."
+          ]
+        },
+        {
+          "version": "1.0.10",
+          "changes": [
+            "Repairs blank startup menus and improves advertising, settings discovery and guided setup."
+          ]
+        }
+      ],
       "game": "gta5",
       "credits": "Original developer unverified",
       "listedMenus": [
@@ -229654,13 +229775,61 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/7a23309db7ae4db76501.lua",
+          "name": "Startup v1.0.18.lua",
+          "size": 4600281,
+          "sha256": "7a23309db7ae4db76501ccdd84f65a7ab860279cf40760477fd88bdccd4d9dd2",
+          "versionLabel": "v1.0.18"
+        },
+        {
+          "url": "/assets/downloads/cherax/fab6e07c723ca54532f2.lua",
+          "name": "Startup-v1.0.17.lua",
+          "size": 3917111,
+          "sha256": "fab6e07c723ca54532f2716d9e32d126bb706df8ceacb64183fb051fbcac396a",
+          "versionLabel": "v1.0.17"
+        },
+        {
+          "url": "/assets/downloads/cherax/aa5805bac105bd073bdc.lua",
+          "name": "Startup v1.0.15 v2.lua",
+          "size": 3320534,
+          "sha256": "aa5805bac105bd073bdc21ff66f4af1762918b3064c455429ae805a8b674e144",
+          "versionLabel": "v1.0.15 (revision 2)"
+        },
+        {
+          "url": "/assets/downloads/cherax/042f341438830ece26ca.lua",
+          "name": "Startup v1.0.14 .lua",
+          "size": 3168896,
+          "sha256": "042f341438830ece26ca6e53e30cd9a66f09c90749fbd3afb83296ad3395256f",
+          "versionLabel": "v1.0.14"
+        },
+        {
+          "url": "/assets/downloads/cherax/6a6027bb00a29ab3a83e.lua",
+          "name": "Startup-1.0.11.lua",
+          "size": 1072591,
+          "sha256": "6a6027bb00a29ab3a83e0839b9fc370f241a4e2d86106db3b1c5e98cf00f0bba",
+          "versionLabel": "v1.0.11"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-export-1240977647769616425-1448055936894894102-1448055936962007202",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-startup",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "aliases": [
+        "cherax-export-1240977647769616425-1448055936894894102-1448055936962007202",
+        "cherax-lua-thread-1531445791724670976"
+      ],
+      "sourceFilename": "Startup v1.0.18.lua",
+      "formatExtension": "lua",
+      "author": "Public_Urinal",
+      "description": "Startup for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/32fdc59d3fa341f1f1d2.webp",
+      "previewKind": "author-artwork",
+      "previewCaption": "Artwork from the author’s repository"
     },
     {
       "name": "2take1",
@@ -229706,9 +229875,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Vehicles",
+        "Protected",
         "lua-scripts",
         "current"
       ],
@@ -229720,13 +229891,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/3e88f42bd669ee3bcebe.lua",
+          "name": "Aerials.lua",
+          "size": 1397515,
+          "sha256": "3e88f42bd669ee3bcebed7c6766832d15838680d55853769dc36129565cef9a3",
+          "versionLabel": "Aerials"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1525326387286638632",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-aerials",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Aerials.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Aerials for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/3bf40937bed0b8b5fc5e.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1525326387286638632"
+      ]
     },
     {
       "name": "Auto Translator",
@@ -229739,9 +229929,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Translation",
+        "Utility",
         "lua-scripts",
         "current"
       ],
@@ -229754,12 +229946,28 @@
       "menuResource": true,
       "sourceCatalog": "menu-resources",
       "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/67204e9f96f9103971ef.lua",
+          "name": "Auto-Translator.lua",
+          "size": 28029,
+          "sha256": "67204e9f96f9103971ef8a1a41f2960b4b1843fa70b5c3dfc851d2c925bb7c28",
+          "versionLabel": "Auto-Translator"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1495666539771199528",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-auto-translator",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Auto-Translator.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Auto Translator for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "aliases": [
+        "cherax-lua-thread-1495666539771199528"
+      ]
     },
     {
       "name": "BiggerScript",
@@ -229796,7 +230004,7 @@
       "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
-      "name": "BunnyScript LE & EE",
+      "name": "BunnyScript",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -229806,9 +230014,12 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Utility",
+        "Legacy",
+        "Enhanced",
         "lua-scripts",
         "current"
       ],
@@ -229825,8 +230036,17 @@
       "status": "pending",
       "files": [],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1496553653899628685",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-bunnyscript",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "BunnyScript LE & EE v2.5.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "BunnyScript for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "downloadLabel": "Download unavailable",
+      "aliases": [
+        "cherax-lua-thread-1496553653899628685"
+      ]
     },
     {
       "name": "BusinessTracker",
@@ -229905,9 +230125,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Translation",
+        "Chat",
         "lua-scripts",
         "current"
       ],
@@ -229924,11 +230146,20 @@
       "status": "pending",
       "files": [],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1509840201508458567",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-cheems-translator",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "CheemsTranslator.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "CheemsTranslator for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "downloadLabel": "Download unavailable",
+      "aliases": [
+        "cherax-lua-thread-1509840201508458567"
+      ]
     },
     {
-      "name": "CheraxDOOM",
+      "name": "Cherax Doom",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -229938,9 +230169,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Minigame",
+        "DOOM",
         "lua-scripts",
         "current"
       ],
@@ -229953,12 +230186,28 @@
       "menuResource": true,
       "sourceCatalog": "menu-resources",
       "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/a29619b264ef658d44ca.lua",
+          "name": "Cherax-Doom.lua",
+          "size": 442533,
+          "sha256": "a29619b264ef658d44ca6799e4f378fb01ecdb7eefb360e740229b1a74932398",
+          "versionLabel": "v1.0.0"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1522677778699255928",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-cherax-doom",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Cherax-Doom.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Cherax Doom for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "aliases": [
+        "cherax-lua-thread-1522677778699255928"
+      ]
     },
     {
       "name": "Codax",
@@ -229971,9 +230220,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Heists",
+        "Compiled",
         "lua-scripts",
         "current"
       ],
@@ -229985,13 +230236,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/bfc0bf0dda26998cc43e.lua",
+          "name": "Codax.lua",
+          "size": 7692612,
+          "sha256": "bfc0bf0dda26998cc43e36203ecd0b87b181a2bd5144be3dbc0ed8c50d04c922",
+          "versionLabel": "Codax"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1495396954727776337",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-codax",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Codax.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Codax for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/e6e552b83cef6add701e.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1495396954727776337"
+      ]
     },
     {
       "name": "Crimson Vehicles",
@@ -230004,9 +230274,10 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Vehicles",
         "lua-scripts",
         "current"
       ],
@@ -230018,13 +230289,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/f8afed722daa3c0ca2dd.lua",
+          "name": "Crimson-Vehicles.lua",
+          "size": 142490,
+          "sha256": "f8afed722daa3c0ca2ddce61dd840402441c97497c41a5cd9a0b484f7f34b8a9",
+          "versionLabel": "Crimson-Vehicles"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1531109179731869696",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-crimson-vehicles",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Crimson-Vehicles.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Crimson Vehicles for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/b4d058bc90d8eb6e9d4e.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1531109179731869696"
+      ]
     },
     {
       "name": "DaiveKit",
@@ -230037,9 +230327,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Utility",
+        "Compiled",
         "lua-scripts",
         "current"
       ],
@@ -230051,13 +230343,25 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
+      "previewVerified": true,
       "downloadStatus": "pending",
       "status": "pending",
       "files": [],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1495392826219954196",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-daivekit",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "DaiveKit-v2.7.1.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "DaiveKit for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "downloadLabel": "Download unavailable",
+      "preview": "/assets/images/resource-previews/cherax/e61c12cf428018ad2d8e.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1495392826219954196"
+      ]
     },
     {
       "name": "Discord RPC Reborn",
@@ -230070,13 +230374,40 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Rich Presence",
+        "Utility",
         "lua-scripts",
         "current"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "version": "1.2.4",
+          "changes": [
+            "Adds an image-based crosshair and refreshes presence after returning to the main menu."
+          ]
+        },
+        {
+          "version": "1.2.3",
+          "changes": [
+            "Adds a configurable crosshair and repairs menu rendering errors."
+          ]
+        },
+        {
+          "version": "1.2.0",
+          "changes": [
+            "Detects casino activity and improves character-editing, session-change and state detection."
+          ]
+        },
+        {
+          "version": "1.1.0",
+          "changes": [
+            "Introduces public Rich Presence support with activity tracking, configurable buttons and sound options."
+          ]
+        }
+      ],
       "game": "gta5",
       "credits": "Original developer unverified",
       "listedMenus": [
@@ -230084,13 +230415,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/bfb47bbd0afa08b2d635.lua",
+          "name": "Discord-RPC-Reborn.lua",
+          "size": 49452,
+          "sha256": "bfb47bbd0afa08b2d635f1a1c7a36eb2f605eb5f5792fd2aa3ec99da78a0116c",
+          "versionLabel": "v1.2.4"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1509661047127281878",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-discord-rpc-reborn",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Discord-RPC-Reborn.lua",
+      "formatExtension": "lua",
+      "author": "nightkitty",
+      "description": "Discord RPC Reborn for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/951756fd0c11a0ad9b2f.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1509661047127281878"
+      ]
     },
     {
       "name": "DriftGod",
@@ -230103,14 +230453,71 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Vehicles",
+        "Drift",
         "lua-scripts",
         "current",
         "mp4"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "version": "1.0.7",
+          "changes": [
+            "Expands corner-speed assistance and first-use driving guidance.",
+            "Adds smoke and neon progression, animation presets and persistent activation preferences.",
+            "Improves popup, spawn and onboarding handling while retaining existing saved progress."
+          ]
+        },
+        {
+          "version": "1.0.6",
+          "changes": [
+            "Introduces separate account score profiles, upload pacing and recovery.",
+            "Refreshes live leaderboards and blocks Story Mode submissions; identity and scores remain client-reported."
+          ]
+        },
+        {
+          "version": "1.0.5",
+          "changes": [
+            "Combines online leaderboards, a Rival HUD and separate Drift / Power Glide rankings.",
+            "Adds first-run asset installation, onboarding and score checkpoints."
+          ]
+        },
+        {
+          "version": "1.0.4",
+          "changes": [
+            "Adds Power Glide handling presets and Drift Smoke unlocks.",
+            "Improves dashboard navigation, garage integration and diagnostic dialogs."
+          ]
+        },
+        {
+          "version": "1.0.3",
+          "changes": [
+            "Keeps manually chosen drift presets after startup and unlock checks.",
+            "Prevents chat input from operating HUD menus and improves reload and smoke cleanup."
+          ]
+        },
+        {
+          "version": "1.0.2",
+          "changes": [
+            "Improves low-speed acceleration assistance and enables tuning when a base preset is selected."
+          ]
+        },
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Adds Prime-aware runtime and cleanup handling, recursive garage scanning and configurable garage shortcuts."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Establishes the production package with quieter startup, protected settings and revised rewards and HUD shortcuts."
+          ]
+        }
+      ],
       "game": "gta5",
       "credits": "Original developer unverified",
       "listedMenus": [
@@ -230118,16 +230525,56 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/351eee8b0ddaf1c9826c.lua",
+          "name": "DriftGod v1.0.7.lua",
+          "size": 5499918,
+          "sha256": "351eee8b0ddaf1c9826ccd1485a72e4fd1acc27cc0f73ec4675dcd608b635a27",
+          "versionLabel": "v1.0.7"
+        },
+        {
+          "url": "/assets/downloads/cherax/521acd1a318c49b4d4a3.lua",
+          "name": "DriftGod-v1.0.6 .lua",
+          "size": 4810146,
+          "sha256": "521acd1a318c49b4d4a3aace85907711f2081c43a0664db9adfd93cbcdbe0d28",
+          "versionLabel": "v1.0.6"
+        },
+        {
+          "url": "/assets/downloads/cherax/bd8f6cf49103157e1d05.lua",
+          "name": "DRIFTGOD v1.0.5.lua",
+          "size": 4785030,
+          "sha256": "bd8f6cf49103157e1d057e26af6e072ac2143d25e0afd9551fe2ce70c1dcacca",
+          "versionLabel": "v1.0.5"
+        },
+        {
+          "url": "/assets/downloads/cherax/28f3502b5f06f75c6cf7.lua",
+          "name": "DriftGod.lua",
+          "size": 4256163,
+          "sha256": "28f3502b5f06f75c6cf7be8c0008b41c8eb530fd4aacabbb8f2b05e88db0ffd4",
+          "versionLabel": "DriftGod"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1521558422259241091",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-driftgod",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "DriftGod v1.0.7.lua",
+      "formatExtension": "lua",
+      "author": "Public_Urinal / Animus",
+      "description": "DriftGod for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/41776d00c0bd3ff5a176.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1521558422259241091"
+      ]
     },
     {
-      "name": "Flying Cars",
+      "name": "Flying Cars SA",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -230137,13 +230584,29 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Vehicles",
+        "Flight",
+        "Alpha",
         "lua-scripts",
         "current"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "version": "1.0.1 Alpha",
+          "changes": [
+            "Streamlines native/input/render calls, persistence and compatibility handling."
+          ]
+        },
+        {
+          "version": "1.0.0 Alpha",
+          "changes": [
+            "Introduces car-flight physics, camera guidance, configurable shortcuts and saved scores with landing validation."
+          ]
+        }
+      ],
       "game": "gta5",
       "credits": "Original developer unverified",
       "listedMenus": [
@@ -230151,46 +230614,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/63458a22ef4a7b6eb896.lua",
+          "name": "Flying-Cars.lua",
+          "size": 135522,
+          "sha256": "63458a22ef4a7b6eb896e2ff59ed1c2a6a87d3bfb7164ce4ec561f527ac2b2e7",
+          "versionLabel": "v1.0.1 Alpha"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1542999066999521400",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "Host Tools",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1521248688293417020",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-flying-cars-sa",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Flying-Cars.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Flying Cars SA for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/1bd62ff0507e3f71e08a.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1542999066999521400"
+      ]
     },
     {
       "name": "HotkeyManager",
@@ -230236,13 +230685,61 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "HUD",
+        "Ledger",
         "lua-scripts",
         "current"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "date": "2026-08-14",
+          "version": "1.0.9",
+          "changes": [
+            "Removes Smart Heists integration and its controls for other scripts."
+          ],
+          "dateBasis": "script_build = 2026.08.14.061 and versioned header changelog"
+        },
+        {
+          "version": "1.0.5",
+          "changes": [
+            "Updates Legacy/Enhanced wallet tracking, baseline recovery and deferred resets.",
+            "Expands payout diagnostics and support archive generation."
+          ]
+        },
+        {
+          "version": "1.0.4",
+          "changes": [
+            "Adds balance tracking across transitions, separate edition ledgers and automatic support diagnostics."
+          ]
+        },
+        {
+          "version": "1.0.3",
+          "changes": [
+            "Speeds up payout scanning and expands transition coverage."
+          ]
+        },
+        {
+          "version": "1.0.2",
+          "changes": [
+            "Adds a saved setting that keeps the HUD visible without a timeout."
+          ]
+        },
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Separates ledgers by Rockstar account and tidies the interface."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Introduces rolling one-day and seven-day money tracking."
+          ]
+        }
+      ],
       "game": "gta5",
       "credits": "Original developer unverified",
       "listedMenus": [
@@ -230250,13 +230747,39 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/f88b308348d71cf92db2.lua",
+          "name": "HustleMeter-v1.0.9.lua",
+          "size": 1077668,
+          "sha256": "f88b308348d71cf92db28820c70259fdb36dc4b519bc393678ba56fc39f4061c",
+          "versionLabel": "v1.0.9"
+        },
+        {
+          "url": "/assets/downloads/cherax/c937d079ebf184f66a8d.lua",
+          "name": "HustleMeter v1.0.7.lua",
+          "size": 1171246,
+          "sha256": "c937d079ebf184f66a8d7aba5684d9f4085c24983402740ba974ce68ced0fc84",
+          "versionLabel": "v1.0.7"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1522724364804685925",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-hustlemeter",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "HustleMeter-v1.0.9.lua",
+      "formatExtension": "lua",
+      "author": "Public_Urinal",
+      "description": "HustleMeter for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/cb1c1755bc1a3c55c191.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1522724364804685925"
+      ]
     },
     {
       "name": "Impulse",
@@ -230292,7 +230815,7 @@
       "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
-      "name": "Ji9sw - Gun Van [UPDATED]",
+      "name": "Ji9sw Gun Van",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -230302,9 +230825,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Vehicles",
+        "Utility",
         "lua-scripts",
         "current"
       ],
@@ -230316,16 +230841,35 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/940a6bce3a55becca438.lua",
+          "name": "J19sw-Gun-Van.lua",
+          "size": 37777,
+          "sha256": "940a6bce3a55becca4380b162fe1b1d81ad59dd5ef6c1bfa7bf783dfe11d235a",
+          "versionLabel": "J19sw-Gun-Van"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1525905280267981040",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-gun-van",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "J19sw-Gun-Van.lua",
+      "formatExtension": "lua",
+      "author": "Ji9sw",
+      "description": "Ji9sw Gun Van for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/01f57ad51b7eedaf9fd5.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1525905280267981040"
+      ]
     },
     {
-      "name": "Ji9sw - Racing Lines",
+      "name": "Ji9sw Racing Lines",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -230335,9 +230879,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Vehicles",
+        "Racing",
         "lua-scripts",
         "current"
       ],
@@ -230349,13 +230895,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/89d99d699d119a604249.lua",
+          "name": "Ji9sw-Racing-Lines.lua",
+          "size": 16354,
+          "sha256": "89d99d699d119a6042490e0fd8701ca1b0aab0e6976e951bcf736a067a6a370d",
+          "versionLabel": "Ji9sw-Racing-Lines"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1527052467458674708",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-racing-lines",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Ji9sw-Racing-Lines.lua",
+      "formatExtension": "lua",
+      "author": "Ji9sw",
+      "description": "Ji9sw Racing Lines for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/e931f18bdac91ab605dd.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1527052467458674708"
+      ]
     },
     {
       "name": "K-Script",
@@ -230401,9 +230966,10 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Heists",
         "lua-scripts",
         "current"
       ],
@@ -230415,16 +230981,35 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/f8ab82b3a998984ecd39.lua",
+          "name": "Kortz-Heist-Helper.lua",
+          "size": 30418,
+          "sha256": "f8ab82b3a998984ecd39603dd19304042d2b63605df74466826ccc46c71233f6",
+          "versionLabel": "Kortz-Heist-Helper"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1528382791975309362",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-kortz-heist",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Kortz-Heist-Helper.lua",
+      "formatExtension": "lua",
+      "author": "Forlax",
+      "description": "Kortz Heist Helper for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/1e8350a7d5ce9440e021.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1528382791975309362"
+      ]
     },
     {
-      "name": "LiquitFit - Outfit Manager",
+      "name": "LiquidFit",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -230434,9 +231019,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Outfits",
+        "Editor",
         "lua-scripts",
         "current",
         "zip"
@@ -230449,13 +231036,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/ad6cacbf93851c3cdadf.lua",
+          "name": "LiquidFit-Outfit-manager.lua",
+          "size": 146608,
+          "sha256": "ad6cacbf93851c3cdadfdad7d592ad025cc82836f8a53c0952e300009317437d",
+          "versionLabel": "v1.1.1"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1527684730768855222",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-liquidfit",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "LiquidFit-Outfit-manager.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "LiquidFit for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/9c42711b03691f892cd3.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1527684730768855222"
+      ]
     },
     {
       "name": "Oddssey",
@@ -230501,9 +231107,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Outfits",
+        "Editor",
         "lua-scripts",
         "current"
       ],
@@ -230515,13 +231123,32 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/23a1f43c3d34c6497b7d.lua",
+          "name": "OutfitForge.lua",
+          "size": 84027,
+          "sha256": "23a1f43c3d34c6497b7da8e577c3c681fb3f8de973f382232969cd79a7c392a4",
+          "versionLabel": "OutfitForge"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1540426898939584634",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-outfitforge",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "OutfitForge.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "OutfitForge for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/0cb2abfb4ba4c6d03bca.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1540426898939584634"
+      ]
     },
     {
       "name": "OutfitManager",
@@ -230601,9 +231228,11 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Console",
+        "Utility",
         "lua-scripts",
         "current"
       ],
@@ -230615,16 +231244,35 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/194a7ec51089f5e7131a.lua",
+          "name": "Smart-Console.lua",
+          "size": 115195,
+          "sha256": "194a7ec51089f5e7131af0b7e306172c26c01c9c17f9d22d4ddd3e4f82389065",
+          "versionLabel": "v1.0.1"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1563621511816937622",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-smart-console",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Smart-Console.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Smart Console for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/a14c63a0c4e82a704d4d.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1563621511816937622"
+      ]
     },
     {
-      "name": "Sovereign Script",
+      "name": "Sovereign",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -230633,10 +231281,12 @@
       "sourceChannel": "lua-scripts",
       "collection": "current",
       "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "versionBasis": "Download labels preserve the source filenames. They are separate source snapshots, not a verified public release sequence.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Utility",
+        "Sovereign2",
         "lua-scripts",
         "current"
       ],
@@ -230648,13 +231298,44 @@
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/d871f6d7b23a28d7b9a6.lua",
+          "name": "Sovereign-1.0.0.lua",
+          "size": 3909954,
+          "sha256": "d871f6d7b23a28d7b9a65ca5044994570e56661aef530b8d31dc0e4ac035294f",
+          "versionLabel": "Sovereign-1.0.0.lua"
+        },
+        {
+          "url": "/assets/downloads/cherax/24b005d7e0bc4e9d1e5f.lua",
+          "name": "Sovereign2.lua",
+          "size": 3987744,
+          "sha256": "24b005d7e0bc4e9d1e5fb51ff1bcaaeb004a695586e6120a4e91343e036c6eca",
+          "versionLabel": "Sovereign2.lua"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1561386308000026736",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-sovereign",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Sovereign-1.0.0.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Sovereign for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "requirements": [
+        "Cherax Lua host and the script’s required game build",
+        "Sovereign authentication and network access required by the script",
+        "Allow the script to install its declared Lua dependencies"
+      ],
+      "preview": "/assets/images/resource-previews/cherax/6f72c0c1b2d02fc42184.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1561386308000026736"
+      ]
     },
     {
       "name": "Spoof Rank to 32-Bit Integer",
@@ -230690,7 +231371,7 @@
       "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
-      "name": "TrackMatic",
+      "name": "Trackmatic",
       "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
@@ -230700,13 +231381,89 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
       "tags": [
         "Cherax",
+        "Tracks",
+        "Constructor",
         "lua-scripts",
         "current"
       ],
-      "changelog": [],
+      "changelog": [
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Revises Cherax call handling and build cancellation.",
+            "Caches display calculations to reduce repeated menu work."
+          ]
+        },
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Packages the production interface, cleaner startup logging and error handling."
+          ]
+        },
+        {
+          "version": "0.9.9",
+          "changes": [
+            "Repairs Home-tab style colors and ImGui compatibility."
+          ]
+        },
+        {
+          "version": "0.9.8",
+          "changes": [
+            "Reorganizes the TrackMatic interface and tab navigation."
+          ]
+        },
+        {
+          "version": "0.9.7",
+          "changes": [
+            "Improves saved-course loading, metadata and management."
+          ]
+        },
+        {
+          "version": "0.9.6",
+          "changes": [
+            "Uses a flag icon and GPS route for course starts."
+          ]
+        },
+        {
+          "version": "0.9.5",
+          "changes": [
+            "Adds automatically placed course-start markers."
+          ]
+        },
+        {
+          "version": "0.9.3",
+          "changes": [
+            "Adds a library for saving, loading and browsing tracks."
+          ]
+        },
+        {
+          "version": "0.9.2",
+          "changes": [
+            "Adds ninety point-to-point drift routes."
+          ]
+        },
+        {
+          "version": "0.9.1",
+          "changes": [
+            "Adds thirty tuner settings for both Parkour and Hybrid courses."
+          ]
+        },
+        {
+          "version": "0.9.0",
+          "changes": [
+            "Connects hover previews to the course planner."
+          ]
+        },
+        {
+          "version": "0.8.0",
+          "changes": [
+            "Adds advanced course tuning, live 3D previews and saved tuner settings."
+          ]
+        }
+      ],
       "game": "gta5",
       "credits": "Original developer unverified",
       "listedMenus": [
@@ -230715,12 +231472,28 @@
       "menuResource": true,
       "sourceCatalog": "menu-resources",
       "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/cb241c48bcc135ec9451.lua",
+          "name": "TRACKMATIC v1.0.1.lua",
+          "size": 1732916,
+          "sha256": "cb241c48bcc135ec9451f17f60fc3ef67584b7a87003999b5c3aac011b4278ac",
+          "versionLabel": "v1.0.1"
+        }
+      ],
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1564519600480063488",
-      "addedAt": "2026-11-13T01:38:55.639Z"
+      "id": "cherax-lua-trackmatic",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "TRACKMATIC v1.0.1.lua",
+      "formatExtension": "lua",
+      "author": "Public_Urinal",
+      "description": "Trackmatic for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "aliases": [
+        "cherax-lua-thread-1564519600480063488"
+      ]
     },
     {
       "name": "Vehicle Forge",
@@ -230733,314 +231506,83 @@
       "collection": "current",
       "collectionStatus": "current",
       "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1541858263937581106",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "VibeScript",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1536653998189449317",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "Yasko Script / Body accessories",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1550614136830824448",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "elloscript",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1533249283011121182",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "ツ Silent Night",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1495522511415152790",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "🎨 PaintLabs",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1543000109921607750",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "🕹️ Minigames",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current",
-        "mp4"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1556808851322314822",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "name": "🚀Startup",
-      "category": "lua",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "sourceChannel": "lua-scripts",
-      "collection": "current",
-      "collectionStatus": "current",
-      "versionBasis": "No unmistakable package version.",
-      "compatibility": "Requires the original Cherax Lua API; Scooby/Nenyoo compatibility is unverified.",
-      "tags": [
-        "Cherax",
-        "lua-scripts",
-        "current"
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "credits": "Original developer unverified",
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "previewVerified": false,
-      "downloadStatus": "pending",
-      "status": "pending",
-      "files": [],
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "id": "cherax-lua-thread-1531445791724670976",
-      "addedAt": "2026-11-13T01:38:55.639Z"
-    },
-    {
-      "id": "cherax-lua-auto-translator",
-      "category": "lua",
-      "name": "Auto Translator",
-      "sourceFilename": "Auto-Translator.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Auto Translator for the Cherax Lua host.",
       "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
       "tags": [
         "Cherax",
-        "Translation",
-        "Utility"
+        "Vehicles",
+        "Editor",
+        "lua-scripts",
+        "current"
       ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Original developer unverified",
+      "listedMenus": [
+        "cherax"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "previewVerified": false,
+      "downloadStatus": "available",
+      "status": "download",
       "files": [
         {
-          "url": "/assets/downloads/cherax/67204e9f96f9103971ef.lua",
-          "name": "Auto-Translator.lua",
-          "size": 28029,
-          "sha256": "67204e9f96f9103971ef8a1a41f2960b4b1843fa70b5c3dfc851d2c925bb7c28",
-          "versionLabel": "Auto-Translator"
+          "url": "/assets/downloads/cherax/660e228fc3cf5c01a467.lua",
+          "name": "Vehicle-Forge.lua",
+          "size": 60571,
+          "sha256": "660e228fc3cf5c01a4673d34a0f4a2d31c498d704bafeae37ba9fd94ffaaea06",
+          "versionLabel": "v1.0.1"
+        },
+        {
+          "url": "/assets/downloads/cherax/7848bde3a00dcaaf969a.lua",
+          "name": "vehicleForge.lua",
+          "size": 57184,
+          "sha256": "7848bde3a00dcaaf969abec58b9adb57a8739ad2f18767d3417c4ac6b8bc55d1",
+          "versionLabel": "vehicleForge"
         }
       ],
-      "changelog": [],
-      "game": "gta5",
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "id": "cherax-lua-vehicle-forge",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Vehicle-Forge.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Vehicle Forge for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "aliases": [
+        "cherax-lua-thread-1541858263937581106"
+      ]
+    },
+    {
+      "name": "Body Accessories",
+      "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
         "cherax"
       ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-body-accessories",
-      "category": "lua",
-      "name": "Body Accessories",
-      "sourceFilename": "Body-Accessories.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Body Accessories for the Cherax Lua host.",
+      "sourceChannel": "lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
       "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
       "tags": [
         "Cherax",
         "Outfits",
-        "Props"
+        "Props",
+        "lua-scripts",
+        "current"
       ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Original developer unverified",
+      "listedMenus": [
+        "cherax"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
       "files": [
         {
           "url": "/assets/downloads/cherax/c83fa45d21fae403a159.lua",
@@ -231050,57 +231592,338 @@
           "versionLabel": "Body-Accessories"
         }
       ],
-      "changelog": [],
-      "game": "gta5",
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "id": "cherax-lua-body-accessories",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Body-Accessories.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Body Accessories for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/91cc5d3e7b4b06b2bd49.webp",
+      "previewKind": "source-lua",
+      "previewCaption": "Screenshot from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1550614136830824448"
+      ]
+    },
+    {
+      "name": "ElloScript",
+      "category": "lua",
       "sourceMenu": "cherax",
       "supportedMenus": [
         "cherax"
       ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/91cc5d3e7b4b06b2bd49.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
-      "id": "cherax-lua-bunnyscript",
-      "category": "lua",
-      "name": "BunnyScript",
-      "sourceFilename": "BunnyScript LE & EE v2.5.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "BunnyScript for the Cherax Lua host.",
+      "sourceChannel": "lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
       "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
       "tags": [
         "Cherax",
         "Utility",
-        "Legacy",
-        "Enhanced"
+        "lua-scripts",
+        "current"
       ],
-      "files": [],
       "changelog": [],
       "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
+      "credits": "Original developer unverified",
       "listedMenus": [
         "cherax"
       ],
       "menuResource": true,
       "sourceCatalog": "menu-resources",
-      "status": "pending",
-      "downloadStatus": "pending",
-      "downloadLabel": "Download unavailable",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
+      "previewVerified": false,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/69ce12bd48f02f3c8808.lua",
+          "name": "ElloScript-v1.5.lua",
+          "size": 475580,
+          "sha256": "69ce12bd48f02f3c8808e5b758789cf3498499bac6465b7712a44d8a27c27377",
+          "versionLabel": "v1.5"
+        },
+        {
+          "url": "/assets/downloads/cherax/1a73fc1c7aae34d17170.lua",
+          "name": "elloscript.lua",
+          "size": 199337,
+          "sha256": "1a73fc1c7aae34d171703b7d543b22fd6143be032fd77ecc48d3d9a1b14e498a",
+          "versionLabel": "elloscript"
+        }
+      ],
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "id": "cherax-lua-elloscript",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "ElloScript-v1.5.lua",
+      "formatExtension": "lua",
+      "author": "elloeu",
+      "description": "ElloScript for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "aliases": [
+        "cherax-lua-thread-1533249283011121182"
+      ]
+    },
+    {
+      "name": "Silent Night",
+      "category": "lua",
+      "sourceMenu": "cherax",
+      "supportedMenus": [
+        "cherax"
+      ],
+      "sourceChannel": "lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
+      "tags": [
+        "Cherax",
+        "Heists",
+        "GTA 1.73",
+        "lua-scripts",
+        "current"
+      ],
+      "changelog": [],
+      "game": "gta5",
+      "credits": "Original developer unverified",
+      "listedMenus": [
+        "cherax"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/86445d087174f8bb95b6.lua",
+          "name": "Silent-Night-v1.13.3.lua",
+          "size": 1013057,
+          "sha256": "86445d087174f8bb95b65bdcbe1f1b0095959459fca4a6726ea9d1578392ff12",
+          "versionLabel": "v1.13.3"
+        },
+        {
+          "url": "/assets/downloads/cherax/6d0b6abd2908f9890e58.lua",
+          "name": "Silent Night v1.13.1.lua",
+          "size": 1011690,
+          "sha256": "6d0b6abd2908f9890e58f8ce55bd4b88884f2d3cfe5fb7589fe3d9bc4140baa1",
+          "versionLabel": "v1.13.1"
+        },
+        {
+          "url": "/assets/downloads/cherax/c0e569fb2e2b80377345.lua",
+          "name": "Silent Night v1.13.0.lua",
+          "size": 1010177,
+          "sha256": "c0e569fb2e2b80377345e82306dcd4e7f6f37101248214402f25cb278776ac5a",
+          "versionLabel": "v1.13.0"
+        },
+        {
+          "url": "/assets/downloads/cherax/f78a2ba0b0be5ebd9ff3.lua",
+          "name": "SilentNight-77.lua",
+          "size": 1013190,
+          "sha256": "f78a2ba0b0be5ebd9ff304a1bd98980bb7fb1968504eff991e5e938cd9e483c3",
+          "versionLabel": "SilentNight-77"
+        }
+      ],
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "id": "cherax-lua-silent-night",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Silent-Night-v1.13.3.lua",
+      "formatExtension": "lua",
+      "author": "Author unverified",
+      "description": "Silent Night for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/6c7652ed200619887d06.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1495522511415152790"
+      ]
+    },
+    {
+      "name": "PaintLabs",
+      "category": "lua",
+      "sourceMenu": "cherax",
+      "supportedMenus": [
+        "cherax"
+      ],
+      "sourceChannel": "lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
+      "tags": [
+        "Cherax",
+        "Vehicles",
+        "Paint",
+        "lua-scripts",
+        "current"
+      ],
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "changes": [
+            "Packages the production Three Lane editor, color credits and complete lighting/smoke preset persistence.",
+            "Improves paint identifiers, Favorites migration and provenance handling."
+          ]
+        },
+        {
+          "version": "0.9.0",
+          "changes": [
+            "Introduces PaintLabs branding, complete-state presets, improved sorting and creator credit displays."
+          ]
+        },
+        {
+          "version": "0.8.0",
+          "changes": [
+            "Expands and deduplicates community colors, adds contrast/temperature controls and matures the Three Lane editing workflow."
+          ]
+        },
+        {
+          "version": "0.7.0",
+          "changes": [
+            "Adds pearlescent remixes and finish overrides while experimenting with editor layouts."
+          ]
+        },
+        {
+          "version": "0.6.0",
+          "changes": [
+            "Expands generated combinations to five hundred and adds color relatives with persistent Favorites.",
+            "Makes neon underglow optional and disabled initially."
+          ]
+        },
+        {
+          "version": "0.5.0",
+          "changes": [
+            "Introduces generated paint recommendations and expands the set to one hundred contrasting combinations."
+          ]
+        },
+        {
+          "version": "0.4.0",
+          "changes": [
+            "Creates a dedicated Exotic gallery with specialty presets and improved Favorites navigation."
+          ]
+        },
+        {
+          "version": "0.3.0",
+          "changes": [
+            "Adds a grid gallery, tire-smoke matching, preview snapshots and initial Exotic presets."
+          ]
+        },
+        {
+          "version": "0.2.0",
+          "changes": [
+            "Adds pearlescent filtering, safer preview restoration and saved-preset controls."
+          ]
+        },
+        {
+          "version": "0.1.0",
+          "changes": [
+            "Adds a browsable community color library, hover previews, Favorites and automatic showcasing."
+          ]
+        },
+        {
+          "version": "0.0.1",
+          "changes": [
+            "Introduces primary/secondary paint editing, finishes, pearlescent controls, mixing and preset saving."
+          ]
+        }
+      ],
+      "game": "gta5",
+      "credits": "Original developer unverified",
+      "listedMenus": [
+        "cherax"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/a0221e707e7e7a90ecb9.lua",
+          "name": "PaintLabs-1.02.lua",
+          "size": 490267,
+          "sha256": "a0221e707e7e7a90ecb9a4cb3aafbbc21f4ed8ed7485dff2e7e57f08f0be5022",
+          "versionLabel": "v1.0.0"
+        }
+      ],
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "id": "cherax-lua-paintlabs",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "PaintLabs-1.02.lua",
+      "formatExtension": "lua",
+      "author": "Public_Urinal",
+      "description": "PaintLabs for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/895b3b689b0f70396153.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1543000109921607750"
+      ]
+    },
+    {
+      "name": "Minigames",
+      "category": "lua",
+      "sourceMenu": "cherax",
+      "supportedMenus": [
+        "cherax"
+      ],
+      "sourceChannel": "lua-scripts",
+      "collection": "current",
+      "collectionStatus": "current",
+      "versionBasis": "No unmistakable package version.",
+      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
+      "tags": [
+        "Cherax",
+        "Minigame",
+        "lua-scripts",
+        "current",
+        "mp4"
+      ],
+      "changelog": [
+        {
+          "date": "2026-08-02",
+          "version": "1.0.0",
+          "changes": [
+            "Introduces the production Minigames release."
+          ],
+          "dateBasis": "script_release_date and initial production changelog"
+        }
+      ],
+      "game": "gta5",
+      "credits": "Original developer unverified",
+      "listedMenus": [
+        "cherax"
+      ],
+      "menuResource": true,
+      "sourceCatalog": "menu-resources",
+      "previewVerified": true,
+      "downloadStatus": "available",
+      "status": "download",
+      "files": [
+        {
+          "url": "/assets/downloads/cherax/4a3190f5e4d7683bfebe.lua",
+          "name": "Minigames-1.0.0.lua",
+          "size": 2112442,
+          "sha256": "4a3190f5e4d7683bfebe6e976e2cc7f91b47ac959537588ff5c0b52f5099828e",
+          "versionLabel": "v1.0.0"
+        }
+      ],
+      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
+      "id": "cherax-lua-minigames",
+      "addedAt": "2026-11-13T01:38:55.639Z",
+      "sourceFilename": "Minigames-1.0.0.lua",
+      "formatExtension": "lua",
+      "author": "Animus",
+      "description": "Minigames for the Cherax Lua host.",
+      "requirementLabel": "Requires the Cherax Lua API",
+      "preview": "/assets/images/resource-previews/cherax/f17a27da1af57c65b324.webp",
+      "previewKind": "source-artwork",
+      "previewCaption": "Artwork from the original script share",
+      "aliases": [
+        "cherax-lua-thread-1556808851322314822"
+      ]
     },
     {
       "id": "cherax-lua-chat-commands",
@@ -231133,243 +231956,6 @@
       "downloadStatus": "pending",
       "downloadLabel": "Download unavailable",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-cherax-doom",
-      "category": "lua",
-      "name": "Cherax Doom",
-      "sourceFilename": "Cherax-Doom.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Cherax Doom for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Minigame",
-        "DOOM"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/a29619b264ef658d44ca.lua",
-          "name": "Cherax-Doom.lua",
-          "size": 442533,
-          "sha256": "a29619b264ef658d44ca6799e4f378fb01ecdb7eefb360e740229b1a74932398",
-          "versionLabel": "v1.0.0"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-codax",
-      "category": "lua",
-      "name": "Codax",
-      "sourceFilename": "Codax.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Codax for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Heists",
-        "Compiled"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/bfc0bf0dda26998cc43e.lua",
-          "name": "Codax.lua",
-          "size": 7692612,
-          "sha256": "bfc0bf0dda26998cc43e36203ecd0b87b181a2bd5144be3dbc0ed8c50d04c922",
-          "versionLabel": "Codax"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/e6e552b83cef6add701e.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-daivekit",
-      "category": "lua",
-      "name": "DaiveKit",
-      "sourceFilename": "DaiveKit-v2.7.1.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "DaiveKit for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Utility",
-        "Compiled"
-      ],
-      "files": [],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "pending",
-      "downloadStatus": "pending",
-      "downloadLabel": "Download unavailable",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/e61c12cf428018ad2d8e.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-driftgod",
-      "category": "lua",
-      "name": "DriftGod",
-      "sourceFilename": "DriftGod v1.0.7.lua",
-      "formatExtension": "lua",
-      "author": "Public_Urinal / Animus",
-      "description": "DriftGod for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Drift"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/351eee8b0ddaf1c9826c.lua",
-          "name": "DriftGod v1.0.7.lua",
-          "size": 5499918,
-          "sha256": "351eee8b0ddaf1c9826ccd1485a72e4fd1acc27cc0f73ec4675dcd608b635a27",
-          "versionLabel": "v1.0.7"
-        },
-        {
-          "url": "/assets/downloads/cherax/521acd1a318c49b4d4a3.lua",
-          "name": "DriftGod-v1.0.6 .lua",
-          "size": 4810146,
-          "sha256": "521acd1a318c49b4d4a3aace85907711f2081c43a0664db9adfd93cbcdbe0d28",
-          "versionLabel": "v1.0.6"
-        },
-        {
-          "url": "/assets/downloads/cherax/bd8f6cf49103157e1d05.lua",
-          "name": "DRIFTGOD v1.0.5.lua",
-          "size": 4785030,
-          "sha256": "bd8f6cf49103157e1d057e26af6e072ac2143d25e0afd9551fe2ce70c1dcacca",
-          "versionLabel": "v1.0.5"
-        },
-        {
-          "url": "/assets/downloads/cherax/28f3502b5f06f75c6cf7.lua",
-          "name": "DriftGod.lua",
-          "size": 4256163,
-          "sha256": "28f3502b5f06f75c6cf7be8c0008b41c8eb530fd4aacabbb8f2b05e88db0ffd4",
-          "versionLabel": "DriftGod"
-        }
-      ],
-      "changelog": [
-        {
-          "version": "1.0.7",
-          "changes": [
-            "Expands corner-speed assistance and first-use driving guidance.",
-            "Adds smoke and neon progression, animation presets and persistent activation preferences.",
-            "Improves popup, spawn and onboarding handling while retaining existing saved progress."
-          ]
-        },
-        {
-          "version": "1.0.6",
-          "changes": [
-            "Introduces separate account score profiles, upload pacing and recovery.",
-            "Refreshes live leaderboards and blocks Story Mode submissions; identity and scores remain client-reported."
-          ]
-        },
-        {
-          "version": "1.0.5",
-          "changes": [
-            "Combines online leaderboards, a Rival HUD and separate Drift / Power Glide rankings.",
-            "Adds first-run asset installation, onboarding and score checkpoints."
-          ]
-        },
-        {
-          "version": "1.0.4",
-          "changes": [
-            "Adds Power Glide handling presets and Drift Smoke unlocks.",
-            "Improves dashboard navigation, garage integration and diagnostic dialogs."
-          ]
-        },
-        {
-          "version": "1.0.3",
-          "changes": [
-            "Keeps manually chosen drift presets after startup and unlock checks.",
-            "Prevents chat input from operating HUD menus and improves reload and smoke cleanup."
-          ]
-        },
-        {
-          "version": "1.0.2",
-          "changes": [
-            "Improves low-speed acceleration assistance and enables tuning when a base preset is selected."
-          ]
-        },
-        {
-          "version": "1.0.1",
-          "changes": [
-            "Adds Prime-aware runtime and cleanup handling, recursive garage scanning and configurable garage shortcuts."
-          ]
-        },
-        {
-          "version": "1.0.0",
-          "changes": [
-            "Establishes the production package with quieter startup, protected settings and revised rewards and HUD shortcuts."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/41776d00c0bd3ff5a176.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
     },
     {
       "id": "cherax-lua-earplugs",
@@ -231478,51 +232064,6 @@
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
     },
     {
-      "id": "cherax-lua-elloscript",
-      "category": "lua",
-      "name": "ElloScript",
-      "sourceFilename": "ElloScript-v1.5.lua",
-      "formatExtension": "lua",
-      "author": "elloeu",
-      "description": "ElloScript for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Utility"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/69ce12bd48f02f3c8808.lua",
-          "name": "ElloScript-v1.5.lua",
-          "size": 475580,
-          "sha256": "69ce12bd48f02f3c8808e5b758789cf3498499bac6465b7712a44d8a27c27377",
-          "versionLabel": "v1.5"
-        },
-        {
-          "url": "/assets/downloads/cherax/1a73fc1c7aae34d17170.lua",
-          "name": "elloscript.lua",
-          "size": 199337,
-          "sha256": "1a73fc1c7aae34d171703b7d543b22fd6143be032fd77ecc48d3d9a1b14e498a",
-          "versionLabel": "elloscript"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
       "id": "cherax-lua-extended-constructor",
       "category": "lua",
       "name": "Extended Constructor",
@@ -231559,48 +232100,6 @@
       "sourceCatalog": "menu-resources",
       "status": "download",
       "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-host-tools",
-      "category": "lua",
-      "name": "Host Tools",
-      "sourceFilename": "Host-Tools-v1.7.2.lua",
-      "formatExtension": "lua",
-      "author": "Plynko",
-      "description": "Host Tools for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Session",
-        "Utility"
-      ],
-      "files": [],
-      "changelog": [
-        {
-          "version": "1.9.0",
-          "date": "2026-11-08",
-          "changes": [
-            "Added player notes and crew-based blocking.",
-            "Expanded flag matching and recent-player information.",
-            "Updated HUD grouping and corrected player-tab flag refresh."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "pending",
-      "downloadStatus": "pending",
-      "downloadLabel": "Download unavailable",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
     },
     {
@@ -231696,281 +232195,6 @@
       "status": "download",
       "downloadStatus": "available",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-hustlemeter",
-      "category": "lua",
-      "name": "HustleMeter",
-      "sourceFilename": "HustleMeter-v1.0.9.lua",
-      "formatExtension": "lua",
-      "author": "Public_Urinal",
-      "description": "HustleMeter for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "HUD",
-        "Ledger"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/f88b308348d71cf92db2.lua",
-          "name": "HustleMeter-v1.0.9.lua",
-          "size": 1077668,
-          "sha256": "f88b308348d71cf92db28820c70259fdb36dc4b519bc393678ba56fc39f4061c",
-          "versionLabel": "v1.0.9"
-        },
-        {
-          "url": "/assets/downloads/cherax/c937d079ebf184f66a8d.lua",
-          "name": "HustleMeter v1.0.7.lua",
-          "size": 1171246,
-          "sha256": "c937d079ebf184f66a8d7aba5684d9f4085c24983402740ba974ce68ced0fc84",
-          "versionLabel": "v1.0.7"
-        }
-      ],
-      "changelog": [
-        {
-          "date": "2026-08-14",
-          "version": "1.0.9",
-          "changes": [
-            "Removes Smart Heists integration and its controls for other scripts."
-          ],
-          "dateBasis": "script_build = 2026.08.14.061 and versioned header changelog"
-        },
-        {
-          "version": "1.0.5",
-          "changes": [
-            "Updates Legacy/Enhanced wallet tracking, baseline recovery and deferred resets.",
-            "Expands payout diagnostics and support archive generation."
-          ]
-        },
-        {
-          "version": "1.0.4",
-          "changes": [
-            "Adds balance tracking across transitions, separate edition ledgers and automatic support diagnostics."
-          ]
-        },
-        {
-          "version": "1.0.3",
-          "changes": [
-            "Speeds up payout scanning and expands transition coverage."
-          ]
-        },
-        {
-          "version": "1.0.2",
-          "changes": [
-            "Adds a saved setting that keeps the HUD visible without a timeout."
-          ]
-        },
-        {
-          "version": "1.0.1",
-          "changes": [
-            "Separates ledgers by Rockstar account and tidies the interface."
-          ]
-        },
-        {
-          "version": "1.0.0",
-          "changes": [
-            "Introduces rolling one-day and seven-day money tracking."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/cb1c1755bc1a3c55c191.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
-      "id": "cherax-lua-gun-van",
-      "category": "lua",
-      "name": "Ji9sw Gun Van",
-      "sourceFilename": "J19sw-Gun-Van.lua",
-      "formatExtension": "lua",
-      "author": "Ji9sw",
-      "description": "Ji9sw Gun Van for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Utility"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/940a6bce3a55becca438.lua",
-          "name": "J19sw-Gun-Van.lua",
-          "size": 37777,
-          "sha256": "940a6bce3a55becca4380b162fe1b1d81ad59dd5ef6c1bfa7bf783dfe11d235a",
-          "versionLabel": "J19sw-Gun-Van"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/01f57ad51b7eedaf9fd5.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-kortz-heist",
-      "category": "lua",
-      "name": "Kortz Heist Helper",
-      "sourceFilename": "Kortz-Heist-Helper.lua",
-      "formatExtension": "lua",
-      "author": "Forlax",
-      "description": "Kortz Heist Helper for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Heists"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/f8ab82b3a998984ecd39.lua",
-          "name": "Kortz-Heist-Helper.lua",
-          "size": 30418,
-          "sha256": "f8ab82b3a998984ecd39603dd19304042d2b63605df74466826ccc46c71233f6",
-          "versionLabel": "Kortz-Heist-Helper"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/1e8350a7d5ce9440e021.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
-      "id": "cherax-lua-liquidfit",
-      "category": "lua",
-      "name": "LiquidFit",
-      "sourceFilename": "LiquidFit-Outfit-manager.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "LiquidFit for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Outfits",
-        "Editor"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/ad6cacbf93851c3cdadf.lua",
-          "name": "LiquidFit-Outfit-manager.lua",
-          "size": 146608,
-          "sha256": "ad6cacbf93851c3cdadfdad7d592ad025cc82836f8a53c0952e300009317437d",
-          "versionLabel": "v1.1.1"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/9c42711b03691f892cd3.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
-      "id": "cherax-lua-minigames",
-      "category": "lua",
-      "name": "Minigames",
-      "sourceFilename": "Minigames-1.0.0.lua",
-      "formatExtension": "lua",
-      "author": "Animus",
-      "description": "Minigames for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Minigame"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/4a3190f5e4d7683bfebe.lua",
-          "name": "Minigames-1.0.0.lua",
-          "size": 2112442,
-          "sha256": "4a3190f5e4d7683bfebe6e976e2cc7f91b47ac959537588ff5c0b52f5099828e",
-          "versionLabel": "v1.0.0"
-        }
-      ],
-      "changelog": [
-        {
-          "date": "2026-08-02",
-          "version": "1.0.0",
-          "changes": [
-            "Introduces the production Minigames release."
-          ],
-          "dateBasis": "script_release_date and initial production changelog"
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/f17a27da1af57c65b324.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
     },
     {
       "id": "cherax-lua-modverse",
@@ -232110,161 +232334,6 @@
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
     },
     {
-      "id": "cherax-lua-outfitforge",
-      "category": "lua",
-      "name": "OutfitForge",
-      "sourceFilename": "OutfitForge.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "OutfitForge for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Outfits",
-        "Editor"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/23a1f43c3d34c6497b7d.lua",
-          "name": "OutfitForge.lua",
-          "size": 84027,
-          "sha256": "23a1f43c3d34c6497b7da8e577c3c681fb3f8de973f382232969cd79a7c392a4",
-          "versionLabel": "OutfitForge"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/0cb2abfb4ba4c6d03bca.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
-      "id": "cherax-lua-paintlabs",
-      "category": "lua",
-      "name": "PaintLabs",
-      "sourceFilename": "PaintLabs-1.02.lua",
-      "formatExtension": "lua",
-      "author": "Public_Urinal",
-      "description": "PaintLabs for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Paint"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/a0221e707e7e7a90ecb9.lua",
-          "name": "PaintLabs-1.02.lua",
-          "size": 490267,
-          "sha256": "a0221e707e7e7a90ecb9a4cb3aafbbc21f4ed8ed7485dff2e7e57f08f0be5022",
-          "versionLabel": "v1.0.0"
-        }
-      ],
-      "changelog": [
-        {
-          "version": "1.0.0",
-          "changes": [
-            "Packages the production Three Lane editor, color credits and complete lighting/smoke preset persistence.",
-            "Improves paint identifiers, Favorites migration and provenance handling."
-          ]
-        },
-        {
-          "version": "0.9.0",
-          "changes": [
-            "Introduces PaintLabs branding, complete-state presets, improved sorting and creator credit displays."
-          ]
-        },
-        {
-          "version": "0.8.0",
-          "changes": [
-            "Expands and deduplicates community colors, adds contrast/temperature controls and matures the Three Lane editing workflow."
-          ]
-        },
-        {
-          "version": "0.7.0",
-          "changes": [
-            "Adds pearlescent remixes and finish overrides while experimenting with editor layouts."
-          ]
-        },
-        {
-          "version": "0.6.0",
-          "changes": [
-            "Expands generated combinations to five hundred and adds color relatives with persistent Favorites.",
-            "Makes neon underglow optional and disabled initially."
-          ]
-        },
-        {
-          "version": "0.5.0",
-          "changes": [
-            "Introduces generated paint recommendations and expands the set to one hundred contrasting combinations."
-          ]
-        },
-        {
-          "version": "0.4.0",
-          "changes": [
-            "Creates a dedicated Exotic gallery with specialty presets and improved Favorites navigation."
-          ]
-        },
-        {
-          "version": "0.3.0",
-          "changes": [
-            "Adds a grid gallery, tire-smoke matching, preview snapshots and initial Exotic presets."
-          ]
-        },
-        {
-          "version": "0.2.0",
-          "changes": [
-            "Adds pearlescent filtering, safer preview restoration and saved-preset controls."
-          ]
-        },
-        {
-          "version": "0.1.0",
-          "changes": [
-            "Adds a browsable community color library, hover previews, Favorites and automatic showcasing."
-          ]
-        },
-        {
-          "version": "0.0.1",
-          "changes": [
-            "Introduces primary/secondary paint editing, finishes, pearlescent controls, mixing and preset saving."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/895b3b689b0f70396153.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
       "id": "cherax-lua-pvp-helper",
       "category": "lua",
       "name": "PVP Helper",
@@ -232302,534 +232371,6 @@
       "status": "download",
       "downloadStatus": "available",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-silent-night",
-      "category": "lua",
-      "name": "Silent Night",
-      "sourceFilename": "Silent-Night-v1.13.3.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Silent Night for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Heists",
-        "GTA 1.73"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/86445d087174f8bb95b6.lua",
-          "name": "Silent-Night-v1.13.3.lua",
-          "size": 1013057,
-          "sha256": "86445d087174f8bb95b65bdcbe1f1b0095959459fca4a6726ea9d1578392ff12",
-          "versionLabel": "v1.13.3"
-        },
-        {
-          "url": "/assets/downloads/cherax/6d0b6abd2908f9890e58.lua",
-          "name": "Silent Night v1.13.1.lua",
-          "size": 1011690,
-          "sha256": "6d0b6abd2908f9890e58f8ce55bd4b88884f2d3cfe5fb7589fe3d9bc4140baa1",
-          "versionLabel": "v1.13.1"
-        },
-        {
-          "url": "/assets/downloads/cherax/c0e569fb2e2b80377345.lua",
-          "name": "Silent Night v1.13.0.lua",
-          "size": 1010177,
-          "sha256": "c0e569fb2e2b80377345e82306dcd4e7f6f37101248214402f25cb278776ac5a",
-          "versionLabel": "v1.13.0"
-        },
-        {
-          "url": "/assets/downloads/cherax/f78a2ba0b0be5ebd9ff3.lua",
-          "name": "SilentNight-77.lua",
-          "size": 1013190,
-          "sha256": "f78a2ba0b0be5ebd9ff304a1bd98980bb7fb1968504eff991e5e938cd9e483c3",
-          "versionLabel": "SilentNight-77"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/6c7652ed200619887d06.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-smart-console",
-      "category": "lua",
-      "name": "Smart Console",
-      "sourceFilename": "Smart-Console.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Smart Console for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Console",
-        "Utility"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/194a7ec51089f5e7131a.lua",
-          "name": "Smart-Console.lua",
-          "size": 115195,
-          "sha256": "194a7ec51089f5e7131af0b7e306172c26c01c9c17f9d22d4ddd3e4f82389065",
-          "versionLabel": "v1.0.1"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/a14c63a0c4e82a704d4d.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-sovereign",
-      "category": "lua",
-      "name": "Sovereign",
-      "sourceFilename": "Sovereign-1.0.0.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Sovereign for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Utility",
-        "Sovereign2"
-      ],
-      "files": [],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "pending",
-      "downloadStatus": "pending",
-      "downloadLabel": "Download unavailable",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/6f72c0c1b2d02fc42184.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
-      "id": "cherax-lua-startup",
-      "category": "lua",
-      "name": "Startup",
-      "sourceFilename": "Startup v1.0.18.lua",
-      "formatExtension": "lua",
-      "author": "Public_Urinal",
-      "description": "Startup for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Session",
-        "HUD"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/7a23309db7ae4db76501.lua",
-          "name": "Startup v1.0.18.lua",
-          "size": 4600281,
-          "sha256": "7a23309db7ae4db76501ccdd84f65a7ab860279cf40760477fd88bdccd4d9dd2",
-          "versionLabel": "v1.0.18"
-        },
-        {
-          "url": "/assets/downloads/cherax/fab6e07c723ca54532f2.lua",
-          "name": "Startup-v1.0.17.lua",
-          "size": 3917111,
-          "sha256": "fab6e07c723ca54532f2716d9e32d126bb706df8ceacb64183fb051fbcac396a",
-          "versionLabel": "v1.0.17"
-        },
-        {
-          "url": "/assets/downloads/cherax/aa5805bac105bd073bdc.lua",
-          "name": "Startup v1.0.15 v2.lua",
-          "size": 3320534,
-          "sha256": "aa5805bac105bd073bdc21ff66f4af1762918b3064c455429ae805a8b674e144",
-          "versionLabel": "v1.0.15 (revision 2)"
-        },
-        {
-          "url": "/assets/downloads/cherax/042f341438830ece26ca.lua",
-          "name": "Startup v1.0.14 .lua",
-          "size": 3168896,
-          "sha256": "042f341438830ece26ca6e53e30cd9a66f09c90749fbd3afb83296ad3395256f",
-          "versionLabel": "v1.0.14"
-        },
-        {
-          "url": "/assets/downloads/cherax/6a6027bb00a29ab3a83e.lua",
-          "name": "Startup-1.0.11.lua",
-          "size": 1072591,
-          "sha256": "6a6027bb00a29ab3a83e0839b9fc370f241a4e2d86106db3b1c5e98cf00f0bba",
-          "versionLabel": "v1.0.11"
-        }
-      ],
-      "changelog": [
-        {
-          "date": "2026-10-02",
-          "version": "1.0.18",
-          "changes": [
-            "Adds browser event notifications and an expanded minimap HUD adapter.",
-            "Persists retaliation settings and fixes the disabled auto-bounty setting after reload."
-          ],
-          "dateBasis": "startup.build_date and production header"
-        },
-        {
-          "version": "1.0.16",
-          "changes": [
-            "Updates advertising controls and account linking, with revised activity/HUD layouts and session-routing safeguards."
-          ]
-        },
-        {
-          "version": "1.0.15",
-          "changes": [
-            "Repairs Browser joins and improves cancellation of duplicate or stale join attempts.",
-            "Prepares Prime Browser support and reduces startup renderer work."
-          ]
-        },
-        {
-          "version": "1.0.13",
-          "changes": [
-            "Introduces live sessions and events, favorites, reputation and moderation controls.",
-            "Adds automatic Browser asset delivery and recovery."
-          ]
-        },
-        {
-          "version": "1.0.11",
-          "changes": [
-            "Expands session routing, HUD cards and Prime support with improved diagnostics and onboarding."
-          ]
-        },
-        {
-          "version": "1.0.10",
-          "changes": [
-            "Repairs blank startup menus and improves advertising, settings discovery and guided setup."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/32fdc59d3fa341f1f1d2.webp",
-      "previewVerified": true,
-      "previewKind": "author-artwork",
-      "previewCaption": "Artwork from the author’s repository"
-    },
-    {
-      "id": "cherax-lua-trackmatic",
-      "category": "lua",
-      "name": "Trackmatic",
-      "sourceFilename": "TRACKMATIC v1.0.1.lua",
-      "formatExtension": "lua",
-      "author": "Public_Urinal",
-      "description": "Trackmatic for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Tracks",
-        "Constructor"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/cb241c48bcc135ec9451.lua",
-          "name": "TRACKMATIC v1.0.1.lua",
-          "size": 1732916,
-          "sha256": "cb241c48bcc135ec9451f17f60fc3ef67584b7a87003999b5c3aac011b4278ac",
-          "versionLabel": "v1.0.1"
-        }
-      ],
-      "changelog": [
-        {
-          "version": "1.0.1",
-          "changes": [
-            "Revises Cherax call handling and build cancellation.",
-            "Caches display calculations to reduce repeated menu work."
-          ]
-        },
-        {
-          "version": "1.0.0",
-          "changes": [
-            "Packages the production interface, cleaner startup logging and error handling."
-          ]
-        },
-        {
-          "version": "0.9.9",
-          "changes": [
-            "Repairs Home-tab style colors and ImGui compatibility."
-          ]
-        },
-        {
-          "version": "0.9.8",
-          "changes": [
-            "Reorganizes the TrackMatic interface and tab navigation."
-          ]
-        },
-        {
-          "version": "0.9.7",
-          "changes": [
-            "Improves saved-course loading, metadata and management."
-          ]
-        },
-        {
-          "version": "0.9.6",
-          "changes": [
-            "Uses a flag icon and GPS route for course starts."
-          ]
-        },
-        {
-          "version": "0.9.5",
-          "changes": [
-            "Adds automatically placed course-start markers."
-          ]
-        },
-        {
-          "version": "0.9.3",
-          "changes": [
-            "Adds a library for saving, loading and browsing tracks."
-          ]
-        },
-        {
-          "version": "0.9.2",
-          "changes": [
-            "Adds ninety point-to-point drift routes."
-          ]
-        },
-        {
-          "version": "0.9.1",
-          "changes": [
-            "Adds thirty tuner settings for both Parkour and Hybrid courses."
-          ]
-        },
-        {
-          "version": "0.9.0",
-          "changes": [
-            "Connects hover previews to the course planner."
-          ]
-        },
-        {
-          "version": "0.8.0",
-          "changes": [
-            "Adds advanced course tuning, live 3D previews and saved tuner settings."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-vehicle-forge",
-      "category": "lua",
-      "name": "Vehicle Forge",
-      "sourceFilename": "Vehicle-Forge.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Vehicle Forge for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Editor"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/660e228fc3cf5c01a467.lua",
-          "name": "Vehicle-Forge.lua",
-          "size": 60571,
-          "sha256": "660e228fc3cf5c01a4673d34a0f4a2d31c498d704bafeae37ba9fd94ffaaea06",
-          "versionLabel": "v1.0.1"
-        },
-        {
-          "url": "/assets/downloads/cherax/7848bde3a00dcaaf969a.lua",
-          "name": "vehicleForge.lua",
-          "size": 57184,
-          "sha256": "7848bde3a00dcaaf969abec58b9adb57a8739ad2f18767d3417c4ac6b8bc55d1",
-          "versionLabel": "vehicleForge"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-vibescript",
-      "category": "lua",
-      "name": "VibeScript",
-      "sourceFilename": "Vibescript v2.5.1.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "VibeScript for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Utility"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/f9a64af144f3acb7c8bd.lua",
-          "name": "Vibescript v2.5.1.lua",
-          "size": 3160272,
-          "sha256": "f9a64af144f3acb7c8bd4a3d4f021b0be9e2a010acdafd9f2752ecbfd5d76556",
-          "versionLabel": "v2.5.1"
-        },
-        {
-          "url": "/assets/downloads/cherax/e8932aa2ee680fba105c.lua",
-          "name": "vibeScript-2.2.1.lua",
-          "size": 2069868,
-          "sha256": "e8932aa2ee680fba105c6661c5555fbc785fddba04a3ff00ea6805b4bb3f58aa",
-          "versionLabel": "v2.2.1"
-        },
-        {
-          "url": "/assets/downloads/cherax/2b2f3836e6c42cbbf21a.lua",
-          "name": "vibeScript-2.1.0.lua",
-          "size": 1715017,
-          "sha256": "2b2f3836e6c42cbbf21a0dab7e20298c867e003e74e93241b5fb07e362c23d1f",
-          "versionLabel": "v2.1.0"
-        },
-        {
-          "url": "/assets/downloads/cherax/3c4265e6b75debab1b8c.lua",
-          "name": "Vibescript v2.0.0.lua",
-          "size": 1504746,
-          "sha256": "3c4265e6b75debab1b8c327326e7853fd82592532fd53aea77e9f09b018708e1",
-          "versionLabel": "v2.0.0"
-        },
-        {
-          "url": "/assets/downloads/cherax/c8b85edead5d34936267.lua",
-          "name": "VibeScript.lua",
-          "size": 617303,
-          "sha256": "c8b85edead5d349362672010a6de3b381fbe415491845fbb7b5c21687285aa5c",
-          "versionLabel": "VibeScript"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/20d4d692ede2a21855ef.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-aerials",
-      "category": "lua",
-      "name": "Aerials",
-      "sourceFilename": "Aerials.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Aerials for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Protected"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/3e88f42bd669ee3bcebe.lua",
-          "name": "Aerials.lua",
-          "size": 1397515,
-          "sha256": "3e88f42bd669ee3bcebed7c6766832d15838680d55853769dc36129565cef9a3",
-          "versionLabel": "Aerials"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/3bf40937bed0b8b5fc5e.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
     },
     {
       "id": "cherax-lua-bodyguards",
@@ -232918,38 +232459,6 @@
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
     },
     {
-      "id": "cherax-lua-cheems-translator",
-      "category": "lua",
-      "name": "CheemsTranslator",
-      "sourceFilename": "CheemsTranslator.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "CheemsTranslator for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Translation",
-        "Chat"
-      ],
-      "files": [],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "pending",
-      "downloadStatus": "pending",
-      "downloadLabel": "Download unavailable",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
       "id": "cherax-lua-cherax-chat",
       "category": "lua",
       "name": "Cherax Chat",
@@ -232986,48 +232495,6 @@
       "status": "download",
       "downloadStatus": "available",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-crimson-vehicles",
-      "category": "lua",
-      "name": "Crimson Vehicles",
-      "sourceFilename": "Crimson-Vehicles.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Crimson Vehicles for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/f8afed722daa3c0ca2dd.lua",
-          "name": "Crimson-Vehicles.lua",
-          "size": 142490,
-          "sha256": "f8afed722daa3c0ca2ddce61dd840402441c97497c41a5cd9a0b484f7f34b8a9",
-          "versionLabel": "Crimson-Vehicles"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/b4d058bc90d8eb6e9d4e.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
     },
     {
       "id": "cherax-lua-cyberpilot-hud",
@@ -233068,74 +232535,6 @@
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
     },
     {
-      "id": "cherax-lua-discord-rpc-reborn",
-      "category": "lua",
-      "name": "Discord RPC Reborn",
-      "sourceFilename": "Discord-RPC-Reborn.lua",
-      "formatExtension": "lua",
-      "author": "nightkitty",
-      "description": "Discord RPC Reborn for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Rich Presence",
-        "Utility"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/bfb47bbd0afa08b2d635.lua",
-          "name": "Discord-RPC-Reborn.lua",
-          "size": 49452,
-          "sha256": "bfb47bbd0afa08b2d635f1a1c7a36eb2f605eb5f5792fd2aa3ec99da78a0116c",
-          "versionLabel": "v1.2.4"
-        }
-      ],
-      "changelog": [
-        {
-          "version": "1.2.4",
-          "changes": [
-            "Adds an image-based crosshair and refreshes presence after returning to the main menu."
-          ]
-        },
-        {
-          "version": "1.2.3",
-          "changes": [
-            "Adds a configurable crosshair and repairs menu rendering errors."
-          ]
-        },
-        {
-          "version": "1.2.0",
-          "changes": [
-            "Detects casino activity and improves character-editing, session-change and state detection."
-          ]
-        },
-        {
-          "version": "1.1.0",
-          "changes": [
-            "Introduces public Rich Presence support with activity tracking, configurable buttons and sound options."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/951756fd0c11a0ad9b2f.webp",
-      "previewVerified": true,
-      "previewKind": "source-lua",
-      "previewCaption": "Screenshot from the original script share"
-    },
-    {
       "id": "cherax-lua-fireworks-menu",
       "category": "lua",
       "name": "Fireworks Menu",
@@ -233172,106 +232571,6 @@
       "status": "download",
       "downloadStatus": "available",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua"
-    },
-    {
-      "id": "cherax-lua-flying-cars-sa",
-      "category": "lua",
-      "name": "Flying Cars SA",
-      "sourceFilename": "Flying-Cars.lua",
-      "formatExtension": "lua",
-      "author": "Author unverified",
-      "description": "Flying Cars SA for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Flight",
-        "Alpha"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/63458a22ef4a7b6eb896.lua",
-          "name": "Flying-Cars.lua",
-          "size": 135522,
-          "sha256": "63458a22ef4a7b6eb896e2ff59ed1c2a6a87d3bfb7164ce4ec561f527ac2b2e7",
-          "versionLabel": "v1.0.1 Alpha"
-        }
-      ],
-      "changelog": [
-        {
-          "version": "1.0.1 Alpha",
-          "changes": [
-            "Streamlines native/input/render calls, persistence and compatibility handling."
-          ]
-        },
-        {
-          "version": "1.0.0 Alpha",
-          "changes": [
-            "Introduces car-flight physics, camera guidance, configurable shortcuts and saved scores with landing validation."
-          ]
-        }
-      ],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/1bd62ff0507e3f71e08a.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
-    },
-    {
-      "id": "cherax-lua-racing-lines",
-      "category": "lua",
-      "name": "Ji9sw Racing Lines",
-      "sourceFilename": "Ji9sw-Racing-Lines.lua",
-      "formatExtension": "lua",
-      "author": "Ji9sw",
-      "description": "Ji9sw Racing Lines for the Cherax Lua host.",
-      "compatibility": "Requires the Cherax Lua API and any script-specific dependencies.",
-      "requirementLabel": "Requires the Cherax Lua API",
-      "tags": [
-        "Cherax",
-        "Vehicles",
-        "Racing"
-      ],
-      "files": [
-        {
-          "url": "/assets/downloads/cherax/89d99d699d119a604249.lua",
-          "name": "Ji9sw-Racing-Lines.lua",
-          "size": 16354,
-          "sha256": "89d99d699d119a6042490e0fd8701ca1b0aab0e6976e951bcf736a067a6a370d",
-          "versionLabel": "Ji9sw-Racing-Lines"
-        }
-      ],
-      "changelog": [],
-      "game": "gta5",
-      "sourceMenu": "cherax",
-      "supportedMenus": [
-        "cherax"
-      ],
-      "listedMenus": [
-        "cherax"
-      ],
-      "menuResource": true,
-      "sourceCatalog": "menu-resources",
-      "status": "download",
-      "downloadStatus": "available",
-      "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
-      "preview": "/assets/images/resource-previews/cherax/e931f18bdac91ab605dd.webp",
-      "previewVerified": true,
-      "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
     },
     {
       "id": "cherax-lua-meow-party-emotes",

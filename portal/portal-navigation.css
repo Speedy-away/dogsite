@@ -102,3 +102,17 @@ html[dir="rtl"] .portal-modern .dropdown-menu .dropdown-item { text-align:right;
 .portal-modern.auth-mode .header-actions .social-links { display:none !important; }
 
 .portal-modern .i18n-toggle { min-height:30px; padding:6px 8px; gap:6px; }
+
+.portal-modern .header-top { gap: 14px; }
+.portal-modern .user-dropdown .account-toggle-label { display: none; }
+.portal-modern .dropdown-menu,
+.portal-modern .notifications-panel { max-height: calc(100dvh - 82px); overflow-y: auto; }
+@media (max-width: 600px) {
+ .portal-modern .header-top { padding-inline: 10px; gap: 6px; }
+ .portal-modern .header-actions, .portal-modern .i18n-lead { gap: 4px; }
+ .portal-modern .i18n-toggle { min-height: 44px; }
+ .portal-modern .nav-bar { flex: 1; }
+ .portal-modern .nav-tabs { justify-content: center; }
+ .portal-modern .account-menu-toggle { min-width: 44px; }
+ .portal-modern .dropdown-menu .dropdown-item { min-height: 44px; }
+}

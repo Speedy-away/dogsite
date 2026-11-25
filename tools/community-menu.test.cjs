@@ -25,11 +25,11 @@ test('Cherax archive uses the published asset revision and preserves curated dow
   }
   for (const [rows, resolved] of [[archive.items, entries], [archive.libraryOverrides, overrides]]) {
     for (const row of rows) {
-      const entry = resolved.get(row.id);
+      const entry = resolved.get(row.id) || [...resolved.values()].find(item => item.aliases?.includes(row.id));
       assert(entry, row.id);
       if (row.preview && !original.get(row.id)?.preview?.startsWith('/assets/')) {
         const local = row.preview.startsWith('/assets/images/resource-previews/cherax/');
-        assert.equal(entry.preview, local ? row.preview : pinned + row.preview);
+        assert([entry.preview, ...(entry.imageUrls || [])].includes(local ? row.preview : pinned + row.preview), row.id);
         if (local) assert(fs.existsSync(path.join(ROOT, row.preview)), row.preview);
         assert.equal(entry.previewVerified, true);
       }
@@ -42,7 +42,7 @@ test('Cherax archive uses the published asset revision and preserves curated dow
           assert(file.path.includes(file.sha256.slice(0, 20)), file.path);
         }
       }
-      if (row.category === 'lua') assert.equal(entry.downloadStatus, row.files?.length ? 'available' : 'pending', row.id);
+      if (row.category === 'lua') assert.equal(entry.downloadStatus, entry.files?.length ? 'available' : 'pending', row.id);
     }
   }
   for (const item of supplement.items.filter(item => item.category === 'lua' && item.sourceMenu === 'cherax')) {
@@ -50,6 +50,36 @@ test('Cherax archive uses the published asset revision and preserves curated dow
       assert.deepEqual(entries.get(item.id).files, item.files, item.id);
     }
   }
+});
+
+test('Cherax Lua duplicates share a canonical card, retain versions and resolve old IDs', () => {
+  const archive = require('../community/data/cherax-resources.json');
+  const merged = menus.mergeCheraxResources(supplement, archive);
+  const scripts = merged.items.filter(item => menus.cheraxLuaIdentity(item));
+  assert.equal(new Set(scripts.map(menus.cheraxLuaIdentity)).size, scripts.length);
+  for (const [id, alias] of [
+    ['cherax-lua-sovereign', 'cherax-lua-thread-1561386308000026736'],
+    ['cherax-lua-vibescript', 'menu-cherax-lua-vibescript-v2-5-1-lua'],
+    ['cherax-lua-host-tools', 'menu-cherax-lua-host---tools-1-9-0-lua'],
+    ['cherax-lua-startup', 'cherax-export-1240977647769616425-1448055936894894102-1448055936962007202']
+  ]) {
+    const entry = scripts.find(item => item.id === id);
+    assert(entry?.aliases.includes(alias), id);
+    assert(!scripts.some(item => item.id === alias), alias);
+  }
+  const sovereign = scripts.find(item => item.id === 'cherax-lua-sovereign');
+  assert.equal(sovereign.downloadStatus, 'available');
+  assert.deepEqual(sovereign.files.map(file => file.name), ['Sovereign-1.0.0.lua', 'Sovereign2.lua']);
+  const originalFiles = supplement.items.find(item => item.id === 'cherax-lua-vibescript').files;
+  assert.deepEqual(scripts.find(item => item.id === 'cherax-lua-vibescript').files, originalFiles);
+  assert.deepEqual(menus.deduplicateCheraxLua(merged.items), merged.items, 'Deduplication must be idempotent');
+  const packageKeys = merged.items.filter(item => item.sourceMenu === 'cherax' && item.files?.length && item.files.every(file => file.sha256))
+    .map(item => item.category + ':' + item.files.map(file => file.sha256).sort().join(','));
+  assert.equal(new Set(packageKeys).size, packageKeys.length, 'Identical Cherax packages must have one card');
+  const theme = merged.items.find(item => item.aliases?.includes('cherax-export-1007005077904568360-1556346128365133844-1556346127085867222'));
+  assert(theme?.imageUrls.length >= 2, 'Merged theme cards retain both source previews');
+  const stand = { id: 'stand-example', name: 'Sovereign', game: 'gta5', category: 'lua', sourceMenu: 'stand' };
+  assert(menus.deduplicateCheraxLua([sovereign, stand]).includes(stand), 'Other menu runtimes stay separate');
 });
 test('resource guides retain the selected menu even when a shared item came from another menu', () => {
   const script = fs.readFileSync(path.join(ROOT, 'resources/catalog.js'), 'utf8');

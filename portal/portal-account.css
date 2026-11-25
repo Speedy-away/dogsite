@@ -54,10 +54,23 @@
 .redeem-dialog-actions { display:flex; gap:10px; margin-top:18px; }
 .redeem-dialog-actions .secondary { flex:0 0 100px; }
 .redeem-dialog-note { display:flex; align-items:center; gap:7px; margin:18px 0 0; color:#868691; font-size:11px; line-height:1.6; }
+.dashboard-heading .dashboard-profile-link { width: auto; flex-shrink: 0; }
+.dashboard-profile-link[hidden] { display: none; }
+.dashboard-grid { grid-template-columns: minmax(280px, 2fr) minmax(0, 3fr); }
+.dashboard-products { max-height: none; overflow: visible; }
+.dashboard-product-meta { overflow-wrap: anywhere; }
+.profile-password { max-width: 28rem; }
+.profile-password .dashboard-button { width: auto; min-height: 44px; margin-top: 12px; }
+.portal-modern :is(#page-forgot-password, #page-reset-password) .btn-block { min-height: 44px; }
 @media(max-width:800px) {
  .portal-modern #page-profile .subscriptions-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:600px) {
+ .dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+ .dashboard-heading { flex-wrap: wrap; }
+ .dashboard-heading .dashboard-profile-link, #page-dashboard .dashboard-button,
+ .portal-modern #page-profile .card-header .dashboard-button { min-height: 44px; }
+ .dashboard-form .dashboard-input, .portal-modern .auth-body input { font-size: 16px; }
  .profile-page-heading { align-items:flex-start; gap:12px; }
  .profile-page-heading .dashboard-button { padding:8px 10px; font-size:11px; min-height:34px; }
  .profile-page-heading p { max-width:210px; line-height:1.6; }

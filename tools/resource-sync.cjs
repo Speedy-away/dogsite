@@ -153,6 +153,7 @@ function syncOnce(options = {}) {
       report.actions.push('resource inbox');
     }
     execute('tools/build-menu-resources.cjs', ['--target', config.target, '--publish-assets']);
+    execute('tools/build-resource-bundles.cjs', []);
     report.actions.push('menu resources and previews');
     if (options.seo !== false) { execute('tools/build-resource-seo.cjs', []); report.actions.push('guides and sitemaps'); }
     const afterEntries = catalogEntries(config.root), describe = item => ({ id: item.id, name: item.name, game: item.game, category: item.category });

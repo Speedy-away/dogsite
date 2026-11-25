@@ -10,13 +10,14 @@
     document.addEventListener('click', event => { if (!nav.contains(event.target) && !menu.contains(event.target)) closeMenu(); });
 
     const cards = [...document.querySelectorAll('[data-product]')];
+    const gtaFeature = document.querySelector('.featured-product');
     const search = document.getElementById('product-search');
     const filters = [...document.querySelectorAll('[data-filter]')];
     let category = 'all';
     const updateCatalogue = () => {
         const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
         cards.forEach(card => {
-            const text = (card.dataset.search + ' ' + card.textContent).toLowerCase();
+            const text = (card.dataset.search + (card === gtaFeature ? '' : ' ' + card.textContent)).toLowerCase();
             card.hidden = !(category === 'all' || card.dataset.category.split(' ').includes(category)) || !words.every(word => text.includes(word));
         });
         const count = cards.filter(card => !card.hidden).length;
@@ -45,11 +46,19 @@
     }));
 
     const gtaCheckout = document.getElementById('gta-checkout');
-    document.querySelectorAll('input[name="gta-plan"]').forEach(input => input.addEventListener('change', () => {
-        const plan = data.plans.find(plan => plan.id === input.value);
+    const gtaPlans = document.querySelector('.plan-options');
+    const syncCheckout = () => {
+        const selected = gtaPlans.querySelector('input:checked');
+        const plan = data.plans.find(plan => plan.id === selected?.value);
+        if (!plan) return;
         gtaCheckout.dataset.tier = plan.id;
-        gtaCheckout.textContent = `Get ${plan.name} — $${plan.price} →`;
-    }));
+        gtaCheckout.textContent = plan.id === 'upgrade'
+            ? `Upgrade to Plus — $${plan.price}`
+            : `Buy ${plan.name} — $${plan.price}`;
+    };
+    gtaPlans.addEventListener('change', syncCheckout);
+    window.addEventListener('pageshow', syncCheckout);
+    syncCheckout();
     const payment = document.getElementById('payment-dialog');
     document.querySelectorAll('[data-buy]').forEach(button => button.addEventListener('click', () => {
         const product = button.dataset.buy;

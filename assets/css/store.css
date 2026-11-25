@@ -1356,6 +1356,48 @@ body:has(dialog[open]) {
 
 /* Access sections stay readable in both the full catalog and filtered views. */
 [data-catalog-section] { scroll-margin-top:100px; }
+.store-title {
+    margin: 14px 0 20px;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -.045em;
+}
+#premium-version > .catalog-heading { margin: 10px 0 14px; }
+.featured-product {
+    --plus-accent: #d7e9a9;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+.featured-art { min-height: 0; }
+.featured-banner { height: clamp(130px, 17vw, 222px); }
+.featured-copy { padding: 20px clamp(16px, 3vw, 28px) 24px; }
+.featured-copy h2 { font-size: clamp(1.25rem, 2.8vw, 1.9rem); }
+.featured-copy p { margin: 10px 0; max-width: 45ch; }
+.featured-copy > a { color: var(--plus-accent); text-decoration: underline; text-underline-offset: 4px; }
+.plan-panel { padding: clamp(16px, 3vw, 28px); }
+.plan-heading p { font-size: .875rem; }
+.plan-options { margin: 16px 0; }
+.plan-option-plus:has(input:checked) {
+    border-color: var(--plus-accent);
+    background: #202819;
+}
+.plan-option-plus:has(input:checked) .plan-radio { border-color: var(--plus-accent); }
+.plan-recommendation {
+    display: inline-block;
+    margin-inline-start: .35em;
+    color: var(--plus-accent);
+    font-size: .68rem;
+    font-weight: 650;
+}
+.plan-panel [data-tier="premium-plus"], .plan-panel > .no-js-buy {
+    background: var(--plus-accent);
+    color: #1a2313;
+}
+.plan-panel [data-tier="premium-plus"]:hover, .plan-panel > .no-js-buy:hover { background: #e6f1c9; }
+@media (max-width: 720px) {
+    .featured-product { grid-template-columns: minmax(0, 1fr); }
+    .featured-banner { height: 120px; }
+    .plan-recommendation { display: block; margin-inline-start: 0; }
+}
 .premium-grid { margin-top:22px; }
 [data-catalog-section]>.catalog-heading,
 .console-catalog-view .free-heading { align-items:flex-end; }

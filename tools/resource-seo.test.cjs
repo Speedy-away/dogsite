@@ -48,6 +48,21 @@ function hasType(node, type) {
   return Array.isArray(node['@type']) ? node['@type'].includes(type) : node['@type'] === type;
 }
 
+test('Cherax Lua catalog exposes every script and downloads directly from existing cards', () => {
+  inventory();
+  const directory = read('resources/gta5/cherax/lua/index.html');
+  const collection = snapshot.pages.find(page => page.file === 'resources/gta5/cherax/lua/index.html');
+  assert.equal(collection.samples.length, collection.itemCount, 'Every Lua listing must be visible to non-JavaScript crawlers');
+  for (const item of collection.samples) {
+    assert(directory.includes(`id="resource-${item.id}"`), item.id);
+    assert(plain(markup(collection.file)).includes(item.name), item.id);
+  }
+  const sovereign = directory.match(/<article\b[^>]*id="resource-cherax-lua-sovereign"[^>]*>[\s\S]*?<\/article>/)?.[0];
+  assert(sovereign);
+  assert.equal([...sovereign.matchAll(/data-download-file=/g)].length, 2);
+  assert(!directory.includes('/resources/gta5/cherax/scripts/'), 'Downloads must not link to separate script pages');
+});
+
 test('Resources shares game-specific previews and exposes RedM graphics search topics', () => {
   const { cardFor } = require('./social-cards');
   const taxonomy = require('../resources/taxonomy.js');
