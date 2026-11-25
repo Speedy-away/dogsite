@@ -10,7 +10,7 @@
     function endpoint() {
         if (!window.scoobyLoaderDownloadUrl) return null;
         try {
-            const url = new URL(window.scoobyLoaderDownloadUrl);
+            const url = new URL(window.scoobyLoaderDownloadUrl, location.origin);
             const local = ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname);
             if ((url.protocol !== 'https:' && !(local && url.protocol === 'http:')) || url.username || url.password) return null;
             return url.href;
@@ -43,28 +43,38 @@
         portalText(status, '');
         const token = sessionToken;
         try {
-            const response = await fetch(url, {
+            const session = await fetch(getApiUrl('/auth/session'), {
                 headers: { Authorization: `Bearer ${token}` },
+                credentials: 'omit',
+                cache: 'no-store',
+                redirect: 'error',
+                signal: AbortSignal.timeout(10000),
+            });
+            if (!currentUser || sessionToken !== token) { await session.body?.cancel(); return; }
+            if (session.status === 401 || session.status === 403) {
+                await session.body?.cancel();
+                expired();
+                return;
+            }
+            if (!session.ok) { await session.body?.cancel(); throw new Error('Session unavailable'); }
+            const account = await session.json();
+            if (!currentUser || sessionToken !== token) return;
+            if (account.valid !== true || !account.customer) { expired(); return; }
+            // The static file is public. Never send the portal token to its host.
+            const response = await fetch(url, {
                 credentials: 'omit',
                 cache: 'no-store',
                 redirect: 'error',
                 signal: AbortSignal.timeout(60000),
             });
-            // A response for an account that has logged out must not start a download.
-            if (!currentUser || sessionToken !== token) { await response.body?.cancel(); return; }
-            if (response.status === 401 || response.status === 403) {
-                await response.body?.cancel();
-                expired();
-                return;
-            }
-            const filename = response.headers.get('Content-Disposition')?.match(/^attachment;\s*filename="([a-f0-9]{32}\.exe)"$/i)?.[1];
-            if (!response.ok || !filename) {
+            if (!response.ok) {
                 await response.body?.cancel();
                 throw new Error('Download unavailable');
             }
             const blob = await response.blob();
             if (!currentUser || sessionToken !== token) return;
             if (!blob.size) throw new Error('Empty download');
+            const filename = Array.from(crypto.getRandomValues(new Uint8Array(16)), value => value.toString(16).padStart(2, '0')).join('') + '.exe';
             const objectUrl = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = objectUrl;
