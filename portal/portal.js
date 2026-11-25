@@ -617,8 +617,10 @@ function showPage(page, updateUrl = true) {
 }
 
 // ==================== AUTHENTICATION ====================
-document.getElementById('profilePasswordLink')?.addEventListener('click', () => {
-    document.getElementById('forgotPasswordIdentifier').value = currentUser?.username || '';
+document.querySelectorAll('#profilePasswordLink, #accountPasswordButton').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('forgotPasswordIdentifier').value = currentUser?.username || '';
+    });
 });
 
 async function validateSession() {
@@ -893,7 +895,6 @@ async function logout() {
 function updateUIForUser() {
     document.getElementById('guestActions').style.display = 'none';
     document.getElementById('userDropdown').style.display = 'flex';
-    document.getElementById('notificationBell').style.display = '';
 
     if (window.portalSettings?.tickets_enabled !== false) {
         document.getElementById('navSupport').style.display = '';
@@ -917,15 +918,11 @@ function updateUIForUser() {
         avatarEl.textContent = getInitials(currentUser.display_name || currentUser.username);
     }
 
-    // Load notification count
-    loadUnreadNotificationCount();
 }
 
 function updateUIForGuest() {
     document.getElementById('guestActions').style.display = 'flex';
     document.getElementById('userDropdown').style.display = 'none';
-    document.getElementById('notificationBell').style.display = 'none';
-    document.getElementById('notificationsPanel').style.display = 'none';
 }
 
 // ==================== OAUTH ====================
@@ -5760,132 +5757,6 @@ async function moveCategoryDown(categoryId) {
         loadCategories();
     } else {
         showToast(result.data?.message || 'Failed to move category', 'error');
-    }
-}
-
-// ==================== NOTIFICATIONS ====================
-let notificationsPanelOpen = false;
-
-function toggleNotificationsPanel() {
-    const panel = document.getElementById('notificationsPanel');
-    notificationsPanelOpen = !notificationsPanelOpen;
-
-    if (notificationsPanelOpen) {
-        panel.style.display = '';
-        loadNotifications();
-        // Close when clicking outside
-        setTimeout(() => {
-            document.addEventListener('click', closeNotificationsPanelOnClickOutside);
-        }, 10);
-    } else {
-        panel.style.display = 'none';
-        document.removeEventListener('click', closeNotificationsPanelOnClickOutside);
-    }
-}
-
-function closeNotificationsPanelOnClickOutside(e) {
-    const panel = document.getElementById('notificationsPanel');
-    const bell = document.getElementById('notificationBell');
-    if (!panel.contains(e.target) && !bell.contains(e.target)) {
-        panel.style.display = 'none';
-        notificationsPanelOpen = false;
-        document.removeEventListener('click', closeNotificationsPanelOnClickOutside);
-    }
-}
-
-async function loadNotifications() {
-    const list = document.getElementById('notificationsList');
-    list.innerHTML = '<div class="notifications-empty"><i class="fas fa-spinner fa-spin"></i> Loading...</div>';
-
-    const result = await api('GET', '/notifications?limit=20');
-
-    if (result.ok && result.data.notifications) {
-        const notifications = result.data.notifications;
-
-        if (notifications.length === 0) {
-            list.innerHTML = '<div class="notifications-empty">No notifications yet</div>';
-            return;
-        }
-
-        let html = '';
-        for (const notif of notifications) {
-            const iconClass = notif.type === 'mention' ? 'mention' : '';
-            const icon = notif.type === 'mention' ? 'fa-at' : 'fa-bell';
-            const unreadClass = notif.is_read ? '' : 'unread';
-
-            html += `
-                <div class="notification-item ${unreadClass}" onclick="openNotification(${notif.id}, '${escapeHtml(notif.link || '')}')">
-                    <div class="notification-icon ${iconClass}">
-                        <i class="fas ${icon}"></i>
-                    </div>
-                    <div class="notification-content">
-                        <div class="notification-message">${escapeHtml(notif.message)}</div>
-                        <div class="notification-time">${formatDate(notif.created_at)}</div>
-                    </div>
-                </div>
-            `;
-        }
-        list.innerHTML = html;
-    } else {
-        list.innerHTML = '<div class="notifications-empty">Failed to load notifications</div>';
-    }
-}
-
-async function loadUnreadNotificationCount() {
-    if (!currentUser) return;
-
-    const result = await api('GET', '/notifications/unread-count');
-
-    if (result.ok) {
-        const count = result.data.unread_count || 0;
-        const badge = document.getElementById('notificationBadge');
-
-        if (count > 0) {
-            badge.textContent = count > 99 ? '99+' : count;
-            badge.style.display = '';
-        } else {
-            badge.style.display = 'none';
-        }
-    }
-}
-
-async function openNotification(notificationId, link) {
-    // Mark as read
-    await api('POST', `/notifications/${notificationId}/read`);
-
-    // Close panel
-    document.getElementById('notificationsPanel').style.display = 'none';
-    notificationsPanelOpen = false;
-
-    // Update badge
-    loadUnreadNotificationCount();
-
-    // Navigate to link
-    if (link) {
-        // Parse the link - e.g., /forum/thread/123
-        const threadMatch = link.match(/\/forum\/thread\/(\d+)/);
-        if (threadMatch && PORTAL_DISABLED_PAGES.has('thread')) {
-            showPage('dashboard');
-            return;
-        }
-        if (threadMatch) {
-            const threadId = parseInt(threadMatch[1]);
-            currentThreadId = threadId;
-            showPage('thread');
-            loadThread(threadId);
-        }
-    }
-}
-
-async function markAllNotificationsRead() {
-    const result = await api('POST', '/notifications/read-all');
-
-    if (result.ok) {
-        showToast('All notifications marked as read', 'success');
-        loadNotifications();
-        loadUnreadNotificationCount();
-    } else {
-        showToast('Failed to mark notifications as read', 'error');
     }
 }
 

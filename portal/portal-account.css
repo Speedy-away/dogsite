@@ -57,8 +57,10 @@
 .dashboard-heading .dashboard-profile-link { width: auto; flex-shrink: 0; }
 .dashboard-profile-link[hidden] { display: none; }
 .dashboard-grid { grid-template-columns: minmax(280px, 2fr) minmax(0, 3fr); }
-.dashboard-products { max-height: none; overflow: visible; }
-.dashboard-product-meta { overflow-wrap: anywhere; }
+.dashboard-products { gap: 5px; margin-top: 12px; max-height: none; overflow: visible; }
+.dashboard-product { gap: 10px; min-height: 44px; padding: 4px 10px; line-height: 1.35; }
+.dashboard-product-art { width: 28px; height: 28px; }
+.dashboard-product-meta { margin-top: 2px; overflow-wrap: anywhere; }
 .profile-password { max-width: 28rem; }
 .profile-password .dashboard-button { width: auto; min-height: 44px; margin-top: 12px; }
 .portal-modern :is(#page-forgot-password, #page-reset-password) .btn-block { min-height: 44px; }

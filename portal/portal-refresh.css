@@ -145,8 +145,7 @@
 .portal-loader-mark { align-self:flex-start; color:#656571; padding-top:4px; font-size:14px; }
 .portal-download-dialog .portal-loader-link { display:flex; justify-content:center; gap:10px; min-height:46px; padding:12px 14px; border-radius:8px; background:#ededf2; border:1px solid #ededf2; color:#19191f; font-size:12px; font-weight:600; }
 .portal-download-dialog .portal-loader-link:hover { background:#fff; border-color:#fff; }
-.portal-loader-link i:last-child { margin-left:auto; font-size:10px; opacity:.65; }
-.portal-loader-link i:first-child { margin-right:auto; }
+.portal-loader-link i { font-size:12px; }
 .portal-download-extras { margin-top:26px; }
 .portal-download-extras > h3 { margin:0 0 12px; color:#8c8c99; font-size:10px; font-weight:500; letter-spacing:.2px; }
 .portal-download-tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }

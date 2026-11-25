@@ -3,8 +3,6 @@
     const account = document.getElementById('userDropdown');
     const toggle = document.getElementById('accountMenuToggle');
     const menu = document.getElementById('accountMenu');
-    const bell = document.getElementById('notificationBell');
-    const notifications = document.getElementById('notificationsPanel');
     const menuItems = () => [...menu.querySelectorAll('button')].filter(button => !button.disabled && button.getClientRects().length);
 
     function closeAccount(restoreFocus = false) {
@@ -13,7 +11,6 @@
         if (restoreFocus) toggle.focus();
     }
     function openAccount() {
-        if (notificationsPanelOpen) toggleNotificationsPanel();
         menu.hidden = false;
         toggle.setAttribute('aria-expanded', 'true');
     }
@@ -49,12 +46,6 @@
     document.addEventListener('keydown', event => {
         if (event.key !== 'Escape') return;
         if (!menu.hidden) { event.preventDefault(); closeAccount(true); }
-        else if (notificationsPanelOpen) { event.preventDefault(); toggleNotificationsPanel(); bell.focus(); }
     });
     window.addEventListener('hashchange', () => closeAccount());
-    new MutationObserver(() => {
-        const open = notifications.style.display !== 'none';
-        bell.setAttribute('aria-expanded', String(open));
-        if (open) closeAccount();
-    }).observe(notifications, { attributes:true, attributeFilter:['style'] });
 })();

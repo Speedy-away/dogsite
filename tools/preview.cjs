@@ -2,8 +2,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
 const { siteRoot, isPublic } = require('./site-layout.cjs');
+const { createHandler } = require('./loader-download/server.cjs');
 const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css', '.js':'text/javascript', '.mjs':'text/javascript', '.json':'application/json', '.png':'image/png', '.gif':'image/gif', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.svg':'image/svg+xml', '.woff2':'font/woff2', '.xml':'application/xml', '.txt':'text/plain', '.md':'text/plain', '.pdf':'application/pdf', '.zip':'application/zip', '.mp4':'video/mp4' };
 function createServer(root = siteRoot) {
+  const downloadLoader = createHandler({ downloadPath: '/api/loader/download' });
   // Local preview of the explicitly imported community download repository.
   // Only files named in its generated catalog can be served through this route.
   const downloadRoot = path.resolve(root, '..', 'cool-repo');
@@ -43,6 +45,7 @@ function createServer(root = siteRoot) {
     try { url = new URL(req.url, 'http://localhost'); pathname = decodeURIComponent(url.pathname); }
     catch { error(400); return; }
     if (pathname.includes('\0') || pathname.includes('\\')) { error(400); return; }
+    if (pathname === '/api/loader/download') { downloadLoader(req, res); return; }
     if (pathname.startsWith('/community-files/')) {
       try {
         const file = communityFile(pathname.slice('/community-files/'.length));

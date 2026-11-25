@@ -111,11 +111,11 @@
             .dashboard-footer { flex-wrap: wrap; }
         }
     </style>
-    <link rel="stylesheet" href="portal-refresh.css?v=a4e06e9172">
+    <link rel="stylesheet" href="portal-refresh.css?v=protected-loader">
     <link rel="stylesheet" href="portal-backgrounds.css?v=20260924-account">
     <link rel="stylesheet" href="portal-messages.css?v=1">
-    <link rel="stylesheet" href="portal-navigation.css?v=mobile-security">
-    <link rel="stylesheet" href="portal-account.css?v=email-security">
+    <link rel="stylesheet" href="portal-navigation.css?v=compact-account-menu">
+    <link rel="stylesheet" href="portal-account.css?v=compact-products">
     <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
 <body class="portal-modern auth-mode">
@@ -160,21 +160,6 @@
                         <span>Register</span>
                     </button>
                 </div>
-                <!-- Notifications Bell -->
-                <button type="button" class="notification-bell" id="notificationBell" style="display: none;" onclick="toggleNotificationsPanel()" aria-label="Notifications" aria-expanded="false" aria-controls="notificationsPanel">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-badge" id="notificationBadge" style="display: none;">0</span>
-                </button>
-                <!-- Notifications Panel -->
-                <div class="notifications-panel" id="notificationsPanel" style="display: none;" role="region" aria-label="Notifications">
-                    <div class="notifications-header">
-                        <span>Notifications</span>
-                        <button class="mark-all-read-btn" onclick="markAllNotificationsRead()">Mark all read</button>
-                    </div>
-                    <div class="notifications-list" id="notificationsList">
-                        <div class="notifications-empty">No notifications</div>
-                    </div>
-                </div>
                 <!-- Account menu -->
                 <div class="user-dropdown" id="userDropdown" style="display: none;">
                     <button type="button" class="account-menu-toggle" id="accountMenuToggle" aria-label="Account options" aria-expanded="false" aria-controls="accountMenu">
@@ -185,6 +170,7 @@
                     <div class="dropdown-menu" id="accountMenu" role="group" aria-label="Account options" hidden>
                         <div class="account-menu-heading"><span>SIGNED IN AS</span><strong id="accountMenuName" data-i18n-skip>Username</strong></div>
                         <button type="button" class="dropdown-item" onclick="showPage('profile')"><i class="far fa-user" aria-hidden="true"></i><span>My profile</span></button>
+                        <button type="button" class="dropdown-item" id="accountPasswordButton" onclick="showPage('forgot-password')"><i class="fas fa-lock" aria-hidden="true"></i><span>Change password</span></button>
                         <button type="button" class="dropdown-item" onclick="showRedeemKeyModal()"><i class="fas fa-key" aria-hidden="true"></i><span>Redeem key</span></button>
                         <button type="button" class="dropdown-item" id="navSupport" style="display:none;" onclick="showPage('support')"><i class="fas fa-life-ring" aria-hidden="true"></i><span>Support</span></button>
                         <div class="dropdown-divider"></div>
@@ -1651,7 +1637,8 @@
                     <div class="portal-loader-info"><h3>Scooby loader</h3><span><i class="fab fa-windows" aria-hidden="true"></i> For Windows</span></div>
                     <span class="portal-loader-mark" aria-hidden="true"><i class="fas fa-download"></i></span>
                 </div>
-                <a class="dashboard-button portal-loader-link" href="https://filepaste.app/p/abjareuz" target="_blank" rel="noopener"><i class="fas fa-arrow-down" aria-hidden="true"></i> Download loader <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                <button class="dashboard-button portal-loader-link" id="portalLoaderDownloadButton" type="button" disabled aria-describedby="portalLoaderDownloadStatus"><i class="fas fa-arrow-down" aria-hidden="true"></i><span>Download loader</span></button>
+                <p class="dashboard-message" id="portalLoaderDownloadStatus" role="status" aria-live="polite"></p>
             </div>
             <div class="portal-download-extras">
                 <h3>Additional tools</h3>
@@ -1663,11 +1650,13 @@
                 </div>
             </div>
         </div>
-        <div class="portal-download-footer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Downloads open in a new tab.</div>
+        <div class="portal-download-footer"><i class="fas fa-download" aria-hidden="true"></i> Your loader downloads with a new filename each time.</div>
     </dialog>
-    <script src="portal.js?v=email-security"></script>
+    <script src="portal.js?v=remove-notifications"></script>
     <script src="portal-refresh.js?v=20261005-game-logos"></script>
-    <script src="portal-navigation.js?v=20260924-account"></script>
+    <script src="loader-download-config.js?v=protected-loader"></script>
+    <script src="loader-download.js?v=protected-loader"></script>
+    <script src="portal-navigation.js?v=remove-notifications"></script>
     <script src="portal-backgrounds.js?v=20260924-account"></script>
     <script>
     // Account dashboard integration. All other routes still use portal.js.
