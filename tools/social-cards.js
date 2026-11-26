@@ -112,8 +112,8 @@ for (const slug of wikiGames) {
 const additionalCards = {
   console: ['Console', 'PlayStation 4 catalog'],
   'console-gta5': ['GTA 5', 'PlayStation 4 · Coming soon'],
-  'console-rdr2': ['Red Dead Redemption 2', 'PlayStation 4 · Coming soon'],
-  'console-r6': ['Rainbow Six Siege', 'Scooby PS4 v1.0.2 · Released'],
+  'console-rdr2': ['Red Dead Redemption 2', 'Scooby PS4 v1.0.0 · Free + Premium'],
+  'console-r6': ['Rainbow Six Siege', 'Scooby PS4 v1.0.3 · Released'],
   'console-scooby-manager': ['Scooby Manager', 'File and download manager · PS4'],
   'console-fortnite': ['Fortnite', 'PlayStation 4 · Coming soon'],
   'console-overwatch': ['Overwatch', 'PlayStation 4 · Coming soon'],
@@ -158,6 +158,9 @@ for (const card of Object.values(cards)) {
   card.alt = card.id === 'home' ? 'White Scooby outline on a dark textured background.' :
     card.label + ': ' + card.lines.join(' ') + ' ' + card.subtitle;
 }
+
+cards['console-r6'].version = 'v1.0.3';
+cards['console-rdr2'].version = 'v1.0.0';
 
 function cardFor(file) {
   file = file.replace(/\\/g, '/');

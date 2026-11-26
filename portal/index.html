@@ -116,6 +116,8 @@
     <link rel="stylesheet" href="portal-messages.css?v=1">
     <link rel="stylesheet" href="portal-navigation.css?v=compact-account-menu">
     <link rel="stylesheet" href="portal-account.css?v=compact-products">
+    <link rel="stylesheet" href="account-download.css?v=1">
+    <script src="account-download.js?v=1" defer></script>
     <link rel="preload" as="image" href="images/backgrounds/gta-boulevard.png" fetchpriority="high">
 </head>
 <body class="portal-modern auth-mode">
@@ -220,6 +222,20 @@
                             <button class="dashboard-button" id="dashboardRedeemButton" type="submit" disabled><i class="fas fa-plus" aria-hidden="true"></i> Redeem key</button>
                             <p class="dashboard-message" id="dashboardRedeemMessage" role="status"></p>
                         </form>
+                        <section class="console-account-download" aria-labelledby="consoleAccountHeading">
+                            <h3 id="consoleAccountHeading"><i class="fas fa-file-download" aria-hidden="true"></i> Download account.json</h3>
+                            <p class="dashboard-description" id="consoleAccountNote">Console / PS4 only &mdash; not needed for PC.</p>
+                            <p class="dashboard-description" id="consoleAccountPrivacy">Enter your Scooby account username and password. The file is generated in your browser; these details are not sent to the website. It contains your password, so keep it private.</p>
+                            <form class="dashboard-form" id="consoleAccountForm" autocomplete="off" aria-describedby="consoleAccountNote consoleAccountPrivacy">
+                                <label for="consoleAccountUsername">Username</label>
+                                <input class="dashboard-input" id="consoleAccountUsername" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="128" required>
+                                <label for="consoleAccountPassword">Password</label>
+                                <input class="dashboard-input" id="consoleAccountPassword" type="password" autocomplete="off" maxlength="256" required>
+                                <button class="dashboard-button secondary" id="consoleAccountDownload" type="submit" disabled><i class="fas fa-download" aria-hidden="true"></i> Download account.json</button>
+                                <p class="dashboard-message" id="consoleAccountStatus" role="status" aria-live="polite"></p>
+                            </form>
+                            <noscript><p class="dashboard-message">Enable JavaScript to generate account.json locally in your browser.</p></noscript>
+                        </section>
                     </section>
                     <section class="dashboard-card dashboard-download" aria-labelledby="dashboardDownloadHeading">
                         <h2 id="dashboardDownloadHeading"><i class="fas fa-download" aria-hidden="true"></i> Download</h2>

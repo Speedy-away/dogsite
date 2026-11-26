@@ -1,0 +1,4 @@
+.console-account-download { border-top: 1px solid #292930; margin-top: 20px; padding-top: 20px; }
+.console-account-download h3 { font: 600 14px/1.5 'Inter', sans-serif; letter-spacing: -.15px; }
+.console-account-download h3 i { margin-inline-end: 7px; color: #babac4; }
+.console-account-download .dashboard-input + label { margin-top: 14px; }

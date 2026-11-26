@@ -1,0 +1,355 @@
+{
+  "game": "RDR2 PS4",
+  "slug": "rdr2-ps4",
+  "supported_versions": [
+    "Scooby PS4 · v1.0.0",
+    "PlayStation 4 · GoldHEN SPRX",
+    "EU CUSA08519 · game version 01.32"
+  ],
+  "tabs": [
+    {
+      "name": "Self",
+      "categories": [
+        {
+          "name": "Local player",
+          "groups": [
+            {
+              "name": "Local player",
+              "items": [
+                {
+                  "id": "self-tools",
+                  "label": "Self tools",
+                  "desc": "Health, core, stamina, wanted and visibility controls are grouped under Self. Gameplay behavior depends on the supported build and local player."
+                },
+                {
+                  "id": "movement",
+                  "label": "Movement",
+                  "desc": "Movement options include super run, super jump and swimming controls."
+                },
+                {
+                  "id": "noclip",
+                  "label": "Walking Noclip",
+                  "desc": "Move through obstacles on foot with camera-relative left-stick input while retaining aim and fire.",
+                  "settings": [
+                    "Speed settings",
+                    "Movement pauses while the menu is open"
+                  ]
+                },
+                {
+                  "id": "walking-styles",
+                  "label": "Walking styles",
+                  "desc": "Choose a walking-style preset or reset the current style."
+                },
+                {
+                  "id": "animations",
+                  "label": "Animations & scenarios",
+                  "desc": "Browse animation, emote and scenario pages, with search and stop controls."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Appearance",
+      "categories": [
+        {
+          "name": "Wardrobe",
+          "groups": [
+            {
+              "name": "Wardrobe",
+              "items": [
+                {
+                  "id": "appearance-pages",
+                  "label": "Appearance pages",
+                  "desc": "Browse model, outfit and component categories. Model changes remain under gameplay validation."
+                },
+                {
+                  "id": "outfit-editor",
+                  "label": "Outfit editor",
+                  "desc": "Choose clothing components and their available variations for the current model."
+                },
+                {
+                  "id": "saved-outfits",
+                  "label": "Saved outfits",
+                  "desc": "Save and load outfit files through the PS4 menu. Compatible legacy outfit files are listed separately."
+                },
+                {
+                  "id": "outfit-presets",
+                  "label": "Outfit presets",
+                  "desc": "Browse gender-specific outfit presets. Individual presets and model compatibility remain in testing."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weapons",
+      "categories": [
+        {
+          "name": "Loadout & weapon visuals",
+          "groups": [
+            {
+              "name": "Loadout & weapon visuals",
+              "items": [
+                {
+                  "id": "loadout",
+                  "label": "Loadout",
+                  "desc": "Weapon selection and give/equip controls are organized in a dedicated loadout page."
+                },
+                {
+                  "id": "ammo",
+                  "label": "Ammo",
+                  "desc": "Ammo options have their own page, separate from loadout and visuals."
+                },
+                {
+                  "id": "weapon-mods",
+                  "label": "Weapon options",
+                  "desc": "Browse weapon, clip, damage and maintenance controls for the current local player."
+                },
+                {
+                  "id": "weapon-visuals",
+                  "label": "Weapon visuals",
+                  "desc": "Laser sight, bullet tracer and throwable tracer settings are grouped under Visuals. Individual rendering behavior is still being refined."
+                },
+                {
+                  "id": "crosshair",
+                  "label": "Crosshair",
+                  "desc": "Configure the crosshair independently from the ESP and weapon settings."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ESP",
+      "categories": [
+        {
+          "name": "Separate category settings",
+          "groups": [
+            {
+              "name": "Separate category settings",
+              "items": [
+                {
+                  "id": "esp-players",
+                  "label": "Player ESP",
+                  "desc": "Configure player labels, boxes, lines, health and distance. Skeleton and other detailed visuals remain under validation."
+                },
+                {
+                  "id": "esp-npcs",
+                  "label": "NPC & animal ESP",
+                  "desc": "NPCs and horses have separate visual settings, including labels and distance."
+                },
+                {
+                  "id": "esp-vehicles",
+                  "label": "Vehicle ESP",
+                  "desc": "Vehicle visuals focus on box, line, name and distance controls."
+                },
+                {
+                  "id": "esp-self",
+                  "label": "Self ESP",
+                  "desc": "Configure local-player visuals independently of other players."
+                },
+                {
+                  "id": "esp-style",
+                  "label": "Visual style",
+                  "desc": "Adjust colors, text scale, label placement and backgrounds per category."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Players",
+      "categories": [
+        {
+          "name": "Player list",
+          "groups": [
+            {
+              "name": "Player list",
+              "items": [
+                {
+                  "id": "players",
+                  "label": "Players list",
+                  "desc": "Browse current session players from Network → Players."
+                },
+                {
+                  "id": "player-tags",
+                  "label": "Player tags",
+                  "desc": "Labels can identify the local player, host and friends when that information is available."
+                },
+                {
+                  "id": "player-info",
+                  "label": "Player info",
+                  "desc": "Choose whether the selected-player information panel is shown. Portraits, IP addresses and geolocation are not available in this PS4 build."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Teleport",
+      "categories": [
+        {
+          "name": "Locations & travel",
+          "groups": [
+            {
+              "name": "Locations & travel",
+              "items": [
+                {
+                  "id": "waypoint",
+                  "label": "Waypoint teleport",
+                  "desc": "Travel to the current map waypoint when a valid destination can be resolved."
+                },
+                {
+                  "id": "objective",
+                  "label": "Objective teleport",
+                  "desc": "Use the current supported objective destination."
+                },
+                {
+                  "id": "auto-teleport",
+                  "label": "Automatic waypoint & objective travel",
+                  "desc": "Automatic travel has its own toggles; the matching one-shot buttons are hidden while auto mode is enabled."
+                },
+                {
+                  "id": "saved-locations",
+                  "label": "Saved locations",
+                  "desc": "Save, browse and load your own named destinations."
+                },
+                {
+                  "id": "destinations",
+                  "label": "Destination categories",
+                  "desc": "Browse organized destination lists and closest-location controls. Live camp and Madam Nazar routing depend on additional verified game state."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "World & spawner",
+      "categories": [
+        {
+          "name": "World and entity pages",
+          "groups": [
+            {
+              "name": "World and entity pages",
+              "items": [
+                {
+                  "id": "world",
+                  "label": "World controls",
+                  "desc": "Weather, time and world settings are organized into their own pages."
+                },
+                {
+                  "id": "spawner",
+                  "label": "Spawner categories",
+                  "desc": "Browse pedestrian, animal, horse, vehicle, object and plant pages. Availability depends on the model and current game state."
+                },
+                {
+                  "id": "spawn-settings",
+                  "label": "Spawn settings",
+                  "desc": "Each supported entity category has its own placement and management options."
+                },
+                {
+                  "id": "spawn-management",
+                  "label": "Spawned entity management",
+                  "desc": "Manage tracked spawned entities. Treasure lifetime and visibility to other players remain under testing; full synchronization is not promised."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Recovery",
+      "categories": [
+        {
+          "name": "Current request controls",
+          "groups": [
+            {
+              "name": "Current request controls",
+              "items": [
+                {
+                  "id": "money-gold",
+                  "label": "Money & Gold requests",
+                  "desc": "Individual requests, loop toggles, batch size and local delay controls. Game eligibility and reward processing determine payouts; a locally accepted request does not confirm a reward."
+                },
+                {
+                  "id": "collections",
+                  "label": "Inventory collection sets",
+                  "desc": "Collections live under Recovery → XP. Inventory-based sets have give and loop controls; Fossils, Eggs and All Collections require a Loot route that is not available in this PS4 build."
+                },
+                {
+                  "id": "recovery-status",
+                  "label": "Recovery status & stop",
+                  "desc": "Inspect local loop activity or stop pending recovery work. Character/role XP awards and protection hooks are not active providers in this PS4 build."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "categories": [
+        {
+          "name": "Interface & controls",
+          "groups": [
+            {
+              "name": "Interface & controls",
+              "items": [
+                {
+                  "id": "controller",
+                  "label": "Controller navigation",
+                  "desc": "R1 + Square opens or closes the menu. D-pad navigation, X select, Circle back and Square search."
+                },
+                {
+                  "id": "keyboard",
+                  "label": "PS4 keyboard",
+                  "desc": "Use controller text entry for search, numeric values and supported file-name fields."
+                },
+                {
+                  "id": "themes",
+                  "label": "Themes & colors",
+                  "desc": "Choose menu themes and customize interface colors."
+                },
+                {
+                  "id": "layout",
+                  "label": "Layout",
+                  "desc": "Adjust menu position, scale, section visibility and descriptions."
+                },
+                {
+                  "id": "backgrounds",
+                  "label": "Backgrounds",
+                  "desc": "Configure supported header/background images and animation settings."
+                },
+                {
+                  "id": "profiles",
+                  "label": "Configuration profiles",
+                  "desc": "Save and load game-specific settings profiles."
+                },
+                {
+                  "id": "overlays",
+                  "label": "Overlays",
+                  "desc": "Configure watermark, FPS, session/pool information and open-menu hints where supported."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

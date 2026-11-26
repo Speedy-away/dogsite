@@ -1,0 +1,16 @@
+/* Scoped additions for the existing Overwatch console product page. */
+.overwatch-product-page .ow-development-shot { margin:0; min-width:0; }
+.overwatch-product-page .ow-screenshot-link { display:block; overflow:hidden; border:1px solid var(--border-color); border-radius:10px; background:#080a0c; cursor:zoom-in; }
+.overwatch-product-page .ow-screenshot-link img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; }
+.overwatch-product-page .ow-release-note { margin:12px 0 0; line-height:1.7; }
+.overwatch-product-page .ow-feature-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:26px; }
+.overwatch-product-page .ow-feature-panel { min-width:0; padding:20px; border:1px solid var(--border-color); border-radius:10px; background:rgba(255,255,255,.018); }
+.overwatch-product-page .ow-feature-panel h3 { margin:9px 0 12px; }
+.overwatch-product-page .ow-feature-panel ul { margin:0; }
+.overwatch-product-page .ow-feature-panel li { overflow-wrap:anywhere; }
+.overwatch-product-page .ow-feature-panel-pending .product-eyebrow { color:#e9c88d; }
+.overwatch-product-page .ow-feature-panel strong { color:var(--text-primary,#edf1e8); font-weight:600; }
+@media (max-width:700px) {
+    .overwatch-product-page .ow-feature-grid { grid-template-columns:minmax(0,1fr); }
+    .overwatch-product-page .ow-feature-panel { padding:17px; }
+}

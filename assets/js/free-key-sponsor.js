@@ -11,19 +11,6 @@
     }
     if (alreadyOpened()) return;
 
-    const notices = controls.map((control, index) => {
-        const notice = document.createElement('p');
-        notice.className = 'free-key-sponsor-note';
-        notice.id = `free-key-sponsor-note-${index}`;
-        notice.textContent = control.hasAttribute('data-download-sponsor')
-            ? 'Download may open one sponsored tab.'
-            : 'Get a Free Key may open one sponsored tab.';
-        const description = control.getAttribute('aria-describedby');
-        control.setAttribute('aria-describedby', [description, notice.id].filter(Boolean).join(' '));
-        control.after(notice);
-        return { control, notice, description };
-    });
-
     function openSponsor(event) {
         if (!event.isTrusted || event.defaultPrevented || event.button !== 0 || event.metaKey ||
             event.altKey || event.ctrlKey || event.shiftKey) return;
@@ -33,11 +20,6 @@
         const opened = alreadyOpened();
         window.removeEventListener('click', openSponsor, true);
         try { sessionStorage.setItem(sessionKey, '1'); } catch { /* The listener still runs once per page. */ }
-        for (const entry of notices) {
-            if (entry.description) entry.control.setAttribute('aria-describedby', entry.description);
-            else entry.control.removeAttribute('aria-describedby');
-            entry.notice.remove();
-        }
         // Keep the original link/modal action, even when the browser blocks ads.
         if (!opened) {
             try {

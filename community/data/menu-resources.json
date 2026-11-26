@@ -117873,11 +117873,10 @@
       "downloadStatus": "pending",
       "status": "pending",
       "files": [],
+      "sourceFilename": "Host-Tools-v1.7.2.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-host-tools",
-      "addedAt": "2026-11-13T01:38:55.639Z",
       "description": "Host Tools for the Cherax Lua host.",
-      "sourceFilename": "Host-Tools-v1.7.2.lua",
       "version": "1.9.0",
       "requirementLabel": "Requires the Cherax Lua API",
       "requirements": [
@@ -117890,7 +117889,8 @@
         "cherax-lua-thread-1521248688293417020"
       ],
       "author": "Plynko",
-      "downloadLabel": "Download unavailable"
+      "downloadLabel": "Download unavailable",
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "VibeScript",
@@ -117960,11 +117960,10 @@
           "versionLabel": "VibeScript"
         }
       ],
+      "sourceFilename": "Vibescript v2.5.1.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-vibescript",
-      "addedAt": "2026-11-13T01:38:55.639Z",
       "description": "VibeScript for the Cherax Lua host.",
-      "sourceFilename": "Vibescript v2.5.1.lua",
       "version": "2.5.1",
       "requirementLabel": "Requires the Cherax Lua API",
       "requirements": [
@@ -117979,7 +117978,8 @@
       "author": "Author unverified",
       "preview": "/assets/images/resource-previews/cherax/20d4d692ede2a21855ef.webp",
       "previewKind": "source-artwork",
-      "previewCaption": "Artwork from the original script share"
+      "previewCaption": "Artwork from the original script share",
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "cherax_classic_wp_1",
@@ -229815,21 +229815,21 @@
           "versionLabel": "v1.0.11"
         }
       ],
+      "sourceFilename": "Startup v1.0.18.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-startup",
-      "addedAt": "2026-11-13T01:38:55.639Z",
       "aliases": [
         "cherax-export-1240977647769616425-1448055936894894102-1448055936962007202",
         "cherax-lua-thread-1531445791724670976"
       ],
-      "sourceFilename": "Startup v1.0.18.lua",
       "formatExtension": "lua",
       "author": "Public_Urinal",
       "description": "Startup for the Cherax Lua host.",
       "requirementLabel": "Requires the Cherax Lua API",
       "preview": "/assets/images/resource-previews/cherax/32fdc59d3fa341f1f1d2.webp",
       "previewKind": "author-artwork",
-      "previewCaption": "Artwork from the author’s repository"
+      "previewCaption": "Artwork from the author’s repository",
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "2take1",
@@ -229903,10 +229903,9 @@
           "versionLabel": "Aerials"
         }
       ],
+      "sourceFilename": "Aerials.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-aerials",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Aerials.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Aerials for the Cherax Lua host.",
@@ -229916,7 +229915,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1525326387286638632"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Auto Translator",
@@ -229957,17 +229957,17 @@
           "versionLabel": "Auto-Translator"
         }
       ],
+      "sourceFilename": "Auto-Translator.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-auto-translator",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Auto-Translator.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Auto Translator for the Cherax Lua host.",
       "requirementLabel": "Requires the Cherax Lua API",
       "aliases": [
         "cherax-lua-thread-1495666539771199528"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "BiggerScript",
@@ -230035,10 +230035,9 @@
       "downloadStatus": "pending",
       "status": "pending",
       "files": [],
+      "sourceFilename": "BunnyScript LE & EE v2.5.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-bunnyscript",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "BunnyScript LE & EE v2.5.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "BunnyScript for the Cherax Lua host.",
@@ -230046,7 +230045,8 @@
       "downloadLabel": "Download unavailable",
       "aliases": [
         "cherax-lua-thread-1496553653899628685"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "BusinessTracker",
@@ -230145,10 +230145,9 @@
       "downloadStatus": "pending",
       "status": "pending",
       "files": [],
+      "sourceFilename": "CheemsTranslator.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-cheems-translator",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "CheemsTranslator.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "CheemsTranslator for the Cherax Lua host.",
@@ -230156,7 +230155,8 @@
       "downloadLabel": "Download unavailable",
       "aliases": [
         "cherax-lua-thread-1509840201508458567"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Cherax Doom",
@@ -230197,17 +230197,17 @@
           "versionLabel": "v1.0.0"
         }
       ],
+      "sourceFilename": "Cherax-Doom.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-cherax-doom",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Cherax-Doom.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Cherax Doom for the Cherax Lua host.",
       "requirementLabel": "Requires the Cherax Lua API",
       "aliases": [
         "cherax-lua-thread-1522677778699255928"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Codax",
@@ -230248,10 +230248,9 @@
           "versionLabel": "Codax"
         }
       ],
+      "sourceFilename": "Codax.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-codax",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Codax.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Codax for the Cherax Lua host.",
@@ -230261,7 +230260,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1495396954727776337"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Crimson Vehicles",
@@ -230301,10 +230301,9 @@
           "versionLabel": "Crimson-Vehicles"
         }
       ],
+      "sourceFilename": "Crimson-Vehicles.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-crimson-vehicles",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Crimson-Vehicles.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Crimson Vehicles for the Cherax Lua host.",
@@ -230314,7 +230313,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1531109179731869696"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "DaiveKit",
@@ -230347,10 +230347,9 @@
       "downloadStatus": "pending",
       "status": "pending",
       "files": [],
+      "sourceFilename": "DaiveKit-v2.7.1.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-daivekit",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "DaiveKit-v2.7.1.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "DaiveKit for the Cherax Lua host.",
@@ -230361,7 +230360,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1495392826219954196"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Discord RPC Reborn",
@@ -230427,10 +230427,9 @@
           "versionLabel": "v1.2.4"
         }
       ],
+      "sourceFilename": "Discord-RPC-Reborn.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-discord-rpc-reborn",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Discord-RPC-Reborn.lua",
       "formatExtension": "lua",
       "author": "nightkitty",
       "description": "Discord RPC Reborn for the Cherax Lua host.",
@@ -230440,7 +230439,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1509661047127281878"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "DriftGod",
@@ -230558,10 +230558,9 @@
           "versionLabel": "DriftGod"
         }
       ],
+      "sourceFilename": "DriftGod v1.0.7.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-driftgod",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "DriftGod v1.0.7.lua",
       "formatExtension": "lua",
       "author": "Public_Urinal / Animus",
       "description": "DriftGod for the Cherax Lua host.",
@@ -230571,7 +230570,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1521558422259241091"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Flying Cars SA",
@@ -230626,10 +230626,9 @@
           "versionLabel": "v1.0.1 Alpha"
         }
       ],
+      "sourceFilename": "Flying-Cars.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-flying-cars-sa",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Flying-Cars.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Flying Cars SA for the Cherax Lua host.",
@@ -230639,7 +230638,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1542999066999521400"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "HotkeyManager",
@@ -230766,10 +230766,9 @@
           "versionLabel": "v1.0.7"
         }
       ],
+      "sourceFilename": "HustleMeter-v1.0.9.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-hustlemeter",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "HustleMeter-v1.0.9.lua",
       "formatExtension": "lua",
       "author": "Public_Urinal",
       "description": "HustleMeter for the Cherax Lua host.",
@@ -230779,7 +230778,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1522724364804685925"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Impulse",
@@ -230853,10 +230853,9 @@
           "versionLabel": "J19sw-Gun-Van"
         }
       ],
+      "sourceFilename": "J19sw-Gun-Van.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-gun-van",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "J19sw-Gun-Van.lua",
       "formatExtension": "lua",
       "author": "Ji9sw",
       "description": "Ji9sw Gun Van for the Cherax Lua host.",
@@ -230866,7 +230865,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1525905280267981040"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Ji9sw Racing Lines",
@@ -230907,10 +230907,9 @@
           "versionLabel": "Ji9sw-Racing-Lines"
         }
       ],
+      "sourceFilename": "Ji9sw-Racing-Lines.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-racing-lines",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Ji9sw-Racing-Lines.lua",
       "formatExtension": "lua",
       "author": "Ji9sw",
       "description": "Ji9sw Racing Lines for the Cherax Lua host.",
@@ -230920,7 +230919,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1527052467458674708"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "K-Script",
@@ -230993,10 +230993,9 @@
           "versionLabel": "Kortz-Heist-Helper"
         }
       ],
+      "sourceFilename": "Kortz-Heist-Helper.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-kortz-heist",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Kortz-Heist-Helper.lua",
       "formatExtension": "lua",
       "author": "Forlax",
       "description": "Kortz Heist Helper for the Cherax Lua host.",
@@ -231006,7 +231005,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1528382791975309362"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "LiquidFit",
@@ -231048,10 +231048,9 @@
           "versionLabel": "v1.1.1"
         }
       ],
+      "sourceFilename": "LiquidFit-Outfit-manager.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-liquidfit",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "LiquidFit-Outfit-manager.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "LiquidFit for the Cherax Lua host.",
@@ -231061,7 +231060,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1527684730768855222"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Oddssey",
@@ -231135,10 +231135,9 @@
           "versionLabel": "OutfitForge"
         }
       ],
+      "sourceFilename": "OutfitForge.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-outfitforge",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "OutfitForge.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "OutfitForge for the Cherax Lua host.",
@@ -231148,7 +231147,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1540426898939584634"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "OutfitManager",
@@ -231256,10 +231256,9 @@
           "versionLabel": "v1.0.1"
         }
       ],
+      "sourceFilename": "Smart-Console.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-smart-console",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Smart-Console.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Smart Console for the Cherax Lua host.",
@@ -231269,7 +231268,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1563621511816937622"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Sovereign",
@@ -231317,10 +231317,9 @@
           "versionLabel": "Sovereign2.lua"
         }
       ],
+      "sourceFilename": "Sovereign-1.0.0.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-sovereign",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Sovereign-1.0.0.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Sovereign for the Cherax Lua host.",
@@ -231335,7 +231334,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1561386308000026736"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Spoof Rank to 32-Bit Integer",
@@ -231483,17 +231483,17 @@
           "versionLabel": "v1.0.1"
         }
       ],
+      "sourceFilename": "TRACKMATIC v1.0.1.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-trackmatic",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "TRACKMATIC v1.0.1.lua",
       "formatExtension": "lua",
       "author": "Public_Urinal",
       "description": "Trackmatic for the Cherax Lua host.",
       "requirementLabel": "Requires the Cherax Lua API",
       "aliases": [
         "cherax-lua-thread-1564519600480063488"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Vehicle Forge",
@@ -231541,17 +231541,17 @@
           "versionLabel": "vehicleForge"
         }
       ],
+      "sourceFilename": "Vehicle-Forge.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-vehicle-forge",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Vehicle-Forge.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Vehicle Forge for the Cherax Lua host.",
       "requirementLabel": "Requires the Cherax Lua API",
       "aliases": [
         "cherax-lua-thread-1541858263937581106"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Body Accessories",
@@ -231592,10 +231592,9 @@
           "versionLabel": "Body-Accessories"
         }
       ],
+      "sourceFilename": "Body-Accessories.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-body-accessories",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Body-Accessories.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Body Accessories for the Cherax Lua host.",
@@ -231605,7 +231604,8 @@
       "previewCaption": "Screenshot from the original script share",
       "aliases": [
         "cherax-lua-thread-1550614136830824448"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "ElloScript",
@@ -231652,17 +231652,17 @@
           "versionLabel": "elloscript"
         }
       ],
+      "sourceFilename": "ElloScript-v1.5.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-elloscript",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "ElloScript-v1.5.lua",
       "formatExtension": "lua",
       "author": "elloeu",
       "description": "ElloScript for the Cherax Lua host.",
       "requirementLabel": "Requires the Cherax Lua API",
       "aliases": [
         "cherax-lua-thread-1533249283011121182"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Silent Night",
@@ -231724,10 +231724,9 @@
           "versionLabel": "SilentNight-77"
         }
       ],
+      "sourceFilename": "Silent-Night-v1.13.3.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-silent-night",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Silent-Night-v1.13.3.lua",
       "formatExtension": "lua",
       "author": "Author unverified",
       "description": "Silent Night for the Cherax Lua host.",
@@ -231737,7 +231736,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1495522511415152790"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "PaintLabs",
@@ -231847,10 +231847,9 @@
           "versionLabel": "v1.0.0"
         }
       ],
+      "sourceFilename": "PaintLabs-1.02.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-paintlabs",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "PaintLabs-1.02.lua",
       "formatExtension": "lua",
       "author": "Public_Urinal",
       "description": "PaintLabs for the Cherax Lua host.",
@@ -231860,7 +231859,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1543000109921607750"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "name": "Minigames",
@@ -231910,10 +231910,9 @@
           "versionLabel": "v1.0.0"
         }
       ],
+      "sourceFilename": "Minigames-1.0.0.lua",
       "guide": "/resources/guides/?game=gta5&menu=cherax&category=lua",
       "id": "cherax-lua-minigames",
-      "addedAt": "2026-11-13T01:38:55.639Z",
-      "sourceFilename": "Minigames-1.0.0.lua",
       "formatExtension": "lua",
       "author": "Animus",
       "description": "Minigames for the Cherax Lua host.",
@@ -231923,7 +231922,8 @@
       "previewCaption": "Artwork from the original script share",
       "aliases": [
         "cherax-lua-thread-1556808851322314822"
-      ]
+      ],
+      "addedAt": "2026-11-13T01:38:55.639Z"
     },
     {
       "id": "cherax-lua-chat-commands",

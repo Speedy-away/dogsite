@@ -1,0 +1,6 @@
+.console-product-page .rdr2-preview{margin:0}
+.console-product-page .rdr2-screenshot{display:block;border:1px solid var(--border-color,#34383b);border-radius:16px;overflow:hidden;background:#080b0e}
+.console-product-page .rdr2-screenshot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
+.console-product-page .rdr2-screenshot:focus-visible{outline:3px solid var(--primary-color,#6cb59c);outline-offset:4px}
+.console-product-page .rdr2-preview-note{padding:16px 18px;border-left:3px solid var(--primary-color,#6cb59c);background:rgba(255,255,255,.035);border-radius:0 8px 8px 0}
+.console-product-page .rdr2-description-link{margin-top:24px}
