@@ -427,7 +427,10 @@ function applyMetadata(file, html, override) {
   attrs(tag).lang ? tag : tag.replace(/>$/, ' lang="' + escape(meta.language || 'en') + '">'));
  return structure(file, applyBranding(withLanguage), meta);
 }
-function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['project','backup','build','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);return e.isDirectory()?walk(p):e.name.endsWith('.html')?[p]:[];});}
+// This literal console switch has an .html URL but is application data (0/1).
+// It must be packaged unchanged, never decorated or indexed as a document.
+const rawEndpoints = new Set(['scoobyps4switch.html']);
+function walk(dir, root=dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith('.')||['project','backup','build','hidden_files','node_modules','revolution','tools'].includes(e.name))return [];const p=path.join(dir,e.name);if(rawEndpoints.has(path.relative(root,p).replace(/\\/g,'/')))return [];return e.isDirectory()?walk(p,root):e.name.endsWith('.html')?[p]:[];});}
 Object.assign(pages, require('./seo-console-metadata.cjs'));
 for (const video of require('./seo-watch.cjs').videos) {
  add(video.file, video.title, video.description, video.keywords);

@@ -8,6 +8,8 @@ test('console switch is a public literal endpoint at the exact requested URL',as
  assert.equal(fs.readdirSync(root).includes('scoobyps4switch.html'),true);
  const expected=fs.readFileSync(path.join(root,'scoobyps4switch.html'),'utf8');
  assert.match(expected,/^[01]\r?\n?$/);
+ const {walk}=require(path.join(root,'tools/seo-metadata.js'));
+ assert(!walk(root).includes(path.join(root,'scoobyps4switch.html')),'Literal switch must not be processed or indexed as HTML');
  const {createServer}=require(path.join(root,'tools/preview.cjs'));
  const server=createServer(root);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  try {const response=await fetch(`http://127.0.0.1:${server.address().port}/scoobyps4switch.html`);assert.equal(response.status,200);assert.equal(await response.text(),expected);}
