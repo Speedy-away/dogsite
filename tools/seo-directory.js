@@ -69,7 +69,7 @@ ${sectionsHtml}
 <section id="community-support" aria-labelledby="community-support-title">
 <div class="section-heading"><h2 id="community-support-title">Community and support</h2></div>
 <ul class="directory-list">
-<li><a href="https://discord.gg/tGtvzChYQq">Scooby Discord community and support</a></li>
+<li><a href="https://discord.gg/BPewxvQAhs">Scooby Discord community and support</a></li>
 <li><a href="/resources/">Community mods and add-ons</a></li>
 <li><a href="/guides/">Public setup and troubleshooting guides</a></li>
 <li><a href="/videos/">Video library and creator showcases</a></li>

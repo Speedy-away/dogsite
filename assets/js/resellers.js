@@ -104,7 +104,7 @@
     const methods = [
       { name: 'Card & more', detail: 'Continue to the store checkout', icon: 'card', url },
       { name: 'Cryptocurrency', detail: 'Bitcoin, Ethereum & more', icon: 'crypto', url: 'https://nenyoo.store/' },
-      { name: 'Other payment options', detail: 'PayPal, Skrill, Paysafe & more · Contact support', icon: 'support', url: 'https://discord.gg/tGtvzChYQq' }
+      { name: 'Other payment options', detail: 'PayPal, Skrill, Paysafe & more · Contact support', icon: 'support', url: 'https://discord.gg/BPewxvQAhs' }
     ];
     methods.forEach(method => {
       const link = outbound(method.url); link.className = 'payment-option';
