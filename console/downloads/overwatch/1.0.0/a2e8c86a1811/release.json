@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "platform": "ps4",
+  "game": "overwatch",
+  "product": "ScoobyOverwatch",
+  "version": "1.0.0",
+  "version_label": "1.0.0 Beta",
+  "channel": "beta",
+  "title_id": "CUSA03974",
+  "app_version": "04.40",
+  "stable_release_ready": false,
+  "on_console_tested": true,
+  "console_test_scope": "Exact-binary load/export/menu-render observation only; not complete native-feature or performance acceptance.",
+  "url": "https://scoobymenu.cc/console/downloads/overwatch/1.0.0/a2e8c86a1811/ScoobyOverwatch.sprx",
+  "bytes": 5400912,
+  "sha256": "a2e8c86a18111e3cad9afd7de35e9fbaed36b4e072a54f698bb3e417721ca04e",
+  "resources_url": "https://scoobymenu.cc/console/downloads/overwatch/downloads/catalog.json",
+  "files": [
+    {
+      "name": "ScoobyOverwatch.sprx",
+      "sha256": "a2e8c86a18111e3cad9afd7de35e9fbaed36b4e072a54f698bb3e417721ca04e",
+      "bytes": 5400912,
+      "url": "https://scoobymenu.cc/console/downloads/overwatch/1.0.0/a2e8c86a1811/ScoobyOverwatch.sprx"
+    },
+    {
+      "name": "ScoobyOverwatch-CUSA03974-04.40.zip",
+      "sha256": "21b8cf56912184b8f86f58210c7a2f79b2def6b79f309f7e4b6566e364feb954",
+      "bytes": 3101222,
+      "url": "https://scoobymenu.cc/console/downloads/overwatch/1.0.0/a2e8c86a1811/ScoobyOverwatch-CUSA03974-04.40.zip"
+    }
+  ],
+  "minimum_version": "1.0.0",
+  "validation_summary": {
+    "host_storage_off": {
+      "passed": 29,
+      "total": 29
+    },
+    "host_storage_on": {
+      "passed": 30,
+      "total": 30
+    },
+    "shared_base": {
+      "passed": 41,
+      "total": 41
+    },
+    "relocated_minimal": {
+      "passed": 1,
+      "total": 1
+    },
+    "python_visual_runtime": {
+      "passed": 27,
+      "total": 27
+    },
+    "corrected_native_adapters": {
+      "passed": 17,
+      "total": 17
+    },
+    "verified_exports": 23,
+    "frozen_source_files": 1269
+  },
+  "console_observation": {
+    "entries": 90,
+    "accepted": 90,
+    "rendered": 90,
+    "commands": 1957,
+    "native_feature_acceptance_complete": false,
+    "whole_game_fps_verified": false
+  },
+  "default_profile": {
+    "name": "OverwatchVisualDefault.json",
+    "schema": 43,
+    "bytes": 48452,
+    "sha256": "4c85f335646c22b132cb7b3f8798e7a4a261e90c58ada0d3042b8bd09f34a738"
+  },
+  "notification_icon": {
+    "name": "scooby-d55b6bbd770db282.png",
+    "bytes": 573940,
+    "sha256": "d55b6bbd770db28242f9e7501574cfee3313f385b42106e078b6bbf5cfead486",
+    "ps4_path": "/user/data/Scooby/assets/notification/scooby-d55b6bbd770db282.png"
+  }
+}

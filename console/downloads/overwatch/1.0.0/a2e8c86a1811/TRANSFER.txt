@@ -1,0 +1,28 @@
+Scooby Overwatch 1.0.0 Beta — CUSA03974 / 04.40
+
+1. Copy ScoobyOverwatch.sprx to:
+   /data/GoldHEN/plugins/ScoobyOverwatch.sprx
+
+2. Merge the bundled plugins.ini fragment into /data/GoldHEN/plugins.ini:
+   [CUSA03974]
+   /data/GoldHEN/plugins/ScoobyOverwatch.sprx
+   Add the path under the existing CUSA03974 heading if present.
+   Keep all other game sections and plugin entries; do not replace the whole file.
+
+3. Copy scooby-d55b6bbd770db282.png to:
+   /user/data/Scooby/assets/notification/scooby-d55b6bbd770db282.png
+   Create folders if needed and keep the PNG readable (mode 0644).
+   This is the canonical Scooby PS4 notification icon. The plugin also embeds
+   it, but game-side publication can be sandboxed, so this global copy is supplied.
+
+4. Enable plugin loading in GoldHEN. Fully close Overwatch and relaunch it.
+   Open the menu with R1 + Square.
+
+Optional default profile:
+   Copy OverwatchVisualDefault.json into /data/Scooby/Overwatch/Configs/
+   and load it from the menu's configuration profiles. Keep existing profiles.
+
+Keep the bundled license notices. No account.json or device ID is included.
+
+SPRX bytes: 5400912
+SPRX SHA-256: a2e8c86a18111e3cad9afd7de35e9fbaed36b4e072a54f698bb3e417721ca04e

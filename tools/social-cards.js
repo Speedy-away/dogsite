@@ -112,11 +112,11 @@ for (const slug of wikiGames) {
 const additionalCards = {
   console: ['Console', 'PlayStation 4 catalog'],
   'console-gta5': ['GTA 5', 'PlayStation 4 · Coming soon'],
-  'console-rdr2': ['Red Dead Redemption 2', 'Scooby PS4 v1.0.0 · Free + Premium'],
+  'console-rdr2': ['Red Dead Redemption 2', 'Scooby PS4 v1.0.0 · Online'],
   'console-r6': ['Rainbow Six Siege', 'Scooby PS4 v1.0.3 · Released'],
   'console-scooby-manager': ['Scooby Manager', 'File and download manager · PS4'],
   'console-fortnite': ['Fortnite', 'PlayStation 4 · Coming soon'],
-  'console-overwatch': ['Overwatch', 'PlayStation 4 · Coming soon'],
+  'console-overwatch': ['Overwatch', 'Scooby PS4 v1.0.0 · Beta'],
   'wiki-spoofer': ['Spoofer + Cleaner', 'Access, downloads and support'],
   'account-portal': ['Account portal', 'Sign in or register'],
   community: ['Community', 'Scooby community and resources'],
@@ -197,6 +197,10 @@ function cardFor(file) {
   else id = { portal: 'account-portal', community: 'community', 'rockstar-classics': 'rockstar-classics', store: 'store', 'source-games': 'source', 'more-games': 'more-games', changelog: 'changelog', download: 'download',
     videos: 'videos', resellers: 'resellers', sitemap: 'directory', 'best-mod-menu': 'compare', tos: 'terms' }[file.split('/')[0]] || id;
   if (!cards[id]) throw new Error('Missing social card for ' + file);
+  if (id === 'console-overwatch') return { ...cards[id], path: '/console/assets/images/overwatch/overwatch-development-practice-range-20261127-000819-fa11a9f7.png', width: 1920, height: 1080,
+    alt: 'Scooby Overwatch v1.0.0 Beta menu and visuals in Practice Range.' };
+  if (id === 'console-rdr2') return { ...cards[id], path: '/console/assets/images/rdr2/rdr2-ps4-gameplay-20261126.png', width: 1920, height: 1080,
+    alt: 'Scooby RDR2 v1.0.0 menu and ESP in PS4 gameplay.' };
   return { ...cards[id], path: `/assets/images/social/${id}-${cards[id].version || VERSION}.png`, width: WIDTH, height: HEIGHT,
     alt: cards[id].alt || `${cards[id].label}: ${cards[id].lines.join(' ')} ${cards[id].subtitle}.` };
 }

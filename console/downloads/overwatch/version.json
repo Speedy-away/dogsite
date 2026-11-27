@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "platform": "ps4",
+  "game": "overwatch",
+  "product": "ScoobyOverwatch",
+  "version": "1.0.0",
+  "version_label": "1.0.0 Beta",
+  "channel": "beta",
+  "title_id": "CUSA03974",
+  "app_version": "04.40",
+  "stable_release_ready": false,
+  "on_console_tested": true,
+  "console_test_scope": "Exact-binary load/export/menu-render observation only; not complete native-feature or performance acceptance.",
+  "url": "https://scoobymenu.cc/console/downloads/overwatch/1.0.0/a2e8c86a1811/ScoobyOverwatch.sprx",
+  "bytes": 5400912,
+  "sha256": "a2e8c86a18111e3cad9afd7de35e9fbaed36b4e072a54f698bb3e417721ca04e",
+  "resources_url": "https://scoobymenu.cc/console/downloads/overwatch/downloads/catalog.json",
+  "files": [
+    {
+      "name": "ScoobyOverwatch.sprx",
+      "sha256": "a2e8c86a18111e3cad9afd7de35e9fbaed36b4e072a54f698bb3e417721ca04e",
+      "bytes": 5400912,
+      "url": "https://scoobymenu.cc/console/downloads/overwatch/1.0.0/a2e8c86a1811/ScoobyOverwatch.sprx"
+    },
+    {
+      "name": "ScoobyOverwatch-CUSA03974-04.40.zip",
+      "sha256": "21b8cf56912184b8f86f58210c7a2f79b2def6b79f309f7e4b6566e364feb954",
+      "bytes": 3101222,
+      "url": "https://scoobymenu.cc/console/downloads/overwatch/1.0.0/a2e8c86a1811/ScoobyOverwatch-CUSA03974-04.40.zip"
+    }
+  ],
+  "minimum_version": "1.0.0"
+}
