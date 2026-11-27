@@ -9,12 +9,12 @@ test('discount milestones, smooth segments, mixed products and cap',()=>{
  assert.equal(calculate(quantities(10),base).total,11250);
  assert.equal(calculate(quantities(50),base).total,45000);
  const mixed=calculate([2,2,2,2,2],base);
- assert.equal(mixed.count,10);assert.equal(mixed.base,18000);assert.equal(mixed.total,13500);
- assert.deepEqual(mixed.lines.map(line=>line.subtotal),[2250,3750,1500,2250,3750]);
+ assert.equal(mixed.count,10);assert.equal(mixed.base,20000);assert.equal(mixed.total,15000);
+ assert.deepEqual(mixed.lines.map(line=>line.subtotal),[2250,4500,2250,2250,3750]);
 });
 test('Brazil reduction is applied before volume discounts; presets use regional base',()=>{
- assert.deepEqual(basePrices('brazil'),[1200,2000,800,1200,2000]);
- assert.deepEqual(sellingPrices('brazil',10),[1320,2200,880,1320,2200]);
+ assert.deepEqual(basePrices('brazil'),[1200,2400,1200,1200,2000]);
+ assert.deepEqual(sellingPrices('brazil',10),[1320,2640,1320,1320,2200]);
  const br=calculate(quantities(10),sellingPrices('brazil',25),'brazil');
  assert.equal(br.base,12000);assert.equal(br.total,9000);assert.equal(br.revenue,15000);assert.equal(br.profit,6000);
  assert.equal(calculate(quantities(1000),basePrices('brazil'),'brazil').total,420000);

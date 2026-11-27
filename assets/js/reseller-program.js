@@ -2,8 +2,8 @@
 (function(root){
   const PRODUCTS = [
     {id:'premium',name:'GTA 5 Premium',base:1500},
-    {id:'plus',name:'GTA 5 Plus',base:2500},
-    {id:'rdr2',name:'RDR2',base:1000},
+    {id:'plus',name:'GTA 5 Premium Plus',base:3000},
+    {id:'rdr2',name:'RDR2',base:1500},
     {id:'fivem',name:'FiveM',base:1500},
     {id:'redm',name:'RedM',base:2500}
   ];
