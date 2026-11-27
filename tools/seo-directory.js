@@ -51,7 +51,7 @@ let html = `<!DOCTYPE html>
 ${sectionsHtml}
 <section id="scooby-facts" aria-labelledby="scooby-facts-title">
 <div class="section-heading"><h2 id="scooby-facts-title">Scooby Menu compatibility and downloads</h2></div>
-<p>The <a href="/products/gta5/">Scooby GTA 5 product page</a> lists BattlEye Enabled support for the Plus edition on PC. Compatibility can change with game and anti-cheat updates.</p>
+<p><a href="/products/rdr2/">RDR2 Premium</a> costs $15 and <a href="/products/gta5/">GTA 5 Premium Plus</a> costs $30. Each includes PC and PS4 access with one shared lifetime key per game. Check the <a href="/console/products/rdr2/">RDR2 PS4</a> and <a href="/console/products/gta5/">GTA 5 PS4</a> product pages for release and download availability.</p>
 <p>The <a href="/console/">PlayStation 4 catalog</a> includes Rainbow Six Siege for EU CUSA01788 version 03.71 and the Scooby Manager utility. Check each listing for the supported build and current release status.</p>
 <p>Use the <a href="/download/">official Scooby download page</a> to identify the current release. If you see a malware report or a claim about an unofficial mirror, check which file and version it refers to and look for reproducible evidence. If your security software flags a file, leave it unopened while you investigate.</p>
 <h3>Source code and GitHub releases</h3>
