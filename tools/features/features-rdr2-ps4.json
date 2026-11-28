@@ -2,7 +2,7 @@
   "game": "RDR2 PS4",
   "slug": "rdr2-ps4",
   "supported_versions": [
-    "Scooby PS4 · v1.0.0",
+    "Scooby PS4 · v1.0.0 Beta",
     "PlayStation 4 · GoldHEN SPRX",
     "EU CUSA08519 · game version 01.32"
   ],
@@ -119,6 +119,16 @@
                   "id": "crosshair",
                   "label": "Crosshair",
                   "desc": "Configure the crosshair independently from the ESP and weapon settings."
+                },
+                {
+                  "id": "aim-controls",
+                  "label": "Aim & Silent Aim",
+                  "desc": "Targeting, activation and key-binding controls are present. Recent fixes await live acceptance; reliable targeting is not established."
+                },
+                {
+                  "id": "weapon-effects",
+                  "label": "Weapon effects",
+                  "desc": "Explosion Gun, Entity Shooter, Gravity Gun and Bullet Swap controls. Recent callback, launch and projectile changes require live testing."
                 }
               ]
             }
@@ -189,6 +199,11 @@
                   "id": "player-info",
                   "label": "Player info",
                   "desc": "Choose whether the selected-player information panel is shown. Portraits, IP addresses and geolocation are not available in this PS4 build."
+                },
+                {
+                  "id": "player-actions",
+                  "label": "Selected & All Players actions",
+                  "desc": "Player action pages include cages and remote controls. Cages were observed in earlier test builds; newer remote effects and this exact beta remain under validation."
                 }
               ]
             }
@@ -264,6 +279,21 @@
                   "id": "spawn-management",
                   "label": "Spawned entity management",
                   "desc": "Manage tracked spawned entities. Treasure lifetime and visibility to other players remain under testing; full synchronization is not promised."
+                },
+                {
+                  "id": "bodyguards",
+                  "label": "Bodyguard Manager",
+                  "desc": "Recruit, manage and equip a tracked squad, issue orders and save squad presets. Availability depends on game state and model support."
+                },
+                {
+                  "id": "pets",
+                  "label": "Pet Manager",
+                  "desc": "Spawn or adopt dogs, manage Follow/Stay orders and save pet presets. Console acceptance and complete Story/Online coverage remain pending."
+                },
+                {
+                  "id": "treasure",
+                  "label": "Treasure & entity management",
+                  "desc": "Treasure chest and entity controls are present. Spawn visibility, persistence and reward availability vary and remain under testing."
                 }
               ]
             }
@@ -288,12 +318,17 @@
                 {
                   "id": "collections",
                   "label": "Inventory collection sets",
-                  "desc": "Collections live under Recovery → XP. Inventory-based sets have give and loop controls; Fossils, Eggs and All Collections require a Loot route that is not available in this PS4 build."
+                  "desc": "Inventory collection sets, plus guarded Fossil and Bird Egg Loot requests, are grouped under Recovery → XP. Completion status does not establish inventory or XP gains; eligibility and session state can reject requests."
                 },
                 {
                   "id": "recovery-status",
                   "label": "Recovery status & stop",
-                  "desc": "Inspect local loop activity or stop pending recovery work. Character/role XP awards and protection hooks are not active providers in this PS4 build."
+                  "desc": "Inspect recovery activity, per-reward request/receipt status and available character XP/rank readback, or stop pending work. A receipt is separate from an observed XP change; role totals are not sampled."
+                },
+                {
+                  "id": "character-role-xp",
+                  "label": "Character & Role XP requests",
+                  "desc": "Individual and combined XP request controls with loop delays. Batches continue after definitive rejection of an independent track; pending or unknown requests retain their guards. The 25k menu label is not a guaranteed XP quantity."
                 }
               ]
             }

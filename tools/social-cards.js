@@ -112,7 +112,7 @@ for (const slug of wikiGames) {
 const additionalCards = {
   console: ['Console', 'PlayStation 4 catalog'],
   'console-gta5': ['GTA 5', 'PlayStation 4 · Coming soon'],
-  'console-rdr2': ['Red Dead Redemption 2', 'Scooby PS4 v1.0.0 · Online'],
+  'console-rdr2': ['Red Dead Redemption 2', 'Scooby PS4 v1.0.0 Beta'],
   'console-r6': ['Rainbow Six Siege', 'Scooby PS4 v1.0.3 · Released'],
   'console-scooby-manager': ['Scooby Manager', 'File and download manager · PS4'],
   'console-fortnite': ['Fortnite', 'PlayStation 4 · Coming soon'],
@@ -199,8 +199,8 @@ function cardFor(file) {
   if (!cards[id]) throw new Error('Missing social card for ' + file);
   if (id === 'console-overwatch') return { ...cards[id], path: '/console/assets/images/overwatch/overwatch-development-practice-range-20261127-000819-fa11a9f7.png', width: 1920, height: 1080,
     alt: 'Scooby Overwatch v1.0.0 Beta menu and visuals in Practice Range.' };
-  if (id === 'console-rdr2') return { ...cards[id], path: '/console/assets/images/rdr2/rdr2-ps4-gameplay-20261126.png', width: 1920, height: 1080,
-    alt: 'Scooby RDR2 v1.0.0 menu and ESP in PS4 gameplay.' };
+  if (id === 'console-rdr2') return { ...cards[id], path: '/console/assets/images/rdr2/rdr2-ps4-treasure-beta-20261127.webp', width: 1280, height: 720,
+    alt: 'Scooby RDR2 PS4 development capture: players beside treasure chests; TEST BUILD with Premium enabled.' };
   return { ...cards[id], path: `/assets/images/social/${id}-${cards[id].version || VERSION}.png`, width: WIDTH, height: HEIGHT,
     alt: cards[id].alt || `${cards[id].label}: ${cards[id].lines.join(' ')} ${cards[id].subtitle}.` };
 }
