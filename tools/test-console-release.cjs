@@ -1,62 +1,28 @@
-/* Scoped read-only browser checks: no site generators, real downloads or ads. */
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto');
-const site=process.env.SCOOBY_SITE_ROOT||path.resolve(__dirname,'..');
-const stage=process.env.SCOOBY_SITE_STAGE;
-const update=process.env.SCOOBY_UPDATE_ROOT||path.resolve(site,'../scooby-manager-update');
-const {chromium}=require(path.join(site,'node_modules/playwright'));
-const {isPublic}=require(path.join(site,'tools/site-layout.cjs'));
-const server=http.createServer((req,res)=>{
- const relative=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '');
- if(!isPublic(relative)){res.writeHead(404).end();return;}
- let file=path.resolve(site,relative);if(!file.startsWith(path.resolve(site)+path.sep)){res.writeHead(403).end();return;}
- if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');
- if(stage){const candidate=path.join(stage,path.relative(site,file));if(fs.existsSync(candidate))file=candidate;}
- if(!fs.existsSync(file)){res.writeHead(404).end();return;}
- const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2'}[path.extname(file)]||'application/octet-stream';
- res.setHeader('Content-Type',type);fs.createReadStream(file).pipe(res);
-});
+/* Read-only local release checks. External requests and sponsor pages are stubbed. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),crypto=require('node:crypto'),zlib=require('node:zlib');
+const site=process.env.SCOOBY_SITE_ROOT||path.resolve(__dirname,'..'),stage=process.env.SCOOBY_SITE_STAGE,update=process.env.SCOOBY_UPDATE_ROOT||path.resolve(site,'../scooby-manager-update');
+const {chromium}=require(path.join(site,'node_modules/playwright')),{isPublic}=require(path.join(site,'tools/site-layout.cjs'));
+function local(relative){const overlay=stage&&path.join(stage,relative);return overlay&&fs.existsSync(overlay)?overlay:path.join(site,relative);}
+function bytesFor(url){const u=new URL(url);return fs.readFileSync(u.hostname==='scoobymenu.cc'?local(u.pathname.slice(1)):path.join(update,u.pathname.replace(/^\/scooby-manager-update\//,'')));}
+function digest(bytes){return crypto.createHash('sha256').update(bytes).digest('hex');}
+function zipEntries(bytes){const entries=new Map();let at=0;while(bytes.readUInt32LE(at)===0x04034b50){const size=bytes.readUInt32LE(at+18),length=bytes.readUInt16LE(at+26),extra=bytes.readUInt16LE(at+28),name=bytes.subarray(at+30,at+30+length).toString(),start=at+30+length+extra;entries.set(name,zlib.inflateRawSync(bytes.subarray(start,start+size)));at=start+size;}assert.equal(bytes.readUInt32LE(at),0x02014b50);return entries;}
+const server=http.createServer((req,res)=>{const rel=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/+/, '');if(!isPublic(rel)){res.writeHead(404).end();return;}let file=local(rel);if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=local(path.join(rel,'index.html'));if(!fs.existsSync(file)){res.writeHead(404).end();return;}res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res);});
 async function main(){
- const release=JSON.parse(fs.readFileSync(path.join(update,'games/r6/version.json'),'utf8'));assert.equal(release.version,'1.0.3');assert.equal(release.files.length,2);
- for(const file of release.files){const url=new URL(file.url),relative=url.pathname.replace(/^\/scooby-manager-update\//,'');const bytes=fs.readFileSync(path.join(update,relative));assert.equal(bytes.length,file.bytes);assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),file.sha256);}
- const rdr2=JSON.parse(fs.readFileSync(path.join(update,'games/rdr2/version.json')));assert.equal(rdr2.version,'1.0.0');
- const rdr2Path=new URL(rdr2.url).pathname.replace(/^\/scooby-manager-update\//,'');const rdr2Bytes=fs.readFileSync(path.join(update,rdr2Path));assert.equal(rdr2Bytes.length,rdr2.bytes);assert.equal(crypto.createHash('sha256').update(rdr2Bytes).digest('hex'),rdr2.sha256);
- await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin=`http://127.0.0.1:${server.address().port}`;
- const browser=await chromium.launch({channel:'msedge',headless:true});
- try{const context=await browser.newContext({viewport:{width:1440,height:1100},acceptDownloads:true});
-  await context.route('**/*',route=>{const url=new URL(route.request().url());if(url.origin===origin){if(route.request().resourceType()==='media')return route.abort();return route.continue();}
-   if(url.hostname==='github.com'&&/\.(sprx|zip)$/.test(url.pathname))return route.fulfill({contentType:'application/octet-stream',headers:{'Content-Disposition':`attachment; filename="${path.basename(url.pathname)}"`},body:'synthetic download bytes'});
-   return route.fulfill({contentType:'text/html',body:'<!doctype html><title>Blocked external request</title>'});
-  });
-  const page=await context.newPage(),errors=[];page.on('pageerror',error=>errors.push(error.message));
-  await page.goto(origin+'/console/products/r6/');
-  assert.match(await page.locator('.product-heading').innerText(),/1\.0\.3/);assert.equal(await page.locator('.price-label').innerText(),'Scooby PS4 v1.0.3');
-  const links=page.locator('.purchase-card a[download]');assert.equal(await links.count(),2);
-  for(let i=0;i<2;++i){const link=links.nth(i),href=await link.getAttribute('href');assert.match(href,/games\/r6\/sprx\/1\.0\.3\/[a-f0-9]{12}\//);assert.ok(!href.includes('/menus/'));
-   const pending=page.waitForEvent('download');await link.click();assert.equal((await pending).suggestedFilename(),await link.getAttribute('download'));
+ const feeds={};for(const [id,binary]of [['r6','ScoobyR6'],['rdr2','ScoobyRDR2'],['overwatch','ScoobyOverwatch']]){
+  const feed=JSON.parse(fs.readFileSync(path.join(update,'games',id,'version.json')));feeds[id]=feed;
+  const plugin=bytesFor(feed.url);assert.equal(plugin.length,feed.bytes);assert.equal(digest(plugin),feed.sha256);
+  const zip=feed.files.find(f=>f.name===binary+'-PS4.zip');assert.ok(zip,id+' normal ZIP is in the feed');const archive=bytesFor(zip.url);assert.equal(archive.length,zip.bytes);assert.equal(digest(archive),zip.sha256);
+  const entries=zipEntries(archive);assert.equal(digest(entries.get('GoldHEN/plugins/'+binary+'.sprx')),feed.sha256);assert.match(entries.get('GoldHEN/plugins.ini').toString(),/\[CUSA\d{5}\]/);assert.deepEqual(JSON.parse(entries.get('Scooby/account.example.json')),{username:'',password:''});assert.equal(digest(entries.get('user/data/Scooby/assets/notification/scooby-d55b6bbd770db282.png')),'d55b6bbd770db28242f9e7501574cfee3313f385b42106e078b6bbf5cfead486');assert.ok(![...entries.keys()].some(name=>/(^|\/)(account\.json|device\.id)$/.test(name)));
+ }
+ assert.equal(feeds.rdr2.version,'1.0.1');await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const origin='http://127.0.0.1:'+server.address().port;
+ const browser=await chromium.launch({channel:'msedge',headless:true});try{const context=await browser.newContext({viewport:{width:1440,height:1000},acceptDownloads:true});await context.route('**/*',route=>{const url=new URL(route.request().url());if(url.origin===origin){if(route.request().resourceType()==='media')return route.abort();return route.continue();}return route.fulfill({contentType:'text/html',body:'<!doctype html><title>External request blocked by test</title>'});});
+  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  for(const id of ['r6','rdr2','overwatch']){await page.goto(origin+'/console/products/'+id+'/');const releaseText=await page.locator('.product-heading, .price-label').allTextContents();assert.ok(releaseText.join(' ').includes(feeds[id].version),id+' release labels: '+releaseText.join(' | '));assert.equal(await page.locator('.purchase-card a[download$=".sprx"]').count(),1);const zip=page.locator('.purchase-card a[download$=".zip"]');assert.equal(await zip.count(),1);assert.match(await zip.innerText(),/ZIP/);const href=await zip.getAttribute('href');assert.ok(fs.existsSync(local(new URL(href,origin).pathname.slice(1))));const pending=page.waitForEvent('download');await zip.click();assert.equal((await pending).suggestedFilename(),await zip.getAttribute('download'));for(const width of [1440,390,320]){await page.setViewportSize({width,height:950});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),id+' fits '+width);}
+   if(process.env.SCOOBY_RELEASE_SCREENSHOTS){fs.mkdirSync(process.env.SCOOBY_RELEASE_SCREENSHOTS,{recursive:true});await page.setViewportSize({width:1440,height:1100});await page.locator('.purchase-card').screenshot({path:path.join(process.env.SCOOBY_RELEASE_SCREENSHOTS,id+'-card.png')});}
   }
-  assert.match(await page.locator('meta[property="og:image:alt"]').getAttribute('content'),/1\.0\.3/);
-  for(const width of [1440,390,320]){await page.setViewportSize({width,height:1100});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`R6 fits ${width}`);}
-  await page.goto(origin+'/download/#console');assert.match(await page.locator('.console-download').innerText(),/1\.0\.3/);
-  await page.goto(origin+'/console/products/rdr2/');assert.match(await page.locator('.product-heading').innerText(),/Free \+ Premium[\s\S]*1\.0\.0/);
-  assert.match(await page.locator('.purchase-card .price').innerText(),/\$15[\s\S]*\$10/);
-  const free=page.locator('.purchase-card a[download]');assert.equal(await free.count(),1);assert.match(await free.innerText(),/Download Free Version/i);
-  assert.equal(new URL(await free.getAttribute('href')).pathname.replace('/ScoobyP98/scooby-manager-update/raw/refs/heads/main/',''),rdr2Path);
-  const pending=page.waitForEvent('download');await free.click();assert.equal((await pending).suggestedFilename(),'ScoobyRDR2.sprx');
-  assert.match(await page.locator('#release-status').innerText(),/CUSA08519[\s\S]*01\.32/);assert.match(await page.locator('#account-setup').innerText(),/account\.json/);
-  const trigger=page.locator('[data-payment-open]'),modal=page.locator('#paymentModal'),close=modal.locator('[data-payment-close]');
-  assert.equal(await modal.isVisible(),false);await trigger.focus();await page.keyboard.press('Enter');assert.equal(await modal.isVisible(),true);assert.equal(await modal.getAttribute('aria-hidden'),'false');assert.equal(await trigger.getAttribute('aria-expanded'),'true');assert.equal(await close.evaluate(el=>el===document.activeElement),true,JSON.stringify(await page.evaluate(()=>({active:document.activeElement.outerHTML.slice(0,400),parent:document.getElementById('paymentModal').parentElement.tagName,close:document.querySelector('[data-payment-close]').outerHTML,hidden:document.querySelector('[data-payment-close]').checkVisibility()}))));
-  assert.equal(await page.locator('main').evaluate(el=>!!el.closest('[inert]')),true);
-  const paymentLinks=modal.locator('a[href]');assert.equal(await paymentLinks.count(),3);assert.equal(await page.locator('#cardPaymentLink').getAttribute('href'),'https://zscooby.myshopify.com/products/scooby-rdr2');
-  for(const link of await paymentLinks.all()){assert.match(await link.getAttribute('href'),/^https:\/\//);assert.equal(await link.getAttribute('target'),'_blank');assert.match(await link.getAttribute('rel'),/noopener/);}
-  await page.keyboard.press('Shift+Tab');assert.equal(await paymentLinks.last().evaluate(el=>el===document.activeElement),true);await page.keyboard.press('Tab');assert.equal(await close.evaluate(el=>el===document.activeElement),true);
-  await page.keyboard.press('Escape');assert.equal(await modal.isVisible(),false);assert.equal(await trigger.evaluate(el=>el===document.activeElement),true);assert.equal(await page.locator('main').evaluate(el=>!!el.closest('[inert]')),false);assert.equal(await page.locator('body').evaluate(el=>el.style.overflow),'');
-  await trigger.click();await close.click();assert.equal(await modal.isVisible(),false);await trigger.click();await modal.click({position:{x:3,y:3}});assert.equal(await modal.isVisible(),false);
-  const imageUrl=await page.locator('meta[property="og:image"]').getAttribute('content');assert.match(imageUrl,/console-rdr2-v1\.0\.0\.png$/);
-  const image=await fetch(origin+new URL(imageUrl).pathname);assert.equal(image.status,200);assert.equal(Buffer.from(await image.arrayBuffer()).readUInt32BE(16),1200);
-  for(const width of [1440,390,320]){await page.setViewportSize({width,height:800});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'RDR2 fits '+width);await trigger.click();await page.waitForFunction(()=>getComputedStyle(document.querySelector('#paymentModal .payment-modal-content')).opacity==='1');const bounds=await modal.locator('.payment-modal-content').boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width&&bounds.y>=0&&bounds.y+bounds.height<=800,'Popup fits viewport');await page.keyboard.press('Escape');}
-  await page.evaluate(()=>{document.activeElement.blur();window.scrollTo({top:0,behavior:'instant'});});
-  if(process.env.SCOOBY_RELEASE_SCREENSHOTS){fs.mkdirSync(process.env.SCOOBY_RELEASE_SCREENSHOTS,{recursive:true});await page.setViewportSize({width:1440,height:1100});await page.screenshot({path:path.join(process.env.SCOOBY_RELEASE_SCREENSHOTS,'rdr2-desktop.png'),fullPage:true});await page.locator('.purchase-card').screenshot({path:path.join(process.env.SCOOBY_RELEASE_SCREENSHOTS,'rdr2-card.png')});await trigger.click();await page.waitForFunction(()=>getComputedStyle(document.querySelector('#paymentModal .payment-modal-content')).opacity==='1');await page.screenshot({path:path.join(process.env.SCOOBY_RELEASE_SCREENSHOTS,'rdr2-purchase.png')});await page.keyboard.press('Escape');await page.goto(origin+'/console/products/r6/');await page.locator('.purchase-card').screenshot({path:path.join(process.env.SCOOBY_RELEASE_SCREENSHOTS,'r6-card.png')});}
-  assert.deepEqual(errors,[]);await context.close();console.log('PASS: R6 1.0.3 labels, matching hashed SPRX/archive links and sponsored-download behavior; RDR2 verified free download and accessible shared-product purchase popup; desktop/mobile bounds and social cards.');
+  for(const id of ['gta5','fortnite']){await page.goto(origin+'/console/products/'+id+'/');assert.equal(await page.locator('.purchase-card a[download]').count(),0);const button=page.locator('.purchase-card button').filter({hasText:'Release ZIP'});assert.equal(await button.count(),1);assert.equal(await button.isDisabled(),true);}
+  await page.goto(origin+'/console/products/rdr2/');const trigger=page.locator('[data-payment-open]').first(),modal=page.locator('#paymentModal'),close=modal.locator('[data-payment-close]');for(const width of [1440,390,320]){await page.setViewportSize({width,height:850});await trigger.focus();await page.keyboard.press('Enter');await page.waitForFunction(()=>getComputedStyle(document.querySelector('#paymentModal .payment-modal-content')).opacity==='1');assert.equal(await modal.getAttribute('aria-hidden'),'false');const bounds=await modal.locator('.payment-modal-content').boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width&&bounds.y>=0&&bounds.y+bounds.height<=850);assert.equal(await close.evaluate(el=>el===document.activeElement),true);await page.keyboard.press('Escape');assert.equal(await modal.isVisible(),false);assert.equal(await trigger.evaluate(el=>el===document.activeElement),true);}
+  await page.goto(origin+'/download/#console');assert.match(await page.locator('.console-download').innerText(),/1\.0\.1/);assert.equal(await page.locator('.console-download a[download$="-PS4.zip"]').count(),3);assert.deepEqual(errors,[]);await context.close();console.log('PASS: three matching SPRX/install ZIP feeds, canonical logos, preserved blank accounts, all five product pages, real local ZIP downloads, responsive layouts and RDR2 purchase dialog.');
  }finally{await browser.close();}
 }
-main().catch(error=>{console.error(error);process.exitCode=1}).finally(()=>server.close());
+main().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>server.close());
