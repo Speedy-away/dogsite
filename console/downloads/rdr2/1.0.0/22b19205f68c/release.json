@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "platform": "ps4",
+  "game": "rdr2",
+  "product": "ScoobyRDR2",
+  "version": "1.0.0",
+  "version_label": "1.0.0 Beta",
+  "channel": "beta",
+  "title_id": "CUSA08519",
+  "app_version": "01.32",
+  "stable_release_ready": false,
+  "on_console_tested": false,
+  "runtimeVerified": false,
+  "test_build": false,
+  "authentication": "Standard account authentication and Premium entitlement checks",
+  "url": "https://scoobymenu.cc/console/downloads/rdr2/1.0.0/22b19205f68c/ScoobyRDR2.sprx",
+  "bytes": 7642592,
+  "sha256": "22b19205f68c25244aa49cc95166556854ea62392384b1742c6f02f0b4f6dabb",
+  "files": [
+    {
+      "name": "ScoobyRDR2.sprx",
+      "url": "https://scoobymenu.cc/console/downloads/rdr2/1.0.0/22b19205f68c/ScoobyRDR2.sprx",
+      "bytes": 7642592,
+      "sha256": "22b19205f68c25244aa49cc95166556854ea62392384b1742c6f02f0b4f6dabb"
+    }
+  ],
+  "validation_summary": {
+    "host_storage_on": {
+      "passed": 139,
+      "total": 139
+    },
+    "structural_checks_passed": true,
+    "native_bindings": 511
+  },
+  "limitations": [
+    "This exact binary has not been tested live on console.",
+    "Full Story/Online coverage, performance, remote effects and treasure persistence remain under testing.",
+    "Recovery requests and receipts do not establish a payout; individual 25k XP remains unconfirmed."
+  ]
+}
