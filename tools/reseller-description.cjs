@@ -50,12 +50,20 @@ function describeProduct(slug,html) {
   if(slug==='gta5') output.push('EDITIONS & MULTIPLAYER\n'+[
     'Free: Free features; BattlEye disabled. Play Freemode, missions and heists with other modders.',
     'Premium: Lifetime access to Free and Premium features. BattlEye disabled; multiplayer requires you to be session host.',
-    'Plus: Lifetime access to all Premium features, plus BattlEye Enabled multiplayer. Play with others without the session-host restriction.',
+    'Premium Plus: Lifetime access to all Premium features, plus BattlEye Enabled multiplayer. Play with others without the session-host restriction.',
     'Supports GTA 5 Legacy and Enhanced on PC. Individual features can depend on the game edition and session.'
   ].map(line=>'- '+line).join('\n'));
   else {
     const access=unique([...byClass(main,'price-label'),...byClass(main,'price-note')].map(el=>text(el.html)));
     if(access.length)output.push((['fivem','redm','rdr2'].includes(slug)?'PREMIUM ACCESS':'ACCESS')+'\n'+access.map(line=>'- '+line).join('\n'));
+  }
+
+  if(['gta5','rdr2'].includes(slug)) {
+    const sharedAccess=unique(byClass(main,'price-note').map(el=>text(el.html)))
+      .filter(line=>/PC & PS4/.test(line));
+    if(sharedAccess.length)output.push('SHARED PC & PS4 KEY\n'+sharedAccess.map(line=>'- '+line).join('\n')
+      +'\n- One key covers both platforms for the same game.'
+      +'\n- Check the PS4 product page for current release and download availability: https://scoobymenu.cc/console/products/'+slug+'/');
   }
 
   const featureSections=[];
