@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "platform": "ps4",
+  "game": "rdr2",
+  "product": "ScoobyRDR2",
+  "version": "1.0.3",
+  "channel": "beta",
+  "title_id": "CUSA08519",
+  "app_version": "01.32",
+  "stable_release_ready": false,
+  "on_console_tested": false,
+  "url": "https://scoobymenu.cc/console/downloads/rdr2/1.0.3/157fa9fd8fd7/ScoobyRDR2.sprx",
+  "bytes": 7642784,
+  "sha256": "157fa9fd8fd7343975a7a462adfad536c36ce5fa69cd3623c22523b04075671e",
+  "resources_url": "https://scoobyp98.github.io/scooby-manager-update/games/rdr2/downloads/catalog.json",
+  "files": [
+    {
+      "name": "ScoobyRDR2.sprx",
+      "bytes": 7642784,
+      "sha256": "157fa9fd8fd7343975a7a462adfad536c36ce5fa69cd3623c22523b04075671e",
+      "url": "https://scoobymenu.cc/console/downloads/rdr2/1.0.3/157fa9fd8fd7/ScoobyRDR2.sprx"
+    },
+    {
+      "name": "ScoobyPS4-Resources.zip",
+      "sha256": "7448f55a80de39277737eaf44045c202e45dd27570c0c977d403e939b272173f",
+      "bytes": 552760,
+      "url": "https://scoobymenu.cc/console/downloads/rdr2/1.0.3/157fa9fd8fd7/ScoobyPS4-Resources.zip"
+    },
+    {
+      "name": "ScoobyRDR2-PS4.zip",
+      "bytes": 3906275,
+      "sha256": "aa05e15dc8de02ce17542cac3e24f270416afc114a2b98cf3c7618c7bf4b6d17",
+      "url": "https://scoobymenu.cc/console/downloads/rdr2/1.0.3/157fa9fd8fd7/ScoobyRDR2-PS4.zip"
+    }
+  ],
+  "minimum_version": "1.0.3",
+  "version_label": "1.0.3 Beta"
+}

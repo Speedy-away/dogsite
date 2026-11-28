@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overwatch PS4 Setup Guide | Scooby Wiki</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Set up Scooby Overwatch on PS4: install the release ZIP, open the menu and use the Free version.">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js"></script>
+<meta name="keywords" content="Scooby Menu, Overwatch PS4 setup, Scooby R6 Console, CUSA03974, PS4 installation">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Overwatch PS4 Setup Guide | Scooby Wiki">
+<meta property="og:description" content="Set up Scooby Overwatch on PS4: install the release ZIP, open the menu and use the Free version.">
+<meta property="og:url" content="https://scoobymenu.cc/guides/ps4/overwatch/">
+<meta name="twitter:title" content="Overwatch PS4 Setup Guide | Scooby Wiki">
+<meta name="twitter:description" content="Set up Scooby Overwatch on PS4: install the release ZIP, open the menu and use the Free version.">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/ps4/overwatch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-brand-v1.png">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/guides-brand-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PC &amp; CONSOLE GUIDES: Scooby Wiki Setup, menu controls &amp; fixes.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-brand-v1.png">
+<meta name="twitter:image:alt" content="PC &amp; CONSOLE GUIDES: Scooby Wiki Setup, menu controls &amp; fixes.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://scoobymenu.cc/guides/ps4/overwatch/">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/guides/ps4/overwatch/#webpage",
+      "url": "https://scoobymenu.cc/guides/ps4/overwatch/",
+      "name": "Overwatch PS4 Setup Guide | Scooby Wiki",
+      "description": "Set up Scooby Overwatch on PS4: install the release ZIP, open the menu and use the Free version.",
+      "keywords": "Scooby Menu, Overwatch PS4 setup, Scooby R6 Console, CUSA03974, PS4 installation",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="wiki-article"><main class="ps4-guide" id="main-content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/guides/#console">Console guides</a><span aria-hidden="true">/</span><span>PlayStation 4</span></nav>
+<h1>Overwatch PS4 setup</h1><p class="article-intro">Free to use. No Premium purchase or account login is required.</p>
+<nav aria-label="On this page"><a href="#installation">Install</a> · <a href="#free">Free</a> · <a href="#menu-controls">Controls</a> · <a href="#help">Help</a></nav>
+<section class="guide-card" id="requirements"><h2>Before you start</h2><p>You need a GoldHEN-capable PS4, FTP access and the supported game below.</p><p><strong>EU title ID:</strong> <code>CUSA03974</code> · <strong>Game version:</strong> <code>04.40</code></p><p>Check your installed game's title ID and version before downloading. Get the <strong>Release ZIP</strong> from the <a href="/console/products/overwatch/">Overwatch PS4 page</a>.</p></section>
+<section class="guide-card" id="installation"><h2>1. Install the release ZIP</h2><ol>
+<li>Close Overwatch completely and extract the ZIP on your PC.</li>
+<li>Using FTP, copy the ZIP's <strong>GoldHEN</strong> and <strong>Scooby</strong> folders into <code>/data/</code> on the PS4. The plugin should be here:<pre><code>/data/GoldHEN/plugins/ScoobyOverwatch.sprx</code></pre></li>
+<li>Edit <code>/data/GoldHEN/plugins.ini</code>. Add or merge this entry, keeping your other games' entries:<pre><code>[CUSA03974]
+/data/GoldHEN/plugins/ScoobyOverwatch.sprx</code></pre>Keep one active entry for this plugin; remove its older duplicate entry if needed.</li>
+<li>For the Scooby notification logo, copy the ZIP's <strong>user</strong> folder to the PS4 filesystem root <code>/</code>. The logo belongs under <code>/user/data/Scooby/assets/notification/</code>.</li>
+<li>In GoldHEN, open <strong>Plugin Settings → Enable Plugins</strong>. Start Overwatch.</li></ol><p>When updating, keep your existing <code>/data/Scooby/account.json</code> and settings. Merge <code>plugins.ini</code>; do not replace all its entries.</p></section>
+<section class="guide-card" id="free"><h2>2. Use Free</h2><p>Start the game after installation. Overwatch is free-only; you do not need to enter a username or password.</p><p>The menu may create a blank <code>/data/Scooby/account.json</code>. You can leave it blank for Free.</p></section>
+
+<section class="guide-card" id="menu-controls"><h2>3. Open the menu</h2><p>Press <kbd>R1</kbd> + <kbd>Square</kbd> to open or close Scooby.</p><p><strong>D-pad:</strong> navigate · <strong>X:</strong> select · <strong>O:</strong> back.</p></section>
+<section class="guide-card" id="help"><h2>If something does not work</h2><ul><li><strong>Menu does not open:</strong> check the title ID, game version, plugin path and GoldHEN's Enable Plugins setting. Restart the game after changes.</li><li><strong>Update required:</strong> close the game, install the latest Release ZIP from the product page and restart. Keep your account and settings.</li><li><strong>Free disabled message:</strong> check the news at <a href="https://scoobymenu.cc/">scoobymenu.cc</a>.</li></ul></section>
+<p><a href="/guides/#console">← Back to Console guides</a></p></main></body></html>

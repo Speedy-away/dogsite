@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Red Dead Redemption 2 PS4 Setup Guide | Scooby Wiki</title>
+<link rel="stylesheet" href="/assets/css/site-brand.css">
+<meta name="description" content="Set up Scooby Red Dead Redemption 2 on PS4: install the release ZIP, open the menu and set up Free or Premium.">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/brand/scooby-favicon.svg">
+<link rel="stylesheet" href="/assets/css/guides.css">
+<script src="/assets/js/wiki-theme.js"></script>
+<meta name="keywords" content="Scooby Menu, Red Dead Redemption 2 PS4 setup, Scooby R6 Console, CUSA08519, PS4 installation">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Red Dead Redemption 2 PS4 Setup Guide | Scooby Wiki">
+<meta property="og:description" content="Set up Scooby Red Dead Redemption 2 on PS4: install the release ZIP, open the menu and set up Free or Premium.">
+<meta property="og:url" content="https://scoobymenu.cc/guides/ps4/rdr2/">
+<meta name="twitter:title" content="Red Dead Redemption 2 PS4 Setup Guide | Scooby Wiki">
+<meta name="twitter:description" content="Set up Scooby Red Dead Redemption 2 on PS4: install the release ZIP, open the menu and set up Free or Premium.">
+<meta name="twitter:url" content="https://scoobymenu.cc/guides/ps4/rdr2/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scooby Menu">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://scoobymenu.cc/assets/images/social/guides-brand-v1.png">
+<meta property="og:image:secure_url" content="https://scoobymenu.cc/assets/images/social/guides-brand-v1.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PC &amp; CONSOLE GUIDES: Scooby Wiki Setup, menu controls &amp; fixes.">
+<meta name="twitter:image" content="https://scoobymenu.cc/assets/images/social/guides-brand-v1.png">
+<meta name="twitter:image:alt" content="PC &amp; CONSOLE GUIDES: Scooby Wiki Setup, menu controls &amp; fixes.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://scoobymenu.cc/guides/ps4/rdr2/">
+<script type="application/ld+json" id="seo-page-structure">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://scoobymenu.cc/guides/ps4/rdr2/#webpage",
+      "url": "https://scoobymenu.cc/guides/ps4/rdr2/",
+      "name": "Red Dead Redemption 2 PS4 Setup Guide | Scooby Wiki",
+      "description": "Set up Scooby Red Dead Redemption 2 on PS4: install the release ZIP, open the menu and set up Free or Premium.",
+      "keywords": "Scooby Menu, Red Dead Redemption 2 PS4 setup, Scooby R6 Console, CUSA08519, PS4 installation",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://scoobymenu.cc/#website"
+      },
+      "publisher": {
+        "@id": "https://scoobymenu.cc/#organization"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="wiki-article"><main class="ps4-guide" id="main-content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/guides/#console">Console guides</a><span aria-hidden="true">/</span><span>PlayStation 4</span></nav>
+<h1>Red Dead Redemption 2 PS4 setup</h1><p class="article-intro">Start with Free, or sign in to use your RDR2 Premium subscription.</p>
+<nav aria-label="On this page"><a href="#installation">Install</a> · <a href="#free">Free</a> · <a href="#premium">Premium setup</a> · <a href="#menu-controls">Controls</a> · <a href="#help">Help</a></nav>
+<section class="guide-card" id="requirements"><h2>Before you start</h2><p>You need a GoldHEN-capable PS4, FTP access and the supported game below.</p><p><strong>EU title ID:</strong> <code>CUSA08519</code> · <strong>Game version:</strong> <code>01.32</code></p><p>Check your installed game's title ID and version before downloading. Get the <strong>Release ZIP</strong> from the <a href="/console/products/rdr2/">Red Dead Redemption 2 PS4 page</a>.</p></section>
+<section class="guide-card" id="installation"><h2>1. Install the release ZIP</h2><ol>
+<li>Close Red Dead Redemption 2 completely and extract the ZIP on your PC.</li>
+<li>Using FTP, copy the ZIP's <strong>GoldHEN</strong> and <strong>Scooby</strong> folders into <code>/data/</code> on the PS4. The plugin should be here:<pre><code>/data/GoldHEN/plugins/ScoobyRDR2.sprx</code></pre></li>
+<li>Edit <code>/data/GoldHEN/plugins.ini</code>. Add or merge this entry, keeping your other games' entries:<pre><code>[CUSA08519]
+/data/GoldHEN/plugins/ScoobyRDR2.sprx</code></pre>Keep one active entry for this plugin; remove its older duplicate entry if needed.</li>
+<li>For the Scooby notification logo, copy the ZIP's <strong>user</strong> folder to the PS4 filesystem root <code>/</code>. The logo belongs under <code>/user/data/Scooby/assets/notification/</code>.</li>
+<li>In GoldHEN, open <strong>Plugin Settings → Enable Plugins</strong>. Start Red Dead Redemption 2.</li></ol><p>When updating, keep your existing <code>/data/Scooby/account.json</code> and settings. Merge <code>plugins.ini</code>; do not replace all its entries.</p></section>
+<section class="guide-card" id="free"><h2>2. Use Free</h2><p>For Free, leave the account fields blank and start the game. You do not need to buy a key.</p><p>The menu may create a blank <code>/data/Scooby/account.json</code>. You can leave it blank for Free.</p></section>
+<section class="guide-card" id="premium"><h2>Optional: set up RDR2 Premium</h2><ol><li>Buy RDR2 Premium from the <a href="/console/products/rdr2/">RDR2 PS4 product page</a>, then sign in to the <a href="/portal/">Scooby portal</a> and redeem your key on your Scooby account.</li><li>In the portal, use <strong>Download account.json</strong> under <strong>Redeem key</strong>. Enter your Scooby account username and password, then download the file. Use your account login, not the purchase key.</li><li>Close RDR2. Upload the downloaded file with FTP to:<pre><code>/data/Scooby/account.json</code></pre></li><li>Restart RDR2 with an internet connection. Premium unlocks after the server verifies your account and active RDR2 subscription.</li></ol><h3>Prefer to edit it using FTP?</h3><p>Start the menu once to create the blank file, close RDR2, then edit <code>/data/Scooby/account.json</code>. It should contain:</p><pre><code>{
+  "username": "",
+  "password": ""
+}</code></pre><p>Fill the two values with your Scooby login, save the file as <strong>account.json</strong> (not account.json.txt), and restart the game. Use the portal download if your password contains quotes or backslashes.</p><p><strong>Keep this file private.</strong> Do not share it in screenshots or support messages. No device ID setup is required in the current release.</p></section>
+<section class="guide-card" id="menu-controls"><h2>3. Open the menu</h2><p>Press <kbd>R1</kbd> + <kbd>Square</kbd> to open or close Scooby.</p><p><strong>D-pad:</strong> navigate · <strong>X:</strong> select · <strong>O:</strong> back.</p></section>
+<section class="guide-card" id="help"><h2>If something does not work</h2><ul><li><strong>Menu does not open:</strong> check the title ID, game version, plugin path and GoldHEN's Enable Plugins setting. Restart the game after changes.</li><li><strong>Premium stays locked:</strong> check the account file path and your active RDR2 subscription in the portal. Restart RDR2 after editing the file.</li><li><strong>Premium connection error:</strong> check the PS4 internet connection and date/time, then restart. If it still fails, send support the exact connection stage/error code. Never send your password or account.json.</li><li><strong>Update required:</strong> close the game, install the latest Release ZIP from the product page and restart. Keep your account and settings.</li><li><strong>Free disabled message:</strong> check the news at <a href="https://scoobymenu.cc/">scoobymenu.cc</a>.</li></ul></section>
+<p><a href="/guides/#console">← Back to Console guides</a></p></main></body></html>
